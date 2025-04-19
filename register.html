@@ -1,0 +1,168 @@
+<!-- Jobspitality - Registration Page (Bootstrap-based) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Jobspitality</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
+</head>
+<body class="bg-light">
+
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow p-4">
+          <h2 class="mb-4 text-center">Create an Account</h2>
+
+          <ul class="nav nav-tabs mb-3" id="accountTypeTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="jobseeker-tab" data-bs-toggle="tab" data-bs-target="#jobseeker" type="button" role="tab">Job Seeker</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="employer-tab" data-bs-toggle="tab" data-bs-target="#employer" type="button" role="tab">Employer</button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="accountTypeTabsContent">
+            <!-- Job Seeker Registration Form -->
+            <div class="tab-pane fade show active" id="jobseeker" role="tabpanel">
+              <form id="jobSeekerForm">
+                <div class="mb-3">
+                  <label for="jsName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="jsName" required>
+                </div>
+                <div class="mb-3">
+                  <label for="jsEmail" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="jsEmail" required>
+                </div>
+                <div class="mb-3">
+                  <label for="jsPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="jsPassword" required>
+                </div>
+                <div class="mb-3">
+                  <label for="jsCv" class="form-label">Upload CV (PDF/DOC)</label>
+                  <input type="file" class="form-control" id="jsCv">
+                </div>
+                <button type="submit" class="btn btn-success w-100">Register as Job Seeker</button>
+              </form>
+            </div>
+
+            <!-- Employer Registration Form -->
+            <div class="tab-pane fade" id="employer" role="tabpanel">
+              <form id="employerForm">
+                <div class="mb-3">
+                  <label for="emCompanyName" class="form-label">Company Name</label>
+                  <input type="text" class="form-control" id="emCompanyName" required>
+                </div>
+                <div class="mb-3">
+                  <label for="emEmail" class="form-label">Business Email</label>
+                  <input type="email" class="form-control" id="emEmail" required>
+                </div>
+                <div class="mb-3">
+                  <label for="emPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="emPassword" required>
+                </div>
+                <div class="mb-3">
+                  <label for="emPhone" class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" id="emPhone">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Register as Employer</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase Config and Initialization -->
+  <script>
+    // Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCkThw6tnVIPrJgfKiVHfuPSFVmJmblGbE",
+      authDomain: "jobspitality-1b7f7.firebaseapp.com",
+      projectId: "jobspitality-1b7f7",
+      storageBucket: "jobspitality-1b7f7.appspot.com",
+      messagingSenderId: "414501251190",
+      appId: "1:414501251190:web:5904e7158bb0c427d59757",
+      measurementId: "G-BQ3QXH4TWZ"
+    };
+  
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+  
+    // Job Seeker Registration
+    document.querySelector('#jobSeekerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      const name = document.getElementById('jsName').value;
+      const email = document.getElementById('jsEmail').value;
+      const password = document.getElementById('jsPassword').value;
+      const cvFile = document.getElementById('jsCv').files[0]; // Not used yet
+  
+      try {
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+  
+        await db.collection('users').doc(user.uid).set({
+          type: 'jobseeker',
+          name,
+          email,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+  
+        alert('Job Seeker registered successfully!');
+      } catch (error) {
+        if (error.code === 'auth/email-already-in-use') {
+          alert('This email is already registered. Please log in instead.');
+        } else {
+          alert('Registration failed: ' + error.message);
+        }
+      }
+    });
+  
+    // Employer Registration
+    document.querySelector('#employerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      const companyName = document.getElementById('emCompanyName').value;
+      const email = document.getElementById('emEmail').value;
+      const password = document.getElementById('emPassword').value;
+      const phone = document.getElementById('emPhone').value;
+  
+      try {
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+  
+        await db.collection('users').doc(user.uid).set({
+          type: 'employer',
+          companyName,
+          email,
+          phone,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+  
+        alert('Employer registered successfully!');
+      } catch (error) {
+        if (error.code === 'auth/email-already-in-use') {
+          alert('This email is already registered. Please log in instead.');
+        } else {
+          alert('Registration failed: ' + error.message);
+        }
+      }
+    });
+  </script>
+  
+  
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

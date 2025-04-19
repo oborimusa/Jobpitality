@@ -1,0 +1,119 @@
+<!-- Jobspitality - Employer Job Post Edit -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Job Post - Jobspitality</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow p-4">
+          <h3 class="text-center mb-4">Edit Job Post</h3>
+
+          <form id="editJobForm">
+            <div class="mb-3">
+              <label for="jobTitle" class="form-label">Job Title</label>
+              <input type="text" class="form-control" id="jobTitle" required>
+            </div>
+            <div class="mb-3">
+              <label for="jobDescription" class="form-label">Job Description</label>
+              <textarea class="form-control" id="jobDescription" rows="5" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="applicationDeadline" class="form-label">Application Deadline</label>
+              <input type="date" class="form-control" id="applicationDeadline" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Update Job Post</button>
+          </form>
+
+          <button id="backBtn" class="btn btn-outline-secondary w-100 mt-3">Back to Dashboard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase Config -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCkThw6tnVIPrJgfKiVHfuPSFVmJmblGbE",
+      authDomain: "jobspitality-1b7f7.firebaseapp.com",
+      projectId: "jobspitality-1b7f7",
+      storageBucket: "jobspitality-1b7f7.appspot.com",
+      messagingSenderId: "414501251190",
+      appId: "1:414501251190:web:5904e7158bb0c427d59757",
+      measurementId: "G-BQ3QXH4TWZ"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+  </script>
+
+  <!-- Job Post Edit Logic -->
+  <script>
+    window.onload = async () => {
+      const user = auth.currentUser;
+      if (!user) {
+        window.location.href = 'login.html'; // Redirect to login if not logged in
+        return;
+      }
+
+      const jobPostId = new URLSearchParams(window.location.search).get('jobId');
+      if (!jobPostId) {
+        alert('No job post found to edit.');
+        window.location.href = 'dashboard-employer.html'; // Redirect if no job post ID found
+        return;
+      }
+
+      // Fetch job post data from Firestore
+      const jobPostDoc = await db.collection('jobPosts').doc(jobPostId).get();
+      const jobPostData = jobPostDoc.data();
+
+      // Pre-fill the form with current job post data
+      document.getElementById('jobTitle').value = jobPostData.title;
+      document.getElementById('jobDescription').value = jobPostData.description;
+      document.getElementById('applicationDeadline').value = jobPostData.applicationDeadline;
+
+      // Handle form submission to update the job post
+      document.getElementById('editJobForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const title = document.getElementById('jobTitle').value;
+        const description = document.getElementById('jobDescription').value;
+        const applicationDeadline = document.getElementById('applicationDeadline').value;
+
+        try {
+          // Update the job post data in Firestore
+          await db.collection('jobPosts').doc(jobPostId).update({
+            title,
+            description,
+            applicationDeadline,
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+          });
+
+          alert('Job post updated successfully!');
+          window.location.href = 'dashboard-employer.html'; // Redirect to employer dashboard after update
+        } catch (error) {
+          alert('Job post update failed: ' + error.message);
+        }
+      });
+
+      // Back button functionality
+      document.getElementById('backBtn').addEventListener('click', () => {
+        window.location.href = 'dashboard-employer.html'; // Redirect back to employer dashboard
+      });
+    };
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
