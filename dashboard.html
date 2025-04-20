@@ -163,3 +163,169 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Jobspitality</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      max-width: 1000px;
+    }
+    .btn-danger {
+      background-color: #dc3545;
+      border-color: #dc3545;
+    }
+    .btn-danger:hover {
+      background-color: #c82333;
+      border-color: #bd2130;
+    }
+    h1 {
+      color: #343a40;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      margin: 10px 0;
+    }
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .admin-dashboard {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .admin-dashboard .section-header {
+      color: #007bff;
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+    }
+    .dashboard-button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <div id="content"></div>
+
+  <script>
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCkThw6tnVIPrJgfKiVHfuPSFVmJmblGbE",
+      authDomain: "jobspitality-1b7f7.firebaseapp.com",
+      projectId: "jobspitality-1b7f7",
+      storageBucket: "jobspitality-1b7f7.appspot.com",
+      messagingSenderId: "414501251190",
+      appId: "1:414501251190:web:5904e7158bb0c427d59757",
+      measurementId: "G-BQ3QXH4TWZ"
+    };
+
+    // Initialize Firebase
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // Check if user is logged in
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // User is logged in, display dashboard content
+        displayDashboard(user);
+      } else {
+        // Redirect to login page if not logged in
+        window.location.href = 'login.html';
+      }
+    });
+
+    // Display content based on user role
+    function displayDashboard(user) {
+      // Check if the user is an admin by querying Firestore
+      db.collection('users').doc(user.uid).get()
+        .then(doc => {
+          if (doc.exists && doc.data().role === 'admin') {
+            // Admin Super User dashboard content
+            document.getElementById('content').innerHTML = `
+              <div class="container py-5 admin-dashboard">
+                <h1>Welcome, ${user.displayName || user.email}!</h1>
+                <p>This is your Super Admin Dashboard where you can manage the platform.</p>
+                
+                <div class="section-header">User Management</div>
+                <ul>
+                  <li><a href="manage-users.html" class="btn btn-primary dashboard-button">Manage Users</a></li>
+                  <li><a href="manage-roles.html" class="btn btn-primary dashboard-button">Assign Roles</a></li>
+                </ul>
+
+                <div class="section-header">Job Listings Management</div>
+                <ul>
+                  <li><a href="manage-job-listings.html" class="btn btn-primary dashboard-button">Manage Job Listings</a></li>
+                  <li><a href="post-job.html" class="btn btn-primary dashboard-button">Post a New Job</a></li>
+                </ul>
+
+                <div class="section-header">Analytics</div>
+                <ul>
+                  <li><a href="view-analytics.html" class="btn btn-primary dashboard-button">View Platform Analytics</a></li>
+                  <li><a href="user-activity.html" class="btn btn-primary dashboard-button">View User Activity</a></li>
+                </ul>
+
+                <div class="section-header">System Settings</div>
+                <ul>
+                  <li><a href="system-settings.html" class="btn btn-primary dashboard-button">System Settings</a></li>
+                  <li><a href="email-settings.html" class="btn btn-primary dashboard-button">Email Settings</a></li>
+                </ul>
+
+                <button class="btn btn-danger" onclick="logout()">Log out</button>
+              </div>
+            `;
+          } else {
+            // If the user is not an admin, show a user dashboard (could be a Job Seeker or Employer)
+            document.getElementById('content').innerHTML = `
+              <div class="container py-5">
+                <h1>Welcome, ${user.displayName || user.email}!</h1>
+                <p>This is your user dashboard.</p>
+                <button class="btn btn-danger" onclick="logout()">Log out</button>
+              </div>
+            `;
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching user data: ", error);
+        });
+    }
+
+    // Logout function
+    function logout() {
+      auth.signOut().then(() => {
+        window.location.href = 'login.html'; // Redirect to login page after logging out
+      }).catch(error => {
+        console.error('Error signing out: ', error);
+      });
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -31,3 +31,36 @@
     }
   ]
   
+[
+    {
+      "name": "John Doe",
+      "position": "Front Desk Officer",
+      "experience": "3 years",
+      "location": "Lagos",
+      "skills": ["Customer Service", "POS Handling", "Communication"]
+      
+      
+    },
+    {
+      "name": "Jane Smith",
+      "position": "Waitress",
+      "experience": "2 years",
+      "location": "Abuja",
+      "skills": ["Order Taking", "Multi-tasking", "Food Handling"]
+    },
+    {
+      "name": "Chidi Okafor",
+      "position": "Chef",
+      "experience": "5 years",
+      "location": "Port Harcourt",
+      "skills": ["Continental Dishes", "Kitchen Management", "Menu Creation"]
+    },
+    {
+      "name": "Lanre Abiodun",
+      "position": "Chef",
+      "experience": "5 years",
+      "location": "Port Harcourt",
+      "skills": ["Continental Dishes", "Kitchen Management", "Menu Creation"]
+    }
+  ]
+  
