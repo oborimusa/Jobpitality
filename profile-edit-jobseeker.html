@@ -62,23 +62,45 @@
   <!-- Profile Edit Logic -->
   <script>
     window.onload = async () => {
-      const user = auth.currentUser;
-      if (!user) {
-        window.location.href = 'login.html'; // Redirect to login if not logged in
-        return;
+      try {
+        // Wait for Firebase Auth to initialize and check user status
+        auth.onAuthStateChanged(async (user) => {
+          if (!user) {
+            window.location.href = 'login.html'; // Redirect to login if not logged in
+            return;
+          }
+
+          try {
+            // Fetch user data
+            const userDoc = await db.collection('users').doc(user.uid).get();
+            if (userDoc.exists) {
+              const userData = userDoc.data();
+
+              // Pre-fill the form fields with current user data
+              document.getElementById('editName').value = userData.name || '';
+              document.getElementById('editEmail').value = userData.email || '';
+            } else {
+              console.error("User document doesn't exist");
+            }
+          } catch (error) {
+            console.error("Error fetching user data:", error);
+            alert("Failed to load your profile data. Please try again.");
+          }
+        });
+      } catch (error) {
+        console.error("Authentication error:", error);
       }
-
-      // Fetch user data
-      const userDoc = await db.collection('users').doc(user.uid).get();
-      const userData = userDoc.data();
-
-      // Pre-fill the form fields with current user data
-      document.getElementById('editName').value = userData.name;
-      document.getElementById('editEmail').value = userData.email;
 
       // Handle form submission to update profile
       document.getElementById('editProfileForm').addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        const user = auth.currentUser;
+        if (!user) {
+          alert('You must be logged in to update your profile.');
+          window.location.href = 'login.html';
+          return;
+        }
 
         const name = document.getElementById('editName').value;
         const email = document.getElementById('editEmail').value;
@@ -105,6 +127,7 @@
           alert('Profile updated successfully!');
           window.location.href = 'dashboard-jobseeker.html'; // Redirect to dashboard after update
         } catch (error) {
+          console.error("Update error:", error);
           alert('Profile update failed: ' + error.message);
         }
       });
@@ -115,129 +138,6 @@
       });
     };
   </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
-<!-- Jobspitality - Job Seeker Profile Edit -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Edit Profile - Jobspitality</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
-</head>
-<body class="bg-light">
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6 col-lg-4">
-        <div class="card shadow p-4">
-          <h3 class="text-center mb-4">Edit Profile</h3>
-
-          <form id="editProfileForm">
-            <div class="mb-3">
-              <label for="editName" class="form-label">Full Name</label>
-              <input type="text" class="form-control" id="editName" required>
-            </div>
-            <div class="mb-3">
-              <label for="editEmail" class="form-label">Email Address</label>
-              <input type="email" class="form-control" id="editEmail" required>
-            </div>
-            <div class="mb-3">
-              <label for="editCv" class="form-label">Upload New CV (PDF/DOC)</label>
-              <input type="file" class="form-control" id="editCv">
-            </div>
-            <button type="submit" class="btn btn-success w-100">Update Profile</button>
-          </form>
-
-          <button id="backBtn" class="btn btn-outline-secondary w-100 mt-3">Back to Dashboard</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Firebase Config -->
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyCkThw6tnVIPrJgfKiVHfuPSFVmJmblGbE",
-      authDomain: "jobspitality-1b7f7.firebaseapp.com",
-      projectId: "jobspitality-1b7f7",
-      storageBucket: "jobspitality-1b7f7.appspot.com",
-      messagingSenderId: "414501251190",
-      appId: "1:414501251190:web:5904e7158bb0c427d59757",
-      measurementId: "G-BQ3QXH4TWZ"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-    const storage = firebase.storage();
-  </script>
-
-  <!-- Profile Edit Logic -->
-  <script>
-    window.onload = async () => {
-      const user = auth.currentUser;
-      if (!user) {
-        window.location.href = 'login.html'; // Redirect to login if not logged in
-        return;
-      }
-
-      // Fetch user data
-      const userDoc = await db.collection('users').doc(user.uid).get();
-      const userData = userDoc.data();
-
-      // Pre-fill the form fields with current user data
-      document.getElementById('editName').value = userData.name;
-      document.getElementById('editEmail').value = userData.email;
-
-      // Handle form submission to update profile
-      document.getElementById('editProfileForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const name = document.getElementById('editName').value;
-        const email = document.getElementById('editEmail').value;
-        const cvFile = document.getElementById('editCv').files[0];
-
-        try {
-          // Update name and email in Firestore
-          await db.collection('users').doc(user.uid).update({
-            name,
-            email,
-            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-          });
-
-          // If a new CV is uploaded, update it in Firebase Storage
-          if (cvFile) {
-            const storageRef = storage.ref().child(`cv/${user.uid}/${cvFile.name}`);
-            await storageRef.put(cvFile);
-            const cvUrl = await storageRef.getDownloadURL();
-            await db.collection('users').doc(user.uid).update({
-              cvUrl
-            });
-          }
-
-          alert('Profile updated successfully!');
-          window.location.href = 'dashboard-jobseeker.html'; // Redirect to dashboard after update
-        } catch (error) {
-          alert('Profile update failed: ' + error.message);
-        }
-      });
-
-      // Back button functionality
-      document.getElementById('backBtn').addEventListener('click', () => {
-        window.location.href = 'dashboard-jobseeker.html'; // Redirect back to dashboard
-      });
-    };
-  </script>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>About - Jobspitality</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <title>Job Application Form - Optional Paid Services - Jobspitality</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -29,37 +29,41 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 
 <body>
     <div class="container-xxl bg-white p-0">
+
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
+                <span class="visually-hidden">Loading...</span>
             </div>
         </div>
         <!-- Spinner End -->
 
-
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
             <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-                <div class="img pb-5 ps-4 pt-5"><img src="img/Job.png" alt="" style="width: 50px;"></div>
-                <div>
-                    <h1 class="m-0 text-primary mt-3"> Jobspitality</h1>
-                    
+                <div class="img pb-5 ps-4 pt-5">
+                    <img src="img/Job.png" alt="Logo" style="width: 50px;">
                 </div>
-                </a>
-                
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <div>
+                    <h1 class="m-0 text-primary mt-3">Jobspitality</h1>
+                </div>
+            </a>
+            <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="services.html" class="nav-item nav-link">Services</a>
+                    <!-- <a href="services.html" class="nav-item nav-link">Services</a> -->
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
                         <div class="dropdown-menu rounded-0 m-0">
@@ -68,9 +72,8 @@
                             <a href="#job-list.html" class="dropdown-item">Get Started</a>
                         </div>
                     </div>
-                
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs Seekers</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             
                             <a href="#job-list.html" class="dropdown-item">Job Openings</a>
@@ -92,83 +95,128 @@
             </div>
         </nav>
         <!-- Navbar End -->
+
+        <!-- Header -->
         <div class="container-xxl py-5 bg-dark page-header mb-5">
             <div class="container my-5 pt-5 pb-4">
-                <h1 class="display-3 text-white mb-3 animated slideInDown">About Jobspitality</h1>
-                <p class="lead text-white"><i>Connecting the Best Talent with Top Hospitality Employers</p></i>
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Job Application Form - Optional Paid Services</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb text-uppercase">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Job Details</li>
                     </ol>
                 </nav>
             </div>
         </div>
-               
 
-        <!-- About Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="row g-0 about-bg rounded overflow-hidden">
-                            <div class="col-6 text-start">
-                                <img class="img-fluid w-100" src="img/about-1.jpg">
+        <!-- Job Application Form -->
+         <div class="container mb-5">
+            <div class="row justify-content-center">
+                <!-- <div class="col-lg-8"> -->
+                    <div class="bg-[#76d7c4] p-5 rounded">
+                       
+
+                        <section class="max-w-3xl mx-auto my-10 bg-[#76d7c4] rounded-xl shadow-md ms-5">
+                            <h1 class="h2 fw-bold text-center text-primary mb-4">Job Application Form</h1>
+                            <p class="text-center text-gray-600 mb-8">Please click the button below to fill out your application form.</p>
+                        
+                            <!-- Button linking to the Google Form -->
+                            <div class="text-center mb-5 bor">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIGP1rDbD0OrXHW2NiwTcgipokBVwCRzftvxJfRIbGFj1n0Q/viewform?usp=preview" 
+                                   class="btn btn-primary py-3 px-5" target="_blank">
+                                   Go to Job Application Form
+                                </a>
                             </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid" src="img/about-2.jpg" style="width: 85%; margin-top: 15%;">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid" src="img/about-3.jpg" style="width: 85%;">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid w-100" src="img/about-4.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                        <h1 class="mb-4">We Help You Get the Best Job and Find the Right Talent</h1>
-                        <p class="mb-4">At Jobspitality, we connect hospitality professionals with the right opportunities and employers with top talent. Our platform simplifies the recruitment process and supports career growth.</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>We make it easier for you to find a job in the hospitality industry.</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>We help employers discover qualified candidates.</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>We support job seekers with guidance and tools to succeed.</p>
-                        <div class="text-center">
-                            <a href="contact.html" class="btn btn-primary px-4 py-2">Contac Us</a>
-                          </div>
-                    </div>
+                        </section>
+                        
+<!-- Optional Paid Services -->
+<div class="container mb-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="bg-light p-5 rounded">
+          <h2 class="text-center text-primary mb-4">Optional Premium Services</h2>
+          <p class="text-center text-muted mb-4">Increase your chances with these exclusive services. Available for a fee.</p>
+  
+          <div class="row g-4">
+  
+            <!-- Resume Review -->
+            <div class="col-12">
+              <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                <div class="mb-3 mb-md-0 me-md-3">
+                  <h5>Resume Review & Enhancement</h5>
+                  <p class="text-muted mb-0">Ensure your resume stands out to employers with our professional review service.</p>
                 </div>
+                <div class="text-md-end">
+                  <p class="fw-bold text-primary mb-2">₦5,000</p>
+                  <button class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                </div>
+              </div>
             </div>
+  
+            <!-- Interview Coaching -->
+            <div class="col-12">
+              <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                <div class="mb-3 mb-md-0 me-md-3">
+                  <h5>Interview Coaching</h5>
+                  <p class="text-muted mb-0">Get personal coaching and tips on how to do well in your interview.</p>
+                </div>
+                <div class="text-md-end">
+                  <p class="fw-bold text-primary mb-2">₦7,000</p>
+                  <button class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Premium Listing -->
+            <div class="col-12">
+              <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                <div class="mb-3 mb-md-0 me-md-3">
+                  <h5>Premium Job Listing</h5>
+                  <p class="text-muted mb-0">Get your application highlighted and viewed by top employers.</p>
+                </div>
+                <div class="text-md-end">
+                  <p class="fw-bold text-primary mb-2">₦10,000</p>
+                  <button class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+  
+          </div> <!-- End row -->
         </div>
-        <!-- About End -->
+      </div>
+    </div>
+  </div>
+  
+                    </div>
+            </div>
+         </div>
 
-
-
-        <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+         <!-- Footer Start -->
+         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Company</h5>
-                        <a class="btn btn-link text-white-50" href="">About Us</a>
-                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="about.html">About Us</a>
+                        <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="services.html">Our Services</a>
                         <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
                         <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Quick Links</h5>
-                        <a class="btn btn-link text-white-50" href="">About Us</a>
-                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="about.html">About Us</a>
+                        <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="services.html">Our Services</a>
                         <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
                         <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Contact</h5>
                         <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>28, Pipeline Road, Ilorin, Kwara State</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+234 803 966 1354</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>oborimusa@gmail.com</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+234 966 1354</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -178,7 +226,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Newsletter</h5>
-                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                        <p>Subscribe to our news letter.</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
                             <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                             <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
@@ -209,9 +257,9 @@
         </div>
         <!-- Footer End -->
 
+        <!-- Footer and Scripts remain unchanged -->
+        <!-- ... keep the footer and script section as-is ... -->
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
@@ -221,8 +269,7 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
 
+</html>
