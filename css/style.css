@@ -6,6 +6,12 @@
     --dark: #2B3940;
 }
 
+#staffFormStatus.loading::after {
+    content: "⏳ Sending...";
+    display: inline-block;
+    margin-left: 10px;
+    color: #007bff;
+  }
 
 
 .back-to-top {
