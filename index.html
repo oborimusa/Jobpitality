@@ -73,7 +73,7 @@
                   <div class="nav-item dropdown">
                       <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
                       <div class="dropdown-menu rounded-0 m-0">
-                          <a href="job-list.html" class="dropdown-item">Job Openings</a>
+                          <a href="job-openings.html" class="dropdown-item">Job Openings</a>
                           <a href="job-detail.html" class="dropdown-item">Job Details</a>
                           <a href="application-form.html" class="dropdown-item">Upload Your Resume</a>
                           <a href="seeker-account.html" class="dropdown-item">Open an Account</a>
@@ -989,19 +989,30 @@
               <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+234 803 966 1354</p>
               <p class="mb-2"><i class="fa fa-envelope me-3"></i>oborimusa@gmail.com</p>
               <div class="d-flex pt-2">
-                  <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
-                  <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a class="btn btn-outline-light btn-social" href="https://x.com/jobpitality"><i class="fab fa-twitter"></i></a>
+                  <a class="btn btn-outline-light btn-social" href="https://web.facebook.com/profile.php?id=100083690556325"><i class="fab fa-facebook-f"></i></a>
                   <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
                   <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
               </div>
           </div>
           <div class="col-lg-3 col-md-6">
-              <h5 class="text-white mb-4">Newsletter</h5>
-              <p>Subscribe to our newsletter.</p>
-              <div class="position-relative mx-auto" style="max-width: 400px;">
-                  <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                  <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-              </div>
+            <h5 class="text-white mb-4">Newsletter</h5>
+            <p>Subscribe to our newsletter.</p>
+            <div class="position-relative mx-auto" style="max-width: 400px;">
+              <input 
+                id="newsletter-email" 
+                type="email" 
+                class="form-control bg-transparent text-white border border-light rounded-pill py-3 ps-4 pe-5" 
+                placeholder="Your Email" 
+                required
+              >
+              <button 
+                id="newsletter-button" 
+                type="button" 
+                class="btn btn-primary position-absolute top-0 end-0 mt-2 me-2 rounded-pill py-2 px-4">
+                Sign Up
+              </button>
+            </div>
           </div>
       </div>
   </div>
@@ -1043,65 +1054,52 @@
 <script src="search.html"></script>
 <script src="js/script.js"></script>
 
-<!-- EmailJS SDK -->
+<!-- Latest EmailJS SDK v4 (UMD build) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <script>
-// Wait for the DOM to load before running the script
-document.addEventListener('DOMContentLoaded', function () {
-  // Initialize EmailJS
-  emailjs.init("Q2blQi09-1m7oYOHo");
+  document.addEventListener('DOMContentLoaded', function () {
+    // Initialize EmailJS
+    emailjs.init('eAP_vSENWFFz2QU_l'); // ✅ Use your own public key here
 
-  // Handle hire talent form submission if it exists
-  const hireForm = document.getElementById('hire-talent-form');
-  if (hireForm) {
-    hireForm.addEventListener('submit', function (event) {
-      event.preventDefault();
+    const newsletterButton = document.getElementById('newsletter-button');
+    const emailInput = document.getElementById('newsletter-email');
 
-      emailjs.sendForm('service_zami4ma', 'specific_talent', this)
+    if (newsletterButton && emailInput) {
+      newsletterButton.addEventListener('click', function () {
+        const email = emailInput.value.trim();
+
+        if (email === '') {
+          alert('Please enter your email.');
+          return;
+        }
+
+        if (!validateEmail(email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+
+        // Send the email using EmailJS
+        emailjs.send('service_efjs7ax', 'template_3klw9zn', {
+          user_email: email,
+        })
         .then(function (response) {
-          alert('Request sent successfully!');
-        }, function (error) {
-          alert('Failed to send request, please try again later.');
+          alert('Thank you for subscribing!');
+          emailInput.value = ''; // Clear the input field
+        })
+        .catch(function (error) {
+          alert('Oops! Something went wrong. Please try again.');
+          console.error('EmailJS error:', error);
         });
-    });
-  }
-  
-  // Initialize the carousel
-  $(".header-carousel").owlCarousel({
-    autoplay: true,
-    smartSpeed: 1500,
-    items: 1,
-    dots: true,
-    loop: true,
-    nav: true,
-    navText: [
-      '<i class="bi bi-chevron-left"></i>',
-      '<i class="bi bi-chevron-right"></i>'
-    ]
-  });
-  
-  // Initialize testimonial carousel
-  $(".testimonial-carousel").owlCarousel({
-    autoplay: true,
-    smartSpeed: 1000,
-    margin: 24,
-    dots: true,
-    loop: true,
-    nav: false,
-    responsive: {
-      0: {
-        items: 1
-      },
-      768: {
-        items: 2
-      }
+      });
+    }
+
+    // Email validation function
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
     }
   });
-  
-  // Hide spinner after page load
-  setTimeout(function () {
-    $('#spinner').removeClass('show');
-  }, 1000);
-});
 </script>
 <script src="search.js"></script>
 </body>

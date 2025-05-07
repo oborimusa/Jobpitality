@@ -70,6 +70,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 requirements: '1+ years experience, excellent customer service skills',
                 salary: '₦50,000 - ₦55,000 monthly'
             },
+
+            {
+                title: 'Kitchen Assistant',
+                category: 'Back-of-House Staff',
+                location: 'Basin, Ilorin',
+                description: 'Kitchen assistant needed for high-volume restaurant',
+                requirements: 'Must be willing to work from 1:00pm to 11:00pm the last customer closes.',
+                salary: '₦45,000 monthly'
+            },
+
             {
                 title: 'Sous Chef',
                 category: 'Back-of-House Staff',
@@ -92,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: 'Ilorin',
                 description: 'Oversee all restaurant operations and staff',
                 requirements: '5+ years in restaurant management',
-                salary: '₦400,000 - ₦500,000 monthly'
+                salary: '₦100,000 - ₦150,000 monthly'
             },
             {
                 title: 'Marketing Coordinator',
@@ -100,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: 'Osogbo',
                 description: 'Develop and implement marketing strategies',
                 requirements: 'Degree in Marketing or related field',
-                salary: '₦280,000 - ₦320,000 monthly'
+                salary: '₦80,000 - ₦100,000 monthly'
             },
             {
                 title: 'Maintenance Technician',
@@ -108,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: 'Ekiti',
                 description: 'Handle equipment repairs and maintenance',
                 requirements: 'Technical certification and 2+ years experience',
-                salary: '₦200,000 - ₦240,000 monthly'
+                salary: '₦80,000 - ₦90,000 monthly'
             },
             {
                 title: 'Security Officer',
@@ -116,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 location: 'Ilorin',
                 description: 'Ensure safety of premises and personnel',
                 requirements: 'Security training and valid certification',
-                salary: '₦150,000 - ₦180,000 monthly'
+                salary: '₦60,000 - ₦80,000 monthly'
             },
             {
                 title: 'Event Staff',

@@ -32,39 +32,3 @@
       ]
     }
   ]
-  
-[
-    {
-      "id": "waitress-lagos",
-      "title": "Waitress",
-      "location": "Lagos",
-      "description": "We are hiring waitresses for a luxury hotel in Lagos.",
-      "requirements": [
-        "1+ year of experience",
-        "Excellent communication skills",
-        "Must reside in Lagos or be willing to relocate"
-      ],
-      "benefits": [
-        "Competitive salary",
-        "Free meals",
-        "Training opportunities"
-      ]
-    },
-    {
-      "id": "waitress-abuja",
-      "title": "Waitress",
-      "location": "Abuja",
-      "description": "Join our hospitality team in Abuja as a professional waitress.",
-      "requirements": [
-        "1+ year of experience",
-        "Customer service skills",
-        "Must live in Abuja"
-      ],
-      "benefits": [
-        "Good salary",
-        "Staff accommodation",
-        "Career growth"
-      ]
-    }
-  ]
-  
