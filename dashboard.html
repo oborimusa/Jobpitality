@@ -1,33 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Employer Dashboard - Jobpitality</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
-    <a class="navbar-brand" href="#">Jobpitality</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Post a Job</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">My Listings</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
-      </ul>
-    </div>
-  </nav>
+  <link rel="icon" href="img/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-  <div class="container py-5">
-    <h3>Welcome, Employer!</h3>
-    <p>Use your dashboard to post new job openings, view applications, and manage your company profile.</p>
-    <a href="#" class="btn btn-success">Post a New Job</a>
+  <style>
+    body { background: #f8f9fa; }
+    .sidebar { height: 100vh; background: #fff; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
+    .sidebar .nav-link { color: #333; }
+    .sidebar .nav-link.active { background-color: #0d6efd; color: white; }
+    .content { padding: 2rem; }
+    .table thead { background-color: #0d6efd; color: white; }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-2 d-none d-md-block sidebar py-4">
+      <div class="position-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#postJobSection">Post a Job</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#jobsListSection">My Posted Jobs</a>
+          </li>
+          <li class="nav-item">
+            <button id="logoutBtn" class="btn btn-danger w-100 mt-4">Logout</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="col-md-10 ms-sm-auto col-lg-10 px-md-4 content">
+      <div id="spinner" class="d-flex justify-content-center py-5">
+        <div class="spinner-border text-primary" role="status"></div>
+      </div>
+
+      <div id="mainContent" style="display: none;">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+          <h1 class="h2">Welcome, Employer!</h1>
+        </div>
+
+        <!-- Post Job Section -->
+        <section id="postJobSection" class="mb-5">
+          <h3>Post a New Job</h3>
+          <form id="jobForm" class="bg-white p-4 rounded shadow-sm">
+            <div class="mb-3">
+              <label class="form-label">Job Title</label>
+              <input type="text" class="form-control" id="jobTitle" required />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Job Description</label>
+              <textarea class="form-control" id="jobDescription" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Location</label>
+              <input type="text" class="form-control" id="jobLocation" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Post Job</button>
+          </form>
+        </section>
+
+        <!-- Jobs List Section -->
+        <section id="jobsListSection">
+          <h3>My Posted Jobs</h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Location</th>
+                <th>Date Posted</th>
+              </tr>
+            </thead>
+            <tbody id="jobsTableBody">
+              <!-- Jobs will be injected here -->
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
   </div>
+</div>
 
+<script>
+  // Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCkThw6tnVIPrJgfKiVHfuPSFVmJmblGbE",
+    authDomain: "jobspitality-1b7f7.firebaseapp.com",
+    projectId: "jobspitality-1b7f7",
+    storageBucket: "jobspitality-1b7f7.appspot.com",
+    messagingSenderId: "414501251190",
+    appId: "1:414501251190:web:5904e7158bb0c427d59757",
+  };
+  
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const firestore = firebase.firestore();
+  
+  // Hide spinner and show main content
+  function hideSpinner() {
+    document.getElementById('spinner').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'block';
+  }
+  
+  // Logout
+  const logoutBtn = document.getElementById('logoutBtn');
+  logoutBtn.addEventListener('click', () => {
+    auth.signOut().then(() => {
+      window.location.href = 'login.html';
+    }).catch((error) => {
+      alert('Error during logout');
+    });
+  });
+  
+  // Auth state
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      hideSpinner();
+      loadJobs();
+    } else {
+      window.location.href = 'login.html';
+    }
+  });
+  
+  // Post a job
+  const jobForm = document.getElementById('jobForm');
+  jobForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+  
+    const title = document.getElementById('jobTitle').value;
+    const description = document.getElementById('jobDescription').value;
+    const location = document.getElementById('jobLocation').value;
+  
+    firestore.collection('jobs').add({
+      title,
+      description,
+      location,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      postedBy: auth.currentUser.uid,
+    }).then(() => {
+      alert('Job posted successfully!');
+      jobForm.reset();
+      loadJobs();
+    }).catch(error => {
+      console.error('Error posting job:', error);
+      alert('Failed to post job.');
+    });
+  });
+  
+  // Load jobs
+  function loadJobs() {
+    const jobsTableBody = document.getElementById('jobsTableBody');
+    jobsTableBody.innerHTML = '';
+  
+    firestore.collection('jobs')
+      .where('postedBy', '==', auth.currentUser.uid)
+      .orderBy('createdAt', 'desc')
+      .get()
+      .then(snapshot => {
+        snapshot.forEach(doc => {
+          const job = doc.data();
+          const row = `<tr>
+            <td>${job.title}</td>
+            <td>${job.description.substring(0, 50)}...</td>
+            <td>${job.location}</td>
+            <td>${job.createdAt ? job.createdAt.toDate().toLocaleDateString() : ''}</td>
+          </tr>`;
+          jobsTableBody.innerHTML += row;
+        });
+      });
+  }
+  </script>
+  
+  <!-- Bootstrap Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+  </body>
+  </html>
