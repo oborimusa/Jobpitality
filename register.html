@@ -118,7 +118,8 @@
         window.location.href = "dashboard.html";
       } catch (error) {
         if (error.code === 'auth/email-already-in-use') {
-          alert('This email is already registered. Please log in instead.');
+          alert('This email is already registered. Redirecting to login page...');
+          window.location.href = "login.html";  // Redirect to login
         } else {
           alert('Registration failed: ' + error.message);
         }
@@ -145,7 +146,8 @@
         window.location.href = "dashboard.html";
       } catch (error) {
         if (error.code === 'auth/email-already-in-use') {
-          alert('This email is already registered. Please log in instead.');
+          alert('This email is already registered. Redirecting to login page...');
+          window.location.href = "login.html";  // Redirect to login
         } else {
           alert('Registration failed: ' + error.message);
         }
