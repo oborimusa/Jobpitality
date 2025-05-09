@@ -115,63 +115,74 @@
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   const firestore = firebase.firestore();
-  
-  // Hide spinner and show main content
+
+  // Show the spinner when loading jobs
+  function showSpinner() {
+    document.getElementById('spinner').style.display = 'block';
+    document.getElementById('mainContent').style.display = 'none';
+  }
+
+  // Hide spinner after content is ready
   function hideSpinner() {
     document.getElementById('spinner').style.display = 'none';
     document.getElementById('mainContent').style.display = 'block';
   }
-  
-  // Logout
+
+  // Logout functionality
   const logoutBtn = document.getElementById('logoutBtn');
   logoutBtn.addEventListener('click', () => {
     auth.signOut().then(() => {
       window.location.href = 'login.html';
     }).catch((error) => {
-      alert('Error during logout');
+      alert('Error during logout: ' + error.message);
     });
   });
-  
-  // Auth state
+
+  // Auth state change
   auth.onAuthStateChanged(user => {
     if (user) {
-      hideSpinner();
+      showSpinner(); // Show spinner while loading jobs
       loadJobs();
     } else {
       window.location.href = 'login.html';
     }
   });
-  
+
   // Post a job
   const jobForm = document.getElementById('jobForm');
   jobForm.addEventListener('submit', (e) => {
     e.preventDefault();
-  
+
     const title = document.getElementById('jobTitle').value;
     const description = document.getElementById('jobDescription').value;
     const location = document.getElementById('jobLocation').value;
-  
+
+    // Input validation (check for empty fields)
+    if (!title || !description || !location) {
+      alert('All fields are required.');
+      return;
+    }
+
     firestore.collection('jobs').add({
       title,
       description,
       location,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      postedBy: auth.currentUser.uid,
+      postedBy: auth.currentUser.uid, // Store the UID of the logged-in user
     }).then(() => {
       alert('Job posted successfully!');
-      jobForm.reset();
-      loadJobs();
+      loadJobs(); // Reload jobs to show the new one
     }).catch(error => {
       console.error('Error posting job:', error);
-      alert('Failed to post job.');
+      alert('Failed to post job: ' + error.message); // Show the error message for debugging
     });
   });
-  
+
   // Load jobs
   function loadJobs() {
     const jobsTableBody = document.getElementById('jobsTableBody');
-    jobsTableBody.innerHTML = '';
-  
+    jobsTableBody.innerHTML = ''; // Clear any previous job listings
+
     firestore.collection('jobs')
       .where('postedBy', '==', auth.currentUser.uid)
       .orderBy('createdAt', 'desc')
@@ -187,11 +198,17 @@
           </tr>`;
           jobsTableBody.innerHTML += row;
         });
+        hideSpinner();  // ✅ Move this INSIDE .then() to ensure spinner is hidden after jobs are loaded
+      })
+      .catch(error => {
+        console.error('Error loading jobs:', error);
+        alert('Failed to load jobs: ' + error.message);
+        hideSpinner();  // ✅ Still hide spinner even if there is an error
       });
   }
-  </script>
+</script>
   
-  <!-- Bootstrap Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
-  </html>
+<!-- Bootstrap Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
