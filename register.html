@@ -75,6 +75,7 @@
               </form>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -115,6 +116,7 @@
         alert('Job Seeker registered successfully!');
         window.location.href = "dashboard.html";
       } catch (error) {
+        console.error('Error during Job Seeker registration:', error.message);
         if (error.code === 'auth/email-already-in-use') {
           alert('This email is already registered. Redirecting to login page...');
           window.location.href = "login.html";
@@ -143,6 +145,7 @@
         alert('Employer registered successfully!');
         window.location.href = "dashboard.html";
       } catch (error) {
+        console.error('Error during Employer registration:', error.message);
         if (error.code === 'auth/email-already-in-use') {
           alert('This email is already registered. Redirecting to login page...');
           window.location.href = "login.html";
