@@ -31,6 +31,13 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+  .custom-card {
+    border: 1px solid #1db302;
+    border-radius: 15px;
+  }
+</style>
 </head>
 
 <body>
@@ -486,15 +493,17 @@
   
       <!-- Example Applicant Cards -->
       <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="card p-3 h-100 text-primary bg-light" style="border: 1px solid #1db302; border-radius: 15px;">
-            <h5>Jane Doe</h5>
-            <p>Experienced Front Desk Officer</p>
-            <p class="text-muted">Lagos, Nigeria</p>
-            <a href="#" class="btn btn-outline-primary btn-sm">View Profile</a>
-            <a href="application-form.html" class="btn btn-primary mt-2 d-block w-100">Apply Now</a>
-          </div>
-        </div>
+       <div class="col-12 col-md-6 col-lg-3">
+  <div class="card h-100 bg-light text-primary" style="border: 1px solid #1db302; border-radius: 15px;">
+    <div class="card-body p-3">
+      <h5 class="card-title">Jane Doe</h5>
+      <p class="card-text">Experienced Front Desk Officer</p>
+      <p class="text-muted">Lagos, Nigeria</p>
+      <a href="#" class="btn btn-outline-primary btn-sm">View Profile</a>
+      <a href="application-form.html" class="btn btn-primary mt-2 w-100">Apply Now</a>
+    </div>
+  </div>
+</div>
   
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card p-3 h-100 bg-light" style="border: 1px solid #1db302; border-radius: 10px;">

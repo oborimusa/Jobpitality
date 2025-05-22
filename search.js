@@ -58,10 +58,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 title: 'Chef',
                 category: 'Back-of-House Staff',
                 location: 'Ilorin',
+                description: 'Experienced chef needed for a luxurious hotel',
+                requirements: '3+ years experience, culinary degree preferred',
+                salary: '₦100,000 - ₦150,000 monthly'
+            },
+
+            {
+                title: 'Chef (with administrative skills)',
+                category: 'Back-of-House Staff',
+                location: 'Ilorin',
                 description: 'Experienced chef needed for high-volume restaurant',
                 requirements: '3+ years experience, culinary degree preferred',
-                salary: '₦250,000 - ₦300,000 monthly'
+                salary: '₦150,000 - ₦200,000 monthly'
             },
+
             {
                 title: 'Waitress',
                 category: 'Front-of-House Staff',
