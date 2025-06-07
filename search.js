@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
 
               {
-                title: 'Accountant',
+                title: 'Account officer',
                 category: 'Management and Administrative Staff',
                 location: 'Ibadan',
                 description: 'Minimum of one year experience in any F&B, restaurant or supermarket company.',
