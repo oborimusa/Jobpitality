@@ -145,6 +145,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 description: 'Support special events and functions',
                 requirements: 'Flexible schedule, customer service skills',
                 salary: '₦5,000 - ₦8,000 per day'
+            },
+
+              {
+                title: 'Accountant',
+                category: 'Management and Administrative Staff',
+                location: 'Ibadan',
+                description: 'Minimum of one year experience in any F&B, restaurant or supermarket company.',
+                requirements: 'Experience in Microsoft Excel and other Microsoft office',
+                salary: '₦60,000 - ₦90,000 per day'
+            },
+
+            {
+                title: 'Store officer',
+                category: 'Management and Administrative Staff',
+                location: 'Ibadan',
+                description: 'Minimum of 1 year experience in F&B, supermarket, hotels or restaurant company..',
+                requirements: 'Excellent Microsoft office usage,',
+                salary: '₦60,000 - ₦70,000 per day'
             }
         ];
         
