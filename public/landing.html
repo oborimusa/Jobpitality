@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jobpitality - Connect Talent with Opportunities</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+
+    :root {
+      --navy:#0b2545;
+      --teal:#0ea5a4;
+      --muted:#6b7280;
+      --bg:#f8fafc;
+      --radius:14px;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    }
+    
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--navy); line-height:1.45; }
+
+     body { background: #f0f2f5; font-family: 'Segoe UI', sans-serif; }
+    .pricing-header { text-align: center; margin-bottom: 50px; }
+    .card { border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.2s; }
+    .card:hover { transform: translateY(-5px); }
+    .price { font-size: 2rem; font-weight: bold; }
+    .btn { border-radius: 30px; }
+    .highlight { border: 2px solid #0d6efd; }
+    
+  .hero {
+    background: url('img/about-1.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: scroll;
+    color: rgb(244, 241, 241);
+    height: 80vh; /* Full screen height */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 0; /* remove extra padding */
+  }
+
+  /* Overlay */
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(47, 47, 47, 0.55); /* Darkness level */
+    z-index: 1;
+  }
+
+  /* Hero content */
+  .hero .container {
+    position: relative;
+    z-index: 2; /* Above overlay */
+  }
+
+  .hero h1, .hero p {
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  }
+
+  .card {
+      background:#fff;
+      padding:24px;
+      border-radius:var(--radius);
+      box-shadow:0 8px 30px rgba(11,37,69,0.05);
+    }
+
+
+  
+
+  /* CTA buttons */
+    .cta-row { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:1rem; }
+    .cta-row a {
+      padding:12px 20px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+     .primary { background:var(--teal); color:#fff; }
+    .secondary { border:1px solid var(--teal); color:var(--teal); }
+
+  @media (max-width: 768px) {
+    .hero {
+      background-position: center top;
+      height: 80vh;
+    }
+    /* .hero h1 {
+      font-size: 2rem;
+      margin-top: 30px;
+    } */
+    .hero p {
+      font-size: 1rem;
+      
+    }
+
+     .hero h1 {
+      margin-top: 80px;
+      font-size: 28px;
+      
+    }
+  }
+
+  footer {
+    background: #212529;
+    color: #bbb;
+    padding: 30px 0;
+  }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top p-0" style="z-index: 1030;">
+    <a href="#index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5 m-2">
+      <div class="img pb-2">
+        <img src="img/final-job.png" alt="Logo" style="width: 110px; height: auto; margin-top: 0px;">
+      </div>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse px-4" id="navbarCollapse" style="margin-left: 10%;">
+      <div class="navbar-nav me-auto">
+        <!-- Employers -->
+        <div class="nav-item dropdown">
+          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <a href="standard-listing.html" class="dropdown-item">Standard Listing</a>
+            <a href="executive.html" class="dropdown-item">Executive Recruitment</a>
+            <a href="employer-login.html" class="dropdown-item">Employer's Corner</a>
+            <a href="request-staff.html" class="dropdown-item">Request Staff</a>
+            <a href="#request-staff.html" class="dropdown-item">Pro Recruit</a>
+
+          </div>
+        </div>
+
+        <!-- Career -->
+        <div class="nav-item dropdown">
+          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+        </div>
+        
+        <!-- Job Seekers -->
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <a href="job-openings.html" class="dropdown-item">Job Openings</a>
+            <a href="#cv-review.html" class="dropdown-item">CV Review Services</a>
+            <a href="job-vacancies.html" class="dropdown-item">Job Vacancies</a>
+            <a href="#my-learning.html" class="dropdown-item">My Learning</a>
+            <a href="application-form.html" class="dropdown-item">Upload Your Resume</a>
+          </div>
+        </div>
+      </div>
+     
+      <!-- Auth + Post Job -->
+      <div class="d-flex align-items-center ms-auto">
+        <a href="login.html" class="nav-link px-2">Login</a>
+        <span class="text-muted">|</span>
+        <a href="signup-landing.html" class="nav-link px-2">Sign Up</a>
+       <a class="btn btn-primary ms-lg-2 mt-2 mt-lg-0" href="vacancy.html">Post a Job</a>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+
+  
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1 class="display-3 fw-bold">Hospitality Careers & Hiring, Built for Africa</h1>
+    <p class="lead mb-4">
+      Jobpitality connects skilled professionals with hotels, restaurants,
+      resorts, and event companies across the continent.
+    </p>
+    <div class="cta-row">
+      <a href="job-list.html" class="primary">Find a Job</a>
+      <a href="hire.html" class="secondary">Hire Talent</a>
+     
+    </div>
+  </div>
+</section>
+
+
+  <!-- Features Section -->
+  <section id="features" class="py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-4">Why Choose Jobpitality?</h2>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">For Employers</h5>
+              <p class="card-text">Post jobs, shortlist candidates, and manage recruitment with ease.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm highlight">
+            <div class="card-body">
+              <h5 class="card-title">For Job Seekers</h5>
+              <p class="card-text">Discover hospitality jobs, upload resumes, and get hired faster.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Smart Matching</h5>
+              <p class="card-text">AI-driven tools ensure the right fit between employers and job seekers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+  <!-- Pricing Section -->
+  <!-- <section id="pricing" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-4">Choose Your Plan</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Bronze</h5>
+              <p class="card-text">₦5,000 / month</p>
+              <ul class="list-unstyled">
+                <li>Basic job postings</li>
+                <li>Email support</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm highlight">
+            <div class="card-body">
+              <h5 class="card-title">Silver</h5>
+              <p class="card-text">₦15,000 / month</p>
+              <ul class="list-unstyled">
+                <li>Featured postings</li>
+                <li>Candidate shortlisting</li>
+                <li>Priority support</li>
+              </ul>
+              <a href="#" class="btn btn-primary">Most Popular</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Gold</h5>
+              <p class="card-text">₦40,000 / month</p>
+              <ul class="list-unstyled">
+                <li>Unlimited postings</li>
+                <li>Background checks</li>
+                <li>Premium support</li>
+              </ul>
+              <a href="#" class="btn btn-outline-primary">Go Premium</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- <section id="features">
+  <h2 class="text-center mb-4">Why Choose Jobpitality?</h2>
+  <div class="grid-3">
+    <div class="card"><h3>Africa-Focused</h3><p>We understand local hospitality markets and connect talent where it’s needed most.</p></div>
+    <div class="card"><h3>Smart Matching</h3><p>Advanced filtering pairs employers with candidates who fit their exact needs.</p></div>
+    <div class="card"><h3>Fast & Fair</h3><p>Streamlined applications, verified profiles, and quick hiring decisions.</p></div>
+  </div>
+</section> -->
+
+
+  
+<!-- <section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Why Choose Jobpitality</h2> -->
+
+    <!-- <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3>Africa-Focused</h3>
+            <p class="mb-2">We understand local hospitality markets and connect talent where it’s needed most.</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3>Smart Matching</h3>
+            <p class="mb-2">Advanced filtering pairs employers with candidates who fit their exact needs.</p>              </div>
+        </div>
+      </div>
+
+       <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3>Fast & Fair</h3>
+            <p class="mb-2">Streamlined applications, verified profiles, and quick hiring decisions.</p>              </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section> -->
+
+
+
+  <!-- Testimonials -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Success Stories</h2>
+
+    <div class="row g-4"><!-- g-4 adds gutter spacing -->
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <p class="mb-2">“We hired two top chefs in a week. The process was seamless.”</p>
+            <p class="text-muted small mb-0">— Azure Hotels, Nigeria</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3>Fast & Fair</h3>
+            <p class="mb-2">“I found my dream role within days. Highly recommended!”</p>
+            <p class="text-muted small mb-0">— Grace, Sous Chef</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2 class="text-center mb-4">Get in Touch</h2>
+  <form class="card mx-auto" style="max-width:500px;"
+        onsubmit="event.preventDefault();alert('Thanks for contacting Jobpitality!');this.reset();">
+    <label class="w-100 mb-3">Email
+      <input type="email" name="email" required class="form-control mt-1">
+    </label>
+    <label class="w-100 mb-3">Message
+      <textarea name="message" rows="4" required class="form-control mt-1"></textarea>
+    </label>
+    <button type="submit" class="primary border-0 px-4 py-2">Send Message</button>
+  </form>
+</section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p>&copy; 2025 Jobpitality. All rights reserved.</p>
+      <a href="#" class="text-light me-3">About</a>
+      <a href="#" class="text-light me-3">Privacy</a>
+      <a href="#" class="text-light">Contact</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

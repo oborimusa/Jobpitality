@@ -1,0 +1,93 @@
+<style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .jobpitality-banner {
+      width: 100%;
+    }
+    .banner-content {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .left-column, .right-column {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .left-column, .right-column {
+        width: 50%;
+      }
+    }
+    .left-column {
+      background-color: #e0f7e9;
+    }
+    .right-column {
+      background-color: #f2f2f2;
+    }
+    .left-column h2, .right-column h2 {
+      color: #1e4620;
+    }
+    .right-column h2 {
+      color: #555;
+    }
+    .left-column ul, .right-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    .left-column li::before {
+      content: '✅ ';
+    }
+    .right-column li::before {
+      content: '❌ ';
+    }
+    .cta-bar {
+      background-color: #ff6600;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 1.2em;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .cta-bar img.logo {
+      width: 30px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="jobpitality-banner">
+    <div class="banner-content">
+      <div class="left-column">
+        <h2>Benefits for Registered Job Seekers</h2>
+        <ul>
+          <li>Apply for Jobs Instantly</li>
+          <li>Build Professional Profile</li>
+          <li>Upload CV & Certificates</li>
+          <li>Receive Interview Alerts</li>
+          <li>Career Tips & Job Notifications</li>
+        </ul>
+      </div>
+      <div class="right-column">
+        <h2>Non-Account Holders Miss Out On</h2>
+        <ul>
+          <li>No Job Applications</li>
+          <li>No Interview Alerts</li>
+          <li>Cannot Upload CV</li>
+          <li>No Career Support</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-bar">
+      <img src="logo.png" alt="Jobpitality Logo" class="logo">
+      <span>Create Your Free Account on Jobpitality Today!</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Applicants – Jobpitality</title>
+
+  <!-- Bootstrap & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+    body { padding-top: 70px; }
+    .table thead th { white-space: nowrap; }
+    .status-badge { font-size: .85rem; }
+    /* Small-screen tweaks */
+    @media (max-width: 575.98px) {
+      h1.h3 { font-size: 1.25rem; }
+      .navbar-brand img { height: 40px; }
+      #filterForm .col-md-4,
+      #filterForm .col-md-3,
+      #filterForm .col-md-2 {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+      #filterForm button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top p-0 px-3">
+    <a href="index.html" class="navbar-brand d-flex align-items-center">
+      <img src="img/final-job.png" alt="Jobpitality" style="height:48px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="employers-landing.html">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">Applicants</a></li>
+        <li class="nav-item"><a class="nav-link" href="post-job.html">Post Job</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+    <!-- ===== Hero Section ===== -->
+<header class="text-white text-center py-5 mb-4" style="background: linear-gradient(90deg, rgba(11, 37, 69, 0.9), rgba(6, 125, 63, 0.85));">
+  <div class="container">
+    <h1 class="display-6 fw-bold">Job Applicants</h1>
+    <button id="exportCsv" class="btn btn-outline-primary btn-sm text-light mt-3">
+        <i class="bi bi-download text-light"></i> Export CSV
+      </button>
+  </div>
+</header>
+
+    <!-- Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+      <h1 class="h3 fw-bold mb-2">Job Applicants</h1>
+      <button id="exportCsv" class="btn btn-outline-primary btn-sm">
+        <i class="bi bi-download"></i> Export CSV
+      </button>
+    </div>
+
+    <!-- Search / Filter -->
+    <form id="filterForm" class="row g-2 mb-3">
+      <div class="col-md-4">
+        <input type="search" id="searchName" class="form-control" placeholder="Search by name or role">
+      </div>
+      <div class="col-md-3">
+        <select id="statusFilter" class="form-select">
+          <option value="">All Status</option>
+          <option value="New">New</option>
+          <option value="Interview">Interview</option>
+          <option value="Hired">Hired</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-primary w-100">Filter</button>
+      </div>
+    </form>
+
+    <!-- Applicants Table -->
+    <div class="table-responsive">
+      <table id="applicantsTable" class="table table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role Applied</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Resume</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Sample rows; replace with dynamic data -->
+          <tr>
+            <td>Ada Obi</td>
+            <td>ada.obi@example.com</td>
+            <td>Front Office Manager</td>
+            <td>2025-09-21</td>
+            <td><span class="badge bg-secondary status-badge">New</span></td>
+            <td><a href="resumes/ada-obi.pdf" class="btn btn-sm btn-outline-primary">View</a></td>
+          </tr>
+          <tr>
+            <td>Kwame Mensah</td>
+            <td>kwame@example.com</td>
+            <td>Head Chef</td>
+            <td>2025-09-20</td>
+            <td><span class="badge bg-warning text-dark status-badge">Interview</span></td>
+            <td><a href="resumes/kwame.pdf" class="btn btn-sm btn-outline-primary">View</a></td>
+          </tr>
+          <tr>
+            <td>Lara Yusuf</td>
+            <td>lara@example.com</td>
+            <td>Sous Chef</td>
+            <td>2025-09-19</td>
+            <td><span class="badge bg-success status-badge">Hired</span></td>
+            <td><a href="resumes/lara.pdf" class="btn btn-sm btn-outline-primary">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-white-50 text-center py-3">
+    &copy; <span id="year"></span> Jobpitality. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple client-side filter
+    const form = document.getElementById("filterForm");
+    const rows = Array.from(document.querySelectorAll("#applicantsTable tbody tr"));
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const nameQuery = document.getElementById("searchName").value.toLowerCase();
+      const status = document.getElementById("statusFilter").value;
+      rows.forEach(r => {
+        const text = r.textContent.toLowerCase();
+        const matchName = text.includes(nameQuery);
+        const matchStatus = !status || r.querySelector(".status-badge").textContent === status;
+        r.style.display = matchName && matchStatus ? "" : "none";
+      });
+    });
+
+    // Export table to CSV
+    document.getElementById("exportCsv").addEventListener("click", () => {
+      const csv = rows.map(r => 
+        Array.from(r.cells).map(c => `"${c.innerText}"`).join(",")
+      ).join("\n");
+      const blob = new Blob([`Name,Email,Role,Date,Status,Resume\n${csv}`], {type:"text/csv"});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "applicants.csv";
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>

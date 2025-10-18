@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Request Staff – Jobpitality</title>
+  <meta name="description" content="Employers can request hospitality staff quickly and easily with Jobpitality." />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+
+<!-- ===== Navbar ===== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img
+            src="img/final-job.png"
+            alt="Jobpitality"
+            style="height: 40px; margin-right: 8px"
+          />
+          <span class="fw-bold"></span>
+        </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link text-black" href="employers-landing.html">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link active text-black" aria-current="page" href="Request-staff.html">Request Staff</a></li>
+        <li class="nav-item"><a class="nav-link text-black" href="employer-corner.html">Manage Jobs</a></li>
+        <li class="nav-item"><a class="nav-link text-black" href="logout.html">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero Section ===== -->
+<header class="bg-success text-white text-center py-5 mb-4">
+  <div class="container">
+    <h1 class="display-6 fw-bold">Request Hospitality Staff</h1>
+    <p class="lead mb-0">Tell us the roles you need and we’ll match you with qualified professionals fast.</p>
+  </div>
+</header>
+
+<main class="container mb-5">
+
+  <!-- ===== Request Form ===== -->
+  <section>
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="h5 mb-4">Staff Request Form</h2>
+        <form id="staffRequestForm" class="row g-3">
+
+          <div class="col-md-6">
+            <label class="form-label">Company Name</label>
+            <input type="text" class="form-control" id="companyName" placeholder="e.g. Azure Hotels" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Contact Person</label>
+            <input type="text" class="form-control" id="contactPerson" placeholder="Full name" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" id="contactEmail" placeholder="you@company.com" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="contactPhone" placeholder="+234 800 000 0000" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Role Needed</label>
+            <select class="form-select" id="roleNeeded" required>
+              <option value="">Select a role</option>
+              <option>Front Office Staff</option>
+              <option>Chef / Kitchen Staff</option>
+              <option>Housekeeping</option>
+              <option>Waiter / Waitress</option>
+              <option>Barista / Bartender</option>
+              <option>Manager / Supervisor</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Number of Staff</label>
+            <input type="number" class="form-control" id="staffCount" min="1" placeholder="e.g. 5" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Employment Type</label>
+            <select class="form-select" id="employmentType" required>
+              <option value="">Select type</option>
+              <option>Full-time</option>
+              <option>Part-time</option>
+              <option>Temporary / Event</option>
+              <option>Seasonal</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Location</label>
+            <input type="text" class="form-control" id="location" placeholder="City, State" required>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Additional Details</label>
+            <textarea class="form-control" id="details" rows="4" placeholder="Any specific skills, schedule or notes"></textarea>
+          </div>
+
+          <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary px-4">
+              <i class="bi bi-send"></i> Submit Request
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How it Works ===== -->
+  <section class="mt-5">
+    <h2 class="h5 mb-3 text-center">How It Works</h2>
+    <div class="row text-center g-4">
+      <div class="col-md-4">
+        <i class="bi bi-pencil-square text-primary fs-2 mb-2"></i>
+        <h6>1. Fill Out the Form</h6>
+        <p class="small text-muted">Provide role, number of staff, and details about your needs.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-search text-primary fs-2 mb-2"></i>
+        <h6>2. We Source Candidates</h6>
+        <p class="small text-muted">Jobpitality matches you with qualified hospitality professionals.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-people text-primary fs-2 mb-2"></i>
+        <h6>3. Start Hiring</h6>
+        <p class="small text-muted">Review profiles, interview, and hire with confidence.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-dark text-light text-center py-3">
+  <small>&copy; <span id="year"></span> Jobpitality. All rights reserved.</small>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Simple demo submission handling
+  document.getElementById('staffRequestForm').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Your staff request has been submitted. We will contact you shortly!');
+    e.target.reset();
+  });
+</script>
+</body>
+</html>

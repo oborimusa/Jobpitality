@@ -1,0 +1,84 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ==========================
+    // Jobs Collection
+    // ==========================
+    match /jobs/{jobId} {
+      // Anyone (even not logged in) can read jobs
+      allow read: if true;
+
+      // Only employers or superadmins can create jobs
+      allow create: if request.auth != null &&
+        (
+          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "employer" ||
+          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "superadmin"
+        );
+
+      // Employers can update/delete their own jobs
+      // Superadmins can update/delete any job
+      allow update, delete: if request.auth != null &&
+        (
+          request.auth.uid == resource.data.postedBy ||
+          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "superadmin"
+        );
+    }
+
+    // ==========================
+    // Users Collection
+    // ==========================
+    match /users/{userId} {
+      // Users can read/write their own profile
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      // Superadmins can read/write ALL user profiles
+      allow read, write: if request.auth != null &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "superadmin";
+    }
+
+    // ==========================
+    // Applications Collection
+    // ==========================
+    match /applications/{appId} {
+      // Logged-in users can create applications (apply for jobs)
+      allow create: if request.auth != null;
+
+      // Applicants can read their own applications
+      allow read: if request.auth != null &&
+        request.auth.uid == resource.data.applicantId;
+
+      // Employers who posted the job OR superadmins can read applications
+      allow read: if request.auth != null &&
+        (
+          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "superadmin" ||
+          get(/databases/$(database)/documents/jobs/$(resource.data.jobId)).data.postedBy == request.auth.uid
+        );
+
+      // Only superadmin can update/delete applications
+      allow update, delete: if request.auth != null &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "superadmin";
+    }
+
+    // ==========================
+    // Partners Collection
+    // ==========================
+    match /partners/{partnerId} {
+      // Public can see partners
+      allow read: if true;
+
+      // Only superadmins can add/update partners
+      allow create, update, delete: if request.auth != null &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "superadmin";
+    }
+
+    // ==========================
+    // Admin Configs Collection
+    // ==========================
+    match /adminConfigs/{configId} {
+      // Only superadmins can read/write admin configs
+      allow read, write: if request.auth != null &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "superadmin";
+    }
+  }
+}

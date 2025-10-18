@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jobpitality – Connecting Hospitality Talent with Employers</title>
+  <meta name="description" content="Jobpitality connects hospitality professionals with top employers across Africa. Post jobs, request staff, and apply for the best hospitality opportunities.">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Owl Carousel (optional for logos/testimonials if needed) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+
+  <!-- Custom CSS -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #4169E1; /* Royal Blue */
+      --dark: #0b2540;
+      --muted: #6b7280;
+      --whatsapp: #25D366;
+    }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    /* Navbar */
+    .navbar-brand img {
+      height: 50px;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(90deg, rgba(11,37,64,0.9), rgba(65,105,225,0.85));
+      color: #fff;
+      padding: 6rem 1rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-weight: 800;
+    }
+
+    /* Buttons */
+    .btn-royal {
+      background-color: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .btn-royal:hover {
+      background-color: #365acb;
+      border-color: #365acb;
+      color: #fff;
+    }
+
+    /* Features / Cards */
+    .feature-card {
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .feature-card .icon {
+      font-size: 3rem;
+      color: var(--blue);
+      margin-bottom: 15px;
+    }
+
+    /* Partners */
+    .partners img {
+      max-height: 60px;
+      filter: grayscale(100%);
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+    .partners img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+    .testimonial p {
+      font-size: 1rem;
+      color: #444;
+    }
+    .testimonial .author {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 15px;
+      font-size: 46px;
+      color: var(--whatsapp);
+      z-index: 1200;
+    }
+    .whatsapp-float:hover {
+      color: #03cd4a;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      padding: 40px 0;
+    }
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top px-4 py-0">
+    <a href="index.html" class="navbar-brand fw-bold">
+      <img src="img/final-job.png" alt="Jobpitality Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="job-openings.html" class="nav-link">Jobs</a>
+        <a href="aboutus.html" class="nav-link">About Us</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <a href="post-job.html" class="btn btn-royal ms-lg-3">Post a Job</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero mt-5 pt-5">
+    <div class="container">
+      <h1>Connecting Hospitality Talent with Employers</h1>
+      <p class="lead">Your gateway to top hospitality jobs and world-class talent in Africa.</p>
+      <a href="job-openings.html" class="btn btn-royal btn-lg shadow me-2">Find Jobs</a>
+      <a href="employer-login.html" class="btn btn-outline-light btn-lg shadow">Hire Talent</a>
+    </div>
+  </header>
+
+  <!-- Features -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="feature-card">
+            <div class="icon"><i class="bi bi-briefcase"></i></div>
+            <h5>Job Seekers</h5>
+            <p>Search and apply for jobs in hotels, restaurants, and resorts across Africa.</p>
+            <a href="job-openings.html" class="btn btn-sm btn-royal">Explore Jobs</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card">
+            <div class="icon"><i class="bi bi-building"></i></div>
+            <h5>Employers</h5>
+            <p>Post vacancies, request staff, and connect with top hospitality professionals.</p>
+            <a href="employer-login.html" class="btn btn-sm btn-royal">For Employers</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card">
+            <div class="icon"><i class="bi bi-mortarboard"></i></div>
+            <h5>Learning</h5>
+            <p>Access training and skill development programs to grow your hospitality career.</p>
+            <a href="mylearning.html" class="btn btn-sm btn-royal">Start Learning</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="py-5 bg-light text-center">
+    <div class="container partners">
+      <h2 class="fw-bold mb-4">Trusted by Leading Hospitality Firms</h2>
+      <div class="row g-4 align-items-center">
+        <div class="col-6 col-md-3"><img src="img/partner1.png" alt="Partner 1" class="img-fluid"></div>
+        <div class="col-6 col-md-3"><img src="img/partner2.png" alt="Partner 2" class="img-fluid"></div>
+        <div class="col-6 col-md-3"><img src="img/partner3.png" alt="Partner 3" class="img-fluid"></div>
+        <div class="col-6 col-md-3"><img src="img/partner4.png" alt="Partner 4" class="img-fluid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">Success Stories</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial">
+            <p>“We hired two top chefs in a week. The process was seamless.”</p>
+            <div class="author">— Azure Hotels</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial">
+            <p>“Jobpitality helped us quickly find qualified staff during peak season.”</p>
+            <div class="author">— Safari Lodge Group</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial">
+            <p>“I got my dream job in under a month. Highly recommend this platform.”</p>
+            <div class="author">— Grace, Job Seeker</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p>&copy; 2025 Jobpitality. All Rights Reserved.</p>
+      <div>
+        <a href="aboutus.html" class="me-3">About Us</a>
+        <a href="contact.html" class="me-3">Contact</a>
+        <a href="support.html">Support</a>
+      </div>
+    </div>
+  </footer>

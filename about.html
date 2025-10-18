@@ -29,6 +29,74 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+<style>
+    .hero {
+      background-image: url('img/about-us.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ✅ Responsive Menu */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #444;
+    padding: 10px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .features {
+    flex-direction: column;
+  }
+
+  .feature-box {
+    flex: 1 1 100%;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+}
+
+</style>
+
+    
 </head>
 
 <body>
@@ -93,8 +161,19 @@
               </div>
           </nav>
           <!-- Navbar End -->
+
+          <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h2 class="animate__animated animate__fadeInDown" style="color: white;">About Jobpitality</h2>
+      <p class="animate__animated animate__fadeInUp" style="color: white;">
+        Premium recruitment agency focused on connecting top hospitality talent with reputable employers.
+      </p>
+    </div>
+  </section>
+
   
-        <div class="container-xxl py-5 bg-dark page-header mb-5">
+        <!-- <div class="container-xxl py-5 bg-dark page-header mb-5">
             <div class="container my-5 pt-5 pb-4">
                 <h1 class="display-3 text-white mb-3 animated slideInDown">About Jobpitality</h1>
                 <p class="lead text-white"><i>Connecting the Best Talent with Top Hospitality Employers</p></i>
@@ -106,7 +185,7 @@
                     </ol>
                 </nav>
             </div>
-        </div>
+        </div> -->
                
 
         <!-- About Start -->
@@ -131,7 +210,7 @@
                     </div>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                         <h1 class="mb-4">We Help You Get the Best Job and Find the Right Talent</h1>
-                        <p class="mb-4">At Jobpitality, we connect hospitality professionals with the right opportunities and employers with top talent. Our platform simplifies the recruitment process and supports career growth.</p>
+                        <p class="mb-4">Jobpitality is a specialized recruitment agency serving the hospitality industry. We are committed to matching qualified professionals with the best opportunities in hotels, resorts, restaurants, and lounges. With years of experience, we understand the unique needs of both employers and job seekers. At Jobpitality, we connect hospitality professionals with the right opportunities and employers with top talent. Our platform simplifies the recruitment process and supports career growth.</p>
                         <p><i class="fa fa-check text-primary me-3"></i>We make it easier for you to find a job in the hospitality industry.</p>
                         <p><i class="fa fa-check text-primary me-3"></i>We help employers discover qualified candidates.</p>
                         <p><i class="fa fa-check text-primary me-3"></i>We support job seekers with guidance and tools to succeed.</p>

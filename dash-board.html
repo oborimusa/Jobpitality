@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Seeker Dashboard - Jobpitality</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
+</head>
+
+<body class="bg-light">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 id="jsName">Loading...</h5>
+            <p id="jsEmail"></p>
+            <a href="profile-edit.html" class="btn btn-primary w-100">Edit Profile</a>
+            <button id="logoutBtn" class="btn btn-danger w-100 mt-3">Logout</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-9">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Available Job Listings</h3>
+            <div id="jobListings">
+              <!-- Job listings will appear here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer (unchanged) -->
+  <!-- You can keep your existing footer code here -->
+
+  <!-- Firebase Config -->
+  <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
+  authDomain: "jobpitality-1cfb2.firebaseapp.com",
+  projectId: "jobpitality-1cfb2",
+  storageBucket: "jobpitality-1cfb2.firebasestorage.app",
+  messagingSenderId: "185191165097",
+  appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8",
+  measurementId: "G-SF5LWDZDKF"
+};
+
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // Enable offline persistence
+    db.enablePersistence().catch((err) => {
+      if (err.code == 'failed-precondition') {
+        console.log('Persistence failed');
+      } else if (err.code == 'unimplemented') {
+        console.log('Persistence is not available on this browser');
+      }
+    });
+
+    // Auth State Check
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        loadJobSeekerDashboard(user);
+      } else {
+        window.location.href = "login.html";
+      }
+    });
+
+    function loadJobSeekerDashboard(user) {
+      // Load User Profile
+      db.collection('users').doc(user.uid).get()
+        .then(doc => {
+          if (doc.exists) {
+            const data = doc.data();
+            document.getElementById('jsName').textContent = data.fullName || data.name || 'Job Seeker';
+            document.getElementById('jsEmail').textContent = data.email;
+          } else {
+            document.getElementById('jsName').textContent = 'Profile not found';
+            document.getElementById('jsEmail').textContent = '';
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching user profile:', error);
+        });
+
+      // Load Job Listings
+      db.collection('jobPostings').get()
+        .then(querySnapshot => {
+          const jobListingsDiv = document.getElementById('jobListings');
+          if (querySnapshot.empty) {
+            jobListingsDiv.innerHTML = '<p>No job listings available.</p>';
+          } else {
+            querySnapshot.forEach(doc => {
+              const jobData = doc.data();
+              const jobElement = document.createElement('div');
+              jobElement.classList.add('mb-3');
+              jobElement.innerHTML = `
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">${jobData.title}</h5>
+                    <p class="card-text">${jobData.description}</p>
+                    <a href="job-details.html?jobId=${doc.id}" class="btn btn-primary">View Job</a>
+                  </div>
+                </div>
+              `;
+              jobListingsDiv.appendChild(jobElement);
+            });
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching job listings: ', error);
+        });
+
+      // Logout Handler
+      document.getElementById('logoutBtn').addEventListener('click', () => {
+        auth.signOut().then(() => {
+          window.location.href = "login.html";
+        }).catch(error => {
+          console.error('Error signing out: ', error);
+        });
+      });
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

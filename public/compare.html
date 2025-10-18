@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Compare Products — Jobpitality</title>
+  <meta name="description" content="Compare Jobpitality listing products — Basic, Standard, Premium. Pick the best hiring product for your needs." />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #0ea861;
+      --blue: #004aad;
+      --dark: #0b2540;
+      --muted: #6b7280;
+      --whatsapp: #25D366;
+    }
+
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: var(--dark); background:#f7f9fc; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(180deg, rgba(0,74,173,0.92), rgba(14,168,97,0.06)), url('img/hero-bg.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 72px 18px;
+      text-align: center;
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+    }
+    .hero h1 { font-size: 2.25rem; font-weight:700; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .hero p { max-width:900px; margin: 0 auto 20px; opacity: .95; }
+
+    /* Pricing cards row */
+    .plan-card {
+      border-radius: 12px;
+      transition: transform .18s ease, box-shadow .18s ease;
+      border: 1px solid #e7eefc;
+      background: #fff;
+    }
+    .plan-card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(6,20,50,0.08); }
+
+    .plan-header { padding:22px; border-bottom: 1px dashed #eef5ff; text-align:center; }
+    .plan-price { font-size: 1.6rem; font-weight:700; color: var(--blue); }
+    .plan-badge { display:inline-block; padding:6px 10px; border-radius:999px; background: rgba(14,168,97,0.08); color:var(--green); font-weight:600; font-size:.9rem; }
+
+    /* Feature table */
+    .compare-table thead th { background:#fff; border-top:0; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; font-size:.78rem; }
+    .compare-table td, .compare-table th { vertical-align: middle; }
+    .check { color: var(--green); font-weight:700; }
+
+    .cta-primary { background: var(--green); color: #fff; border: 0; }
+    .cta-primary:hover { background: #0c9953; }
+
+    /* Highlight column */
+    .recommended { box-shadow: 0 12px 30px rgba(14,168,97,0.08); border: 2px solid rgba(14,168,97,0.12); }
+
+    /* smaller screens */
+    @media (max-width: 767px) {
+      .hero h1 { font-size:1.6rem; }
+      .plan-price { font-size:1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <h1>The new hiring standard</h1>
+      <p class="lead">
+        The Standard Job Product makes it easier for you to find the right candidates by testing and highlighting relevant candidates who closely match your job requirements.
+      </p>
+      <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
+        <button class="btn cta-primary btn-lg px-4" onclick="startHiring('standard')">Start Hiring</button>
+        <a href="contact.html" class="btn btn-outline-light btn-lg px-4">Talk to an expert</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- TRUST BAR -->
+  <section class="py-4 bg-white">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap gap-3">
+      <div class="text-muted">Trusted by <strong>103,000+</strong> employers across industries</div>
+      <div class="d-flex gap-3 align-items-center flex-wrap">
+        <img src="img/logo1.png" alt="logo" height="30">
+        <img src="img/logo2.png" alt="logo" height="30">
+        <img src="img/logo3.png" alt="logo" height="30">
+        <img src="img/logo4.png" alt="logo" height="30">
+        <img src="img/logo5.png" alt="logo" height="30">
+        <img src="img/logo6.png" alt="logo" height="30">
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING CARDS -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="mb-4" style="color:var(--dark)">Pick the plan that fits your hiring needs</h2>
+      <p class="text-muted mb-4">Simple pricing, clear outcomes. Upgrade anytime for skill tests, highlighted candidates and dedicated support.</p>
+
+      <div class="row g-4">
+        <!-- BASIC -->
+        <div class="col-md-4">
+          <div class="plan-card p-3 h-100">
+            <div class="plan-header">
+              <div class="text-muted mb-1">Basic Listing</div>
+              <div class="plan-price">NGN 50,000</div>
+              <div class="small text-muted">Excl. VAT</div>
+            </div>
+            <div class="p-3">
+              <ul class="list-unstyled mb-4">
+                <li>Standard visibility</li>
+                <li>Manual candidate screening</li>
+                <li>Basic applicant tracking</li>
+                <li>Post for 30 days</li>
+              </ul>
+
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-primary" onclick="addToCart('Basic', 50000)">Add to Cart</button>
+                <button class="btn btn-outline-secondary" onclick="startHiring('basic')">Start Hiring</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STANDARD (recommended) -->
+        <div class="col-md-4">
+          <div class="plan-card p-3 h-100 recommended">
+            <div class="plan-header">
+              <div class="plan-badge mb-2">Most popular</div>
+              <div class="text-muted mb-1">Standard Listing</div>
+              <div class="plan-price">NGN 100,000</div>
+              <div class="small text-muted">Excl. VAT</div>
+            </div>
+            <div class="p-3">
+              <ul class="list-unstyled mb-4">
+                <li><strong>Highlighted relevant candidates</strong></li>
+                <li>AI candidate ranking</li>
+                <li>Set up to 10 passive invites</li>
+                <li>Custom pre-qualifying questions</li>
+                <li>Integrated skills tests</li>
+              </ul>
+
+              <div class="d-grid gap-2">
+                <button class="btn cta-primary" onclick="addToCart('Standard', 100000)">Add to Cart</button>
+                <button class="btn btn-outline-primary" onclick="startHiring('standard')">Start Hiring</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="col-md-4">
+          <div class="plan-card p-3 h-100">
+            <div class="plan-header">
+              <div class="text-muted mb-1">Premium Listing</div>
+              <div class="plan-price">NGN 150,000</div>
+              <div class="small text-muted">Excl. VAT</div>
+            </div>
+            <div class="p-3">
+              <ul class="list-unstyled mb-4">
+                <li>Top placement across search</li>
+                <li>Unlimited passive invites</li>
+                <li>Dedicated support & hiring expert</li>
+                <li>Advanced assessment & reporting</li>
+              </ul>
+
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-primary" onclick="addToCart('Premium', 150000)">Add to Cart</button>
+                <button class="btn btn-outline-secondary" onclick="startHiring('premium')">Start Hiring</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <h3 class="mb-4">Compare features</h3>
+
+      <div class="table-responsive shadow-sm rounded">
+        <table class="table compare-table mb-0">
+          <thead>
+            <tr>
+              <th style="width:40%"></th>
+              <th class="text-center">Basic</th>
+              <th class="text-center">Standard</th>
+              <th class="text-center">Premium</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Highlighted & relevant candidates</td>
+              <td class="text-center text-muted">—</td>
+              <td class="text-center"><span class="check">✓</span></td>
+              <td class="text-center"><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>AI candidate ranking</td>
+              <td class="text-center text-muted">—</td>
+              <td class="text-center"><span class="check">✓</span></td>
+              <td class="text-center"><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Custom pre-qualifying questions</td>
+              <td class="text-center text-muted">—</td>
+              <td class="text-center"><span class="check">✓</span></td>
+              <td class="text-center"><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Passive candidate invites</td>
+              <td class="text-center">—</td>
+              <td class="text-center">Up to 10</td>
+              <td class="text-center">Unlimited</td>
+            </tr>
+            <tr>
+              <td>Skill tests & assessments</td>
+              <td class="text-center text-muted">—</td>
+              <td class="text-center"><span class="check">✓</span></td>
+              <td class="text-center"><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Featured placement</td>
+              <td class="text-center text-muted">—</td>
+              <td class="text-center">Selected slots</td>
+              <td class="text-center">Top placement</td>
+            </tr>
+            <tr>
+              <td>Dedicated hiring expert</td>
+              <td class="text-center text-muted">—</td>
+              <td class="text-center text-muted">—</td>
+              <td class="text-center"><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Price (NGN)</td>
+              <td class="text-center"><strong>50,000</strong></td>
+              <td class="text-center"><strong>100,000</strong></td>
+              <td class="text-center"><strong>150,000</strong></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td class="text-center"><button class="btn btn-sm btn-outline-primary" onclick="addToCart('Basic',50000)">Add to Cart</button></td>
+              <td class="text-center"><button class="btn btn-sm cta-primary" onclick="addToCart('Standard',100000)">Add to Cart</button></td>
+              <td class="text-center"><button class="btn btn-sm btn-outline-primary" onclick="addToCart('Premium',150000)">Add to Cart</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Why choose -->
+      <div class="row mt-5 align-items-center">
+        <div class="col-md-6">
+          <h4>Why choose Standard Listing?</h4>
+          <p class="text-muted">
+            Standard Listing speeds hiring by surfacing highly relevant candidates, testing skills upfront and giving you structured shortlisting tools so you interview fewer but better-fit people.
+          </p>
+          <ul>
+            <li>Faster shortlist — less noise, more signal</li>
+            <li>Better quality through tests & custom questions</li>
+            <li>Direct access to passive talent</li>
+          </ul>
+          <a class="btn cta-primary mt-3" onclick="startHiring('standard')">Try Standard Listing</a>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="img/why-standard.png" alt="Why Standard" style="max-width:320px">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-4 mt-5" style="background:#081226; color:#fff;">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <div class="text-muted small">Got questions? Call our team on <strong style="color:var(--green)">+234 812 770 6378</strong></div>
+      <div class="text-center small">
+        <a href="about.html" style="color:#cfe9ff; text-decoration:none; margin-right:12px">About</a>
+        <a href="companies.html" style="color:#cfe9ff; text-decoration:none; margin-right:12px">Companies Hiring</a>
+        <a href="privacy.html" style="color:#cfe9ff; text-decoration:none; margin-right:12px">Privacy</a>
+      </div>
+      <div class="small">© <span id="year"></span> Jobpitality</div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Very small demo handlers — replace with your cart & checkout logic
+    function addToCart(plan, amount) {
+      // example: call your cart API or localStorage
+      alert(`${plan} added to cart — NGN ${amount.toLocaleString()}`);
+      // TODO: implement actual add-to-cart action (API or localStorage)
+    }
+
+    function startHiring(plan) {
+      // Quick CTA: jump to post job page with plan preselected
+      // For now, redirect to a page or open post job form
+      // e.g. window.location.href = `post-job.html?plan=${plan}`;
+      alert(`Starting hiring flow for: ${plan}. Redirecting to Post Job...`);
+      window.location.href = 'post-job.html?plan=' + encodeURIComponent(plan);
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

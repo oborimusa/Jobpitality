@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jobs in Nigeria | Jobpitality</title>
+  <meta name="description" content="Browse thousands of hospitality and related jobs in Nigeria. Apply easily and find your next opportunity on Jobpitality.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+    }
+    .job-card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.2s ease-in-out;
+    }
+    .job-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+    .featured-badge {
+      background-color: #0ea861;
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 5px;
+    }
+    .apply-btn {
+      background-color: #0ea861;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .apply-btn:hover {
+      background-color: #0c9154;
+    }
+    .filter-section select,
+    .filter-section input {
+      border-radius: 6px;
+      padding: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-success" href="index.html">Jobpitality</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="job.html">Jobs</a></li>
+          <li class="nav-item"><a class="nav-link" href="employers.html">Employers</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Search + Filters -->
+  <section class="py-4 bg-light border-bottom">
+    <div class="container">
+      <form class="row g-2 align-items-center filter-section">
+        <div class="col-md-3">
+          <input type="text" class="form-control" placeholder="Job title or keyword">
+        </div>
+        <div class="col-md-2">
+          <select class="form-select">
+            <option selected>Any Location</option>
+            <option>Lagos</option>
+            <option>Abuja</option>
+            <option>Port Harcourt</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select">
+            <option selected>Any Category</option>
+            <option>Hospitality</option>
+            <option>Customer Service</option>
+            <option>Management</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select class="form-select">
+            <option selected>Job Type</option>
+            <option>Full-Time</option>
+            <option>Part-Time</option>
+            <option>Contract</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-success w-100">Search</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Job Listings -->
+  <section class="py-5">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="fw-bold mb-0">Jobs in Nigeria</h4>
+        <span class="text-muted small">30 Jobs Found</span>
+      </div>
+
+      <!-- Job Card Example -->
+      <div class="job-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="featured-badge">FEATURED</span>
+          <small class="text-muted">New • Today</small>
+        </div>
+        <h5 class="fw-semibold mb-1">Bar Waitress</h5>
+        <p class="mb-1 text-success fw-semibold">4T Luxury Hotel • Osobgo</p>
+        <p class="mb-2 text-muted small">Full Time • NGN 40,000 - 50,000 </p>
+        <p class="text-muted small mb-3">
+          We are seeking a highly skilled and motivated Bar Waitress to join our hotel company in Osogbo.
+        </p>
+        <div class="d-flex justify-content-end">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScQCdI3u2vSsHf0xpDUIQaRnaRjThq1KXqVVQ_rFC5igNu7Eg/viewform?usp=header" class="apply-btn">Easy Apply</a>
+        </div>
+      </div>
+
+
+      <div class="job-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="featured-badge">FEATURED</span>
+          <small class="text-muted">New • Today</small>
+        </div>
+        <h5 class="fw-semibold mb-1">Sous Chef</h5>
+        <p class="mb-1 text-success fw-semibold">Agbonna Lodge & Suite • Ilorin</p>
+        <p class="mb-2 text-muted small">Full Time • NGN 100,000 - 120,000 </p>
+        <p class="text-muted small mb-3">
+          We are seeking a highly skilled and motivated Sous chef to join our hotel company in Lagos.
+        </p>
+        <div class="d-flex justify-content-end">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScQCdI3u2vSsHf0xpDUIQaRnaRjThq1KXqVVQ_rFC5igNu7Eg/viewform?usp=header" class="apply-btn">Easy Apply</a>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="featured-badge">FEATURED</span>
+          <small class="text-muted">New • 2 days ago</small>
+        </div>
+        <h5 class="fw-semibold mb-1">Restaurant Manager</h5>
+        <p class="mb-1 text-success fw-semibold">Pronto Restaurant & Lounge • Lagos</p>
+        <p class="mb-2 text-muted small">Full Time • NGN 120,000 - 150,000 • Engineering</p>
+        <p class="text-muted small mb-3">
+          We are seeking a motivated and detail-oriented hospitality Graduate  to join our team.
+        </p>
+        <div class="d-flex justify-content-end">
+          <a href="restaurant-manager.html" class="apply-btn">Easy Apply</a>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="featured-badge">FEATURED</span>
+          <small class="text-muted">3 days ago</small>
+        </div>
+        <h5 class="fw-semibold mb-1">housekeeping-supervisor</h5>
+        <p class="mb-1 text-success fw-semibold">4T Luxury Hotel • Osogbo</p>
+        <p class="mb-2 text-muted small">Full Time • NGN 45,000 - 50,000 </p>
+        <p class="text-muted small mb-3">
+          We seek to hire suitable candidate for this role.
+        </p>
+        <div class="d-flex justify-content-end">
+          <a href="housekeeping-supervisor.html" class="apply-btn">Easy Apply</a>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled"><a class="page-link">Previous</a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="bg-success text-white py-5">
+    <div class="container text-center">
+      <h5 class="fw-bold mb-3">Stay Updated</h5>
+      <p class="mb-4">Join our newsletter and get the latest job listings and career insights delivered straight to your inbox.</p>
+      <form class="row justify-content-center g-2">
+        <div class="col-md-4">
+          <input type="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-light w-100 text-success fw-semibold">Notify Me</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 Jobpitality. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

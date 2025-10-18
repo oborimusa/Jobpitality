@@ -1,0 +1,224 @@
+<!-- Jobpitality - Registration Page (Bootstrap-based) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Jobpitality</title>
+
+  <!-- EmailJS (latest version) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+
+  <!-- Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- ✅ Firebase SDKs (Compat Version) -->
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
+</head>
+
+<body class="bg-light">
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+      <div class="img pb-2 pt-2">
+        <img src="img/final-job.png" alt="Logo" style="width: 150px; margin-left: 200px;">
+      </div>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav m-0 p-4 p-lg-0">
+        <a href="index.html" class="nav-item nav-link active">Home</a>
+        <div class="nav-item dropdown">
+          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <a href="vacancy.html" class="dropdown-item">Post a Vacancy</a>
+            <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <a href="job-openings.html" class="dropdown-item">Job Openings</a>
+            <a href="job-list.html" class="dropdown-item">Job List</a>
+            <a href="job-detail.html" class="dropdown-item">Job Details</a>
+            <a href="application-form.html" class="dropdown-item">Upload Your Resume</a>
+          </div>
+        </div>
+      </div>
+    </div>
+                
+    <!-- <div class="d-flex align-items-center ms-auto me-5">
+      <a href="login.html" class="nav-link px-2">Login</a>
+      <span class="text-muted">|</span>
+      <a href="signup-landing.html" class="nav-link px-2">Sign Up</a>
+    </div> -->
+  </nav>
+  <!-- Navbar End -->
+
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow p-4">
+          <h2 class="mb-4 text-center">Create an Account</h2>
+
+          <!-- Tabs -->
+          <ul class="nav nav-tabs mb-3" id="accountTypeTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="jobseeker-tab" data-bs-toggle="tab" data-bs-target="#jobseeker" type="button" role="tab">Job Seeker</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="employer-tab" data-bs-toggle="tab" data-bs-target="#employer" type="button" role="tab">Employer</button>
+            </li>
+          </ul>
+
+          <!-- Tab Content -->
+          <div class="tab-content" id="accountTypeTabsContent">
+            <!-- Job Seeker Registration Form -->
+            <div class="tab-pane fade show active" id="jobseeker" role="tabpanel">
+              <form id="signupForm">
+                <div class="mb-3">
+                  <label for="fullName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="fullName" required>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Sign Up as Job Seeker</button>
+              </form>
+            </div>
+
+            <!-- Employer Registration Form -->
+            <div class="tab-pane fade" id="employer" role="tabpanel">
+              <form id="employerForm">
+                <div class="mb-3">
+                  <label for="emCompanyName" class="form-label">Company Name</label>
+                  <input type="text" class="form-control" id="emCompanyName" required>
+                </div>
+                <div class="mb-3">
+                  <label for="emEmail" class="form-label">Business Email</label>
+                  <input type="email" class="form-control" id="emEmail" required>
+                </div>
+                <div class="mb-3">
+                  <label for="emPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="emPassword" required>
+                </div>
+                <div class="mb-3">
+                  <label for="emPhone" class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" id="emPhone">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Register as Employer</button>
+              </form>
+            </div>
+          </div>
+          <div class="text-center mt-3">
+          <p class="mb-0"> 
+            <a href="login.html" class="text-primary fw-bold">Login</a>
+          </p>
+        </div>
+
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase Setup -->
+  <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
+  authDomain: "jobpitality-1cfb2.firebaseapp.com",
+  projectId: "jobpitality-1cfb2",
+  storageBucket: "jobpitality-1cfb2.firebasestorage.app",
+  messagingSenderId: "185191165097",
+  appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8",
+  measurementId: "G-SF5LWDZDKF"
+};
+
+
+    // ✅ Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // ✅ Job Seeker Registration
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fullName = document.getElementById('fullName').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const cred = await auth.createUserWithEmailAndPassword(email, password);
+        await db.collection('users').doc(cred.user.uid).set({
+          name: fullName,
+          email,
+          role: "jobseeker",
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        alert('Job Seeker registered successfully!');
+        window.location.href = "jobseeker-landing.html";
+      } catch (error) {
+        alert('Registration failed: ' + error.message);
+      }
+    });
+
+    // ✅ Employer Registration
+    document.getElementById('employerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const companyName = document.getElementById('emCompanyName').value;
+      const email = document.getElementById('emEmail').value;
+      const password = document.getElementById('emPassword').value;
+      const phone = document.getElementById('emPhone').value;
+
+      try {
+        const cred = await auth.createUserWithEmailAndPassword(email, password);
+        await db.collection('users').doc(cred.user.uid).set({
+          companyName,
+          email,
+          phone,
+          role: "employer",
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        alert('Employer registered successfully!');
+        window.location.href = "employer-landing.html";
+      } catch (error) {
+        alert('Registration failed: ' + error.message);
+      }
+    });
+  </script>
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

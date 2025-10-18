@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join Jobpitality</title>
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet"/>
+
+  <!-- Bootstrap Stylesheet -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(90deg, rgba(11, 37, 69, 0.9), rgba(6, 125, 63, 0.85));
+      color: #fff;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    /* Cards */
+    .role-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .role-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .role-icon {
+      font-size: 4rem;
+      color: #0d6efd;
+      margin-bottom: 20px;
+    }
+
+    .btn-button {
+      background: #0d6efd;
+      padding: 10px 18px;
+      color: #fff;
+      border-radius: 7px;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .btn-button:hover {
+      background: #084298;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid bg-white p-0">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top p-0">
+      <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5 m-2">
+        <img src="img/final-job.png" alt="Jobpitality Logo" style="width: 20%; height: auto;">
+      </a>
+      <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse px-4" id="navbarCollapse">
+        <div class="navbar-nav me-auto">
+          <!-- Employers -->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="standard-listing.html" class="dropdown-item">Standard Listing</a>
+              <a href="executive.html" class="dropdown-item">Executive Recruitment</a>
+              <a href="employer-corner.html" class="dropdown-item">Employer's Corner</a>
+              <a href="request-staff.html" class="dropdown-item">Request Staff</a>
+              <a href="pro-recruit.html" class="dropdown-item">Pro Recruit</a>
+            </div>
+          </div>
+
+          <!-- Job Seekers -->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="job-openings.html" class="dropdown-item">Job Openings</a>
+              <a href="cv-review.html" class="dropdown-item">CV Review Services</a>
+              <a href="job-vacancies.html" class="dropdown-item">Job Vacancies</a>
+              <a href="my-learning.html" class="dropdown-item">My Learning</a>
+              <a href="application-form.html" class="dropdown-item">Upload Your Resume</a>
+            </div>
+          </div>
+
+          <a href="pricing.html" class="nav-link px-2">Pricing</a>
+
+          <!-- Help Center -->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="post-job.html" class="dropdown-item">Post a Vacancy</a>
+              <a href="request-staff.html" class="dropdown-item">Request Staff</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Auth Buttons -->
+        <div class="btn d-flex align-items-center ms-auto">
+          <a href="jobseeker-landing.html" class="nav-link px-2">Login</a>
+          <span class="text-muted">|</span>
+          <a href="register.html" class="nav-link px-2">Sign Up</a>
+          <a href="login.html" class="btn-button ms-3">Post A Job</a>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Hero Section -->
+    <header class="hero mt-5">
+      <div class="container">
+        <h1 class="fw-bold mt-3 text-light">Get Started with Jobpitality</h1>
+        <p class="lead">Choose your role and begin your journey</p>
+      </div>
+    </header>
+
+    <!-- Role Selection -->
+    <section id="features" class="py-5">
+      <div class="container text-center">
+        <div class="row g-4 justify-content-center align-items-center">
+
+          <div class="col-lg-6 mb-4">
+            <img src="img/carousel-2.jpg" alt="Hospitality Image" class="w-100 rounded shadow-sm">
+          </div>
+
+          <div class="col-md-3">
+            <div class="role-card">
+              <div class="role-icon"><i class="bi bi-building"></i></div>
+              <h4>I'm an Employer</h4>
+              <p>Post vacancies, request staff, and find top hospitality talent quickly.</p>
+              <a href="register.html" class="btn btn-primary btn-choose">Continue as Employer</a>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="role-card">
+              <div class="role-icon"><i class="bi bi-person-badge"></i></div>
+              <h4>I'm a Job Seeker</h4>
+              <p>Create your profile, upload your CV, and apply for jobs in hotels, restaurants, and bars.</p>
+              <a href="register.html" class="btn btn-outline-primary btn-choose">Continue as Job Seeker</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Firebase + Bootstrap JS -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
+      authDomain: "jobpitality-1cfb2.firebaseapp.com",
+      projectId: "jobpitality-1cfb2",
+      storageBucket: "jobpitality-1cfb2.appspot.com",
+      messagingSenderId: "185191165097",
+      appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8",
+      measurementId: "G-SF5LWDZDKF"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Job Post - Jobpitality</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Firebase v10 COMPAT SDKs (one set only) -->
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow p-4">
+          <h3 class="text-center mb-4">Edit Job Post</h3>
+
+          <form id="editJobForm">
+            <div class="mb-3">
+              <label for="jobTitle" class="form-label">Job Title</label>
+              <input type="text" class="form-control" id="jobTitle" required />
+            </div>
+            <div class="mb-3">
+              <label for="jobDescription" class="form-label">Job Description</label>
+              <textarea class="form-control" id="jobDescription" rows="5" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="applicationDeadline" class="form-label">Application Deadline</label>
+              <input type="date" class="form-control" id="applicationDeadline" required />
+            </div>
+            <button type="submit" class="btn btn-success w-100">Update Job Post</button>
+          </form>
+
+          <button id="backBtn" class="btn btn-outline-secondary w-100 mt-3">
+            Back to Dashboard
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Firebase Config & App Logic -->
+  <script>
+    // --- Your Firebase project configuration ---
+    const firebaseConfig = {
+      apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
+      authDomain: "jobpitality-1cfb2.firebaseapp.com",
+      projectId: "jobpitality-1cfb2",
+      storageBucket: "jobpitality-1cfb2.appspot.com",
+      messagingSenderId: "185191165097",
+      appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8",
+      measurementId: "G-SF5LWDZDKF",
+    };
+
+    // --- Initialize Firebase once ---
+   
+  // --- Page Logic ---
+  document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const jobPostId = params.get("jobId");
+
+    if (!jobPostId) {
+      console.error("❌ No jobId parameter in URL");
+      alert("No job post found to edit.");
+      window.location.href = "standard-listing.html";
+      return;
+    }
+
+    console.log("🔍 Loading job post with ID:", jobPostId);
+
+    // Fetch and populate the form
+    db.collection("jobPosts").doc(jobPostId).get()
+      .then((doc) => {
+        if (!doc.exists) {
+          console.warn("⚠️ No Firestore document with ID:", jobPostId);
+          alert("Job not found. Check that the jobId in the URL matches a document ID in the jobPosts collection.");
+          window.location.href = "standard-listing.html";
+          return;
+        }
+
+        const data = doc.data() || {};
+        document.getElementById("jobTitle").value            = data.title || "";
+        document.getElementById("jobDescription").value      = data.description || "";
+        document.getElementById("applicationDeadline").value = data.applicationDeadline || "";
+      })
+      .catch((err) => {
+        console.error("🔥 Firestore read error:", err);
+        alert("Error loading job: " + err.message);
+        window.location.href = "standard-listing.html";
+      });
+
+    // Handle updates
+    document.getElementById("editJobForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      try {
+        await db.collection("jobPosts").doc(jobPostId).update({
+          title: document.getElementById("jobTitle").value,
+          description: document.getElementById("jobDescription").value,
+          applicationDeadline: document.getElementById("applicationDeadline").value,
+          updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+        alert("✅ Job post updated successfully!");
+        window.location.href = "standard-listing.html";
+      } catch (err) {
+        console.error("🔥 Update failed:", err);
+        alert("Update failed: " + err.message);
+      }
+    });
+
+    // Back button
+    document.getElementById("backBtn").addEventListener("click", () => {
+      window.location.href = "dashboard.html";
+    });
+  });
+</script>
+</body>
+</html>

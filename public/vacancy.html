@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Vacancy Jobpitality</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+      
+    .hero {
+      background-image: url('img/hiring.jpeg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
+    }
+
+     .btn-button{
+    background: #0d6efd;
+    padding: 20px;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top p-0" style="z-index: 1030;">
+    <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5 m-2">
+      <div class="img pb-2 pt-2">
+        <img src="img/final-job.png" alt="Logo" style="width: 150px; height: auto; margin: 20px 0;">
+      </div>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse px-4" id="navbarCollapse">
+      <div class="navbar-nav me-auto">
+        <!-- Employers -->
+        <div class="nav-item dropdown">
+          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <a href="standard-listing.html" class="dropdown-item">Standard Listing</a>
+            <a href="executive.html" class="dropdown-item">Executive Recruitment</a>
+            <a href="#employer-corner.html" class="dropdown-item">Employer's Corner</a>
+            <a href="request-staff.html" class="dropdown-item">Request Staff</a>
+            <a href="#request-staff.html" class="dropdown-item">Pro Recruit</a>
+
+          </div>
+        </div>
+
+        <!-- Career -->
+        <div class="nav-item dropdown">
+          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+        </div>
+
+        <!-- Job Seekers -->
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <a href="job-openings.html" class="dropdown-item">Job Openings</a>
+            <a href="#cv-review.html" class="dropdown-item">CV Review Services</a>
+            <a href="job-vacancies.html" class="dropdown-item">Job Vacancies</a>
+            <a href="#my-learning.html" class="dropdown-item">My Learning</a>
+            <a href="application-form.html" class="dropdown-item">Upload Your Resume</a>
+          </div>
+        </div>
+
+        <div class="">
+          <a href="pricing.html" class="nav-link px-2">Pricing</a>
+        </div>
+
+        <!-- Help Center -->
+        <div class="nav-item dropdown">
+          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <a href="post-job.html" class="dropdown-item">Post a Vacancy</a>
+            <a href="request-staff.html" class="dropdown-item">Request Staff</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auth + Post Job -->
+      <div class="d-flex align-items-center ms-auto">
+        <a href="jobseeker-landing.html" class="nav-link px-2">Login</a>
+        <span class="text-muted">|</span>
+        <a href="register.html" class="nav-link px-2">Sign Up</a>
+        <a href="vacancy.html" class="btn btn-button ms-3 m-2" style="padding-top: 15px; border-radius: 7px; font-size: 12px; height: 45px; color: white;">
+          Post A Job
+        </a>
+      </div>
+    </div>
+  </nav>
+
+        <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h2 class="animate__animated animate__fadeInDown" style="color: white;">About Jobpitality</h2>
+      <p class="animate__animated animate__fadeInUp" style="color: white;">
+        Premium recruitment agency focused on connecting top hospitality talent with reputable employers.
+      </p>
+    </div>
+  </section>
+
+
+        <!-- Navbar End -->
+        <!-- Header Stars-->
+        <!-- <div class="container-xxl py-5 bg-dark page-header mb-5">
+            <div class="container my-5 pt-5 pb-4">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Vacancy</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb text-uppercase">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Job List</li>
+                    </ol>
+                </nav>
+            </div>
+        </div> -->
+        <!-- Header End -->
+        
+        <div class="container my-5 style="margin-left: 50px; width: 80%;">
+            <h2 class="mb-4 text-center">Submit Your Vacant Jobs</h2>
+            <!-- modify this form HTML and place wherever you want your form -->
+<form action="https://formspree.io/f/mldjodle"method="POST">
+    
+    <!-- Job Title -->
+    <div class="mb-3">
+        <label for="jobTitle" class="form-label">Job Title</label>
+        <input type="text" class="form-control" id="jobTitle" name="job_title" required>
+      </div>
+
+      <!-- Department / Category -->
+      <div class="mb-3">
+        <label for="department" class="form-label">Department / Category</label>
+        <input type="text" class="form-control" id="department" name="department">
+      </div>
+
+      <!-- Job Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Job Description</label>
+        <textarea class="form-control" id="description" name="job_description" rows="5" required></textarea>
+      </div>
+
+<!-- <label>Your email:</label>
+  <input type="email" name="email"></div> -->
+
+<!-- <label>
+  Your message:
+  <textarea name="message"></textarea>
+</label> -->
+<!-- your other form fields go here -->
+           
+        
+              <!-- Location -->
+              <div class="mb-3">
+                <label for="location" class="form-label">Job Location</label>
+                <input type="text" class="form-control" id="location" name="location" required>
+              </div>
+        
+              <!-- Salary Range -->
+              <div class="mb-3">
+                <label for="salary" class="form-label">Salary Range (Optional)</label>
+                <input type="text" class="form-control" id="salary" name="salary">
+              </div>
+        
+              <!-- Application Deadline -->
+              <div class="mb-3">
+                <label for="deadline" class="form-label">Application Deadline</label>
+                <input type="date" class="form-control" id="deadline" name="deadline">
+              </div>
+        
+              <!-- Company/Employer Name -->
+              <div class="mb-3">
+                <label for="employer" class="form-label">Company / Employer Name</label>
+                <input type="text" class="form-control" id="employer" name="employer_name" required>
+              </div>
+        
+              <!-- Contact Email -->
+              <div class="mb-3">
+                <label for="email" class="form-label">Contact Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+        
+              <!-- Optional File Upload (e.g., JD or Flyer) -->
+              <div class="mb-3">
+                <label for="attachment" class="form-label">Attach Job Description File (Optional)</label>
+                <input type="file" class="form-control" id="attachment" name="attachment">
+              </div>
+        
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary w-100">Send</button>
+            </form>
+              <!-- <button type="submit" class="btn btn-primary w-100">Submit Vacancy</button>
+            </form> -->
+          </div>
+          
+
+          
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-white mb-4">Company</h5>
+                <a class="btn btn-link text-white-50" href="about.html">About Us</a>
+                <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
+                <a class="btn btn-link text-white-50" href="services.html">Our Services</a>
+                <a class="btn btn-link text-white-50" href="privacy-policy.html">Privacy Policy</a>
+                <a class="btn btn-link text-white-50" href="terms-conditions.html">Terms & Conditions</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-white mb-4">Quick Links</h5>
+                <a class="btn btn-link text-white-50" href="about.html">About Us</a>
+                <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
+                <a class="btn btn-link text-white-50" href="services.html">Our Services</a>
+                <a class="btn btn-link text-white-50" href="privacy-policy.html">Privacy Policy</a>
+                <a class="btn btn-link text-white-50" href="terms-conditions.html">Terms & Conditions</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-white mb-4">Contact</h5>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>28, Pipeline Road, Ilorin, Kwara State</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+234 803 966 1354</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>oborimusa@gmail.com</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href="https://x.com/jobpitality"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="https://web.facebook.com/profile.php?id=100083690556325"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h5 class="text-white mb-4">Newsletter</h5>
+              <p>Subscribe to our newsletter.</p>
+              <div class="position-relative mx-auto" style="max-width: 400px;">
+                <input 
+                  id="newsletter-email" 
+                  type="email" 
+                  class="form-control bg-transparent text-white border border-light rounded-pill py-3 ps-4 pe-5" 
+                  placeholder="Your Email" 
+                  required
+                >
+                <button 
+                  id="newsletter-button" 
+                  type="button" 
+                  class="btn btn-primary position-absolute top-0 end-0 mt-2 me-2 rounded-pill py-2 px-4">
+                  Sign Up
+                </button>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="#">Jobpitality</a>, All Rights Reserved. 
+                    
+                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-menu">
+                        <a href="index.html">Home</a>
+                        <a href="cookies.html">Cookies</a>
+                        <a href="help.html">Help</a>
+                        <a href="faq.html">FAQs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+  </body>
+</html>'

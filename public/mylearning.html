@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Learning – Jobpitality</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        padding-top: 72px;
+      }
+      .hero {
+        background: linear-gradient(
+          90deg,
+          rgba(11, 37, 69, 0.9),
+          rgba(6, 125, 63, 0.85)
+        );
+        color: #fff;
+        padding: 2.25rem 1rem;
+        border-radius: 0.5rem;
+      }
+      .course-card {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .course-card .card-body {
+        flex: 1 1 auto;
+      }
+      .progress-pill {
+        font-size: 0.85rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+      }
+      @media (max-width: 576px) {
+        .hero h1 {
+          font-size: 1.25rem;
+        }
+        .hero p {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm"
+    >
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img
+            src="img/final-job.png"
+            alt="Jobpitality"
+            style="height: 40px; margin-right: 8px"
+          />
+          <span class="fw-bold"></span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMain"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link" href="job-list.html">Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cv-services.html">CV Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="mylearning.html">My Learning</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="employer-landing.html">Employers</a>
+            </li> -->
+            <li class="nav-item ms-2">
+              <a class="btn btn-primary" href="get-started.html">Get Started</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <main class="container">
+      <section class="hero mb-4">
+        <div class="row align-items-center">
+          <div class="col-12 col-md-8">
+            <h1 class="h3 mb-2">Your Learning Hub</h1>
+            <p class="mb-2">
+              Upskill for hospitality roles — courses, progress tracking and
+              certificates all in one place.
+            </p>
+            <div class="d-flex gap-2 flex-wrap">
+              <a href="#coursesSection" class="btn btn-light">Browse Courses</a>
+              <a href="#enrolledSection" class="btn btn-outline-light"
+                >My Courses</a
+              >
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4 text-md-end mt-3 mt-md-0">
+            <div class="d-inline-block text-start">
+              <div class="small text-white-50">Overall progress</div>
+              <div class="mt-2">
+                <div class="progress" style="height: 14px">
+                  <div
+                    id="overallProgressBar"
+                    class="progress-bar bg-success"
+                    role="progressbar"
+                    style="width: 32%"
+                  >
+                    32%
+                  </div>
+                </div>
+              </div>
+              <small class="d-block text-white-50 mt-2"
+                >3 courses in progress</small
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filters & Search -->
+      <section class="mb-3">
+        <div class="row g-2 align-items-center">
+          <div class="col-12 col-md-5">
+            <input
+              id="searchInput"
+              type="search"
+              class="form-control"
+              placeholder="Search courses, e.g. 'chef', 'hospitality'"
+            />
+          </div>
+
+          <div class="col-6 col-md-3">
+            <select id="categorySelect" class="form-select">
+              <option value="">All categories</option>
+              <option>Kitchen</option>
+              <option>Front Office</option>
+              <option>Management</option>
+              <option>Food & Beverage</option>
+              <option>Customer Service</option>
+            </select>
+          </div>
+
+          <div class="col-6 col-md-2">
+            <select id="levelSelect" class="form-select">
+              <option value="">All levels</option>
+              <option>Beginner</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+          </div>
+
+          <div class="col-12 col-md-2 d-grid">
+            <button id="filterBtn" class="btn btn-primary">Filter</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ENROLLED / PROGRESS CARDS -->
+      <section id="enrolledSection" class="mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="h5 mb-0">Enrolled Courses</h2>
+          <small class="text-muted" id="enrolledCount">0 enrolled</small>
+        </div>
+
+        <div class="row g-3" id="enrolledGrid">
+          <!-- dynamic -->
+        </div>
+      </section>
+
+      <!-- COURSES GRID -->
+      <section id="coursesSection" class="mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="h5 mb-0">Available Courses</h2>
+          <div class="text-muted small">
+            Showing <span id="shownCount">0</span> courses
+          </div>
+        </div>
+
+        <div class="row g-3" id="coursesGrid">
+          <!-- dynamic course cards -->
+        </div>
+        <div class="text-center mt-4">
+          <button id="loadMore" class="btn btn-outline-primary">
+            Load more
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Small Course Detail Modal -->
+    <div class="modal fade" id="courseModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+              <h5 id="modalTitle" class="modal-title">Course title</h5>
+              <small id="modalMeta" class="text-muted"
+                >Category · Level · Duration</small
+              >
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div id="modalBody" class="modal-body">Loading…</div>
+          <div class="modal-footer">
+            <button id="modalEnrollBtn" type="button" class="btn btn-primary">
+              Enroll
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light mt-5 py-4">
+      <div class="container text-center small text-muted">
+        © <span id="year"></span> Jobpitality — Learn and grow. All rights
+        reserved.
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      /* =======================
+   Course Data
+======================= */
+      const allCourses = [
+        {
+          id: "c1",
+          title: "Front Office Essentials",
+          category: "Front Office",
+          level: "Beginner",
+          duration: "3 weeks",
+          description: "Reception, guest check-in, phone etiquette.",
+          image: "img/front-office-hero.jpg",
+        },
+        {
+          id: "c2",
+          title: "Kitchen Hygiene & Safety",
+          category: "Kitchen",
+          level: "Beginner",
+          duration: "2 weeks",
+          description: "Food safety, HACCP basics, cleaning routines.",
+          image: "img/kitchen-hero.jpg",
+        },
+        {
+          id: "c3",
+          title: "Advanced Culinary Techniques",
+          category: "Food & Beverage",
+          level: "Advanced",
+          duration: "8 weeks",
+          description: "Modern plating, sauces, large-batch prep.",
+          image: "img/culinary-hero.jpg",
+        },
+        {
+          id: "c4",
+          title: "Hospitality Leadership",
+          category: "Management",
+          level: "Intermediate",
+          duration: "6 weeks",
+          description: "Team leadership, rota planning, conflict resolution.",
+          image: "img/leadership-hero.jpg",
+        },
+        {
+          id: "c5",
+          title: "Barista & Beverage Service",
+          category: "Food & Beverage",
+          level: "Beginner",
+          duration: "2 weeks",
+          description: "Espresso basics, milk textures, menu knowledge.",
+          image: "img/barista-hero.jpg",
+        },
+        {
+          id: "c6",
+          title: "Customer Service Excellence",
+          category: "Customer Service",
+          level: "Beginner",
+          duration: "1 week",
+          description: "Handling complaints, upselling, guest delight.",
+          image: "img/customer-service-hero.jpg",
+        },
+      ];
+
+      /* =======================
+   State
+======================= */
+      let enrolled = [
+        { courseId: "c1", progress: 45, enrolledAt: "2025-09-01" },
+        { courseId: "c5", progress: 12, enrolledAt: "2025-09-12" },
+      ];
+      let shownCourses = 3;
+      let currentFilter = null;
+
+      /* =======================
+   DOM Elements
+======================= */
+      const coursesGrid = document.getElementById("coursesGrid");
+      const enrolledGrid = document.getElementById("enrolledGrid");
+      const shownCountEl = document.getElementById("shownCount");
+      const enrolledCountEl = document.getElementById("enrolledCount");
+      const overallProgressBar = document.getElementById("overallProgressBar");
+
+      /* =======================
+   Helpers
+======================= */
+      function escapeHtml(str = "") {
+        return str.replace(
+          /[&<>"']/g,
+          (m) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            }[m])
+        );
+      }
+      function findCourse(id) {
+        return allCourses.find((c) => c.id === id);
+      }
+      function isEnrolled(id) {
+        return enrolled.some((e) => e.courseId === id);
+      }
+
+      /* =======================
+   Rendering
+======================= */
+      function renderCourses(filterFn) {
+        coursesGrid.innerHTML = "";
+        const list = (
+          filterFn ? allCourses.filter(filterFn) : allCourses
+        ).slice(0, shownCourses);
+
+        shownCountEl.textContent = list.length;
+
+        if (!list.length) {
+          coursesGrid.innerHTML =
+            '<div class="col-12"><p class="text-muted">No courses match your filters.</p></div>';
+          return;
+        }
+
+        list.forEach((course) => {
+          const card = document.createElement("div");
+          card.className = "col-12 col-sm-6 col-md-4";
+          card.innerHTML = `
+      <div class="card h-100 shadow-sm">
+        <img src="${escapeHtml(course.image || "img/default-course.jpg")}"
+             class="card-img-top"
+             alt="${escapeHtml(course.title)}"
+             style="height:160px; object-fit:cover;">
+        <div class="card-body d-flex flex-column">
+          <small class="text-muted">
+            ${escapeHtml(course.category)} · ${escapeHtml(course.level)}
+          </small>
+          <h5 class="card-title mt-2">${escapeHtml(course.title)}</h5>
+          <p class="card-text text-muted small mb-3">
+            ${escapeHtml(course.description)}
+          </p>
+          <div class="mt-auto d-flex gap-2">
+            <button class="btn btn-outline-secondary flex-fill btn-sm"
+                    data-id="${course.id}" data-action="details">
+              Details
+            </button>
+            <button class="btn btn-primary flex-fill btn-sm"
+                    data-id="${course.id}" data-action="enroll">
+              ${isEnrolled(course.id) ? "Continue" : "Enroll"}
+            </button>
+          </div>
+        </div>
+        <div class="card-footer text-muted small d-flex justify-content-between align-items-center">
+          <span>${escapeHtml(course.duration)}</span>
+          <span class="badge bg-info text-dark">${escapeHtml(
+            course.level
+          )}</span>
+        </div>
+      </div>
+    `;
+          coursesGrid.appendChild(card);
+        });
+      }
+
+      function renderEnrolled() {
+        enrolledGrid.innerHTML = "";
+        if (!enrolled.length) {
+          enrolledGrid.innerHTML =
+            '<div class="col-12"><p class="text-muted">You are not enrolled in any courses yet.</p></div>';
+        } else {
+          enrolled.forEach((e) => {
+            const c = findCourse(e.courseId);
+            if (!c) return;
+            const col = document.createElement("div");
+            col.className = "col-12 col-md-6 col-lg-4";
+            col.innerHTML = `
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <h6 class="mb-1">${escapeHtml(c.title)}</h6>
+                <small class="text-muted">${escapeHtml(
+                  c.category
+                )} · ${escapeHtml(c.level)}</small>
+              </div>
+              <small class="text-muted">Enrolled ${escapeHtml(
+                e.enrolledAt
+              )}</small>
+            </div>
+            <div class="mt-3">
+              <div class="d-flex justify-content-between mb-1">
+                <small class="text-muted">Progress</small>
+                <small class="text-muted">${e.progress}%</small>
+              </div>
+              <div class="progress" style="height:8px;">
+                <div class="progress-bar" role="progressbar" style="width:${
+                  e.progress
+                }%"></div>
+              </div>
+            </div>
+            <div class="mt-3 d-flex gap-2">
+              <button class="btn btn-outline-secondary btn-sm flex-fill"
+                      data-action="details" data-id="${c.id}">Open</button>
+              <button class="btn btn-danger btn-sm flex-fill"
+                      data-action="unenroll" data-id="${c.id}">Unenroll</button>
+            </div>
+          </div>
+        </div>
+      `;
+            enrolledGrid.appendChild(col);
+          });
+        }
+        enrolledCountEl.textContent = `${enrolled.length} enrolled`;
+        updateOverallProgress();
+      }
+
+      function updateOverallProgress() {
+        if (!enrolled.length) {
+          overallProgressBar.style.width = "0%";
+          overallProgressBar.textContent = "0%";
+          return;
+        }
+        const avg = Math.round(
+          enrolled.reduce((s, x) => s + x.progress, 0) / enrolled.length
+        );
+        overallProgressBar.style.width = avg + "%";
+        overallProgressBar.textContent = avg + "%";
+      }
+
+      /* =======================
+   Actions
+======================= */
+      function openDetails(id) {
+        const course = findCourse(id);
+        if (!course) return;
+        document.getElementById("modalTitle").textContent = course.title;
+        document.getElementById(
+          "modalMeta"
+        ).textContent = `${course.category} · ${course.level} · ${course.duration}`;
+        document.getElementById("modalBody").innerHTML = `
+    <p>${course.description}</p>
+    <ul>
+      <li>Module 1: Overview</li>
+      <li>Module 2: Best practices</li>
+      <li>Module 3: Practical assignment</li>
+    </ul>`;
+        const btn = document.getElementById("modalEnrollBtn");
+        btn.dataset.id = id;
+        btn.textContent = isEnrolled(id) ? "Continue course" : "Enroll";
+        new bootstrap.Modal(document.getElementById("courseModal")).show();
+      }
+
+      function enrollCourse(id) {
+        if (isEnrolled(id)) return;
+        enrolled.unshift({
+          courseId: id,
+          progress: 0,
+          enrolledAt: new Date().toISOString().slice(0, 10),
+        });
+        renderEnrolled();
+        renderCourses(currentFilter);
+      }
+
+      function unenrollCourse(id) {
+        if (!confirm("Are you sure you want to unenroll?")) return;
+        enrolled = enrolled.filter((e) => e.courseId !== id);
+        renderEnrolled();
+        renderCourses(currentFilter);
+      }
+
+      /* =======================
+   Event Listeners
+======================= */
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest("button");
+        if (!btn) return;
+        const action = btn.dataset.action;
+        const id = btn.dataset.id;
+        if (action === "details") openDetails(id);
+        else if (action === "enroll")
+          isEnrolled(id)
+            ? alert("Continue course: " + findCourse(id).title)
+            : enrollCourse(id);
+        else if (action === "unenroll") unenrollCourse(id);
+      });
+
+      document
+        .getElementById("modalEnrollBtn")
+        .addEventListener("click", function () {
+          const id = this.dataset.id;
+          if (!id) return;
+          isEnrolled(id)
+            ? alert("Opening course: " + findCourse(id).title)
+            : enrollCourse(id);
+          bootstrap.Modal.getInstance(
+            document.getElementById("courseModal")
+          ).hide();
+        });
+
+      document.getElementById("filterBtn").addEventListener("click", () => {
+        const q = document
+          .getElementById("searchInput")
+          .value.trim()
+          .toLowerCase();
+        const category = document.getElementById("categorySelect").value;
+        const level = document.getElementById("levelSelect").value;
+        currentFilter = (c) =>
+          (!q ||
+            (c.title + " " + c.description + " " + c.category)
+              .toLowerCase()
+              .includes(q)) &&
+          (!category || c.category === category) &&
+          (!level || c.level === level);
+        renderCourses(currentFilter);
+      });
+
+      document.getElementById("loadMore").addEventListener("click", () => {
+        shownCourses += 3;
+        renderCourses(currentFilter);
+      });
+
+      /* =======================
+   Initial Render
+======================= */
+      document.addEventListener("DOMContentLoaded", () => {
+        renderCourses();
+        renderEnrolled();
+        document.getElementById("year").textContent = new Date().getFullYear();
+      });
+    </script>
+  </body>
+</html>

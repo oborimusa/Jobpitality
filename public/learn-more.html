@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn More - Jobpitality</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  .hero {
+    background: url('img/pool.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: scroll; /* change to fixed if you want parallax */
+    color: #f4f1f1;
+    height: 80vh; /* adjust height */
+    position: relative;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* dark overlay for text readability */
+  }
+
+  .hero .container {
+    position: relative;
+    z-index: 2;
+  }
+</style>
+</head>
+<body class="bg-light">
+
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+  <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+    <div class="img pb-2 pt-2">
+      <img src="img/final-job.png" alt="Logo" style="width: 150px;">
+    </div>
+  </a>
+  <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav m-0 p-4 p-lg-0">
+      <a href="home.html" class="nav-item nav-link active">Home</a>
+
+      <!-- Employers Dropdown -->
+      <div class="nav-item dropdown">
+        <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+        <div class="dropdown-menu rounded-0 m-0">
+          <a href="vacancy.html" class="dropdown-item">Post a Vacancy</a>
+          <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+        </div>
+      </div>
+
+        
+      <!-- Job Seekers Dropdown -->
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+        <div class="dropdown-menu rounded-0 m-0">
+          <a href="job-openings.html" class="dropdown-item">Job Openings</a>
+          <a href="job-list.html" class="dropdown-item">Job List</a>
+          <a href="job-detail.html" class="dropdown-item">Job Details</a>
+          <a href="application-form.html" class="dropdown-item">Upload Your Resume</a>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- Right-side button -->
+    <div class="d-flex ms-auto me-5">
+      <a href="register.html" class="btn btn-success btn-lg text-white">Sign Up</a>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+
+<!-- Hero Section -->
+<header class="bg-secondary text-white text-center py-5">
+  <div class="container">
+    <h1 class="fw-bold">Learn More About Jobpitality</h1>
+    <p class="lead">Your trusted platform for hospitality recruitment</p>
+  </div>
+</header>
+
+<!-- Features Section -->
+<section class="container my-5">
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card shadow h-100">
+        <div class="card-body text-center">
+          <h4 class="fw-bold">For Job Seekers</h4>
+          <p>Browse jobs, apply instantly, and boost your career with premium features.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow h-100">
+        <div class="card-body text-center">
+          <h4 class="fw-bold">For Employers</h4>
+          <p>Post jobs, review candidates, and hire faster with background checks and support.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow h-100">
+        <div class="card-body text-center">
+          <h4 class="fw-bold">Why Jobpitality?</h4>
+          <p>Specialized for the hospitality industry, with affordable plans and trusted candidates.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="bg-success text-white text-center py-5">
+  <div class="container">
+    <h2 class="fw-bold">Ready to Get Started?</h2>
+    <p class="mb-4">Sign up today and grow your career or business in hospitality.</p>
+    <a href="signup-landing.html" class="btn btn-light btn-lg">Get Started</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-center text-white py-3">
+  <p class="mb-0">&copy; 2025 Jobpitality. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

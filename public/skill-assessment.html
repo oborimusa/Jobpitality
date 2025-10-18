@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Assessment – Jobpitality</title>
+  <meta name="description" content="Take a quick hospitality skill assessment to discover your strengths and recommended courses on Jobpitality.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="img/favicon.png">
+</head>
+<body class="bg-light">
+
+<!-- ===== Navbar ===== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img
+            src="img/final-job.png"
+            alt="Jobpitality"
+            style="height: 40px; margin-right: 8px"
+          />
+          <span class="fw-bold"></span>
+        </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="learning.html">Learning</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="skill-assessment.html">Skill Assessment</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container" style="padding-top: 6rem;">
+
+  <!-- Hero Section -->
+  <section class="text-center mb-5">
+    <h1 class="display-5 fw-bold">Hospitality Skill Assessment</h1>
+    <p class="lead text-muted">Find out your strengths and get tailored course recommendations.</p>
+  </section>
+
+  <!-- Assessment Form -->
+  <section class="card shadow-sm p-4 mb-5">
+    <h2 class="h5 mb-4">Tell us about your skills</h2>
+    <form id="assessmentForm">
+      <!-- Personal Info -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-6">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-control" name="name" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" required>
+        </div>
+      </div>
+
+      <!-- Skills Checkboxes -->
+      <h3 class="h6 mb-3">Select areas where you have experience:</h3>
+      <div class="row row-cols-1 row-cols-md-2 g-2 mb-4">
+        <div class="col"><div class="form-check">
+          <input class="form-check-input" type="checkbox" name="skills" value="Front Office">
+          <label class="form-check-label">Front Office / Reception</label>
+        </div></div>
+        <div class="col"><div class="form-check">
+          <input class="form-check-input" type="checkbox" name="skills" value="Food & Beverage">
+          <label class="form-check-label">Food & Beverage Service</label>
+        </div></div>
+        <div class="col"><div class="form-check">
+          <input class="form-check-input" type="checkbox" name="skills" value="Kitchen">
+          <label class="form-check-label">Kitchen & Culinary</label>
+        </div></div>
+        <div class="col"><div class="form-check">
+          <input class="form-check-input" type="checkbox" name="skills" value="Customer Service">
+          <label class="form-check-label">Customer Service</label>
+        </div></div>
+        <div class="col"><div class="form-check">
+          <input class="form-check-input" type="checkbox" name="skills" value="Management">
+          <label class="form-check-label">Hospitality Management</label>
+        </div></div>
+      </div>
+
+      <!-- Experience Level -->
+      <h3 class="h6 mb-3">Overall experience level:</h3>
+      <select class="form-select mb-4" name="experience" required>
+        <option value="">Choose...</option>
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+
+      <button type="submit" class="btn btn-primary">Get Recommendations</button>
+    </form>
+  </section>
+
+  <!-- Recommendations Output -->
+  <section id="resultsSection" class="d-none">
+    <h2 class="h5 mb-3">Your Recommended Learning Path</h2>
+    <div id="recommendations" class="row g-3"></div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3 mt-auto">
+  <small>&copy; <span id="year"></span> Jobpitality. All rights reserved.</small>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Simple demo logic
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const form = document.getElementById('assessmentForm');
+  const resultsSection = document.getElementById('resultsSection');
+  const recommendations = document.getElementById('recommendations');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const skills = formData.getAll('skills');
+    const level = formData.get('experience');
+
+    // Demo recommendation logic
+    const recs = [];
+    if (skills.includes('Kitchen')) recs.push('Advanced Culinary Techniques');
+    if (skills.includes('Front Office')) recs.push('Front Office Essentials');
+    if (skills.includes('Customer Service')) recs.push('Customer Service Excellence');
+    if (skills.includes('Management')) recs.push('Hospitality Leadership');
+    if (recs.length === 0) recs.push('Kitchen Hygiene & Safety');
+
+    recommendations.innerHTML = recs.map(r =>
+      `<div class="col-md-4">
+         <div class="card h-100 shadow-sm">
+           <div class="card-body">
+             <h5 class="card-title">${r}</h5>
+             <p class="card-text text-muted small">Recommended based on your answers.</p>
+             <a href="learning.html" class="btn btn-outline-primary btn-sm">View Course</a>
+           </div>
+         </div>
+       </div>`).join('');
+
+    resultsSection.classList.remove('d-none');
+    resultsSection.scrollIntoView({behavior: 'smooth'});
+  });
+</script>
+
+</body>
+</html>

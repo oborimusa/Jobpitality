@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Front Desk Officer",
+    "location": "Lagos",
+    "company": "Hotel ABC",
+    "salary": 120000,
+    "link": "#"
+  },
+  {
+    "title": "Chef",
+    "location": "Abuja",
+    "company": "Restaurant XYZ",
+    "salary": 150000,
+    "link": "#"
+  }
+]

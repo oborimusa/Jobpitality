@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Find Talents – Jobpitality</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+    :root{
+      --brand:#0d6efd;
+      --muted:#6b7280;
+      --card-radius:12px;
+    }
+    body{
+      background:#f7fafc;
+      color:#0b2540;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+    }
+    .hero{
+      background: linear-gradient(90deg, rgba(11, 37, 69, 0.9), rgba(6, 125, 63, 0.85));
+      padding:34px 0;
+      margin-bottom:18px;
+      color: white;
+    }
+    .talent-card{
+      border-radius:var(--card-radius);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .talent-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 12px 30px rgba(2,6,23,0.08);
+    }
+    .badge-role{
+      background:rgba(13,110,253,0.12);
+      color:var(--brand);
+      font-weight:600;
+      border-radius:10px;
+      padding:3px 8px;
+    }
+    .no-results{padding:40px 0; color:var(--muted)}
+    .page-btns .btn{min-width:44px}
+    .filter-group label{font-size:0.9rem; font-weight:600}
+    /* Collapsible filter styling on small screens */
+    @media (max-width: 767px){
+      .filters-collapse{
+        background:#fff;
+        padding:12px;
+        border-radius:10px;
+        box-shadow:0 6px 18px rgba(2,6,23,0.04);
+      }
+      #openFiltersBtn{width:100%;}
+      .talent-card .d-flex > div:first-child {display:none;} /* hide avatars to keep cards compact on very small screens */
+    }
+    @media (min-width: 768px){
+      .talent-card .d-flex > div:first-child {display:block;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Jobpitality</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="find-talents.html">Find Talents</a></li>
+          <li class="nav-item"><a class="nav-link" href="employers-landing.html">Post a Job</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
+        <div>
+          <h1 class="h3 mb-1">Find hospitality talent across Africa</h1>
+          <!-- <p class="text-muted mb-0">Search vetted candidates by location, role, experience, and availability. Start hiring faster.</p> -->
+            <p class="mb-0">Search vetted candidates by location, role, experience, and availability. Start hiring faster.</p>
+        </div>
+
+        <div class="d-flex gap-2 flex-wrap">
+          <a href="post-job.html" class="btn btn-primary">Post a Job</a>
+          <button id="openFiltersBtn" class="btn btn-outline-secondary d-md-none" data-bs-toggle="collapse" data-bs-target="#filtersCollapse" aria-expanded="false">Filters</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container mb-5">
+    <div class="row g-4">
+      <!-- LEFT: Filters -->
+      <aside class="col-lg-3">
+        <div id="filtersCollapse" class="collapse d-md-block filters-collapse">
+          <form id="filtersForm" class="p-3" onsubmit="return false;">
+            <div class="mb-3">
+              <label for="searchInput" class="form-label">Search</label>
+              <input id="searchInput" class="form-control" placeholder="Name, skill or keyword" autocomplete="off">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Location</label>
+              <select id="filterLocation" class="form-select">
+                <option value="">Any location</option>
+                <option>Lagos, Nigeria</option>
+                <option>Abuja, Nigeria</option>
+                <option>Nairobi, Kenya</option>
+                <option>Accra, Ghana</option>
+                <option>Cape Town, South Africa</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Role</label>
+              <select id="filterRole" class="form-select">
+                <option value="">Any role</option>
+                <option>Chef</option>
+                <option>Front Desk</option>
+                <option>Housekeeping</option>
+                <option>Restaurant Manager</option>
+                <option>Barista</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Experience</label>
+              <select id="filterExperience" class="form-select">
+                <option value="">Any</option>
+                <option value="0-1">0 – 1 years</option>
+                <option value="1-3">1 – 3 years</option>
+                <option value="3-5">3 – 5 years</option>
+                <option value="5+">5+ years</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Availability</label>
+              <select id="filterAvailability" class="form-select">
+                <option value="">Any</option>
+                <option>Immediate</option>
+                <option>2 weeks</option>
+                <option>1 month</option>
+              </select>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button id="applyFilters" class="btn btn-primary w-100" type="button">Apply</button>
+              <button id="clearFilters" class="btn btn-outline-secondary w-100" type="button">Reset</button>
+            </div>
+          </form>
+        </div>
+      </aside>
+
+      <!-- RIGHT: Results -->
+      <section class="col-lg-9">
+        <!-- controls -->
+        <div class="d-flex justify-content-between align-items-center mb-3 gap-2 flex-column flex-md-row">
+          <div class="d-flex gap-2 align-items-center">
+            <div class="text-muted me-2">Sort</div>
+            <select id="sortSelect" class="form-select form-select-sm" style="max-width:200px">
+              <option value="newest">Newest</option>
+              <option value="exp-desc">Experience: High → Low</option>
+              <option value="exp-asc">Experience: Low → High</option>
+            </select>
+          </div>
+
+          <div class="text-muted small">Showing <span id="resultCount">0</span> talents</div>
+        </div>
+
+        <!-- talents grid -->
+        <div id="talentsGrid" class="row g-3" aria-live="polite"></div>
+
+        <!-- pagination -->
+        <div class="d-flex justify-content-between align-items-center mt-4 flex-wrap">
+          <div class="mb-2">
+            <button id="prevPage" class="btn btn-outline-secondary btn-sm">Prev</button>
+            <button id="nextPage" class="btn btn-outline-secondary btn-sm">Next</button>
+          </div>
+          <div class="page-btns"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Contact modal -->
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <form id="contactForm" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Contact Candidate</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="contactCandidateId">
+          <div class="mb-3">
+            <label class="form-label">Your name</label>
+            <input id="contactName" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Your email</label>
+            <input id="contactEmail" type="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea id="contactMessage" class="form-control" rows="4" required>Hi — I'm interested in your profile...</textarea>
+          </div>
+          <div id="contactStatus" class="small text-muted"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Full page script (demo data + logic) -->
+  <script>
+    // Demo data — replace with Firestore / API fetch in production
+    const talents = [
+      { id: 't1', name: 'Amina Yusuf', role: 'Chef', location: 'Lagos, Nigeria', experience: 6, skills: ['cooking', 'menu design'], availability: 'Immediate', bio: 'Head chef with 6 years in hotels', updated: '2025-08-10', photo: 'https://via.placeholder.com/120' },
+      { id: 't2', name: 'Kwame Mensah', role: 'Front Desk', location: 'Accra, Ghana', experience: 2, skills: ['guest relations','POS'], availability: '2 weeks', bio: 'Front desk officer experienced with reservation systems', updated: '2025-09-02', photo: 'https://via.placeholder.com/120' },
+      { id: 't3', name: 'Njeri Kamau', role: 'Restaurant Manager', location: 'Nairobi, Kenya', experience: 5, skills: ['operations','team leadership'], availability: '1 month', bio: 'Operations manager for multi-outlet restaurants', updated: '2025-07-20', photo: 'https://via.placeholder.com/120' },
+      { id: 't4', name: 'Emeka Obi', role: 'Housekeeping', location: 'Lagos, Nigeria', experience: 1, skills: ['cleaning','health & safety'], availability: 'Immediate', bio: 'Reliable housekeeping staff', updated: '2025-09-10', photo: 'https://via.placeholder.com/120' },
+      { id: 't5', name: 'Zoe Adom', role: 'Barista', location: 'Accra, Ghana', experience: 3, skills: ['coffee making','latte art'], availability: '2 weeks', bio: 'Barista with coffee competitions experience', updated: '2025-09-12', photo: 'https://via.placeholder.com/120' },
+      { id: 't6', name: 'Samuel Okoye', role: 'Chef', location: 'Abuja, Nigeria', experience: 4, skills: ['pastry','baking'], availability: 'Immediate', bio: 'Pastry chef experienced in patisserie', updated: '2025-08-02', photo: 'https://via.placeholder.com/120' },
+      // add more demo entries if you want
+    ];
+
+    // State
+    let filtered = [...talents];
+    let currentPage = 1;
+    const pageSize = 6;
+
+    // DOM references
+    const grid = document.getElementById('talentsGrid');
+    const resultCountEl = document.getElementById('resultCount');
+    const searchInput = document.getElementById('searchInput');
+    const filterLocation = document.getElementById('filterLocation');
+    const filterRole = document.getElementById('filterRole');
+    const filterExperience = document.getElementById('filterExperience');
+    const filterAvailability = document.getElementById('filterAvailability');
+    const sortSelect = document.getElementById('sortSelect');
+    const prevBtn = document.getElementById('prevPage');
+    const nextBtn = document.getElementById('nextPage');
+    const pageBtnsWrap = document.querySelector('.page-btns');
+
+    // Utility functions
+    function escapeHtml(str=''){ return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s])); }
+
+    function matchesExperience(range, years){
+      if(!range) return true;
+      if(range==='5+') return years >= 5;
+      const [a,b] = range.split('-').map(Number);
+      return years >= a && years <= b;
+    }
+
+    function applyFilters(){
+      const q = (searchInput.value || '').toLowerCase().trim();
+      const loc = filterLocation.value;
+      const role = filterRole.value;
+      const exp = filterExperience.value;
+      const avail = filterAvailability.value;
+
+      filtered = talents.filter(t => {
+        const inQ = !q || (t.name + ' ' + t.skills.join(' ') + ' ' + t.bio + ' ' + t.role).toLowerCase().includes(q);
+        const inLoc = !loc || t.location === loc;
+        const inRole = !role || t.role === role;
+        const inExp = matchesExperience(exp, t.experience);
+        const inAvail = !avail || t.availability === avail;
+        return inQ && inLoc && inRole && inExp && inAvail;
+      });
+
+      applySort();
+      currentPage = 1;
+      render();
+    }
+
+    function applySort(){
+      const sort = sortSelect.value;
+      if(sort === 'newest'){
+        filtered.sort((a,b) => new Date(b.updated) - new Date(a.updated));
+      } else if(sort === 'exp-desc'){
+        filtered.sort((a,b) => b.experience - a.experience);
+      } else if(sort === 'exp-asc'){
+        filtered.sort((a,b) => a.experience - b.experience);
+      }
+    }
+
+    function render(){
+      grid.innerHTML = '';
+      resultCountEl.textContent = filtered.length;
+
+      if(filtered.length === 0){
+        grid.innerHTML = '<div class="col-12 no-results text-center">No talents match your search. Try adjusting filters.</div>';
+        pageBtnsWrap.innerHTML = '';
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+        return;
+      }
+
+      const totalPages = Math.ceil(filtered.length / pageSize);
+      currentPage = Math.min(Math.max(1, currentPage), totalPages);
+
+      const start = (currentPage - 1) * pageSize;
+      const pageItems = filtered.slice(start, start + pageSize);
+
+      pageItems.forEach(t => {
+        const cardCol = document.createElement('div');
+        cardCol.className = 'col-md-6';
+        cardCol.innerHTML = `
+          <article class="p-3 talent-card bg-white rounded-3">
+            <div class="d-flex gap-3">
+              <div style="min-width:88px">
+                <img src="${escapeHtml(t.photo || t.photo)}" alt="${escapeHtml(t.name)}" class="rounded-circle" width="90" height="90">
+              </div>
+              <div class="flex-fill">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div>
+                    <h5 class="mb-1">${escapeHtml(t.name)}</h5>
+                    <div class="small text-muted">${escapeHtml(t.location)} • <span class="badge-role">${escapeHtml(t.role)}</span></div>
+                    <div class="mt-2 text-muted">${escapeHtml(t.bio)}</div>
+                  </div>
+                  <div class="text-end">
+                    <div class="small text-muted">Exp: ${t.experience} yrs</div>
+                    <div class="small text-muted">Avail: ${escapeHtml(t.availability)}</div>
+                  </div>
+                </div>
+                <div class="mt-3 d-flex gap-2">
+                  <button class="btn btn-sm btn-outline-primary viewProfileBtn" data-id="${t.id}">View profile</button>
+                  <button class="btn btn-sm btn-primary contactBtn" data-id="${t.id}">Contact</button>
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+        grid.appendChild(cardCol);
+      });
+
+      // pagination controls
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === totalPages;
+
+      // page numbers
+      pageBtnsWrap.innerHTML = '';
+      for(let i=1;i<=totalPages;i++){
+        const b = document.createElement('button');
+        b.className = 'btn btn-outline-secondary btn-sm me-1 mb-1';
+        if(i===currentPage) b.classList.add('active');
+        b.textContent = i;
+        b.addEventListener('click', ()=> { currentPage = i; render(); });
+        pageBtnsWrap.appendChild(b);
+      }
+    }
+
+    // Event wiring
+    document.getElementById('applyFilters').addEventListener('click', applyFilters);
+    document.getElementById('clearFilters').addEventListener('click', () => {
+      searchInput.value=''; filterLocation.value=''; filterRole.value=''; filterExperience.value=''; filterAvailability.value='';
+      applyFilters();
+    });
+    sortSelect.addEventListener('change', () => { applySort(); render(); });
+    prevBtn.addEventListener('click', ()=> { if(currentPage>1){ currentPage--; render(); }});
+    nextBtn.addEventListener('click', ()=> { const totalPages = Math.ceil(filtered.length / pageSize); if(currentPage<totalPages){ currentPage++; render(); }});
+    searchInput.addEventListener('keyup', (e)=> { if(e.key === 'Enter') applyFilters(); });
+
+    // Delegate view/contact buttons
+    grid.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-id]');
+      if(!btn) return;
+      const id = btn.dataset.id;
+      if(btn.classList.contains('contactBtn')){
+        openContactModal(id);
+      } else if(btn.classList.contains('viewProfileBtn')){
+        viewProfile(id);
+      }
+    });
+
+    // Demo view profile action
+    function viewProfile(id){
+      const t = talents.find(x=>x.id===id);
+      if(!t) return;
+      // Example: link to a profile page or show modal — here a simple popup
+      alert(`${t.name}\n${t.role}\n${t.location}\nExperience: ${t.experience} years\n\n${t.bio}`);
+    }
+
+    // Contact modal logic (Bootstrap modal)
+    const contactModalEl = document.getElementById('contactModal');
+    const contactModal = new bootstrap.Modal(contactModalEl);
+    const contactForm = document.getElementById('contactForm');
+    const contactStatus = document.getElementById('contactStatus');
+
+    function openContactModal(id){
+      document.getElementById('contactCandidateId').value = id;
+      contactStatus.textContent = '';
+      contactForm.reset();
+      contactModal.show();
+    }
+
+    contactForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const candidateId = document.getElementById('contactCandidateId').value;
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+
+      if(!name || !email || !message){
+        contactStatus.textContent = 'Please complete all fields.';
+        return;
+      }
+
+      contactStatus.textContent = 'Sending…';
+
+      // TODO: Replace with real API / cloud function call
+      setTimeout(()=> {
+        contactStatus.textContent = '';
+        contactModal.hide();
+        alert('Message sent to candidate (demo):\n' + name + ' — ' + email);
+      }, 900);
+    });
+
+    // Initialize
+    applyFilters();
+  </script>
+</body>
+</html>

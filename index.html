@@ -14,6 +14,7 @@
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
@@ -32,93 +33,228 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
-    <style>
-      .hero {
-  background-image: url(Handshake.jpg); /* Replace with your actual image path */
-  background-size: cover;
-  background-position: center;
-  color: rgb(255, 255, 255);
+<style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+      body {
+    padding-top: 70px; /* Adjust to match navbar height */
+  }
+    .jobpitality-banner {
+      width: 100%;
+    }
+    .banner-content {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .left-column, .right-column {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    @media (min-width: 768px) {
+      .left-column, .right-column {
+        width: 50%;
+      }
+    }
+    .left-column {
+      background-color: #e0f7e9;
+    }
+    .right-column {
+      background-color: #f2f2f2;
+    }
+    .left-column h2, .right-column h2 {
+      color: #1e4620;
+    }
+    .right-column h2 {
+      color: #555;
+    }
+    .left-column ul, .right-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    .left-column li::before {
+      content: '✅ ';
+    }
+    .right-column li::before {
+      content: '❌ ';
+    }
+    .cta-bar {
+      background-color: #ff6600;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 1.2em;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .cta-bar img.logo {
+      width: 30px;
+      height: auto;
+    }
+  
+
+.hero-solid{
+  background: linear-gradient(90deg, #28a745 0%, #ff6600 100%);
+  color: white;
   padding: 100px 20px;
   text-align: center;
-  position: relative;
-  height: 80vh;
 }
 
-  .custom-card {
-    border: 1px solid #1db302;
-    border-radius: 15px;
+.headline {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.headline i {
+  animation: bounce 2s infinite;
+  color: #fff;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
-    .service-icon {
-      font-size: 3rem;
-      color: #007BFF;
-    }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #f8f9fa;
+  margin-bottom: 30px;
+}
+
+.btn-cta {
+  padding: 14px 32px;
+  font-size: 1.25rem;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.btn-cta:hover {
+  background-color: #0a8a00;
+  transform: translateY(-2px);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .headline {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-solid {
+    padding: 60px 15px;
+  }
+
+  .headline {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+
+  .btn-cta {
+    font-size: 1rem;
+    padding: 10px 24px;
+  }
+}
 </style>
 </head>
 
 <body>
-    <div class="container-xxl bg-white p-0">
-        <!-- Spinner Start -->
+    <div class="container-fluid bg-white p-0">        
+
+        <div id="mainContent" style="display: none;">
+          <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
         <!-- Spinner End -->
+  <!-- All your main content here (excluding spinner) -->
+</div>
 
 
-        <!-- Navbar Start -->
-        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-          <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-            <div class="img pb-2 pt-2"><img src="img/job.png" alt="Logo" style="width: 50px;"></div>
-            <div>
-                <h1 class="m-0 text-primary mt-2">Jobpitality</h1>
-            </div>
-        </a>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <div class="navbar-nav ms-auto p-4 p-lg-0">
-                  <a href="index.html" class="nav-item nav-link active">Home</a>
-                  <a href="about.html" class="nav-item nav-link">About</a>
-                  <a href="services.html" class="nav-item nav-link">Services</a>
+ <!-- Navbar starts -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top p-0" style="z-index: 1030;">
+  <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+    <div class="img pb-2 pt-2">
+      <img src="img/job.png" alt="Logo" style="width: 250px; height: 8vh;">
+    </div>
+  </a>
+  <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-                  <div class="nav-item dropdown">
-                      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
-                      <div class="dropdown-menu rounded-0 m-0">
-                          <a href="vacancy.html" class="dropdown-item">Post a Vacancy</a>
-                          <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
-                          <a href="register.html" class="dropdown-item">Open an Account</a>
-                      </div>
-                  </div>
+  <div class="collapse navbar-collapse px-4" id="navbarCollapse">
+    <div class="navbar-nav me-auto">
+      <!-- <a href="index.html" class="nav-item nav-link active">Home</a> -->
 
-                  <div class="nav-item dropdown">
-                      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
-                      <div class="dropdown-menu rounded-0 m-0">
-                          <a href="job-openings.html" class="dropdown-item">Job Openings</a>
-                          <a href="job-list.html" class="dropdown-item">Job List</a>
-                          <a href="job-detail.html" class="dropdown-item">Job Details</a>
-                          <a href="application-form.html" class="dropdown-item">Upload Your Resume</a>
-                          <a href="register.html" class="dropdown-item">Open an Account</a>
-                      </div>
-                  </div>
+      <div class="nav-item dropdown">
+        <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+        <div class="dropdown-menu rounded-0 m-0">
+          <a href="vacancy.html" class="dropdown-item">Post a Vacancy</a>
+          <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+        </div>
+      </div>
+      <div class="nav-item dropdown">
+        <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+        <!-- <div class="dropdown-menu rounded-0 m-0">
+          <a href="vacancy.html" class="dropdown-item">Post a Vacancy</a>
+          <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+        </div> -->
+      </div>
+      
 
-                  <div class="nav-item dropdown">
-                      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                      <div class="dropdown-menu rounded-0 m-0">
-                          <a href="category.html" class="dropdown-item">Job Category</a>
-                          <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                          <a href="404.html" class="dropdown-item">404</a>
-                      </div>
-                  </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
-                </div>
-                <a href="Login.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
-            </div>
-        </nav>
-        <!-- Navbar End -->
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+        <div class="dropdown-menu rounded-0 m-0">
+          <a href="job-openings.html" class="dropdown-item">Job Openings</a>
+          <a href="job-list.html" class="dropdown-item">Job List</a>
+          <a href="job-detail.html" class="dropdown-item">Job Details</a>
+          <a href="application-form.html" class="dropdown-item">Upload Your Resume</a>
+        </div>
+      </div>
+      <div class="nav-item dropdown">
+        <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
+        <div class="dropdown-menu rounded-0 m-0">
+          <a href="vacancy.html" class="dropdown-item">Post a Vacancy</a>
+          <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+        </div>
+      </div>
+    </div>
+    
 
+    <!-- Login | Sign Up and Post Job button -->
+    <div class="d-flex align-items-center ms-auto">
+      <a href="employer-signup.html" class="nav-link px-2">Login</a>
+      <span class="text-muted">|</span>
+      <a href="register.html" class="nav-link px-2">Sign Up</a>
+      <a href="post-job.html" class="btn ms-3 m-2" style="padding-top: 15px; border-radius: 7px; font-size: 12px; height: 45px; background: #ff6600; color: white;">
+        Post A Job
+      </a>
+    </div>
+  </div>
+</nav>
+<!-- Navbar ends -->
 
         <!-- Carousel Start -->
         <!-- <div class="container-fluid p-0">
@@ -158,63 +294,69 @@
         </div> -->
         <!-- Carousel End -->
 
-        <section class="hero">
-  <div class="container mt-5 pt-5">
-    <h2 style="color: white;">Your Dream Hospitality Job Awaits</h2>
-    <p>Join thousands of professionals building careers in hotels, restaurants, and resorts.</p>
-    <a href="application-form.html
-    " class="btn" style="color: white; border-color: #f8f9fa;">Apply Now</a>
+        <!-- <section class="hero">
+          <div class="container-fluid bg-primary" style="height: 70vh;"> -->
+          <!-- <div class="row">
+            <div class="col-6"> -->
+              <!-- <img src="blacklady.jpg" alt="" style="width: 30%; border-radius: 20px; margin: 30px;"> -->
+  <!-- <div class="overlay"> -->
+    <!-- <div class="container text-center text-white"> -->
+      <!-- <h1 class="headline">Your Dream Hospitality Job Awaits</h1>
+      <p class="lead mb-4">Find the perfect role in hotels, restaurants, lounges & more.</p> -->
+      <!-- <a href="register.html" class="btn btn-lg btn-primary shadow btn-cta">Get Started</a>
+    </div> -->
+  <!-- </div> -->
+ <!-- </div> -->
+
+ <!-- Hero Section -->
+<section class="hero-solid">
+  <div class="container text-center">
+    <h1 class="headline">
+      <i class="fas fa-briefcase me-2"></i> Your Dream Hospitality Job Awaits
+    </h1>
+    <p class="lead mb-4">Find the perfect role in hotels, restaurants, lounges & more.</p>
+    <a href="register.html" class="btn btn-light btn-cta" style="background: #8c410f; color: white;">Get Started</a>
   </div>
 </section>
 
-        
-        <!-- Add your content sections here -->
-        
-    </div>
-        <!-- Search Start -->
-<div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
-    <div class="container">
-      <span class="text-white">Search for Job openings by category</span>
-    </div>
-  <div class="container">
+<!-- Search Form -->
+<div class="container mt-4">
+  <div class="row g-2">
+    <div class="col-md-10">
       <div class="row g-2">
-        <div class="col-md-10">
-          <div class="row g-2">
-            
-            <div class="col-md-4">
-              <input type="text" class="form-control border-0" placeholder="Position"/>
-            </div>
-            <div class="col-md-4">
-              <select class="form-select border-0">
-                <option selected disabled>Job Category</option>
-                <option value="front">Front-of-House Staff</option>
-                <option value="back">Back-of-House Staff</option>
-                <option value="management">Management and Administrative Staff</option>
-                <option value="sales">Sales and Marketing Staff</option>
-                <option value="maintenance">Maintenance and Technical Staff</option>
-                <option value="security">Security and Safety Staff</option>
-                <option value="adhoc">Ad-hoc Staff</option>
-              </select>
-            </div>
-            <div class="col-md-4">
-              <select class="form-select border-0">
-                <option selected disabled>Location</option>
-                <option value="ilorin">Ilorin</option>
-                <option value="osogbo">Osogbo</option>
-                <option value="ekiti">Ekiti</option>
-                <option value="abuja">Abuja</option>
-                <option value="abuja">Ibadan</option>
-              </select>
-            </div>
-          </div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="Position" />
         </div>
-        <div class="col-md-2">
-          <button class="btn btn-dark border-0 w-100">Search</button>
+        <div class="col-md-4">
+          <select class="form-select">
+            <option selected disabled>Job Category</option>
+            <option value="front">Front-of-House Staff</option>
+            <option value="back">Back-of-House Staff</option>
+            <option value="management">Management</option>
+            <option value="sales">Sales & Marketing</option>
+            <option value="maintenance">Maintenance</option>
+            <option value="security">Security</option>
+            <option value="adhoc">Ad-hoc</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <select class="form-select">
+            <option selected disabled>Location</option>
+            <option value="ilorin">Ilorin</option>
+            <option value="osogbo">Osogbo</option>
+            <option value="ekiti">Ekiti</option>
+            <option value="abuja">Abuja</option>
+            <option value="ibadan">Ibadan</option>
+          </select>
         </div>
       </div>
     </div>
+    <div class="col-md-2">
+      <button class="btn btn-dark w-100" style="background: #ff6600; border-radius: 7px;">Find a Job</button>
+    </div>
   </div>
-  <!-- Search End -->
+</div>
+        
   
   <!-- Back to Top -->
   <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -243,7 +385,7 @@
         </div>
         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
           <h1 class="mb-4">We Help You Get the Best Job and Find the Right Talent</h1>
-          <p class="mb-4">At Jobspitality, we connect hospitality professionals with the right opportunities and employers with top talent. Our platform simplifies the recruitment process and supports career growth.</p>
+          <p class="mb-4">At Jobpitality, we connect hospitality professionals with the right opportunities and employers with top talent. Our platform simplifies the recruitment process and supports career growth.</p>
           <p><i class="fa fa-check text-primary me-3"></i>We make it easier for you to find a job in the hospitality industry.</p>
           <p><i class="fa fa-check text-primary me-3"></i>We help employers discover qualified candidates.</p>
           <p><i class="fa fa-check text-primary me-3"></i>We support job seekers with guidance and tools to succeed.</p>
@@ -256,6 +398,37 @@
   </div> -->
   <!-- About End -->
 
+  <section>
+    <div class="jobpitality-banner">
+    <div class="banner-content">
+      <div class="left-column">
+        <h2>Benefits for Registered Job Seekers</h2>
+        <ul>
+          <li>Apply for Jobs Instantly</li>
+          <li>Build Professional Profile</li>
+          <li>Upload CV & Certificates</li>
+          <li>Receive Interview Alerts</li>
+          <li>Career Tips & Job Notifications</li>
+        </ul>
+      </div>
+      <div class="right-column">
+        <h2>Non-Account Holders Miss Out On</h2>
+        <ul>
+          <li>No Job Applications</li>
+          <li>No Interview Alerts</li>
+          <li>Cannot Upload CV</li>
+          <li>No Career Support</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-bar">
+      <img src="img/job.png" alt="Jobpitality Logo" class="logo" style="width: 250px;">
+      <span>Create Your Free Account on Jobpitality Today!</span>
+    </div>
+  </div>
+  </section>
+
+   
   <section>
      <section class="py-5">
     <div class="container">
@@ -282,20 +455,20 @@
   </section>
   </section>
   
-  <div class="container bg-primary text-white text-center py-5">
+  <!-- <div class="container bg-primary text-white text-center py-5">
     <h3 class="text-white">Let your Resume speak for you, <br>apply for a job now.</h3>
     <a href="application-form.html" class="btn btn-primary text-uppercase mt-3 d-inline-block"
-       style="font-size: 15px; border: 2px solid #a0af9e; border-radius: 15px; font-weight: bold; width: 200px;">
+       style="font-size: 15px; border: 2px solid #ffffff; border-radius: 15px; font-weight: bold; width: 200px;">
         Submit Your Resume Here!
     </a>
-</div>
+</div> -->
 
   <!-- Employer Signup CTA Section -->
   <section class="text-center bg-light py-5">
     <div class="container">
       <h2 class="mb-4">Find and Hire Top Hospitality Talent</h2>
       <p class="mb-4">Create an account today to post jobs, track applications, and access advanced hiring tools designed for the hospitality industry.</p>
-      <a href="register.html" class="btn btn-primary px-4 py-3">Get Started – Create Account</a>
+      <a href="register.html" class="btn px-4 py-3" style="border-radius: 7px; background: #ff6600; color: white;">Get Started – Create Account</a>
     </div>
     <!-- <hr class="bg-primary w-75 mx-auto mt-5"> -->
   </section>
@@ -615,7 +788,7 @@
               <textarea name="hiring_needs" class="form-control bg-transparent" rows="4" placeholder="Describe your hiring needs..." required style="border: 1px solid #1db302;"></textarea>
             </div>
             <div class="col-12 text-center">
-              <button type="submit" class="btn btn-primary">Request Talent</button>
+              <button type="submit" class="btn" style="background: #ff6600; color: white; border-radius: 6px;">Request Talent</button>
             </div>
             <br>
             <br>
@@ -982,7 +1155,7 @@
 <!-- Call to Action Start -->
 <div class="container bg-primary text-white text-center py-5">
   <p class="lead">Find the best job opportunities in hospitality.</p>
-  <a href="job-list.html" class="btn btn-light btn-lg">Login</a>
+  <a href="job-list.html" class="btn btn-lg" style="background: #744d33; color: white;">Login</a>
 </div>
 <!-- Call to Action End -->
 
@@ -1179,5 +1352,62 @@
   });
 </script>
 <script src="search.js"></script>
+<script>
+  function showSpinner() {
+    const spinner = document.getElementById("spinner");
+    const mainContent = document.getElementById("mainContent");
+    if (spinner) spinner.style.display = "block";
+    if (mainContent) mainContent.style.display = "none";
+  }
+
+  function hideSpinner() {
+    const spinner = document.getElementById("spinner");
+    const mainContent = document.getElementById("mainContent");
+    if (spinner) spinner.style.display = "none";
+    if (mainContent) mainContent.style.display = "block";
+  }
+
+  // Optional: Automatically hide spinner after page load
+  window.addEventListener("load", () => {
+    hideSpinner();
+  });
+</script>
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js"></script>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js"></script>
+
+<script>
+  // Initialize Firebase App
+  const firebaseConfig = {
+    apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
+    authDomain: "jobpitality-1cfb2.firebaseapp.com",
+    projectId: "jobpitality-1cfb2",
+    storageBucket: "jobpitality-1cfb2.firebasestorage.app",
+    messagingSenderId: "185191165097",
+    appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8",
+    measurementId: "G-SF5LWDZDKF"
+  };
+
+  // Initialize Firebase and Analytics
+  const app = firebase.initializeApp(firebaseConfig);
+  const analytics = firebase.analytics(app);
+
+  // Function to log when a job is applied
+  function logJobApplied() {
+    analytics.logEvent('job_applied', {
+      job_id: 'abc123',
+      job_title: 'Front Desk Officer'
+    });
+    console.log('Job applied event logged.');
+  }
+</script>
+
+<!-- Example button -->
+<button onclick="logJobApplied()">Apply for This Job</button>
+
 </body>
 </html>

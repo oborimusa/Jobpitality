@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login | Jobpitality</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #f8f9fa;
+    }
+    .login-container {
+      max-width: 420px;
+      margin: 80px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .btn-theme {
+      background: #0d6efd;
+      color: #fff;
+      border: none;
+    }
+    .btn-theme:hover { background: #0b5ed7; }
+    .btn-google {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+    }
+    .btn-google:hover { background-color: #357ae8; }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <div class="text-center mb-4">
+      <i class="bi bi-person-circle display-5 text-primary mb-2"></i>
+      <h2 class="fw-bold mb-1">Welcome Back</h2>
+      <p class="text-muted small">Sign in to your Jobpitality account</p>
+    </div>
+
+    <div id="errorMsgBox" class="alert alert-danger small" style="display: none"></div>
+
+    <form id="loginForm">
+      <div class="d-grid mb-3">
+        <button type="button" class="btn btn-google btn-lg" id="googleLoginBtn">
+          <i class="bi bi-google me-2"></i>Login with Google
+        </button>
+      </div>
+
+      <div class="text-center small text-muted mb-3">OR login with your email</div>
+
+      <div class="mb-3">
+        <input type="email" class="form-control" id="email" placeholder="Email Address" required />
+      </div>
+      <div class="mb-4">
+        <input type="password" class="form-control" id="password" placeholder="Password" required />
+      </div>
+
+      <button type="submit" class="btn btn-theme btn-lg w-100" id="loginBtn">Login</button>
+
+      <div class="d-flex justify-content-between small mt-3">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#passwordResetModal" class="text-muted">Forgot Password?</a>
+        <a href="create-jobseeker-account.html" class="text-primary text-decoration-none">Create Account</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Password Reset Modal -->
+  <div class="modal fade" id="passwordResetModal" tabindex="-1" aria-labelledby="passwordResetModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Reset Password</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted small">Enter your email to receive a password reset link.</p>
+          <input type="email" class="form-control mb-3" id="resetEmail" placeholder="Email Address" required />
+          <div id="resetStatus" class="small mt-2"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="sendResetLinkBtn">Send Reset Link</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      GoogleAuthProvider,
+      signInWithPopup,
+      sendPasswordResetEmail
+    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import {
+      getFirestore,
+      doc,
+      getDoc,
+      setDoc
+    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    // --- Jobpitality Firebase Config ---
+    const firebaseConfig = {
+      apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
+      authDomain: "jobpitality-1cfb2.firebaseapp.com",
+      projectId: "jobpitality-1cfb2",
+      storageBucket: "jobpitality-1cfb2.appspot.com",
+      messagingSenderId: "690621064391",
+      appId: "1:690621064391:web:26ff05dfc9f116823a8d8a"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const loginForm = document.getElementById("loginForm");
+    const loginBtn = document.getElementById("loginBtn");
+    const googleLoginBtn = document.getElementById("googleLoginBtn");
+    const errorMsgBox = document.getElementById("errorMsgBox");
+
+    const showError = (msg) => {
+      errorMsgBox.textContent = msg.replace("Firebase: ", "");
+      errorMsgBox.style.display = "block";
+    };
+
+    const setLoading = (btn, loading, text) => {
+      btn.disabled = loading;
+      btn.textContent = loading ? "Processing..." : text;
+    };
+
+    // Redirect based on user role
+    const redirectByRole = async (uid) => {
+      try {
+        const userRef = doc(db, "users", uid);
+        const userSnap = await getDoc(userRef);
+
+        if (userSnap.exists()) {
+          const role = userSnap.data().role || "jobseeker";
+          if (role === "admin" || role === "superadmin") {
+            window.location.href = "superadmin.html";
+          } else {
+            window.location.href = "dashboard.html";
+          }
+        } else {
+          // Default new user role
+          await setDoc(userRef, {
+            role: "jobseeker",
+            createdAt: new Date(),
+            verified: true
+          });
+          window.location.href = "dashboard.html";
+        }
+      } catch (err) {
+        console.error("Role check error:", err);
+        window.location.href = "dashboard.html";
+      }
+    };
+
+    // --- Email Login ---
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      setLoading(loginBtn, true, "Login");
+      errorMsgBox.style.display = "none";
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        const result = await signInWithEmailAndPassword(auth, email, password);
+        await redirectByRole(result.user.uid);
+      } catch (error) {
+        showError(error.message);
+        setLoading(loginBtn, false, "Login");
+      }
+    });
+
+    // --- Google Login ---
+    googleLoginBtn.addEventListener("click", async () => {
+      setLoading(googleLoginBtn, true, "Login with Google");
+      const provider = new GoogleAuthProvider();
+
+      try {
+        const result = await signInWithPopup(auth, provider);
+        await redirectByRole(result.user.uid);
+      } catch (error) {
+        showError(error.message);
+      } finally {
+        setLoading(googleLoginBtn, false, "Login with Google");
+      }
+    });
+
+    // --- Password Reset ---
+    document.getElementById("sendResetLinkBtn").addEventListener("click", async () => {
+      const resetEmail = document.getElementById("resetEmail").value;
+      const resetStatus = document.getElementById("resetStatus");
+      resetStatus.textContent = "";
+
+      if (!resetEmail) {
+        resetStatus.textContent = "Please enter your email.";
+        resetStatus.classList.add("text-danger");
+        return;
+      }
+
+      try {
+        await sendPasswordResetEmail(auth, resetEmail);
+        resetStatus.textContent = `Reset link sent to ${resetEmail}`;
+        resetStatus.classList.remove("text-danger");
+        resetStatus.classList.add("text-success");
+      } catch (error) {
+        resetStatus.textContent = error.message.replace("Firebase: ", "");
+        resetStatus.classList.add("text-danger");
+      }
+    });
+  </script>
+</body>
+</html>

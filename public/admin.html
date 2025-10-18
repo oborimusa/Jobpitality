@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard | Jobpitality</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+  <style>
+    :root {
+      --success: #198754;
+      --dark-bg: #1e1f26;
+    }
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background-color: #f8f9fa;
+    }
+    .sidebar {
+      width: 260px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      background-color: var(--dark-bg);
+      color: #fff;
+      padding-top: 70px;
+    }
+    .sidebar a {
+      color: #adb5bd;
+      text-decoration: none;
+      display: block;
+      padding: 12px 20px;
+      transition: all 0.2s ease;
+    }
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #343a40;
+      color: #fff;
+    }
+    .main-content {
+      margin-left: 260px;
+      padding: 40px;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 260px;
+      right: 0;
+      z-index: 10;
+      background: #fff;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .card {
+      border-radius: 12px;
+    }
+    .stat-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border-left: 5px solid var(--success);
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h4 class="text-center text-white mb-4">Jobpitality Admin</h4>
+    <a href="#" class="active"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
+    <a href="#"><i class="bi bi-briefcase-fill me-2"></i>Manage Jobs</a>
+    <a href="#"><i class="bi bi-people-fill me-2"></i>Manage Users</a>
+    <a href="#"><i class="bi bi-envelope-fill me-2"></i>Applications</a>
+    <a href="#"><i class="bi bi-gear-fill me-2"></i>Settings</a>
+    <a href="#" id="logoutBtn" class="text-danger"><i class="bi bi-box-arrow-right me-2"></i>Logout</a>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-light bg-white shadow-sm">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h5">Admin Dashboard</span>
+      <div class="d-flex align-items-center">
+        <i class="bi bi-person-circle fs-4 me-2 text-success"></i>
+        <span id="adminEmail" class="fw-semibold small text-muted">Loading...</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container-fluid">
+      <h3 class="fw-bold mb-4 text-success">Overview</h3>
+
+      <div class="row g-4 mb-4">
+        <div class="col-md-4">
+          <div class="stat-card">
+            <div>
+              <h4 id="totalJobs">0</h4>
+              <p class="text-muted mb-0 small">Active Jobs</p>
+            </div>
+            <i class="bi bi-briefcase-fill fs-1 text-success"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="stat-card">
+            <div>
+              <h4 id="totalUsers">0</h4>
+              <p class="text-muted mb-0 small">Registered Users</p>
+            </div>
+            <i class="bi bi-people-fill fs-1 text-success"></i>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="stat-card">
+            <div>
+              <h4 id="totalApplications">0</h4>
+              <p class="text-muted mb-0 small">Applications</p>
+            </div>
+            <i class="bi bi-envelope-paper-fill fs-1 text-success"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title fw-bold mb-3">Recent Job Posts</h5>
+          <div class="table-responsive">
+            <table class="table table-striped align-middle">
+              <thead>
+                <tr>
+                  <th>Job Title</th>
+                  <th>Employer</th>
+                  <th>Date Posted</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="jobTableBody">
+                <tr><td colspan="4" class="text-center text-muted py-3">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module">
+    // --- Firebase Imports ---
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { 
+      getAuth, 
+      onAuthStateChanged, 
+      signOut 
+    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { 
+      getFirestore, 
+      collection, 
+      getDocs, 
+      query, 
+      orderBy, 
+      limit 
+    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    // --- Jobpitality Firebase Config ---
+    const firebaseConfig = {
+      apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
+      authDomain: "jobpitality-1cfb2.firebaseapp.com",
+      projectId: "jobpitality-1cfb2",
+      storageBucket: "jobpitality-1cfb2.appspot.com",
+      messagingSenderId: "690621064391",
+      appId: "1:690621064391:web:26ff05dfc9f116823a8d8a"
+    };
+
+    // --- Initialize Firebase ---
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const adminEmailSpan = document.getElementById("adminEmail");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    const totalJobs = document.getElementById("totalJobs");
+    const totalUsers = document.getElementById("totalUsers");
+    const totalApplications = document.getElementById("totalApplications");
+    const jobTableBody = document.getElementById("jobTableBody");
+
+    // ✅ Define superadmin emails here
+    const superAdminEmails = [
+      "jobpitality@gmail.com",
+      // "admin@jobpitality.com"
+    ];
+
+    // --- Authentication Guard ---
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+      } else {
+        adminEmailSpan.textContent = user.email;
+
+        // ✅ Superadmin redirection
+        if (superAdminEmails.includes(user.email)) {
+          window.location.href = "superadmin.html";
+          return; // stop further loading
+        }
+
+        // Load normal admin dashboard
+        loadDashboardStats();
+      }
+    });
+
+    // --- Logout Handler ---
+    logoutBtn.addEventListener("click", async () => {
+      await signOut(auth);
+      window.location.href = "login.html";
+    });
+
+    // --- Load Dashboard Data ---
+    async function loadDashboardStats() {
+      try {
+        const jobsSnapshot = await getDocs(collection(db, "artifacts", "jobpitality", "public", "data", "jobs"));
+        const usersSnapshot = await getDocs(collection(db, "artifacts", "jobpitality", "users"));
+        const appsSnapshot = await getDocs(collection(db, "artifacts", "jobpitality", "public", "data", "applications"));
+
+        totalJobs.textContent = jobsSnapshot.size;
+        totalUsers.textContent = usersSnapshot.size;
+        totalApplications.textContent = appsSnapshot.size;
+
+        const jobsQuery = query(
+          collection(db, "artifacts", "jobpitality", "public", "data", "jobs"),
+          orderBy("postedAt", "desc"),
+          limit(5)
+        );
+        const recentJobs = await getDocs(jobsQuery);
+
+        jobTableBody.innerHTML = "";
+        if (recentJobs.empty) {
+          jobTableBody.innerHTML = "<tr><td colspan='4' class='text-center text-muted py-3'>No jobs posted yet.</td></tr>";
+        } else {
+          recentJobs.forEach((doc) => {
+            const job = doc.data();
+            const row = `
+              <tr>
+                <td>${job.title || "Untitled"}</td>
+                <td>${job.employerName || "Unknown"}</td>
+                <td>${job.postedAt ? new Date(job.postedAt.seconds * 1000).toLocaleDateString() : "-"}</td>
+                <td><span class="badge bg-${job.status === "active" ? "success" : "secondary"}">${job.status || "N/A"}</span></td>
+              </tr>
+            `;
+            jobTableBody.insertAdjacentHTML("beforeend", row);
+          });
+        }
+      } catch (error) {
+        console.error("Error loading dashboard data:", error);
+        jobTableBody.innerHTML = `<tr><td colspan="4" class="text-danger text-center py-3">Failed to load data: ${error.message}</td></tr>`;
+      }
+    }
+  </script>
+</body>
+</html>

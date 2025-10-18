@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frequently Asked Questions – Jobpitality</title>
+
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background-color: #f8f9fa; margin: 0;
+      font-family: Arial, sans-serif;
+      padding-top: 70px;}
+    h1 { font-weight: 700; }
+    .accordion-button:focus { box-shadow: none; }
+
+  
+     :root {
+      --green: #0ea861;
+      --blue: #004aad;
+      --dark: #0b2540;
+      --muted: #6b7280;
+    }
+    /* You can add custom inline CSS here */
+    /* body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      padding-top: 70px;
+    } */
+
+    .hero {
+      background: linear-gradient(90deg, rgba(11, 37, 69, 0.9), rgba(6, 125, 63, 0.85));
+      color: #fff;
+      height: 10vh;
+      
+      text-align: center;
+      position: relative; 
+    }
+
+    .hero {
+        background: linear-gradient(
+          90deg,
+          rgba(11, 37, 69, 0.9),
+          rgba(6, 125, 63, 0.85)
+        );
+        color: #fff;
+        padding: 2.25rem 1rem;
+        border-radius: 0.5rem;
+      }
+
+  .hero p {
+  color: var(--muted);
+  margin: 0 0 18px;
+    }
+    
+    .card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 30px rgba(11,37,69,0.04);
+  min-height: 120px;
+}
+
+.features {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.feature {
+  flex: 1;
+  min-width: 160px;
+  background: linear-gradient(180deg,#fff,#fbffff);
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(11,37,69,0.03);
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  max-width: 760px;
+  width: 100%;
+  padding: 18px;
+  box-shadow: 0 20px 45px rgba(2,6,23,0.36);
+}
+.close {
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+    .whatsapp-float {
+      
+  position: fixed;
+  bottom: 80px;
+  right: 5px;
+  font-size: 50px;
+  color: #25D366; /* WhatsApp green */
+  z-index: 999;
+}
+.whatsapp-float:hover { color: #1ebe57; }
+
+
+  .banner-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch; /* 🔑 makes children equal height */
+} 
+
+    .left-column,
+.right-column {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* ensures content flows vertically */
+} 
+
+     @media (min-width: 768px) {
+  .left-column,
+  .right-column {
+    width: 50%;
+  }
+  
+} 
+
+   .left-column {
+      background-color: #e0f7e9;
+    }
+
+    .right-column {
+      background-color: #f2f2f2;
+    }
+
+    .left-column h2,
+    .right-column h2 {
+      color: #1e4620;
+    }
+
+    .right-column h2 {
+      color: #555;
+    }
+
+    .left-column ul,
+    .right-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .left-column li::before {
+      content: '✅ ';
+    }
+
+    .right-column li::before {
+      content: '❌ ';
+    }
+
+    .cta-bar {
+      background-color: #cb5100;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 1.2em;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cta-bar img.logo {
+      width: 30px;
+      height: auto;
+    } 
+     /* WHATSAPP & FOOTER */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 28px;
+        right: 10px;
+        font-size: 48px;
+        color: var(--whatsapp);
+        z-index: 1200;
+      }
+      .whatsapp-float:hover {
+        color: #03cd4a;
+      }
+
+   .hero-solid {
+      background: linear-gradient(90deg, #28a745 0%, #cb5100 100%);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .headline {
+      font-size: 3.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .headline i {
+      animation: bounce 2s infinite;
+      color: #fff;
+    } 
+
+    @keyframes bounce {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+  
+
+    .btn-cta {
+      padding: 14px 32px;
+      font-size: 1.25rem;
+      transition: all 0.3s ease-in-out;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+
+    .btn-cta:hover {
+      background-color: #0a8a00;
+      transform: translateY(-2px);
+    }
+
+    .btn-button{
+    background: #0d6efd;
+    padding: 20px;
+    }
+
+    @media (max-width: 992px) {
+      .headline {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .headline {
+        font-size: 1.8rem !important;
+      }
+
+    
+      .btn-lg {
+        font-size: 1rem !important;
+        padding: 10px 20px !important;
+      }
+
+  .navbar-brand img {
+  margin-left: 0 !important;
+  display: block;
+  max-height: 48px;
+  height: auto;
+}
+
+@media (max-width: 980px) {
+  .hero { grid-template-columns: 1fr; text-align: left; }
+  .job-grid { grid-template-columns: repeat(2,1fr); }
+  .grid-3 { grid-template-columns: repeat(2,1fr); }
+  .testimonials { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+  header { padding: 12px 0; }
+  nav { display: none; }
+  .mobile-nav { display: flex; gap: 8px; }
+  .job-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 24px; }
+}
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Navbar (optional – reuse your site navbar if you have one) -->
+   <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top p-0 px-4" style="z-index:1030;">
+  <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5 m-2">
+      <div class="img">
+        <img src="img/final-job.png" alt="Logo" style="width: 110px; height: auto; margin: 20px 0;">
+      </div>
+    </a>
+    
+
+      
+    <button class="navbar-toggler me-2 mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Header starts -->
+      <header>
+    <div class="collapse navbar-collapse px-4" id="navbarCollapse">
+      <div class="navbar-nav">
+        <!-- Employers -->
+        <div class="nav-item dropdown">
+          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <a href="standard-listing.html" class="dropdown-item">Standard Listing</a>
+            <a href="employer-skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+            <a href="employer-corner.html" class="dropdown-item">Employer's Corner</a>
+            <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+            <a href="#request-staff.html" class="dropdown-item">Pro Recruit</a>
+
+          </div>
+        </div>
+
+        <!-- Career -->
+        <div class="nav-item dropdown">
+          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+        </div>
+
+
+        <a href="https://wa.me/2348127706378" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+        <!-- Job Seekers -->
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <a href="job-openings.html" class="dropdown-item">Job Openings</a>
+            <a href="cv-services.html" class="dropdown-item">CV Review Services</a>
+            <a href="job-list.html" class="dropdown-item">Job Vacancies</a>
+            <a href="mylearning.html" class="dropdown-item">My Learning</a>
+            <a href="jobseeker-dashboard.html" class="dropdown-item">Dashboard</a>
+            <a href="skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScQCdI3u2vSsHf0xpDUIQaRnaRjThq1KXqVVQ_rFC5igNu7Eg/viewform?usp=header" 
+              class="dropdown-item">Upload Your Resume</a>
+          </div>
+        </div>
+
+        <div class="">
+          <a href="pricing.html" class="nav-link px-2">Pricing</a>
+        </div>
+
+        <!-- Help Center -->
+        <div class="nav-item dropdown">
+          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <a href="faq.html" class="dropdown-item">Frequently Asked Question</a>
+            <!-- <a href="request-staff.html" class="dropdown-item">Request Staff</a> -->
+             <a href="contact.html" class="dropdown-item">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="ms-0">
+        <a href="about.html" class="dropdown-item">ABOUT US</a>
+    </div>
+      <!-- Auth + Post Job -->
+      <div class="d-flex align-items-center ms-auto">
+        <a href="landing.html" class="nav-link px-2">Login</a>
+        <span class="text-muted">|</span>
+        <a href="signup-landing.html" class="nav-link px-2">Sign Up</a>
+        <a href="vacancy.html" class="btn btn-button ms-3 m-2" style="padding-top: 15px; border-radius: 7px; font-size: 12px; height: 45px; color: white;">
+          Post A Job
+        </a>
+      </div>
+    </div>
+    </header>
+    <!-- Header ends -->
+    </div>
+  </nav>
+
+  <!-- ===== Hero Section ===== -->
+<header class="text-white text-center py-5 mb-4" style="background: linear-gradient(90deg, rgba(11, 37, 69, 0.9), rgba(6, 125, 63, 0.85));">
+  <div class="container">
+    <h1 class="text-center mb-4">Frequently Asked Questions</h1>
+  </div>
+</header>
+
+  <!-- FAQ Content -->
+  <section class="container my-5">
+    <h1 class="text-center mb-4">Need-to-Know Questions</h1>
+    <p class="text-center text-muted mb-5">
+      Find quick answers to the most common questions about using Jobpitality.
+    </p>
+
+    <div class="accordion" id="faqAccordion">
+
+      <!-- Question 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            How do I create an employer account?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+             data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Click <strong>Sign Up</strong> on the homepage, choose <em>Employer</em>, and fill in
+            your company details. You’ll receive a confirmation email to activate the account.
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Is Jobpitality free to use?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+             data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Job seekers can browse and apply for jobs at no cost.
+            Employers can post a limited number of listings for free and upgrade to premium plans for
+            additional visibility and features.
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            How can I edit or remove a job post?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+             data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Log in to your employer dashboard, locate the job listing, and choose <strong>Edit</strong> or
+            <strong>Delete</strong>. Updates are reflected immediately for all applicants.
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            What types of hospitality roles are available?
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+             data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We list a wide range of hospitality positions, including chefs, front-desk staff,
+            event managers, housekeepers, bartenders, and executive roles across hotels,
+            restaurants, and travel companies.
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Who can I contact for support?
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+             data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            For technical issues or account help, visit our
+            <a href="contact.html">Contact Page</a> or email
+            <a href="mailto:support@jobpitality.com">support@jobpitality.com</a>.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-top py-4">
+    <div class="container text-center text-muted">
+      &copy; <span id="year"></span> Jobpitality. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

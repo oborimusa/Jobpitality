@@ -1,0 +1,13 @@
+# Node & build folders
+node_modules/
+dist/
+.env
+
+# Firebase admin credentials
+firebase-admin-setup/
+jobpitality-role-setup/
+serviceAccountKey.json
+
+# System files
+.DS_Store
+Thumbs.db
