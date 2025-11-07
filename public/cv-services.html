@@ -7,158 +7,577 @@
 
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
-    body { padding-top: 70px; }
+    :root {
+      --blue: #002b5b;
+      --gold: #ffc107;
+      --light: #f8f9fa;
+      --dark: #0b2540;
+      --muted: #6b7280;
+      --green: #0ea861;
+      --border-radius: 12px;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: "Heebo", sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      padding-top: 76px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .navbar-brand img {
+      height: 48px;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: var(--dark) !important;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--blue) !important;
+    }
+    .btn-royal {
+      background-color: var(--blue);
+      color: #fff;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn-royal:hover {
+      background-color: #003d7a;
+      transform: translateY(-2px);
+    }
+    .btn-green {
+      background-color: var(--green);
+      color: #fff;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn-green:hover {
+      background-color: #0c9557;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, var(--blue), #004c8b);
+      color: white;
+      padding: 4rem 0;
+      margin-bottom: 2rem;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 L1000,100 L0,100 Z" fill="rgba(255,255,255,0.05)"></path></svg>');
+      background-size: cover;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Service Cards */
+    .service-card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    
     .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,.1);
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
     }
-    .hero {
-      background: url('img/cv.webp') center/cover no-repeat;
-      min-height: 40vh;
+    
+    .service-card.popular::before {
+      content: "Most Popular";
+      position: absolute;
+      top: 20px;
+      right: -30px;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 0.25rem 2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transform: rotate(45deg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
-    .hero-overlay {
-      background: rgba(0,0,0,0.6);
+    
+    .service-icon {
+      font-size: 3rem;
+      color: var(--blue);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      padding: 1rem;
+      background: rgba(0, 43, 91, 0.1);
+      border-radius: 50%;
+    }
+    
+    .service-card h5 {
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+    
+    .service-features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    
+    .service-features li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .service-features li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: bold;
+    }
+    
+    .service-price {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--blue);
+    }
+    
+    .service-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Process Section */
+    .process-section {
+      padding: 4rem 0;
+      background-color: #f8f9fa;
+    }
+    
+    .process-step {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background-color: var(--blue);
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+    }
+    
+    .process-step h5 {
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+    }
+    
+    .process-step p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, var(--blue), #004c8b);
+      color: white;
+      text-align: center;
+      border-radius: var(--border-radius);
+    }
+    
+    .cta-section h2 {
+      margin-bottom: 1rem;
+    }
+    
+    .cta-section p {
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    /* Benefits Section */
+    .benefits-section {
+      padding: 4rem 0;
+    }
+    
+    .benefit-card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+      height: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: var(--blue);
+      margin-bottom: 1.5rem;
+    }
+    
+    .benefit-card h5 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .benefit-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      padding: 3rem 0;
+    }
+    
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-header h2 {
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    
+    .section-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 3rem 0;
+      }
+      
+      .service-card {
+        padding: 2rem 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .process-step {
+        margin-bottom: 1.5rem;
+      }
+      
+      .benefit-card {
+        margin-bottom: 1.5rem;
+      }
     }
   </style>
 </head>
-<body class="bg-light">
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top p-2">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <a href="index.html">
+        <img src="img/final-job.png" alt="Logo" style="width: 100px; height: auto; margin: 5px 0;">
+      </a>      
+      <button class="navbar-toggler me-0 mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top px-4">
-    <a href="index.html" class="navbar-brand d-flex align-items-center">
-      <img src="img/final-job.png" alt="Jobpitality" style="height:30px;">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div id="nav" class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="job-list.html">Jobs</a></li>
-        <li class="nav-item"><a class="nav-link active" href="#">CV Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-      </ul>
+      <!-- Header starts -->
+      <header>
+        <div class="collapse navbar-collapse px-4 me-3" id="navbarCollapse">
+          <div class="navbar-nav">
+            <!-- Employers -->
+            <div class="nav-item dropdown">
+              <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+              <div class="dropdown-menu rounded-0 m-0">
+                <a href="employer-skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+                <a href="employer-dashboard.html" class="dropdown-item">Employer's Corner</a>
+                <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+                <a href="#request-staff.html" class="dropdown-item">Pro Recruit</a>
+                <a href="standard-listing.html" class="dropdown-item">Standard Listing</a>
+              </div>
+            </div>
+
+            <!-- Career -->
+            <div class="nav-item dropdown">
+              <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+            </div>
+
+            <!-- Job Seekers -->
+            <div class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Job Seekers</a>
+              <div class="dropdown-menu rounded-0 m-0">
+                <a href="job-openings.html" class="dropdown-item">Job Openings</a> 
+                <a href="cv-services.html" class="dropdown-item active">CV Review Services</a>
+                <a href="mylearning.html" class="dropdown-item">My Learning</a>
+                <a href="skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScQCdI3u2vSsHf0xpDUIQaRnaRjThq1KXqVVQ_rFC5igNu7Eg/viewform?usp=header" 
+                  class="dropdown-item">Upload Your Resume</a>
+              </div>
+            </div>
+
+            <div class="">
+              <a href="pricing.html" class="nav-link px-2">Pricing</a>
+            </div>
+
+            <!-- Help Center -->
+            <div class="nav-item dropdown">
+              <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
+              <div class="dropdown-menu rounded-0 m-0">
+                <a href="faq.html" class="dropdown-item">Frequently Asked Question</a>
+                <a href="contact.html" class="dropdown-item">Contact</a>
+              </div>
+            </div>
+          </div>
+          <div class="ms-0">
+            <a href="about.html" class="dropdown-item">About Us</a>
+          </div>
+          <!-- Auth + Post Job -->
+          <div class="d-flex align-items-center ms-auto">
+            <a href="login.html" class="nav-link px-2">Login</a>
+            <span class="text-muted">|</span>
+            <a href="get-started.html" class="nav-link px-2">Sign Up</a>
+            <a href="login.html" class="btn btn-sm btn-royal ms-3 m-2" style="padding-top: 15px; border-radius: 7px; font-size: 12px; height: 45px; color: white;">
+              Post A Job
+            </a>
+          </div>
+        </div>
+      </header>
+      <!-- Header ends -->
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero d-flex align-items-center text-center text-white">
-    <div class="container hero-overlay py-5">
-      <h1 class="display-5 fw-bold">Professional CV & Career Services</h1>
-      <p class="lead mb-0">
-        Make a lasting impression with a CV that stands out to top hospitality employers.
-      </p>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content text-center">
+        <h1 class="display-5 fw-bold mb-3">Professional CV & Career Services</h1>
+        <p class="lead mb-4">
+          Make a lasting impression with a CV that stands out to top hospitality employers
+        </p>
+        <a href="#services" class="btn btn-light btn-lg px-4">
+          <i class="fas fa-star me-2"></i>Explore Services
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <main class="container my-5">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold">Our CV Services</h2>
-      <p class="text-muted">
-        Whether you need a brand-new CV or a quick refresh, we have a package for you.
-      </p>
+  <!-- Services Section -->
+  <section id="services" class="container my-5">
+    <div class="section-header">
+      <h2>Our CV Services</h2>
+      <p>Whether you need a brand-new CV or a quick refresh, we have a package for you</p>
     </div>
 
     <div class="row g-4">
-      <!-- CV Writing -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card service-card h-100 border-0 shadow-sm">
-          <div class="card-body text-center">
-            <i class="bi bi-pencil-square fs-1 text-primary mb-3"></i>
-            <h5 class="card-title fw-bold">Full CV Writing</h5>
-            <p class="card-text">
-              <i class="bi bi-check-circle-fill text-success">  From scratch creation of a compelling CV tailored to hospitality roles. This is great if you are applying for managerial or niche roles..
-            </i></p>
-            <p><i class="bi bi-check-circle-fill text-success">  Along with all Silver benefits, you’ll receive a keyword-optimized LinkedIn profile rewrite designed to highlight your expertise and help you stand out in your field.</i></p>
-            <p><i class="bi bi-check-circle-fill text-success">  A vital step to draw the attention of headhunters and gain access to opportunities worldwide.</i></p>
-            <p class="fw-bold text-primary mb-3">N100,000</p>
-            <a href="order-cv.html" class="btn btn-primary">Get Started</a>
-          </div>
-        </div>
-      </div>
-
       <!-- CV Refresh -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card service-card h-100 border-0 shadow-sm">
-          <div class="card-body text-center">
-            <i class="bi bi-arrow-repeat fs-1 text-success mb-3"></i>
-            <h5 class="card-title fw-bold">CV Refresh</h5>
-            <p class="card-text"><i class="bi bi-check-circle-fill text-success">
-              Update and polish your existing CV to meet current industry standards.
-            </i></p>
-            <p><i class="bi bi-check-circle-fill text-success">  Enter every interview with confidence, assured 
-                that your CV showcases your strongest qualities and distinguishes you from other candidates.</i></p>
-            <p class="fw-bold text-success mb-3">N5000</p>
-            <a href="order-cv.html" class="btn btn-success">Update My CV</a>
+      <div class="col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-sync-alt"></i>
           </div>
+          <h5>CV Refresh</h5>
+          <ul class="service-features">
+            <li>Update and polish your existing CV to meet current industry standards</li>
+            <li>Enter every interview with confidence, assured that your CV showcases your strongest qualities</li>
+            <li>Distinguish yourself from other candidates with a professionally refreshed CV</li>
+          </ul>
+          <div class="service-price">₦5,000</div>
+          <p class="service-note">Perfect for quick updates and improvements</p>
+          <a href="order-cv.html" class="btn btn-green w-100">
+            <i class="fas fa-arrow-right me-2"></i>Update My CV
+          </a>
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4">
-        <div class="card service-card h-100 border-0 shadow-sm">
-          <div class="card-body text-center">
-            <i class="bi bi-pencil-square fs-1 text-primary mb-3"></i>
-            <h5 class="card-title fw-bold">Full CV Writing</h5>
-            <p class="card-text"><i class="bi bi-check-circle-fill text-success">
-              Complete creation of a compelling CV from the ground up, 
-              tailored specifically for mid-level hospitality roles.
-            </p></i>
-            <p><i class="bi bi-check-circle-fill text-success">  Plus, detailed recommendations to strengthen and polish your LinkedIn profile.</i></p>
-                <p><i class="bi bi-check-circle-fill text-success">  Receive a customised cover letter for your target role, showcasing how 
-                    your skills and experience make you the ideal candidate.</i></p>
-            <p class="fw-bold text-primary mb-3">N20,000</p>
-            <a href="order-cv.html" class="btn btn-primary">Get Started</a>
+      <!-- Full CV Writing (Mid-Level) -->
+      <div class="col-lg-4">
+        <div class="service-card popular">
+          <div class="service-icon">
+            <i class="fas fa-file-alt"></i>
           </div>
+          <h5>Full CV Writing (Mid-Level)</h5>
+          <ul class="service-features">
+            <li>Complete creation of a compelling CV from the ground up</li>
+            <li>Tailored specifically for mid-level hospitality roles</li>
+            <li>Detailed recommendations to strengthen your LinkedIn profile</li>
+            <li>Customized cover letter for your target role</li>
+          </ul>
+          <div class="service-price">₦20,000</div>
+          <p class="service-note">Most popular for career advancement</p>
+          <a href="order-cv.html" class="btn btn-royal w-100">
+            <i class="fas fa-arrow-right me-2"></i>Get Started
+          </a>
         </div>
       </div>
 
-      <!-- Cover Letter -->
-      <!-- <div class="col-md-6 col-lg-3">
-        <div class="card service-card h-100 border-0 shadow-sm">
-          <div class="card-body text-center">
-            <i class="bi bi-envelope-paper fs-1 text-warning mb-3"></i>
-            <h5 class="card-title fw-bold">Cover Letter</h5>
-            <p class="card-text">
-              Personalized cover letters tailored to each job application.
-            </p>
-            <p class="fw-bold text-warning mb-3">$40</p>
-            <a href="order-cv.html" class="btn btn-warning text-white">Order Now</a>
+      <!-- Full CV Writing (Executive) -->
+      <div class="col-lg-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-crown"></i>
           </div>
+          <h5>Full CV Writing (Executive)</h5>
+          <ul class="service-features">
+            <li>From scratch creation of a compelling CV tailored to managerial roles</li>
+            <li>Keyword-optimized LinkedIn profile rewrite</li>
+            <li>Access to opportunities worldwide with executive-level presentation</li>
+            <li>Strategic positioning for leadership and niche hospitality roles</li>
+          </ul>
+          <div class="service-price">₦100,000</div>
+          <p class="service-note">Executive level for senior positions</p>
+          <a href="order-cv.html" class="btn btn-royal w-100">
+            <i class="fas fa-arrow-right me-2"></i>Get Started
+          </a>
         </div>
-      </div> -->
-    </div>
-
-    <!-- Process -->
-    <div class="row mt-5">
-      <div class="col-lg-8 mx-auto text-center">
-        <h3 class="fw-bold mb-4">How It Works</h3>
-        <ol class="list-group list-group-numbered">
-          <li class="list-group-item">Select a service and submit your details.</li>
-          <li class="list-group-item">Our career experts review your background.</li>
-          <li class="list-group-item">Receive a polished CV within 3–5 business days.</li>
-        </ol>
       </div>
-    </div>
-  </main>
-
-  <!-- CTA -->
-  <section class="bg-primary text-white text-center py-5">
-    <div class="container">
-      <h2 class="fw-bold mb-3">Ready to Elevate Your Career?</h2>
-      <p class="mb-4">
-        Stand out to recruiters with a professional CV crafted by industry experts.
-      </p>
-      <a href="order-cv.html" class="btn btn-light btn-lg text-primary fw-bold">Order Your CV Today</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-dark text-white-50 text-center py-3">
-    &copy; <span id="year"></span> Jobpitality. All rights reserved.
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Choose Our CV Services</h2>
+        <p>Professional CVs that get results in the competitive hospitality industry</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h5>Industry Expertise</h5>
+            <p>Our writers understand hospitality industry requirements and employer expectations</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h5>Targeted Approach</h5>
+            <p>Each CV is customized for specific hospitality roles and career levels</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h5>Fast Turnaround</h5>
+            <p>Receive your professionally crafted CV within 3-5 business days</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>Simple process to get your professional CV ready</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <h5>Select Service</h5>
+            <p>Choose the CV service that matches your career needs and budget</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h5>Submit Details</h5>
+            <p>Provide your career background, experience, and target roles</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h5>Receive Your CV</h5>
+            <p>Get your professionally crafted CV within 3-5 business days</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Elevate Your Career?</h2>
+      <p>Stand out to recruiters with a professional CV crafted by hospitality industry experts</p>
+      <a href="order-cv.html" class="btn btn-light btn-lg px-5">
+        <i class="fas fa-file-download me-2"></i>Order Your CV Today
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0">&copy; <span id="year"></span> Jobpitality. All Rights Reserved.</p>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

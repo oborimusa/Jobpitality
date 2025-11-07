@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospitality Sectors We Serve – Jobpitality</title>
+    <meta
+      name="description"
+      content="Explore all hospitality sectors Jobpitality serves – from hotels and restaurants to travel, tourism, wellness, and event services across Africa."
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --blue: #004aad;
+        --green: #0ea861;
+        --dark: #0b2540;
+        --muted: #6b7280;
+        --bg: #f7f9fc;
+      }
+
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+        color: var(--dark);
+        background: var(--bg);
+      }
+
+      /* HERO */
+      .hero {
+        background: linear-gradient(160deg, var(--blue), var(--green));
+        color: #fff;
+        text-align: center;
+        padding: 90px 20px 70px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+      }
+      .hero h1 {
+        font-weight: 700;
+        font-size: 2.5rem;
+      }
+      .hero p {
+        opacity: 0.95;
+        max-width: 700px;
+        margin: 15px auto 0;
+      }
+
+      /* SECTORS GRID */
+      .sector-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 25px 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid #e8ecf4;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      }
+      .sector-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.07);
+      }
+      .sector-card i {
+        font-size: 2rem;
+        color: var(--green);
+        margin-bottom: 10px;
+      }
+      .sector-card h5 {
+        font-weight: 600;
+        color: var(--blue);
+      }
+      .sector-card p {
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      /* CTA */
+      .cta-section {
+        background: var(--blue);
+        color: #fff;
+        text-align: center;
+        padding: 70px 20px;
+        border-radius: 18px;
+        margin-top: 70px;
+      }
+
+      footer {
+        background: #081226;
+        color: #cfe9ff;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="container">
+        <h1>Hospitality Sectors We Serve</h1>
+        <p>
+          From hotels and restaurants to tourism, wellness, and events —
+          Jobpitality connects professionals and businesses across all areas of
+          hospitality.
+        </p>
+      </div>
+    </header>
+
+    <!-- SECTORS -->
+    <section class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Explore Key Sectors</h2>
+        <p class="text-muted">
+          We work with hospitality brands and talent across every industry
+          vertical.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Hotels -->
+        <div class="col-md-4 col-lg-3">
+          <div class="sector-card h-100">
+            <i class="bi bi-building"></i>
+            <h5>Hotels & Lodging</h5>
+            <p>Front office, housekeeping, guest relations, concierge, and management.</p>
+          </div>
+        </div>
+
+        <!-- Restaurants -->
+        <div class="col-md-4 col-lg-3">
+          <div class="sector-card h-100">
+            <i class="bi bi-cup-straw"></i>
+            <h5>Food & Beverage</h5>
+            <p>Restaurants, cafes, catering, chefs, bartenders, and waitstaff roles.</p>
+          </div>
+        </div>
+
+        <!-- Travel -->
+        <div class="col-md-4 col-lg-3">
+          <div class="sector-card h-100">
+            <i class="bi bi-airplane"></i>
+            <h5>Travel & Tourism</h5>
+            <p>Tour operators, guides, travel agents, and destination services.</p>
+          </div>
+        </div>
+
+        <!-- Events -->
+        <div class="col-md-4 col-lg-3">
+          <div class="sector-card h-100">
+            <i class="bi bi-people"></i>
+            <h5>Events & Entertainment</h5>
+            <p>Event planners, ushers, stage crew, and venue operations staff.</p>
+          </div>
+        </div>
+
+        <!-- Retail -->
+        <div class="col-md-4 col-lg-3">
+          <div class="sector-card h-100">
+            <i class="bi bi-shop"></i>
+            <h5>Retail & Customer Service</h5>
+            <p>Store attendants, merchandisers, brand promoters, and sales advisors.</p>
+          </div>
+        </div>
+
+        <!-- Facility -->
+        <div class="col-md-4 col-lg-3">
+          <div class="sector-card h-100">
+            <i class="bi bi-person-gear"></i>
+            <h5>Facility Management</h5>
+            <p>Maintenance, cleaning, security, and building operations staff.</p>
+          </div>
+        </div>
+
+        <!-- Corporate -->
+        <div class="col-md-4 col-lg-3">
+          <div class="sector-card h-100">
+            <i class="bi bi-briefcase"></i>
+            <h5>Corporate & Administration</h5>
+            <p>HR, finance, marketing, training, IT, and general office roles.</p>
+          </div>
+        </div>
+
+        <!-- Wellness -->
+        <div class="col-md-4 col-lg-3">
+          <div class="sector-card h-100">
+            <i class="bi bi-heart-pulse"></i>
+            <h5>Wellness, Spa & Fitness</h5>
+            <p>Spa therapists, beauticians, personal trainers, and wellness coaches.</p>
+          </div>
+        </div>
+
+        <!-- Cruise -->
+        <div class="col-md-4 col-lg-3">
+          <div class="sector-card h-100">
+            <i class="bi bi-ship"></i>
+            <h5>Cruise & Maritime</h5>
+            <p>Hospitality and culinary professionals for cruise and marine operations.</p>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="col-md-4 col-lg-3">
+          <div class="sector-card h-100">
+            <i class="bi bi-mortarboard"></i>
+            <h5>Hospitality Education & Training</h5>
+            <p>Instructors, trainers, and academic administrators for hospitality schools.</p>
+          </div>
+        </div>
+
+        <!-- Recruitment -->
+        <div class="col-md-4 col-lg-3">
+          <div class="sector-card h-100">
+            <i class="bi bi-person-badge"></i>
+            <h5>Recruitment & Staffing</h5>
+            <p>Executive search, manpower supply, and HR outsourcing agencies.</p>
+          </div>
+        </div>
+
+        <!-- Technology -->
+        <div class="col-md-4 col-lg-3">
+          <div class="sector-card h-100">
+            <i class="bi bi-laptop"></i>
+            <h5>Hospitality Technology</h5>
+            <p>Software providers, POS support, booking systems, and tech startups.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section container">
+      <h2>Ready to Hire or Get Hired?</h2>
+      <p>Join Africa’s fastest-growing hospitality network today.</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
+        <a href="post-job.html" class="btn btn-light btn-lg">Post a Job</a>
+        <a href="hire.html" class="btn btn-outline-light btn-lg">Find Talent</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        &copy; <span id="year"></span> Jobpitality. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

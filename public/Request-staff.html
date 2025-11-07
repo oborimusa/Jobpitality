@@ -7,160 +7,626 @@
   <meta name="description" content="Employers can request hospitality staff quickly and easily with Jobpitality." />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --blue: #002b5b;
+      --gold: #ffc107;
+      --light: #f8f9fa;
+      --dark: #0b2540;
+      --muted: #6b7280;
+      --border-radius: 12px;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: "Heebo", sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      padding-top: 76px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .navbar-brand img {
+      height: 48px;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: var(--dark) !important;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--blue) !important;
+    }
+    .btn-royal {
+      background-color: var(--blue);
+      color: #fff;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn-royal:hover {
+      background-color: #003d7a;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, var(--blue), #004c8b);
+      color: white;
+      padding: 4rem 0;
+      margin-bottom: 2rem;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 L1000,100 L0,100 Z" fill="rgba(255,255,255,0.05)"></path></svg>');
+      background-size: cover;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Request Form */
+    .request-card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .request-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .request-header h2 {
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .request-header p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    /* Form Elements */
+    .form-label {
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-control, .form-select {
+      border-radius: 8px;
+      border: 1px solid #dee2e6;
+      padding: 0.75rem 1rem;
+      transition: var(--transition);
+    }
+    
+    .form-control:focus, .form-select:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 0.25rem rgba(0, 43, 91, 0.25);
+    }
+    
+    .form-text {
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    /* How It Works Section */
+    .how-it-works {
+      padding: 3rem 0;
+      background-color: #f8f9fa;
+      border-radius: var(--border-radius);
+    }
+    
+    .step-card {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    
+    .step-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+      background: rgba(0, 43, 91, 0.1);
+      color: var(--blue);
+      border-radius: 50%;
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .step-card h6 {
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+    }
+    
+    .step-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+
+    /* Benefits Section */
+    .benefits-section {
+      padding: 3rem 0;
+    }
+    
+    .benefit-card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+      height: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: var(--blue);
+      margin-bottom: 1.5rem;
+    }
+    
+    .benefit-card h5 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .benefit-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      padding: 2rem 0;
+    }
+    
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-header h2 {
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    
+    .section-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Toast */
+    .toast {
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 3rem 0;
+      }
+      
+      .request-card {
+        padding: 1.5rem;
+      }
+      
+      .step-card {
+        margin-bottom: 1.5rem;
+      }
+      
+      .benefit-card {
+        margin-bottom: 1.5rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-light">
+<body>
 
 <!-- ===== Navbar ===== -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-          <img
-            src="img/final-job.png"
-            alt="Jobpitality"
-            style="height: 40px; margin-right: 8px"
-          />
-          <span class="fw-bold"></span>
-        </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top p-2">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <a href="index.html">
+      <img src="img/final-job.png" alt="Logo" style="width: 100px; height: auto; margin: 5px 0;">
+    </a>      
+    <button class="navbar-toggler me-0 mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link text-black" href="employers-landing.html">Dashboard</a></li>
-        <li class="nav-item"><a class="nav-link active text-black" aria-current="page" href="Request-staff.html">Request Staff</a></li>
-        <li class="nav-item"><a class="nav-link text-black" href="employer-corner.html">Manage Jobs</a></li>
-        <li class="nav-item"><a class="nav-link text-black" href="logout.html">Logout</a></li>
-      </ul>
-    </div>
+
+    <!-- Header starts -->
+    <header>
+      <div class="collapse navbar-collapse px-4 me-3" id="navbarCollapse">
+        <div class="navbar-nav">
+          <!-- Employers -->
+          <div class="nav-item dropdown">
+            <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="employer-skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+              <a href="employer-dashboard.html" class="dropdown-item">Employer's Corner</a>
+              <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+              <a href="#request-staff.html" class="dropdown-item">Pro Recruit</a>
+              <a href="standard-listing.html" class="dropdown-item">Standard Listing</a>
+            </div>
+          </div>
+
+          <!-- Career -->
+          <div class="nav-item dropdown">
+            <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+          </div>
+
+          <!-- Job Seekers -->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="job.html" class="dropdown-item">Job Opening</a> 
+              <a href="cv-services.html" class="dropdown-item">CV Review Services</a>
+              <a href="mylearning.html" class="dropdown-item">My Learning</a>
+              <a href="skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScQCdI3u2vSsHf0xpDUIQaRnaRjThq1KXqVVQ_rFC5igNu7Eg/viewform?usp=header" 
+                class="dropdown-item">Upload Your Resume</a>
+            </div>
+          </div>
+
+          <div class="">
+            <a href="pricing.html" class="nav-link px-2">Pricing</a>
+          </div>
+
+          <!-- Help Center -->
+          <div class="nav-item dropdown">
+            <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="faq.html" class="dropdown-item">Frequently Asked Question</a>
+              <a href="contact.html" class="dropdown-item">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div class="ms-0">
+          <a href="about.html" class="dropdown-item">About Us</a>
+        </div>
+        <!-- Auth + Post Job -->
+        <div class="d-flex align-items-center ms-auto">
+          <a href="login.html" class="nav-link px-2">Login</a>
+          <span class="text-muted">|</span>
+          <a href="get-started.html" class="nav-link px-2">Sign Up</a>
+          <a href="login.html" class="btn btn-sm btn-royal ms-3 m-2" style="padding-top: 15px; border-radius: 7px; font-size: 12px; height: 45px; color: white;">
+            Post A Job
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- Header ends -->
   </div>
 </nav>
 
 <!-- ===== Hero Section ===== -->
-<header class="bg-success text-white text-center py-5 mb-4">
+<section class="hero-section">
   <div class="container">
-    <h1 class="display-6 fw-bold">Request Hospitality Staff</h1>
-    <p class="lead mb-0">Tell us the roles you need and we’ll match you with qualified professionals fast.</p>
+    <div class="hero-content text-center">
+      <h1 class="display-5 fw-bold mb-3">Request Hospitality Staff</h1>
+      <p class="lead mb-0">Tell us the roles you need and we'll match you with qualified professionals fast.</p>
+    </div>
   </div>
-</header>
+</section>
 
 <main class="container mb-5">
 
   <!-- ===== Request Form ===== -->
   <section>
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <h2 class="h5 mb-4">Staff Request Form</h2>
-        <form id="staffRequestForm" class="row g-3">
-
-          <div class="col-md-6">
-            <label class="form-label">Company Name</label>
-            <input type="text" class="form-control" id="companyName" placeholder="e.g. Azure Hotels" required>
-          </div>
-
-          <div class="col-md-6">
-            <label class="form-label">Contact Person</label>
-            <input type="text" class="form-control" id="contactPerson" placeholder="Full name" required>
-          </div>
-
-          <div class="col-md-6">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" id="contactEmail" placeholder="you@company.com" required>
-          </div>
-
-          <div class="col-md-6">
-            <label class="form-label">Phone Number</label>
-            <input type="tel" class="form-control" id="contactPhone" placeholder="+234 800 000 0000" required>
-          </div>
-
-          <div class="col-md-6">
-            <label class="form-label">Role Needed</label>
-            <select class="form-select" id="roleNeeded" required>
-              <option value="">Select a role</option>
-              <option>Front Office Staff</option>
-              <option>Chef / Kitchen Staff</option>
-              <option>Housekeeping</option>
-              <option>Waiter / Waitress</option>
-              <option>Barista / Bartender</option>
-              <option>Manager / Supervisor</option>
-            </select>
-          </div>
-
-          <div class="col-md-6">
-            <label class="form-label">Number of Staff</label>
-            <input type="number" class="form-control" id="staffCount" min="1" placeholder="e.g. 5" required>
-          </div>
-
-          <div class="col-md-6">
-            <label class="form-label">Employment Type</label>
-            <select class="form-select" id="employmentType" required>
-              <option value="">Select type</option>
-              <option>Full-time</option>
-              <option>Part-time</option>
-              <option>Temporary / Event</option>
-              <option>Seasonal</option>
-            </select>
-          </div>
-
-          <div class="col-md-6">
-            <label class="form-label">Location</label>
-            <input type="text" class="form-control" id="location" placeholder="City, State" required>
-          </div>
-
-          <div class="col-12">
-            <label class="form-label">Additional Details</label>
-            <textarea class="form-control" id="details" rows="4" placeholder="Any specific skills, schedule or notes"></textarea>
-          </div>
-
-          <div class="col-12 text-end">
-            <button type="submit" class="btn btn-primary px-4">
-              <i class="bi bi-send"></i> Submit Request
-            </button>
-          </div>
-        </form>
+    <div class="request-card">
+      <div class="request-header">
+        <h2>Staff Request Form</h2>
+        <p>Fill out this form and we'll connect you with qualified hospitality professionals</p>
       </div>
+      
+      <form id="staffRequestForm" class="row g-4">
+        <div class="col-md-6">
+          <label class="form-label">Company Name</label>
+          <input type="text" class="form-control" id="companyName" placeholder="e.g. Azure Hotels" required>
+          <div class="form-text">Your organization's official name</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Contact Person</label>
+          <input type="text" class="form-control" id="contactPerson" placeholder="Full name" required>
+          <div class="form-text">The person we should contact about this request</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" id="contactEmail" placeholder="you@company.com" required>
+          <div class="form-text">We'll send confirmation and updates to this email</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" id="contactPhone" placeholder="+234 800 000 0000" required>
+          <div class="form-text">Include country code for international calls</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Role Needed</label>
+          <select class="form-select" id="roleNeeded" required>
+            <option value="">Select a role</option>
+            <option>Front Office Staff</option>
+            <option>Chef / Kitchen Staff</option>
+            <option>Housekeeping</option>
+            <option>Waiter / Waitress</option>
+            <option>Barista / Bartender</option>
+            <option>Manager / Supervisor</option>
+            <option>Security Personnel</option>
+            <option>Event Staff</option>
+            <option>Maintenance Staff</option>
+            <option>Other</option>
+          </select>
+          <div class="form-text">Select the primary role you need to fill</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Number of Staff</label>
+          <input type="number" class="form-control" id="staffCount" min="1" max="100" placeholder="e.g. 5" required>
+          <div class="form-text">How many people do you need for this role?</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Employment Type</label>
+          <select class="form-select" id="employmentType" required>
+            <option value="">Select type</option>
+            <option>Full-time</option>
+            <option>Part-time</option>
+            <option>Temporary / Event</option>
+            <option>Seasonal</option>
+            <option>Contract</option>
+          </select>
+          <div class="form-text">Choose the employment arrangement</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Urgency</label>
+          <select class="form-select" id="urgency" required>
+            <option value="">Select urgency</option>
+            <option>Immediate (within 24 hours)</option>
+            <option>Urgent (within 3 days)</option>
+            <option>Standard (1-2 weeks)</option>
+            <option>Planning (1+ month)</option>
+          </select>
+          <div class="form-text">How soon do you need staff?</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Location</label>
+          <input type="text" class="form-control" id="location" placeholder="City, State" required>
+          <div class="form-text">Where will these staff be working?</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Expected Start Date</label>
+          <input type="date" class="form-control" id="startDate">
+          <div class="form-text">When would you like staff to begin?</div>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Required Skills & Qualifications</label>
+          <textarea class="form-control" id="skills" rows="3" placeholder="Specific skills, certifications, or experience required"></textarea>
+          <div class="form-text">List any specific requirements for this role</div>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Additional Details</label>
+          <textarea class="form-control" id="details" rows="4" placeholder="Any specific schedule requirements, special notes, or additional information"></textarea>
+          <div class="form-text">Provide any other relevant information about your needs</div>
+        </div>
+
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-royal btn-lg px-5">
+            <i class="fas fa-paper-plane me-2"></i> Submit Request
+          </button>
+          <p class="text-muted mt-2 small">We typically respond to requests within 2 business hours</p>
+        </div>
+      </form>
     </div>
   </section>
 
   <!-- ===== How it Works ===== -->
-  <section class="mt-5">
-    <h2 class="h5 mb-3 text-center">How It Works</h2>
-    <div class="row text-center g-4">
-      <div class="col-md-4">
-        <i class="bi bi-pencil-square text-primary fs-2 mb-2"></i>
-        <h6>1. Fill Out the Form</h6>
-        <p class="small text-muted">Provide role, number of staff, and details about your needs.</p>
+  <section class="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>Our simple process to get you the hospitality staff you need</p>
       </div>
-      <div class="col-md-4">
-        <i class="bi bi-search text-primary fs-2 mb-2"></i>
-        <h6>2. We Source Candidates</h6>
-        <p class="small text-muted">Jobpitality matches you with qualified hospitality professionals.</p>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="fas fa-edit"></i>
+            </div>
+            <h6>1. Fill Out the Form</h6>
+            <p>Provide role details, number of staff needed, and specific requirements for your hospitality team.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h6>2. We Source Candidates</h6>
+            <p>Jobpitality matches you with pre-screened, qualified hospitality professionals from our database.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h6>3. Review & Hire</h6>
+            <p>Receive candidate profiles, schedule interviews, and hire the perfect fit for your team.</p>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4">
-        <i class="bi bi-people text-primary fs-2 mb-2"></i>
-        <h6>3. Start Hiring</h6>
-        <p class="small text-muted">Review profiles, interview, and hire with confidence.</p>
+    </div>
+  </section>
+
+  <!-- ===== Benefits Section ===== -->
+  <section class="benefits-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why Use Our Staff Request Service</h2>
+        <p>Streamline your hiring process with our specialized hospitality staffing solutions</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h5>Fast Matching</h5>
+            <p>Get matched with qualified candidates in hours, not weeks. Our specialized database ensures quick connections.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-user-check"></i>
+            </div>
+            <h5>Pre-Screened Talent</h5>
+            <p>All candidates are vetted for experience, skills, and reliability before being matched with your request.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h5>Dedicated Support</h5>
+            <p>Our team provides personalized support throughout the hiring process to ensure your satisfaction.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer class="bg-dark text-light text-center py-3">
-  <small>&copy; <span id="year"></span> Jobpitality. All rights reserved.</small>
+<!-- Toast Container -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+  <div id="statusToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body" id="toastMessage">Request submitted successfully!</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-dark text-light text-center py-4">
+  <div class="container">
+    <p class="mb-0">&copy; <span id="year"></span> Jobpitality. All rights reserved.</p>
+  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Simple demo submission handling
+  // Toast notification
+  function showToast(message, type = "success") {
+    const toastEl = document.getElementById("statusToast");
+    const toastMsg = document.getElementById("toastMessage");
+
+    toastMsg.textContent = message;
+    toastEl.className = `toast align-items-center text-bg-${type} border-0`;
+
+    const toast = new bootstrap.Toast(toastEl);
+    toast.show();
+  }
+
+  // Form submission handling
   document.getElementById('staffRequestForm').addEventListener('submit', e => {
     e.preventDefault();
-    alert('Your staff request has been submitted. We will contact you shortly!');
+    
+    // Get form data
+    const formData = {
+      companyName: document.getElementById('companyName').value,
+      contactPerson: document.getElementById('contactPerson').value,
+      contactEmail: document.getElementById('contactEmail').value,
+      contactPhone: document.getElementById('contactPhone').value,
+      roleNeeded: document.getElementById('roleNeeded').value,
+      staffCount: document.getElementById('staffCount').value,
+      employmentType: document.getElementById('employmentType').value,
+      urgency: document.getElementById('urgency').value,
+      location: document.getElementById('location').value,
+      startDate: document.getElementById('startDate').value,
+      skills: document.getElementById('skills').value,
+      details: document.getElementById('details').value,
+      submittedAt: new Date().toISOString()
+    };
+    
+    // In a real application, you would send this data to your backend
+    console.log('Staff request submitted:', formData);
+    
+    // Show success message
+    showToast('Your staff request has been submitted! We will contact you within 2 business hours.', 'success');
+    
+    // Reset form
     e.target.reset();
+    
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // Set minimum date for start date to today
+  document.getElementById('startDate').min = new Date().toISOString().split('T')[0];
 </script>
 </body>
 </html>

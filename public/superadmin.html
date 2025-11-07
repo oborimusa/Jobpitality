@@ -1,439 +1,813 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Superadmin Dashboard | Jobpitality</title>
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
     <style>
       body {
         background: #f8f9fa;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
-      .table td,
+
+      nav.navbar {
+        background: white;
+        height: 8vh;
+      }
+
+      .navbar-brand img {
+        width: 140px;
+      }
+
+      #spinner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1050;
+      }
+
+      .dashboard-header {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem;
+        border-left: 5px solid #dc3545;
+      }
+
+      .superadmin-badge {
+        background: #dc3545;
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        margin-left: 0.5rem;
+      }
+
+      .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        transition: all 0.25s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      footer {
+        margin-top: 60px;
+        padding: 20px 0;
+        background: #0b2545;
+        color: #fff;
+        text-align: center;
+      }
+
+      .job-card {
+        border-left: 4px solid #0d6efd;
+      }
+      
+      .job-card.pending {
+        border-left-color: #ffc107;
+      }
+      
+      .job-card.approved {
+        border-left-color: #198754;
+      }
+      
+      .job-card.rejected {
+        border-left-color: #dc3545;
+      }
+      
+      .status-badge {
+        font-size: 0.75rem;
+      }
+      
+      .job-details {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+      
+      .filter-container {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        margin-bottom: 1.5rem;
+      }
+
       .table th {
-        vertical-align: middle;
+        border-top: none;
+        font-weight: 600;
+        color: #495057;
       }
     </style>
   </head>
+
   <body>
-    <nav class="navbar navbar-dark bg-primary">
-      <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Superadmin Dashboard</span>
-        <button id="logoutBtn" class="btn btn-danger">Logout</button>
+    <!-- Spinner -->
+    <div id="spinner">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+      <div class="container">
+        <a href="index.html" class="navbar-brand d-flex align-items-center">
+          <img src="img/final-job.png" alt="Jobpitality Logo" />
+        </a>
+        <div class="ms-auto d-flex align-items-center">
+          <span class="badge bg-danger me-3">Superadmin</span>
+          <button id="logoutBtn" class="btn btn-outline-primary btn-sm">
+            Logout
+          </button>
+        </div>
       </div>
     </nav>
 
-    <div class="container py-4">
-      <h2 id="headline">Welcome Superadmin 👑</h2>
+    <!-- Dashboard Content -->
+    <div class="container my-5" id="mainContent" style="display: none;">
+      <div class="dashboard-header">
+        <h3 class="fw-bold mb-1">Superadmin Dashboard <span class="superadmin-badge">SUPERADMIN</span></h3>
+        <p class="text-muted" id="userEmail">Manage job posts and approvals</p>
+      </div>
 
-      <!-- Users -->
-      <section class="mt-4">
-        <h4>System Users</h4>
-        <div class="table-responsive">
-          <table class="table table-striped table-bordered">
-            <thead class="table-dark">
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="usersTableBody">
-              <tr>
-                <td colspan="5" class="text-center">Loading users…</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- Applications Table -->
-      <!-- <h3 class="mt-5">Applications</h3>
-      <div class="table-responsive mt-3">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Applicant</th>
-              <th>Job</th>
-              <th>Status</th>
-              <th>Resume</th>
-              <th>Cover Letter</th>
-            </tr>
-          </thead>
-          <tbody id="applicationsTable"> -->
-            <!-- JS injects rows here -->
-          <!-- </tbody>
-        </table>
-      </div> -->
-
-      <!-- Jobs -->
-      <section class="mt-4">
-        <h4>Jobs</h4>
-        <div class="table-responsive">
-          <table class="table table-striped table-bordered">
-            <thead class="table-dark">
-              <tr>
-                <th>#</th>
-                <th>Title</th>
-                <th>Employer</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="jobsTableBody">
-              <tr>
-                <td colspan="5" class="text-center">Loading jobs…</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- Applications -->
-      <section class="mt-4">
-        <h4>Applications</h4>
-        <div class="table-responsive">
-          <table class="table table-striped table-bordered">
-            <thead class="table-dark">
-              <tr>
-                <th>#</th>
-                <th>Job Title</th>
-                <th>Applicant</th>
-                <th>Email</th>
-                <th>Cover</th>
-                <th>Resume</th>
-                <th>Status</th>
-                <th>Applied At</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="appsTableBody">
-              <tr>
-                <td colspan="9" class="text-center">Loading applications…</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </div>
-
-    <!-- Edit Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editModalTitle">Edit</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+      <!-- Stats Cards -->
+      <div class="row g-4 mb-4">
+        <div class="col-md-3">
+          <div class="card p-3 text-center">
+            <i class="bi bi-briefcase display-5 text-primary mb-2"></i>
+            <h4 id="totalJobs">0</h4>
+            <p class="text-muted small">Total Jobs</p>
           </div>
-          <div class="modal-body">
-            <form id="editForm" onsubmit="return false;">
-              <input type="hidden" id="docId" />
-              <!-- Field 1: either text input or select (we toggle display) -->
-              <div class="mb-3" id="field1Group">
-                <label class="form-label" id="field1Label">Field 1</label>
-                <input id="field1Input" class="form-control" type="text" />
-                <select id="field1Select" class="form-select d-none"></select>
-              </div>
-
-              <!-- Field 2: optional -->
-              <div class="mb-3" id="field2Group">
-                <label class="form-label" id="field2Label">Field 2</label>
-                <input id="field2Input" class="form-control" type="text" />
-                <select id="field2Select" class="form-select d-none"></select>
-              </div>
-            </form>
+        </div>
+        
+        <div class="col-md-3">
+          <div class="card p-3 text-center">
+            <i class="bi bi-clock display-5 text-warning mb-2"></i>
+            <h4 id="pendingJobs">0</h4>
+            <p class="text-muted small">Pending Approval</p>
           </div>
-          <div class="modal-footer">
-            <button
-              id="cancelBtn"
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <button id="saveChangesBtn" type="button" class="btn btn-primary">
-              Save changes
-            </button>
+        </div>
+        
+        <div class="col-md-3">
+          <div class="card p-3 text-center">
+            <i class="bi bi-check-circle display-5 text-success mb-2"></i>
+            <h4 id="approvedJobs">0</h4>
+            <p class="text-muted small">Approved Jobs</p>
+          </div>
+        </div>
+        
+        <div class="col-md-3">
+          <div class="card p-3 text-center">
+            <i class="bi bi-x-circle display-5 text-danger mb-2"></i>
+            <h4 id="rejectedJobs">0</h4>
+            <p class="text-muted small">Rejected Jobs</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-container">
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <h6 class="mb-2">Filter by Status</h6>
+            <select id="statusFilter" class="form-select">
+              <option value="all">All Jobs</option>
+              <option value="pending">Pending Approval</option>
+              <option value="approved">Approved</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <h6 class="mb-2">Filter by Employer</h6>
+            <select id="employerFilter" class="form-select">
+              <option value="all">All Employers</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <h6 class="mb-2">Search</h6>
+            <input type="text" id="searchInput" class="form-control" placeholder="Search job titles...">
+          </div>
+        </div>
+      </div>
+
+      <!-- Jobs Table -->
+      <div class="card">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Job Posts Management</h5>
+          <span class="badge bg-primary" id="tableCount">0 jobs</span>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>Job Title</th>
+                  <th>Employer</th>
+                  <th>Date Posted</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="jobsTableBody">
+                <tr>
+                  <td colspan="5" class="text-center py-4 text-muted">
+                    <div class="spinner-border spinner-border-sm me-2" role="status"></div>
+                    Loading jobs...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
 
+    <div class="container">
+      <a href="index-new.html">
+        <div class=" py-5 d-flex align-items-center">
+         <button id="logoutBtn" class="btn btn-outline-primary btn-sm">
+            Home Page
+          </button>
+        </div>
+      </a>
+
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+      <p class="mb-0">&copy; 2025 Jobpitality. All rights reserved.</p>
+    </footer>
+
+    <!-- Firebase Auth + Role Redirect -->
     <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-      import {
-        getFirestore,
-        collection,
-        getDocs,
-        doc,
-        getDoc,
-        updateDoc,
-        deleteDoc,
-      } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
       import {
         getAuth,
         onAuthStateChanged,
         signOut,
-      } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+      } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+      import {
+        getFirestore,
+        doc,
+        getDoc,
+        collection,
+        getDocs,
+        updateDoc,
+        query,
+        where,
+        orderBy,
+        onSnapshot,
+        serverTimestamp
+      } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
-      /* -------------------------
-     Config & initialization
-     ------------------------- */
       const firebaseConfig = {
         apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
         authDomain: "jobpitality-1cfb2.firebaseapp.com",
         projectId: "jobpitality-1cfb2",
         storageBucket: "jobpitality-1cfb2.appspot.com",
         messagingSenderId: "185191165097",
-        measurementId: "G-SF5LWDZDKF",
+        appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8",
       };
 
       const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
       const auth = getAuth(app);
+      const db = getFirestore(app);
 
-      /* -------------------------
-     Applications loader
-     ------------------------- */
-      async function loadApplications() {
-  try {
-    const appsRef = collection(db, "applications");
-    const snapshot = await getDocs(appsRef);
+      const spinner = document.getElementById("spinner");
+      const main = document.getElementById("mainContent");
+      const jobsTableBody = document.getElementById("jobsTableBody");
+      const statusFilter = document.getElementById("statusFilter");
+      const employerFilter = document.getElementById("employerFilter");
+      const searchInput = document.getElementById("searchInput");
+      const tableCount = document.getElementById("tableCount");
+      
+      // Stats elements
+      const totalJobsEl = document.getElementById("totalJobs");
+      const pendingJobsEl = document.getElementById("pendingJobs");
+      const approvedJobsEl = document.getElementById("approvedJobs");
+      const rejectedJobsEl = document.getElementById("rejectedJobs");
 
-    const tbody = document.getElementById("appsTableBody");
-    tbody.innerHTML = ""; // clear old rows
+      let allJobs = [];
+      let allEmployers = [];
+      let unsubscribeJobs = null;
 
-    if (snapshot.empty) {
-      tbody.innerHTML = `<tr><td colspan="9" class="text-center">No applications found</td></tr>`;
-      return;
-    }
-
-    let idx = 1;
-    for (const docSnap of snapshot.docs) {
-      const app = docSnap.data();
-
-      // fetch applicant details
-      let applicantName = "N/A";
-      let applicantEmail = "N/A";
-      if (app.applicantId) {
-        const userDoc = await getDocs(collection(db, "users"));
-        const user = userDoc.docs.find(u => u.id === app.applicantId);
-        if (user) {
-          applicantName = user.data().fullName || "N/A";
-          applicantEmail = user.data().email || "N/A";
-        }
+      function toggleLoading(show) {
+        spinner.style.display = show ? "flex" : "none";
+        main.style.display = show ? "none" : "block";
       }
 
-      // fetch job title
-      let jobTitle = "N/A";
-      if (app.jobId) {
-        const jobDoc = await getDocs(collection(db, "jobs"));
-        const job = jobDoc.docs.find(j => j.id === app.jobId);
-        if (job) {
-          jobTitle = job.data().title || "N/A";
+      // Role-based redirect logic
+      onAuthStateChanged(auth, async (user) => {
+        if (!user) {
+          window.location.href = "login.html";
+          return;
         }
-      }
 
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${idx++}</td>
-        <td>${jobTitle}</td>
-        <td>${applicantName}</td>
-        <td>${applicantEmail}</td>
-        <td>${app.coverLetter || ""}</td>
-        <td><a href="${app.resumeUrl}" target="_blank">View Resume</a></td>
-        <td>${app.status || "pending"}</td>
-        <td>${app.appliedAt?.toDate ? app.appliedAt.toDate().toLocaleString() : ""}</td>
-        <td>
-          <button class="btn btn-sm btn-warning btn-edit"
-            data-collection="applications"
-            data-id="${docSnap.id}"
-            data-f1="${app.status || "pending"}">Edit</button>
-          <button class="btn btn-sm btn-danger btn-delete"
-            data-collection="applications"
-            data-id="${docSnap.id}">Delete</button>
-        </td>
-      `;
-      tbody.appendChild(tr);
-    }
-  } catch (err) {
-    console.error("Error loading applications:", err);
-    document.getElementById("appsTableBody").innerHTML =
-      `<tr><td colspan="9" class="text-center text-danger">Failed to load applications</td></tr>`;
-  }
-}
-      /* -------------------------
-     Users loader
-     ------------------------- */
-      async function loadUsers() {
         try {
-          const snapshot = await getDocs(collection(db, "users"));
-          const tbody = document.getElementById("usersTableBody");
-          tbody.innerHTML = "";
+          const userRef = doc(db, "users", user.uid);
+          const userSnap = await getDoc(userRef);
 
-          if (snapshot.empty) {
-            tbody.innerHTML = `<tr><td colspan="5" class="text-center">No users</td></tr>`;
-            return;
+          if (userSnap.exists()) {
+            const data = userSnap.data();
+            const role = data.role || "user";
+            const email = user.email.toLowerCase();
+
+            document.getElementById("userEmail").textContent = email;
+
+            // Check for superadmin email
+            const superadminEmails = [
+              "superadmin@jobpitality.com",
+              "owner@jobpitality.com",
+              "jobpitality@gmail.com"
+            ];
+
+            if (!superadminEmails.includes(email) && role !== "superadmin") {
+              // Not a superadmin, redirect to appropriate dashboard
+              if (role === "admin") {
+                window.location.href = "admin.html";
+              } else {
+                window.location.href = "dashboard.html";
+              }
+              return;
+            }
+
+            // Load jobs and employers for superadmin
+            await loadEmployers();
+            await loadJobs();
+            toggleLoading(false);
+          } else {
+            console.warn("User record not found in Firestore.");
+            // Still allow access if email is in superadmin list
+            const email = user.email.toLowerCase();
+            const superadminEmails = [
+              "superadmin@jobpitality.com",
+              "owner@jobpitality.com",
+              "jobpitality@gmail.com"              
+            ];
+            
+            if (superadminEmails.includes(email)) {
+              await loadEmployers();
+              await loadJobs();
+              toggleLoading(false);
+            } else {
+              window.location.href = "dashboard.html";
+            }
           }
-
-          let idx = 1;
-          snapshot.forEach((d) => {
-            const u = d.data();
-            const tr = document.createElement("tr");
-
-            tr.appendChild(td(idx++));
-            tr.appendChild(td(u.fullName || "-"));
-            tr.appendChild(td(u.email || "-"));
-            tr.appendChild(td(u.role || "-"));
-
-            // actions
-            const actionsTd = document.createElement("td");
-
-            const editBtn = document.createElement("button");
-            editBtn.className = "btn btn-sm btn-warning btn-edit me-2";
-            editBtn.textContent = "Edit";
-            editBtn.dataset.collection = "users";
-            editBtn.dataset.id = d.id;
-            editBtn.dataset.f1 = u.role || "";
-
-            const delBtn = document.createElement("button");
-            delBtn.className = "btn btn-sm btn-danger btn-delete";
-            delBtn.textContent = "Delete";
-            delBtn.dataset.collection = "users";
-            delBtn.dataset.id = d.id;
-
-            actionsTd.appendChild(editBtn);
-            actionsTd.appendChild(delBtn);
-            tr.appendChild(actionsTd);
-
-            tbody.appendChild(tr);
-          });
         } catch (err) {
-          console.error("loadUsers error", err);
-          document.getElementById(
-            "usersTableBody"
-          ).innerHTML = `<tr><td colspan="5" class="text-center text-danger">Failed to load users</td></tr>`;
+          console.error("Error fetching user data:", err);
+          toggleLoading(false);
+        }
+      });
+
+      // Load all employers
+      async function loadEmployers() {
+        try {
+          const usersRef = collection(db, "users");
+          // Get all users who can post jobs (employers, admins, and superadmins)
+          const q = query(usersRef, where("role", "in", ["employer", "admin", "superadmin"]));
+          const querySnapshot = await getDocs(q);
+          
+          allEmployers = [];
+          employerFilter.innerHTML = '<option value="all">All Employers</option>';
+          
+          querySnapshot.forEach((doc) => {
+            const employer = {
+              id: doc.id,
+              ...doc.data()
+            };
+            allEmployers.push(employer);
+            
+            const option = document.createElement('option');
+            option.value = doc.id;
+            option.textContent = employer.companyName || employer.name || employer.email;
+            employerFilter.appendChild(option);
+          });
+
+          console.log(`Loaded ${allEmployers.length} employers`, allEmployers);
+        } catch (error) {
+          console.error("Error loading employers:", error);
+          showAlert("Error loading employers", "danger");
         }
       }
 
-      /* -------------------------
-     Jobs loader
-     ------------------------- */
+      // Load all jobs
       async function loadJobs() {
         try {
-          const snapshot = await getDocs(collection(db, "jobs"));
-          const tbody = document.getElementById("jobsTableBody");
-          tbody.innerHTML = "";
-
-          if (snapshot.empty) {
-            tbody.innerHTML = `<tr><td colspan="5" class="text-center">No jobs</td></tr>`;
-            return;
-          }
-
-          let idx = 1;
-          snapshot.forEach((d) => {
-            const j = d.data();
-            const tr = document.createElement("tr");
-
-            tr.appendChild(td(idx++));
-            tr.appendChild(td(j.title || "-"));
-            tr.appendChild(td(j.employer || "-"));
-            tr.appendChild(td(j.status || "open"));
-
-            const actionsTd = document.createElement("td");
-
-            const viewApps = document.createElement("button");
-            viewApps.className = "btn btn-sm btn-info btn-view-apps me-2";
-            viewApps.textContent = "View Apps";
-            viewApps.dataset.jobId = d.id;
-
-            const editBtn = document.createElement("button");
-            editBtn.className = "btn btn-sm btn-warning btn-edit me-2";
-            editBtn.textContent = "Edit";
-            editBtn.dataset.collection = "jobs";
-            editBtn.dataset.id = d.id;
-            editBtn.dataset.f1 = j.title || "";
-            editBtn.dataset.f2 = j.status || "";
-
-            const delBtn = document.createElement("button");
-            delBtn.className = "btn btn-sm btn-danger btn-delete";
-            delBtn.textContent = "Delete";
-            delBtn.dataset.collection = "jobs";
-            delBtn.dataset.id = d.id;
-
-            actionsTd.appendChild(viewApps);
-            actionsTd.appendChild(editBtn);
-            actionsTd.appendChild(delBtn);
-            tr.appendChild(actionsTd);
-
-            tbody.appendChild(tr);
+          const jobsRef = collection(db, "jobs");
+          const q = query(jobsRef, orderBy("createdAt", "desc"));
+          
+          // Set up real-time listener
+          unsubscribeJobs = onSnapshot(q, (querySnapshot) => {
+            allJobs = [];
+            let pendingCount = 0;
+            let approvedCount = 0;
+            let rejectedCount = 0;
+            
+            querySnapshot.forEach((doc) => {
+              const job = {
+                id: doc.id,
+                ...doc.data()
+              };
+              allJobs.push(job);
+              
+              // Count by status
+              if (job.status === "pending") pendingCount++;
+              else if (job.status === "approved") approvedCount++;
+              else if (job.status === "rejected") rejectedCount++;
+            });
+            
+            // Update stats
+            totalJobsEl.textContent = allJobs.length;
+            pendingJobsEl.textContent = pendingCount;
+            approvedJobsEl.textContent = approvedCount;
+            rejectedJobsEl.textContent = rejectedCount;
+            
+            console.log(`Loaded ${allJobs.length} jobs: ${pendingCount} pending, ${approvedCount} approved, ${rejectedCount} rejected`);
+            console.log("All jobs:", allJobs); // Debug log
+            
+            // Render jobs
+            renderJobs();
+          }, (error) => {
+            console.error("Error in jobs listener:", error);
+            showAlert("Error loading jobs", "danger");
           });
-        } catch (err) {
-          console.error("loadJobs error", err);
-          document.getElementById(
-            "jobsTableBody"
-          ).innerHTML = `<tr><td colspan="5" class="text-center text-danger">Failed to load jobs</td></tr>`;
+        } catch (error) {
+          console.error("Error setting up jobs listener:", error);
+          showAlert("Error setting up jobs listener", "danger");
         }
       }
 
-      /* -------------------------
-     Helper to build td
-     ------------------------- */
-      function td(content) {
-        const cell = document.createElement("td");
-        cell.textContent = content;
-        return cell;
+      // Render jobs based on filters
+      function renderJobs() {
+        const statusFilterValue = statusFilter.value;
+        const employerFilterValue = employerFilter.value;
+        const searchValue = searchInput.value.toLowerCase();
+        
+        let filteredJobs = allJobs;
+        
+        // Apply status filter
+        if (statusFilterValue !== "all") {
+          filteredJobs = filteredJobs.filter(job => job.status === statusFilterValue);
+        }
+        
+        // Apply employer filter
+        if (employerFilterValue !== "all") {
+          filteredJobs = filteredJobs.filter(job => job.employerId === employerFilterValue);
+        }
+        
+        // Apply search filter
+        if (searchValue) {
+          filteredJobs = filteredJobs.filter(job => 
+            job.title?.toLowerCase().includes(searchValue) ||
+            job.description?.toLowerCase().includes(searchValue) ||
+            job.location?.toLowerCase().includes(searchValue)
+          );
+        }
+        
+        // Update table count
+        tableCount.textContent = `${filteredJobs.length} job${filteredJobs.length !== 1 ? 's' : ''}`;
+        
+        // Clear table
+        jobsTableBody.innerHTML = '';
+        
+        if (filteredJobs.length === 0) {
+          jobsTableBody.innerHTML = `
+            <tr>
+              <td colspan="5" class="text-center py-4 text-muted">
+                <i class="bi bi-inbox display-4 text-muted mb-2"></i><br>
+                No jobs found matching your criteria
+              </td>
+            </tr>
+          `;
+          return;
+        }
+        
+        // Populate table
+        filteredJobs.forEach(job => {
+          // Find employer information - try multiple field names
+          const employer = findEmployer(job);
+          const employerName = getEmployerName(employer, job);
+          
+          const row = document.createElement('tr');
+          row.className = `job-card ${job.status}`;
+          row.innerHTML = `
+            <td>
+              <div class="fw-bold">${job.title || 'Untitled Job'}</div>
+              <div class="job-details">${job.location || 'Location not specified'} • ${job.jobType || 'Full-time'}</div>
+            </td>
+            <td>
+              <div class="fw-semibold">${employerName}</div>
+              <div class="text-muted small">${employer?.email || job.employerEmail || 'No email'}</div>
+            </td>
+            <td>${formatDate(job.createdAt)}</td>
+            <td>
+              <span class="badge status-badge ${getStatusBadgeClass(job.status)}">
+                ${(job.status || 'pending').charAt(0).toUpperCase() + (job.status || 'pending').slice(1)}
+              </span>
+            </td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-outline-primary view-job" data-id="${job.id}" title="View Details">
+                  <i class="bi bi-eye"></i>
+                </button>
+                ${(job.status === 'pending' || !job.status) ? `
+                  <button class="btn btn-outline-success approve-job" data-id="${job.id}" title="Approve Job">
+                    <i class="bi bi-check-lg"></i>
+                  </button>
+                  <button class="btn btn-outline-danger reject-job" data-id="${job.id}" title="Reject Job">
+                    <i class="bi bi-x-lg"></i>
+                  </button>
+                ` : ''}
+                ${job.status === 'rejected' ? `
+                  <button class="btn btn-outline-warning approve-job" data-id="${job.id}" title="Approve Job">
+                    <i class="bi bi-check-lg"></i>
+                  </button>
+                ` : ''}
+                ${job.status === 'approved' ? `
+                  <button class="btn btn-outline-danger reject-job" data-id="${job.id}" title="Reject Job">
+                    <i class="bi bi-x-lg"></i>
+                  </button>
+                ` : ''}
+              </div>
+            </td>
+          `;
+          
+          jobsTableBody.appendChild(row);
+        });
+        
+        // Add event listeners to action buttons
+        document.querySelectorAll('.view-job').forEach(btn => {
+          btn.addEventListener('click', () => viewJob(btn.dataset.id));
+        });
+        
+        document.querySelectorAll('.approve-job').forEach(btn => {
+          btn.addEventListener('click', () => updateJobStatus(btn.dataset.id, 'approved'));
+        });
+        
+        document.querySelectorAll('.reject-job').forEach(btn => {
+          btn.addEventListener('click', () => updateJobStatus(btn.dataset.id, 'rejected'));
+        });
       }
 
-      /* -------------------------
-     Auth check + initial load
-     ------------------------- */
-      onAuthStateChanged(auth, async (user) => {
-        if (!user) return (window.location.href = "login.html");
-
-        try {
-          const userDoc = await getDoc(doc(db, "users", user.uid));
-          if (
-            !userDoc.exists() ||
-            (userDoc.data().role || "").toLowerCase() !== "superadmin"
-          ) {
-            alert("Access denied - not a superadmin.");
-            await signOut(auth);
-            return (window.location.href = "login.html");
+      // Find employer by multiple possible field names
+      function findEmployer(job) {
+        // Try different field names that might contain employer ID
+        const possibleEmployerIdFields = [
+          'employerId',
+          'employerID', 
+          'employer_id',
+          'userId',
+          'userID',
+          'user_id',
+          'postedBy',
+          'createdBy'
+        ];
+        
+        let employerId = null;
+        
+        // Find which field contains the employer ID
+        for (const field of possibleEmployerIdFields) {
+          if (job[field]) {
+            employerId = job[field];
+            console.log(`Found employer ID in field '${field}':`, employerId);
+            break;
           }
-
-          const profile = userDoc.data();
-          document.getElementById(
-            "headline"
-          ).textContent = `Welcome Superadmin 👑 ${profile.fullName || ""}`;
-
-          await loadUsers();
-          await loadJobs();
-          await loadApplications();
-        } catch (err) {
-          console.error("Auth/load error", err);
-          alert("Failed to initialize dashboard. Check console.");
         }
-      });
+        
+        // If no employer ID found, try to find by email
+        if (!employerId && job.employerEmail) {
+          const employerByEmail = allEmployers.find(e => e.email === job.employerEmail);
+          if (employerByEmail) {
+            return employerByEmail;
+          }
+        }
+        
+        // Find employer by ID
+        return allEmployers.find(e => e.id === employerId) || null;
+      }
 
-      /* -------------------------
-     Logout
-     ------------------------- */
-      document.getElementById("logoutBtn").addEventListener("click", () => {
-        signOut(auth).then(() => (window.location.href = "login.html"));
+      // Get employer name with fallbacks
+      function getEmployerName(employer, job) {
+        if (employer) {
+          return employer.companyName || employer.name || employer.email || 'Unknown Employer';
+        }
+        
+        // If no employer found, try to get from job data
+        return job.companyName || job.employerName || job.employerEmail || 'Unknown Employer';
+      }
+
+      // View job details
+      function viewJob(jobId) {
+        const job = allJobs.find(j => j.id === jobId);
+        if (!job) {
+          showAlert("Job not found", "danger");
+          return;
+        }
+        
+        const employer = findEmployer(job);
+        const employerName = getEmployerName(employer, job);
+        
+        // Create modal to show job details
+        const modalHtml = `
+          <div class="modal fade" id="jobModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">${job.title || 'Untitled Job'}</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <strong>Company:</strong> ${employerName}
+                    </div>
+                    <div class="col-md-6">
+                      <strong>Contact Email:</strong> ${employer?.email || job.employerEmail || 'Not specified'}
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <strong>Location:</strong> ${job.location || 'Not specified'}
+                    </div>
+                    <div class="col-md-6">
+                      <strong>Job Type:</strong> ${job.jobType || 'Not specified'}
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <strong>Salary:</strong> ${job.salary || 'Not specified'}
+                    </div>
+                    <div class="col-md-6">
+                      <strong>Experience:</strong> ${job.experience || 'Not specified'}
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <strong>Description:</strong>
+                    <p class="mt-2">${job.description || 'No description provided'}</p>
+                  </div>
+                  <div class="mb-3">
+                    <strong>Requirements:</strong>
+                    <p class="mt-2">${job.requirements || 'No requirements provided'}</p>
+                  </div>
+                  <div class="mb-3">
+                    <strong>Status:</strong>
+                    <span class="badge ${getStatusBadgeClass(job.status)} ms-2">
+                      ${(job.status || 'pending').charAt(0).toUpperCase() + (job.status || 'pending').slice(1)}
+                    </span>
+                  </div>
+                  ${job.reviewedAt ? `
+                  <div class="mb-3">
+                    <strong>Last Reviewed:</strong>
+                    <span class="ms-2">${formatDate(job.reviewedAt)}</span>
+                  </div>
+                  ` : ''}
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  ${(job.status === 'pending' || !job.status || job.status === 'rejected') ? `
+                    <button type="button" class="btn btn-success" id="modalApproveBtn">Approve</button>
+                  ` : ''}
+                  ${(job.status === 'pending' || !job.status || job.status === 'approved') ? `
+                    <button type="button" class="btn btn-danger" id="modalRejectBtn">Reject</button>
+                  ` : ''}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        // Remove existing modal if any
+        const existingModal = document.getElementById('jobModal');
+        if (existingModal) existingModal.remove();
+        
+        // Add modal to body
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+        
+        // Show modal
+        const jobModal = new bootstrap.Modal(document.getElementById('jobModal'));
+        jobModal.show();
+        
+        // Add event listeners to modal buttons
+        document.getElementById('modalApproveBtn')?.addEventListener('click', () => {
+          updateJobStatus(jobId, 'approved');
+          jobModal.hide();
+        });
+        
+        document.getElementById('modalRejectBtn')?.addEventListener('click', () => {
+          updateJobStatus(jobId, 'rejected');
+          jobModal.hide();
+        });
+
+        // Clean up modal when hidden
+        document.getElementById('jobModal').addEventListener('hidden.bs.modal', function () {
+          this.remove();
+        });
+      }
+
+      // Update job status
+      async function updateJobStatus(jobId, status) {
+        try {
+          const jobRef = doc(db, "jobs", jobId);
+          await updateDoc(jobRef, {
+            status: status,
+            reviewedAt: serverTimestamp(),
+            reviewedBy: auth.currentUser.uid
+          });
+          
+          showAlert(`Job ${status} successfully!`, 'success');
+        } catch (error) {
+          console.error("Error updating job status:", error);
+          showAlert("Error updating job status: " + error.message, 'danger');
+        }
+      }
+
+      // Helper function to format date
+      function formatDate(timestamp) {
+        if (!timestamp) return 'Unknown';
+        try {
+          const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+          return date.toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+        } catch (error) {
+          return 'Invalid date';
+        }
+      }
+
+      // Helper function to get status badge class
+      function getStatusBadgeClass(status) {
+        switch(status) {
+          case 'pending': return 'bg-warning text-dark';
+          case 'approved': return 'bg-success';
+          case 'rejected': return 'bg-danger';
+          default: return 'bg-secondary';
+        }
+      }
+
+      // Show alert message
+      function showAlert(message, type) {
+        const alertHtml = `
+          <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+            <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        `;
+        
+        // Remove existing alerts
+        document.querySelectorAll('.alert').forEach(alert => alert.remove());
+        
+        // Add alert to dashboard header
+        document.querySelector('.dashboard-header').insertAdjacentHTML('afterend', alertHtml);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+          const alert = document.querySelector('.alert');
+          if (alert) alert.remove();
+        }, 5000);
+      }
+
+      // Add event listeners to filters
+      statusFilter.addEventListener('change', renderJobs);
+      employerFilter.addEventListener('change', renderJobs);
+      searchInput.addEventListener('input', renderJobs);
+
+      // Logout
+      document.getElementById("logoutBtn").addEventListener("click", async () => {
+        if (unsubscribeJobs) {
+          unsubscribeJobs();
+        }
+        await signOut(auth);
+        window.location.href = "login.html";
       });
     </script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

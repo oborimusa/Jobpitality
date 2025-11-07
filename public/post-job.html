@@ -7,6 +7,8 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
     /* Optional fine-tuning for small screens */
@@ -15,11 +17,30 @@
         max-width: 120px; /* scale logo further down on narrow phones */
       }
     }
+    
+    .form-section {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .section-title {
+      color: #4169e1;
+      border-bottom: 2px solid #4169e1;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .required-field::after {
+      content: " *";
+      color: #dc3545;
+    }
   </style>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
     const firebaseConfig = {
@@ -36,11 +57,38 @@
     const db   = getFirestore(app);
     const auth = getAuth(app);
 
-    // Redirect if not logged in
-    onAuthStateChanged(auth, (user) => {
+    let currentUser = null;
+    let userData = null;
+
+    // Check authentication and load user data
+    onAuthStateChanged(auth, async (user) => {
       if (!user) {
         alert("Please log in to post a job.");
-        window.location.href = "employer-login.html";
+        window.location.href = "login.html";
+        return;
+      }
+
+      currentUser = user;
+      
+      try {
+        // Get user data from Firestore
+        const { getDoc, doc } = await import("https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js");
+        const userRef = doc(db, "users", user.uid);
+        const userSnap = await getDoc(userRef);
+        
+        if (userSnap.exists()) {
+          userData = userSnap.data();
+          console.log("User data loaded:", userData);
+          
+          // Pre-fill company name if available
+          if (userData.companyName) {
+            document.getElementById('companyName').value = userData.companyName;
+          }
+        } else {
+          console.warn("User document not found in Firestore");
+        }
+      } catch (error) {
+        console.error("Error loading user data:", error);
       }
     });
 
@@ -50,25 +98,95 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const newJob = {
-          title:        document.getElementById('title').value,
-          location:     document.getElementById('location').value,
-          type:         document.getElementById('type').value,
-          salary:       document.getElementById('salary').value || 'Not specified',
-          description:  document.getElementById('description').value,
-          requirements: document.getElementById('requirements').value,
-          createdAt:    new Date()
-        };
+        if (!currentUser) {
+          alert("Please log in to post a job.");
+          window.location.href = "login.html";
+          return;
+        }
+
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="bi bi-arrow-repeat spinner"></i> Posting Job...';
+        submitBtn.disabled = true;
 
         try {
+          const newJob = {
+            // Job details
+            title: document.getElementById('title').value,
+            location: document.getElementById('location').value,
+            type: document.getElementById('type').value,
+            salary: document.getElementById('salary').value || 'Not specified',
+            experience: document.getElementById('experience').value || 'Not specified',
+            description: document.getElementById('description').value,
+            requirements: document.getElementById('requirements').value,
+            
+            // Company/Employer information
+            companyName: document.getElementById('companyName').value || userData?.companyName || 'Company not specified',
+            employerId: currentUser.uid,
+            employerEmail: currentUser.email,
+            employerName: userData?.name || currentUser.displayName || 'Employer',
+            
+            // System fields
+            status: 'pending', // All new jobs require superadmin approval
+            createdAt: serverTimestamp(),
+            updatedAt: serverTimestamp()
+          };
+
+          console.log("Posting job:", newJob);
+
           await addDoc(collection(db, 'jobs'), newJob);
-          alert('Job posted successfully!');
-          window.location.href = 'my-jobs.html';
+          
+          // Show success message
+          showMessage('Job posted successfully! It will be visible after approval by our team.', 'success');
+          
+          // Reset form after successful submission
+          setTimeout(() => {
+            form.reset();
+            // Keep company name if it was pre-filled
+            if (userData?.companyName) {
+              document.getElementById('companyName').value = userData.companyName;
+            }
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+          }, 2000);
+
         } catch (error) {
-          alert('Error posting job: ' + error.message);
+          console.error("Error posting job:", error);
+          showMessage('Error posting job: ' + error.message, 'error');
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
         }
       });
     });
+
+    function showMessage(message, type) {
+      // Remove existing messages
+      const existingAlert = document.querySelector('.alert');
+      if (existingAlert) {
+        existingAlert.remove();
+      }
+
+      const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+      const icon = type === 'success' ? 'bi-check-circle' : 'bi-exclamation-triangle';
+      
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `alert ${alertClass} alert-dismissible fade show`;
+      alertDiv.innerHTML = `
+        <i class="bi ${icon} me-2"></i>
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      `;
+      
+      document.querySelector('.container').insertBefore(alertDiv, document.querySelector('.container').firstChild);
+      
+      // Auto-remove success messages after 5 seconds
+      if (type === 'success') {
+        setTimeout(() => {
+          alertDiv.remove();
+        }, 5000);
+      }
+    }
   </script>
 </head>
 
@@ -128,44 +246,103 @@
   <!-- Job Post Form -->
   <div class="container py-5 px-3 px-md-5">
     <h2 class="text-center mb-4">Post a Job Vacancy</h2>
+    
+    <!-- Info Alert -->
+    <div class="alert alert-info">
+      <i class="bi bi-info-circle me-2"></i>
+      All job postings require approval from our team before they appear on the job board. 
+      This usually takes less than 24 hours.
+    </div>
+
     <form id="jobForm" class="mx-auto" style="max-width:700px;">
-      <div class="mb-3">
-        <label class="form-label">Job Title</label>
-        <input type="text" class="form-control" id="title" required>
+      
+      <!-- Company Information Section -->
+      <div class="form-section">
+        <h4 class="section-title">Company Information</h4>
+        
+        <div class="mb-3">
+          <label class="form-label required-field">Company Name</label>
+          <input type="text" class="form-control" id="companyName" required 
+                 placeholder="Enter your company name">
+          <div class="form-text">This will be displayed to job seekers</div>
+        </div>
       </div>
 
-      <div class="mb-3">
-        <label class="form-label">Location</label>
-        <input type="text" class="form-control" id="location" required>
+      <!-- Job Details Section -->
+      <div class="form-section">
+        <h4 class="section-title">Job Details</h4>
+        
+        <div class="mb-3">
+          <label class="form-label required-field">Job Title</label>
+          <input type="text" class="form-control" id="title" required 
+                 placeholder="e.g., Front Desk Manager, Sous Chef, Hotel Supervisor">
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label required-field">Location</label>
+            <input type="text" class="form-control" id="location" required 
+                   placeholder="e.g., Lagos, Nigeria">
+          </div>
+          
+          <div class="col-md-6 mb-3">
+            <label class="form-label required-field">Job Type</label>
+            <select class="form-select" id="type" required>
+              <option value="">Select job type</option>
+              <option value="Full-time">Full-Time</option>
+              <option value="Part-time">Part-Time</option>
+              <option value="Contract">Contract</option>
+              <option value="Temporary">Temporary</option>
+              <option value="Remote">Remote</option>
+              <option value="Internship">Internship</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Salary</label>
+            <input type="text" class="form-control" id="salary" 
+                   placeholder="e.g., ₦150,000 - ₦250,000 monthly">
+          </div>
+          
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Experience Level</label>
+            <select class="form-select" id="experience">
+              <option value="">Select experience level</option>
+              <option value="Entry Level">Entry Level (0-2 years)</option>
+              <option value="Mid Level">Mid Level (2-5 years)</option>
+              <option value="Senior Level">Senior Level (5+ years)</option>
+              <option value="Executive">Executive</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label required-field">Job Description</label>
+          <textarea class="form-control" id="description" rows="4" required 
+                    placeholder="Describe the role, responsibilities, and what makes this position exciting..."></textarea>
+          <div class="form-text">Be specific about daily tasks and expectations</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label required-field">Requirements</label>
+          <textarea class="form-control" id="requirements" rows="3" required 
+                    placeholder="List the skills, qualifications, and experience required..."></textarea>
+          <div class="form-text">Include education, certifications, technical skills, etc.</div>
+        </div>
       </div>
 
-      <div class="mb-3">
-        <label class="form-label">Job Type</label>
-        <select class="form-select" id="type" required>
-          <option value="">Select job type</option>
-          <option>Full-Time</option>
-          <option>Part-Time</option>
-          <option>Temporary</option>
-          <option>Contract</option>
-        </select>
+      <button type="submit" class="btn btn-success w-100 py-3">
+        <i class="bi bi-send me-2"></i>Submit for Approval
+      </button>
+      
+      <div class="text-center mt-3">
+        <small class="text-muted">
+          <i class="bi bi-shield-check me-1"></i>
+          Your job will be reviewed and approved within 24 hours
+        </small>
       </div>
-
-      <div class="mb-3">
-        <label class="form-label">Salary (Optional)</label>
-        <input type="text" class="form-control" id="salary">
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Job Description</label>
-        <textarea class="form-control" id="description" rows="4" required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Requirements</label>
-        <textarea class="form-control" id="requirements" rows="3" required></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-success w-100">Post Job</button>
     </form>
   </div>
   <!-- End Job Post Form -->

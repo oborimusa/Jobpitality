@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Jobpitality</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4169e1;
+            --primary-dark: #3151c9;
+            --secondary-color: #f8f9fa;
+            --accent-color: #25d366;
+            --text-color: #333;
+            --light-text: #6c757d;
+            --border-radius: 12px;
+            --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--secondary-color);
+            font-family: "Heebo", sans-serif;
+            color: var(--text-color);
+            padding-top: 76px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar Styling */
+        .navbar-brand img {
+            height: 50px;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .dropdown-menu {
+            border: none;
+            box-shadow: var(--shadow);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 2rem 0;
+        }
+        
+        .signup-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .signup-hero {
+            background: linear-gradient(135deg, var(--primary-color), #5a7df5);
+            color: white;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .signup-hero h2 {
+            font-family: "Inter", sans-serif;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .signup-hero p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .benefit-list li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .benefit-list i {
+            color: var(--accent-color);
+            margin-right: 0.75rem;
+            margin-top: 0.2rem;
+        }
+        
+        .signup-form {
+            padding: 3rem 2rem;
+        }
+        
+        .form-title {
+            font-family: "Inter", sans-serif;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+        
+        .form-control {
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e1e5e9;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(65, 105, 225, 0.25);
+        }
+        
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+        
+        .user-type-selector {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .user-type-option {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .user-type-option:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .user-type-option.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(65, 105, 225, 0.05);
+        }
+        
+        .user-type-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .user-type-label {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .user-type-desc {
+            font-size: 0.85rem;
+            color: var(--light-text);
+        }
+        
+        .btn-signup {
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            width: 100%;
+            transition: var(--transition);
+            color: white;
+        }
+        
+        .btn-signup:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e1e5e9;
+        }
+        
+        .divider-text {
+            padding: 0 1rem;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        .social-login {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn-social {
+            flex: 1;
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .btn-google {
+            background-color: white;
+            border: 1px solid #e1e5e9;
+            color: var(--text-color);
+        }
+        
+        .btn-google:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .btn-linkedin {
+            background-color: #0077b5;
+            border: 1px solid #0077b5;
+            color: white;
+        }
+        
+        .btn-linkedin:hover {
+            background-color: #00669c;
+            border-color: #00669c;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--light-text);
+        }
+        
+        .login-link a {
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .form-check-label a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .form-check-label a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            border-top: 1px solid #e9ecef;
+            padding: 1.5rem 0;
+            color: var(--light-text);
+            margin-top: auto;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 767.98px) {
+            .signup-hero {
+                padding: 2rem 1.5rem;
+            }
+            
+            .signup-form {
+                padding: 2rem 1.5rem;
+            }
+            
+            .user-type-selector {
+                flex-direction: column;
+            }
+            
+            .social-login {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top px-4 py-0">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand fw-bold">
+                <img src="img/final-job.png" alt="Jobpitality Logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                <div class="navbar-nav align-items-left">
+                    <!-- Employers -->
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="employer-skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+                            <a href="employer-dashboard.html" class="dropdown-item">Employer's Corner</a>
+                            <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+                            <a href="request-staff.html" class="dropdown-item">Pro Recruit</a>
+                            <a href="standard-listing.html" class="dropdown-item">Standard Listing</a>
+                        </div>
+                    </div>
+
+                    <!-- Career -->
+                    <a href="#" class="nav-link dropdown-toggle">Career</a>
+
+                    <!-- Job Seekers -->
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="job.html" class="dropdown-item">Job Openings</a>
+                            <a href="cv-services.html" class="dropdown-item">CV Review Services</a>
+                            <a href="job-list.html" class="dropdown-item">Job Vacancies</a>
+                            <a href="mylearning.html" class="dropdown-item">My Learning</a>
+                            <a href="jobseeker-dashboard.html" class="dropdown-item">Dashboard</a>
+                            <a href="skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScQCdI3u2vSsHf0xpDUIQaRnaRjThq1KXqVVQ_rFC5igNu7Eg/viewform?usp=header" target="_blank" class="dropdown-item">Upload Your Resume</a>
+                        </div>
+                    </div>
+
+                    <a href="pricing.html" class="nav-link px-2">Pricing</a>
+
+                    <!-- Help Center -->
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="faq.html" class="dropdown-item">Frequently Asked Questions</a>
+                            <a href="contact.html" class="dropdown-item">Contact</a>
+                        </div>
+                    </div>
+
+                    <a href="about.html" class="nav-link px-2">About Us</a>
+
+                    <!-- Auth + Post Job -->
+                    <div class="d-flex align-items-center ms-lg-3">
+                        <a href="login.html" class="nav-link px-2">Login</a>
+                        <span class="text-muted">|</span>
+                        <a href="get-started.html" class="nav-link px-2">Sign Up</a>
+                        <a href="login.html" class="btn ms-3 text-white btn-signup">
+                            Post A Job
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="signup-container">
+                <div class="row g-0">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="signup-hero">
+                            <h2>Join Jobpitality Today</h2>
+                            <p>Create your account and unlock opportunities in the hospitality industry</p>
+                            <ul class="benefit-list">
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <div>
+                                        <strong>Find Your Dream Job</strong>
+                                        <div>Access thousands of hospitality job listings</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <div>
+                                        <strong>Skill Development</strong>
+                                        <div>Enhance your skills with our learning resources</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <div>
+                                        <strong>Career Growth</strong>
+                                        <div>Connect with employers and advance your career</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    <div>
+                                        <strong>Networking</strong>
+                                        <div>Build connections within the hospitality industry</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="signup-form">
+                            <h3 class="form-title">Create Your Account</h3>
+                            
+                            <div class="user-type-selector">
+                                <div class="user-type-option selected" data-type="jobseeker">
+                                    <div class="user-type-icon">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <div class="user-type-label">Job Seeker</div>
+                                    <div class="user-type-desc">Looking for opportunities</div>
+                                </div>
+                                <div class="user-type-option" data-type="employer">
+                                    <div class="user-type-icon">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <div class="user-type-label">Employer</div>
+                                    <div class="user-type-desc">Hiring talent</div>
+                                </div>
+                            </div>
+                            
+                            <form id="signupForm">
+                                <input type="hidden" id="userType" name="userType" value="jobseeker">
+                                
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                    <div class="form-text">Must be at least 8 characters with a number and symbol</div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                        <label class="form-check-label" for="agreeTerms">
+                                            I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="newsletter">
+                                        <label class="form-check-label" for="newsletter">
+                                            Send me job alerts and career tips
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-signup mb-3">Create Account</button>
+                                
+                                <div class="divider">
+                                    <span class="divider-text">Or sign up with</span>
+                                </div>
+                                
+                                <div class="social-login mb-3">
+                                    <button type="button" class="btn btn-google">
+                                        <i class="fab fa-google"></i> Google
+                                    </button>
+                                    <button type="button" class="btn btn-linkedin">
+                                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                                    </button>
+                                </div>
+                                
+                                <div class="login-link">
+                                    Already have an account? <a href="login.html">Log in</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white text-center py-4">
+        <p class="mb-0">&copy; 2025 Jobpitality. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // User type selection
+        document.querySelectorAll('.user-type-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                document.querySelectorAll('.user-type-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                
+                // Update hidden input value
+                document.getElementById('userType').value = this.dataset.type;
+            });
+        });
+        
+        // Form submission
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic validation
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match. Please try again.');
+                return;
+            }
+            
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long.');
+                return;
+            }
+            
+            // In a real application, you would send the form data to your server here
+            // For demonstration, we'll just show a success message
+            alert('Account created successfully! Redirecting to your dashboard...');
+            
+            // Redirect based on user type
+            const userType = document.getElementById('userType').value;
+            if (userType === 'jobseeker') {
+                window.location.href = 'jobseeker-dashboard.html';
+            } else {
+                window.location.href = 'employer-dashboard.html';
+            }
+        });
+        
+        // Social login buttons (placeholder functionality)
+        document.querySelector('.btn-google').addEventListener('click', function() {
+            alert('Google sign-up would be implemented here');
+        });
+        
+        document.querySelector('.btn-linkedin').addEventListener('click', function() {
+            alert('LinkedIn sign-up would be implemented here');
+        });
+    </script>
+</body>
+</html>

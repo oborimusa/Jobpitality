@@ -5,385 +5,366 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Frequently Asked Questions – Jobpitality</title>
 
-
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css">
+  <!-- FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Inter:wght@700;800&display=swap" rel="stylesheet" />
+  
   <style>
-    body { background-color: #f8f9fa; margin: 0;
-      font-family: Arial, sans-serif;
-      padding-top: 70px;}
-    h1 { font-weight: 700; }
-    .accordion-button:focus { box-shadow: none; }
-
-  
-     :root {
-      --green: #0ea861;
-      --blue: #004aad;
-      --dark: #0b2540;
-      --muted: #6b7280;
-    }
-    /* You can add custom inline CSS here */
-    /* body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      padding-top: 70px;
-    } */
-
-    .hero {
-      background: linear-gradient(90deg, rgba(11, 37, 69, 0.9), rgba(6, 125, 63, 0.85));
-      color: #fff;
-      height: 10vh;
-      
-      text-align: center;
-      position: relative; 
-    }
-
-    .hero {
-        background: linear-gradient(
-          90deg,
-          rgba(11, 37, 69, 0.9),
-          rgba(6, 125, 63, 0.85)
-        );
-        color: #fff;
-        padding: 2.25rem 1rem;
-        border-radius: 0.5rem;
-      }
-
-  .hero p {
-  color: var(--muted);
-  margin: 0 0 18px;
+    :root {
+      --primary-color: #4169e1;
+      --primary-dark: #3151c9;
+      --secondary-color: #f8f9fa;
+      --accent-color: #25d366;
+      --text-color: #333;
+      --light-text: #6c757d;
+      --border-radius: 12px;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
     }
     
-    .card {
-  background: white;
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 8px 30px rgba(11,37,69,0.04);
-  min-height: 120px;
-}
-
-.features {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.feature {
-  flex: 1;
-  min-width: 160px;
-  background: linear-gradient(180deg,#fff,#fbffff);
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(11,37,69,0.03);
-}
-
-.modal {
-  background: white;
-  border-radius: 12px;
-  max-width: 760px;
-  width: 100%;
-  padding: 18px;
-  box-shadow: 0 20px 45px rgba(2,6,23,0.36);
-}
-.close {
-  background: transparent;
-  border: 0;
-  font-size: 20px;
-  cursor: pointer;
-  color: var(--muted);
-}
-
-    .whatsapp-float {
-      
-  position: fixed;
-  bottom: 80px;
-  right: 5px;
-  font-size: 50px;
-  color: #25D366; /* WhatsApp green */
-  z-index: 999;
-}
-.whatsapp-float:hover { color: #1ebe57; }
-
-
-  .banner-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch; /* 🔑 makes children equal height */
-} 
-
-    .left-column,
-.right-column {
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column; /* ensures content flows vertically */
-} 
-
-     @media (min-width: 768px) {
-  .left-column,
-  .right-column {
-    width: 50%;
-  }
-  
-} 
-
-   .left-column {
-      background-color: #e0f7e9;
+    body {
+      background-color: var(--secondary-color);
+      font-family: "Heebo", sans-serif;
+      color: var(--text-color);
+      padding-top: 76px;
     }
 
-    .right-column {
-      background-color: #f2f2f2;
+    /* Navbar Styling */
+    .navbar-brand img {
+      height: 50px;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .nav-link:hover {
+      color: var(--primary-color) !important;
+    }
+    
+    .dropdown-menu {
+      border: none;
+      box-shadow: var(--shadow);
     }
 
-    .left-column h2,
-    .right-column h2 {
-      color: #1e4620;
-    }
-
-    .right-column h2 {
-      color: #555;
-    }
-
-    .left-column ul,
-    .right-column ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .left-column li::before {
-      content: '✅ ';
-    }
-
-    .right-column li::before {
-      content: '❌ ';
-    }
-
-    .cta-bar {
-      background-color: #cb5100;
+    /* Hero Section */
+    .faq-hero {
+      background: linear-gradient(135deg, var(--primary-color), #5a7df5);
       color: white;
-      text-align: center;
-      padding: 15px 10px;
-      font-size: 1.2em;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      position: relative;
+      overflow: hidden;
     }
-
-    .cta-bar img.logo {
-      width: 30px;
-      height: auto;
-    } 
-     /* WHATSAPP & FOOTER */
-      .whatsapp-float {
-        position: fixed;
-        bottom: 28px;
-        right: 10px;
-        font-size: 48px;
-        color: var(--whatsapp);
-        z-index: 1200;
-      }
-      .whatsapp-float:hover {
-        color: #03cd4a;
-      }
-
-   .hero-solid {
-      background: linear-gradient(90deg, #28a745 0%, #cb5100 100%);
-      color: white;
-      padding: 100px 20px;
-      text-align: center;
+    
+    .faq-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,170.7C960,160,1056,160,1152,170.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: bottom;
     }
-
-    .headline {
-      font-size: 3.5rem;
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .faq-hero h1 {
+      font-family: "Inter", sans-serif;
       font-weight: 800;
-      text-transform: uppercase;
-      color: white;
-      margin-bottom: 20px;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      margin-bottom: 1rem;
     }
-
-    .headline i {
-      animation: bounce 2s infinite;
-      color: #fff;
-    } 
-
-    @keyframes bounce {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-6px);
-      }
-    }
-
-  
-
-    .btn-cta {
-      padding: 14px 32px;
-      font-size: 1.25rem;
-      transition: all 0.3s ease-in-out;
-      border-radius: 50px;
-      font-weight: 600;
-    }
-
-    .btn-cta:hover {
-      background-color: #0a8a00;
-      transform: translateY(-2px);
-    }
-
-    .btn-button{
-    background: #0d6efd;
-    padding: 20px;
-    }
-
-    @media (max-width: 992px) {
-      .headline {
-        font-size: 2.5rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .headline {
-        font-size: 1.8rem !important;
-      }
-
     
-      .btn-lg {
-        font-size: 1rem !important;
-        padding: 10px 20px !important;
-      }
-
-  .navbar-brand img {
-  margin-left: 0 !important;
-  display: block;
-  max-height: 48px;
-  height: auto;
-}
-
-@media (max-width: 980px) {
-  .hero { grid-template-columns: 1fr; text-align: left; }
-  .job-grid { grid-template-columns: repeat(2,1fr); }
-  .grid-3 { grid-template-columns: repeat(2,1fr); }
-  .testimonials { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 620px) {
-  header { padding: 12px 0; }
-  nav { display: none; }
-  .mobile-nav { display: flex; gap: 8px; }
-  .job-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 24px; }
-}
+    .faq-hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
     }
 
+    /* FAQ Section */
+    .faq-section {
+      margin-bottom: 3rem;
+    }
+    
+    .section-title {
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--text-color);
+    }
+    
+    .section-subtitle {
+      color: var(--light-text);
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .accordion {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .accordion-item {
+      border: none;
+      border-radius: var(--border-radius);
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    
+    .accordion-button {
+      background-color: white;
+      border: none;
+      border-radius: 0;
+      padding: 1.25rem 1.5rem;
+      font-weight: 600;
+      color: var(--text-color);
+      transition: var(--transition);
+    }
+    
+    .accordion-button:not(.collapsed) {
+      background-color: white;
+      color: var(--primary-color);
+      box-shadow: none;
+    }
+    
+    .accordion-button:focus {
+      box-shadow: none;
+      border-color: transparent;
+    }
+    
+    .accordion-button::after {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234169e1'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    }
+    
+    .accordion-button:not(.collapsed)::after {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%234169e1'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    }
+    
+    .accordion-body {
+      padding: 1.5rem;
+      background-color: white;
+      color: var(--light-text);
+      line-height: 1.6;
+    }
+    
+    .accordion-body a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .accordion-body a:hover {
+      text-decoration: underline;
+    }
+
+    /* Help Section */
+    .help-section {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem;
+      text-align: center;
+      margin: 3rem auto;
+      max-width: 800px;
+    }
+    
+    .help-icon {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+    }
+    
+    .help-title {
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    
+    .help-description {
+      color: var(--light-text);
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .btn-help {
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: 30px;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      color: white;
+      transition: var(--transition);
+    }
+    
+    .btn-help:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    
+    .whatsapp-float:hover {
+      background-color: #1ebe57;
+      transform: scale(1.1);
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      background: white;
+      border-top: 1px solid #e9ecef;
+      padding: 1.5rem 0;
+      color: var(--light-text);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 767.98px) {
+      .faq-hero {
+        padding: 2rem 0;
+      }
+      
+      .faq-hero h1 {
+        font-size: 1.75rem;
+      }
+      
+      .help-section {
+        padding: 1.5rem;
+      }
+      
+      .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Navbar (optional – reuse your site navbar if you have one) -->
-   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top p-0 px-4" style="z-index:1030;">
-  <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5 m-2">
-      <div class="img">
-        <img src="img/final-job.png" alt="Logo" style="width: 110px; height: auto; margin: 20px 0;">
-      </div>
-    </a>
-    
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top px-4 py-0">
+    <div class="container-fluid">
+      <a href="index.html" class="navbar-brand fw-bold">
+        <img src="img/final-job.png" alt="Jobpitality Logo">
+      </a>
 
-      
-    <button class="navbar-toggler me-2 mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <!-- Header starts -->
-      <header>
-    <div class="collapse navbar-collapse px-4" id="navbarCollapse">
-      <div class="navbar-nav">
-        <!-- Employers -->
-        <div class="nav-item dropdown">
-          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
-          <div class="dropdown-menu rounded-0 m-0">
-            <a href="standard-listing.html" class="dropdown-item">Standard Listing</a>
-            <a href="employer-skill-assessment.html" class="dropdown-item">Skill Assessment</a>
-            <a href="employer-corner.html" class="dropdown-item">Employer's Corner</a>
-            <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
-            <a href="#request-staff.html" class="dropdown-item">Pro Recruit</a>
-
+      <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        <div class="navbar-nav align-items-left">
+          <!-- Employers -->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="employer-skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+              <a href="employer-dashboard.html" class="dropdown-item">Employer's Corner</a>
+              <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+              <a href="request-staff.html" class="dropdown-item">Pro Recruit</a>
+              <a href="standard-listing.html" class="dropdown-item">Standard Listing</a>
+            </div>
           </div>
-        </div>
 
-        <!-- Career -->
-        <div class="nav-item dropdown">
-          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
-        </div>
+          <!-- Career -->
+          <a href="#" class="nav-link dropdown-toggle">Career</a>
 
-
-        <a href="https://wa.me/2348127706378" target="_blank" class="whatsapp-float">
-  <i class="fab fa-whatsapp"></i>
-</a>
-        <!-- Job Seekers -->
-        <div class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
-          <div class="dropdown-menu rounded-0 m-0">
-            <a href="job-openings.html" class="dropdown-item">Job Openings</a>
-            <a href="cv-services.html" class="dropdown-item">CV Review Services</a>
-            <a href="job-list.html" class="dropdown-item">Job Vacancies</a>
-            <a href="mylearning.html" class="dropdown-item">My Learning</a>
-            <a href="jobseeker-dashboard.html" class="dropdown-item">Dashboard</a>
-            <a href="skill-assessment.html" class="dropdown-item">Skill Assessment</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScQCdI3u2vSsHf0xpDUIQaRnaRjThq1KXqVVQ_rFC5igNu7Eg/viewform?usp=header" 
-              class="dropdown-item">Upload Your Resume</a>
+          <!-- Job Seekers -->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="job.html" class="dropdown-item">Job Openings</a>
+              <a href="cv-services.html" class="dropdown-item">CV Review Services</a>
+              <a href="job-list.html" class="dropdown-item">Job Vacancies</a>
+              <a href="mylearning.html" class="dropdown-item">My Learning</a>
+              <a href="jobseeker-dashboard.html" class="dropdown-item">Dashboard</a>
+              <a href="skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScQCdI3u2vSsHf0xpDUIQaRnaRjThq1KXqVVQ_rFC5igNu7Eg/viewform?usp=header" target="_blank" class="dropdown-item">Upload Your Resume</a>
+            </div>
           </div>
-        </div>
 
-        <div class="">
           <a href="pricing.html" class="nav-link px-2">Pricing</a>
-        </div>
 
-        <!-- Help Center -->
-        <div class="nav-item dropdown">
-          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
-          <div class="dropdown-menu rounded-0 m-0">
-            <a href="faq.html" class="dropdown-item">Frequently Asked Question</a>
-            <!-- <a href="request-staff.html" class="dropdown-item">Request Staff</a> -->
-             <a href="contact.html" class="dropdown-item">Contact</a>
+          <!-- Help Center -->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="faq.html" class="dropdown-item">Frequently Asked Questions</a>
+              <a href="contact.html" class="dropdown-item">Contact</a>
+            </div>
+          </div>
+
+          <a href="about.html" class="nav-link px-2">About Us</a>
+
+          <!-- Auth + Post Job -->
+          <div class="d-flex align-items-center ms-lg-3">
+            <a href="login.html" class="nav-link px-2">Login</a>
+            <span class="text-muted">|</span>
+            <a href="get-started.html" class="nav-link px-2">Sign Up</a>
+            <a href="login.html" class="btn ms-3 text-white" style="background-color: var(--primary-color); border: none; border-radius: 6px; padding: 0.5rem 1.5rem; font-weight: 500;">
+              Post A Job
+            </a>
           </div>
         </div>
       </div>
-      <div class="ms-0">
-        <a href="about.html" class="dropdown-item">ABOUT US</a>
-    </div>
-      <!-- Auth + Post Job -->
-      <div class="d-flex align-items-center ms-auto">
-        <a href="landing.html" class="nav-link px-2">Login</a>
-        <span class="text-muted">|</span>
-        <a href="signup-landing.html" class="nav-link px-2">Sign Up</a>
-        <a href="vacancy.html" class="btn btn-button ms-3 m-2" style="padding-top: 15px; border-radius: 7px; font-size: 12px; height: 45px; color: white;">
-          Post A Job
-        </a>
-      </div>
-    </div>
-    </header>
-    <!-- Header ends -->
     </div>
   </nav>
 
-  <!-- ===== Hero Section ===== -->
-<header class="text-white text-center py-5 mb-4" style="background: linear-gradient(90deg, rgba(11, 37, 69, 0.9), rgba(6, 125, 63, 0.85));">
-  <div class="container">
-    <h1 class="text-center mb-4">Frequently Asked Questions</h1>
-  </div>
-</header>
+  <!-- Hero Section -->
+  <section class="faq-hero">
+    <div class="container">
+      <div class="hero-content text-center">
+        <h1 class="display-5 fw-bold">Frequently Asked Questions</h1>
+        <p class="lead">Find quick answers to the most common questions about using Jobpitality</p>
+      </div>
+    </div>
+  </section>
 
   <!-- FAQ Content -->
-  <section class="container my-5">
-    <h1 class="text-center mb-4">Need-to-Know Questions</h1>
-    <p class="text-center text-muted mb-5">
+  <section class="container faq-section">
+    <h2 class="section-title">Need-to-Know Questions</h2>
+    <p class="section-subtitle">
       Find quick answers to the most common questions about using Jobpitality.
     </p>
 
@@ -401,7 +382,7 @@
              data-bs-parent="#faqAccordion">
           <div class="accordion-body">
             Click <strong>Sign Up</strong> on the homepage, choose <em>Employer</em>, and fill in
-            your company details. You’ll receive a confirmation email to activate the account.
+            your company details. You'll receive a confirmation email to activate the account.
           </div>
         </div>
       </div>
@@ -477,19 +458,91 @@
         </div>
       </div>
 
+      <!-- Question 6 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSix">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            How do I apply for jobs as a job seeker?
+          </button>
+        </h2>
+        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+             data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Create a job seeker account, complete your profile, and upload your resume. 
+            Then browse available positions and click "Apply" on any job that interests you. 
+            You can track your applications in your dashboard.
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSeven">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+            What payment methods do you accept?
+          </button>
+        </h2>
+        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+             data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We accept various payment methods including credit/debit cards, bank transfers, 
+            and popular digital payment platforms. All transactions are secure and encrypted.
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-white border-top py-4">
-    <div class="container text-center text-muted">
-      &copy; <span id="year"></span> Jobpitality. All rights reserved.
+  <!-- Help Section -->
+  <section class="container">
+    <div class="help-section">
+      <div class="help-icon">
+        <i class="fas fa-question-circle"></i>
+      </div>
+      <h3 class="help-title">Still Have Questions?</h3>
+      <p class="help-description">
+        Can't find the answer you're looking for? Our support team is here to help you with any questions or issues.
+      </p>
+      <a href="contact.html" class="btn btn-help">Contact Support</a>
     </div>
+  </section>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/2348127706378" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center py-4">
+    <p class="mb-0">&copy; <span id="year"></span> Jobpitality. All rights reserved.</p>
   </footer>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+    
+    // Auto-collapse other accordion items when one is opened
+    document.addEventListener('DOMContentLoaded', function() {
+      const accordionButtons = document.querySelectorAll('.accordion-button');
+      
+      accordionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // If this button is being expanded, collapse others
+          if (!this.classList.contains('collapsed')) {
+            accordionButtons.forEach(otherButton => {
+              if (otherButton !== this && !otherButton.classList.contains('collapsed')) {
+                otherButton.click();
+              }
+            });
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>

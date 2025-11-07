@@ -5,211 +5,315 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jobpitality Pricing</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Inter:wght@700;800&display=swap" rel="stylesheet">
   <style>
-    body { background: #f0f2f5; font-family: 'Segoe UI', sans-serif; }
-    .pricing-header { text-align: center; margin-bottom: 50px; }
-    .card { border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.2s; }
-    .card:hover { transform: translateY(-5px); }
-    .price { font-size: 2rem; font-weight: bold; }
-    .btn { border-radius: 30px; }
-    .highlight { border: 2px solid #0d6efd; }
+    :root {
+      --primary-color: #4169e1;
+      --primary-dark: #3151c9;
+      --secondary-color: #f8f9fa;
+      --accent-color: #25d366;
+      --text-color: #333;
+      --light-text: #6c757d;
+      --border-radius: 12px;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    body {
+      background: #f0f2f5;
+      font-family: 'Heebo', sans-serif;
+      color: var(--text-color);
+      padding-top: 76px;
+    }
 
-    /* pricing.css */
+    /* Navbar Styling */
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-brand img {
+      height: 50px;
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .nav-link:hover {
+      color: var(--primary-color) !important;
+    }
+    
+    .dropdown-menu {
+      border: none;
+      box-shadow: var(--shadow);
+    }
 
-/* General body styles */
-body {
-  background: #f0f2f5;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-}
+    /* Header Section */
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding: 3rem 0;
+    }
+    
+    .pricing-header h1 {
+      font-family: "Inter", sans-serif;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    
+    .pricing-header p {
+      color: var(--light-text);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-/* Navbar tweaks */
-.navbar {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-.navbar-brand img {
-  max-height: 60px;
-}
-.navbar .nav-link {
-  font-weight: 500;
-}
-.navbar .dropdown-menu {
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
+    /* Pricing Cards */
+    .pricing-card {
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      border: none;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .pricing-card.highlight {
+      border: 2px solid var(--primary-color);
+      transform: scale(1.03);
+    }
+    
+    .pricing-card.highlight::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--primary-color);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-bottom-left-radius: var(--border-radius);
+    }
+    
+    .card-header {
+      background: linear-gradient(135deg, var(--primary-color), #5a7df5);
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      border-bottom: none;
+    }
+    
+    .card-title {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+    }
+    
+    .price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 1rem 0;
+    }
+    
+    .price-period {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .card-body {
+      padding: 1.5rem;
+    }
+    
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+    
+    .feature-list li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .feature-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    
+    .btn-pricing {
+      border-radius: 30px;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      width: 100%;
+      transition: var(--transition);
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline-primary {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .btn-success {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+    
+    .btn-success:hover {
+      background-color: #1ebe57;
+      border-color: #1ebe57;
+      transform: translateY(-2px);
+    }
 
-/* Header section */
-.pricing-header {
-  text-align: center;
-  margin-bottom: 50px;
-  padding-top: 140px; /* Push below fixed navbar */
-}
-.pricing-header h1 {
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-.pricing-header p {
-  color: #6c757d;
-}
+    /* Job Seeker Premium Section */
+    .premium-section {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+    
+    .premium-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    
+    .premium-title {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .premium-description {
+      color: var(--light-text);
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-/* Pricing cards */
-.card {
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.25s, box-shadow 0.25s;
-  height: 100%;
-}
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-.card-title {
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-.price {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 15px 0;
-}
-.card ul {
-  margin: 20px 0;
-  padding: 0;
-  list-style: none;
-}
-.card ul li {
-  margin-bottom: 10px;
-  color: #444;
-}
+    /* Footer */
+    footer {
+      background: white;
+      border-top: 1px solid #e9ecef;
+      padding: 1.5rem 0;
+      color: var(--light-text);
+    }
 
-/* Highlight plan */
-.highlight {
-  border: 2px solid #0d6efd;
-}
-
-/* Buttons */
-.btn {
-  border-radius: 30px;
-  padding: 10px 24px;
-  font-weight: 500;
-}
-.btn-primary {
-  background-color: #0d6efd;
-  border: none;
-}
-.btn-outline-primary:hover {
-  background-color: #0d6efd;
-  color: #fff;
-}
-.btn-success {
-  background-color: #198754;
-  border: none;
-}
-
-/* Job Seeker Premium */
-section.text-center.my-5 h3 {
-  margin-bottom: 10px;
-}
-section.text-center.my-5 p.lead {
-  margin-bottom: 5px;
-}
-section.text-center.my-5 .price {
-  font-size: 1.5rem;
-  color: #0d6efd;
-  margin-bottom: 15px;
-}
-
-/* Footer */
-footer {
-  background: #fff;
-  border-top: 1px solid #e9ecef;
-  padding: 20px 0;
-  color: #6c757d;
-  font-size: 0.9rem;
-}
-
-/* Responsive layout */
-@media (max-width: 768px) {
-  .pricing-header {
-    padding-top: 100px;
-  }
-  .row.g-4 > div {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-  .card {
-    margin-bottom: 20px;
-  }
-}
+    /* Responsive Adjustments */
+    @media (max-width: 767.98px) {
+      .pricing-header {
+        padding: 2rem 0;
+      }
+      
+      .pricing-header h1 {
+        font-size: 1.75rem;
+      }
+      
+      .premium-section {
+        padding: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top p-0" style="z-index: 1030;">
-    <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-      <div class="img pb-2 pt-2">
-        <img src="img/final-job.png" alt="Logo" style="width: 150px; margin-top: 0px; margin-left: 100px;">
+  <nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top px-4 py-0">
+    <div class="container-fluid">
+      <a href="index.html" class="navbar-brand fw-bold">
+        <img src="img/final-job.png" alt="Jobpitality Logo">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        <div class="navbar-nav align-items-left">
+          <!-- Employers -->
+          <div class="nav-item dropdown">
+            <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="vacancy.html" class="dropdown-item">Post a Vacancy</a>
+              <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+            </div>
+          </div>
+
+          <!-- Career -->
+          <div class="nav-item dropdown">
+            <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+          </div>
+
+          <!-- Job Seekers -->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="job-openings.html" class="dropdown-item">Job Openings</a>
+              <a href="job-list.html" class="dropdown-item">Job List</a>
+              <a href="job-detail.html" class="dropdown-item">Job Details</a>
+              <a href="application-form.html" class="dropdown-item">Upload Your Resume</a>
+            </div>
+          </div>
+
+          <!-- Help Center -->
+          <div class="nav-item dropdown">
+            <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="vacancy.html" class="dropdown-item">Post a Vacancy</a>
+              <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+            </div>
+          </div>
+
+          <!-- Auth + Post Job -->
+          <div class="d-flex align-items-center ms-lg-3">
+            <a href="Login.html" class="nav-link px-2">Login</a>
+            <span class="text-muted">|</span>
+            <a href="register.html" class="nav-link px-2">Sign Up</a>
+            <a href="post-job.html" class="btn ms-3 text-white btn-primary">
+              Post A Job
+            </a>
+          </div>
+        </div>
       </div>
-    </a>
-    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse px-4" id="navbarCollapse">
-      <div class="navbar-nav me-auto">
-        <!-- Employers -->
-        <div class="nav-item dropdown">
-          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
-          <div class="dropdown-menu rounded-0 m-0">
-            <a href="vacancy.html" class="dropdown-item">Post a Vacancy</a>
-            <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
-          </div>
-        </div>
-
-        <!-- Career -->
-        <div class="nav-item dropdown">
-          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
-        </div>
-
-        <!-- Job Seekers -->
-        <div class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
-          <div class="dropdown-menu rounded-0 m-0">
-            <a href="job-openings.html" class="dropdown-item">Job Openings</a>
-            <a href="job-list.html" class="dropdown-item">Job List</a>
-            <a href="job-detail.html" class="dropdown-item">Job Details</a>
-            <a href="application-form.html" class="dropdown-item">Upload Your Resume</a>
-          </div>
-        </div>
-
-        <!-- Help Center -->
-        <div class="nav-item dropdown">
-          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
-          <div class="dropdown-menu rounded-0 m-0">
-            <a href="vacancy.html" class="dropdown-item">Post a Vacancy</a>
-            <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Auth + Post Job -->
-      <!-- <div class="d-flex align-items-center ms-auto">
-        <a href="Login.html" class="nav-link px-2">Login</a>
-        <span class="text-muted">|</span>
-        <a href="register.html" class="nav-link px-2">Sign Up</a>
-        <a href="post-job.html" class="btn ms-3 m-2" style="padding-top: 15px; border-radius: 7px; font-size: 12px; height: 45px; background: #cb5100; color: white;">
-          Post A Job
-        </a>
-      </div> -->
     </div>
   </nav>
 
   <!-- Header -->
-  <header class="container py-5 pricing-header mt-5 ">
-    <h1 class="fw-bold pt-5" style="padding-top: 600px;">Choose Your Plan</h1>
-    <p class="text-muted">Flexible options for job seekers and employers in hospitality</p>
+  <header class="container py-5 pricing-header">
+    <h1 class="fw-bold">Choose Your Plan</h1>
+    <p>Flexible options for job seekers and employers in hospitality</p>
   </header>
 
   <!-- Pricing Cards -->
@@ -217,70 +321,90 @@ footer {
     <div class="row g-4 justify-content-center">
 
       <!-- Free Plan -->
-      <div class="col-md-3">
-        <div class="card h-100 text-center">
-          <div class="card-body">
+      <div class="col-md-6 col-lg-3">
+        <div class="card pricing-card h-100 text-center">
+          <div class="card-header">
             <h5 class="card-title">Free Plan</h5>
-            <p class="price">₦0</p>
-            <ul class="list-unstyled mb-4">
+            <div class="price">₦0</div>
+            <div class="price-period">Forever</div>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <ul class="feature-list">
               <li>Create profile & upload CV</li>
               <li>Browse and apply for jobs</li>
               <li>Join study groups</li>
               <li>Limited applications</li>
             </ul>
-            <a href="signup.html" class="btn btn-outline-primary">Get Started</a>
+            <div class="mt-auto">
+              <a href="signup.html" class="btn btn-outline-primary btn-pricing">Get Started</a>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Bronze -->
-      <div class="col-md-3">
-        <div class="card h-100 text-center">
-          <div class="card-body">
+      <div class="col-md-6 col-lg-3">
+        <div class="card pricing-card h-100 text-center">
+          <div class="card-header">
             <h5 class="card-title">Bronze</h5>
-            <p class="price">₦5,000</p>
-            <ul class="list-unstyled mb-4">
+            <div class="price">₦5,000</div>
+            <div class="price-period">Per Month</div>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <ul class="feature-list">
               <li>5 job posts/month</li>
               <li>View resumes</li>
               <li>Basic applicant management</li>
               <li>Email support</li>
             </ul>
-            <a href="signup.html" class="btn btn-primary">Choose Bronze</a>
+            <div class="mt-auto">
+              <a href="signup.html" class="btn btn-primary btn-pricing">Choose Bronze</a>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Silver -->
-      <div class="col-md-3">
-        <div class="card h-100 text-center highlight">
-          <div class="card-body">
+      <div class="col-md-6 col-lg-3">
+        <div class="card pricing-card h-100 text-center highlight">
+          <div class="card-header">
             <h5 class="card-title">Silver</h5>
-            <p class="price">₦15,000</p>
-            <ul class="list-unstyled mb-4">
+            <div class="price">₦15,000</div>
+            <div class="price-period">Per Month</div>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <ul class="feature-list">
               <li>20 job posts/month</li>
               <li>Featured job placement</li>
               <li>Candidate messaging</li>
               <li>Priority support</li>
             </ul>
-            <a href="signup.html" class="btn btn-primary">Choose Silver</a>
+            <div class="mt-auto">
+              <a href="signup.html" class="btn btn-primary btn-pricing">Choose Silver</a>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Gold -->
-      <div class="col-md-3">
-        <div class="card h-100 text-center">
-          <div class="card-body">
+      <div class="col-md-6 col-lg-3">
+        <div class="card pricing-card h-100 text-center">
+          <div class="card-header">
             <h5 class="card-title">Gold</h5>
-            <p class="price">₦40,000</p>
-            <ul class="list-unstyled mb-4">
+            <div class="price">₦40,000</div>
+            <div class="price-period">Per Month</div>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <ul class="feature-list">
               <li>Unlimited job posts</li>
               <li>Advanced filters & analytics</li>
               <li>Featured employer badge</li>
               <li>Background checks</li>
               <li>Dedicated manager</li>
             </ul>
-            <a href="signup.html" class="btn btn-primary">Choose Gold</a>
+            <div class="mt-auto">
+              <a href="signup.html" class="btn btn-primary btn-pricing">Choose Gold</a>
+            </div>
           </div>
         </div>
       </div>
@@ -289,26 +413,34 @@ footer {
   </section>
 
   <!-- Job Seeker Premium -->
-  <section class="container text-center my-5">
-    <h3 class="fw-bold">🔒 Job Seeker Premium</h3>
-    <p class="lead">Highlighted profiles, unlimited applications, exclusive jobs, and more.</p>
-    <p class="price">₦2,000 / month</p>
-    <a href="signup.html" class="btn btn-success btn-lg">Upgrade Profile</a>
+  <section class="container">
+    <div class="premium-section">
+      <div class="premium-icon">
+        <i class="fas fa-crown"></i>
+      </div>
+      <h3 class="premium-title">Job Seeker Premium</h3>
+      <p class="premium-description">Highlighted profiles, unlimited applications, exclusive jobs, and more.</p>
+      <div class="price">₦2,000 <span class="price-period">/ month</span></div>
+      <a href="signup.html" class="btn btn-success btn-lg mt-3">Upgrade Profile</a>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white text-center py-4 mt-5 border-top">
+  <footer class="bg-white text-center py-4 mt-5">
     <p class="mb-0">&copy; 2025 Jobpitality. All rights reserved.</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  firebase.auth().onAuthStateChanged((user) => {
-    if (!user) {
-      // user not logged in → redirect to landing page
-      window.location.href = "landing.html";
-    }
-  });
-</script>
+  <script>
+    // Firebase auth check (commented out as it requires Firebase setup)
+    /*
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        // user not logged in → redirect to landing page
+        window.location.href = "landing.html";
+      }
+    });
+    */
+  </script>
 </body>
 </html>

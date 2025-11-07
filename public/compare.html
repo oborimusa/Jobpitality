@@ -8,182 +8,660 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+  <!-- FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+  
   <style>
     :root {
-      --green: #0ea861;
-      --blue: #004aad;
-      --dark: #0b2540;
-      --muted: #6b7280;
-      --whatsapp: #25D366;
+      --primary-color: #4169e1;
+      --primary-dark: #3151c9;
+      --secondary-color: #f8f9fa;
+      --accent-color: #25d366;
+      --text-color: #333;
+      --light-text: #6c757d;
+      --border-radius: 12px;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
     }
 
-    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: var(--dark); background:#f7f9fc; }
+    body { 
+      font-family: "Heebo", sans-serif; 
+      color: var(--text-color); 
+      background: var(--secondary-color);
+      padding-top: 76px;
+    }
 
-    /* Hero */
+    /* Navbar Styling */
+    .navbar-brand img {
+      height: 50px;
+    }
+    
+    .navbar {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .nav-link:hover {
+      color: var(--primary-color) !important;
+    }
+    
+    .dropdown-menu {
+      border: none;
+      box-shadow: var(--shadow);
+    }
+
+    /* Hero Section */
     .hero {
-      background: linear-gradient(180deg, rgba(0,74,173,0.92), rgba(14,168,97,0.06)), url('img/hero-bg.jpg') center/cover no-repeat;
+      background: linear-gradient(135deg, var(--primary-color), #5a7df5);
       color: #fff;
-      padding: 72px 18px;
+      padding: 4rem 0;
+      margin-bottom: 2rem;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,170.7C960,160,1056,160,1152,170.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: bottom;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero h1 {
+      font-family: "Inter", sans-serif;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Trust Bar */
+    .trust-bar {
+      background-color: white;
+      padding: 1.5rem 0;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+    
+    .trust-text {
+      color: var(--light-text);
+      font-weight: 500;
+    }
+    
+    .trust-logos {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .trust-logo {
+      height: 30px;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: var(--transition);
+    }
+    
+    .trust-logo:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    /* Pricing Cards */
+    .pricing-section {
+      margin-bottom: 3rem;
+    }
+    
+    .section-title {
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    
+    .section-subtitle {
+      color: var(--light-text);
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
       text-align: center;
-      border-bottom-left-radius: 18px;
-      border-bottom-right-radius: 18px;
     }
-    .hero h1 { font-size: 2.25rem; font-weight:700; letter-spacing: -0.02em; margin-bottom: 8px; }
-    .hero p { max-width:900px; margin: 0 auto 20px; opacity: .95; }
-
-    /* Pricing cards row */
+    
     .plan-card {
-      border-radius: 12px;
-      transition: transform .18s ease, box-shadow .18s ease;
-      border: 1px solid #e7eefc;
-      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: none;
+      overflow: hidden;
+      height: 100%;
+      position: relative;
     }
-    .plan-card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(6,20,50,0.08); }
+    
+    .plan-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .plan-card.recommended {
+      border: 2px solid var(--primary-color);
+      transform: scale(1.03);
+    }
+    
+    .plan-card.recommended::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--primary-color);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-bottom-left-radius: var(--border-radius);
+    }
+    
+    .plan-header {
+      padding: 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid #e9ecef;
+    }
+    
+    .plan-name {
+      color: var(--light-text);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    
+    .plan-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin-bottom: 0.25rem;
+    }
+    
+    .plan-period {
+      color: var(--light-text);
+      font-size: 0.9rem;
+    }
+    
+    .plan-badge {
+      display: inline-block;
+      background: rgba(65, 105, 225, 0.1);
+      color: var(--primary-color);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .plan-features {
+      padding: 1.5rem;
+    }
+    
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+    }
+    
+    .feature-list li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .feature-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    
+    .btn-plan {
+      border-radius: 30px;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      width: 100%;
+      transition: var(--transition);
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline-primary {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
 
-    .plan-header { padding:22px; border-bottom: 1px dashed #eef5ff; text-align:center; }
-    .plan-price { font-size: 1.6rem; font-weight:700; color: var(--blue); }
-    .plan-badge { display:inline-block; padding:6px 10px; border-radius:999px; background: rgba(14,168,97,0.08); color:var(--green); font-weight:600; font-size:.9rem; }
+    /* Comparison Table */
+    .comparison-section {
+      background-color: white;
+      padding: 3rem 0;
+      margin-bottom: 3rem;
+    }
+    
+    .comparison-table {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .comparison-table thead th {
+      background: white;
+      border-top: none;
+      color: var(--light-text);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .comparison-table tbody td {
+      padding: 1rem;
+      vertical-align: middle;
+    }
+    
+    .comparison-table tbody tr:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+    
+    .feature-name {
+      font-weight: 500;
+    }
+    
+    .check {
+      color: var(--primary-color);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .dash {
+      color: var(--light-text);
+    }
 
-    /* Feature table */
-    .compare-table thead th { background:#fff; border-top:0; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; font-size:.78rem; }
-    .compare-table td, .compare-table th { vertical-align: middle; }
-    .check { color: var(--green); font-weight:700; }
+    /* Why Choose Section */
+    .why-choose-section {
+      margin-bottom: 3rem;
+    }
+    
+    .why-choose-content {
+      display: flex;
+      align-items: center;
+    }
+    
+    .why-choose-text {
+      padding-right: 2rem;
+    }
+    
+    .why-choose-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+    
+    .why-choose-list li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .why-choose-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    
+    .why-choose-image {
+      text-align: center;
+    }
+    
+    .why-choose-img {
+      max-width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
 
-    .cta-primary { background: var(--green); color: #fff; border: 0; }
-    .cta-primary:hover { background: #0c9953; }
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    
+    .whatsapp-float:hover {
+      background-color: #1ebe57;
+      transform: scale(1.1);
+      color: white;
+    }
 
-    /* Highlight column */
-    .recommended { box-shadow: 0 12px 30px rgba(14,168,97,0.08); border: 2px solid rgba(14,168,97,0.12); }
+    /* Footer */
+    footer {
+      background: #081226;
+      color: white;
+      padding: 2rem 0;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    
+    .footer-contact {
+      color: #cfe9ff;
+    }
+    
+    .footer-contact strong {
+      color: var(--accent-color);
+    }
+    
+    .footer-links a {
+      color: #cfe9ff;
+      text-decoration: none;
+      margin-right: 1rem;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .footer-copyright {
+      color: #cfe9ff;
+    }
 
-    /* smaller screens */
-    @media (max-width: 767px) {
-      .hero h1 { font-size:1.6rem; }
-      .plan-price { font-size:1.25rem; }
+    /* Responsive Adjustments */
+    @media (max-width: 767.98px) {
+      .hero {
+        padding: 2rem 0;
+      }
+      
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+      
+      .trust-bar .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+      
+      .trust-logos {
+        justify-content: center;
+      }
+      
+      .why-choose-content {
+        flex-direction: column;
+      }
+      
+      .why-choose-text {
+        padding-right: 0;
+        margin-bottom: 2rem;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container">
-      <h1>The new hiring standard</h1>
-      <p class="lead">
-        The Standard Job Product makes it easier for you to find the right candidates by testing and highlighting relevant candidates who closely match your job requirements.
-      </p>
-      <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
-        <button class="btn cta-primary btn-lg px-4" onclick="startHiring('standard')">Start Hiring</button>
-        <a href="contact.html" class="btn btn-outline-light btn-lg px-4">Talk to an expert</a>
-      </div>
-    </div>
-  </header>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top px-4 py-0">
+    <div class="container-fluid">
+      <a href="index.html" class="navbar-brand fw-bold">
+        <img src="img/final-job.png" alt="Jobpitality Logo">
+      </a>
 
-  <!-- TRUST BAR -->
-  <section class="py-4 bg-white">
-    <div class="container d-flex align-items-center justify-content-between flex-wrap gap-3">
-      <div class="text-muted">Trusted by <strong>103,000+</strong> employers across industries</div>
-      <div class="d-flex gap-3 align-items-center flex-wrap">
-        <img src="img/logo1.png" alt="logo" height="30">
-        <img src="img/logo2.png" alt="logo" height="30">
-        <img src="img/logo3.png" alt="logo" height="30">
-        <img src="img/logo4.png" alt="logo" height="30">
-        <img src="img/logo5.png" alt="logo" height="30">
-        <img src="img/logo6.png" alt="logo" height="30">
-      </div>
-    </div>
-  </section>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <!-- PRICING CARDS -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="mb-4" style="color:var(--dark)">Pick the plan that fits your hiring needs</h2>
-      <p class="text-muted mb-4">Simple pricing, clear outcomes. Upgrade anytime for skill tests, highlighted candidates and dedicated support.</p>
-
-      <div class="row g-4">
-        <!-- BASIC -->
-        <div class="col-md-4">
-          <div class="plan-card p-3 h-100">
-            <div class="plan-header">
-              <div class="text-muted mb-1">Basic Listing</div>
-              <div class="plan-price">NGN 50,000</div>
-              <div class="small text-muted">Excl. VAT</div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        <div class="navbar-nav align-items-left">
+          <!-- Employers -->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="employer-skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+              <a href="employer-dashboard.html" class="dropdown-item">Employer's Corner</a>
+              <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+              <a href="request-staff.html" class="dropdown-item">Pro Recruit</a>
+              <a href="standard-listing.html" class="dropdown-item">Standard Listing</a>
             </div>
-            <div class="p-3">
-              <ul class="list-unstyled mb-4">
-                <li>Standard visibility</li>
-                <li>Manual candidate screening</li>
-                <li>Basic applicant tracking</li>
-                <li>Post for 30 days</li>
-              </ul>
+          </div>
 
-              <div class="d-grid gap-2">
-                <button class="btn btn-outline-primary" onclick="addToCart('Basic', 50000)">Add to Cart</button>
-                <button class="btn btn-outline-secondary" onclick="startHiring('basic')">Start Hiring</button>
-              </div>
+          <!-- Career -->
+          <a href="#" class="nav-link dropdown-toggle">Career</a>
+
+          <!-- Job Seekers -->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="job.html" class="dropdown-item">Job Openings</a>
+              <a href="cv-services.html" class="dropdown-item">CV Review Services</a>
+              <a href="job-list.html" class="dropdown-item">Job Vacancies</a>
+              <a href="mylearning.html" class="dropdown-item">My Learning</a>
+              <a href="jobseeker-dashboard.html" class="dropdown-item">Dashboard</a>
+              <a href="skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScQCdI3u2vSsHf0xpDUIQaRnaRjThq1KXqVVQ_rFC5igNu7Eg/viewform?usp=header" target="_blank" class="dropdown-item">Upload Your Resume</a>
             </div>
+          </div>
+
+          <a href="pricing.html" class="nav-link px-2">Pricing</a>
+
+          <!-- Help Center -->
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <a href="faq.html" class="dropdown-item">Frequently Asked Questions</a>
+              <a href="contact.html" class="dropdown-item">Contact</a>
+            </div>
+          </div>
+
+          <a href="about.html" class="nav-link px-2">About Us</a>
+
+          <!-- Auth + Post Job -->
+          <div class="d-flex align-items-center ms-lg-3">
+            <a href="login.html" class="nav-link px-2">Login</a>
+            <span class="text-muted">|</span>
+            <a href="get-started.html" class="nav-link px-2">Sign Up</a>
+            <a href="login.html" class="btn ms-3 text-white" style="background-color: var(--primary-color); border: none; border-radius: 6px; padding: 0.5rem 1.5rem; font-weight: 500;">
+              Post A Job
+            </a>
           </div>
         </div>
+      </div>
+    </div>
+  </nav>
 
-        <!-- STANDARD (recommended) -->
-        <div class="col-md-4">
-          <div class="plan-card p-3 h-100 recommended">
-            <div class="plan-header">
-              <div class="plan-badge mb-2">Most popular</div>
-              <div class="text-muted mb-1">Standard Listing</div>
-              <div class="plan-price">NGN 100,000</div>
-              <div class="small text-muted">Excl. VAT</div>
-            </div>
-            <div class="p-3">
-              <ul class="list-unstyled mb-4">
-                <li><strong>Highlighted relevant candidates</strong></li>
-                <li>AI candidate ranking</li>
-                <li>Set up to 10 passive invites</li>
-                <li>Custom pre-qualifying questions</li>
-                <li>Integrated skills tests</li>
-              </ul>
-
-              <div class="d-grid gap-2">
-                <button class="btn cta-primary" onclick="addToCart('Standard', 100000)">Add to Cart</button>
-                <button class="btn btn-outline-primary" onclick="startHiring('standard')">Start Hiring</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PREMIUM -->
-        <div class="col-md-4">
-          <div class="plan-card p-3 h-100">
-            <div class="plan-header">
-              <div class="text-muted mb-1">Premium Listing</div>
-              <div class="plan-price">NGN 150,000</div>
-              <div class="small text-muted">Excl. VAT</div>
-            </div>
-            <div class="p-3">
-              <ul class="list-unstyled mb-4">
-                <li>Top placement across search</li>
-                <li>Unlimited passive invites</li>
-                <li>Dedicated support & hiring expert</li>
-                <li>Advanced assessment & reporting</li>
-              </ul>
-
-              <div class="d-grid gap-2">
-                <button class="btn btn-outline-primary" onclick="addToCart('Premium', 150000)">Add to Cart</button>
-                <button class="btn btn-outline-secondary" onclick="startHiring('premium')">Start Hiring</button>
-              </div>
-            </div>
-          </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content text-center">
+        <h1 class="display-5 fw-bold">The New Hiring Standard</h1>
+        <p class="lead">
+          The Standard Job Product makes it easier for you to find the right candidates by testing and highlighting relevant candidates who closely match your job requirements.
+        </p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+          <button class="btn btn-light btn-lg px-4" onclick="startHiring('standard')">Start Hiring</button>
+          <a href="contact.html" class="btn btn-outline-light btn-lg px-4">Talk to an Expert</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- COMPARISON TABLE -->
-  <section class="py-5 bg-white">
-    <div class="container">
-      <h3 class="mb-4">Compare features</h3>
+  <!-- Trust Bar -->
+  <section class="trust-bar">
+    <div class="container d-flex align-items-center justify-content-between flex-wrap">
+      <div class="trust-text">Trusted by <strong>103,000+</strong> employers across industries</div>
+      <div class="trust-logos">
+        <img src="img/logo1.png" alt="Company Logo" class="trust-logo">
+        <img src="img/logo2.png" alt="Company Logo" class="trust-logo">
+        <img src="img/logo3.png" alt="Company Logo" class="trust-logo">
+        <img src="img/logo4.png" alt="Company Logo" class="trust-logo">
+        <img src="img/logo5.png" alt="Company Logo" class="trust-logo">
+        <img src="img/logo6.png" alt="Company Logo" class="trust-logo">
+      </div>
+    </div>
+  </section>
 
-      <div class="table-responsive shadow-sm rounded">
-        <table class="table compare-table mb-0">
+  <!-- Pricing Cards -->
+  <section class="container pricing-section">
+    <h2 class="section-title text-center">Pick the Plan That Fits Your Hiring Needs</h2>
+    <p class="section-subtitle text-center">Simple pricing, clear outcomes. Upgrade anytime for skill tests, highlighted candidates and dedicated support.</p>
+
+    <div class="row g-4">
+      <!-- Basic Plan -->
+      <div class="col-md-4">
+        <div class="plan-card h-100">
+          <div class="plan-header">
+            <div class="plan-name">Basic Listing</div>
+            <div class="plan-price">₦50,000</div>
+            <div class="plan-period">Excl. VAT</div>
+          </div>
+          <div class="plan-features">
+            <ul class="feature-list">
+              <li>Standard visibility</li>
+              <li>Manual candidate screening</li>
+              <li>Basic applicant tracking</li>
+              <li>Post for 30 days</li>
+            </ul>
+            <div class="d-grid gap-2">
+              <button class="btn btn-outline-primary btn-plan" onclick="addToCart('Basic', 50000)">Add to Cart</button>
+              <button class="btn btn-outline-secondary btn-plan" onclick="startHiring('basic')">Start Hiring</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Standard Plan (Recommended) -->
+      <div class="col-md-4">
+        <div class="plan-card h-100 recommended">
+          <div class="plan-header">
+            <div class="plan-badge">Most Popular</div>
+            <div class="plan-name">Standard Listing</div>
+            <div class="plan-price">₦100,000</div>
+            <div class="plan-period">Excl. VAT</div>
+          </div>
+          <div class="plan-features">
+            <ul class="feature-list">
+              <li><strong>Highlighted relevant candidates</strong></li>
+              <li>AI candidate ranking</li>
+              <li>Set up to 10 passive invites</li>
+              <li>Custom pre-qualifying questions</li>
+              <li>Integrated skills tests</li>
+            </ul>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary btn-plan" onclick="addToCart('Standard', 100000)">Add to Cart</button>
+              <button class="btn btn-outline-primary btn-plan" onclick="startHiring('standard')">Start Hiring</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="col-md-4">
+        <div class="plan-card h-100">
+          <div class="plan-header">
+            <div class="plan-name">Premium Listing</div>
+            <div class="plan-price">₦150,000</div>
+            <div class="plan-period">Excl. VAT</div>
+          </div>
+          <div class="plan-features">
+            <ul class="feature-list">
+              <li>Top placement across search</li>
+              <li>Unlimited passive invites</li>
+              <li>Dedicated support & hiring expert</li>
+              <li>Advanced assessment & reporting</li>
+            </ul>
+            <div class="d-grid gap-2">
+              <button class="btn btn-outline-primary btn-plan" onclick="addToCart('Premium', 150000)">Add to Cart</button>
+              <button class="btn btn-outline-secondary btn-plan" onclick="startHiring('premium')">Start Hiring</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="comparison-section">
+    <div class="container">
+      <h3 class="section-title text-center mb-5">Compare Features</h3>
+
+      <div class="comparison-table">
+        <table class="table table-hover mb-0">
           <thead>
             <tr>
               <th style="width:40%"></th>
@@ -194,49 +672,49 @@
           </thead>
           <tbody>
             <tr>
-              <td>Highlighted & relevant candidates</td>
-              <td class="text-center text-muted">—</td>
+              <td class="feature-name">Highlighted & relevant candidates</td>
+              <td class="text-center dash">—</td>
               <td class="text-center"><span class="check">✓</span></td>
               <td class="text-center"><span class="check">✓</span></td>
             </tr>
             <tr>
-              <td>AI candidate ranking</td>
-              <td class="text-center text-muted">—</td>
+              <td class="feature-name">AI candidate ranking</td>
+              <td class="text-center dash">—</td>
               <td class="text-center"><span class="check">✓</span></td>
               <td class="text-center"><span class="check">✓</span></td>
             </tr>
             <tr>
-              <td>Custom pre-qualifying questions</td>
-              <td class="text-center text-muted">—</td>
+              <td class="feature-name">Custom pre-qualifying questions</td>
+              <td class="text-center dash">—</td>
               <td class="text-center"><span class="check">✓</span></td>
               <td class="text-center"><span class="check">✓</span></td>
             </tr>
             <tr>
-              <td>Passive candidate invites</td>
-              <td class="text-center">—</td>
+              <td class="feature-name">Passive candidate invites</td>
+              <td class="text-center dash">—</td>
               <td class="text-center">Up to 10</td>
               <td class="text-center">Unlimited</td>
             </tr>
             <tr>
-              <td>Skill tests & assessments</td>
-              <td class="text-center text-muted">—</td>
+              <td class="feature-name">Skill tests & assessments</td>
+              <td class="text-center dash">—</td>
               <td class="text-center"><span class="check">✓</span></td>
               <td class="text-center"><span class="check">✓</span></td>
             </tr>
             <tr>
-              <td>Featured placement</td>
-              <td class="text-center text-muted">—</td>
+              <td class="feature-name">Featured placement</td>
+              <td class="text-center dash">—</td>
               <td class="text-center">Selected slots</td>
               <td class="text-center">Top placement</td>
             </tr>
             <tr>
-              <td>Dedicated hiring expert</td>
-              <td class="text-center text-muted">—</td>
-              <td class="text-center text-muted">—</td>
+              <td class="feature-name">Dedicated hiring expert</td>
+              <td class="text-center dash">—</td>
+              <td class="text-center dash">—</td>
               <td class="text-center"><span class="check">✓</span></td>
             </tr>
             <tr>
-              <td>Price (NGN)</td>
+              <td class="feature-name">Price (NGN)</td>
               <td class="text-center"><strong>50,000</strong></td>
               <td class="text-center"><strong>100,000</strong></td>
               <td class="text-center"><strong>150,000</strong></td>
@@ -244,67 +722,80 @@
             <tr>
               <td></td>
               <td class="text-center"><button class="btn btn-sm btn-outline-primary" onclick="addToCart('Basic',50000)">Add to Cart</button></td>
-              <td class="text-center"><button class="btn btn-sm cta-primary" onclick="addToCart('Standard',100000)">Add to Cart</button></td>
+              <td class="text-center"><button class="btn btn-sm btn-primary" onclick="addToCart('Standard',100000)">Add to Cart</button></td>
               <td class="text-center"><button class="btn btn-sm btn-outline-primary" onclick="addToCart('Premium',150000)">Add to Cart</button></td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <!-- Why choose -->
-      <div class="row mt-5 align-items-center">
-        <div class="col-md-6">
-          <h4>Why choose Standard Listing?</h4>
-          <p class="text-muted">
-            Standard Listing speeds hiring by surfacing highly relevant candidates, testing skills upfront and giving you structured shortlisting tools so you interview fewer but better-fit people.
-          </p>
-          <ul>
-            <li>Faster shortlist — less noise, more signal</li>
-            <li>Better quality through tests & custom questions</li>
-            <li>Direct access to passive talent</li>
-          </ul>
-          <a class="btn cta-primary mt-3" onclick="startHiring('standard')">Try Standard Listing</a>
-        </div>
-        <div class="col-md-6 text-center">
-          <img src="img/why-standard.png" alt="Why Standard" style="max-width:320px">
+      <!-- Why Choose Section -->
+      <div class="why-choose-section mt-5">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="why-choose-text">
+              <h4>Why Choose Standard Listing?</h4>
+              <p class="text-muted">
+                Standard Listing speeds hiring by surfacing highly relevant candidates, testing skills upfront and giving you structured shortlisting tools so you interview fewer but better-fit people.
+              </p>
+              <ul class="why-choose-list">
+                <li>Faster shortlist — less noise, more signal</li>
+                <li>Better quality through tests & custom questions</li>
+                <li>Direct access to passive talent</li>
+              </ul>
+              <button class="btn btn-primary mt-3" onclick="startHiring('standard')">Try Standard Listing</button>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="why-choose-image">
+              <img src="img/why-standard.png" alt="Why Standard" class="why-choose-img">
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="py-4 mt-5" style="background:#081226; color:#fff;">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-      <div class="text-muted small">Got questions? Call our team on <strong style="color:var(--green)">+234 812 770 6378</strong></div>
-      <div class="text-center small">
-        <a href="about.html" style="color:#cfe9ff; text-decoration:none; margin-right:12px">About</a>
-        <a href="companies.html" style="color:#cfe9ff; text-decoration:none; margin-right:12px">Companies Hiring</a>
-        <a href="privacy.html" style="color:#cfe9ff; text-decoration:none; margin-right:12px">Privacy</a>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/2348127706378" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-contact">
+          Got questions? Call our team on <strong>+234 812 770 6378</strong>
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="companies.html">Companies Hiring</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+        <div class="footer-copyright">
+          © <span id="year"></span> Jobpitality
+        </div>
       </div>
-      <div class="small">© <span id="year"></span> Jobpitality</div>
     </div>
   </footer>
 
-  <!-- scripts -->
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Very small demo handlers — replace with your cart & checkout logic
+    // Demo handlers for cart and hiring flow
     function addToCart(plan, amount) {
-      // example: call your cart API or localStorage
-      alert(`${plan} added to cart — NGN ${amount.toLocaleString()}`);
+      alert(`${plan} added to cart — ₦${amount.toLocaleString()}`);
       // TODO: implement actual add-to-cart action (API or localStorage)
     }
 
     function startHiring(plan) {
-      // Quick CTA: jump to post job page with plan preselected
-      // For now, redirect to a page or open post job form
-      // e.g. window.location.href = `post-job.html?plan=${plan}`;
       alert(`Starting hiring flow for: ${plan}. Redirecting to Post Job...`);
       window.location.href = 'post-job.html?plan=' + encodeURIComponent(plan);
     }
   </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -6,17 +6,15 @@
     --dark: #2B3940;
 }
 
-.hero {
-      /* background: url('img/') center center / cover no-repeat; */
-      /* min-height: 100vh; */
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      padding: 0 1rem;
-      color: #fff;
-    }
+  .hero {
+  position: relative;
+  background: linear-gradient(160deg, #002b5b, #004c8b);
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
 #staffFormStatus.loading::after {
     content: "⏳ Sending...";

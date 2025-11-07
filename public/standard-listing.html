@@ -12,273 +12,698 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
       :root {
-        --green: #0ea861;
-        --blue: #004aad;
+        --blue: #002b5b;
+        --gold: #ffc107;
+        --light: #f8f9fa;
         --dark: #0b2540;
         --muted: #6b7280;
-        --whatsapp: #25D366;
+        --green: #0ea861;
+        --border-radius: 12px;
+        --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
       }
 
       body {
-        font-family: 'Poppins', sans-serif;
+        font-family: "Heebo", sans-serif;
+        background-color: var(--light);
         color: var(--dark);
+        padding-top: 76px;
       }
 
-      .hero {
-        background: linear-gradient(rgba(0, 74, 173, 0.85), rgba(0, 74, 173, 0.85)),
-          url('img/standard-job-bg.jpg') center/cover no-repeat;
+      /* Navbar */
+      .navbar {
+        background-color: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      .navbar-brand img {
+        height: 48px;
+      }
+      .nav-link {
+        font-weight: 500;
+        color: var(--dark) !important;
+      }
+      .nav-link:hover, .nav-link.active {
+        color: var(--blue) !important;
+      }
+      .btn-royal {
+        background-color: var(--blue);
         color: #fff;
-        text-align: center;
-        padding: 100px 20px;
+        border: none;
+        transition: var(--transition);
       }
-
-      .hero h1 {
-        font-weight: 700;
-        font-size: 2.5rem;
+      .btn-royal:hover {
+        background-color: #003d7a;
+        transform: translateY(-2px);
       }
-
-      .hero p {
-        max-width: 700px;
-        margin: 10px auto 30px;
-        font-size: 1.1rem;
-      }
-
       .btn-green {
         background-color: var(--green);
         color: #fff;
         border: none;
+        transition: var(--transition);
       }
-
       .btn-green:hover {
         background-color: #0c9557;
+        transform: translateY(-2px);
       }
 
-      .section-title {
-        color: var(--blue);
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 40px;
+      /* Hero Section */
+      .hero-section {
+        background: linear-gradient(135deg, var(--blue), #004c8b);
+        color: white;
+        padding: 4rem 0;
+        margin-bottom: 2rem;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 L1000,100 L0,100 Z" fill="rgba(255,255,255,0.05)"></path></svg>');
+        background-size: cover;
+      }
+      
+      .hero-content {
+        position: relative;
+        z-index: 1;
       }
 
+      /* Trusted Section */
+      .trusted-section {
+        padding: 3rem 0;
+        background-color: white;
+      }
+      
+      .trusted-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 1.5rem;
+      }
+      
+      .trusted-logo {
+        height: 40px;
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: var(--transition);
+      }
+      
+      .trusted-logo:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+
+      /* Features Section */
+      .features-section {
+        padding: 4rem 0;
+      }
+      
       .feature-card {
         background: #fff;
-        border: 1px solid #eee;
-        border-radius: 10px;
-        padding: 25px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        height: 100%;
+        padding: 2rem 1.5rem;
         text-align: center;
-        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
       }
-
+      
       .feature-card:hover {
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       }
-
-      .feature-card h5 {
+      
+      .feature-icon {
+        font-size: 2.5rem;
         color: var(--blue);
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        padding: 1rem;
+        background: rgba(0, 43, 91, 0.1);
+        border-radius: 50%;
+      }
+      
+      .feature-card h5 {
         font-weight: 600;
-        margin-bottom: 15px;
+        margin-bottom: 1rem;
+        color: var(--dark);
+      }
+      
+      .feature-card p {
+        color: var(--muted);
+        margin-bottom: 0;
       }
 
-      .flow-step {
+      /* Workflow Section */
+      .workflow-section {
+        padding: 4rem 0;
+        background-color: #f8f9fa;
+      }
+      
+      .workflow-step {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+      
+      .workflow-step:hover {
+        transform: translateX(5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: var(--blue);
+        color: white;
+        border-radius: 50%;
+        font-weight: 700;
+        margin-right: 1rem;
+        flex-shrink: 0;
+      }
+      
+      .step-text {
         font-weight: 500;
         color: var(--dark);
+        margin: 0;
       }
-
-      .flow-step span {
+      
+      .step-arrow {
         color: var(--blue);
-        font-weight: 700;
+        margin: 0 1rem;
+        font-size: 1.25rem;
       }
 
-      .pricing {
-        background: #f9fafb;
-        border-radius: 15px;
-        padding: 40px;
+      /* Pricing Section */
+      .pricing-section {
+        padding: 4rem 0;
+      }
+      
+      .pricing-card {
+        background: #fff;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        padding: 3rem;
         text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        max-width: 800px;
+        margin: 0 auto;
       }
-
-      .pricing h3 {
+      
+      .pricing-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      
+      .pricing-header h3 {
         color: var(--blue);
         font-weight: 700;
+        margin-bottom: 1rem;
       }
-
-      .pricing ul {
+      
+      .pricing-features {
         list-style: none;
         padding: 0;
         text-align: left;
-        margin: 20px auto;
+        margin: 2rem auto;
         max-width: 400px;
       }
-
-      .pricing ul li {
-        margin-bottom: 10px;
+      
+      .pricing-features li {
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+        position: relative;
+      }
+      
+      .pricing-features li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--green);
+        font-weight: bold;
+      }
+      
+      .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--blue);
+        margin: 1.5rem 0;
+      }
+      
+      .price-note {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
       }
 
+      /* Contact Section */
+      .contact-section {
+        padding: 3rem 0;
+        background-color: #f8f9fa;
+        text-align: center;
+      }
+
+      /* Footer */
       footer {
         background: var(--dark);
-        color: #fff;
-        text-align: center;
-        padding: 30px 15px;
+        color: #ccc;
+        padding: 3rem 0;
       }
-
+      
       footer a {
-        color: var(--green);
+        color: #ccc;
         text-decoration: none;
+        transition: var(--transition);
+      }
+      
+      footer a:hover {
+        color: #fff;
+      }
+      
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #ccc;
+        border-radius: 50%;
+        transition: var(--transition);
+      }
+      
+      .social-link:hover {
+        background: var(--blue);
+        color: white;
+        transform: translateY(-2px);
+      }
+      
+      .whatsapp-link {
+        background: #25D366;
+        color: white;
+      }
+      
+      .whatsapp-link:hover {
+        background: #1ebe57;
+        color: white;
       }
 
-      footer a:hover {
-        text-decoration: underline;
+      /* Section Headers */
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      
+      .section-header h2 {
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 1rem;
+      }
+      
+      .section-header p {
+        color: var(--muted);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .hero-section {
+          padding: 3rem 0;
+        }
+        
+        .trusted-logos {
+          gap: 1rem;
+        }
+        
+        .trusted-logo {
+          height: 30px;
+        }
+        
+        .workflow-step {
+          flex-direction: column;
+          text-align: center;
+          padding: 1.5rem;
+        }
+        
+        .step-number {
+          margin-right: 0;
+          margin-bottom: 0.75rem;
+        }
+        
+        .step-arrow {
+          transform: rotate(90deg);
+          margin: 0.5rem 0;
+        }
+        
+        .pricing-card {
+          padding: 2rem 1.5rem;
+        }
+        
+        .footer-links {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+        }
       }
     </style>
   </head>
 
   <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top p-2">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <a href="index.html">
+          <img src="img/final-job.png" alt="Logo" style="width: 100px; height: auto; margin: 5px 0;">
+        </a>      
+        <button class="navbar-toggler me-0 mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Header starts -->
+        <header>
+          <div class="collapse navbar-collapse px-4 me-3" id="navbarCollapse">
+            <div class="navbar-nav">
+              <!-- Employers -->
+              <div class="nav-item dropdown">
+                <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                  <a href="employer-skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+                  <a href="employer-dashboard.html" class="dropdown-item">Employer's Corner</a>
+                  <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+                  <a href="#request-staff.html" class="dropdown-item">Pro Recruit</a>
+                  <a href="standard-listing.html" class="dropdown-item">Standard Listing</a>
+                </div>
+              </div>
+
+              <!-- Career -->
+              <div class="nav-item dropdown">
+                <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+              </div>
+
+              <!-- Job Seekers -->
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                  <a href="job.html" class="dropdown-item">Job Opening</a> 
+                  <a href="cv-services.html" class="dropdown-item">CV Review Services</a>
+                  <a href="mylearning.html" class="dropdown-item">My Learning</a>
+                  <a href="skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLScQCdI3u2vSsHf0xpDUIQaRnaRjThq1KXqVVQ_rFC5igNu7Eg/viewform?usp=header" 
+                    class="dropdown-item">Upload Your Resume</a>
+                </div>
+              </div>
+
+              <div class="">
+                <a href="pricing.html" class="nav-link px-2">Pricing</a>
+              </div>
+
+              <!-- Help Center -->
+              <div class="nav-item dropdown">
+                <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                  <a href="faq.html" class="dropdown-item">Frequently Asked Question</a>
+                  <a href="contact.html" class="dropdown-item">Contact</a>
+                </div>
+              </div>
+            </div>
+            <div class="ms-0">
+              <a href="about.html" class="dropdown-item">About Us</a>
+            </div>
+            <!-- Auth + Post Job -->
+            <div class="d-flex align-items-center ms-auto">
+              <a href="login.html" class="nav-link px-2">Login</a>
+              <span class="text-muted">|</span>
+              <a href="get-started.html" class="nav-link px-2">Sign Up</a>
+              <a href="login.html" class="btn btn-sm btn-royal ms-3 m-2" style="padding-top: 15px; border-radius: 7px; font-size: 12px; height: 45px; color: white;">
+                Post A Job
+              </a>
+            </div>
+          </div>
+        </header>
+        <!-- Header ends -->
+      </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="hero">
-      <h1>The New Hiring Standard</h1>
-      <p>
-        The Standard Job Product makes it easier for you to find the right candidates by testing and highlighting relevant candidates who closely match your job requirements.
-      </p>
-      <a href="hire.html" class="btn btn-green btn-lg px-5">Start Hiring</a>
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content text-center">
+          <h1 class="display-5 fw-bold mb-3">The New Hiring Standard</h1>
+          <p class="lead mb-4">
+            The Standard Job Product makes it easier for you to find the right candidates by testing and highlighting relevant candidates who closely match your job requirements.
+          </p>
+          <a href="hire.html" class="btn btn-green btn-lg px-5">
+            <i class="fas fa-play-circle me-2"></i>Start Hiring
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- Trusted Section -->
-    <section class="py-5 text-center">
-      <p class="text-muted mb-1">More than <strong>40 employers</strong> across various hospitality industry have trusted us over the past 4 years.</p>
-      <div class="d-flex justify-content-center flex-wrap gap-3 mt-3">
-        <img src="img/logo1.png" alt="Logo 1" height="40" />
-        <img src="img/logo2.png" alt="Logo 2" height="40" />
-        <img src="img/logo3.png" alt="Logo 3" height="40" />
-        <img src="img/logo4.png" alt="Logo 4" height="40" />
-        <img src="img/logo5.png" alt="Logo 5" height="40" />
-        <img src="img/logo6.png" alt="Logo 6" height="40" />
+    <section class="trusted-section">
+      <div class="container text-center">
+        <p class="text-muted mb-1">More than <strong>40 employers</strong> across various hospitality industry have trusted us over the past 4 years.</p>
+        <div class="trusted-logos">
+          <img src="img/logo1.png" alt="Logo 1" class="trusted-logo" />
+          <img src="img/logo2.png" alt="Logo 2" class="trusted-logo" />
+          <img src="img/logo3.png" alt="Logo 3" class="trusted-logo" />
+          <img src="img/logo4.png" alt="Logo 4" class="trusted-logo" />
+          <img src="img/logo5.png" alt="Logo 5" class="trusted-logo" />
+          <img src="img/logo6.png" alt="Logo 6" class="trusted-logo" />
+        </div>
       </div>
     </section>
 
     <!-- Why Use Standard Listing -->
-    <section class="container py-5">
-      <h2 class="section-title">Why You Should Use Standard Listing</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="feature-card">
-            <h5>Better Hiring Workflow</h5>
-            <p>Manage your hiring process efficiently with our integrated applicant tracking system.</p>
-          </div>
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why You Should Use Standard Listing</h2>
+          <p>Streamline your hiring process with our powerful candidate matching and assessment tools</p>
         </div>
-        <div class="col-md-4">
-          <div class="feature-card">
-            <h5>Sort Candidates by Relevance</h5>
-            <p>View candidates ranked automatically based on their relevance to your job posting.</p>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-tasks"></i>
+              </div>
+              <h5>Better Hiring Workflow</h5>
+              <p>Manage your hiring process efficiently with our integrated applicant tracking system.</p>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="feature-card">
-            <h5>Unlock Top Talent</h5>
-            <p>Invite up to 10 highly relevant passive candidates to apply directly to your role.</p>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-sort-amount-down"></i>
+              </div>
+              <h5>Sort Candidates by Relevance</h5>
+              <p>View candidates ranked automatically based on their relevance to your job posting.</p>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="feature-card">
-            <h5>Test To Refine Your Shortlist</h5>
-            <p>Assess technical skills to ensure the right match for each position.</p>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <h5>Unlock Top Talent</h5>
+              <p>Invite up to 10 highly relevant passive candidates to apply directly to your role.</p>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="feature-card">
-            <h5>Tailored Talent Acquisition</h5>
-            <p>Create and manage your own custom candidate pools for future hiring.</p>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-clipboard-check"></i>
+              </div>
+              <h5>Test To Refine Your Shortlist</h5>
+              <p>Assess technical skills to ensure the right match for each position.</p>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="feature-card">
-            <h5>Ask The Right Questions</h5>
-            <p>Design custom pre-qualifying questions for applicants to answer when applying.</p>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-filter"></i>
+              </div>
+              <h5>Tailored Talent Acquisition</h5>
+              <p>Create and manage your own custom candidate pools for future hiring.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-question-circle"></i>
+              </div>
+              <h5>Ask The Right Questions</h5>
+              <p>Design custom pre-qualifying questions for applicants to answer when applying.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Product Workflow -->
-    <section class="bg-light py-5">
-      <div class="container text-center">
-        <h2 class="section-title">How The Product Works</h2>
-        <p class="mb-5 text-muted">
-          Experienced hiring managers rate the Standard Job as the best for both Entry and Mid Career Level roles.
-        </p>
-        <div class="flow-step mb-3">
-          <span>1</span> Enter Job Description Details ↓
+    <section class="workflow-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>How The Product Works</h2>
+          <p>Experienced hiring managers rate the Standard Job as the best for both Entry and Mid Career Level roles.</p>
         </div>
-        <div class="flow-step mb-3">
-          <span>2</span> Add The Custom Questions →
-        </div>
-        <div class="flow-step mb-3">
-          <span>3</span> Candidates Get Ranked →
-        </div>
-        <div class="flow-step mb-3">
-          <span>4</span> Filter To Shortlist Candidates →
-        </div>
-        <div class="flow-step mb-3">
-          <span>5</span> Send Interview Invites →
+        <div class="d-flex flex-column align-items-center">
+          <div class="workflow-step">
+            <div class="step-number">1</div>
+            <p class="step-text">Enter Job Description Details</p>
+          </div>
+          <div class="step-arrow d-none d-md-block">
+            <i class="fas fa-arrow-down"></i>
+          </div>
+          <div class="workflow-step">
+            <div class="step-number">2</div>
+            <p class="step-text">Add The Custom Questions</p>
+          </div>
+          <div class="step-arrow d-none d-md-block">
+            <i class="fas fa-arrow-down"></i>
+          </div>
+          <div class="workflow-step">
+            <div class="step-number">3</div>
+            <p class="step-text">Candidates Get Ranked</p>
+          </div>
+          <div class="step-arrow d-none d-md-block">
+            <i class="fas fa-arrow-down"></i>
+          </div>
+          <div class="workflow-step">
+            <div class="step-number">4</div>
+            <p class="step-text">Filter To Shortlist Candidates</p>
+          </div>
+          <div class="step-arrow d-none d-md-block">
+            <i class="fas fa-arrow-down"></i>
+          </div>
+          <div class="workflow-step">
+            <div class="step-number">5</div>
+            <p class="step-text">Send Interview Invites</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Pricing -->
-    <section class="container py-5">
-      <div class="pricing mx-auto">
-        <h3>Try Standard Listing Today</h3>
-        <p>Unlock passive talent and test all pre-sorted candidates to refine your shortlist — get closer to “The Right Match”, faster.</p>
+    <section class="pricing-section">
+      <div class="container">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Try Standard Listing Today</h3>
+            <p class="text-muted">Unlock passive talent and test all pre-sorted candidates to refine your shortlist — get closer to "The Right Match", faster.</p>
+          </div>
+          
+          <h5 class="mt-4">Everything in Basic plus:</h5>
+          <ul class="pricing-features">
+            <li>Highlighted "relevant candidates"</li>
+            <li>Set pre-qualifying custom questions</li>
+            <li>Faster, more accurate shortlisting</li>
+            <li>Access to passive candidate database</li>
+            <li>Custom candidate pools</li>
+          </ul>
 
-        <h5 class="mt-4">Everything in Basic plus:</h5>
-        <ul>
-          <li>✅ Highlighted “relevant candidates”</li>
-          <li>✅ Set pre-qualifying custom questions</li>
-          <li>✅ Faster, more accurate shortlisting</li>
-        </ul>
+          <div class="price">NGN 100,000</div>
+          <p class="price-note">Excluding VAT</p>
 
-        <h2 class="my-3">NGN 100,000</h2>
-        <p class="text-muted">Excluding VAT</p>
-
-        <a href="#" class="btn btn-green btn-lg me-2">Add to Cart</a>
-        <a href="hire.html" class="btn btn-outline-primary btn-lg">Start Hiring</a>
-        <div class="mt-4">
-          <a href="compare.html" class="text-decoration-none">Compare Products</a>
+          <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+            <a href="#" class="btn btn-green btn-lg px-4">
+              <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+            </a>
+            <a href="hire.html" class="btn btn-outline-primary btn-lg px-4">
+              <i class="fas fa-play me-2"></i>Start Hiring
+            </a>
+          </div>
+          <div class="mt-4">
+            <a href="compare.html" class="text-decoration-none">
+              <i class="fas fa-balance-scale me-1"></i>Compare Products
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section class="text-center py-4">
-      <p class="mb-0">Got some questions? Call our team on <strong>+234 812 770 6378</strong></p>
+    <section class="contact-section">
+      <div class="container">
+        <p class="mb-0">Got some questions? Call our team on <strong>+234 812 770 6378</strong></p>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer>
-      <p class="mb-2">
-        <a href="about.html">About</a> |
-        <a href="companies.html">Companies Hiring</a> |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms</a> |
-        <a href="cv-review.html">CV Review Services</a> |
-        <a href="skills.html">Skills Assessments</a> |
-        <a href="brochure.html">Product Brochure</a>
-      </p>
-      <p class="mb-3">
-        Follow us on
-        <a href="#">Facebook</a> |
-        <a href="#">Instagram</a> |
-        <a href="#">LinkedIn</a> |
-        <a href="#">Twitter</a> |
-        <a href="#">YouTube</a> |
-        <a href="#" style="color: var(--whatsapp)">WhatsApp</a>
-      </p>
-      <p>Get it on <strong>Google Play</strong></p>
-      <p class="text-muted mb-0">© 2025 Jobpitality | NDPR Compliant</p>
+      <div class="container text-center">
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="companies.html">Companies Hiring</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+          <a href="cv-review.html">CV Review Services</a>
+          <a href="skills.html">Skills Assessments</a>
+          <a href="brochure.html">Product Brochure</a>
+        </div>
+        
+        <div class="social-links">
+          <a href="#" class="social-link">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="#" class="social-link whatsapp-link">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        
+        <p class="mb-3">Get it on <strong>Google Play</strong></p>
+        <p class="text-muted mb-0">© 2025 Jobpitality | NDPR Compliant</p>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

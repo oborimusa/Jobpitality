@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jobpitality – Find Hospitality Jobs & Hire Talent in Africa</title>
+    <meta
+      name="description"
+      content="Jobpitality connects hospitality professionals with hotels, restaurants, and resorts across Africa. Find jobs, hire top talent, or grow your career."
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <style>
+      :root {
+        --blue: #002b5b;
+        --gold: #ffc107;
+        --light: #f8f9fa;
+        --dark: #0b2540;
+        --muted: #6b7280;
+        --accent: #25d366;
+        --border-radius: 12px;
+        --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+
+      body {
+        font-family: "Heebo", sans-serif;
+        background-color: var(--light);
+        color: var(--dark);
+        padding-top: 76px;
+      }
+
+      /* Navbar */
+      .navbar {
+        background-color: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      .navbar-brand img {
+        height: 48px;
+      }
+      .nav-link {
+        font-weight: 500;
+        color: var(--dark) !important;
+      }
+      .nav-link:hover {
+        color: var(--blue) !important;
+      }
+      .btn-royal {
+        background-color: var(--blue);
+        color: #fff;
+        border: none;
+        transition: var(--transition);
+      }
+      .btn-royal:hover {
+        background-color: #003d7a;
+        transform: translateY(-2px);
+      }
+
+      /* Hero Section */
+      .hero {
+        position: relative;
+        background: linear-gradient(135deg, var(--blue), #004c8b);
+        min-height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 L1000,100 L0,100 Z" fill="rgba(255,255,255,0.05)"></path></svg>');
+        background-size: cover;
+      }
+      
+      .hero .container {
+        position: relative;
+        z-index: 1;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+      }
+      
+      .search-box {
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        padding: 2rem;
+        margin-top: 2rem;
+      }
+
+      /* Features */
+      .features-section {
+        padding: 5rem 0;
+      }
+      
+      .feature-card {
+        background: #fff;
+        border-radius: var(--border-radius);
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        height: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      }
+      
+      .feature-card .icon {
+        font-size: 3.5rem;
+        color: var(--blue);
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        padding: 1rem;
+        background: rgba(0, 43, 91, 0.1);
+        border-radius: 50%;
+      }
+      
+      .feature-card h5 {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--dark);
+      }
+      
+      .feature-card p {
+        color: var(--muted);
+        margin-bottom: 1.5rem;
+      }
+
+      /* Learning Section */
+      .learning-section {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        padding: 5rem 0;
+      }
+      
+      .learning-section h2 {
+        color: var(--blue);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      /* How It Works */
+      .how-it-works {
+        padding: 5rem 0;
+      }
+      
+      .step-card {
+        text-align: center;
+        padding: 1.5rem;
+      }
+      
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: var(--blue);
+        color: white;
+        border-radius: 50%;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      
+      .featured-employer-card {
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+      
+      .featured-employer-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Jobs Section */
+      .jobs-section {
+        padding: 5rem 0;
+      }
+      
+      .job-card {
+        background: #fff;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        height: 100%;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      
+      .job-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      .job-card .card-body {
+        padding: 1.5rem;
+      }
+      
+      .job-card .card-title {
+        color: var(--blue);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      
+      .job-meta {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      
+      .job-meta i {
+        width: 16px;
+        margin-right: 5px;
+      }
+
+      /* Hospitality Sectors */
+      .sectors-section {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      }
+      
+      .sector-card {
+        background: #fff;
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        height: 100%;
+        text-align: center;
+      }
+      
+      .sector-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      .sector-card .emoji {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      .sector-card h6 {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+      
+      .sector-card p {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      /* Partners Section */
+      .partners-section {
+        padding: 5rem 0;
+      }
+      
+      .partner-logo {
+        max-height: 80px;
+        object-fit: contain;
+        filter: grayscale(100%);
+        opacity: 0.8;
+        transition: var(--transition);
+      }
+      
+      .partner-logo:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      /* Testimonials */
+      .testimonials-section {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      }
+      
+      .testimonial-card {
+        background: #fff;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        height: 100%;
+        position: relative;
+      }
+      
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      .testimonial-card::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        font-size: 4rem;
+        color: rgba(0, 43, 91, 0.1);
+        font-family: Georgia, serif;
+        line-height: 1;
+      }
+      
+      .testimonial-card p {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+      
+      .testimonial-card .author {
+        font-size: 0.9rem;
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: #ccc;
+        padding: 3rem 0;
+      }
+      
+      footer a {
+        color: #ccc;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      
+      footer a:hover {
+        color: #fff;
+      }
+
+      /* WhatsApp Floating Button */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: var(--accent);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28px;
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+        z-index: 1000;
+        transition: var(--transition);
+      }
+      
+      .whatsapp-float:hover {
+        background-color: #1ebe57;
+        transform: scale(1.1);
+        color: white;
+      }
+
+      /* Section Headers */
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      
+      .section-header h2 {
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 1rem;
+      }
+      
+      .section-header p {
+        color: var(--muted);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .hero {
+          min-height: 80vh;
+        }
+        
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+        
+        .hero p {
+          font-size: 1.1rem;
+        }
+        
+        .features-section,
+        .learning-section,
+        .how-it-works,
+        .jobs-section,
+        .sectors-section,
+        .partners-section,
+        .testimonials-section {
+          padding: 3rem 0;
+        }
+        
+        .feature-card {
+          margin-bottom: 1.5rem;
+        }
+        
+        .whatsapp-float {
+          bottom: 20px;
+          right: 20px;
+          width: 50px;
+          height: 50px;
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top p-2">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <a href="index.html">
+          <img src="img/final-job.png" alt="Logo" style="width: 100px; height: auto; margin: 5px 0;">
+        </a>      
+        <button class="navbar-toggler me-0 mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Header starts -->
+        <header>
+          <div class="collapse navbar-collapse px-4 me-3" id="navbarCollapse">
+            <div class="navbar-nav">
+              <!-- Employers -->
+              <div class="nav-item dropdown">
+                <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                  <a href="employer-skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+                  <a href="employer-dashboard.html" class="dropdown-item">Employer's Corner</a>
+                  <a href="hire.html" class="dropdown-item">Hire Talent</a>
+                  <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+                  <a href="#request-staff.html" class="dropdown-item">Pro Recruit</a>
+                  <a href="standard-listing.html" class="dropdown-item">Standard Listing</a>
+                  <a href="compare.html" class="dropdown-item">Compare</a>
+                </div>
+              </div>
+
+              <!-- Career -->
+              <div class="nav-item dropdown">
+                <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+              </div>
+
+              <!-- Job Seekers -->
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                  <!-- <a href="job.html" class="dropdown-item">Job Opening</a>  -->
+                  <a href="cv-services.html" class="dropdown-item">CV Review Services</a>
+                  <a href="job-list.html" class="dropdown-item">Job Vacancies</a> 
+                  <a href="mylearning.html" class="dropdown-item">My Learning</a>
+                  <a href="availability.html" class="dropdown-item">Availability</a>
+                  <a href="skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLScQCdI3u2vSsHf0xpDUIQaRnaRjThq1KXqVVQ_rFC5igNu7Eg/viewform?usp=header" 
+                    class="dropdown-item">Upload Your Resume</a>
+                </div>
+              </div>
+
+              <div class="">
+                <a href="pricing.html" class="nav-link px-2">Pricing</a>
+              </div>
+
+              <!-- Help Center -->
+              <div class="nav-item dropdown">
+                <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                  <a href="faq.html" class="dropdown-item">Frequently Asked Question</a>
+                  <a href="contact.html" class="dropdown-item">Contact</a>
+                </div>
+              </div>
+            </div>
+            <div class="ms-0">
+              <a href="about.html" class="dropdown-item">About Us</a>
+            </div>
+            <!-- Auth + Post Job -->
+            <div class="d-flex align-items-center ms-auto">
+              <a href="login.html" class="nav-link px-2">Login</a>
+              <span class="text-muted">|</span>
+              <a href="get-started.html" class="nav-link px-2">Sign Up</a>
+              <a href="login.html" class="btn btn-sm btn-royal ms-3 m-2" style="padding-top: 15px; border-radius: 7px; font-size: 12px; height: 45px; color: white;">
+                Post A Job
+              </a>
+            </div>
+          </div>
+        </header>
+        <!-- Header ends -->
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero text-center text-white">
+      <div class="container py-5">
+        <h1 class="fw-bold">
+          Find Your Next Hospitality Opportunity — or Hire Top Talent
+        </h1>
+        <p class="lead">
+          Jobpitality connects hotels, restaurants, and tourism brands with skilled professionals across Africa.
+        </p>
+
+        <!-- Quick Search -->
+        <div class="search-box mx-auto">
+          <h5 class="fw-bold mb-3">Quick Search</h5>
+          <form id="searchForm" class="row g-3">
+            <div class="col-12 col-md-6">
+              <input
+                id="qTitle"
+                type="search"
+                class="form-control"
+                placeholder="Role (e.g., Chef, Manager)"
+                aria-label="Job title search"
+              />
+            </div>
+            <div class="col-12 col-md-4">
+              <select id="qLocation" class="form-select" aria-label="Location filter">
+                <option value="">All locations</option>
+                <option>Accra, Ghana</option>
+                <option>Lagos, Nigeria</option>
+                <option>Nairobi, Kenya</option>
+                <option>Cape Town, South Africa</option>
+                <option>Abuja, Nigeria</option>
+                <option>Osogbo, Nigeria</option>
+                <option>Ilorin, Kwara</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-2">
+              <button type="submit" class="btn btn-md btn-royal w-100" aria-label="Search jobs">
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Your Hospitality Career Partner</h2>
+          <p>Whether you're looking for your next opportunity or seeking top talent, Jobpitality has you covered</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-briefcase"></i></div>
+              <h5>For Job Seekers</h5>
+              <p>
+                Apply to the best roles in hotels, resorts, and restaurants
+                across Africa.
+              </p>
+              <a href="job-openings.html" class="btn btn-sm btn-royal"
+                >Explore Jobs</a
+              >
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-building"></i></div>
+              <h5>For Employers</h5>
+              <p>
+                Post vacancies, request staff, and hire qualified hospitality
+                professionals.
+              </p>
+              <a href="hire.html" class="btn btn-sm btn-royal">Hire Staff</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-mortarboard"></i></div>
+              <h5>Learning</h5>
+              <p>
+                Access training and upskill programs to grow your hospitality
+                career.
+              </p>
+              <a href="mylearning.html" class="btn btn-sm btn-royal"
+                >Start Learning</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <h3 class="fw-bold mb-4">How It Works</h3>
+            <div class="row g-4">
+              <div class="col-sm-4">
+                <div class="step-card">
+                  <div class="step-number">1</div>
+                  <div class="fw-bold">Create profile</div>
+                  <small class="text-muted">Add experience, skills and certifications.</small>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="step-card">
+                  <div class="step-number">2</div>
+                  <div class="fw-bold">Get matched</div>
+                  <small class="text-muted">Our smart matching suggests relevant roles.</small>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="step-card">
+                  <div class="step-number">3</div>
+                  <div class="fw-bold">Connect & hire</div>
+                  <small class="text-muted">Message, schedule interviews and hire.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Featured employer card -->
+          <aside class="col-lg-5 mt-4 mt-lg-0">
+            <div class="featured-employer-card text-center">
+              <img
+                src="img/blacklady.jpg"
+                alt="Hospitality professional"
+                class="card-img-top img-fluid"
+                style="object-fit: cover; height: 280px;"
+              />
+              <div class="card-body">
+                <h5 class="fw-bold">Featured Employer</h5>
+                <p class="text-muted small mb-3">Sankofa Resorts — Hiring: Head Chef</p>
+                <a href="#" class="btn btn-sm btn-royal px-4">View employer</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Jobs Section -->
+    <section class="jobs-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured Jobs</h2>
+          <p>Discover exciting opportunities in the hospitality industry</p>
+        </div>
+        
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-bold">Latest Opportunities</h3>
+          <a href="job-list.html" class="text-muted small">View all jobs →</a>
+        </div>
+
+        <div class="row g-4" id="jobGrid" role="list">
+          <!-- Job cards will be dynamically injected here -->
+        </div>
+
+        <div class="text-center mt-4">
+          <button id="showMoreBtn" class="btn btn-outline-primary px-4">
+            Show More
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hospitality Sectors Section -->
+    <section class="sectors-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Hospitality Sectors</h2>
+          <p>Explore the diverse opportunities across the hospitality industry</p>
+        </div>
+        
+        <div class="row g-4">
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="sector-card">
+              <div class="emoji">🏨</div>
+              <h6>Accommodation / Lodging</h6>
+              <p>Businesses providing lodging, rest, or overnight stay.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="sector-card">
+              <div class="emoji">🍽️</div>
+              <h6>Food & Beverage (F&B)</h6>
+              <p>Businesses serving food and drinks, on-site or for delivery.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="sector-card">
+              <div class="emoji">🧳</div>
+              <h6>Travel & Tourism</h6>
+              <p>Companies that move or serve travelers.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="sector-card">
+              <div class="emoji">🎢</div>
+              <h6>Recreation & Entertainment</h6>
+              <p>Activities and venues that entertain or relax guests.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="sector-card">
+              <div class="emoji">👩‍💼</div>
+              <h6>Events & Conferences</h6>
+              <p>Organizing, planning, and managing events.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="sector-card">
+              <div class="emoji">🧹</div>
+              <h6>Support & Facility Services</h6>
+              <p>Essential behind-the-scenes hospitality operations.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="sector-card">
+              <div class="emoji">🏢</div>
+              <h6>Corporate & Professional Hospitality</h6>
+              <p>Support for business travelers and enterprise clients.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="sector-card">
+              <div class="emoji">🌍</div>
+              <h6>Education & Training</h6>
+              <p>Developing hospitality talent and skills.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <a href="hospitality-sectors.html" class="btn btn-outline-primary">
+            Explore All Sectors
+          </a>
+        </div>
+      </div>
+    </section>
+
+        <!-- Learning Section -->
+    <section class="learning-section">
+      <div class="container text-center">
+        <h2 class="fw-bold mb-3">Grow Your Hospitality Career</h2>
+        <p class="lead text-muted mb-4">
+          Master customer service, culinary techniques, leadership skills and
+          more. Our free, expert-led courses are designed for anyone passionate
+          about hospitality—whether you're just starting out or looking to level
+          up.
+        </p>
+        
+        <a
+          href="mylearning.html"
+          class="btn btn-md btn-royal"
+        >
+          Start Learning Now
+        </a>
+        <p class="mt-3 text-muted small">
+          100% online • Flexible schedule • Certificates of completion
+        </p>
+      </div>
+    </section>
+
+    <!-- Trusted Partners Section -->
+    <section class="partners-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Trusted by Leading Hospitality Brands</h2>
+          <p>We partner with the best in the industry to connect talent with opportunity</p>
+        </div>
+        
+        <div class="row g-4 align-items-center justify-content-center">
+          <div class="col-6 col-sm-4 col-md-3">
+            <img
+              src="img/4t-luxury-logo.png"
+              alt="4T Luxury"
+              class="img-fluid partner-logo"
+            />
+          </div>
+          <div class="col-6 col-sm-4 col-md-3">
+            <img
+              src="img/pronto.png"
+              alt="Pronto"
+              class="img-fluid partner-logo"
+            />
+          </div>
+          <div class="col-6 col-sm-4 col-md-3">
+            <img
+              src="img/bolz-grille.jpeg"
+              alt="Bolz Grille"
+              class="img-fluid partner-logo"
+            />
+          </div>
+          <div class="col-6 col-sm-4 col-md-3">
+            <img
+              src="img/agbonna-lodge.jpeg"
+              alt="Agbonna Lodge"
+              class="img-fluid partner-logo"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Success Stories</h2>
+          <p>Hear from job seekers and employers who found success with Jobpitality</p>
+        </div>
+        
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <p>
+                "We hired two top chefs in a week. The process was seamless."
+              </p>
+              <div class="author">— Azure Hotels</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <p>
+                "Jobpitality helped us quickly find qualified staff during peak
+                season."
+              </p>
+              <div class="author">— Safari Lodge Group</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <p>
+                "I got my dream job in under a month. Highly recommend this
+                platform."
+              </p>
+              <div class="author">— Grace, Job Seeker</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+      <div class="container">
+        <p class="mb-2">&copy; 2025 Jobpitality. All Rights Reserved.</p>
+        <div>
+          <a href="aboutus.html" class="me-3">About Us</a>
+          <a href="contact.html" class="me-3">Contact</a>
+          <a href="support.html">Support</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/2348127706378"
+      target="_blank"
+      class="whatsapp-float"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const jobs = [
+          {
+            id: "job1",
+            title: "Bar Waitress",
+            company: "4T Luxury Hotel",
+            location: "Osogbo, Nigeria",
+            type: "Full-time",
+            experience: "1+ years",
+            description: "Serve food and drinks to customer and guests.",
+            email: "jobpitality@gmail.com",
+          },
+          {
+            id: "job2",
+            title: "Security Operative",
+            company: "4T Luxury Hotel",
+            location: "Osogbo, Nigeria",
+            type: "Full-time",
+            experience: "1+ years",
+            description: "Secure lives and properties of the hotel.",
+            email: "jobpitality@gmail.com",
+          },
+          {
+            id: "job3",
+            title: "Housekeeping Staff",
+            company: "4T Luxury Hotel",
+            location: "Osogbo, Nigeria",
+            type: "Full-time",
+            experience: "1+ years",
+            description:
+              "Maintain cleanliness and orderliness in guest rooms and common areas.",
+            email: "jobpitality@gmail.com",
+          },
+          {
+            id: "job4",
+            title: "Bar Waitress",
+            company: "4T Luxury Hotel",
+            location: "Osogbo, Nigeria",
+            type: "Full-time",
+            experience: "2+ years",
+            description:
+              "Provide excellent wait service and ensure a welcoming bar experience.",
+            email: "jobpitality@gmail.com",
+          },
+          {
+            id: "job5",
+            title: "Sous Chef",
+            company: "Savanna Bistro",
+            location: "Nairobi, Kenya",
+            type: "Contract",
+            experience: "2+ years",
+            description:
+              "Assist Head Chef, manage kitchen operations, and maintain hygiene standards.",
+            email: "jobpitality@gmail.com",
+          },
+          {
+            id: "job6",
+            title: "Front Office Manager",
+            company: "Azure Hotels",
+            location: "Lagos, Nigeria",
+            type: "Full-time",
+            experience: "3+ years",
+            description:
+              "Manage front office operations, guest services, and staff scheduling.",
+            email: "jobpitality@gmail.com",
+          },
+          {
+            id: "job7",
+            title: "Receptionist",
+            company: "4T Luxury Hotel",
+            location: "Osogbo, Nigeria",
+            type: "Full-time",
+            experience: "2+ years",
+            description:
+              "Welcome guests, handle check-ins and check-outs, and manage front desk inquiries.",
+            email: "jobpitality@gmail.com",
+          },
+          {
+            id: "job8",
+            title: "Head Chef",
+            company: "Sankofa Resorts",
+            location: "Accra, Ghana",
+            type: "Full-time",
+            experience: "7+ years",
+            description:
+              "Lead the kitchen team, manage inventory, and ensure high-quality meals.",
+            email: "jobpitality@gmail.com",
+          },
+        ];
+
+        const jobGrid = document.getElementById("jobGrid");
+        const showMoreBtn = document.getElementById("showMoreBtn");
+        let jobsShown = 3;
+
+        function displayJobs(limit) {
+          jobGrid.innerHTML = "";
+          jobs.slice(0, limit).forEach((job) => {
+            const card = document.createElement("div");
+            card.className = "col-md-6 col-lg-4";
+            card.innerHTML = `
+              <div class="job-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">${job.title}</h5>
+                  <p class="text-muted mb-1">${job.company}</p>
+                  <div class="job-meta">
+                    <p class="small mb-1"><i class="bi bi-geo-alt"></i> ${job.location}</p>
+                    <p class="small mb-1"><strong>Type:</strong> ${job.type}</p>
+                    <p class="small mb-2"><strong>Experience:</strong> ${job.experience}</p>
+                  </div>
+                  <p class="text-muted">${job.description}</p>
+                  <a href="login.html?id=${job.id}" class="btn btn-sm btn-royal mt-2">Apply Now</a>
+                </div>
+              </div>
+            `;
+            jobGrid.appendChild(card);
+          });
+
+          showMoreBtn.style.display =
+            limit >= jobs.length ? "none" : "inline-block";
+        }
+
+        showMoreBtn.addEventListener("click", function () {
+          jobsShown += 3;
+          displayJobs(jobsShown);
+        });
+
+        displayJobs(jobsShown);
+
+        // Search form functionality
+        const form = document.getElementById("searchForm");
+        if (form) {
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const title = document.getElementById("qTitle").value.trim();
+            const location = document.getElementById("qLocation").value.trim();
+            const url = `job-openings.html?title=${encodeURIComponent(title)}&location=${encodeURIComponent(location)}`;
+            window.location.href = url;
+          });
+        }
+      });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Center – Jobpitality</title>
+  <meta name="description" content="Enhance your hospitality career with Jobpitality's expert-led courses, certifications, and skill development programs.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="img/favicon.png">
+  
+  <style>
+    :root {
+      --blue: #002b5b;
+      --gold: #ffc107;
+      --light: #f8f9fa;
+      --dark: #0b2540;
+      --muted: #6b7280;
+      --border-radius: 12px;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: "Heebo", sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      padding-top: 76px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .navbar-brand img {
+      height: 48px;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: var(--dark) !important;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--blue) !important;
+    }
+    .btn-royal {
+      background-color: var(--blue);
+      color: #fff;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn-royal:hover {
+      background-color: #003d7a;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, var(--blue), #004c8b);
+      color: white;
+      padding: 4rem 0;
+      margin-bottom: 2rem;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 L1000,100 L0,100 Z" fill="rgba(255,255,255,0.05)"></path></svg>');
+      background-size: cover;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Learning Stats */
+    .stats-section {
+      padding: 3rem 0;
+    }
+    
+    .stat-card {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Course Categories */
+    .categories-section {
+      padding: 3rem 0;
+      background-color: #f8f9fa;
+    }
+    
+    .category-card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .category-icon {
+      font-size: 3rem;
+      color: var(--blue);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      padding: 1rem;
+      background: rgba(0, 43, 91, 0.1);
+      border-radius: 50%;
+    }
+    
+    .category-card h3 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .category-card p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Featured Courses */
+    .courses-section {
+      padding: 4rem 0;
+    }
+    
+    .course-card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .course-image {
+      height: 180px;
+      background-color: #e9ecef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 3rem;
+    }
+    
+    .course-card .card-body {
+      padding: 1.5rem;
+    }
+    
+    .course-card .card-title {
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    
+    .course-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    
+    .course-meta span {
+      display: flex;
+      align-items: center;
+    }
+    
+    .course-meta i {
+      margin-right: 0.25rem;
+    }
+    
+    .course-card .card-text {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .course-level {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: rgba(0, 43, 91, 0.1);
+      color: var(--blue);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    
+    .instructor {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .instructor-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--blue);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      margin-right: 0.75rem;
+    }
+    
+    .instructor-info {
+      flex: 1;
+    }
+    
+    .instructor-name {
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+    
+    .instructor-title {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Learning Paths */
+    .paths-section {
+      padding: 4rem 0;
+      background-color: #f8f9fa;
+    }
+    
+    .path-card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .path-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .path-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .path-card .card-body {
+      padding: 1.5rem;
+    }
+    
+    .path-card .card-title {
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    
+    .path-card .card-text {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .path-courses {
+      margin-bottom: 1.5rem;
+    }
+    
+    .path-course {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .path-course:last-child {
+      border-bottom: none;
+    }
+    
+    .course-check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(0, 43, 91, 0.1);
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0.75rem;
+      font-size: 0.8rem;
+    }
+    
+    .course-check.completed {
+      background: var(--blue);
+      color: white;
+    }
+    
+    .path-course-info {
+      flex: 1;
+    }
+    
+    .path-course-title {
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .path-course-duration {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Testimonials */
+    .testimonials-section {
+      padding: 4rem 0;
+    }
+    
+    .testimonial-card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      padding: 2rem;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .testimonial-card::before {
+      content: """;
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-size: 4rem;
+      color: rgba(0, 43, 91, 0.1);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--blue);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      margin-right: 1rem;
+    }
+    
+    .author-info {
+      flex: 1;
+    }
+    
+    .author-name {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    
+    .author-title {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, var(--blue), #004c8b);
+      color: white;
+      text-align: center;
+      border-radius: var(--border-radius);
+    }
+    
+    .cta-section h2 {
+      margin-bottom: 1rem;
+    }
+    
+    .cta-section p {
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      padding: 3rem 0;
+    }
+    
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-header h2 {
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    
+    .section-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 3rem 0;
+      }
+      
+      .stats-section,
+      .categories-section,
+      .courses-section,
+      .paths-section,
+      .testimonials-section {
+        padding: 2rem 0;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+      
+      .category-card {
+        margin-bottom: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== Navbar ===== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="img/final-job.png" alt="Jobpitality" style="height: 40px; margin-right: 8px" />
+      <span class="fw-bold"></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="learning.html">Learning</a></li>
+        <li class="nav-item"><a class="nav-link" href="skill-assessment.html">Skill Assessment</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-content text-center">
+      <h1 class="display-5 fw-bold mb-3">Advance Your Hospitality Career</h1>
+      <p class="lead mb-4">Master in-demand skills with expert-led courses designed for hospitality professionals</p>
+      <a href="#courses" class="btn btn-light btn-lg px-4">
+        <i class="fas fa-play-circle me-2"></i>Start Learning
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Learning Stats -->
+<section class="stats-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-number">120+</div>
+          <div class="stat-label">Courses Available</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-number">5,000+</div>
+          <div class="stat-label">Students Enrolled</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Completion Rate</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Access Anywhere</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Course Categories -->
+<section class="categories-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Explore Learning Categories</h2>
+      <p>Browse courses by specialty to find the perfect fit for your career goals</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-concierge-bell"></i>
+          </div>
+          <h3>Food & Beverage</h3>
+          <p>Master culinary arts, beverage service, and restaurant operations</p>
+          <a href="#" class="btn btn-outline-primary btn-sm">View Courses</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-hotel"></i>
+          </div>
+          <h3>Hotel Operations</h3>
+          <p>Learn front office, housekeeping, and facility management</p>
+          <a href="#" class="btn btn-outline-primary btn-sm">View Courses</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Customer Service</h3>
+          <p>Develop exceptional guest experience and communication skills</p>
+          <a href="#" class="btn btn-outline-primary btn-sm">View Courses</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Management</h3>
+          <p>Advance to leadership roles with business and team management skills</p>
+          <a href="#" class="btn btn-outline-primary btn-sm">View Courses</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Courses -->
+<section class="courses-section" id="courses">
+  <div class="container">
+    <div class="section-header">
+      <h2>Featured Courses</h2>
+      <p>Hand-picked courses to accelerate your hospitality career</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="course-card">
+          <div class="course-image">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <div class="card-body">
+            <span class="course-level">Beginner</span>
+            <h5 class="card-title">Food Safety & Hygiene Certification</h5>
+            <div class="course-meta">
+              <span><i class="far fa-clock"></i> 8 hours</span>
+              <span><i class="far fa-user"></i> 1,240 students</span>
+            </div>
+            <p class="card-text">Master essential food safety practices and earn your certification to work in any kitchen environment.</p>
+            <div class="instructor">
+              <div class="instructor-avatar">CD</div>
+              <div class="instructor-info">
+                <div class="instructor-name">Chef David Okoro</div>
+                <div class="instructor-title">Executive Chef, 15+ years experience</div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-royal w-100">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6">
+        <div class="course-card">
+          <div class="course-image">
+            <i class="fas fa-door-open"></i>
+          </div>
+          <div class="card-body">
+            <span class="course-level">Intermediate</span>
+            <h5 class="card-title">Front Office Management</h5>
+            <div class="course-meta">
+              <span><i class="far fa-clock"></i> 12 hours</span>
+              <span><i class="far fa-user"></i> 890 students</span>
+            </div>
+            <p class="card-text">Learn reservation systems, guest check-in/out procedures, and front desk operations for hotels.</p>
+            <div class="instructor">
+              <div class="instructor-avatar">AK</div>
+              <div class="instructor-info">
+                <div class="instructor-name">Amina Kalu</div>
+                <div class="instructor-title">Hotel Manager, 12+ years experience</div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-royal w-100">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6">
+        <div class="course-card">
+          <div class="course-image">
+            <i class="fas fa-wine-glass-alt"></i>
+          </div>
+          <div class="card-body">
+            <span class="course-level">Advanced</span>
+            <h5 class="card-title">Wine & Beverage Management</h5>
+            <div class="course-meta">
+              <span><i class="far fa-clock"></i> 16 hours</span>
+              <span><i class="far fa-user"></i> 540 students</span>
+            </div>
+            <p class="card-text">Master wine selection, pairing, inventory management, and beverage program development.</p>
+            <div class="instructor">
+              <div class="instructor-avatar">MJ</div>
+              <div class="instructor-info">
+                <div class="instructor-name">Michael Johnson</div>
+                <div class="instructor-title">Sommelier & Beverage Director</div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-royal w-100">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-5">
+      <a href="#" class="btn btn-outline-primary btn-lg">View All Courses</a>
+    </div>
+  </div>
+</section>
+
+<!-- Learning Paths -->
+<section class="paths-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Structured Learning Paths</h2>
+      <p>Follow curated paths to master specific hospitality roles</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="path-card">
+          <div class="path-header">
+            <h5 class="card-title mb-0">Hotel Management Career Path</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Progress from entry-level to management roles with this comprehensive learning path.</p>
+            <div class="path-courses">
+              <div class="path-course">
+                <div class="course-check"><i class="fas fa-check"></i></div>
+                <div class="path-course-info">
+                  <div class="path-course-title">Hospitality Fundamentals</div>
+                  <div class="path-course-duration">4 hours</div>
+                </div>
+              </div>
+              <div class="path-course">
+                <div class="course-check"><i class="fas fa-check"></i></div>
+                <div class="path-course-info">
+                  <div class="path-course-title">Front Office Operations</div>
+                  <div class="path-course-duration">8 hours</div>
+                </div>
+              </div>
+              <div class="path-course">
+                <div class="course-check"><i class="far fa-circle"></i></div>
+                <div class="path-course-info">
+                  <div class="path-course-title">Housekeeping Management</div>
+                  <div class="path-course-duration">6 hours</div>
+                </div>
+              </div>
+              <div class="path-course">
+                <div class="course-check"><i class="far fa-circle"></i></div>
+                <div class="path-course-info">
+                  <div class="path-course-title">Revenue Management</div>
+                  <div class="path-course-duration">10 hours</div>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-royal w-100">Start This Path</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="path-card">
+          <div class="path-header">
+            <h5 class="card-title mb-0">Culinary Arts Career Path</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Develop from kitchen assistant to chef with hands-on culinary training.</p>
+            <div class="path-courses">
+              <div class="path-course">
+                <div class="course-check completed"><i class="fas fa-check"></i></div>
+                <div class="path-course-info">
+                  <div class="path-course-title">Food Safety Certification</div>
+                  <div class="path-course-duration">8 hours</div>
+                </div>
+              </div>
+              <div class="path-course">
+                <div class="course-check completed"><i class="fas fa-check"></i></div>
+                <div class="path-course-info">
+                  <div class="path-course-title">Knife Skills & Basic Cooking</div>
+                  <div class="path-course-duration">12 hours</div>
+                </div>
+              </div>
+              <div class="path-course">
+                <div class="course-check"><i class="far fa-circle"></i></div>
+                <div class="path-course-info">
+                  <div class="path-course-title">African Cuisine Mastery</div>
+                  <div class="path-course-duration">16 hours</div>
+                </div>
+              </div>
+              <div class="path-course">
+                <div class="course-check"><i class="far fa-circle"></i></div>
+                <div class="path-course-info">
+                  <div class="path-course-title">Menu Planning & Cost Control</div>
+                  <div class="path-course-duration">10 hours</div>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-royal w-100">Start This Path</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="path-card">
+          <div class="path-header">
+            <h5 class="card-title mb-0">Restaurant Service Career Path</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Excel in food service from server to restaurant manager.</p>
+            <div class="path-courses">
+              <div class="path-course">
+                <div class="course-check completed"><i class="fas fa-check"></i></div>
+                <div class="path-course-info">
+                  <div class="path-course-title">Customer Service Excellence</div>
+                  <div class="path-course-duration">6 hours</div>
+                </div>
+              </div>
+              <div class="path-course">
+                <div class="course-check"><i class="far fa-circle"></i></div>
+                <div class="path-course-info">
+                  <div class="path-course-title">Wine & Beverage Service</div>
+                  <div class="path-course-duration">8 hours</div>
+                </div>
+              </div>
+              <div class="path-course">
+                <div class="course-check"><i class="far fa-circle"></i></div>
+                <div class="path-course-info">
+                  <div class="path-course-title">Fine Dining Service Techniques</div>
+                  <div class="path-course-duration">10 hours</div>
+                </div>
+              </div>
+              <div class="path-course">
+                <div class="course-check"><i class="far fa-circle"></i></div>
+                <div class="path-course-info">
+                  <div class="path-course-title">Restaurant Management</div>
+                  <div class="path-course-duration">12 hours</div>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-royal w-100">Start This Path</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Success Stories</h2>
+      <p>Hear from hospitality professionals who transformed their careers</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="testimonial-card">
+          <p>"The Hotel Management path helped me advance from front desk agent to assistant manager in just 9 months. The practical skills I learned were immediately applicable."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">FK</div>
+            <div class="author-info">
+              <div class="author-name">Fatima Kone</div>
+              <div class="author-title">Assistant Hotel Manager, Lagos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="testimonial-card">
+          <p>"As a career changer, the structured learning paths gave me the confidence to transition into hospitality. I'm now working as a sous chef at a reputable restaurant."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JA</div>
+            <div class="author-info">
+              <div class="author-name">James Adebayo</div>
+              <div class="author-title">Sous Chef, Accra</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="testimonial-card">
+          <p>"The flexibility of online learning allowed me to upskill while working full-time. The wine course directly helped me increase beverage sales by 30% at our hotel."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">NM</div>
+            <div class="author-info">
+              <div class="author-name">Nadia Mensah</div>
+              <div class="author-title">Restaurant Manager, Nairobi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Transform Your Hospitality Career?</h2>
+    <p>Join thousands of professionals advancing their skills with Jobpitality Learning</p>
+    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+      <a href="#" class="btn btn-light btn-lg px-4">
+        <i class="fas fa-search me-2"></i>Browse All Courses
+      </a>
+      <a href="skill-assessment.html" class="btn btn-outline-light btn-lg px-4">
+        <i class="fas fa-chart-bar me-2"></i>Take Skill Assessment
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-4">
+  <div class="container">
+    <p class="mb-0">&copy; <span id="year"></span> Jobpitality. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

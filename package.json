@@ -22,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/oborimusa/Jobpitality/issues"
   },
-  "homepage": "https://github.com/oborimusa/Jobpitality#readme"
+  "homepage": "https://github.com/oborimusa/Jobpitality#readme",
+  "type": "commonjs"
 }
