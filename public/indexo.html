@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Jobpitality</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0; url=index-new.html" />
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/favicon.ico">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Icon Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
+  <!-- Libraries Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+  <!-- Bootstrap Stylesheet -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- Template Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  
+
+  <!-- Custom Inline Styles -->
+  <style>
+     :root {
+      --green: #0ea861;
+      --blue: #004aad;
+      --dark: #0b2540;
+      --muted: #6b7280;
+      --whatsapp: #25D366;
+    }
+    /* You can add custom inline CSS here */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      padding-top: 70px;
+    }
+
+    .hero {
+      background: url('img/about-4.jpg') center center / cover no-repeat;
+      min-height: 100vh;
+      position: relative;
+      /* display: flex; */
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1rem;
+      color: #fff;
+    } 
+
+  .hero p {
+  color: var(--muted);
+  margin: 0 0 18px;
+    }
+    
+
+    .text-pink { color: #e83e8c; }
+
+    .card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 30px rgba(11,37,69,0.04);
+  min-height: 120px;
+}
+
+.features {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.feature {
+  flex: 1;
+  min-width: 160px;
+  background: linear-gradient(180deg,#fff,#fbffff);
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(11,37,69,0.03);
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  max-width: 760px;
+  width: 100%;
+  padding: 18px;
+  box-shadow: 0 20px 45px rgba(2,6,23,0.36);
+}
+.close {
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  /* background-color: #25d366; */
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  z-index: 1000;
+}
+.whatsapp-float i {
+  margin-top: 16px;
+}
+
+    .whatsapp-float {
+      
+  position: fixed;
+  bottom: 80px;
+  right: 5px;
+  font-size: 50px;
+  color: #25D366; /* WhatsApp green */
+  z-index: 999;
+}
+.whatsapp-float:hover { color: #1ebe57; }
+
+
+  .banner-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch; /* 🔑 makes children equal height */
+} 
+
+    .left-column,
+.right-column {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* ensures content flows vertically */
+} 
+
+     @media (min-width: 768px) {
+  .left-column,
+  .right-column {
+    width: 50%;
+  }
+  
+} 
+
+   .left-column {
+      background-color: #e0f7e9;
+    }
+
+    .right-column {
+      background-color: #f2f2f2;
+    }
+
+    .left-column h2,
+    .right-column h2 {
+      color: #1e4620;
+    }
+
+    .right-column h2 {
+      color: #555;
+    }
+
+    .left-column ul,
+    .right-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .left-column li::before {
+      content: '✅ ';
+    }
+
+    .right-column li::before {
+      content: '❌ ';
+    }
+
+    .cta-bar {
+      background-color: #cb5100;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 1.2em;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cta-bar img.logo {
+      width: 30px;
+      height: auto;
+    } 
+     /* WHATSAPP & FOOTER */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 28px;
+        right: 10px;
+        font-size: 48px;
+        color: var(--whatsapp);
+        z-index: 1200;
+      }
+      .whatsapp-float:hover {
+        color: #03cd4a;
+      }
+
+   .hero-solid {
+      background: linear-gradient(90deg, #28a745 0%, #cb5100 100%);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .headline {
+      font-size: 3.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .headline i {
+      animation: bounce 2s infinite;
+      color: #fff;
+    } 
+
+    @keyframes bounce {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+  
+
+    .btn-cta {
+      padding: 14px 32px;
+      font-size: 1.25rem;
+      transition: all 0.3s ease-in-out;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+
+    .btn-cta:hover {
+      background-color: #0a8a00;
+      transform: translateY(-2px);
+    }
+
+    .btn-button{
+    background: #0d6efd;
+    padding: 20px;
+    }
+
+    @media (max-width: 992px) {
+      .headline {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .headline {
+        font-size: 1.8rem !important;
+      }
+
+    
+      .btn-lg {
+        font-size: 1rem !important;
+        padding: 10px 20px !important;
+      }
+
+  .navbar-brand img {
+  margin-left: 0 !important;
+  display: block;
+  max-height: 48px;
+  height: auto;
+}
+
+@media (max-width: 980px) {
+  .hero { grid-template-columns: 1fr; text-align: left; }
+  .job-grid { grid-template-columns: repeat(2,1fr); }
+  .grid-3 { grid-template-columns: repeat(2,1fr); }
+  .testimonials { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+  header { padding: 12px 0; }
+  nav { display: none; }
+  .mobile-nav { display: flex; gap: 8px; }
+  .job-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 24px; }
+}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Fetch Jobs from Google Sheets -->
+  <script>
+    fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vT9rQ3HMHBWbq8NT8_gchLQg7gH5bUF7cDkqnrKmWQ5OUNVRafrgrgium8urQ63N1YFt76Rgwg0T8NG/pub?output=csv")
+      .then(res => res.text())
+      // .then(data => console.log(data))
+      .catch(err => console.error(err));
+  </script>
+
+  <!-- Spinner -->
+  <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow fixed-top p-0 px-4" style="z-index:1030;">
+  <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5 m-2">
+      <div class="img">
+        <img src="img/final-job.png" alt="Logo" style="width: 110px; height: auto; margin: 20px 0;">
+      </div>
+    </a>      
+    <button class="navbar-toggler me-2 mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Header starts -->
+      <header>
+    <div class="collapse navbar-collapse px-4" id="navbarCollapse">
+      <div class="navbar-nav">
+        <!-- Employers -->
+        <div class="nav-item dropdown">
+          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Employers</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <!-- <a href="employer-dashboard.html" class="dropdown-item">Dashboard</a> -->
+            <a href="employer-skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+            <a href="employer-dashboard.html" class="dropdown-item">Employer's Corner</a>
+            <a href="Request-staff.html" class="dropdown-item">Request Staff</a>
+            <a href="#request-staff.html" class="dropdown-item">Pro Recruit</a>
+            <a href="standard-listing.html" class="dropdown-item">Standard Listing</a>
+
+
+          </div>
+        </div>
+
+        <!-- Career -->
+        <div class="nav-item dropdown">
+          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Career</a>
+        </div>
+
+
+        <a href="https://wa.me/2348127706378" target="_blank" class="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <!-- Job Seekers -->
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Job Seekers</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <a href="job.html" class="dropdown-item">Job Openings</a> 
+            <a href="cv-services.html" class="dropdown-item">CV Review Services</a>
+            <a href="job-list.html" class="dropdown-item">Job Vacancies</a>
+            <a href="mylearning.html" class="dropdown-item">My Learning</a>
+            <a href="jobseeker-dashboard.html" class="dropdown-item">Dashboard</a>
+            <a href="skill-assessment.html" class="dropdown-item">Skill Assessment</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScQCdI3u2vSsHf0xpDUIQaRnaRjThq1KXqVVQ_rFC5igNu7Eg/viewform?usp=header" 
+              class="dropdown-item">Upload Your Resume</a>
+          </div>
+        </div>
+
+        <div class="">
+          <a href="pricing.html" class="nav-link px-2">Pricing</a>
+        </div>
+
+        <!-- Help Center -->
+        <div class="nav-item dropdown">
+          <a href="employer-login.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help Center</a>
+          <div class="dropdown-menu rounded-0 m-0">
+            <a href="faq.html" class="dropdown-item">Frequently Asked Question</a>
+            <!-- <a href="request-staff.html" class="dropdown-item">Request Staff</a> -->
+             <a href="contact.html" class="dropdown-item">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="ms-0">
+        <a href="about.html" class="dropdown-item">ABOUT US</a>
+    </div>
+      <!-- Auth + Post Job -->
+      <div class="d-flex align-items-center ms-auto">
+        <a href="login.html" class="nav-link px-2">Login</a>
+        <span class="text-muted">|</span>
+        <a href="get-started.html" class="nav-link px-2">Sign Up</a>
+        <a href="login.html" class="btn btn-button ms-3 m-2" style="padding-top: 15px; border-radius: 7px; font-size: 12px; height: 45px; color: white;">
+          Post A Job
+        </a>
+      </div>
+    </div>
+    </header>
+    <!-- Header ends -->
+    </div>
+  </nav>
+  <!-- End Navbar -->
+
+  <main class="container my-5">
+  <!-- HERO -->
+  <section class="row align-items-center mb-2">
+    <div class="col-lg-7">
+      <h1 class="fw-bold" style="margin-top: 20px;">Empowering Africa’s hospitality talent—starting in Nigeria</h1>
+      <p class="lead">Begin your career or find skilled staff today in Lagos, Ilorin, Osogbo and Abuja, with more African cities coming soon.</p>
+      <div class="d-flex gap-2 mb-2">
+        <a href="job-openings.html" class="btn btn-primary">Find Jobs</a>
+        <a href="hire.html" class="btn btn-outline-primary">Hire Talent</a>
+      </div>
+
+        <!-- Quick Search -->
+   <div class="p-3 bg-light rounded shadow-sm">
+  <h5 class="fw-bold mb-3">Quick Search</h5>
+  <form id="searchForm" class="row g-2">
+    <div class="col-12 col-md-6">
+      <input id="qTitle" type="search" class="form-control" placeholder="Role (e.g., Chef, Manager)" aria-label="Job title search">
+    </div>
+    <div class="col-12 col-md-4">
+      <select id="qLocation" class="form-select" aria-label="Location filter">
+        <option value="">All locations</option>
+        <option>Accra, Ghana</option>
+        <option>Lagos, Nigeria</option>
+        <option>Nairobi, Kenya</option>
+        <option>Cape Town, South Africa</option>
+        <option>Abuja, Nigeria</option>
+        <option>Osogbo, Nigeria</option>
+        <option>ilorin, Kwara</option>
+      </select>
+    </div>
+    <div class="col-12 col-md-2">
+      <button type="submit" class="btn btn-primary w-100" aria-label="Search jobs">Search</button>
+    </div>
+  </form>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("searchForm");
+
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const title = document.getElementById("qTitle").value.trim();
+      const location = document.getElementById("qLocation").value.trim();
+
+      // Redirect to job-openings.html with search params
+      const url = `job-openings.html?title=${encodeURIComponent(title)}&location=${encodeURIComponent(location)}`;
+      window.location.href = url;
+    });
+  }
+});
+</script>
+
+
+
+<!-- Search Results -->
+<div id="searchResults" class="mt-4">
+  <h5 class="fw-bold">Search Results</h5>
+  <div id="resultsContainer" class="row g-3">
+    <!-- Filtered jobs will appear here -->
+  </div>
+</div>
+
+  <!-- Learning Page Promo -->
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-3" style="color:#007bff;">Grow Your Hospitality Career</h2>
+    <p class="lead text-muted mb-4">
+      Master customer service, culinary techniques, leadership skills and more.
+      Our free, expert-led courses are designed for anyone passionate about
+      hospitality—whether you’re just starting out or looking to level up.
+    </p>
+    <a href="mylearning.html"
+   class="btn btn-primary btn-lg shadow"
+   style="background-color:#007bff;; border-color:#4169E1;">
+  Start Learning Now
+</a>
+    <p class="mt-3 text-muted small">
+      100% online • Flexible schedule • Certificates of completion
+    </p>
+  </div>
+</section>
+
+      <!-- How it works -->
+
+      <section>
+      <div class="mt-4">
+        <h3 class="fw-bold">How it works</h3>
+        <div class="row g-3 mt-1">
+          <div class="col-sm-4">
+            <div class="fw-bold">1. Create profile</div>
+            <small class="text-muted">Add experience, skills and certifications.</small>
+          </div>
+          <div class="col-sm-4">
+            <div class="fw-bold">2. Get matched</div>
+            <small class="text-muted">Our smart matching suggests relevant roles.</small>
+          </div>
+          <div class="col-sm-4">
+            <div class="fw-bold">3. Connect & hire</div>
+            <small class="text-muted">Message, schedule interviews and hire.</small>
+          </div>
+        </div>
+      </div>
+   
+    <aside class="col-lg-5 mt-4 mt-lg-0">
+      <div class="card text-center shadow-sm">
+        <img src="img/blacklady.jpg" alt="Hospitality" class="card-img-top img-fluid rounded-top" style="width: 100%;">
+        <div class="card-body">
+          <h5 class="fw-bold">Featured employer</h5>
+          <p class="text-muted small mb-3">Sankofa Resorts — Hiring: Head Chef</p>
+          <a href="#" class="btn btn-primary">View employer</a>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+<!-- Featured Jobs -->
+<section id="jobs" class="mb-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="fw-bold">Featured Jobs</h2>
+    <a href="job-list.html" class="text-muted small">View all jobs →</a>
+  </div>
+
+  <div class="row g-4" id="jobGrid" role="list">
+    <!-- Job cards will be dynamically injected here -->
+  </div>
+
+  <div class="text-center mt-4">
+    <button id="showMoreBtn" class="btn btn-outline-primary px-4">Show More</button>
+  </div>
+</section>
+
+<!-- Add this script at the very end of your body (below all content) -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const jobs = [
+  {
+      id: "job1",
+      title: "Bar Waitress",
+      company: "4T Luxury Hotel",
+      location: "Osogbo, Nigeria",
+      type: "Full-time",
+      experience: "1+ years",
+      description: "Serve food and drinks to customer and guests.",
+      email: "jobpitality@gmail.com"
+    },
+
+    {
+      id: "job2",
+      title: "Security Operative",
+      company: "4T Luxury Hotel",
+      location: "Osogbo, Nigeria",
+      type: "Full-time",
+      experience: "1+ years",
+      description: "Secure lives and properties of the hotel.",
+      email: "jobpitality@gmail.com"
+    },
+
+    {
+      id: "job1",
+      title: "Housekeeping Staff",
+      company: "4T Luxury Hotel",
+      location: "Osogbo, Nigeria",
+      type: "Full-time",
+      experience: "1+ years",
+      description: "Maintain cleanliness and orderliness in guest rooms and common areas.",
+      email: "jobpitality@gmail.com"
+    },
+    {
+      id: "job2",
+      title: "Bar Waitress",
+      company: "4T Luxury Hotel",
+      location: "Osogbo, Nigeria",
+      type: "Full-time",
+      experience: "2+ years",
+      description: "Provide excellent wait service and ensure a welcoming bar experience.",
+      email: "jobpitality@gmail.com"
+    },
+    {
+      id: "job3",
+      title: "Sous Chef",
+      company: "Savanna Bistro",
+      location: "Nairobi, Kenya",
+      type: "Contract",
+      experience: "2+ years",
+      description: "Assist Head Chef, manage kitchen operations, and maintain hygiene standards.",
+      email: "jobpitality@gmail.com"
+    },
+    {
+      id: "job4",
+      title: "Front Office Manager",
+      company: "Azure Hotels",
+      location: "Lagos, Nigeria",
+      type: "Full-time",
+      experience: "3+ years",
+      description: "Manage front office operations, guest services, and staff scheduling.",
+      email: "jobpitality@gmail.com"
+    },
+    {
+      id: "job5",
+      title: "Receptionist",
+      company: "4T Luxury Hotel",
+      location: "Osogbo, Nigeria",
+      type: "Full-time",
+      experience: "2+ years",
+      description: "Welcome guests, handle check-ins and check-outs, and manage front desk inquiries.",
+      email: "jobpitality@gmail.com"
+    },
+    {
+      id: "job6",
+      title: "Head Chef",
+      company: "Sankofa Resorts",
+      location: "Accra, Ghana",
+      type: "Full-time",
+      experience: "7+ years",
+      description: "Lead the kitchen team, manage inventory, and ensure high-quality meals.",
+      email: "jobpitality@gmail.com"
+    },
+  ];
+
+  const jobGrid = document.getElementById("jobGrid");
+  const showMoreBtn = document.getElementById("showMoreBtn");
+  let jobsShown = 3;
+
+  function displayJobs(limit) {
+    jobGrid.innerHTML = "";
+    jobs.slice(0, limit).forEach(job => {
+      const card = document.createElement("div");
+      card.className = "col-md-4";
+      card.innerHTML = `
+        <div class="card shadow-sm border-0 h-100">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">${job.title}</h5>
+            <p class="text-muted mb-1">${job.company}</p>
+            <p class="small mb-2"><i class="bi bi-geo-alt"></i> ${job.location}</p>
+            <p class="small mb-2"><strong>Type:</strong> ${job.type}</p>
+            <p class="small mb-2"><strong>Experience:</strong> ${job.experience}</p>
+            <p class="text-muted">${job.description}</p>
+            <a href="login.html?id=${job.id}" class="btn btn-primary btn-sm mt-2">Apply Now</a>
+          </div>
+        </div>
+      `;
+      jobGrid.appendChild(card);
+    });
+
+    showMoreBtn.style.display = limit >= jobs.length ? "none" : "inline-block";
+  }
+
+  showMoreBtn.addEventListener("click", function () {
+    jobsShown += 3;
+    displayJobs(jobsShown);
+  });
+
+  displayJobs(jobsShown);
+});
+</script>
+
+  
+
+<!-- <section>
+<div class="container mt-2">
+  <h1>Explore by category</h1>
+  <a href="category.html" class="btn px-2 py-3 btn-primary px-2 py-3" style="border-radius: 10px;">Learn More</a>
+</div>
+</section> -->
+
+
+  <section class="text-center bg-light py-5">
+  <div class="container">
+
+    <h2 class="text-center mb-4">Currently Hiring</h2>
+    <div class="row g-4">
+
+      <!-- Hotel Card 1 -->
+      <div class="col-md-4">
+        <div class="card shadow">
+          <img src="img/bolz-grille.jpeg" class="card-img-top" alt="Hotel 1" style="width: 100%; height: 20vh;">
+          <div class="card-body">
+            <!-- Add hotel description or buttons here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Hotel Card 2 -->
+      <div class="col-md-4">
+        <div class="card shadow">
+          <img src="img/4T Luxury logo.PNG" class="card-img-top" alt="Hotel 2" style="width: 100%; height: 20vh;">
+          <div class="card-body">
+            <!-- Add hotel description or buttons here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Hotel Card 3 -->
+      <!-- <div class="col-md-3">
+        <div class="card shadow">
+          <img src="img/4T Luxury logo.PNG" class="card-img-top" alt="Rest" style="width: 100%; height: 20vh;">
+          <div class="card-body"> -->
+            <!-- Add hotel description or buttons here -->
+          <!-- </div>
+        </div>
+      </div> -->
+
+      <!-- Hotel Card 4 -->
+      <div class="col-md-4">
+        <div class="card shadow">
+          <img src="img/Pronto.PNG" class="card-img-top" alt="Rest" style="width: 100%; height: 20vh;">
+          <div class="card-body">
+            <!-- Add hotel description or buttons here -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Hospitality Industry Sections -->
+<section class="container my-5" id="hospitality-sections" role="region">
+  <div class="text-center mb-5">
+    <h3 class="fw-bold">🏨 Hospitality Industry And Staff:</h3>
+    <p class="lead text-muted">
+      Explore diverse opportunities across the hospitality world.  
+      Whether you’re hiring or job-hunting, we cover every segment.
+    </p>
+  </div>
+
+  <div class="row g-4">
+    <!-- Hotels -->
+    <div class="col-md-4 col-lg-3">
+      <div class="card h-100 shadow text-center">
+        <div class="card-body">
+          <i class="bi bi-building fs-1 text-primary mb-3"></i>
+          <h5 class="fw-bold">Hotels</h5>
+          <p class="text-muted">Front desk, housekeeping, and management roles.</p>
+        </div>
+        <a href="sections.html" class="btn btn-primary px-3 mb-3">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Restaurants -->
+    <div class="col-md-4 col-lg-3">
+      <div class="card h-100 shadow text-center">
+        <div class="card-body">
+          <i class="bi bi-egg-fried fs-1 text-success mb-3"></i>
+          <h5 class="fw-bold">Restaurants</h5>
+          <p class="text-muted">Chefs, waiters, supervisors, and managers.</p>
+        </div>
+        <a href="sections.html" class="btn btn-primary px-3 mb-3">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Bars -->
+    <div class="col-md-4 col-lg-3">
+      <div class="card h-100 shadow text-center">
+        <div class="card-body">
+          <i class="bi bi-cup-straw fs-1 text-warning mb-3"></i>
+          <h5 class="fw-bold">Bars</h5>
+          <p class="text-muted">Bartenders, mixologists, and bar managers.</p>
+        </div>
+        <a href="sections.html" class="btn btn-primary px-3 mb-3">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Events -->
+    <div class="col-md-4 col-lg-3">
+      <div class="card h-100 shadow text-center">
+        <div class="card-body">
+          <i class="bi bi-calendar-event fs-1 text-danger mb-3"></i>
+          <h5 class="fw-bold">Events</h5>
+          <p class="text-muted">Event planners, coordinators, and staff.</p>
+        </div>
+        <a href="sections.html" class="btn btn-primary px-3 mb-3">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Tourism -->
+    <div class="col-md-4 col-lg-3">
+      <div class="card h-100 shadow text-center">
+        <div class="card-body">
+          <i class="bi bi-airplane fs-1 text-info mb-3"></i>
+          <h5 class="fw-bold">Tourism</h5>
+          <p class="text-muted">Travel agents, guides, and tourism managers.</p>
+        </div>
+        <a href="sections.html" class="btn btn-primary px-3 mb-3">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Spas & Wellness -->
+    <div class="col-md-4 col-lg-3">
+      <div class="card h-100 shadow text-center">
+        <div class="card-body">
+          <i class="bi bi-heart-pulse fs-1 text-pink mb-3"></i>
+          <h5 class="fw-bold">Spas & Wellness</h5>
+          <p class="text-muted">Therapists, spa attendants, and managers.</p>
+        </div>
+        <a href="sections.html" class="btn btn-primary px-3 mb-3">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.text-pink { color: #e83e8c; }
+</style>
+
+<section class="bg-white text-black py-5">
+  <div class="container-fluid" style="min-height:50vh;">
+    <div class="row align-items-center justify-content-between">
+       <!-- Left Column: Text + CTA + Icons -->
+      <div class="col-12 col-lg-8 mb-4 mb-lg-0 px-4 px-lg-5">
+        <h2 class="mb-3 text-center text-lg-start">
+          Advance your career <br class="d-none d-md-block">
+          with Jobpitality
+        </h2>
+
+        <p class="lead mb-4 text-center text-lg-start">
+          Create a free account, complete your profile, <br class="d-none d-md-block">
+          and get matched with your dream job.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 mb-5">
+          <a href="get-started.html" class="btn btn-primary px-4 py-2">
+            Get Started
+          </a>
+          <a href="get-started.html" class="btn btn-outline-secondary px-4 py-2">
+            Learn More →
+          </a>
+        </div>
+         <!-- Icon Features -->
+        <div class="row g-4 text-center text-lg-start">
+          <div class="col-12 col-md-6 px-2">
+            <i class="bi bi-people-fill text-primary fs-1 mb-2"></i>
+            <h5 class="fw-bold mb-1">Get seen by employers</h5>
+            <p class="mb-0">
+              With a complete profile, your applications and profile are promoted
+              to top employers so you stand out.
+            </p>
+          </div>
+
+          <div class="col-12 col-md-6 px-2">
+            <i class="bi bi-briefcase-fill text-success fs-1 mb-2"></i>
+            <h5 class="fw-bold mb-1">Access the best jobs for you</h5>
+            <p class="mb-0">
+              Sign up for customised job alerts matching your experience,
+              preferred industry, function and location.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column: Image -->
+      <div class="col-12 col-lg-4 text-center px-4 px-lg-0 mt-4 mt-lg-0">
+        <img src="img/f&b.png"
+             alt="Illustration of career advancement in hospitality"
+             class="img-fluid rounded shadow w-100"
+             style="max-height:70vh; object-fit:cover;">
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Featured Jobs -->
+<section id="jobs" class="mb-5 mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="fw-bold">Featured Jobs</h2>
+    <a href="job-list.html" class="text-muted small">View all jobs →</a>
+  </div>
+
+  <div class="row g-4" id="jobGrid" role="list">
+    <!-- JS will generate job cards here -->
+  </div>
+</section>
+
+
+     
+       
+
+
+<!-- Job Detail Modal -->
+<div class="modal fade" id="jobDetailModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Job Title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        Loading job details…
+      </div>
+      <div class="modal-footer">
+        <a id="modalApplyBtn" href="#" class="btn btn-primary">Apply</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Partnered Hospitality Firms -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-4">🤝 Our Partnered Hospitality Firms</h2>
+    <p class="text-center text-muted mb-5">
+      Trusted by leading hotels, restaurants, and resorts across Africa.  
+      We connect top talent with reputable employers.
+    </p>
+
+    <div class="row g-4 text-center align-items-center">
+      <!-- Partner 1 -->
+      <div class="col-6 col-md-3">
+        <div class="card border-0 shadow-sm h-100">
+          <img src="img/4T Luxury logo.PNG" class="card-img-top p-3"
+               alt="4T Luxury" style="height:120px; object-fit:contain;">
+          <div class="card-body">
+            <h6 class="fw-bold mb-0">4T Luxury</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partner 2 -->
+      <div class="col-6 col-md-3">
+        <div class="card border-0 shadow-sm h-100">
+          <img src="img/Pronto.PNG" class="card-img-top p-3"
+               alt="Pronto Hospitality" style="height:120px; object-fit:contain;">
+          <div class="card-body">
+            <h6 class="fw-bold mb-0">Pronto</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partner 3 -->
+      <div class="col-6 col-md-3">
+        <div class="card border-0 shadow-sm h-100">
+          <img src="img/bolz-grille.jpeg" class="card-img-top p-3"
+               alt="Azure Hotels" style="height:120px; object-fit:contain;">
+          <div class="card-body">
+            <h6 class="fw-bold mb-0">Bolz Grille</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partner 4 -->
+      <div class="col-6 col-md-3">
+        <div class="card border-0 shadow-sm h-100">
+          <img src="img/Agbonna lodge.jpeg" class="card-img-top p-3"
+               alt="Sankofa Resorts" style="height:120px; object-fit:contain;">
+          <div class="card-body">
+            <h6 class="fw-bold mb-0">Agbonna Lodge & Suite</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional CTA -->
+    <div class="text-center mt-5">
+      <a href="partners.html" class="btn btn-primary btn-lg px-4">See All Partners</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- WHATSAPP -->
+    <a
+      href="https://wa.me/2348127706378"
+      target="_blank"
+      class="whatsapp-float"
+      aria-label="Chat on WhatsApp"
+      ><i class="fab fa-whatsapp" aria-hidden="true"></i
+    ></a>
+
+
+
+<!-- Job detail modal -->
+<!-- <div class="modal fade" id="jobModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h5 id="modalTitle" class="modal-title">Job title</h5>
+          <small id="modalCompany" class="text-muted">Company — Location</small>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="modalBody" class="modal-body text-muted">Loading details…</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="modalApplyBtn">Apply</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+  <!-- Footer -->
+  <footer class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+    <div class="container py-5">
+      <div class="row g-5">
+        <!-- Company -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-white mb-4">Company</h5>
+          <a class="btn btn-link text-white-50" href="about.html">About Us</a>
+          <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
+          <a class="btn btn-link text-white-50" href="services.html">Our Services</a>
+          <a class="btn btn-link text-white-50" href="privacy-policy.html">Privacy Policy</a>
+          <a class="btn btn-link text-white-50" href="terms-conditions.html">Terms & Conditions</a>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-white mb-4">Quick Links</h5>
+          <a class="btn btn-link text-white-50" href="about.html">About Us</a>
+          <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
+          <a class="btn btn-link text-white-50" href="services.html">Our Services</a>
+          <a class="btn btn-link text-white-50" href="privacy-policy.html">Privacy Policy</a>
+          <a class="btn btn-link text-white-50" href="terms-conditions.html">Terms & Conditions</a>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-white mb-4">Contact</h5>
+          <p><i class="fa fa-map-marker-alt me-3"></i>28, Pipeline Road, Ilorin, Kwara State</p>
+          <p><i class="fa fa-phone-alt me-3"></i>+234 812 770 6378</p>
+          <p><i class="fa fa-envelope me-3"></i>oborimusa@gmail.com</p>
+          <div class="d-flex pt-2">
+            <a class="btn btn-outline-light btn-social" href="https://x.com/jobpitality"><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-outline-light btn-social" href="https://web.facebook.com/profile.php?id=100083690556325"><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
+            <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="text-white mb-4">Newsletter</h5>
+          <p>Subscribe to our newsletter.</p>
+          <div class="position-relative mx-auto mb-3" style="max-width: 400px;">
+            <input id="newsletter-email" type="email" class="form-control bg-transparent text-white border border-light rounded-pill py-3 ps-4 pe-5" placeholder="Your Email" required>
+            <button id="newsletter-button" type="button" class="btn btn-primary position-absolute top-0 end-0 mt-2 me-2 rounded-pill py-2 px-4">Sign Up</button>
+          </div>
+          <!-- Payment Buttons -->
+          <div class="payment-buttons d-flex flex-column gap-2">
+            <button class="btn btn-success w-100 py-2 rounded-pill" id="paystack-btn">
+              <i class="fas fa-credit-card me-2"></i> Pay with Paystack
+            </button>
+            <button class="btn btn-warning w-100 py-2 rounded-pill" id="flutterwave-btn">
+              <i class="fas fa-money-bill-wave me-2"></i> Pay with Flutterwave
+            </button>
+            <button class="btn btn-info w-100 py-2 rounded-pill text-white" id="stripe-btn">
+              <i class="fab fa-cc-stripe me-2"></i> Pay with Stripe
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          &copy; <a class="border-bottom" href="#">Jobpitality</a>, All Rights Reserved.
+          Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <div class="footer-menu">
+            <a href="index.html">Home</a>
+            <a href="cookies.html">Cookies</a>
+            <a href="help.html">Help</a>
+            <a href="faq.html">FAQs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top">
+    <i class="bi bi-arrow-up"></i>
+  </a> -->
+
+  <!-- JavaScript Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Vendor Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<!-- Initialize WOW.js -->
+<script>
+  new WOW().init();
+</script>
+
+<!-- Custom scripts -->
+<script src="js/main.js" defer></script>
+<script src="js/search.js" defer></script>
+
+<!-- ✅ Job Search + Redirect Script -->
+<script>
+  async function loadJobs() {
+  try {
+    const res = await fetch(
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vRtXu-qm4KWJ9hILrIr7EOtdA5JmmtygTRin8VzmAZqGz67ZSRZYPqHVatzPnQLm_EPjJu4AVmDAAri/pub?output=csv"
+    );
+
+    const text = await res.text();
+    const rows = text.split("\n").map(r => r.split(","));
+
+    const headers = rows[0].map(h => h.trim().toLowerCase());
+
+    jobs = rows.slice(1).map(row => {
+      return headers.reduce((obj, header, i) => {
+        let key = header;
+        // ✅ Normalize "application link" → "link"
+        if (header === "application link") key = "link";
+        obj[key] = row[i]?.replace(/"/g, "").trim() || "";
+        return obj;
+      }, {});
+    });
+
+    console.log("Jobs loaded:", jobs);
+  } catch (err) {
+    console.error("Error loading jobs:", err);
+  }
+}
+</script>
+
+<script>
+  // Your DOMContentLoaded search/filter script goes here
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchForm = document.getElementById("searchForm");
+    const resultsContainer = document.getElementById("resultsContainer");
+    const noResults = document.getElementById("no-results");
+
+    if (searchForm) {
+      searchForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const title = document.getElementById("qTitle").value.trim().toLowerCase();
+        const location = document.getElementById("qLocation").value.trim().toLowerCase();
+
+        const filtered = jobs.filter(job =>
+          (!title || job.title?.toLowerCase().includes(title)) &&
+          (!location || job.location?.toLowerCase().includes(location))
+        );
+
+        resultsContainer.innerHTML = "";
+        noResults.classList.add("d-none");
+
+        if (filtered.length === 0) {
+          noResults.classList.remove("d-none");
+        } else {
+          filtered.forEach(job => {
+            resultsContainer.innerHTML += `
+              <div class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                  <div class="card-body">
+                    <h5 class="job-title">${job.title}</h5>
+                    <p><strong>Location:</strong> ${job.location}</p>
+                    <p><strong>Company:</strong> ${job.company}</p>
+                    <a href="${job.link || 'application-form.html'}" class="btn btn-outline-primary">Apply Now</a>
+                  </div>
+                </div>
+              </div>`;
+          });
+        }
+      });
+    }
+  });
+
+  // job-openings.html filter
+  function filterJobs() {
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get("title")?.toLowerCase() || "";
+    const location = params.get("location")?.toLowerCase() || "";
+
+    const filtered = jobs.filter(job =>
+      (!title || job.title?.toLowerCase().includes(title)) &&
+      (!location || job.location?.toLowerCase().includes(location))
+    );
+
+    displayJobs(filtered);
+  }
+
+  function displayJobs(list) {
+    const results = document.getElementById("results") || document.getElementById("job-list");
+    if (!results) return;
+
+    results.innerHTML = "";
+    if (list.length === 0) {
+      results.innerHTML = `<p class="text-muted">No jobs found.</p>`;
+      return;
+    }
+
+    list.forEach(job => {
+      results.innerHTML += `
+        <div class="card shadow-sm mb-3">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">${job.title}</h5>
+            <p class="card-text">
+              <strong>Company:</strong> ${job.company} <br>
+              <strong>Location:</strong> ${job.location} <br>
+              <strong>Salary:</strong> ${job.salary || "Not specified"}
+            </p>
+            <a href="${job.link || 'application-form.html'}" class="btn btn-sm btn-primary">Apply Now</a>
+          </div>
+        </div>`;
+    });
+  }
+
+  loadJobs().then(filterJobs);
+</script>
+
+<!-- Firebase Auth (Optional) -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
+    authDomain: "jobpitality-1cfb2.firebaseapp.com",
+    projectId: "jobpitality-1cfb2",
+    storageBucket: "jobpitality-1cfb2.firebasestorage.app",
+    messagingSenderId: "185191165097",
+    appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8",
+    measurementId: "G-SF5LWDZDKF"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+</script>
+
+<script>
+
+  Open job details modal
+  function openJob(button) {
+    const jobId = button.getAttribute("data-id");
+    const job = jobs[jobId];
+    if (!job) return;
+
+    // Create a simple modal dynamically
+    let modal = document.getElementById("jobDetailModal");
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = "jobDetailModal";
+      modal.className = "modal fade";
+      modal.tabIndex = -1;
+      modal.innerHTML = `
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalTitle"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer">
+              <a href="#" id="modalApplyBtn" class="btn btn-primary">Apply</a>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>`;
+      document.body.appendChild(modal);
+    }
+
+    document.getElementById("modalTitle").textContent = `${job.title} — ${job.company}`;
+    document.getElementById("modalBody").innerHTML = `
+      <p><strong>Location:</strong> ${job.location}</p>
+      <p><strong>Type:</strong> ${job.type}</p>
+      <p><strong>Experience:</strong> ${job.experience}</p>
+      <p>${job.description}</p>
+    `;
+    document.getElementById("modalApplyBtn").href = `mailto:${job.email}?subject=Application for ${job.title}`;
+
+    const bsModal = new bootstrap.Modal(modal);
+    bsModal.show();
+  }
+
+  // Apply Job button
+  function applyJob(email, title) {
+    window.location.href = `mailto:${email}?subject=Application for ${title}`;
+  }
+</script> 
+
+
+
+</body>
+</html>
