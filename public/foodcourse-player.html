@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Safety Course Player</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --success-color: #27ae60;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .course-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .course-sidebar {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .module-card {
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .module-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .module-header {
+            background-color: var(--light-color);
+            border-radius: 8px 8px 0 0;
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .lesson-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .lesson-item {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .lesson-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .lesson-item.active {
+            background-color: #e3f2fd;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .lesson-icon {
+            width: 24px;
+            margin-right: 10px;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+        
+        .content-area {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            min-height: 600px;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #000;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #2c3e50;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .video-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .quiz-container {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .quiz-question {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .quiz-option {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .quiz-option:hover {
+            background-color: #e9ecef;
+        }
+        
+        .quiz-option.selected {
+            background-color: #d1ecf1;
+            border-color: var(--secondary-color);
+        }
+        
+        .quiz-option.correct {
+            background-color: #d4edda;
+            border-color: var(--success-color);
+        }
+        
+        .quiz-option.incorrect {
+            background-color: #f8d7da;
+            border-color: var(--accent-color);
+        }
+        
+        .progress-container {
+            margin: 2rem 0;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .completion-badge {
+            background-color: var(--success-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+        
+        .lesson-completed .lesson-title {
+            color: var(--success-color);
+        }
+        
+        .content-section {
+            line-height: 1.6;
+        }
+        
+        .content-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section h5 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem 0;
+        }
+        
+        .alert {
+            border-radius: 8px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Course Header -->
+    <div class="course-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 id="course-title">Food Safety Fundamentals</h1>
+                    <p id="course-description" class="lead mb-0">Master essential food safety principles, HACCP basics, hygiene protocols, and contamination prevention.</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="progress-container">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="text-white">Course Progress</span>
+                            <span id="progress-percent" class="text-white">0%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div id="progress-bar" class="progress-bar bg-warning" role="progressbar" style="width: 0%;" 
+                                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Course Sidebar -->
+            <div class="col-md-4">
+                <div class="course-sidebar">
+                    <h4 class="mb-3">Course Content</h4>
+                    <div id="module-list">
+                        <!-- Modules will be dynamically loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content Area -->
+            <div class="col-md-8">
+                <div class="content-area">
+                    <div id="lesson-content">
+                        <div class="text-center py-5">
+                            <i class="fas fa-book-open fa-3x text-muted mb-3"></i>
+                            <h3 class="text-muted">Select a lesson to begin</h3>
+                            <p class="text-muted">Choose a lesson from the sidebar to start learning</p>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-buttons d-none" id="navigation-buttons">
+                        <button id="prev-btn" class="btn btn-outline-primary">
+                            <i class="fas fa-arrow-left me-2"></i>Previous Lesson
+                        </button>
+                        <button id="next-btn" class="btn btn-primary">
+                            Next Lesson<i class="fas fa-arrow-right ms-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Results Modal -->
+    <div class="modal fade" id="quizResultsModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Quiz Results</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="quiz-result-icon" class="mb-3">
+                        <i class="fas fa-trophy fa-3x text-warning"></i>
+                    </div>
+                    <h4 id="quiz-result-title">Congratulations!</h4>
+                    <p id="quiz-result-message">You passed the quiz with a score of <span id="quiz-score">0</span>%</p>
+                    <div class="progress mb-3">
+                        <div id="quiz-progress-bar" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Review Answers</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="continue-after-quiz">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Course Content Data
+        const courseContent = {
+            "food-safety-fundamentals": {
+                title: "Food Safety Fundamentals: Introduction to Food Safety",
+                category: "Kitchen",
+                description: "Master essential food safety principles, HACCP basics, hygiene protocols, and contamination prevention.",
+                modules: [
+                    {
+                        title: "Introduction to Food Safety",
+                        lessons: [
+                            {
+                                id: "fs-1-1",
+                                title: "Why Food Safety Matters",
+                                type: "video",
+                                duration: "6:45",
+                                content: `
+                                    <div class="content-section">
+                                        <h3>Why Food Safety Matters</h3>
+                                        <div class="video-container">
+                                            <div class="video-placeholder" data-video-id="GkOBdGpL08U">
+                                                <i class="fas fa-play-circle"></i>
+                                                <p>Click to play: Why Food Safety Matters</p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <h5>The Importance of Food Safety</h5>
+                                            <p>Food safety is critical in preventing foodborne illnesses and ensuring the wellbeing of both guests and staff in hospitality establishments.</p>
+                                            
+                                            <div class="row mt-4 text-center">
+                                                <div class="col-md-4">
+                                                    <div class="p-3 border rounded">
+                                                        <i class="fas fa-bacteria fa-2x text-danger mb-2"></i>
+                                                        <h6>Prevent Illness</h6>
+                                                        <small class="text-muted">Stop foodborne diseases</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="p-3 border rounded">
+                                                        <i class="fas fa-shield-alt fa-2x text-warning mb-2"></i>
+                                                        <h6>Legal Compliance</h6>
+                                                        <small class="text-muted">Meet health regulations</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="p-3 border rounded">
+                                                        <i class="fas fa-award fa-2x text-success mb-2"></i>
+                                                        <h6>Quality Standards</h6>
+                                                        <small class="text-muted">Maintain excellence</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="alert alert-info mt-4">
+                                                <h6><i class="fas fa-lightbulb me-2"></i>Did You Know?</h6>
+                                                Foodborne illnesses affect 1 in 10 people worldwide each year, with proper food safety practices reducing this risk by over 90%.
+                                            </div>
+                                        </div>
+                                    </div>
+                                `
+                            },
+                            {
+                                id: "fs-1-2", 
+                                title: "Common Foodborne Pathogens",
+                                type: "video",
+                                duration: "8:20",
+                                content: `
+                                    <div class="content-section">
+                                        <h3>Common Foodborne Pathogens</h3>
+                                        <div class="video-container">
+                                            <div class="video-placeholder" data-video-id="FhC6UfwP29E">
+                                                <i class="fas fa-play-circle"></i>
+                                                <p>Click to play: Common Foodborne Pathogens</p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <h5>Understanding Foodborne Illnesses</h5>
+                                            <p>Learn about the most common pathogens that cause foodborne illnesses and how to prevent their spread.</p>
+                                            
+                                            <div class="table-responsive mt-4">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Pathogen</th>
+                                                            <th>Common Sources</th>
+                                                            <th>Prevention</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><strong>Salmonella</strong></td>
+                                                            <td>Raw poultry, eggs, meat</td>
+                                                            <td>Proper cooking, hand washing</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><strong>E. coli</strong></td>
+                                                            <td>Undercooked beef, raw milk</td>
+                                                            <td>Thorough cooking, pasteurization</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><strong>Listeria</strong></td>
+                                                            <td>Deli meats, soft cheeses</td>
+                                                            <td>Proper refrigeration, sanitation</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><strong>Norovirus</strong></td>
+                                                            <td>Contaminated surfaces, food handlers</td>
+                                                            <td>Hand hygiene, surface cleaning</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `
+                            },
+                            {
+                                id: "fs-1-3",
+                                title: "Food Safety Quiz",
+                                type: "quiz", 
+                                duration: "10:00",
+                                content: `
+                                    <div class="content-section">
+                                        <h3>Food Safety Fundamentals Quiz</h3>
+                                        <p>Test your knowledge of basic food safety principles.</p>
+                                        <div class="quiz-container mt-4">
+                                            <div id="quiz-questions">
+                                                <!-- Quiz questions will be loaded here -->
+                                            </div>
+                                            <button id="submit-quiz" class="btn btn-primary mt-3">Submit Quiz</button>
+                                        </div>
+                                    </div>
+                                `,
+                                quizData: {
+                                    title: "Food Safety Fundamentals Quiz",
+                                    description: "Answer these questions to test your understanding of food safety basics.",
+                                    passingScore: 70,
+                                    questions: [
+                                        {
+                                            question: "What is the temperature danger zone for food?",
+                                            options: [
+                                                "0°C to 5°C (32°F to 41°F)",
+                                                "5°C to 60°C (41°F to 140°F)", 
+                                                "60°C to 100°C (140°F to 212°F)",
+                                                "100°C to 120°C (212°F to 248°F)"
+                                            ],
+                                            correctAnswer: 1
+                                        },
+                                        {
+                                            question: "How long should you wash your hands with soap?",
+                                            options: [
+                                                "5 seconds",
+                                                "10 seconds",
+                                                "20 seconds", 
+                                                "30 seconds"
+                                            ],
+                                            correctAnswer: 2
+                                        },
+                                        {
+                                            question: "Which is NOT a common symptom of foodborne illness?",
+                                            options: [
+                                                "Fever and chills",
+                                                "Nausea and vomiting", 
+                                                "Headache and dizziness",
+                                                "Increased appetite"
+                                            ],
+                                            correctAnswer: 3
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        title: "Personal Hygiene & Sanitation",
+                        lessons: [
+                            {
+                                id: "fs-2-1",
+                                title: "Proper Hand Washing Techniques",
+                                type: "video",
+                                duration: "7:15",
+                                content: `
+                                    <div class="content-section">
+                                        <h3>Proper Hand Washing Techniques</h3>
+                                        <div class="video-container">
+                                            <div class="video-placeholder" data-video-id="MrHFt_7b2q8">
+                                                <i class="fas fa-play-circle"></i>
+                                                <p>Click to play: Proper Hand Washing Techniques</p>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <h5>The 7 Steps of Hand Washing</h5>
+                                            <ol>
+                                                <li><strong>Wet hands</strong> with clean running water</li>
+                                                <li><strong>Apply soap</strong> and lather thoroughly</li>
+                                                <li><strong>Rub palms</strong> together</li>
+                                                <li><strong>Clean between fingers</strong> and back of hands</li>
+                                                <li><strong>Scrub under nails</strong></li>
+                                                <li><strong>Rinse thoroughly</strong> under running water</li>
+                                                <li><strong>Dry with clean towel</strong> or air dryer</li>
+                                            </ol>
+                                            
+                                            <div class="alert alert-warning mt-3">
+                                                <h6><i class="fas fa-clock me-2"></i>Timing is Key</h6>
+                                                Proper hand washing should take at least 20 seconds - about the time it takes to sing "Happy Birthday" twice!
+                                            </div>
+                                        </div>
+                                    </div>
+                                `
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // Course Player State
+        const courseState = {
+            currentCourse: 'food-safety-fundamentals',
+            currentModule: 0,
+            currentLesson: 0,
+            completedLessons: new Set(),
+            quizAnswers: {}
+        };
+
+        // Initialize the course player
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCourse();
+            setupEventListeners();
+        });
+
+        function initializeCourse() {
+            const course = courseContent[courseState.currentCourse];
+            
+            // Set course header
+            document.getElementById('course-title').textContent = course.title;
+            document.getElementById('course-description').textContent = course.description;
+            
+            // Build module list
+            buildModuleList(course.modules);
+            
+            // Update progress
+            updateProgress();
+        }
+
+        function buildModuleList(modules) {
+            const moduleList = document.getElementById('module-list');
+            moduleList.innerHTML = '';
+            
+            modules.forEach((module, moduleIndex) => {
+                const moduleElement = document.createElement('div');
+                moduleElement.className = 'module-card';
+                
+                const moduleHeader = document.createElement('div');
+                moduleHeader.className = 'module-header';
+                moduleHeader.innerHTML = `
+                    <h5 class="mb-0">${module.title}</h5>
+                    <i class="fas fa-chevron-down"></i>
+                `;
+                
+                const lessonList = document.createElement('ul');
+                lessonList.className = 'lesson-list';
+                lessonList.style.display = 'none';
+                
+                module.lessons.forEach((lesson, lessonIndex) => {
+                    const lessonItem = document.createElement('li');
+                    lessonItem.className = `lesson-item ${isLessonCompleted(moduleIndex, lessonIndex) ? 'lesson-completed' : ''}`;
+                    lessonItem.dataset.moduleIndex = moduleIndex;
+                    lessonItem.dataset.lessonIndex = lessonIndex;
+                    
+                    const iconClass = lesson.type === 'video' ? 'fa-play-circle' : 'fa-question-circle';
+                    
+                    lessonItem.innerHTML = `
+                        <div class="lesson-icon">
+                            <i class="fas ${iconClass}"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="lesson-title">${lesson.title}</div>
+                            <small class="text-muted">${lesson.duration}</small>
+                        </div>
+                        ${isLessonCompleted(moduleIndex, lessonIndex) ? '<span class="completion-badge"><i class="fas fa-check"></i></span>' : ''}
+                    `;
+                    
+                    lessonItem.addEventListener('click', () => loadLesson(moduleIndex, lessonIndex));
+                    lessonList.appendChild(lessonItem);
+                });
+                
+                moduleHeader.addEventListener('click', () => {
+                    const isHidden = lessonList.style.display === 'none';
+                    lessonList.style.display = isHidden ? 'block' : 'none';
+                    moduleHeader.querySelector('i').className = isHidden ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+                });
+                
+                moduleElement.appendChild(moduleHeader);
+                moduleElement.appendChild(lessonList);
+                moduleList.appendChild(moduleElement);
+            });
+        }
+
+        function loadLesson(moduleIndex, lessonIndex) {
+            courseState.currentModule = moduleIndex;
+            courseState.currentLesson = lessonIndex;
+            
+            const course = courseContent[courseState.currentCourse];
+            const module = course.modules[moduleIndex];
+            const lesson = module.lessons[lessonIndex];
+            
+            // Update active lesson in sidebar
+            document.querySelectorAll('.lesson-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            const activeLesson = document.querySelector(`[data-module-index="${moduleIndex}"][data-lesson-index="${lessonIndex}"]`);
+            if (activeLesson) {
+                activeLesson.classList.add('active');
+            }
+            
+            // Load lesson content
+            const lessonContent = document.getElementById('lesson-content');
+            lessonContent.innerHTML = lesson.content;
+            
+            // Show navigation buttons
+            document.getElementById('navigation-buttons').classList.remove('d-none');
+            
+            // Update navigation buttons
+            updateNavigationButtons(moduleIndex, lessonIndex, module.lessons.length, course.modules.length);
+            
+            // Initialize lesson-specific functionality
+            if (lesson.type === 'video') {
+                initializeVideoPlayer();
+            } else if (lesson.type === 'quiz') {
+                initializeQuiz(lesson.quizData);
+            }
+            
+            // Mark lesson as viewed (but not necessarily completed)
+            if (!isLessonCompleted(moduleIndex, lessonIndex)) {
+                // For videos, we'll mark as completed when video ends
+                // For quizzes, we'll mark when passed
+                if (lesson.type === 'video') {
+                    // We'll handle this in the video player initialization
+                }
+            }
+        }
+
+        function initializeVideoPlayer() {
+            const videoPlaceholders = document.querySelectorAll('.video-placeholder');
+            
+            videoPlaceholders.forEach(placeholder => {
+                placeholder.addEventListener('click', function() {
+                    const videoId = this.getAttribute('data-video-id');
+                    const videoContainer = this.parentElement;
+                    
+                    videoContainer.innerHTML = `
+                        <iframe width="100%" height="100%" 
+                            src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    `;
+                    
+                    // Mark lesson as completed when video ends
+                    // Note: This is a simplified approach. In a real implementation, 
+                    // you would use the YouTube API to detect when the video ends
+                    setTimeout(() => {
+                        markLessonCompleted(courseState.currentModule, courseState.currentLesson);
+                    }, 1000); // Simulate completion after 1 second for demo
+                });
+            });
+        }
+
+        function initializeQuiz(quizData) {
+            const quizContainer = document.getElementById('quiz-questions');
+            quizContainer.innerHTML = '';
+            
+            quizData.questions.forEach((question, index) => {
+                const questionElement = document.createElement('div');
+                questionElement.className = 'quiz-question';
+                questionElement.innerHTML = `
+                    <h5>${index + 1}. ${question.question}</h5>
+                    <div class="quiz-options">
+                        ${question.options.map((option, optIndex) => `
+                            <div class="quiz-option" data-question="${index}" data-option="${optIndex}">
+                                ${option}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                quizContainer.appendChild(questionElement);
+            });
+            
+            // Set up option selection
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const questionIndex = parseInt(this.getAttribute('data-question'));
+                    const optionIndex = parseInt(this.getAttribute('data-option'));
+                    
+                    // Clear previous selection for this question
+                    const options = document.querySelectorAll(`[data-question="${questionIndex}"]`);
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Select this option
+                    this.classList.add('selected');
+                    
+                    // Store answer
+                    courseState.quizAnswers[questionIndex] = optionIndex;
+                });
+            });
+            
+            // Set up quiz submission
+            document.getElementById('submit-quiz').addEventListener('click', submitQuiz);
+        }
+
+        function submitQuiz() {
+            const course = courseContent[courseState.currentCourse];
+            const module = course.modules[courseState.currentModule];
+            const lesson = module.lessons[courseState.currentLesson];
+            const quizData = lesson.quizData;
+            
+            let correctAnswers = 0;
+            const totalQuestions = quizData.questions.length;
+            
+            // Check answers
+            quizData.questions.forEach((question, index) => {
+                const userAnswer = courseState.quizAnswers[index];
+                const correctAnswer = question.correctAnswer;
+                const optionElements = document.querySelectorAll(`[data-question="${index}"]`);
+                
+                if (userAnswer === correctAnswer) {
+                    correctAnswers++;
+                    optionElements[userAnswer].classList.add('correct');
+                } else {
+                    if (userAnswer !== undefined) {
+                        optionElements[userAnswer].classList.add('incorrect');
+                    }
+                    optionElements[correctAnswer].classList.add('correct');
+                }
+            });
+            
+            const score = Math.round((correctAnswers / totalQuestions) * 100);
+            const passed = score >= quizData.passingScore;
+            
+            // Show results
+            const resultsModal = new bootstrap.Modal(document.getElementById('quizResultsModal'));
+            const resultIcon = document.getElementById('quiz-result-icon');
+            const resultTitle = document.getElementById('quiz-result-title');
+            const resultMessage = document.getElementById('quiz-result-message');
+            const quizScore = document.getElementById('quiz-score');
+            const quizProgressBar = document.getElementById('quiz-progress-bar');
+            
+            quizScore.textContent = score;
+            quizProgressBar.style.width = `${score}%`;
+            
+            if (passed) {
+                resultIcon.innerHTML = '<i class="fas fa-trophy fa-3x text-warning"></i>';
+                resultTitle.textContent = 'Congratulations!';
+                resultMessage.textContent = `You passed the quiz with a score of ${score}%`;
+                quizProgressBar.className = 'progress-bar bg-success';
+                
+                // Mark lesson as completed
+                markLessonCompleted(courseState.currentModule, courseState.currentLesson);
+            } else {
+                resultIcon.innerHTML = '<i class="fas fa-redo fa-3x text-primary"></i>';
+                resultTitle.textContent = 'Try Again';
+                resultMessage.textContent = `You scored ${score}%. You need ${quizData.passingScore}% to pass.`;
+                quizProgressBar.className = 'progress-bar bg-danger';
+            }
+            
+            resultsModal.show();
+            
+            // Set up continue button
+            document.getElementById('continue-after-quiz').onclick = function() {
+                if (passed) {
+                    // Move to next lesson if available
+                    if (courseState.currentLesson < module.lessons.length - 1) {
+                        loadLesson(courseState.currentModule, courseState.currentLesson + 1);
+                    } else if (courseState.currentModule < course.modules.length - 1) {
+                        loadLesson(courseState.currentModule + 1, 0);
+                    }
+                }
+            };
+        }
+
+        function updateNavigationButtons(moduleIndex, lessonIndex, lessonsInModule, totalModules) {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            // Previous button
+            if (lessonIndex === 0 && moduleIndex === 0) {
+                prevBtn.disabled = true;
+                prevBtn.classList.add('disabled');
+            } else {
+                prevBtn.disabled = false;
+                prevBtn.classList.remove('disabled');
+            }
+            
+            // Next button
+            if (lessonIndex === lessonsInModule - 1 && moduleIndex === totalModules - 1) {
+                nextBtn.textContent = 'Complete Course';
+                nextBtn.className = 'btn btn-success';
+            } else {
+                nextBtn.textContent = 'Next Lesson';
+                nextBtn.className = 'btn btn-primary';
+            }
+        }
+
+        function navigateToNextLesson() {
+            const course = courseContent[courseState.currentCourse];
+            const currentModule = course.modules[courseState.currentModule];
+            
+            if (courseState.currentLesson < currentModule.lessons.length - 1) {
+                // Next lesson in current module
+                loadLesson(courseState.currentModule, courseState.currentLesson + 1);
+            } else if (courseState.currentModule < course.modules.length - 1) {
+                // First lesson in next module
+                loadLesson(courseState.currentModule + 1, 0);
+            } else {
+                // Course completed
+                alert('Congratulations! You have completed the course.');
+            }
+        }
+
+        function navigateToPrevLesson() {
+            const course = courseContent[courseState.currentCourse];
+            
+            if (courseState.currentLesson > 0) {
+                // Previous lesson in current module
+                loadLesson(courseState.currentModule, courseState.currentLesson - 1);
+            } else if (courseState.currentModule > 0) {
+                // Last lesson in previous module
+                const prevModule = course.modules[courseState.currentModule - 1];
+                loadLesson(courseState.currentModule - 1, prevModule.lessons.length - 1);
+            }
+        }
+
+        function markLessonCompleted(moduleIndex, lessonIndex) {
+            const lessonKey = `${moduleIndex}-${lessonIndex}`;
+            courseState.completedLessons.add(lessonKey);
+            
+            // Update UI
+            const lessonItem = document.querySelector(`[data-module-index="${moduleIndex}"][data-lesson-index="${lessonIndex}"]`);
+            if (lessonItem) {
+                lessonItem.classList.add('lesson-completed');
+                
+                if (!lessonItem.querySelector('.completion-badge')) {
+                    lessonItem.innerHTML += '<span class="completion-badge"><i class="fas fa-check"></i></span>';
+                }
+            }
+            
+            // Update progress
+            updateProgress();
+        }
+
+        function isLessonCompleted(moduleIndex, lessonIndex) {
+            const lessonKey = `${moduleIndex}-${lessonIndex}`;
+            return courseState.completedLessons.has(lessonKey);
+        }
+
+        function updateProgress() {
+            const course = courseContent[courseState.currentCourse];
+            let totalLessons = 0;
+            let completedLessons = courseState.completedLessons.size;
+            
+            course.modules.forEach(module => {
+                totalLessons += module.lessons.length;
+            });
+            
+            const progressPercent = Math.round((completedLessons / totalLessons) * 100);
+            
+            document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+            document.getElementById('progress-percent').textContent = `${progressPercent}%`;
+        }
+
+        function setupEventListeners() {
+            // Navigation buttons
+            document.getElementById('prev-btn').addEventListener('click', navigateToPrevLesson);
+            document.getElementById('next-btn').addEventListener('click', navigateToNextLesson);
+        }
+    </script>
+</body>
+</html>
