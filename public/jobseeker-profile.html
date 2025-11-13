@@ -1,215 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jobpitality – Edit Profile</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
 
   <style>
     body {
       background: #f4f7f6;
       font-family: 'Heebo', sans-serif;
     }
+
+    nav.navbar {
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand { font-weight: bold; }
+
     .profile-container {
-      max-width: 700px;
+      max-width: 750px;
       margin: 40px auto;
       background: #fff;
       border-radius: 15px;
       padding: 30px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
+
     .profile-img {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #0d6efd;
+      border: 4px solid #067d3f;
       margin-bottom: 10px;
       cursor: pointer;
     }
-    .upload-section {
-      margin-top: 15px;
-    }
-    .btn-logout {
-      background-color: #dc3545;
+
+    .nav-tabs .nav-link.active {
+      background-color: #067d3f;
       color: white;
-      border: none;
-      padding: 8px 18px;
-      border-radius: 50px;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
+      border-radius: 8px 8px 0 0;
     }
-    .btn-logout:hover {
-      background-color: #c82333;
+    .nav-tabs .nav-link {
+      border: 1px solid #ddd;
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+      color: #067d3f;
+      margin-right: 5px;
     }
+    .tab-content {
+      border: 1px solid #ddd;
+      border-radius: 0 0 12px 12px;
+      background: white;
+      padding: 1.5rem;
+    }
+
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      background: #e9f5ef;
+      color: #067d3f;
+      padding: 5px 10px;
+      border-radius: 20px;
+      margin: 3px;
+      font-size: 0.9rem;
+    }
+    .skill-tag i { cursor: pointer; margin-left: 5px; }
+
+    .btn-primary { background-color: #067d3f; border: none; }
+    .btn-primary:hover { background-color: #056d37; }
+    .btn-logout { background-color: #dc3545; color: white; border: none; padding: 8px 18px; border-radius: 50px; }
+    .btn-logout:hover { background-color: #c82333; }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="jobseeker-dashboard.html">Jobpitality</a>
-      <div class="d-flex ms-auto">
-        <span id="userEmailNav" class="me-3 fw-semibold"></span>
-        <button id="logoutButton" class="btn btn-outline-danger btn-sm">Logout</button>
-      </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="jobseeker-dashboard.html">Jobpitality</a>
+    <div class="d-flex ms-auto">
+      <a href="profile.html" class="btn btn-outline-success btn-sm me-2">My Profile</a>
+      <span id="userEmailNav" class="me-3 fw-semibold"></span>
+      <button id="logoutButton" class="btn btn-logout btn-sm">Logout</button>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <div class="profile-container">
-    <div class="text-center">
-      <img src="https://via.placeholder.com/150" alt="Profile Photo" id="profileImage" class="profile-img">
-      <h3 id="userName">Loading...</h3>
-      <p class="text-muted" id="userEmail">Loading...</p>
+<div class="profile-container">
+  <div class="text-center">
+    <img src="https://via.placeholder.com/150" alt="Profile Photo" id="profileImage" class="profile-img">
+    <h3 id="userName">Loading...</h3>
+    <p class="text-muted" id="userEmail">Loading...</p>
 
-      <!-- Upload button -->
-      <div class="upload-section">
-        <input type="file" id="photoUpload" accept="image/*" class="form-control" />
-        <button id="uploadBtn" class="btn btn-primary mt-2">Upload New Photo</button>
-        <div id="uploadStatus" class="small mt-2 text-muted"></div>
-      </div>
+    <div class="upload-section">
+      <input type="file" id="photoUpload" accept="image/*" class="form-control" />
+      <button id="uploadBtn" class="btn btn-primary mt-2">Upload New Photo</button>
+      <div id="uploadStatus" class="small mt-2 text-muted"></div>
     </div>
-
-    <hr class="my-4">
-
-    <!-- Edit Form -->
-    <form id="profileForm">
-      <div class="row g-3">
-        <div class="col-md-6">
-          <label class="form-label">Full Name</label>
-          <input type="text" class="form-control" id="fullName" placeholder="Your name">
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Phone</label>
-          <input type="text" class="form-control" id="phone" placeholder="e.g. +234700000000">
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Location</label>
-          <input type="text" class="form-control" id="location" placeholder="City, Country">
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">Desired Role</label>
-          <input type="text" class="form-control" id="role" placeholder="e.g. Front Desk Officer">
-        </div>
-      </div>
-
-      <div class="mt-4 d-flex justify-content-between">
-        <a href="jobseeker-dashboard.html" class="btn btn-secondary">Back to Dashboard</a>
-        <button type="submit" class="btn btn-primary">Save Changes</button>
-      </div>
-    </form>
-    <div id="statusMsg" class="mt-3"></div>
   </div>
 
-  <!-- Firebase JS SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-storage-compat.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <hr class="my-4">
 
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
-      authDomain: "jobpitality-1cfb2.firebaseapp.com",
-      projectId: "jobpitality-1cfb2",
-      storageBucket: "jobpitality-1cfb2.appspot.com",
-      messagingSenderId: "185191165097",
-      appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8",
-      measurementId: "G-SF5LWDZDKF",
+  <!-- Profile Tabs -->
+  <ul class="nav nav-tabs mb-3" id="profileTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button">About</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skills" type="button">Skills</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="resume-tab" data-bs-toggle="tab" data-bs-target="#resume" type="button">Resume</button>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="profileTabContent">
+    <!-- About Tab -->
+    <div class="tab-pane fade show active" id="about">
+      <form id="profileForm">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullName" placeholder="Your name" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone" placeholder="+234700000000">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Location</label>
+            <input type="text" class="form-control" id="location" placeholder="City, Country">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Desired Role</label>
+            <input type="text" class="form-control" id="role" placeholder="e.g., Front Desk Officer">
+          </div>
+          <div class="col-12">
+            <label class="form-label">About / Bio</label>
+            <textarea class="form-control" id="bio" rows="3" placeholder="Tell us about yourself..."></textarea>
+          </div>
+        </div>
+        <div class="mt-4 d-flex justify-content-between">
+          <a href="jobseeker-dashboard.html" class="btn btn-secondary">Back to Dashboard</a>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+      <div id="statusMsg" class="mt-3"></div>
+    </div>
+
+    <!-- Skills Tab -->
+    <div class="tab-pane fade" id="skills">
+      <div class="mb-3">
+        <label class="form-label">Add Skill</label>
+        <div class="input-group">
+          <input type="text" id="skillInput" class="form-control" placeholder="e.g., Bartending">
+          <button class="btn btn-primary" id="addSkillBtn">Add</button>
+        </div>
+      </div>
+      <div id="skillsContainer"></div>
+    </div>
+
+    <!-- Resume Tab -->
+    <div class="tab-pane fade" id="resume">
+      <div class="mb-3">
+        <label class="form-label">Upload Resume (PDF/DOCX)</label>
+        <input type="file" id="resumeFile" class="form-control" accept=".pdf,.doc,.docx" />
+        <small class="text-muted">Max size 5MB</small>
+      </div>
+      <div id="resumeProgress" class="my-2" style="display:none;">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 0%">0%</div>
+        </div>
+      </div>
+      <div id="resumeLink" class="mt-2"></div>
+      <button class="btn btn-primary mt-2" id="uploadResumeBtn">Upload Resume</button>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-storage-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
+    authDomain: "jobpitality-1cfb2.firebaseapp.com",
+    projectId: "jobpitality-1cfb2",
+    storageBucket: "jobpitality-1cfb2.appspot.com",
+    messagingSenderId: "185191165097",
+    appId: "1:185191165097:web:e0aeab622e8d89ef9a8db8",
+  };
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const storage = firebase.storage();
+
+  let skills = [];
+
+  auth.onAuthStateChanged(async (user) => {
+    if (!user) { window.location.href = "login.html"; return; }
+    document.getElementById("userEmailNav").textContent = user.email;
+    document.getElementById("userEmail").textContent = user.email;
+
+    const docSnap = await db.collection("users").doc(user.uid).get();
+    if (docSnap.exists) {
+      const data = docSnap.data();
+      document.getElementById("fullName").value = data.name || "";
+      document.getElementById("phone").value = data.phone || "";
+      document.getElementById("location").value = data.location || "";
+      document.getElementById("role").value = data.role || "";
+      document.getElementById("bio").value = data.bio || "";
+      if (data.photoURL) document.getElementById("profileImage").src = data.photoURL;
+      if (data.name) document.getElementById("userName").textContent = data.name;
+      skills = data.skills || [];
+      renderSkills();
+      if (data.resumeURL) showResumeLink(data.resumeURL);
+    } else {
+      document.getElementById("userName").textContent = "New User";
+    }
+  });
+
+  document.getElementById("profileForm").addEventListener("submit", async e=>{
+    e.preventDefault();
+    const user = auth.currentUser;
+    if (!user) return;
+    const profileData = {
+      name: document.getElementById("fullName").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      location: document.getElementById("location").value.trim(),
+      role: document.getElementById("role").value.trim(),
+      bio: document.getElementById("bio").value.trim(),
+      skills: skills,
+      updatedAt: new Date()
     };
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db   = firebase.firestore();
-    const storage = firebase.storage();
+    await db.collection("users").doc(user.uid).set(profileData, { merge: true });
+    document.getElementById("statusMsg").innerHTML =
+      "<div class='alert alert-success'>Profile updated successfully ✅</div>";
+    document.getElementById("userName").textContent = profileData.name;
+  });
 
-    auth.onAuthStateChanged(async (user) => {
-      if (!user) {
-        window.location.href = "login.html";
-        return;
-      }
-      document.getElementById("userEmailNav").textContent = user.email;
-      document.getElementById("userEmail").textContent = user.email;
+  document.getElementById("uploadBtn").addEventListener("click", async ()=>{
+    const file = document.getElementById("photoUpload").files[0];
+    if (!file) { alert("Please select an image."); return; }
+    const user = auth.currentUser;
+    if (!user) return;
+    const ref = storage.ref(`profilePictures/${user.uid}/${file.name}`);
+    document.getElementById("uploadStatus").textContent = "Uploading...";
+    await ref.put(file);
+    const url = await ref.getDownloadURL();
+    await db.collection("users").doc(user.uid).set({ photoURL: url }, { merge:true });
+    document.getElementById("profileImage").src = url;
+    document.getElementById("uploadStatus").textContent = "✅ Photo updated successfully!";
+  });
 
-      const doc = await db.collection("users").doc(user.uid).get();
-      if (doc.exists) {
-        const d = doc.data();
-        document.getElementById("fullName").value = d.name || "";
-        document.getElementById("phone").value    = d.phone || "";
-        document.getElementById("location").value = d.location || "";
-        document.getElementById("role").value     = d.role || "";
-        if (d.photoURL) document.getElementById("profileImage").src = d.photoURL;
-        if (d.name) document.getElementById("userName").textContent = d.name;
-      } else {
-        document.getElementById("userName").textContent = "New User";
-      }
+  document.getElementById("logoutButton").addEventListener("click", async ()=>{
+    await auth.signOut();
+    window.location.href="login.html";
+  });
+
+  const skillInput = document.getElementById("skillInput");
+  const addSkillBtn = document.getElementById("addSkillBtn");
+  const skillsContainer = document.getElementById("skillsContainer");
+
+  function renderSkills(){
+    skillsContainer.innerHTML="";
+    skills.forEach((skill,index)=>{
+      const span = document.createElement("span");
+      span.className="skill-tag";
+      span.innerHTML = skill+' <i class="bi bi-x-circle" onclick="removeSkill('+index+')"></i>';
+      skillsContainer.appendChild(span);
     });
+  }
 
-    // Save text fields
-    document.getElementById("profileForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const user = auth.currentUser;
-      if (!user) return;
+  function removeSkill(index){
+    skills.splice(index,1);
+    renderSkills();
+  }
 
-      const updated = {
-        name: document.getElementById("fullName").value.trim(),
-        phone: document.getElementById("phone").value.trim(),
-        location: document.getElementById("location").value.trim(),
-        role: document.getElementById("role").value.trim()
-      };
+  addSkillBtn.addEventListener("click", e=>{
+    e.preventDefault();
+    const val = skillInput.value.trim();
+    if(val && !skills.includes(val)){
+      skills.push(val);
+      renderSkills();
+      skillInput.value="";
+    }
+  });
 
-      try {
-        await db.collection("users").doc(user.uid).set(updated, { merge: true });
-        document.getElementById("statusMsg").innerHTML =
-          "<div class='alert alert-success'>Profile updated successfully ✅</div>";
-        if (updated.name) document.getElementById("userName").textContent = updated.name;
-      } catch (err) {
-        document.getElementById("statusMsg").innerHTML =
-          `<div class='alert alert-danger'>Error: ${err.message}</div>`;
-      }
+  const resumeFile = document.getElementById("resumeFile");
+  const uploadResumeBtn = document.getElementById("uploadResumeBtn");
+  const resumeProgress = document.getElementById("resumeProgress");
+  const resumeLink = document.getElementById("resumeLink");
+
+  function showResumeLink(url){
+    resumeLink.innerHTML = `<a href="${url}" target="_blank" class="btn btn-outline-primary btn-sm"><i class="bi bi-download"></i> Download Resume</a>`;
+  }
+
+  uploadResumeBtn.addEventListener("click", async ()=>{
+    const file = resumeFile.files[0];
+    if(!file){ alert("Select a file"); return; }
+    const user = auth.currentUser;
+    if(!user) return;
+
+    const ref = storage.ref(`resumes/${user.uid}/${Date.now()}_${file.name}`);
+    const uploadTask = ref.put(file);
+    resumeProgress.style.display="block";
+    const progressBar = resumeProgress.querySelector(".progress-bar");
+
+    uploadTask.on('state_changed', snapshot=>{
+      const progress = (snapshot.bytesTransferred / snapshot.totalBytes)*100;
+      progressBar.style.width = progress+"%";
+      progressBar.textContent = Math.floor(progress)+"%";
+    }, error=>{ alert("Upload failed: "+error.message); }, async ()=>{
+      const downloadURL = await ref.getDownloadURL();
+      await db.collection("users").doc(user.uid).set({ resumeURL: downloadURL, updatedAt: new Date() }, { merge:true });
+      showResumeLink(downloadURL);
+      progressBar.style.width="100%";
+      progressBar.textContent="100%";
+      setTimeout(()=>{ resumeProgress.style.display="none"; progressBar.style.width="0%"; progressBar.textContent="0%"; },1000);
+      alert("✅ Resume uploaded successfully!");
     });
-
-    // Upload photo
-    document.getElementById("uploadBtn").addEventListener("click", async () => {
-      const fileInput = document.getElementById("photoUpload");
-      const file = fileInput.files[0];
-      if (!file) {
-        alert("Please select an image to upload.");
-        return;
-      }
-
-      const user = auth.currentUser;
-      if (!user) return;
-
-      const storageRef = storage.ref(`profilePictures/${user.uid}/${file.name}`);
-      const uploadStatus = document.getElementById("uploadStatus");
-      uploadStatus.textContent = "Uploading...";
-
-      try {
-        await storageRef.put(file);
-        const downloadURL = await storageRef.getDownloadURL();
-
-        await db.collection("users").doc(user.uid).set({ photoURL: downloadURL }, { merge: true });
-        document.getElementById("profileImage").src = downloadURL;
-        uploadStatus.textContent = "✅ Photo updated successfully!";
-      } catch (err) {
-        uploadStatus.textContent = "❌ Upload failed: " + err.message;
-      }
-    });
-
-    // Logout
-    document.getElementById("logoutButton").addEventListener("click", async () => {
-      try {
-        await auth.signOut();
-        window.location.href = "login.html";
-      } catch (err) {
-        alert("Logout failed: " + err.message);
-      }
-    });
-  </script>
+  });
+</script>
 </body>
 </html>

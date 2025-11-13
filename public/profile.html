@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Profile | Jobpitality</title>
 
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
@@ -14,15 +15,18 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
+    /* Refined Navbar */
     nav.navbar {
-      background: white
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .navbar-brand img {
-      width: 20%;
+      width: 120px;
       height: auto;
     }
 
+    /* Spinner */
     #spinner {
       position: fixed;
       top: 0;
@@ -36,6 +40,7 @@
       z-index: 1050;
     }
 
+    /* Profile Card */
     .profile-card {
       background: white;
       border-radius: 12px;
@@ -44,21 +49,59 @@
       margin-top: 2rem;
     }
 
+    /* Tab Styles */
+    .nav-tabs .nav-link.active {
+      background-color: #067d3f;
+      color: white;
+      border-radius: 8px 8px 0 0;
+    }
+    .nav-tabs .nav-link {
+      border: 1px solid #ddd;
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+      color: #067d3f;
+      margin-right: 5px;
+    }
+
+    .tab-content {
+      border: 1px solid #ddd;
+      border-radius: 0 0 12px 12px;
+      background: white;
+      padding: 1.5rem;
+    }
+
+    /* Skills Tag Styles */
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      background: #e9f5ef;
+      color: #067d3f;
+      padding: 5px 10px;
+      border-radius: 20px;
+      margin: 3px;
+      font-size: 0.9rem;
+    }
+    .skill-tag i {
+      cursor: pointer;
+      margin-left: 5px;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background-color: #067d3f;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #056d37;
+    }
+
+    /* Footer */
     footer {
       margin-top: 60px;
       background: #0b2545;
       color: white;
       text-align: center;
       padding: 20px 0;
-    }
-
-    .btn-primary {
-      background-color: #067d3f;
-      border: none;
-    }
-
-    .btn-primary:hover {
-      background-color: #056d37;
     }
   </style>
 </head>
@@ -69,10 +112,10 @@
   </div>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm p-3">
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm p-3">
     <div class="container">
       <a href="dashboard.html" class="navbar-brand d-flex align-items-center">
-        <img src="img/final-job.png" alt="Jobpitality Logo" style="">
+        <img src="img/final-job.png" alt="Jobpitality Logo">
       </a>
       <div class="ms-auto">
         <button id="logoutBtn" class="btn btn-outline-primary btn-sm">Logout</button>
@@ -85,34 +128,81 @@
     <div class="profile-card">
       <h3 class="fw-bold mb-4">My Profile</h3>
 
-      <form id="profileForm">
-        <div class="row g-3">
-          <div class="col-md-6">
-            <label class="form-label">Full Name</label>
-            <input type="text" id="fullName" class="form-control" placeholder="Enter your name" required />
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Email</label>
-            <input type="email" id="email" class="form-control" disabled />
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Phone Number</label>
-            <input type="text" id="phone" class="form-control" placeholder="Enter phone number" />
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Location</label>
-            <input type="text" id="location" class="form-control" placeholder="City, Country" />
-          </div>
-          <div class="col-12">
-            <label class="form-label">About / Bio</label>
-            <textarea id="bio" class="form-control" rows="4" placeholder="Tell us a bit about yourself..."></textarea>
-          </div>
+      <!-- Tabs -->
+      <ul class="nav nav-tabs mb-3" id="profileTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab">About</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skills" type="button" role="tab">Skills</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="resume-tab" data-bs-toggle="tab" data-bs-target="#resume" type="button" role="tab">Resume</button>
+        </li>
+      </ul>
+
+      <!-- Tab Content -->
+      <div class="tab-content" id="profileTabContent">
+        <!-- About Tab -->
+        <div class="tab-pane fade show active" id="about" role="tabpanel">
+          <form id="profileForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Full Name</label>
+                <input type="text" id="fullName" class="form-control" placeholder="Enter your name" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" disabled />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Phone Number</label>
+                <input type="text" id="phone" class="form-control" placeholder="Enter phone number" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Location</label>
+                <input type="text" id="location" class="form-control" placeholder="City, Country" />
+              </div>
+              <div class="col-12">
+                <label class="form-label">About / Bio</label>
+                <textarea id="bio" class="form-control" rows="4" placeholder="Tell us a bit about yourself..."></textarea>
+              </div>
+            </div>
+
+            <div class="text-end mt-4">
+              <button type="submit" class="btn btn-primary px-4">Save Changes</button>
+            </div>
+          </form>
         </div>
 
-        <div class="text-end mt-4">
-          <button type="submit" class="btn btn-primary px-4">Save Changes</button>
+        <!-- Skills Tab -->
+        <div class="tab-pane fade" id="skills" role="tabpanel">
+          <div class="mb-3">
+            <label class="form-label">Add Skill</label>
+            <div class="input-group">
+              <input type="text" id="skillInput" class="form-control" placeholder="e.g., Bartending">
+              <button class="btn btn-primary" id="addSkillBtn">Add</button>
+            </div>
+          </div>
+          <div id="skillsContainer"></div>
         </div>
-      </form>
+
+        <!-- Resume Tab -->
+        <div class="tab-pane fade" id="resume" role="tabpanel">
+          <div class="mb-3">
+            <label class="form-label">Upload Resume (PDF/DOCX)</label>
+            <input type="file" id="resumeFile" class="form-control" accept=".pdf,.doc,.docx" />
+            <small class="text-muted">Maximum file size: 5MB</small>
+          </div>
+          <div id="resumeProgress" class="my-2" style="display:none;">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 0%">0%</div>
+            </div>
+          </div>
+          <div id="resumeLink" class="mt-2"></div>
+          <button class="btn btn-primary mt-2" id="uploadResumeBtn">Upload Resume</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -125,7 +215,8 @@
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
     import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
-    import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+    import { getFirestore, doc, getDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+    import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-storage.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",
@@ -139,64 +230,134 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
+    const storage = getStorage(app);
 
-    function hideSpinner() {
-      document.getElementById("spinner").style.display = "none";
-      document.getElementById("mainContent").style.display = "block";
-    }
-
-    function showSpinner() {
-      document.getElementById("spinner").style.display = "flex";
-      document.getElementById("mainContent").style.display = "none";
-    }
+    // Spinner & main content
+    const spinner = document.getElementById("spinner");
+    const mainContent = document.getElementById("mainContent");
+    function hideSpinner(){ spinner.style.display="none"; mainContent.style.display="block"; }
 
     let currentUser;
+    let skills = [];
 
     onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        currentUser = user;
-        document.getElementById("email").value = user.email;
-        await loadProfile(user.uid);
-        hideSpinner();
-      } else {
-        window.location.href = "login.html";
-      }
+      if(!user){ window.location.href="login.html"; return; }
+      currentUser = user;
+      document.getElementById("email").value = user.email;
+      await loadProfile(user.uid);
+      hideSpinner();
     });
 
-    async function loadProfile(uid) {
-      const userRef = doc(db, "users", uid);
-      const userSnap = await getDoc(userRef);
-      if (userSnap.exists()) {
-        const data = userSnap.data();
-        document.getElementById("fullName").value = data.fullName || "";
-        document.getElementById("phone").value = data.phone || "";
-        document.getElementById("location").value = data.location || "";
-        document.getElementById("bio").value = data.bio || "";
+    // Load profile
+    async function loadProfile(uid){
+      const userRef = doc(db,"users",uid);
+      const snap = await getDoc(userRef);
+      if(snap.exists()){
+        const data = snap.data();
+        document.getElementById("fullName").value = data.fullName||"";
+        document.getElementById("phone").value = data.phone||"";
+        document.getElementById("location").value = data.location||"";
+        document.getElementById("bio").value = data.bio||"";
+        skills = data.skills||[];
+        renderSkills();
+        if(data.resumeURL){
+          showResumeLink(data.resumeURL);
+        }
       }
     }
 
-    document.getElementById("profileForm").addEventListener("submit", async (e) => {
+    // Save profile
+    document.getElementById("profileForm").addEventListener("submit", async e=>{
       e.preventDefault();
-      if (!currentUser) return;
-
-      const userRef = doc(db, "users", currentUser.uid);
-      const profileData = {
+      const userRef = doc(db,"users",currentUser.uid);
+      await setDoc(userRef,{
         fullName: document.getElementById("fullName").value,
         phone: document.getElementById("phone").value,
         location: document.getElementById("location").value,
         bio: document.getElementById("bio").value,
         email: currentUser.email,
+        skills: skills,
         updatedAt: new Date()
-      };
-
-      await setDoc(userRef, profileData, { merge: true });
+      }, {merge:true});
       alert("✅ Profile updated successfully!");
     });
 
-    document.getElementById("logoutBtn").addEventListener("click", async () => {
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", async ()=>{
       await signOut(auth);
-      window.location.href = "login.html";
+      window.location.href="login.html";
+    });
+
+    // --- Skills Logic ---
+    const skillInput = document.getElementById("skillInput");
+    const addSkillBtn = document.getElementById("addSkillBtn");
+    const skillsContainer = document.getElementById("skillsContainer");
+
+    function renderSkills(){
+      skillsContainer.innerHTML="";
+      skills.forEach((skill,index)=>{
+        const span = document.createElement("span");
+        span.className="skill-tag";
+        span.innerHTML = skill+' <i class="bi bi-x-circle" onclick="removeSkill('+index+')"></i>';
+        skillsContainer.appendChild(span);
+      });
+    }
+
+    function removeSkill(index){
+      skills.splice(index,1);
+      renderSkills();
+    }
+
+    addSkillBtn.addEventListener("click", e=>{
+      e.preventDefault();
+      const val = skillInput.value.trim();
+      if(val && !skills.includes(val)){
+        skills.push(val);
+        renderSkills();
+        skillInput.value="";
+      }
+    });
+
+    // --- Resume Upload ---
+    const resumeFile = document.getElementById("resumeFile");
+    const uploadResumeBtn = document.getElementById("uploadResumeBtn");
+    const resumeProgress = document.getElementById("resumeProgress");
+    const resumeLink = document.getElementById("resumeLink");
+
+    function showResumeLink(url){
+      resumeLink.innerHTML = `<a href="${url}" target="_blank" class="btn btn-outline-primary btn-sm"><i class="bi bi-download"></i> Download Resume</a>`;
+    }
+
+    uploadResumeBtn.addEventListener("click", async ()=>{
+      const file = resumeFile.files[0];
+      if(!file){ alert("Please select a file"); return; }
+
+      const storageReference = storageRef(storage, `resumes/${currentUser.uid}/${Date.now()}_${file.name}`);
+      const uploadTask = uploadBytesResumable(storageReference, file);
+
+      resumeProgress.style.display="block";
+      const progressBar = resumeProgress.querySelector(".progress-bar");
+
+      uploadTask.on('state_changed', snapshot=>{
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes)*100;
+        progressBar.style.width = progress+"%";
+        progressBar.textContent = Math.floor(progress)+"%";
+      }, error=>{
+        alert("❌ Upload failed: "+error.message);
+      }, async ()=>{
+        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+        const userRef = doc(db,"users",currentUser.uid);
+        await updateDoc(userRef,{resumeURL: downloadURL, updatedAt: new Date()});
+        showResumeLink(downloadURL);
+        progressBar.style.width="100%";
+        progressBar.textContent="100%";
+        setTimeout(()=>{ resumeProgress.style.display="none"; progressBar.style.width="0%"; progressBar.textContent="0%"; },1000);
+        alert("✅ Resume uploaded successfully!");
+      });
     });
   </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
