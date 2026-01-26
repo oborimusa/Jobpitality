@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Hospitality Career Opportunities | Executive Hotel & Restaurant Jobs
+    </title>
+    <meta
+      name="description"
+      content="Browse current executive, management & F&B opportunities in luxury hotels, resorts, and restaurants. Updated daily."
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Hospitality Career Opportunities | HospitalityRecruit"
+    />
+    <meta
+      property="og:description"
+      content="Find your next hospitality role. Executive, management, and F&B positions at top properties worldwide."
+    />
+    <meta
+      property="og:image"
+      content="https://hospitalityrecruit.com/img/career-opportunities-og.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://hospitalityrecruit.com/candidates/career-opportunities"
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Canonical -->
+    <link
+      rel="canonical"
+      href="https://hospitalityrecruit.com/candidates/career-opportunities"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- CSS Variables & Base Styles -->
+    <style>
+      :root {
+        /* Colors */
+        --color-primary: #1a56db;
+        --color-primary-dark: #1e429f;
+        --color-secondary: #7e3af2;
+        --color-secondary-dark: #6c2bd9;
+        --color-success: #059669;
+        --color-warning: #f59e0b;
+        --color-emergency: #dc2626;
+        --color-gold: #fbbf24;
+        --color-bronze: #92400e;
+
+        --color-white: #ffffff;
+        --color-light: #f8fafc;
+        --color-dark: #0f172a;
+        --color-gray-50: #f9fafb;
+        --color-gray-100: #f3f4f6;
+        --color-gray-200: #e5e7eb;
+        --color-gray-300: #d1d5db;
+        --color-gray-400: #9ca3af;
+        --color-gray-500: #6b7280;
+        --color-gray-600: #4b5563;
+        --color-gray-700: #374151;
+        --color-gray-800: #1f2937;
+        --color-gray-900: #111827;
+
+        /* Spacing */
+        --space-xs: 0.5rem;
+        --space-sm: 0.75rem;
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+        --space-2xl: 3rem;
+        --space-3xl: 4rem;
+
+        /* Typography */
+        --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        --font-serif: Georgia, "Times New Roman", Times, serif;
+
+        /* Border Radius */
+        --radius-sm: 0.25rem;
+        --radius-md: 0.5rem;
+        --radius-lg: 0.75rem;
+        --radius-xl: 1rem;
+
+        /* Shadows */
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+        /* Transitions */
+        --transition-fast: 150ms ease;
+        --transition-normal: 250ms ease;
+        --transition-slow: 350ms ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        line-height: 1.6;
+        color: var(--color-gray-800);
+        background: var(--color-white);
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--space-md);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Announcement Bar */
+      .announcement {
+        background: linear-gradient(
+          90deg,
+          var(--color-primary),
+          var(--color-primary-dark)
+        );
+        color: white;
+        padding: 0.75rem 0;
+        text-align: center;
+        font-size: 0.9rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .announcement a {
+        color: white;
+        font-weight: bold;
+        text-decoration: underline;
+        margin-left: var(--space-sm);
+      }
+
+      .announcement a:hover {
+        text-decoration: none;
+      }
+
+      .new-badge {
+        background: var(--color-emergency);
+        color: white;
+        padding: 0.125rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: bold;
+        margin-left: var(--space-xs);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Header Styles */
+      .site-header {
+        background: var(--color-white);
+        box-shadow: var(--shadow-md);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: var(--space-sm) 0;
+      }
+
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-lg);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo a {
+        text-decoration: none;
+        color: var(--color-dark);
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+
+      .logo h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0;
+        font-weight: 800;
+        color: var(--color-primary);
+        letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .logo h1 i {
+        color: var(--color-gold);
+      }
+
+      .logo-tagline {
+        font-size: 0.75rem;
+        color: var(--color-emergency);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        margin-top: 1px;
+      }
+
+      /* Main Navigation */
+      .main-nav {
+        display: flex;
+        align-items: center;
+        gap: var(--space-lg);
+      }
+
+      .main-nav a {
+        text-decoration: none;
+        color: var(--color-gray-700);
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding: var(--space-xs) var(--space-sm);
+        transition: color var(--transition-fast);
+      }
+
+      .main-nav a:hover {
+        color: var(--color-primary);
+      }
+
+      .main-nav a.active {
+        color: var(--color-primary);
+        font-weight: 600;
+        position: relative;
+      }
+
+      .main-nav a.active::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: var(--space-sm);
+        right: var(--space-sm);
+        height: 2px;
+        background: var(--color-primary);
+      }
+
+      .nav-cta {
+        background: var(--color-primary);
+        color: var(--color-white) !important;
+        padding: var(--space-sm) var(--space-lg) !important;
+        border-radius: var(--radius-md);
+        font-weight: 600 !important;
+        transition: all var(--transition-fast);
+      }
+
+      .nav-cta:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* Mobile Menu Toggle */
+      .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--color-dark);
+        cursor: pointer;
+        padding: var(--space-xs);
+      }
+
+      /* Hero Section */
+      .hero-opportunities {
+        padding: var(--space-3xl) var(--space-md);
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-opportunities::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(30, 41, 59, 0.7) 100%
+        );
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+      }
+
+      .opportunities-badge {
+        background: linear-gradient(
+          135deg,
+          var(--color-gold),
+          var(--color-bronze)
+        );
+        color: white;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-sm) var(--space-xl);
+        border-radius: 50px;
+        font-weight: 700;
+        margin-bottom: var(--space-lg);
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: var(--space-lg);
+        color: white;
+      }
+
+      .hero-subtitle {
+        font-size: 1.4rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 700px;
+        margin-bottom: var(--space-xl);
+        line-height: 1.6;
+      }
+
+      .hero-highlight {
+        background: linear-gradient(
+          120deg,
+          /* var(--color-gold) 0%, */
+          var(--color-gold) 100%
+        );
+        background-repeat: no-repeat;
+        background-size: 100% 0.1em;
+        background-position: 0 88%;
+        padding: 0 0.2em;
+      }
+
+      /* Search & Filter Bar */
+      .search-filter-section {
+        padding: var(--space-xl) var(--space-md);
+        background: var(--color-white);
+        box-shadow: var(--shadow-md);
+        position: sticky;
+        top: 80px;
+        z-index: 900;
+      }
+
+      .search-container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .search-box {
+        display: flex;
+        gap: var(--space-md);
+        margin-bottom: var(--space-lg);
+      }
+
+      .search-input {
+        flex: 1;
+        position: relative;
+      }
+
+      .search-input input {
+        width: 100%;
+        padding: var(--space-lg) var(--space-xl) var(--space-lg) 3rem;
+        border: 2px solid var(--color-gray-300);
+        border-radius: var(--radius-lg);
+        font-size: 1.1rem;
+        transition: all var(--transition-fast);
+      }
+
+      .search-input input:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+      }
+
+      .search-input i {
+        position: absolute;
+        left: var(--space-lg);
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--color-gray-400);
+      }
+
+      .search-button {
+        background: var(--color-primary);
+        color: white;
+        border: none;
+        padding: 0 var(--space-xl);
+        border-radius: var(--radius-lg);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+
+      .search-button:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-1px);
+      }
+
+      /* Filter Options */
+      .filter-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-md);
+        justify-content: center;
+      }
+
+      .filter-btn {
+        padding: var(--space-sm) var(--space-lg);
+        background: var(--color-gray-100);
+        border: 2px solid var(--color-gray-200);
+        border-radius: var(--radius-md);
+        color: var(--color-gray-700);
+        font-weight: 500;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+
+      .filter-btn:hover {
+        background: var(--color-gray-200);
+      }
+
+      .filter-btn.active {
+        background: var(--color-primary);
+        color: white;
+        border-color: var(--color-primary);
+      }
+
+      /* Stats Bar */
+      .stats-bar {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-2xl);
+        padding: var(--space-lg) 0;
+        border-top: 1px solid var(--color-gray-200);
+        border-bottom: 1px solid var(--color-gray-200);
+        margin-bottom: var(--space-xl);
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        margin-bottom: var(--space-xs);
+      }
+
+      .stat-label {
+        color: var(--color-gray-600);
+        font-size: 0.9rem;
+      }
+
+      /* Opportunities Grid */
+      .opportunities-section {
+        padding: var(--space-3xl) var(--space-md);
+        background: var(--color-gray-50);
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: var(--space-2xl);
+        color: var(--color-gray-900);
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        text-align: center;
+        color: var(--color-gray-600);
+        max-width: 800px;
+        margin: 0 auto var(--space-2xl);
+        line-height: 1.6;
+      }
+
+      .opportunities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: var(--space-lg);
+        margin-bottom: var(--space-2xl);
+      }
+
+      .opportunity-card {
+        background: var(--color-white);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        transition: all var(--transition-normal);
+        position: relative;
+      }
+
+      .opportunity-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .opportunity-badge {
+        position: absolute;
+        top: var(--space-md);
+        right: var(--space-md);
+        padding: var(--space-xs) var(--space-md);
+        border-radius: var(--radius-sm);
+        font-size: 0.75rem;
+        font-weight: 700;
+        z-index: 2;
+      }
+
+      .badge-new {
+        background: var(--color-emergency);
+        color: white;
+      }
+
+      .badge-urgent {
+        background: var(--color-warning);
+        color: var(--color-gray-900);
+      }
+
+      .badge-featured {
+        background: var(--color-primary);
+        color: white;
+      }
+
+      .opportunity-header {
+        padding: var(--space-xl);
+        background: linear-gradient(
+          135deg,
+          var(--color-primary),
+          var(--color-primary-dark)
+        );
+        color: white;
+        position: relative;
+      }
+
+      .opportunity-header h3 {
+        font-size: 1.5rem;
+        margin-bottom: var(--space-sm);
+        color: white;
+      }
+
+      .opportunity-meta {
+        display: flex;
+        gap: var(--space-md);
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .opportunity-meta span {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+      }
+
+      .opportunity-content {
+        padding: var(--space-xl);
+      }
+
+      .opportunity-details {
+        margin-bottom: var(--space-lg);
+      }
+
+      .opportunity-details p {
+        color: var(--color-gray-600);
+        margin-bottom: var(--space-md);
+        line-height: 1.6;
+      }
+
+      .opportunity-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-xs);
+        margin-bottom: var(--space-lg);
+      }
+
+      .tag {
+        padding: var(--space-xs) var(--space-sm);
+        background: var(--color-gray-100);
+        border-radius: var(--radius-sm);
+        font-size: 0.8rem;
+        color: var(--color-gray-700);
+      }
+
+      .opportunity-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: var(--space-md);
+        border-top: 1px solid var(--color-gray-200);
+      }
+
+      .salary-range {
+        font-weight: 700;
+        color: var(--color-primary);
+      }
+
+      .btn-apply {
+        background: var(--color-success);
+        color: white;
+        padding: var(--space-sm) var(--space-lg);
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all var(--transition-fast);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+
+      .btn-apply:hover {
+        background: #047857;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .btn-details {
+        background: transparent;
+        color: var(--color-primary);
+        padding: var(--space-sm) var(--space-lg);
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-weight: 600;
+        border: 2px solid var(--color-primary);
+        transition: all var(--transition-fast);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+
+      .btn-details:hover {
+        background: var(--color-primary);
+        color: white;
+      }
+
+      /* Pagination */
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-top: var(--space-2xl);
+      }
+
+      .pagination-btn {
+        padding: var(--space-sm) var(--space-md);
+        background: var(--color-white);
+        border: 1px solid var(--color-gray-300);
+        border-radius: var(--radius-md);
+        color: var(--color-gray-700);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+      }
+
+      .pagination-btn:hover {
+        background: var(--color-gray-100);
+      }
+
+      .pagination-btn.active {
+        background: var(--color-primary);
+        color: white;
+        border-color: var(--color-primary);
+      }
+
+      .pagination-btn.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      /* No Results */
+      .no-results {
+        text-align: center;
+        padding: var(--space-2xl);
+        background: var(--color-white);
+        border-radius: var(--radius-lg);
+        border: 2px dashed var(--color-gray-300);
+      }
+
+      .no-results i {
+        font-size: 3rem;
+        color: var(--color-gray-400);
+        margin-bottom: var(--space-lg);
+      }
+
+      .no-results h3 {
+        font-size: 1.5rem;
+        margin-bottom: var(--space-md);
+        color: var(--color-gray-700);
+      }
+
+      /* Featured Employers */
+      .featured-employers {
+        padding: var(--space-3xl) var(--space-md);
+        background: var(--color-white);
+      }
+
+      .employers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-xl);
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .employer-card {
+        text-align: center;
+        padding: var(--space-xl);
+        background: var(--color-gray-50);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-gray-200);
+        transition: all var(--transition-normal);
+      }
+
+      .employer-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--color-primary);
+      }
+
+      .employer-icon {
+        font-size: 2.5rem;
+        color: var(--color-primary);
+        margin-bottom: var(--space-lg);
+      }
+
+      .employer-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: var(--space-sm);
+        color: var(--color-gray-900);
+      }
+
+      .employer-card p {
+        color: var(--color-gray-600);
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      /* Call to Action */
+      .cta-section {
+        padding: var(--space-3xl) var(--space-md);
+        background: linear-gradient(
+          135deg,
+          var(--color-primary),
+          var(--color-primary-dark)
+        );
+        color: white;
+        text-align: center;
+      }
+
+      .cta-title {
+        font-size: 2.5rem;
+        margin-bottom: var(--space-lg);
+        color: white;
+      }
+
+      .cta-subtitle {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 700px;
+        margin: 0 auto var(--space-2xl);
+        line-height: 1.6;
+      }
+
+      .btn-white {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        background: white;
+        color: var(--color-primary);
+        padding: var(--space-lg) var(--space-2xl);
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 700;
+        box-shadow: var(--shadow-lg);
+        transition: all var(--transition-normal);
+      }
+
+      .btn-white:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-xl);
+        background: var(--color-gray-100);
+      }
+
+      /* Footer */
+      .site-footer {
+        background: var(--color-gray-900);
+        color: white;
+      }
+
+      .footer-content {
+        text-align: center;
+        padding: var(--space-2xl) 0;
+        border-top: 1px solid var(--color-gray-700);
+      }
+
+      .footer-content p {
+        color: var(--color-gray-400);
+        font-size: 0.9rem;
+        margin-bottom: var(--space-sm);
+      }
+
+      .footer-content a {
+        color: var(--color-gray-400);
+        text-decoration: none;
+        margin: 0 var(--space-sm);
+      }
+
+      .footer-content a:hover {
+        color: var(--color-white);
+        text-decoration: underline;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .opportunities-grid {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        .hero-title {
+          font-size: 2.8rem;
+        }
+
+        .employers-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu-toggle {
+          display: block;
+        }
+
+        .main-nav {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 80%;
+          height: 100vh;
+          background: white;
+          flex-direction: column;
+          padding: var(--space-xl);
+          transition: right 0.3s ease;
+          overflow-y: auto;
+          box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-nav.active {
+          right: 0;
+        }
+
+        .opportunities-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-title {
+          font-size: 2.2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .search-box {
+          flex-direction: column;
+        }
+
+        .filter-options {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .filter-btn {
+          justify-content: center;
+        }
+
+        .stats-bar {
+          flex-wrap: wrap;
+          gap: var(--space-lg);
+        }
+
+        .opportunity-footer {
+          flex-direction: column;
+          gap: var(--space-md);
+          align-items: stretch;
+        }
+
+        .employers-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-title {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 1.8rem;
+        }
+
+        .section-title {
+          font-size: 1.75rem;
+        }
+
+        .opportunity-meta {
+          flex-direction: column;
+          gap: var(--space-xs);
+        }
+      }
+
+      /* Animation Classes */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Quick Apply Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 10000;
+        align-items: center;
+        justify-content: center;
+        padding: var(--space-md);
+      }
+
+      .modal.active {
+        display: flex;
+      }
+
+      .modal-content {
+        background: var(--color-white);
+        border-radius: var(--radius-lg);
+        max-width: 500px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      .modal-header {
+        padding: var(--space-xl);
+        background: linear-gradient(
+          135deg,
+          var(--color-primary),
+          var(--color-primary-dark)
+        );
+        color: white;
+        position: relative;
+      }
+
+      .modal-header h3 {
+        margin: 0;
+        color: white;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: var(--space-md);
+        right: var(--space-md);
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: var(--space-xs);
+      }
+
+      .modal-body {
+        padding: var(--space-xl);
+      }
+    </style>
+
+    <!-- Google Tag Manager & GA4 -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-XXXXXX");
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-SF5LWDZDKF"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-SF5LWDZDKF");
+    </script>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+
+    <!-- Announcement Bar -->
+    <div class="announcement">
+      <strong>🌟 12 New Opportunities Added Today!</strong> Including Executive
+      Chef at 5-star NYC property and Resort GM in Hawaii.
+      <a href="#opportunities"
+        >View New Roles <span class="new-badge">NEW</span></a
+      >
+    </div>
+
+    <!-- SITE HEADER -->
+    <header class="site-header">
+      <div class="container header-container">
+        <div class="logo">
+          <a href="/" aria-label="HospitalityRecruit Home">
+            <h1><i class="fas fa-hotel"></i> HospitalityRecruit</h1>
+            <span class="logo-tagline">EXECUTIVE SEARCH</span>
+          </a>
+        </div>
+
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="main-nav">
+          <a href="/services/">Services</a>
+          <a href="/employers/">Employers</a>
+          <a href="/candidates/" class="active">Candidates</a>
+          <a href="/candidates/submit-profile/">Submit Profile</a>
+          <a href="/candidates/career-opportunities/" class="active"
+            >Opportunities</a
+          >
+          <a href="/candidates/career-advice/">Career Advice</a>
+          <a href="tel:+15551234567" class="nav-cta">Candidate Support</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO: Career Opportunities -->
+    <section class="hero-opportunities">
+      <div class="container">
+        <div class="hero-content">
+          <div class="opportunities-badge">
+            <i class="fas fa-briefcase"></i> ACTIVE OPPORTUNITIES
+          </div>
+          <h1 class="hero-title">Find Your Next Hospitality Leadership Role</h1>
+          <p class="hero-subtitle">
+            Browse
+            <span class="hero-highlight"
+              >executive, management, and specialist opportunities</span
+            >
+            at luxury hotels, resorts, and restaurants worldwide. Updated daily
+            by our specialist recruiters.
+          </p>
+
+          <!-- Quick Stats -->
+          <div
+            class="stats-bar"
+            style="
+              border: none;
+              margin: var(--space-2xl) 0 0;
+              justify-content: flex-start;
+            "
+          >
+            <div class="stat-item">
+              <div class="stat-number">85+</div>
+              <div class="stat-label" style="color: rgba(255, 255, 255, 0.9)">
+                Active Opportunities
+              </div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">32</div>
+              <div class="stat-label" style="color: rgba(255, 255, 255, 0.9)">
+                Countries
+              </div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">48h</div>
+              <div class="stat-label" style="color: rgba(255, 255, 255, 0.9)">
+                Avg. Response Time
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH & FILTER BAR -->
+    <section class="search-filter-section">
+      <div class="container">
+        <div class="search-container">
+          <!-- Search Box -->
+          <div class="search-box">
+            <div class="search-input">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                id="search-input"
+                placeholder="Search by role, keyword, or location..."
+              />
+            </div>
+            <button class="search-button" id="search-button">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>
+
+          <!-- Filter Options -->
+          <div class="filter-options">
+            <button class="filter-btn active" data-filter="all">
+              <i class="fas fa-globe"></i> All Roles
+            </button>
+            <button class="filter-btn" data-filter="executive">
+              <i class="fas fa-user-tie"></i> Executive
+            </button>
+            <button class="filter-btn" data-filter="hotel">
+              <i class="fas fa-hotel"></i> Hotel Management
+            </button>
+            <button class="filter-btn" data-filter="f-b">
+              <i class="fas fa-utensils"></i> F&B
+            </button>
+            <button class="filter-btn" data-filter="culinary">
+              <i class="fas fa-cheese"></i> Culinary
+            </button>
+            <button class="filter-btn" data-filter="urgent">
+              <i class="fas fa-bolt"></i> Urgent Hire
+            </button>
+            <button class="filter-btn" data-filter="remote">
+              <i class="fas fa-home"></i> Remote/Hybrid
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPPORTUNITIES GRID -->
+    <section id="opportunities" class="opportunities-section">
+      <div class="container">
+        <h2 class="section-title">Current Hospitality Opportunities</h2>
+        <p class="section-subtitle">
+          These are just a selection of our active searches. Submit your profile
+          to be considered for all matching opportunities.
+        </p>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+          <div class="stat-item">
+            <div class="stat-number" id="total-jobs">85</div>
+            <div class="stat-label">Total Opportunities</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="new-today">12</div>
+            <div class="stat-label">New Today</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="urgent-count">18</div>
+            <div class="stat-label">Urgent Hire</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="featured-count">25</div>
+            <div class="stat-label">Featured Roles</div>
+          </div>
+        </div>
+
+        <!-- Opportunities Grid -->
+        <div class="opportunities-grid" id="opportunities-grid">
+          <!-- Opportunity cards will be dynamically populated by JavaScript -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <button class="pagination-btn disabled" id="prev-page">
+            <i class="fas fa-chevron-left"></i> Previous
+          </button>
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <button class="pagination-btn">4</button>
+          <button class="pagination-btn" id="next-page">
+            Next <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED EMPLOYERS -->
+    <section class="featured-employers">
+      <div class="container">
+        <h2 class="section-title">Featured Hospitality Employers</h2>
+        <p class="section-subtitle">
+          We work with the industry's most respected brands and properties.
+        </p>
+
+        <div class="employers-grid">
+          <div class="employer-card animate-on-scroll">
+            <div class="employer-icon">
+              <i class="fas fa-crown"></i>
+            </div>
+            <h3>Luxury Hotel Groups</h3>
+            <p>
+              5-star properties & boutique collections across global
+              destinations
+            </p>
+          </div>
+
+          <div class="employer-card animate-on-scroll">
+            <div class="employer-icon">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <h3>Michelin Restaurants</h3>
+            <p>World-class dining establishments seeking culinary excellence</p>
+          </div>
+
+          <div class="employer-card animate-on-scroll">
+            <div class="employer-icon">
+              <i class="fas fa-umbrella-beach"></i>
+            </div>
+            <h3>Resort Destinations</h3>
+            <p>
+              Luxury resorts in Caribbean, Mediterranean & Asia-Pacific regions
+            </p>
+          </div>
+
+          <div class="employer-card animate-on-scroll">
+            <div class="employer-icon">
+              <i class="fas fa-city"></i>
+            </div>
+            <h3>Urban Hospitality</h3>
+            <p>Downtown properties, conference hotels & lifestyle brands</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-title">Not Seeing the Perfect Match?</h2>
+        <p class="cta-subtitle">
+          Many of our best opportunities are confidential or filled through our
+          network before being publicly listed. Submit your profile to get
+          access to all matching opportunities.
+        </p>
+
+        <a href="/candidates/submit-profile/" class="btn-white">
+          <i class="fas fa-user-plus"></i> Submit Your Profile
+        </a>
+
+        <p
+          style="
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: var(--space-lg);
+            font-size: 0.95rem;
+          "
+        >
+          <i class="fas fa-phone"></i> Need career advice? Call our candidate
+          team:
+          <a
+            href="tel:+15551234567"
+            style="color: white; font-weight: 700; text-decoration: none"
+            >(555) 123-4567</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>
+            &copy; 2024 HospitalityRecruit. Premium Hospitality Recruitment
+            Since 2010.
+          </p>
+          <p>
+            <a href="/legal/privacy-policy/">Privacy Policy</a> |
+            <a href="/legal/terms-of-service/">Terms of Service</a> |
+            <a href="/sitemap.xml">Sitemap</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- QUICK APPLY MODAL -->
+    <div class="modal" id="quick-apply-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Quick Apply</h3>
+          <button class="modal-close" id="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div
+            id="modal-job-title"
+            style="
+              font-size: 1.5rem;
+              font-weight: 700;
+              margin-bottom: var(--space-md);
+              color: var(--color-gray-900);
+            "
+          ></div>
+          <div
+            id="modal-job-location"
+            style="color: var(--color-gray-600); margin-bottom: var(--space-lg)"
+          ></div>
+
+          <p style="margin-bottom: var(--space-lg)">
+            To apply for this position, please complete the form below or submit
+            your full profile for consideration.
+          </p>
+
+          <form id="quick-apply-form" style="margin-bottom: var(--space-lg)">
+            <div style="margin-bottom: var(--space-md)">
+              <label
+                style="
+                  display: block;
+                  font-weight: 600;
+                  margin-bottom: var(--space-xs);
+                  color: var(--color-gray-700);
+                "
+                >Email *</label
+              >
+              <input
+                type="email"
+                required
+                style="
+                  width: 100%;
+                  padding: var(--space-md);
+                  border: 2px solid var(--color-gray-300);
+                  border-radius: var(--radius-md);
+                "
+              />
+            </div>
+
+            <div style="margin-bottom: var(--space-md)">
+              <label
+                style="
+                  display: block;
+                  font-weight: 600;
+                  margin-bottom: var(--space-xs);
+                  color: var(--color-gray-700);
+                "
+                >Phone *</label
+              >
+              <input
+                type="tel"
+                required
+                style="
+                  width: 100%;
+                  padding: var(--space-md);
+                  border: 2px solid var(--color-gray-300);
+                  border-radius: var(--radius-md);
+                "
+              />
+            </div>
+
+            <div style="margin-bottom: var(--space-lg)">
+              <label
+                style="
+                  display: block;
+                  font-weight: 600;
+                  margin-bottom: var(--space-xs);
+                  color: var(--color-gray-700);
+                "
+                >Brief Message (Optional)</label
+              >
+              <textarea
+                rows="3"
+                style="
+                  width: 100%;
+                  padding: var(--space-md);
+                  border: 2px solid var(--color-gray-300);
+                  border-radius: var(--radius-md);
+                "
+                placeholder="Why are you interested in this role?"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              style="
+                width: 100%;
+                background: var(--color-success);
+                color: white;
+                border: none;
+                padding: var(--space-md);
+                border-radius: var(--radius-md);
+                font-weight: 600;
+                cursor: pointer;
+              "
+            >
+              <i class="fas fa-paper-plane"></i> Submit Application
+            </button>
+          </form>
+
+          <p
+            style="
+              text-align: center;
+              font-size: 0.9rem;
+              color: var(--color-gray-600);
+            "
+          >
+            <i class="fas fa-lock"></i> Your application is confidential. We'll
+            contact you within 48 hours.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile Menu Toggle
+      const mobileToggle = document.querySelector(".mobile-menu-toggle");
+      const mainNav = document.querySelector(".main-nav");
+
+      mobileToggle.addEventListener("click", () => {
+        mainNav.classList.toggle("active");
+        const icon = mobileToggle.querySelector("i");
+        if (icon.classList.contains("fa-bars")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        }
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".main-nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("active");
+          mobileToggle
+            .querySelector("i")
+            .classList.replace("fa-times", "fa-bars");
+        });
+      });
+
+      // Sample Job Data
+      const jobOpportunities = [
+        {
+          id: 1,
+          title: "General Manager",
+          company: "Luxury Boutique Hotel",
+          location: "New York, NY",
+          type: "executive",
+          salary: "$180,000 - $220,000",
+          description:
+            "Lead a 150-room luxury boutique property in Manhattan. Responsible for overall operations, guest experience, and financial performance.",
+          tags: ["5-star", "Luxury", "Boutique", "Full-time"],
+          badge: "featured",
+          date: "2 days ago",
+          urgent: true,
+          remote: false,
+        },
+        {
+          id: 2,
+          title: "Executive Chef",
+          company: "Michelin-star Restaurant",
+          location: "Chicago, IL",
+          type: "culinary",
+          salary: "$120,000 - $160,000",
+          description:
+            "Michelin-starred establishment seeking creative Executive Chef to lead kitchen operations and menu development.",
+          tags: ["Michelin", "Fine Dining", "Creative", "Leadership"],
+          badge: "new",
+          date: "Today",
+          urgent: true,
+          remote: false,
+        },
+        {
+          id: 3,
+          title: "F&B Director",
+          company: "Resort & Spa",
+          location: "Miami, FL",
+          type: "f-b",
+          salary: "$140,000 - $180,000",
+          description:
+            "Oversee all food and beverage operations at a 400-room luxury resort including 4 restaurants and banquet facilities.",
+          tags: ["Resort", "Luxury", "Multi-outlet", "Full-time"],
+          badge: "urgent",
+          date: "1 day ago",
+          urgent: true,
+          remote: false,
+        },
+        {
+          id: 4,
+          title: "Rooms Division Manager",
+          company: "International Hotel Group",
+          location: "Los Angeles, CA",
+          type: "hotel",
+          salary: "$95,000 - $120,000",
+          description:
+            "Manage front office, housekeeping, and guest services at a 300-room downtown property.",
+          tags: ["Corporate", "Downtown", "Operations", "Full-time"],
+          badge: "",
+          date: "3 days ago",
+          urgent: false,
+          remote: false,
+        },
+        {
+          id: 5,
+          title: "Regional Director of Operations",
+          company: "Hotel Management Company",
+          location: "Remote",
+          type: "executive",
+          salary: "$200,000 - $250,000",
+          description:
+            "Oversee operations for 12 properties across the West Coast. 70% travel required.",
+          tags: ["Regional", "Multi-property", "Travel", "Executive"],
+          badge: "featured",
+          date: "5 days ago",
+          urgent: false,
+          remote: true,
+        },
+        {
+          id: 6,
+          title: "Restaurant Manager",
+          company: "Fine Dining Steakhouse",
+          location: "Las Vegas, NV",
+          type: "f-b",
+          salary: "$85,000 - $110,000",
+          description:
+            "Manage high-volume fine dining steakhouse on the Las Vegas Strip. Experience with luxury service required.",
+          tags: ["Steakhouse", "High-volume", "Luxury", "Full-time"],
+          badge: "urgent",
+          date: "Today",
+          urgent: true,
+          remote: false,
+        },
+        {
+          id: 7,
+          title: "Pastry Chef",
+          company: "Luxury Hotel & Resort",
+          location: "Aspen, CO",
+          type: "culinary",
+          salary: "$75,000 - $95,000",
+          description:
+            "Create and execute pastry program for luxury mountain resort including restaurant, bakery, and room service.",
+          tags: ["Pastry", "Resort", "Seasonal", "Creative"],
+          badge: "new",
+          date: "Today",
+          urgent: false,
+          remote: false,
+        },
+        {
+          id: 8,
+          title: "Revenue Manager",
+          company: "Boutique Hotel Collection",
+          location: "San Francisco, CA",
+          type: "hotel",
+          salary: "$110,000 - $140,000",
+          description:
+            "Develop and implement revenue strategy for a collection of 8 boutique properties in California.",
+          tags: ["Revenue", "Strategy", "Analytics", "Full-time"],
+          badge: "",
+          date: "4 days ago",
+          urgent: false,
+          remote: true,
+        },
+        {
+          id: 9,
+          title: "Sous Chef",
+          company: "Award-winning Restaurant",
+          location: "Boston, MA",
+          type: "culinary",
+          salary: "$65,000 - $85,000",
+          description:
+            "Support Executive Chef in kitchen operations at James Beard award-winning restaurant.",
+          tags: ["Sous Chef", "Fine Dining", "Award-winning", "Full-time"],
+          badge: "urgent",
+          date: "2 days ago",
+          urgent: true,
+          remote: false,
+        },
+        {
+          id: 10,
+          title: "Guest Experience Director",
+          company: "Luxury Resort",
+          location: "Scottsdale, AZ",
+          type: "hotel",
+          salary: "$90,000 - $115,000",
+          description:
+            "Lead guest experience initiatives and service training at a 5-star desert resort.",
+          tags: ["Guest Service", "Luxury", "Training", "Resort"],
+          badge: "new",
+          date: "Today",
+          urgent: false,
+          remote: false,
+        },
+        {
+          id: 11,
+          title: "Beverage Director",
+          company: "Hotel Group",
+          location: "New Orleans, LA",
+          type: "f-b",
+          salary: "$95,000 - $125,000",
+          description:
+            "Oversee beverage program including bars, restaurants, and room service for historic hotel.",
+          tags: ["Beverage", "Cocktails", "Wine", "Historic"],
+          badge: "",
+          date: "6 days ago",
+          urgent: false,
+          remote: false,
+        },
+        {
+          id: 12,
+          title: "Corporate Chef",
+          company: "Restaurant Group",
+          location: "Remote/Hybrid",
+          type: "culinary",
+          salary: "$130,000 - $160,000",
+          description:
+            "Develop menus and standards for a group of 15 casual dining restaurants across 5 states.",
+          tags: ["Corporate", "Multi-unit", "Menu Development", "Hybrid"],
+          badge: "featured",
+          date: "3 days ago",
+          urgent: false,
+          remote: true,
+        },
+      ];
+
+      // DOM Elements
+      const opportunitiesGrid = document.getElementById("opportunities-grid");
+      const searchInput = document.getElementById("search-input");
+      const searchButton = document.getElementById("search-button");
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const totalJobs = document.getElementById("total-jobs");
+      const newToday = document.getElementById("new-today");
+      const urgentCount = document.getElementById("urgent-count");
+      const featuredCount = document.getElementById("featured-count");
+      const modal = document.getElementById("quick-apply-modal");
+      const modalClose = document.getElementById("modal-close");
+      const quickApplyForm = document.getElementById("quick-apply-form");
+
+      // Initial state
+      let currentFilter = "all";
+      let currentSearch = "";
+      let currentPage = 1;
+      const jobsPerPage = 6;
+
+      // Update stats
+      function updateStats() {
+        const total = jobOpportunities.length;
+        const newJobs = jobOpportunities.filter(
+          (job) => job.date === "Today"
+        ).length;
+        const urgentJobs = jobOpportunities.filter((job) => job.urgent).length;
+        const featuredJobs = jobOpportunities.filter(
+          (job) => job.badge === "featured"
+        ).length;
+
+        totalJobs.textContent = total;
+        newToday.textContent = newJobs;
+        urgentCount.textContent = urgentJobs;
+        featuredCount.textContent = featuredJobs;
+      }
+
+      // Filter jobs based on current filter and search
+      function filterJobs() {
+        return jobOpportunities.filter((job) => {
+          // Apply search filter
+          const matchesSearch =
+            currentSearch === "" ||
+            job.title.toLowerCase().includes(currentSearch.toLowerCase()) ||
+            job.company.toLowerCase().includes(currentSearch.toLowerCase()) ||
+            job.location.toLowerCase().includes(currentSearch.toLowerCase()) ||
+            job.description
+              .toLowerCase()
+              .includes(currentSearch.toLowerCase()) ||
+            job.tags.some((tag) =>
+              tag.toLowerCase().includes(currentSearch.toLowerCase())
+            );
+
+          // Apply type filter
+          const matchesFilter =
+            currentFilter === "all" ||
+            (currentFilter === "executive" && job.type === "executive") ||
+            (currentFilter === "hotel" && job.type === "hotel") ||
+            (currentFilter === "f-b" && job.type === "f-b") ||
+            (currentFilter === "culinary" && job.type === "culinary") ||
+            (currentFilter === "urgent" && job.urgent) ||
+            (currentFilter === "remote" && job.remote);
+
+          return matchesSearch && matchesFilter;
+        });
+      }
+
+      // Render jobs to grid
+      function renderJobs() {
+        const filteredJobs = filterJobs();
+        const startIndex = (currentPage - 1) * jobsPerPage;
+        const endIndex = startIndex + jobsPerPage;
+        const jobsToShow = filteredJobs.slice(startIndex, endIndex);
+
+        opportunitiesGrid.innerHTML = "";
+
+        if (jobsToShow.length === 0) {
+          opportunitiesGrid.innerHTML = `
+                    <div class="no-results" style="grid-column: 1 / -1;">
+                        <i class="fas fa-search"></i>
+                        <h3>No opportunities match your search</h3>
+                        <p>Try adjusting your filters or search terms, or submit your profile to be considered for future opportunities.</p>
+                        <a href="/candidates/submit-profile/" class="btn-apply" style="margin-top: var(--space-lg);">
+                            <i class="fas fa-user-plus"></i> Submit Profile
+                        </a>
+                    </div>
+                `;
+          return;
+        }
+
+        jobsToShow.forEach((job) => {
+          const card = document.createElement("div");
+          card.className = "opportunity-card animate-on-scroll";
+          card.dataset.id = job.id;
+          card.dataset.type = job.type;
+
+          let badgeHTML = "";
+          if (job.badge) {
+            badgeHTML = `<div class="opportunity-badge badge-${
+              job.badge
+            }">${job.badge.toUpperCase()}</div>`;
+          }
+
+          card.innerHTML = `
+                    ${badgeHTML}
+                    <div class="opportunity-header">
+                        <h3>${job.title}</h3>
+                        <div class="opportunity-meta">
+                            <span><i class="fas fa-building"></i> ${
+                              job.company
+                            }</span>
+                            <span><i class="fas fa-map-marker-alt"></i> ${
+                              job.location
+                            }</span>
+                            <span><i class="fas fa-clock"></i> ${
+                              job.date
+                            }</span>
+                        </div>
+                    </div>
+                    <div class="opportunity-content">
+                        <div class="opportunity-details">
+                            <p>${job.description}</p>
+                        </div>
+                        <div class="opportunity-tags">
+                            ${job.tags
+                              .map((tag) => `<span class="tag">${tag}</span>`)
+                              .join("")}
+                        </div>
+                        <div class="opportunity-footer">
+                            <div class="salary-range">${job.salary}</div>
+                            <div>
+                                <a href="#" class="btn-details" data-action="details" data-id="${
+                                  job.id
+                                }">
+                                    <i class="fas fa-info-circle"></i> Details
+                                </a>
+                                <a href="#" class="btn-apply" data-action="apply" data-id="${
+                                  job.id
+                                }">
+                                    <i class="fas fa-paper-plane"></i> Apply
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+          opportunitiesGrid.appendChild(card);
+        });
+
+        // Trigger animations
+        setTimeout(() => {
+          document.querySelectorAll(".opportunity-card").forEach((card) => {
+            card.classList.add("visible");
+          });
+        }, 100);
+
+        // Update pagination
+        updatePagination(filteredJobs.length);
+      }
+
+      // Update pagination
+      function updatePagination(totalJobs) {
+        const totalPages = Math.ceil(totalJobs / jobsPerPage);
+        const pagination = document.querySelector(".pagination");
+        const pageButtons = pagination.querySelectorAll(
+          ".pagination-btn:not(#prev-page):not(#next-page)"
+        );
+
+        // Clear current page numbers (keeping prev/next buttons)
+        pageButtons.forEach((btn) => btn.remove());
+
+        // Add page numbers
+        const prevBtn = document.getElementById("prev-page");
+        for (let i = 1; i <= totalPages && i <= 5; i++) {
+          const pageBtn = document.createElement("button");
+          pageBtn.className = `pagination-btn ${
+            i === currentPage ? "active" : ""
+          }`;
+          pageBtn.textContent = i;
+          pageBtn.addEventListener("click", () => {
+            currentPage = i;
+            renderJobs();
+          });
+          prevBtn.after(pageBtn);
+        }
+
+        // Update prev/next buttons
+        document
+          .getElementById("prev-page")
+          .classList.toggle("disabled", currentPage === 1);
+        document
+          .getElementById("next-page")
+          .classList.toggle("disabled", currentPage === totalPages);
+      }
+
+      // Event Listeners
+      searchButton.addEventListener("click", () => {
+        currentSearch = searchInput.value;
+        currentPage = 1;
+        renderJobs();
+      });
+
+      searchInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          currentSearch = searchInput.value;
+          currentPage = 1;
+          renderJobs();
+        }
+      });
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          // Update filter
+          currentFilter = button.dataset.filter;
+          currentPage = 1;
+          renderJobs();
+        });
+      });
+
+      // Pagination event listeners
+      document.getElementById("prev-page").addEventListener("click", () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderJobs();
+        }
+      });
+
+      document.getElementById("next-page").addEventListener("click", () => {
+        const filteredJobs = filterJobs();
+        const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderJobs();
+        }
+      });
+
+      // Modal functionality
+      opportunitiesGrid.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const applyBtn = e.target.closest('[data-action="apply"]');
+        const detailsBtn = e.target.closest('[data-action="details"]');
+
+        if (applyBtn) {
+          const jobId = parseInt(applyBtn.dataset.id);
+          const job = jobOpportunities.find((j) => j.id === jobId);
+
+          if (job) {
+            document.getElementById("modal-job-title").textContent = job.title;
+            document.getElementById(
+              "modal-job-location"
+            ).textContent = `${job.company} - ${job.location}`;
+            modal.classList.add("active");
+          }
+        } else if (detailsBtn) {
+          const jobId = parseInt(detailsBtn.dataset.id);
+          const job = jobOpportunities.find((j) => j.id === jobId);
+
+          if (job) {
+            // In a real application, this would navigate to a job details page
+            alert(
+              `Details for ${job.title} at ${job.company}\n\n${job.description}\n\nSalary: ${job.salary}\nLocation: ${job.location}\n\nTo apply, please click the Apply button or submit your profile.`
+            );
+          }
+        }
+      });
+
+      modalClose.addEventListener("click", () => {
+        modal.classList.remove("active");
+      });
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.remove("active");
+        }
+      });
+
+      quickApplyForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert(
+          "Application submitted! A recruiter will contact you within 48 hours."
+        );
+        modal.classList.remove("active");
+        quickApplyForm.reset();
+      });
+
+      // Initialize
+      updateStats();
+      renderJobs();
+
+      // Scroll Animation
+      function animateOnScroll() {
+        const elements = document.querySelectorAll(
+          ".animate-on-scroll:not(.opportunity-card)"
+        );
+        const triggerBottom = window.innerHeight * 0.85;
+
+        elements.forEach((element, index) => {
+          const elementTop = element.getBoundingClientRect().top;
+
+          if (elementTop < triggerBottom) {
+            // Stagger the animation
+            setTimeout(() => {
+              element.classList.add("visible");
+            }, index * 150);
+          }
+        });
+      }
+
+      // Set initial state
+      document
+        .querySelectorAll(".animate-on-scroll:not(.opportunity-card)")
+        .forEach((el) => {
+          el.classList.remove("visible");
+        });
+
+      // Run on load and scroll
+      window.addEventListener("load", animateOnScroll);
+      window.addEventListener("scroll", animateOnScroll);
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            if (mainNav.classList.contains("active")) {
+              mainNav.classList.remove("active");
+              mobileToggle
+                .querySelector("i")
+                .classList.replace("fa-times", "fa-bars");
+            }
+          }
+        });
+      });
+
+      // Track job views and applications
+      opportunitiesGrid.addEventListener("click", (e) => {
+        const applyBtn = e.target.closest('[data-action="apply"]');
+        if (applyBtn && typeof gtag !== "undefined") {
+          const jobId = applyBtn.dataset.id;
+          gtag("event", "apply_start", {
+            event_category: "Career Opportunities",
+            event_label: "Job Application - ID: " + jobId,
+            value: 1,
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

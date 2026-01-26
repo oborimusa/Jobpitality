@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Search for Hospitality | GM, F&B Director, Executive Chef Recruitment</title>
+    <meta name="description" content="Premium executive search for luxury hotels, resorts, and restaurant groups. Specialized recruitment of General Managers, F&B Directors, and senior hospitality leadership.">
+    
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:title" content="Hospitality Executive Search | Senior Leadership Recruitment">
+    <meta property="og:description" content="Confidential search and placement of executive talent for premier hospitality brands worldwide.">
+    <meta property="og:type" content="website">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Executive Search",
+        "provider": {
+            "@type": "Organization",
+            "name": "HospitalityRecruit",
+            "url": "https://yourdomain.com"
+        },
+        "description": "Executive search and recruitment services for senior hospitality leadership positions",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Global"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Hospitality Executive Positions",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "General Manager Recruitment"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "F&B Director Placement"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Executive Chef Search"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://yourdomain.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://yourdomain.com/services/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Executive Search",
+                "item": "https://yourdomain.com/services/executive-search/"
+            }
+        ]
+    }
+    </script>
+    
+    <style>
+        
+         /* ===== HEADER & NAVIGATION ===== */
+        .site-header {
+            background: var(--color-white);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: var(--space-sm) 0;
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-lg);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo a {
+            text-decoration: none;
+            color: var(--color-dark);
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo h1 {
+            font-size: 1.95rem;
+            margin-bottom: 0;
+            font-weight: 800;
+            color: var(--color-primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo h1 i {
+            color: var(--color-gold);
+        }
+        
+        .logo-tagline {
+            font-size: 0.75rem;
+            color: var(--color-emergency);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-top: 1px;
+        }
+        
+        /* MAIN NAVIGATION */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            /* gap: var(--space-md); */
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.5rem 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--color-primary);
+        }
+        
+        .nav-link.active {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0.75rem;
+            right: 0.75rem;
+            height: 3px;
+            background: var(--color-primary);
+            border-radius: 3px 3px 0 0;
+        }
+        
+        /* DROPDOWN MENUS */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--color-white);
+            min-width: 220px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-xl);
+            padding: var(--space-sm) 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all var(--transition-normal);
+            z-index: 1000;
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem var(--space-lg);
+            text-decoration: none;
+            color: var(--color-gray-700);
+            font-size: 0.9rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .dropdown-item:hover {
+            background: var(--color-gray-100);
+            color: var(--color-primary);
+            padding-left: calc(var(--space-lg) + 0.5rem);
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background: var(--color-gray-200);
+            margin: var(--space-xs) 0;
+        }
+        
+        /* NAV CTA BUTTONS */
+        .nav-cta-group {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .nav-cta {
+            background: var(--color-primary);
+            color: var(--color-white) !important;
+            padding: 0.25rem 1.5rem !important;
+            border-radius: var(--radius-md);
+            font-weight: 600 !important;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-cta:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-cta-emergency {
+            background: var(--color-emergency);
+        }
+        
+        .nav-cta-emergency:hover {
+            background: var(--color-emergency-dark);
+        }
+        
+
+        
+        /* Page-specific styles */
+        .breadcrumb {
+            background-color: var(--light);
+            padding: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb ol {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: '/';
+            margin-left: 0.5rem;
+            color: var(--gray);
+        }
+        
+        .breadcrumb a {
+            color: var(--gray-dark);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+        
+        .breadcrumb [aria-current="page"] {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        
+        .page-hero {
+            padding: var(--spacing-xl) 0;
+            background: linear-gradient(135deg, var(--light) 0%, #f0f7f4 100%);
+        }
+        
+        .page-hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin: var(--spacing-sm) 0;
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-dark);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .page-hero-image {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .page-hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .service-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-light);
+            transition: all var(--transition-normal);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .feature-icon i {
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+        
+        .positions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .position-card {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md);
+            transition: all var(--transition-normal);
+        }
+        
+        .position-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+        
+        .position-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .position-header i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .position-details {
+            margin: var(--spacing-sm) 0;
+            font-size: 0.95rem;
+        }
+        
+        .position-details p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .position-link {
+            display: inline-block;
+            margin-top: var(--spacing-sm);
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .position-link:hover {
+            color: var(--primary-dark);
+        }
+        
+        .process-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: var(--spacing-lg) auto 0;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 60px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+        }
+        
+        .process-step {
+            position: relative;
+            padding-left: 100px;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+        
+        .step-content {
+            background: var(--white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-light);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .step-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .step-content ul {
+            list-style: none;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .step-content li {
+            padding: 0.25rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .step-content li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .case-study-preview {
+            background: linear-gradient(135deg, var(--light) 0%, #f0f7f4 100%);
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .case-study-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .case-category, .case-duration {
+            padding: 0.25rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .case-category {
+            background-color: var(--secondary-cream);
+            color: var(--primary-dark);
+        }
+        
+        .case-duration {
+            background-color: var(--primary-light);
+            color: var(--white);
+        }
+        
+        .case-challenge {
+            background: rgba(255, 255, 255, 0.5);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-md);
+            margin: var(--spacing-md) 0;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .case-results {
+            margin: var(--spacing-md) 0;
+        }
+        
+        .result-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-item i {
+            color: var(--primary);
+        }
+        
+        .case-study-testimonial {
+            background: var(--white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--secondary-gold);
+        }
+        
+        .case-study-testimonial blockquote {
+            font-style: italic;
+            margin: 0;
+        }
+        
+        .case-study-testimonial cite {
+            display: block;
+            margin-top: var(--spacing-sm);
+            font-style: normal;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .service-cta {
+            padding: var(--spacing-xl) 0;
+            background-color: var(--white);
+            margin-top: 30px;
+        }
+        
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin: var(--spacing-md) 0 var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .feature i {
+            color: var(--primary);
+        }
+        
+        .service-contact-form {
+            max-width: 800px;
+            margin: var(--spacing-lg) auto 0;
+            background: var(--light);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.75rem;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(130, 118, 118, 0.1);
+        }
+        
+        .form-footer {
+            text-align: center;
+        }
+        
+        .form-note {
+            margin-top: var(--spacing-sm);
+            font-size: 0.875rem;
+            color: var(--gray-dark);
+        }
+        
+        .related-services {
+            padding: var(--spacing-xl) 0;
+            background: linear-gradient(135deg, var(--light) 0%, #f0f7f4 100%);
+        }
+        
+        .services-navigation {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .service-nav-card {
+            background: var(--white);
+            border: 2px solid transparent;
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: all var(--transition-normal);
+            text-decoration: none;
+        }
+
+              
+        .service-nav-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .nav-icon i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .service-nav-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-nav-card p {
+            color: var(--gray-dark);
+            flex-grow: 1;
+        }
+        
+        .nav-arrow {
+            align-self: flex-end;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-top: var(--spacing-sm);
+            transition: transform var(--transition-fast);
+        }
+        
+        .service-nav-card:hover .nav-arrow {
+            transform: translateX(5px);
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .process-step {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.6s ease;
+        }
+        
+        .process-step.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .page-title {
+                font-size: 2.25rem;
+            }
+            
+            .page-hero-image {
+                order: -1;
+                margin-bottom: var(--spacing-md);
+            }
+            
+            .process-timeline::before {
+                left: 30px;
+            }
+            
+            .process-step {
+                padding-left: 60px;
+            }
+            
+            .step-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .case-study-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-features {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-sm);
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.75rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .positions-grid,
+            .services-navigation {
+                grid-template-columns: 1fr;
+            }
+
+            
+        }
+
+        @media (max-width: 1024px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 1.55rem; }
+            .hero-title { font-size: 3.5rem; }
+        }
+          @media (max-width: 768px) {
+            /* MOBILE HEADER & NAVIGATION */
+            .header-container {
+                flex-wrap: wrap;
+                gap: var(--space-md);
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.7rem;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--color-white);
+                flex-direction: column;
+                padding: var(--space-3xl) var(--space-xl) var(--space-xl);
+                transition: left 0.3s ease;
+                overflow-y: auto;
+                z-index: 1000;
+            }
+            
+            .main-nav.active {
+                left: 0;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 1rem 0;
+                border-bottom: 1px solid var(--color-gray-200);
+                width: 100%;
+                font-size: 1.1rem;
+            }
+            
+            .nav-link.active::after {
+                display: none;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding-left: var(--space-md);
+                display: none;
+                background: var(--color-gray-100);
+                border-radius: var(--radius-md);
+                margin-top: var(--space-xs);
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .dropdown-toggle::after {
+                content: '\f078';
+                font-family: 'Font Awesome 6 Free';
+                font-weight: 900;
+                margin-left: auto;
+                transition: transform 0.3s ease;
+            }
+            
+            .dropdown.active .dropdown-toggle::after {
+                transform: rotate(180deg);
+            }
+            
+            .nav-cta-group {
+                flex-direction: column;
+                width: 100%;
+                margin-top: var(--space-xl);
+            }
+            
+            .nav-cta {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+                margin-left: auto;
+            }
+            
+            .mobile-overlay.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement">
+        <p>🏨 <strong>Currently Searching:</strong> GM for new luxury resort in Costa Rica. <a href="/landing/hotel-openings/">View opportunity →</a></p>
+    </div>
+
+   <!-- SITE HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="/" aria-label="HospitalityRecruit Home">
+                        <h1><i class="fas fa-hotel"></i> HospitalityRecruit</h1><hr>
+                        <span class="logo-tagline">EXECUTIVE SEARCH</span>
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link active">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/services/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-briefcase"></i> Services
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/services/executive-search/" class="dropdown-item">
+                                    <i class="fas fa-search"></i> Executive Search
+                                </a>
+                                <a href="/services/leadership-assessment/" class="dropdown-item">
+                                    <i class="fas fa-chart-line"></i> Leadership Assessment
+                                </a>
+                                <a href="/services/succession-planning/" class="dropdown-item">
+                                    <i class="fas fa-chess-king"></i> Succession Planning
+                                </a>
+                                <a href="/services/team-building/" class="dropdown-item">
+                                    <i class="fas fa-users"></i> Team Building
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/services/hotel-management/" class="dropdown-item">
+                                    <i class="fas fa-concierge-bell"></i> Hotel Management
+                                </a>
+                                <a href="/services/fb-staffing/" class="dropdown-item">
+                                    <i class="fas fa-utensils"></i> F&B Staffing
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/employers/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-building"></i> Employers
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/employers/client-process/" class="dropdown-item">
+                                    <i class="fas fa-play-circle"></i> Client Process
+                                </a>
+                                <a href="/employers/roi-calculator/" class="dropdown-item">
+                                    <i class="fas fa-calculator"></i> ROI Calculator
+                                </a>
+                                <a href="/employers/industry-expertise/" class="dropdown-item">
+                                    <i class="fas fa-star"></i> Industry Expertise
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/employers/start-search/" class="dropdown-item">
+                                    <i class="fas fa-rocket"></i> Start a Search
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/candidates/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-user-tie"></i> Candidates
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/candidates/submit-profile/" class="dropdown-item">
+                                    <i class="fas fa-file-upload"></i> Submit Profile
+                                </a>
+                                <a href="/candidates/career-opportunities/" class="dropdown-item">
+                                    <i class="fas fa-briefcase"></i> Career Opportunities
+                                </a>
+                                <a href="/candidates/career-advice/" class="dropdown-item">
+                                    <i class="fas fa-graduation-cap"></i> Career Advice
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <!-- <a href="/candidates/hospitality-salaries/" class="dropdown-item">
+                                    <i class="fas fa-money-bill-wave"></i> Hospitality Salaries
+                                </a> -->
+                            </div>
+                        </li>
+                        
+                        <!-- <li class="nav-item">
+                            <a href="/case-studies/" class="nav-link">
+                                <i class="fas fa-chart-line"></i> Case Studies
+                            </a>
+                        </li> -->
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/insights/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-lightbulb"></i> Insights
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/insights/blog/" class="dropdown-item">
+                                    <i class="fas fa-blog"></i> Blog
+                                </a>
+                                <a href="/insights/industry-reports/" class="dropdown-item">
+                                    <i class="fas fa-chart-bar"></i> Industry Reports
+                                </a>
+                                <a href="/insights/webinars/" class="dropdown-item">
+                                    <i class="fas fa-video"></i> Webinars
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/insights/white-papers/" class="dropdown-item">
+                                    <i class="fas fa-file-alt"></i> White Papers
+                                </a> 
+                            </div>
+                        </li>
+                        
+                                                 
+                        <li class="nav-item dropdown">
+                            <a href="/about/" class="nav-link">
+                                <i class="fas fa-info-circle"></i> About
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/about/our-difference/" class="dropdown-item">
+                                    <i class="fas fa-search"></i> Our Difference
+                                </a>
+                                <a href="/about/our-team/" class="dropdown-item">
+                                    <i class="fas fa-chart-line"></i> Our Team
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="nav-cta-group">
+                        <a href="/emergency/" class="nav-cta nav-cta-emergency">
+                            <i class="fas fa-bolt"></i> EMERGENCY STAFFING
+                        </a>
+                        <a href="tel:+15551234567" class="nav-cta">
+                            <i class="fas fa-phone"></i> +234 8039661354
+                        </a>
+                    </div>
+                </nav>
+                
+                <div class="mobile-overlay"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li aria-current="page">Executive Search</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <!-- <div class="tier-badge">TIER 1 SERVICE</div> -->
+                <h1 class="page-title">Executive Search for Hospitality Leadership</h1>
+                <p class="page-subtitle">Confidential, targeted recruitment of General Managers, F&B Directors, and senior executives for luxury hotels, resorts, and restaurant groups worldwide.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">42 Days</span>
+                        <span class="stat-label">Avg. Time to Placement</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">96%</span>
+                        <span class="stat-label">Retention After 1 Year</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Executive Placements</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta">
+                    <a href="#contact-form" class="btn-primary btn-large">
+                        <i class="fas fa-calendar-check"></i> Schedule Discovery Call
+                    </a>
+                    <a href="/case-studies/hotel-gm-placement/" class="btn-secondary btn-large">
+                        <i class="fas fa-chart-line"></i> View Case Study
+                    </a>
+                </div>
+            </div>
+            
+            <div class="page-hero-image">
+                <img src="/images/executive-search-hero.jpg" alt="Hotel General Manager and executive team in luxury hotel boardroom" loading="eager">
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Overview -->
+    <section class="service-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Precision Executive Search for Demanding Hospitality Brands</h2>
+                <p>When leadership vacancies threaten operations, revenue, or brand standards, our executive search delivers qualified, culture-aligned candidates within critical timelines.</p>
+            </div>
+
+            <div class="service-feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Confidential Search Process</h3>
+                    <p>Discreet outreach protects your brand and current operations while accessing passive candidates.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Global Talent Network</h3>
+                    <p>Access to executives across North America, Europe, Middle East, and Asia-Pacific markets.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Guarded Placement</h3>
+                    <p>90-day replacement guarantee ensures your investment is protected.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Positions We Fill -->
+    <section class="positions-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Key Hospitality Executive Positions</h2>
+                <p>Specialized recruitment for these critical leadership roles</p>
+            </div>
+
+            <div class="positions-grid">
+                <div class="position-card">
+                    <div class="position-header">
+                        <i class="fas fa-hotel"></i>
+                        <h3>General Manager</h3>
+                    </div>
+                    <div class="position-details">
+                        <p><strong>Typical Salary Range:</strong> $150K - $400K+</p>
+                        <p><strong>Time to Fill:</strong> 45-60 days</p>
+                        <p><strong>Key Qualities:</strong> P&L mastery, brand ambassador, operational excellence</p>
+                    </div>
+                    <a href="/candidates/job-board/?role=gm" class="position-link">View GM Opportunities →</a>
+                </div>
+
+                <div class="position-card">
+                    <div class="position-header">
+                        <i class="fas fa-utensils"></i>
+                        <h3>F&B Director</h3>
+                    </div>
+                    <div class="position-details">
+                        <p><strong>Typical Salary Range:</strong> $120K - $250K+</p>
+                        <p><strong>Time to Fill:</strong> 30-45 days</p>
+                        <p><strong>Key Qualities:</strong> Culinary innovation, revenue optimization, team development</p>
+                    </div>
+                    <a href="/candidates/job-board/?role=fb-director" class="position-link">View F&B Director Opportunities →</a>
+                </div>
+
+                <div class="position-card">
+                    <div class="position-header">
+                        <i class="fas fa-chess-king"></i>
+                        <h3>Executive Chef</h3>
+                    </div>
+                    <div class="position-details">
+                        <p><strong>Typical Salary Range:</strong> $95K - $200K+</p>
+                        <p><strong>Time to Fill:</strong> 35-50 days</p>
+                        <p><strong>Key Qualities:</strong> Creative vision, cost control, Michelin/AAA experience</p>
+                    </div>
+                    <a href="/candidates/job-board/?role=executive-chef" class="position-link">View Chef Opportunities →</a>
+                </div>
+
+                <div class="position-card">
+                    <div class="position-header">
+                        <i class="fas fa-concierge-bell"></i>
+                        <h3>Director of Operations</h3>
+                    </div>
+                    <div class="position-details">
+                        <p><strong>Typical Salary Range:</strong> $110K - $220K+</p>
+                        <p><strong>Time to Fill:</strong> 40-55 days</p>
+                        <p><strong>Key Qualities:</strong> Systems optimization, multi-unit management, guest satisfaction</p>
+                    </div>
+                    <a href="/candidates/job-board/?role=operations" class="position-link">View Operations Opportunities →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Executive Search Process</h2>
+                <p>A structured, transparent approach to securing top-tier hospitality leadership</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Discovery & Needs Analysis</h3>
+                        <p>Deep dive into your culture, challenges, and specific requirements. We define success metrics and candidate profile.</p>
+                        <ul>
+                            <li>Stakeholder interviews</li>
+                            <li>Competency mapping</li>
+                            <li>Compensation benchmarking</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Targeted Candidate Search</h3>
+                        <p>Proactive outreach to passive candidates in our network and beyond. We present 3-5 qualified candidates within 21 days.</p>
+                        <ul>
+                            <li>Database search (15,000+ executives)</li>
+                            <li>Competitor mapping</li>
+                            <li>Discreet direct outreach</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Rigorous Assessment</h3>
+                        <p>Multi-layered vetting including behavioral interviews, reference checks, and culture fit analysis.</p>
+                        <ul>
+                            <li>Structured competency interviews</li>
+                            <li>360-degree reference checks</li>
+                            <li>Psychometric assessment (optional)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Presentation & Selection</h3>
+                        <p>Comprehensive candidate dossiers with video interviews, compensation analysis, and onboarding recommendations.</p>
+                        <ul>
+                            <li>Detailed candidate reports</li>
+                            <li>Interview coordination</li>
+                            <li>Offer negotiation support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>Onboarding & Integration</h3>
+                        <p>We ensure smooth transition with 90-day check-ins and ongoing support for retention success.</p>
+                        <ul>
+                            <li>Onboarding plan development</li>
+                            <li>90-day integration support</li>
+                            <li>Quarterly retention check-ins</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Preview -->
+    <section class="case-study-preview">
+        <div class="container">
+            <div class="preview-header">
+                <h2>Executive Search Success Story</h2>
+                <a href="/case-studies/" class="view-all">View All Case Studies →</a>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-study-content">
+                    <div class="case-study-meta">
+                        <span class="case-category">Executive Search</span>
+                        <span class="case-duration">48-Day Placement</span>
+                    </div>
+                    <h3><a href="/case-studies/hotel-gm-placement/">Luxury Boutique Hotel GM Search</a></h3>
+                    <p class="case-challenge"><strong>Challenge:</strong> New 75-room luxury boutique hotel needed GM with both operational excellence and creative vision for unique guest experience.</p>
+                    
+                    <div class="case-results">
+                        <div class="result-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Presented 4 qualified candidates in 18 days</span>
+                        </div>
+                        <div class="result-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Placement completed 12 days ahead of deadline</span>
+                        </div>
+                        <div class="result-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>100% retention after 18 months</span>
+                        </div>
+                    </div>
+                    
+                    <a href="/case-studies/hotel-gm-placement/" class="btn-secondary">Read Full Case Study</a>
+                </div>
+                <div class="case-study-testimonial">
+                    <blockquote>
+                        <p>"The executive search team understood our unique culture and delivered a GM who not only met our operational needs but elevated our guest experience metrics by 22% in the first year."</p>
+                        <footer>
+                            <cite>— Sarah Chen, COO, Luxe Boutique Hotels</cite>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Secure Your Next Hospitality Leader?</h2>
+                <p>Schedule a confidential consultation to discuss your executive search needs.</p>
+                
+                <div class="cta-features" style="margin-top: 50px;">
+                    <div class="feature">
+                        <i class="fas fa-clock"></i>
+                        <span>Response within 24 hours</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-lock"></i>
+                        <span>100% confidential process</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Custom ROI analysis</span>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="service-contact-form" style="margin-top: 50px;">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Job Title *</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company/Property *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="position">Position Needed *</label>
+                            <select id="position" name="position" required>
+                                <option value="">Select a position</option>
+                                <option value="gm">General Manager</option>
+                                <option value="fb-director">F&B Director</option>
+                                <option value="executive-chef">Executive Chef</option>
+                                <option value="operations">Director of Operations</option>
+                                <option value="other">Other Executive Role</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message" style="color: blue;">Brief Overview of Your Needs *</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <button type="submit" class="btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i> Request Executive Search Consultation
+                        </button>
+                        <p class="form-note">We'll contact you within 24 hours to schedule a confidential call.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Services -->
+    <section class="related-services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Explore Our Other Services</h2>
+                <p>Complete hospitality staffing solutions</p>
+            </div>
+
+            <div class="services-navigation">
+                <a href="/services/fb-staffing/" class="service-nav-card">
+                    <div class="nav-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>F&B Staffing</h3>
+                    <p>Restaurant managers, chefs, and dining teams</p>
+                    <span class="nav-arrow">→</span>
+                </a>
+
+                <a href="/services/operational-staffing/" class="service-nav-card">
+                    <div class="nav-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>Operational Staffing</h3>
+                    <p>Front desk, housekeeping, and support roles</p>
+                    <span class="nav-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>HospitalityRecruit</h4>
+                    <p class="footer-description">Specialized executive search and recruitment for luxury hospitality since 2010.</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +2348039661354</p>
+                        <p><i class="fas fa-envelope"></i> executives@hospitalityrecruit.com</p>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Executive Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="/services/executive-search/">General Manager Search</a></li>
+                        <li><a href="/services/executive-search/">F&B Director Recruitment</a></li>
+                        <li><a href="/services/executive-search/">Executive Chef Placement</a></li>
+                        <li><a href="/case-studies/">Executive Case Studies</a></li>
+                        <li><a href="/insights/hospitality-salary-report-2024/">Executive Salary Report</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="/insights/">Leadership Insights</a></li>
+                        <li><a href="/resources/hospitality-interview-questions/">Executive Interview Guide</a></li>
+                        <li><a href="/employers/roi-calculator/">ROI Calculator</a></li>
+                        <li><a href="/about/our-team/">Our Executive Team</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+                        <li><a href="/legal/candidate-agreement/">Candidate Agreement</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2024 HospitalityRecruit Executive Search. All rights reserved.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="/sitemap.xml">Sitemap</a>
+                    <a href="/accessibility/">Accessibility</a>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate submission (replace with actual API call)
+            console.log('Executive search inquiry:', data);
+            
+            // Show success message
+            alert('Thank you for your executive search inquiry. Our team will contact you within 24 hours to schedule a confidential consultation.');
+            this.reset();
+            
+            // Scroll to top of form
+            this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // Position select change
+        document.getElementById('position').addEventListener('change', function() {
+            if(this.value === 'other') {
+                const message = document.getElementById('message');
+                message.value = message.value + '\n\nPosition Details: ';
+                message.focus();
+            }
+        });
+
+        // Tier badge animation
+        const tierBadge = document.querySelector('.tier-badge');
+        if(tierBadge) {
+            setTimeout(() => {
+                tierBadge.classList.add('pulse');
+            }, 1000);
+        }
+
+        // Process step animation on scroll
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.process-step').forEach(step => {
+            observer.observe(step);
+        });
+    </script>
+</body>
+</html>

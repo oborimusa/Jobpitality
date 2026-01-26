@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Hospitality Profile | Get Matched with Top Hotels & Restaurants</title>
+    <meta name="description" content="Share your hospitality profile with our recruiters. Get matched with executive, management, and F&B opportunities. Confidential. No fees ever.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Submit Your Hospitality Profile | HospitalityRecruit">
+    <meta property="og:description" content="Get discovered by top hotels, resorts, and restaurants. Your profile goes directly to our specialist recruiters.">
+    <meta property="og:image" content="https://hospitalityrecruit.com/img/submit-profile-og.jpg">
+    <meta property="og:url" content="https://hospitalityrecruit.com/candidates/submit-profile">
+    <meta property="og:type" content="website">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://hospitalityrecruit.com/candidates/submit-profile">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Variables & Base Styles -->
+    <style>
+        :root {
+            /* Colors */
+            --color-primary: #1a56db;
+            --color-primary-dark: #1e429f;
+            --color-secondary: #7e3af2;
+            --color-secondary-dark: #6c2bd9;
+            --color-success: #059669;
+            --color-warning: #f59e0b;
+            --color-emergency: #dc2626;
+            --color-gold: #fbbf24;
+            --color-bronze: #92400e;
+            
+            --color-white: #ffffff;
+            --color-light: #f8fafc;
+            --color-dark: #0f172a;
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-400: #9ca3af;
+            --color-gray-500: #6b7280;
+            --color-gray-600: #4b5563;
+            --color-gray-700: #374151;
+            --color-gray-800: #1f2937;
+            --color-gray-900: #111827;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            
+            /* Typography */
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-serif: Georgia, 'Times New Roman', Times, serif;
+            
+            /* Border Radius */
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-normal: 250ms ease;
+            --transition-slow: 350ms ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--color-gray-800);
+            background: var(--color-white);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Announcement Bar */
+        .announcement {
+            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
+            color: white;
+            padding: 0.75rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .announcement a {
+            color: white;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-left: var(--space-sm);
+        }
+
+        .announcement a:hover {
+            text-decoration: none;
+        }
+
+        /* Header Styles */
+        .site-header {
+            background: var(--color-white);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: var(--space-sm) 0;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-lg);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: var(--color-dark);
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo h1 {
+            font-size: 1.75rem;
+            margin-bottom: 0;
+            font-weight: 800;
+            color: var(--color-primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo h1 i {
+            color: var(--color-gold);
+        }
+
+        .logo-tagline {
+            font-size: 0.75rem;
+            color: var(--color-emergency);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-top: 1px;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--color-gray-700);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: var(--space-xs) var(--space-sm);
+            transition: color var(--transition-fast);
+        }
+
+        .main-nav a:hover {
+            color: var(--color-primary);
+        }
+
+        .main-nav a.active {
+            color: var(--color-primary);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .main-nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: var(--space-sm);
+            right: var(--space-sm);
+            height: 2px;
+            background: var(--color-primary);
+        }
+
+        .nav-cta {
+            background: var(--color-primary);
+            color: var(--color-white) !important;
+            padding: var(--space-sm) var(--space-lg) !important;
+            border-radius: var(--radius-md);
+            font-weight: 600 !important;
+            transition: all var(--transition-fast);
+        }
+
+        .nav-cta:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            cursor: pointer;
+            padding: var(--space-xs);
+        }
+
+        /* Hero Section */
+        .hero-submit-profile {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-submit-profile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(224, 242, 254, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .candidate-badge {
+            background: linear-gradient(135deg, var(--color-success), #047857);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-xl);
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            color: var(--color-gray-900);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--color-gray-700);
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
+            line-height: 1.6;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(120deg, var(--color-gold) 0%, var(--color-gold) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 0.2em;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-white);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+            color: var(--color-gray-900);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: var(--color-gray-600);
+            max-width: 800px;
+            margin: 0 auto var(--space-2xl);
+            line-height: 1.6;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .benefit-card {
+            padding: var(--space-xl);
+            background: var(--color-gray-50);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-gray-200);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-md);
+            color: var(--color-gray-900);
+        }
+
+        .benefit-card p {
+            color: var(--color-gray-600);
+            margin: 0;
+        }
+
+        /* Role Categories */
+        .roles-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .role-category {
+            padding: var(--space-xl);
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+        }
+
+        .role-category:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-primary);
+        }
+
+        .role-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .role-category h3 {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-md);
+            color: var(--color-gray-900);
+        }
+
+        .role-list {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--color-gray-600);
+        }
+
+        .role-list li {
+            padding: var(--space-xs) 0;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .role-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Main Profile Form */
+        .profile-form-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-white);
+        }
+
+        .form-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .form-header {
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: white;
+            text-align: center;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            margin-bottom: var(--space-sm);
+            color: white;
+        }
+
+        .form-header p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+
+        .form-body {
+            padding: var(--space-2xl);
+        }
+
+        /* Form Styles */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            color: var(--color-gray-700);
+        }
+
+        .form-group label .required {
+            color: var(--color-emergency);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--color-gray-900);
+            background: var(--color-white);
+            transition: all var(--transition-fast);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Salary Expectations */
+        .salary-range {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        .salary-input {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .salary-input span {
+            color: var(--color-gray-600);
+            font-weight: 500;
+        }
+
+        /* Experience Section */
+        .experience-section {
+            background: var(--color-gray-50);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .experience-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-lg);
+            color: var(--color-gray-900);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .experience-section h3 i {
+            color: var(--color-primary);
+        }
+
+        /* Job Entry */
+        .job-entry {
+            background: var(--color-white);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-200);
+            margin-bottom: var(--space-lg);
+        }
+
+        .job-entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: var(--color-gray-900);
+            font-size: 1.125rem;
+        }
+
+        .job-dates {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+        }
+
+        .job-company {
+            color: var(--color-primary);
+            font-weight: 500;
+            margin-bottom: var(--space-xs);
+        }
+
+        .job-description {
+            color: var(--color-gray-600);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Add More Button */
+        .add-more {
+            text-align: center;
+            margin-top: var(--space-xl);
+        }
+
+        .btn-add {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--color-gray-200);
+            color: var(--color-gray-700);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-add:hover {
+            background: var(--color-gray-300);
+        }
+
+        /* File Upload */
+        .file-upload {
+            border: 2px dashed var(--color-gray-300);
+            border-radius: var(--radius-md);
+            padding: var(--space-xl);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .file-upload:hover {
+            border-color: var(--color-primary);
+            background: var(--color-gray-50);
+        }
+
+        .file-upload i {
+            font-size: 3rem;
+            color: var(--color-gray-400);
+            margin-bottom: var(--space-md);
+        }
+
+        .file-upload p {
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-sm);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        /* Privacy Section */
+        .privacy-section {
+            background: var(--color-gray-50);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .privacy-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .privacy-option {
+            padding: var(--space-lg);
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .privacy-option:hover {
+            border-color: var(--color-primary);
+            background: var(--color-gray-100);
+        }
+
+        .privacy-option.selected {
+            border-color: var(--color-primary);
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .privacy-option.selected .privacy-icon {
+            color: white;
+        }
+
+        .privacy-icon {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-primary);
+        }
+
+        .privacy-title {
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+
+        .privacy-desc {
+            font-size: 0.875rem;
+            color: var(--color-gray-600);
+        }
+
+        .privacy-option.selected .privacy-desc {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--color-success), #047857);
+            color: white;
+            border: none;
+            padding: var(--space-lg);
+            font-size: 1.2rem;
+            font-weight: 800;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-note {
+            text-align: center;
+            color: var(--color-gray-600);
+            font-size: 0.85rem;
+            margin-top: var(--space-md);
+        }
+
+        .form-note i {
+            margin-right: var(--space-xs);
+            color: var(--color-success);
+        }
+
+        .form-note a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .form-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* Next Steps Section */
+        .next-steps-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
+            text-align: center;
+        }
+
+        .next-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            padding: var(--space-xl);
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin: 0 auto var(--space-lg);
+            font-size: 1.25rem;
+        }
+
+        .step-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-md);
+            color: var(--color-gray-900);
+        }
+
+        .step-card p {
+            color: var(--color-gray-600);
+            margin: 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--color-gray-900);
+            color: white;
+        }
+
+        .footer-content {
+            text-align: center;
+            padding: var(--space-2xl) 0;
+            border-top: 1px solid var(--color-gray-700);
+        }
+
+        .footer-content p {
+            color: var(--color-gray-400);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-content a {
+            color: var(--color-gray-400);
+            text-decoration: none;
+            margin: 0 var(--space-sm);
+        }
+
+        .footer-content a:hover {
+            color: var(--color-white);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .benefits-grid,
+            .roles-grid,
+            .privacy-options,
+            .next-steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: var(--space-xl);
+                transition: right 0.3s ease;
+                overflow-y: auto;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .main-nav.active {
+                right: 0;
+            }
+
+            .benefits-grid,
+            .roles-grid,
+            .privacy-options,
+            .next-steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+            
+            .salary-range {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <!-- Google Tag Manager & GA4 -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXX');</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SF5LWDZDKF"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SF5LWDZDKF');</script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Announcement Bar -->
+    <div class="announcement">
+        <strong>🌟 Active Searches:</strong> We're currently recruiting for 45+ GM, Executive Chef, and F&B Director roles. 
+        <a href="#profile-form">Submit your profile today →</a>
+    </div>
+
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="/" aria-label="HospitalityRecruit Home">
+                    <h1><i class="fas fa-hotel"></i> HospitalityRecruit</h1>
+                    <span class="logo-tagline">EXECUTIVE SEARCH</span>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav">
+                <a href="/services/">Services</a>
+                <a href="/employers/">Employers</a>
+                <a href="/candidates/" class="active">Candidates</a>
+                <a href="/candidates/career-opportunities/">Opportunities</a>
+                <a href="/candidates/career-advice/">Career Advice</a>
+                <a href="tel:+15551234567" class="nav-cta">Candidate Support</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO: Submit Your Profile -->
+    <section class="hero-submit-profile">
+        <div class="container">
+            <div class="hero-content">
+                <div class="candidate-badge">
+                    <i class="fas fa-user-tie"></i> CANDIDATE PORTAL
+                </div>
+                <h1 class="hero-title">Get Discovered by Top Hotels & Restaurants</h1>
+                <p class="hero-subtitle">Share your profile with our specialist hospitality recruiters. We match exceptional talent with the industry's best opportunities. <span class="hero-highlight">100% confidential. No fees ever.</span></p>
+                
+                <!-- Quick Stats -->
+                <div style="display: flex; justify-content: center; gap: var(--space-2xl); margin-top: var(--space-2xl); flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 900; color: var(--color-primary);">2,500+</div>
+                        <div style="color: var(--color-gray-600); font-size: 0.9rem;">Candidates Placed</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 900; color: var(--color-primary);">92%</div>
+                        <div style="color: var(--color-gray-600); font-size: 0.9rem;">Confidentiality Rate</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 900; color: var(--color-primary);">48h</div>
+                        <div style="color: var(--color-gray-600); font-size: 0.9rem;">Avg. Response Time</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Why Submit Your Profile to HospitalityRecruit?</h2>
+            <p class="section-subtitle">We're not a job board. We're specialist recruiters who build relationships with top hospitality employers.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>100% Confidential</h3>
+                    <p>We never share your profile without your explicit permission. Your current employer will never know you're exploring opportunities.</p>
+                </div>
+                
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Direct Access</h3>
+                    <p>Your profile goes straight to our specialist recruiters who have direct relationships with hiring managers at top properties.</p>
+                </div>
+                
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Targeted Matches</h3>
+                    <p>We only contact you about opportunities that genuinely match your skills, experience, and career aspirations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROLE CATEGORIES -->
+    <section class="roles-section">
+        <div class="container">
+            <h2 class="section-title">We Recruit Across All Hospitality Roles</h2>
+            <p class="section-subtitle">From executive leadership to specialized operations, we have opportunities at every level.</p>
+            
+            <div class="roles-grid">
+                <div class="role-category animate-on-scroll">
+                    <div class="role-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Executive</h3>
+                    <ul class="role-list">
+                        <li>General Managers</li>
+                        <li>F&B Directors</li>
+                        <li>Executive Chefs</li>
+                        <li>Revenue Directors</li>
+                        <li>Regional Directors</li>
+                    </ul>
+                </div>
+                
+                <div class="role-category animate-on-scroll">
+                    <div class="role-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>Hotel Management</h3>
+                    <ul class="role-list">
+                        <li>Rooms Division Mgrs</li>
+                        <li>Front Office Mgrs</li>
+                        <li>Housekeeping Mgrs</li>
+                        <li>Guest Services Mgrs</li>
+                        <li>Revenue Managers</li>
+                    </ul>
+                </div>
+                
+                <div class="role-category animate-on-scroll">
+                    <div class="role-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>F&B Leadership</h3>
+                    <ul class="role-list">
+                        <li>Restaurant Managers</li>
+                        <li>Sous Chefs</li>
+                        <li>Banquet Managers</li>
+                        <li>Beverage Managers</li>
+                        <li>Catering Directors</li>
+                    </ul>
+                </div>
+                
+                <div class="role-category animate-on-scroll">
+                    <div class="role-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Specialized Roles</h3>
+                    <ul class="role-list">
+                        <li>Sommeliers</li>
+                        <li>Pastry Chefs</li>
+                        <li>Mixologists</li>
+                        <li>Spa Directors</li>
+                        <li>Events Managers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN PROFILE FORM -->
+    <section id="profile-form" class="profile-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Submit Your Hospitality Profile</h2>
+                    <p>Complete this form and our recruiters will review your profile for matching opportunities.</p>
+                </div>
+                
+                <div class="form-body">
+                    <form id="submit-profile-form">
+                        <!-- Personal Information -->
+                        <h3 style="color: var(--color-primary); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--color-gray-200); padding-bottom: var(--space-sm);">
+                            <i class="fas fa-user"></i> Personal Information
+                        </h3>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="first-name">First Name <span class="required">*</span></label>
+                                <input type="text" id="first-name" name="first_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name <span class="required">*</span></label>
+                                <input type="text" id="last-name" name="last_name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="location">Current Location <span class="required">*</span></label>
+                                <input type="text" id="location" name="location" placeholder="e.g., New York, NY" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="relocation">Open to Relocation?</label>
+                                <select id="relocation" name="relocation">
+                                    <option value="">Select...</option>
+                                    <option value="yes">Yes, anywhere</option>
+                                    <option value="regional">Yes, within region</option>
+                                    <option value="specific">Yes, to specific locations</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Professional Information -->
+                        <h3 style="color: var(--color-primary); margin: var(--space-2xl) 0 var(--space-lg); border-bottom: 2px solid var(--color-gray-200); padding-bottom: var(--space-sm);">
+                            <i class="fas fa-briefcase"></i> Professional Information
+                        </h3>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="current-title">Current/Most Recent Title <span class="required">*</span></label>
+                                <input type="text" id="current-title" name="current_title" placeholder="e.g., General Manager, Executive Chef" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="years-experience">Years of Experience <span class="required">*</span></label>
+                                <select id="years-experience" name="years_experience" required>
+                                    <option value="">Select...</option>
+                                    <option value="0-3">0-3 years</option>
+                                    <option value="3-5">3-5 years</option>
+                                    <option value="5-10">5-10 years</option>
+                                    <option value="10-15">10-15 years</option>
+                                    <option value="15+">15+ years</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="specialty">Primary Specialty <span class="required">*</span></label>
+                                <select id="specialty" name="specialty" required>
+                                    <option value="">Select your specialty...</option>
+                                    <option value="hotel-management">Hotel Management</option>
+                                    <option value="f-b-management">F&B Management</option>
+                                    <option value="culinary">Culinary</option>
+                                    <option value="revenue">Revenue Management</option>
+                                    <option value="sales-marketing">Sales & Marketing</option>
+                                    <option value="events">Events & Catering</option>
+                                    <option value="spa-wellness">Spa & Wellness</option>
+                                    <option value="operations">Operations</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="target-role">Target Role/Level</label>
+                                <select id="target-role" name="target_role">
+                                    <option value="">Select target level...</option>
+                                    <option value="executive">Executive (GM, Director, VP)</option>
+                                    <option value="senior-management">Senior Management (Department Head)</option>
+                                    <option value="management">Management (Supervisor, Assistant Manager)</option>
+                                    <option value="specialist">Specialist/Individual Contributor</option>
+                                    <option value="consultant">Consultant/Advisor</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="salary-expectations">Salary Expectations (Annual)</label>
+                            <div class="salary-range">
+                                <div class="salary-input">
+                                    <span>From:</span>
+                                    <input type="number" id="salary-min" name="salary_min" placeholder="Min" style="flex: 1;">
+                                    <span>USD</span>
+                                </div>
+                                <div class="salary-input">
+                                    <span>To:</span>
+                                    <input type="number" id="salary-max" name="salary_max" placeholder="Max" style="flex: 1;">
+                                    <span>USD</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience Section -->
+                        <div class="experience-section">
+                            <h3><i class="fas fa-history"></i> Professional Experience</h3>
+                            
+                            <div class="job-entry">
+                                <div class="job-entry-header">
+                                    <div class="job-title">Most Recent Position</div>
+                                </div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="current-company">Company/Property <span class="required">*</span></label>
+                                        <input type="text" id="current-company" name="current_company" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="current-dates">Dates Employed <span class="required">*</span></label>
+                                        <input type="text" id="current-dates" name="current_dates" placeholder="e.g., Jan 2020 - Present" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="current-responsibilities">Key Responsibilities & Achievements</label>
+                                    <textarea id="current-responsibilities" name="current_responsibilities" rows="3" placeholder="Briefly describe your role, team size, key achievements, and impact..."></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="add-more">
+                                <button type="button" class="btn-add" id="add-experience">
+                                    <i class="fas fa-plus"></i> Add Previous Position
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Education & Certifications -->
+                        <div class="form-group">
+                            <label for="education">Education & Certifications</label>
+                            <textarea id="education" name="education" rows="3" placeholder="Degrees, schools, graduation years, hospitality certifications (e.g., CHA, CEC, etc.)"></textarea>
+                        </div>
+                        
+                        <!-- File Upload -->
+                        <div class="form-group">
+                            <label>Upload Your Resume/CV (Optional but Recommended)</label>
+                            <div class="file-upload" id="file-upload-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop your resume or click to browse</p>
+                                <p style="font-size: 0.85rem; color: var(--color-gray-500);">PDF, DOC, DOCX up to 5MB</p>
+                                <input type="file" id="resume" name="resume" class="file-input" accept=".pdf,.doc,.docx">
+                            </div>
+                            <div id="file-name" style="margin-top: var(--space-sm); font-size: 0.9rem; color: var(--color-gray-600);"></div>
+                        </div>
+                        
+                        <!-- Privacy Settings -->
+                        <div class="privacy-section">
+                            <h3><i class="fas fa-shield-alt"></i> Privacy Settings</h3>
+                            <p style="color: var(--color-gray-600); margin-bottom: var(--space-md);">How would you like us to handle your profile?</p>
+                            
+                            <div class="privacy-options">
+                                <div class="privacy-option" data-privacy="fully-confidential">
+                                    <div class="privacy-icon">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                    <div class="privacy-title">Fully Confidential</div>
+                                    <div class="privacy-desc">We'll contact you before sharing with any employer</div>
+                                </div>
+                                <div class="privacy-option" data-privacy="selective">
+                                    <div class="privacy-icon">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                    <div class="privacy-title">Selective Sharing</div>
+                                    <div class="privacy-desc">Share only with employers I approve in advance</div>
+                                </div>
+                                <div class="privacy-option" data-privacy="open">
+                                    <div class="privacy-icon">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <div class="privacy-title">Open to Opportunities</div>
+                                    <div class="privacy-desc">Share with all relevant employers in our network</div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="privacy-setting" name="privacy_setting" value="fully-confidential">
+                        </div>
+                        
+                        <!-- Additional Information -->
+                        <div class="form-group">
+                            <label for="additional-info">Additional Information</label>
+                            <textarea id="additional-info" name="additional_info" rows="3" placeholder="Anything else you'd like us to know? Career goals, preferred work environment, specific companies to avoid, etc."></textarea>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Submit Profile
+                        </button>
+                        
+                        <p class="form-note">
+                            <i class="fas fa-lock"></i> Your information is confidential and secure. By submitting, you agree to our 
+                            <a href="/legal/privacy-policy/">Privacy Policy</a> and 
+                            <a href="/legal/terms-of-service/">Terms of Service</a>. We will never charge candidates any fees.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEXT STEPS -->
+    <section class="next-steps-section">
+        <div class="container">
+            <h2 class="section-title">What Happens After You Submit?</h2>
+            <p class="section-subtitle">Our process is transparent and candidate-focused.</p>
+            
+            <div class="next-steps-grid">
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <h3>Profile Review</h3>
+                    <p>Within 48 hours, a specialist recruiter reviews your profile against our active searches.</p>
+                </div>
+                
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <h3>Initial Contact</h3>
+                    <p>If there's a potential match, we'll contact you for a confidential conversation about the opportunity.</p>
+                </div>
+                
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <h3>Ongoing Support</h3>
+                    <p>We guide you through the entire process, from interview preparation to offer negotiation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 HospitalityRecruit. Connecting Hospitality Talent Since 2010.</p>
+                <p>
+                    <a href="/legal/privacy-policy/">Privacy Policy</a> | 
+                    <a href="/legal/terms-of-service/">Terms of Service</a> |
+                    <a href="/sitemap.xml">Sitemap</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+
+        mobileToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // Privacy Settings Selector
+        const privacyOptions = document.querySelectorAll('.privacy-option');
+        const privacyInput = document.getElementById('privacy-setting');
+
+        // Set default to fully-confidential
+        document.querySelector('.privacy-option[data-privacy="fully-confidential"]').classList.add('selected');
+
+        privacyOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                privacyOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                option.classList.add('selected');
+                
+                // Set hidden input value
+                privacyInput.value = option.dataset.privacy;
+            });
+        });
+
+        // File Upload
+        const fileUploadArea = document.getElementById('file-upload-area');
+        const fileInput = document.getElementById('resume');
+        const fileName = document.getElementById('file-name');
+
+        fileUploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileUploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUploadArea.style.borderColor = 'var(--color-primary)';
+            fileUploadArea.style.background = 'var(--color-gray-50)';
+        });
+
+        fileUploadArea.addEventListener('dragleave', () => {
+            fileUploadArea.style.borderColor = 'var(--color-gray-300)';
+            fileUploadArea.style.background = 'var(--color-white)';
+        });
+
+        fileUploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUploadArea.style.borderColor = 'var(--color-gray-300)';
+            fileUploadArea.style.background = 'var(--color-white)';
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelection(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelection(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelection(file) {
+            // Check file size (5MB max)
+            if (file.size > 5 * 1024 * 1024) {
+                alert('File size must be less than 5MB');
+                return;
+            }
+            
+            // Check file type
+            const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+            if (!validTypes.includes(file.type)) {
+                alert('Please upload a PDF, DOC, or DOCX file');
+                return;
+            }
+            
+            // Display file name
+            fileName.textContent = `Selected: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+            fileName.style.color = 'var(--color-success)';
+        }
+
+        // Add Experience Section
+        let experienceCount = 1;
+        document.getElementById('add-experience').addEventListener('click', function() {
+            if (experienceCount >= 3) {
+                alert('Maximum 3 additional positions can be added. Please summarize additional experience in your resume.');
+                return;
+            }
+            
+            experienceCount++;
+            
+            const experienceSection = document.querySelector('.experience-section');
+            const newJobEntry = document.createElement('div');
+            newJobEntry.className = 'job-entry';
+            newJobEntry.innerHTML = `
+                <div class="job-entry-header">
+                    <div class="job-title">Previous Position ${experienceCount}</div>
+                    <button type="button" class="btn-remove" style="background: var(--color-gray-300); color: var(--color-gray-700); border: none; padding: 4px 12px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-times"></i> Remove
+                    </button>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="previous-company-${experienceCount}">Company/Property</label>
+                        <input type="text" id="previous-company-${experienceCount}" name="previous_company_${experienceCount}">
+                    </div>
+                    <div class="form-group">
+                        <label for="previous-dates-${experienceCount}">Dates Employed</label>
+                        <input type="text" id="previous-dates-${experienceCount}" name="previous_dates_${experienceCount}" placeholder="e.g., Mar 2017 - Dec 2019">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="previous-title-${experienceCount}">Job Title</label>
+                    <input type="text" id="previous-title-${experienceCount}" name="previous_title_${experienceCount}" placeholder="e.g., Restaurant Manager">
+                </div>
+                <div class="form-group">
+                    <label for="previous-responsibilities-${experienceCount}">Key Responsibilities</label>
+                    <textarea id="previous-responsibilities-${experienceCount}" name="previous_responsibilities_${experienceCount}" rows="2" placeholder="Brief description of role and achievements..."></textarea>
+                </div>
+            `;
+            
+            // Insert before the "Add More" button
+            const addMoreButton = experienceSection.querySelector('.add-more');
+            experienceSection.insertBefore(newJobEntry, addMoreButton);
+            
+            // Add remove functionality
+            newJobEntry.querySelector('.btn-remove').addEventListener('click', function() {
+                newJobEntry.remove();
+                experienceCount--;
+            });
+        });
+
+        // Form Submission
+        document.getElementById('submit-profile-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic validation
+            const specialty = document.getElementById('specialty').value;
+            if (!specialty) {
+                alert('Please select your primary specialty');
+                return;
+            }
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Track conversion
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'submit_form', {
+                    'event_category': 'Candidate Profile',
+                    'event_label': 'Profile Submission - ' + specialty,
+                    'value': 1
+                });
+            }
+            
+            // Show success message
+            const firstName = formData.get('first_name');
+            alert(`Thank you, ${firstName}! Your profile has been submitted. A recruiter will review it and contact you within 48 hours if there's a match.`);
+            
+            // Reset form
+            this.reset();
+            fileName.textContent = '';
+            privacyOptions.forEach(opt => opt.classList.remove('selected'));
+            document.querySelector('.privacy-option[data-privacy="fully-confidential"]').classList.add('selected');
+            privacyInput.value = 'fully-confidential';
+            
+            // Remove additional experience entries
+            document.querySelectorAll('.job-entry').forEach((entry, index) => {
+                if (index > 0) { // Keep the first one
+                    entry.remove();
+                }
+            });
+            experienceCount = 1;
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll Animation
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const triggerBottom = window.innerHeight * 0.85;
+            
+            elements.forEach((element, index) => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < triggerBottom) {
+                    // Stagger the animation
+                    setTimeout(() => {
+                        element.classList.add('visible');
+                    }, index * 150);
+                }
+            });
+        }
+
+        // Set initial state
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            el.classList.remove('visible');
+        });
+
+        // Run on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        mobileToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                    }
+                }
+            });
+        });
+
+        // Auto-fill from LinkedIn or similar (conceptual - would need LinkedIn API in production)
+        document.querySelectorAll('.btn-linkedin').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('In a production environment, this would connect to LinkedIn API to auto-fill your profile.');
+            });
+        });
+    </script>
+</body>
+</html>

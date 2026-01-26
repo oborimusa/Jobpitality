@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitality Staffing ROI Calculator | See Your Cost of Bad Hires</title>
+    <meta name="description" content="Calculate the true cost of vacancy, turnover & bad hires in hospitality. See how our staffing pays for itself. Get your custom report.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Hospitality Staffing ROI Calculator - Quantify Your Pain">
+    <meta property="og:description" content="Discover how much poor staffing costs your hotel or restaurant. Get your custom savings estimate.">
+    <meta property="og:image" content="https://hospitalityrecruit.com/img/roi-calculator-og.jpg">
+    <meta property="og:url" content="https://hospitalityrecruit.com/employers/roi-calculator">
+    <meta property="og:type" content="website">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://hospitalityrecruit.com/employers/roi-calculator">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Tag Manager & GA4 -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXX');</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SF5LWDZDKF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-SF5LWDZDKF');
+        
+        // Track calculator interactions
+        function trackROIEvent(action, label, value) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', action, {
+                    'event_category': 'ROI Calculator',
+                    'event_label': label,
+                    'value': value
+                });
+            }
+        }
+    </script>
+    
+    <!-- COMPLETE INLINE CSS FOR ROI CALCULATOR -->
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* COLOR SYSTEM */
+            --color-primary: #1a56db;      /* Trust Blue */
+            --color-primary-dark: #1e429f;
+            --color-secondary: #059669;     /* Success Green */
+            --color-secondary-dark: #047857;
+            --color-emergency: #dc2626;     /* Urgent Red */
+            --color-emergency-dark: #b91c1c;
+            --color-dark: #111827;          /* Text Black */
+            --color-gray-900: #1f2937;
+            --color-gray-800: #374151;
+            --color-gray-700: #4b5563;
+            --color-gray-600: #6b7280;
+            --color-gray-300: #d1d5db;
+            --color-gray-200: #e5e7eb;
+            --color-gray-100: #f3f4f6;
+            --color-light: #f9fafb;
+            --color-white: #ffffff;
+            
+            /* TYPOGRAPHY */
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            
+            /* SPACING */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            
+            /* BORDER RADIUS */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            
+            /* SHADOWS */
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background: var(--color-white);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-md);
+        }
+        
+        h1 { font-size: 3rem; font-weight: 800; }
+        h2 { font-size: 2.25rem; }
+        h3 { font-size: 1.5rem; }
+        
+        p {
+            margin-bottom: var(--space-md);
+            font-size: 1.125rem;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn-primary, .btn-secondary, .btn-emergency, .btn-outline {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            font-family: var(--font-sans);
+        }
+        
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: var(--color-secondary);
+            color: var(--color-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-secondary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-emergency {
+            background: linear-gradient(135deg, var(--color-emergency), var(--color-emergency-dark));
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+        
+        .btn-emergency:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+        }
+        
+        /* ===== HEADER ===== */
+        .site-header {
+            background: var(--color-white);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: var(--space-sm) 0;
+        }
+        
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-lg);
+        }
+        
+        .logo a {
+            text-decoration: none;
+            color: var(--color-dark);
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo h1 {
+            font-size: 1.75rem;
+            margin-bottom: 0;
+            font-weight: 800;
+            color: var(--color-primary);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-tagline {
+            font-size: 0.75rem;
+            color: var(--color-emergency);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-top: -2px;
+        }
+        
+        .main-nav {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+        
+        .main-nav a {
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+        
+        .main-nav a.active {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        
+        .main-nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--color-primary);
+        }
+        
+        .main-nav a:hover {
+            color: var(--color-primary);
+        }
+        
+        .nav-cta {
+            background: var(--color-primary);
+            color: var(--color-white) !important;
+            padding: 0.5rem 1.25rem !important;
+            border-radius: var(--radius-md);
+            font-weight: 600 !important;
+            margin-left: var(--space-sm);
+        }
+        
+        .nav-cta:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            cursor: pointer;
+            padding: var(--space-xs);
+        }
+        
+        /* ===== ROI HERO ===== */
+        .roi-hero {
+            padding: var(--space-2xl) var(--space-md);
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .roi-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(241, 245, 249, 0.4) 100%);
+            z-index: 1;
+        }
+        
+        .roi-badge {
+            background: var(--color-secondary);
+            color: var(--color-white);
+            display: inline-block;
+            padding: 0.625rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .roi-hero-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--color-dark);
+            line-height: 1.1;
+            margin-bottom: var(--space-md);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .roi-hero-title span {
+            color: var(--color-primary);
+            position: relative;
+        }
+        
+        .roi-hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(26, 86, 219, 0.2);
+            z-index: -1;
+        }
+        
+        .roi-hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--color-gray-800);
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* PREVIEW STATS */
+        .roi-stats-preview {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2xl);
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-preview {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+        }
+        
+        .stat-preview .stat-number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--color-primary);
+            display: block;
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .stat-preview .stat-label {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        /* ===== CALCULATOR CONTAINER ===== */
+        .roi-calculator-section {
+            padding: var(--space-2xl) var(--space-md);
+            background: var(--color-white);
+        }
+        
+        .calculator-container {
+            display: grid;
+            grid-template-columns: 55% 45%;
+            gap: var(--space-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            border: 1px solid var(--color-gray-300);
+        }
+        
+        /* LEFT: INPUT FORM */
+        .calculator-inputs {
+            padding: var(--space-2xl);
+            background: var(--color-white);
+            border-right: 1px solid var(--color-gray-300);
+        }
+        
+        .calculator-header {
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 2px solid var(--color-gray-300);
+        }
+        
+        .calculator-header h2 {
+            font-size: 1.8rem;
+            color: var(--color-dark);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .calculator-header h2 i {
+            color: var(--color-primary);
+            margin-right: var(--space-xs);
+        }
+        
+        .calculator-header p {
+            color: var(--color-gray-600);
+            font-size: 0.95rem;
+        }
+        
+        /* INPUT GROUPS */
+        .input-group {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--color-gray-800);
+            font-size: 1rem;
+        }
+        
+        .input-group label i {
+            color: var(--color-primary);
+            margin-right: var(--space-xs);
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* SELECT INPUTS */
+        .calculator-select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-family: var(--font-sans);
+            background: var(--color-white);
+            color: var(--color-dark);
+            transition: border-color 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .calculator-select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+        }
+        
+        /* SALARY INPUT */
+        .salary-input-wrapper {
+            position: relative;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .currency {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 600;
+            color: var(--color-gray-700);
+            font-size: 1.1rem;
+        }
+        
+        .calculator-input {
+            width: 100%;
+            padding: 0.875rem 1rem 0.875rem 2.5rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            color: var(--color-dark);
+            transition: border-color 0.2s ease;
+        }
+        
+        .calculator-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+        }
+        
+        /* PERCENTAGE INPUT */
+        .percentage-input {
+            position: relative;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .percent {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 600;
+            color: var(--color-gray-700);
+            font-size: 1.1rem;
+        }
+        
+        /* SLIDERS */
+        .range-slider {
+            margin-top: var(--space-sm);
+        }
+        
+        .slider {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--color-gray-300);
+            border-radius: 4px;
+            outline: none;
+            margin: var(--space-sm) 0;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid var(--color-white);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
+        }
+        
+        .slider::-webkit-slider-thumb:hover {
+            background: var(--color-primary-dark);
+            transform: scale(1.1);
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid var(--color-white);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--color-gray-600);
+            margin-top: var(--space-xs);
+        }
+        
+        .input-note {
+            font-size: 0.85rem;
+            color: var(--color-gray-600);
+            margin-top: var(--space-xs);
+            font-style: italic;
+        }
+        
+        /* CALCULATE BUTTON */
+        .btn-calculate {
+            width: 100%;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: var(--color-white);
+            border: none;
+            padding: 1.25rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: var(--space-lg);
+            box-shadow: 0 8px 20px rgba(26, 86, 219, 0.3);
+        }
+        
+        .btn-calculate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(26, 86, 219, 0.4);
+        }
+        
+        .btn-calculate:active {
+            transform: translateY(0);
+        }
+        
+        .btn-calculate i {
+            margin-right: var(--space-sm);
+        }
+        
+        .form-disclaimer {
+            margin-top: var(--space-lg);
+            padding: var(--space-md);
+            background: var(--color-gray-100);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            color: var(--color-gray-600);
+        }
+        
+        .form-disclaimer i {
+            color: var(--color-secondary);
+            margin-right: var(--space-xs);
+        }
+        
+        /* RIGHT: RESULTS DISPLAY */
+        .calculator-results {
+            padding: var(--space-2xl);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        .results-header {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .results-header h2 {
+            font-size: 1.8rem;
+            color: var(--color-dark);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .results-header h2 i {
+            color: var(--color-primary);
+            margin-right: var(--space-xs);
+        }
+        
+        .results-header p {
+            color: var(--color-gray-600);
+            font-size: 0.95rem;
+        }
+        
+        /* PLACEHOLDER */
+        .results-placeholder {
+            text-align: center;
+            padding: var(--space-2xl) var(--space-lg);
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            border: 2px dashed var(--color-gray-300);
+        }
+        
+        .placeholder-icon {
+            font-size: 3rem;
+            color: var(--color-gray-400);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .results-placeholder h3 {
+            color: var(--color-gray-700);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .placeholder-features {
+            list-style: none;
+            text-align: left;
+            max-width: 300px;
+            margin: var(--space-lg) auto 0;
+        }
+        
+        .placeholder-features li {
+            padding: var(--space-xs) 0;
+            padding-left: 1.75rem;
+            position: relative;
+            color: var(--color-gray-600);
+        }
+        
+        .placeholder-features li i {
+            position: absolute;
+            left: 0;
+            color: var(--color-secondary);
+        }
+        
+        /* RESULTS OUTPUT */
+        .results-output {
+            display: none;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* TOTAL COST CARD */
+        .total-cost-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-lg);
+            border: 2px solid var(--color-emergency);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.1);
+        }
+        
+        .cost-label {
+            font-size: 1rem;
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        
+        .cost-amount {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--color-emergency);
+            line-height: 1;
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+        
+        .cost-breakdown {
+            background: var(--color-gray-100);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+        }
+        
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--color-gray-300);
+        }
+        
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+        
+        .breakdown-label {
+            color: var(--color-gray-700);
+            font-size: 0.95rem;
+        }
+        
+        .breakdown-value {
+            font-weight: 700;
+            color: var(--color-dark);
+            font-size: 1.1rem;
+        }
+        
+        /* SAVINGS CARD */
+        .savings-card {
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dark));
+            color: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-lg);
+            box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);
+        }
+        
+        .savings-header h3 {
+            color: var(--color-white);
+            margin-bottom: var(--space-xs);
+            font-size: 1.5rem;
+        }
+        
+        .savings-header h3 i {
+            margin-right: var(--space-xs);
+        }
+        
+        .savings-header p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-lg);
+            font-size: 0.95rem;
+        }
+        
+        .savings-amount {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--color-white);
+            line-height: 1;
+            margin-bottom: var(--space-lg);
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .savings-note {
+            background: rgba(255, 255, 255, 0.15);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            backdrop-filter: blur(10px);
+        }
+        
+        .savings-note p {
+            margin-bottom: var(--space-sm);
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 0.95rem;
+        }
+        
+        .savings-note p strong {
+            color: var(--color-white);
+        }
+        
+        .roi-statement {
+            font-size: 1.2rem !important;
+            font-weight: 800 !important;
+            text-align: center;
+            margin-top: var(--space-md) !important;
+            padding: var(--space-sm);
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-md);
+            letter-spacing: 0.5px;
+        }
+        
+        /* REPORT REQUEST FORM */
+        .results-cta {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin-top: var(--space-xl);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .results-cta h3 {
+            color: var(--color-dark);
+            margin-bottom: var(--space-xs);
+            font-size: 1.5rem;
+        }
+        
+        .results-cta h3 i {
+            color: var(--color-primary);
+            margin-right: var(--space-xs);
+        }
+        
+        .results-cta p {
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-md);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .report-input {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-family: var(--font-sans);
+            transition: border-color 0.2s ease;
+        }
+        
+        .report-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+        }
+        
+        .btn-report {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: var(--color-white);
+            border: none;
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .btn-report:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 86, 219, 0.3);
+        }
+        
+        .btn-report i {
+            margin-right: var(--space-xs);
+        }
+        
+        .form-note {
+            font-size: 0.85rem;
+            color: var(--color-gray-600);
+            margin-top: var(--space-sm);
+        }
+        
+        .form-note i {
+            color: var(--color-secondary);
+            margin-right: var(--space-xs);
+        }
+        
+        .alternative-cta {
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--color-gray-300);
+            text-align: center;
+        }
+        
+        .alternative-cta p {
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+            color: var(--color-gray-700);
+        }
+        
+        .phone-cta {
+            display: inline-block;
+            background: var(--color-secondary);
+            color: var(--color-white);
+            padding: 0.875rem 1.5rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .phone-cta:hover {
+            background: var(--color-secondary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+        }
+        
+        .phone-cta i {
+            margin-right: var(--space-xs);
+        }
+        
+        /* ===== INDUSTRY DATA SECTION ===== */
+        .industry-data-section {
+            padding: var(--space-2xl) var(--space-md);
+            background: var(--color-gray-100);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--color-dark);
+            margin-bottom: var(--space-md);
+        }
+        
+        .section-title span {
+            color: var(--color-primary);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--color-gray-600);
+            max-width: 700px;
+            margin: 0 auto var(--space-2xl);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .data-card {
+            background: var(--color-white);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-gray-300);
+            transition: all 0.3s ease;
+        }
+        
+        .data-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+        
+        .data-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .data-card h3 {
+            color: var(--color-dark);
+            margin-bottom: var(--space-lg);
+            font-size: 1.5rem;
+        }
+        
+        .data-facts {
+            list-style: none;
+        }
+        
+        .data-facts li {
+            padding: var(--space-sm) 0;
+            padding-left: 1.75rem;
+            position: relative;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .data-facts li:last-child {
+            border-bottom: none;
+        }
+        
+        .data-facts li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-secondary);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        
+        .data-facts li strong {
+            color: var(--color-dark);
+        }
+        
+        /* ===== FINAL CTA ===== */
+        .roi-final-cta {
+            padding: var(--space-2xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-gray-900), #111827);
+            color: var(--color-white);
+        }
+        
+        .final-cta-card {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: var(--space-2xl);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .final-cta-card h2 {
+            color: var(--color-white);
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .final-cta-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-lg);
+            justify-content: center;
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+        }
+        
+        .cta-buttons .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .cta-buttons .btn-outline {
+            background: transparent;
+            color: var(--color-white);
+            border: 2px solid var(--color-white);
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .cta-buttons .btn-outline:hover {
+            background: var(--color-white);
+            color: var(--color-dark);
+        }
+        
+        .cta-phone {
+            margin-top: var(--space-lg);
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .cta-phone p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+        
+        .cta-phone a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        .cta-phone a:hover {
+            text-decoration: underline;
+        }
+        
+        .cta-phone i {
+            margin-right: var(--space-xs);
+            color: var(--color-secondary);
+        }
+        
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: var(--color-gray-900);
+            color: var(--color-white);
+            padding: var(--space-xl) 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            padding: var(--space-lg) var(--space-md);
+            border-top: 1px solid var(--color-gray-800);
+        }
+        
+        .site-footer p {
+            color: var(--color-gray-300);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .site-footer a {
+            color: var(--color-gray-300);
+            text-decoration: none;
+        }
+        
+        .site-footer a:hover {
+            color: var(--color-white);
+            text-decoration: underline;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            margin: var(--space-md) 0;
+            flex-wrap: wrap;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .calculator-inputs {
+                border-right: none;
+                border-bottom: 1px solid var(--color-gray-300);
+            }
+            
+            .roi-hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .roi-hero {
+                padding: var(--space-xl) var(--space-sm);
+            }
+            
+            .roi-hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .roi-hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .roi-stats-preview {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--space-lg);
+            }
+            
+            .stat-preview {
+                max-width: 100%;
+            }
+            
+            .calculator-inputs,
+            .calculator-results {
+                padding: var(--space-lg);
+            }
+            
+            .cost-amount,
+            .savings-amount {
+                font-size: 2.8rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .btn-report {
+                width: 100%;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .cta-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* MOBILE HEADER */
+            .site-header .container {
+                flex-wrap: wrap;
+                gap: var(--space-md);
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.7rem;
+            }
+            
+            .main-nav {
+                display: none;
+                width: 100%;
+                order: 3;
+                margin-top: var(--space-md);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-sm);
+            }
+            
+            .main-nav.active {
+                display: flex;
+            }
+            
+            .main-nav a {
+                width: 100%;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid var(--color-gray-300);
+            }
+            
+            .main-nav a.active::after {
+                display: none;
+            }
+            
+            .nav-cta {
+                margin-left: 0;
+                margin-top: var(--space-sm);
+                text-align: center;
+                width: 100%;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+                margin-left: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .roi-hero-title {
+                font-size: 2rem;
+            }
+            
+            .roi-hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .roi-badge {
+                font-size: 0.85rem;
+                padding: 0.5rem 1.25rem;
+            }
+            
+            .cost-amount,
+            .savings-amount {
+                font-size: 2.5rem;
+            }
+            
+            .breakdown-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-xs);
+            }
+            
+            .final-cta-card {
+                padding: var(--space-lg);
+            }
+            
+            .final-cta-card h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            .roi-hero,
+            .industry-data-section,
+            .roi-final-cta,
+            .site-header,
+            .site-footer {
+                display: none !important;
+            }
+            
+            .calculator-container {
+                box-shadow: none !important;
+                border: 1px solid #000 !important;
+                break-inside: avoid;
+            }
+            
+            .results-output {
+                display: block !important;
+            }
+            
+            .btn-calculate,
+            .btn-report {
+                background: none !important;
+                color: #000 !important;
+                border: 1px solid #000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="/" aria-label="HospitalityRecruit Home">
+                    HospitalityRecruit
+                    <span class="logo-tagline">ROI CALCULATOR</span>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav">
+                <a href="/services/">Services</a>
+                <a href="/employers/" class="active">Employers</a>
+                <a href="/candidates/">Candidates</a>
+                <a href="/case-studies/">Case Studies</a>
+                <a href="/insights/">Insights</a>
+                <a href="tel:+15551234567" class="nav-cta">Call Us</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- HERO SECTION -->
+    <section class="roi-hero">
+        <div class="container">
+            <div class="roi-badge"><i class="fas fa-calculator"></i> EMPLOYER TOOL</div>
+            <h1 class="roi-hero-title">What's Your <span>True Cost of Bad Hires</span>?</h1>
+            <p class="roi-hero-subtitle">This calculator uses hospitality-industry data to reveal your hidden staffing costs. See how professional recruitment pays for itself.</p>
+            
+            <!-- Quick Stats for Credibility -->
+            <div class="roi-stats-preview">
+                <div class="stat-preview">
+                    <div class="stat-number">$25,000</div>
+                    <div class="stat-label">Average cost to replace a mid-level manager</div>
+                </div>
+                <div class="stat-preview">
+                    <div class="stat-number">42%</div>
+                    <div class="stat-label">Higher turnover in hospitality vs. other industries</div>
+                </div>
+                <div class="stat-preview">
+                    <div class="stat-number">3.5x</div>
+                    <div class="stat-label">Salary multiplier for a bad executive hire</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CALCULATOR SECTION -->
+    <section class="roi-calculator-section">
+        <div class="container">
+            <div class="calculator-container">
+                <!-- LEFT: INPUT FORM -->
+                <div class="calculator-inputs">
+                    <div class="calculator-header">
+                        <h2><i class="fas fa-edit"></i> Your Staffing Situation</h2>
+                        <p>Fill in your details. All fields are required for an accurate calculation.</p>
+                    </div>
+                    
+                    <form id="roi-calculator-form">
+                        <!-- ROLE SELECTION -->
+                        <div class="input-group">
+                            <label for="role-type"><i class="fas fa-user-tie"></i> What type of role are you hiring for? *</label>
+                            <select id="role-type" name="role_type" required class="calculator-select">
+                                <option value="">Select a role type...</option>
+                                <option value="executive">Executive (GM, Director, Head Chef) - Avg. Salary: $95,000</option>
+                                <option value="management">Management (Sous Chef, F&B Manager) - Avg. Salary: $65,000</option>
+                                <option value="supervisory">Supervisory (Shift Lead, Supervisor) - Avg. Salary: $45,000</option>
+                                <option value="line-staff">Line Staff (Server, Cook, Housekeeper) - Avg. Salary: $35,000</option>
+                            </select>
+                        </div>
+                        
+                        <!-- SALARY INPUT -->
+                        <div class="input-group">
+                            <label for="annual-salary"><i class="fas fa-money-bill-wave"></i> Annual Salary for this Role *</label>
+                            <div class="salary-input-wrapper">
+                                <span class="currency">$</span>
+                                <input type="number" id="annual-salary" name="annual_salary" min="25000" max="250000" step="5000" value="65000" required class="calculator-input">
+                                <div class="input-note">Based on industry averages. Adjust to your specific salary.</div>
+                            </div>
+                            <div class="range-slider">
+                                <input type="range" id="salary-slider" min="25000" max="250000" step="5000" value="65000" class="slider">
+                                <div class="slider-labels">
+                                    <span>$25k</span>
+                                    <span>$140k</span>
+                                    <span>$250k</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- VACANCY DURATION -->
+                        <div class="input-group">
+                            <label for="vacancy-days"><i class="fas fa-calendar-times"></i> How long has this role been vacant? *</label>
+                            <select id="vacancy-days" name="vacancy_days" required class="calculator-select">
+                                <option value="30">Less than 1 month</option>
+                                <option value="60" selected>1-2 months</option>
+                                <option value="90">2-3 months</option>
+                                <option value="120">3-4 months</option>
+                                <option value="180">4-6 months</option>
+                                <option value="270">6-9 months</option>
+                                <option value="365">9+ months</option>
+                            </select>
+                            <div class="input-note">Each day vacant costs 1.5-2x the daily salary in lost productivity & revenue.</div>
+                        </div>
+                        
+                        <!-- TURNOVER HISTORY -->
+                        <div class="input-group">
+                            <label><i class="fas fa-retweet"></i> What's your annual turnover rate for similar roles? *</label>
+                            <div class="percentage-input">
+                                <input type="number" id="turnover-rate" name="turnover_rate" min="10" max="150" value="45" required class="calculator-input">
+                                <span class="percent">%</span>
+                            </div>
+                            <div class="range-slider">
+                                <input type="range" id="turnover-slider" min="10" max="150" value="45" class="slider">
+                                <div class="slider-labels">
+                                    <span>10% (Excellent)</span>
+                                    <span>45% (Industry Avg.)</span>
+                                    <span>150% (Critical)</span>
+                                </div>
+                            </div>
+                            <div class="input-note">Hospitality industry average: 45-75%. High-end establishments: 25-40%.</div>
+                        </div>
+                        
+                        <!-- TEAM SIZE IMPACT -->
+                        <div class="input-group">
+                            <label for="team-size"><i class="fas fa-users"></i> How many people does this role manage/affect? *</label>
+                            <select id="team-size" name="team_size" required class="calculator-select">
+                                <option value="1">Just themselves (Individual Contributor)</option>
+                                <option value="5" selected>Small team (2-8 people)</option>
+                                <option value="15">Medium team (9-20 people)</option>
+                                <option value="30">Large team (21-40 people)</option>
+                                <option value="50">Department/entire venue (40+ people)</option>
+                            </select>
+                            <div class="input-note">Leadership vacancies have a ripple effect on team morale and productivity.</div>
+                        </div>
+                        
+                        <!-- CALCULATE BUTTON -->
+                        <button type="submit" class="btn-calculate">
+                            <i class="fas fa-calculator"></i> CALCULATE MY STAFFING COSTS
+                        </button>
+                        
+                        <div class="form-disclaimer">
+                            <p><i class="fas fa-lock"></i> <strong>Your data is secure:</strong> We don't store sensitive information. This calculation is for your eyes only.</p>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- RIGHT: RESULTS DISPLAY -->
+                <div class="calculator-results">
+                    <div class="results-header">
+                        <h2><i class="fas fa-chart-line"></i> Your Cost Analysis</h2>
+                        <p>Results appear here after calculation. Based on hospitality industry research.</p>
+                    </div>
+                    
+                    <div class="results-placeholder">
+                        <div class="placeholder-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3>Fill in your details to see the numbers</h3>
+                        <p>The calculator will show you:</p>
+                        <ul class="placeholder-features">
+                            <li><i class="fas fa-check"></i> Cost of vacancy (lost revenue & productivity)</li>
+                            <li><i class="fas fa-check"></i> Turnover & recruitment expenses</li>
+                            <li><i class="fas fa-check"></i> Risk of a bad hire penalty</li>
+                            <li><i class="fas fa-check"></i> Your potential annual savings</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- RESULTS WILL BE DYNAMICALLY INSERTED HERE -->
+                    <div class="results-output" id="results-output" style="display: none;">
+                        <div class="total-cost-card">
+                            <div class="cost-label">Your Estimated Annual Staffing Problem Cost</div>
+                            <div class="cost-amount" id="total-cost">$0</div>
+                            <div class="cost-breakdown">
+                                <div class="breakdown-item">
+                                    <span class="breakdown-label">Vacancy Cost</span>
+                                    <span class="breakdown-value" id="vacancy-cost">$0</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span class="breakdown-label">Turnover Cost</span>
+                                    <span class="breakdown-value" id="turnover-cost">$0</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span class="breakdown-label">Bad Hire Risk</span>
+                                    <span class="breakdown-value" id="bad-hire-risk">$0</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="savings-card">
+                            <div class="savings-header">
+                                <h3><i class="fas fa-piggy-bank"></i> Your Potential Savings</h3>
+                                <p>With HospitalityRecruit's proven hiring process:</p>
+                            </div>
+                            <div class="savings-amount" id="potential-savings">$0</div>
+                            <div class="savings-note">
+                                <p><strong>Our average placement fee for this role type:</strong> <span id="placement-fee">$0</span></p>
+                                <p class="roi-statement"><span id="roi-multiplier">0</span>X RETURN ON INVESTMENT</p>
+                            </div>
+                        </div>
+                        
+                        <!-- CTA AFTER CALCULATION -->
+                        <div class="results-cta">
+                            <h3><i class="fas fa-file-alt"></i> Want Your Custom Report?</h3>
+                            <p>Get a detailed PDF analysis with actionable recommendations.</p>
+                            <form id="report-request-form" style="margin-top: var(--space-md);">
+                                <div class="form-row">
+                                    <input type="email" id="report-email" placeholder="Your work email" required class="report-input">
+                                    <button type="submit" class="btn-report">
+                                        <i class="fas fa-download"></i> GET MY REPORT
+                                    </button>
+                                </div>
+                                <p class="form-note"><i class="fas fa-shield-alt"></i> We'll email the report within 15 minutes. No spam, ever.</p>
+                            </form>
+                            
+                            <div class="alternative-cta">
+                                <p><strong>Prefer to talk numbers?</strong></p>
+                                <a href="tel:+15551234567" class="phone-cta">
+                                    <i class="fas fa-phone"></i> Call a consultant: (555) 123-4567
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- INDUSTRY DATA SECTION -->
+    <section class="industry-data-section">
+        <div class="container">
+            <h2 class="section-title">Our Numbers Are Based on <span>Real Hospitality Data</span></h2>
+            <p class="section-subtitle">We don't guess. We use research from the National Restaurant Association, AHLA, and our own client data.</p>
+            
+            <div class="data-grid">
+                <div class="data-card">
+                    <div class="data-icon"><i class="fas fa-hotel"></i></div>
+                    <h3>Hotel Industry</h3>
+                    <ul class="data-facts">
+                        <li>Housekeeper turnover: <strong>60-80% annually</strong></li>
+                        <li>Cost to replace a front desk agent: <strong>$3,200-$5,600</strong></li>
+                        <li>Average GM vacancy duration: <strong>94 days</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="data-card">
+                    <div class="data-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Restaurant Industry</h3>
+                    <ul class="data-facts">
+                        <li>Server turnover: <strong>50-70% annually</strong></li>
+                        <li>Cost of a bad chef hire: <strong>$12,000-$25,000</strong></li>
+                        <li>Revenue loss per vacant table: <strong>$200-$500/night</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="data-card">
+                    <div class="data-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Our Client Results</h3>
+                    <ul class="data-facts">
+                        <li>Average retention improvement: <strong>42%</strong></li>
+                        <li>Reduced time-to-hire: <strong>28 days faster</strong></li>
+                        <li>Client satisfaction: <strong>98%</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FINAL CTA -->
+    <section class="roi-final-cta">
+        <div class="container">
+            <div class="final-cta-card">
+                <h2>Stop Calculating Costs. Start Saving.</h2>
+                <p>Your time is better spent running your business, not running staffing calculations.</p>
+                
+                <div class="cta-buttons">
+                    <a href="#report-request-form" class="btn-primary btn-large">
+                        <i class="fas fa-file-pdf"></i> GET YOUR CUSTOM REPORT
+                    </a>
+                    <a href="/employers/client-process/" class="btn-outline btn-large">
+                        <i class="fas fa-play-circle"></i> SEE OUR PROCESS
+                    </a>
+                </div>
+                
+                <div class="cta-phone">
+                    <p><i class="fas fa-phone-alt"></i> <strong>Immediate consultation:</strong> <a href="tel:+15551234567">(555) 123-4567</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SITE FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 HospitalityRecruit. The Proven Hospitality Talent Partner.</p>
+                <div class="footer-links">
+                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/terms-of-service/">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        
+        if (mobileMenuToggle && mainNav) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+            
+            document.addEventListener('click', (event) => {
+                if (!mainNav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                    mainNav.classList.remove('active');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        }
+        
+        // DOM Elements
+        const roiForm = document.getElementById('roi-calculator-form');
+        const resultsOutput = document.getElementById('results-output');
+        const reportRequestForm = document.getElementById('report-request-form');
+        
+        // Salary Slider Sync
+        const salaryInput = document.getElementById('annual-salary');
+        const salarySlider = document.getElementById('salary-slider');
+        
+        if (salaryInput && salarySlider) {
+            salaryInput.addEventListener('input', function() {
+                salarySlider.value = this.value;
+                trackROIEvent('adjust_salary', 'Manual Input', parseInt(this.value));
+            });
+            
+            salarySlider.addEventListener('input', function() {
+                salaryInput.value = this.value;
+                trackROIEvent('adjust_salary', 'Slider', parseInt(this.value));
+            });
+        }
+        
+        // Turnover Slider Sync
+        const turnoverInput = document.getElementById('turnover-rate');
+        const turnoverSlider = document.getElementById('turnover-slider');
+        
+        if (turnoverInput && turnoverSlider) {
+            turnoverInput.addEventListener('input', function() {
+                turnoverSlider.value = this.value;
+            });
+            
+            turnoverSlider.addEventListener('input', function() {
+                turnoverInput.value = this.value;
+            });
+        }
+        
+        // CALCULATION ENGINE
+        function calculateStaffingCosts(formData) {
+            // Extract values
+            const roleType = formData.get('role_type');
+            const annualSalary = parseInt(formData.get('annual_salary')) || 65000;
+            const vacancyDays = parseInt(formData.get('vacancy_days')) || 60;
+            const turnoverRate = parseInt(formData.get('turnover_rate')) || 45;
+            const teamSize = parseInt(formData.get('team_size')) || 5;
+            
+            // Industry multipliers based on role type
+            const multipliers = {
+                'executive': { vacancy: 2.5, turnover: 2.0, badHire: 3.5, placementFee: 0.25 },
+                'management': { vacancy: 2.0, turnover: 1.8, badHire: 2.5, placementFee: 0.22 },
+                'supervisory': { vacancy: 1.8, turnover: 1.5, badHire: 1.8, placementFee: 0.20 },
+                'line-staff': { vacancy: 1.5, turnover: 1.3, badHire: 1.2, placementFee: 0.18 }
+            };
+            
+            const mult = multipliers[roleType] || multipliers['management'];
+            
+            // Calculations
+            const dailySalary = annualSalary / 260; // Working days
+            const vacancyCost = dailySalary * mult.vacancy * vacancyDays;
+            
+            const turnoverEvents = turnoverRate / 100; // Convert percentage to decimal
+            const turnoverCost = annualSalary * 0.5 * turnoverEvents * mult.turnover; // 50% of salary per turnover event
+            
+            const badHireRisk = annualSalary * 0.3 * mult.badHire; // 30% chance of bad hire
+            
+            // Total cost
+            const totalCost = Math.round(vacancyCost + turnoverCost + badHireRisk);
+            
+            // Placement fee
+            const placementFee = Math.round(annualSalary * mult.placementFee);
+            
+            // Potential savings (reducing costs by 60% - conservative estimate)
+            const potentialSavings = Math.round(totalCost * 0.6);
+            
+            // ROI multiplier
+            const roiMultiplier = (potentialSavings / placementFee).toFixed(1);
+            
+            return {
+                total: totalCost,
+                vacancy: Math.round(vacancyCost),
+                turnover: Math.round(turnoverCost),
+                badHire: Math.round(badHireRisk),
+                placementFee: placementFee,
+                savings: potentialSavings,
+                roi: roiMultiplier
+            };
+        }
+        
+        // FORMAT CURRENCY
+        function formatCurrency(amount) {
+            return '$' + amount.toLocaleString('en-US');
+        }
+        
+        // DISPLAY RESULTS
+        function displayResults(results) {
+            // Update DOM elements
+            document.getElementById('total-cost').textContent = formatCurrency(results.total);
+            document.getElementById('vacancy-cost').textContent = formatCurrency(results.vacancy);
+            document.getElementById('turnover-cost').textContent = formatCurrency(results.turnover);
+            document.getElementById('bad-hire-risk').textContent = formatCurrency(results.badHire);
+            document.getElementById('placement-fee').textContent = formatCurrency(results.placementFee);
+            document.getElementById('potential-savings').textContent = formatCurrency(results.savings);
+            document.getElementById('roi-multiplier').textContent = results.roi;
+            
+            // Show results section
+            resultsOutput.style.display = 'block';
+            
+            // Scroll to results
+            resultsOutput.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Track calculation completion
+            trackROIEvent('calculation_complete', 'Total Cost', results.total);
+        }
+        
+        // FORM SUBMISSION
+        if (roiForm) {
+            roiForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const results = calculateStaffingCosts(formData);
+                
+                displayResults(results);
+                
+                // Track which role type was calculated
+                const roleType = formData.get('role_type');
+                trackROIEvent('calculate_' + roleType, 'Role Type', results.total);
+            });
+        }
+        
+        // REPORT REQUEST FORM
+        if (reportRequestForm) {
+            reportRequestForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('report-email').value;
+                
+                // Simple validation
+                if (!email || !email.includes('@')) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+                
+                // In production: Send to backend
+                alert('Thank you! Your custom report will be emailed within 15 minutes.');
+                
+                // Track conversion
+                trackROIEvent('report_request', 'Email Submission', 1);
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'generate_lead', {
+                        'event_category': 'ROI Calculator',
+                        'event_label': 'Report Request',
+                        'value': 1
+                    });
+                }
+                
+                // Clear form
+                this.reset();
+            });
+        }
+        
+        // Initialize with example if URL parameter exists
+        window.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('example')) {
+                // Pre-fill form with example values
+                document.getElementById('role-type').value = 'management';
+                document.getElementById('annual-salary').value = 75000;
+                document.getElementById('salary-slider').value = 75000;
+                document.getElementById('vacancy-days').value = 90;
+                document.getElementById('turnover-rate').value = 55;
+                document.getElementById('turnover-slider').value = 55;
+                document.getElementById('team-size').value = 15;
+                
+                // Calculate automatically
+                setTimeout(() => {
+                    roiForm.dispatchEvent(new Event('submit'));
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>

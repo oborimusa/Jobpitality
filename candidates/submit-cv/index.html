@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your CV | Hospitality Jobs | Premium Restaurant & Hotel Careers</title>
+    <meta name="description" content="Submit your CV to access exclusive hospitality roles with luxury hotels and restaurants. Confidential process. Better opportunities.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Get Matched with Premium Hospitality Jobs">
+    <meta property="og:description" content="Confidential CV submission for chefs, managers, servers, and hotel professionals.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://yourdomain.com/images/candidate-submission-og.jpg">
+    <meta property="og:url" content="https://yourdomain.com/candidates/submit-cv/">
+    
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Hospitality CV Submission",
+        "description": "Submit your CV for premium hospitality opportunities",
+        "publisher": {
+            "@type": "Organization",
+            "name": "HospitalityRecruit"
+        }
+    }
+    </script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://yourdomain.com/candidates/submit-cv/">
+
+    <style>
+        /* 
+CANDIDATE CV SUBMISSION PAGE CSS
+Lead generation focused - candidates are your inventory
+*/
+
+/* ===== CANDIDATE HERO ===== */
+.candidate-hero {
+    padding: var(--space-2xl) 0;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.candidate-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(224, 242, 254, 0.3) 100%);
+}
+
+.candidate-hero-grid {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    gap: var(--space-2xl);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.candidate-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: var(--space-lg);
+    color: var(--color-gray-900);
+}
+
+.candidate-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-gray-800);
+    margin-bottom: var(--space-xl);
+    line-height: 1.6;
+}
+
+.candidate-subtitle strong {
+    color: var(--color-dark);
+    font-weight: 600;
+}
+
+/* Candidate Benefits */
+.candidate-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin: var(--space-xl) 0;
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-gray-800);
+}
+
+.benefit i {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.benefit span strong {
+    color: var(--color-dark);
+}
+
+/* Candidate Stats */
+.candidate-stats {
+    display: flex;
+    gap: var(--space-xl);
+    margin: var(--space-xl) 0;
+    flex-wrap: wrap;
+}
+
+.candidate-stat {
+    text-align: center;
+    flex: 1;
+    min-width: 100px;
+}
+
+.candidate-stat .stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.candidate-stat .stat-label {
+    font-size: 0.875rem;
+    color: var(--color-gray-800);
+    line-height: 1.4;
+}
+
+/* Candidate Hero Image */
+.candidate-hero-image {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.candidate-hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.candidate-hero-image:hover img {
+    transform: scale(1.02);
+}
+
+.testimonial-bubble {
+    position: absolute;
+    bottom: var(--space-md);
+    left: var(--space-md);
+    right: var(--space-md);
+    background: rgba(255, 255, 255, 0.95);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(10px);
+    border-left: 4px solid var(--color-secondary);
+    text-align: center;
+}
+
+.testimonial-bubble p {
+    font-style: italic;
+    margin-bottom: var(--space-xs);
+    font-size: 0.95rem;
+    color: var(--color-dark);
+    margin: 0 0 var(--space-xs) 0;
+}
+
+.testimonial-author {
+    font-size: 0.875rem;
+    color: var(--color-gray-800);
+    font-weight: 500;
+}
+
+/* ===== QUALIFICATION SECTION ===== */
+.qualification-section {
+    padding: var(--space-2xl) 0;
+    background: var(--color-white);
+}
+
+.qualification-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin: var(--space-xl) 0;
+}
+
+.qualification-card {
+    padding: var(--space-xl);
+    background: var(--color-light);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--color-gray-300);
+}
+
+.qualification-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+}
+
+.qualification-card.highlighted {
+    border: 2px solid var(--color-primary);
+    background: linear-gradient(135deg, var(--color-white), #f0f9ff);
+    transform: scale(1.05);
+}
+
+.qualification-card.highlighted:hover {
+    transform: translateY(-8px) scale(1.05);
+}
+
+.qualification-icon {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+}
+
+.qualification-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-lg);
+    color: var(--color-gray-900);
+}
+
+.qualification-card ul {
+    list-style: none;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+.qualification-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-gray-300);
+    color: var(--color-gray-800);
+    font-size: 0.95rem;
+}
+
+.qualification-card li:last-child {
+    border-bottom: none;
+}
+
+.qualification-note {
+    text-align: center;
+    padding: var(--space-lg);
+    background: #f0f9ff;
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--color-primary);
+    margin-top: var(--space-xl);
+}
+
+.qualification-note p {
+    margin: 0;
+    color: var(--color-gray-800);
+}
+
+.qualification-note i {
+    color: var(--color-primary);
+    margin-right: var(--space-xs);
+}
+
+/* ===== CANDIDATE PROCESS ===== */
+.candidate-process {
+    padding: var(--space-2xl) 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.process-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-step {
+    display: flex;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    align-items: flex-start;
+    position: relative;
+}
+
+.timeline-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 80px;
+    bottom: -60px;
+    width: 2px;
+    background: var(--color-gray-300);
+    z-index: 1;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    z-index: 2;
+}
+
+.step-content {
+    flex: 1;
+    padding-top: var(--space-xs);
+}
+
+.step-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-gray-900);
+}
+
+.step-content p {
+    color: var(--color-gray-800);
+    margin-bottom: var(--space-md);
+}
+
+.step-detail {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-gray-800);
+    font-size: 0.95rem;
+    margin-top: var(--space-md);
+}
+
+.step-detail i {
+    color: var(--color-primary);
+}
+
+/* ===== OPPORTUNITIES SECTION ===== */
+.opportunities-section {
+    padding: var(--space-2xl) 0;
+    background: var(--color-white);
+}
+
+.opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin: var(--space-xl) 0;
+}
+
+.opportunity-card {
+    padding: var(--space-xl);
+    background: var(--color-light);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-gray-300);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.opportunity-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+}
+
+.opportunity-card.featured {
+    border: 2px solid var(--color-primary);
+    background: linear-gradient(135deg, var(--color-white), #f0f9ff);
+}
+
+.opportunity-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-emergency);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.opportunity-header {
+    margin-bottom: var(--space-md);
+    text-align: center;
+}
+
+.opportunity-header h3 {
+    font-size: 1.5rem;
+    color: var(--color-gray-900);
+    margin-bottom: var(--space-sm);
+}
+
+.opportunity-salary {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-secondary);
+}
+
+.opportunity-details {
+    margin-bottom: var(--space-md);
+}
+
+.opportunity-details p {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
+    color: var(--color-gray-800);
+    font-size: 0.95rem;
+}
+
+.opportunity-details i {
+    color: var(--color-primary);
+    width: 20px;
+}
+
+.opportunity-desc {
+    color: var(--color-gray-800);
+    font-size: 0.95rem;
+    margin-bottom: var(--space-md);
+    line-height: 1.5;
+}
+
+.opportunity-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+}
+
+.tag {
+    background: var(--color-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.opportunities-note {
+    text-align: center;
+    padding: var(--space-lg);
+    background: #f0f9ff;
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--color-primary);
+    margin-top: var(--space-xl);
+}
+
+.opportunities-note p {
+    margin: 0;
+    color: var(--color-gray-800);
+}
+
+.opportunities-note i {
+    color: var(--color-primary);
+    margin-right: var(--space-xs);
+}
+
+/* ===== CV FORM SECTION ===== */
+.cv-form-section {
+    padding: var(--space-2xl) 0;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+}
+
+.cv-form-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    color: white;
+}
+
+.cv-form-header h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+}
+
+.cv-form-header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cv-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Form Sections */
+.form-section {
+    background: white;
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.form-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-lg);
+    color: var(--color-gray-900);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.form-section h3 i {
+    color: var(--color-primary);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+}
+
+.form-group {
+    margin-bottom: var(--space-lg);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    color: var(--color-gray-900);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-dark);
+    background: var(--color-white);
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+}
+
+.form-group input::placeholder {
+    color: var(--color-gray-400);
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-sm);
+    margin-top: var(--space-xs);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-gray-800);
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+/* File Upload */
+.upload-area {
+    border: 2px dashed var(--color-gray-300);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--color-light);
+}
+
+.upload-area:hover {
+    border-color: var(--color-primary);
+    background: var(--color-white);
+}
+
+.upload-area i {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+}
+
+.upload-area p {
+    color: var(--color-gray-800);
+    margin-bottom: var(--space-xs);
+}
+
+.browse-link {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.browse-link:hover {
+    text-decoration: none;
+}
+
+.upload-note {
+    font-size: 0.875rem;
+    color: var(--color-gray-600);
+    margin-top: var(--space-xs);
+    margin-bottom: 0;
+}
+
+.file-name-display {
+    margin-top: var(--space-sm);
+    font-size: 0.875rem;
+    color: var(--color-gray-800);
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-light);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-gray-300);
+}
+
+/* Privacy Agreement */
+.privacy-agreement {
+    margin-bottom: var(--space-md);
+}
+
+.privacy-agreement .checkbox-label {
+    align-items: flex-start;
+}
+
+.privacy-agreement .checkbox-label span {
+    line-height: 1.5;
+}
+
+.privacy-agreement a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.privacy-agreement a:hover {
+    text-decoration: underline;
+}
+
+.form-subtext {
+    margin-top: var(--space-lg);
+    text-align: center;
+    color: var(--color-gray-800);
+    font-size: 0.875rem;
+}
+
+.form-subtext i {
+    color: var(--color-primary);
+    margin-right: var(--space-xs);
+}
+
+/* ===== CANDIDATE FAQ ===== */
+.candidate-faq {
+    padding: var(--space-2xl) 0;
+    background: var(--color-white);
+}
+
+.faq-cta {
+    text-align: center;
+    padding: var(--space-xl);
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--color-primary);
+    margin-top: var(--space-xl);
+}
+
+.faq-cta p {
+    margin: 0;
+    color: var(--color-gray-800);
+    font-size: 1.125rem;
+}
+
+.faq-cta a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.faq-cta a:hover {
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    .candidate-hero-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+    
+    .candidate-hero-image {
+        order: -1;
+    }
+    
+    .qualification-grid,
+    .opportunities-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .qualification-card.highlighted {
+        transform: scale(1);
+    }
+    
+    .qualification-card.highlighted:hover {
+        transform: translateY(-8px);
+    }
+    
+    .timeline-step:not(:last-child)::after {
+        left: 30px;
+        top: 80px;
+        bottom: -40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .candidate-title {
+        font-size: 2.5rem;
+    }
+    
+    .candidate-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    .candidate-stats {
+        flex-direction: column;
+        gap: var(--space-lg);
+        text-align: center;
+    }
+    
+    .candidate-stat {
+        min-width: auto;
+    }
+    
+    .timeline-step {
+        flex-direction: column;
+        gap: var(--space-md);
+        text-align: center;
+    }
+    
+    .timeline-step:not(:last-child)::after {
+        left: 50%;
+        top: 60px;
+        bottom: -40px;
+        transform: translateX(-50%);
+    }
+    
+    .step-number {
+        align-self: center;
+    }
+    
+    .step-detail {
+        justify-content: center;
+    }
+    
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .upload-area {
+        padding: var(--space-lg);
+    }
+    
+    .upload-area i {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .candidate-title {
+        font-size: 2rem;
+    }
+    
+    .cv-form-header h2 {
+        font-size: 2rem;
+    }
+    
+    .form-section {
+        padding: var(--space-lg) var(--space-md);
+    }
+    
+    .form-section h3 {
+        font-size: 1.25rem;
+    }
+    
+    .opportunity-header h3 {
+        font-size: 1.25rem;
+    }
+    
+    .opportunity-salary {
+        font-size: 1.25rem;
+    }
+}
+
+/* ===== PRINT STYLES (FOR CANDIDATES TO PRINT THEIR SUBMISSION) ===== */
+@media print {
+    .announcement,
+    .header,
+    .footer,
+    .opportunities-section,
+    .candidate-faq {
+        display: none !important;
+    }
+    
+    .candidate-hero,
+    .qualification-section,
+    .candidate-process,
+    .cv-form-section {
+        padding: 1cm 0;
+        background: none !important;
+    }
+    
+    .cv-form-section {
+        background: white !important;
+    }
+    
+    .form-section {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    .btn-primary {
+        background: none !important;
+        color: black !important;
+        border: 1px solid black !important;
+        text-decoration: none !important;
+    }
+    
+    .upload-area {
+        border: 1px dashed #999 !important;
+    }
+    
+    .testimonial-bubble {
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+    }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(5, 150, 105, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(5, 150, 105, 0);
+    }
+}
+
+/* Apply pulse animation to featured opportunity badge */
+.opportunity-badge {
+    animation: pulse 2s infinite;
+}
+
+/* Smooth transitions for form interactions */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.upload-area:hover {
+    transition: all 0.3s ease;
+}
+
+/* Hover effects for better UX */
+.qualification-card,
+.opportunity-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus states for accessibility */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ===== DARK MODE SUPPORT (OPTIONAL) ===== */
+@media (prefers-color-scheme: dark) {
+    .candidate-hero,
+    .candidate-process {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    }
+    
+    .candidate-title,
+    .candidate-subtitle strong,
+    .benefit span strong {
+        color: #f1f5f9;
+    }
+    
+    .candidate-subtitle,
+    .benefit {
+        color: #cbd5e1;
+    }
+    
+    .qualification-card,
+    .opportunity-card {
+        background: #1e293b;
+        border-color: #334155;
+    }
+    
+    .qualification-card li,
+    .opportunity-desc,
+    .opportunity-details p {
+        color: #cbd5e1;
+    }
+    
+    .form-section {
+        background: #1e293b;
+    }
+    
+    .form-section h3 {
+        color: #f1f5f9;
+    }
+    
+    .form-group label {
+        color: #e2e8f0;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        background: #0f172a;
+        border-color: #334155;
+        color: #f1f5f9;
+    }
+}
+/* HEADER CTA BUTTONS - OPTIMIZED FOR CONVERSION */
+.header-cta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Secondary Button - Browse Jobs */
+.header-cta .btn-secondary {
+    padding: 10px 22px;
+    background: var(--color-light);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    white-space: nowrap;
+}
+
+.header-cta .btn-secondary:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 86, 219, 0.25);
+    border-color: var(--color-primary);
+}
+
+.header-cta .btn-secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(26, 86, 219, 0.2);
+}
+
+/* Primary Button - Submit CV Now (EMERGENCY ACTION) */
+.header-cta .btn-primary {
+    padding: 10px 24px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(26, 86, 219, 0.3);
+    letter-spacing: 0.3px;
+}
+
+.header-cta .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+    z-index: -1;
+}
+
+.header-cta .btn-primary:hover {
+    background: linear-gradient(135deg, var(--color-primary-dark), #1e3a8a);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 86, 219, 0.4);
+}
+
+.header-cta .btn-primary:hover::before {
+    left: 100%;
+}
+
+.header-cta .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 12px rgba(26, 86, 219, 0.3);
+}
+
+/* Pulsing Animation for Urgency (Optional) */
+@keyframes pulse-submit {
+    0% {
+        box-shadow: 0 4px 15px rgba(26, 86, 219, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(26, 86, 219, 0.5);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(26, 86, 219, 0.3);
+    }
+}
+
+/* Add pulsing animation on homepage or high-traffic pages */
+.home .header-cta .btn-primary {
+    animation: pulse-submit 2s infinite;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .header-cta {
+        gap: 8px;
+    }
+    
+    .header-cta .btn-secondary,
+    .header-cta .btn-primary {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+    
+    /* Stack buttons on very small screens */
+    @media (max-width: 480px) {
+        .header-cta {
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .header-cta .btn-secondary,
+        .header-cta .btn-primary {
+            width: 100%;
+            text-align: center;
+            padding: 12px 16px;
+        }
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .header-cta .btn-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: #60a5fa;
+        border-color: #60a5fa;
+    }
+    
+    .header-cta .btn-secondary:hover {
+        background: #60a5fa;
+        color: #0f172a;
+    }
+    
+    .header-cta .btn-primary {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+    
+    .header-cta .btn-primary:hover {
+        background: linear-gradient(135deg, #1d4ed8, #1e40af);
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    }
+}
+
+/* Active Page State */
+.header-cta .btn-secondary.active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.header-cta .btn-primary.active {
+    background: linear-gradient(135deg, var(--color-secondary), #047857);
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+}
+
+/* Focus States for Accessibility */
+.header-cta .btn-secondary:focus,
+.header-cta .btn-primary:focus {
+    outline: 3px solid rgba(26, 86, 219, 0.4);
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .header-cta {
+        display: none;
+    }
+}
+
+/* Performance Optimizations */
+.header-cta .btn-secondary,
+.header-cta .btn-primary {
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar - HOT JOBS -->
+    <div class="announcement">
+        <p>🔥 <strong>Hot Roles:</strong> Executive Chef ($95K), Restaurant GM ($110K), F&B Director ($120K+) <a href="#current-opportunities">View All →</a></p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/" aria-label="Hospitality Recruitment Home">
+                    <h1>HospitalityRecruit</h1>
+                    <span class="logo-tagline">Premium Talent Solutions</span>
+                </a>
+            </div>
+
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul class="nav-tier-1">
+                    <li class="dropdown">
+                        <a href="/services/" class="nav-main">Services <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="/services/executive-search/"><i class="fas fa-crown"></i> Executive Search</a>
+                            <a href="/services/fb-staffing/"><i class="fas fa-utensils"></i> F&B Staffing</a>
+                            <a href="/services/operational-staffing/"><i class="fas fa-hotel"></i> Operational Staffing</a>
+                        </div>
+                    </li>
+                    <li><a href="/candidates/" class="nav-main active">Candidates</a></li>
+                    <li><a href="/employers/" class="nav-main">Employers</a></li>
+                    <li><a href="/candidates/job-board/" class="nav-tier2">Job Board</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-cta">
+                <a href="/candidates/job-board/" class="btn-secondary">Browse Jobs</a>
+                <a href="#cv-form" class="btn-primary">Submit CV Now</a>
+            </div>
+
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero - WHY SUBMIT CV -->
+    <section class="candidate-hero">
+        <div class="container">
+            <div class="candidate-hero-grid">
+                <div class="candidate-hero-content">
+                    <!-- <nav class="breadcrumb" aria-label="Breadcrumb">
+                        <ol>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/candidates/">Candidates</a></li>
+                            <li><span>Submit CV</span></li>
+                        </ol>
+                    </nav>
+                     -->
+                    <h1 class="candidate-title">Access <span class="highlight">Exclusive</span> Hospitality Opportunities</h1>
+                    <p class="candidate-subtitle">Submit your CV once. Get matched with premium hotels and restaurants that <strong>aren't advertised publicly.</strong></p>
+                    
+                    <div class="candidate-benefits">
+                        <div class="benefit">
+                            <i class="fas fa-lock"></i>
+                            <span><strong>100% Confidential</strong> – Current employer won't know</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-chart-line"></i>
+                            <span><strong>Better Salary</strong> – We negotiate on your behalf</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-briefcase"></i>
+                            <span><strong>Curated Matches</strong> – Only roles that fit your goals</span>
+                        </div>
+                    </div>
+                    
+                    <div class="candidate-stats">
+                        <div class="candidate-stat">
+                            <span class="stat-number">42%</span>
+                            <span class="stat-label">Higher avg. salary through us</span>
+                        </div>
+                        <div class="candidate-stat">
+                            <span class="stat-number">7 days</span>
+                            <span class="stat-label">Avg. time to first interview</span>
+                        </div>
+                        <div class="candidate-stat">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-label">Premium employer partners</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="candidate-hero-image">
+                    <img src="/images/candidate-hero.jpg" alt="Successful hospitality professional in luxury hotel setting" loading="eager">
+                    <div class="testimonial-bubble">
+                        <p>"Submitted my CV on Monday. By Friday, I had 3 interviews with 5-star properties."</p>
+                        <span class="testimonial-author">– Former Sous Chef, now Executive Chef</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Should Submit - QUALIFICATION -->
+    <section class="qualification-section">
+        <div class="container">
+            <h2 class="section-title">Who We Work With</h2>
+            <p class="section-subtitle">We represent top talent for premium hospitality brands</p>
+            
+            <div class="qualification-grid">
+                <div class="qualification-card">
+                    <div class="qualification-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Leadership & Executive</h3>
+                    <ul>
+                        <li>General Managers</li>
+                        <li>F&B Directors</li>
+                        <li>Executive Chefs</li>
+                        <li>Hotel Directors</li>
+                        <li>Revenue Managers</li>
+                    </ul>
+                </div>
+                
+                <div class="qualification-card highlighted">
+                    <div class="qualification-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>F&B Professionals</h3>
+                    <ul>
+                        <li>Restaurant Managers</li>
+                        <li>Sous Chefs</li>
+                        <li>Sommeliers</li>
+                        <li>Banquet Managers</li>
+                        <li>Mixologists</li>
+                    </ul>
+                </div>
+                
+                <div class="qualification-card">
+                    <div class="qualification-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>Hotel Operations</h3>
+                    <ul>
+                        <li>Front Office Managers</li>
+                        <li>Housekeeping Directors</li>
+                        <li>Concierge Supervisors</li>
+                        <li>Event Managers</li>
+                        <li>Guest Services</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="qualification-note">
+                <p><i class="fas fa-info-circle"></i> <strong>Not sure if you qualify?</strong> Submit anyway. We review every CV within 48 hours.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process - HOW IT WORKS -->
+    <section class="candidate-process">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Our Candidate Process Works</h2>
+                <p>From submission to offer – we guide you every step</p>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="timeline-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>CV Submission & Review</h3>
+                        <p>You submit your CV (5 minutes). We review within 48 hours and schedule an intro call if there's a match.</p>
+                        <div class="step-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>48-hour review guarantee</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Career Strategy Session</h3>
+                        <p>30-minute confidential call to understand your goals, salary expectations, and ideal workplace culture.</p>
+                        <div class="step-detail">
+                            <i class="fas fa-video"></i>
+                            <span>Virtual or phone – your choice</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Curated Opportunity Matching</h3>
+                        <p>We match you with 2-3 premium opportunities that align with your goals. No spam, no irrelevant roles.</p>
+                        <div class="step-detail">
+                            <i class="fas fa-filter"></i>
+                            <span>Hand-curated matches only</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Interview Preparation & Negotiation</h3>
+                        <p>We prepare you for interviews, provide insider info on employers, and negotiate the best package on your behalf.</p>
+                        <div class="step-detail">
+                            <i class="fas fa-handshake"></i>
+                            <span>We negotiate salary & benefits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Hot Opportunities - SOCIAL PROOF -->
+    <section class="opportunities-section" id="current-opportunities">
+        <div class="container">
+            <div class="section-header">
+                <h2>Current Premium Opportunities</h2>
+                <p>Sample of roles we're actively filling</p>
+            </div>
+            
+            <div class="opportunities-grid">
+                <div class="opportunity-card featured">
+                    <div class="opportunity-badge">Hot Role</div>
+                    <div class="opportunity-header">
+                        <h3>Executive Chef</h3>
+                        <div class="opportunity-salary">N180,000 - N200,000</div>
+                    </div>
+                    <div class="opportunity-details">
+                        <p><i class="fas fa-building"></i> Pronto Restaurant & Lounge</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Ilorin, Kwara</p>
+                        <p><i class="fas fa-utensils"></i> Fine Dining & Banquets</p>
+                    </div>
+                    <p class="opportunity-desc">Lead culinary operations for 3 restaurants + banquet facilities. Michelin-star experience preferred.</p>
+                    <div class="opportunity-tags">
+                        <span class="tag">5+ years exp</span>
+                        <span class="tag">Fine Dining</span>
+                        <span class="tag">Management</span>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-header">
+                        <h3>Restaurant General Manager</h3>
+                        <div class="opportunity-salary">N185,000 - N210,000</div>
+                    </div>
+                    <div class="opportunity-details">
+                        <p><i class="fas fa-building"></i> Award-Winning Restaurant Group</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Ilorin, Kwara</p>
+                        <p><i class="fas fa-users"></i> Team of 45+</p>
+                    </div>
+                    <p class="opportunity-desc">New flagship location opening. P&L responsibility, wine program development, VIP client relations.</p>
+                    <div class="opportunity-tags">
+                        <span class="tag">Upscale Casual</span>
+                        <span class="tag">Opening Team</span>
+                        <span class="tag">Wine Knowledge</span>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-header">
+                        <h3>F&B Director</h3>
+                        <div class="opportunity-salary">N110,000 - N140,000+</div>
+                    </div>
+                    <div class="opportunity-details">
+                        <p><i class="fas fa-building"></i> 5-Star Resort</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Aspen, CO</p>
+                        <p><i class="fas fa-chart-line"></i> N15M+ Revenue</p>
+                    </div>
+                    <p class="opportunity-desc">Oversee 7 outlets, seasonal operations, luxury guest experience. Resort experience required.</p>
+                    <div class="opportunity-tags">
+                        <span class="tag">Resort Experience</span>
+                        <span class="tag">Seasonal</span>
+                        <span class="tag">Executive</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="opportunities-note">
+                <p><i class="fas fa-eye-slash"></i> <strong>These are just samples.</strong> 68% of our premium roles are never publicly advertised. Submit your CV to see matches for your profile.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Form - CONVERSION ENGINE -->
+    <section class="cv-form-section" id="cv-form">
+        <div class="container">
+            <div class="cv-form-header">
+                <h2>Submit Your CV in 5 Minutes</h2>
+                <p>Complete this form and upload your CV. We'll contact you within 48 hours.</p>
+            </div>
+            
+            <div class="cv-form-container">
+                <form id="cv-submission-form" enctype="multipart/form-data">
+                    <!-- Personal Info -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Personal Information</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name *</label>
+                                <input type="text" id="first-name" name="first_name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="last-name">Last Name *</label>
+                                <input type="text" id="last-name" name="last_name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="location">Current Location (City, State) *</label>
+                            <input type="text" id="location" name="location" placeholder="e.g., Chicago, IL" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Professional Info -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-briefcase"></i> Professional Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="current-role">Current/Most Recent Role *</label>
+                            <input type="text" id="current-role" name="current_role" placeholder="e.g., Restaurant Manager, Sous Chef" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="current-employer">Current/Most Recent Employer</label>
+                            <input type="text" id="current-employer" name="current_employer" placeholder="(Optional – for matching purposes)">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="experience">Years of Hospitality Experience *</label>
+                                <select id="experience" name="experience" required>
+                                    <option value="">Select...</option>
+                                    <option value="0-2">0-2 years</option>
+                                    <option value="3-5">3-5 years</option>
+                                    <option value="6-10">6-10 years</option>
+                                    <option value="10+">10+ years</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="salary">Current/Desired Salary ($) *</label>
+                                <select id="salary" name="salary" required>
+                                    <option value="">Select range...</option>
+                                    <option value="40-60">$40,000 - $60,000</option>
+                                    <option value="60-80">$60,000 - $80,000</option>
+                                    <option value="80-100">$80,000 - $100,000</option>
+                                    <option value="100-120">$100,000 - $120,000</option>
+                                    <option value="120+">$120,000+</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="role-types">Role Types Interested In *</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="role_types[]" value="executive"> Executive (GM, Director, Exec Chef)
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="role_types[]" value="management"> Management (Restaurant, F&B, Hotel)
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="role_types[]" value="culinary"> Culinary (Chef, Sous, Pastry)
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="role_types[]" value="foh"> Front of House
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="role_types[]" value="operations"> Hotel Operations
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CV Upload -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-file-upload"></i> CV / Resume Upload</h3>
+                        
+                        <div class="form-group">
+                            <label for="cv-upload">Upload Your CV (PDF, DOC, DOCX) *</label>
+                            <div class="upload-area" id="upload-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop your CV here or <span class="browse-link">browse files</span></p>
+                                <input type="file" id="cv-upload" name="cv_upload" accept=".pdf,.doc,.docx" required hidden>
+                                <p class="upload-note">Max file size: 5MB</p>
+                            </div>
+                            <div id="file-name" class="file-name-display"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn Profile URL</label>
+                            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="additional-info">Additional Information</label>
+                            <textarea id="additional-info" name="additional_info" rows="3" placeholder="Anything else we should know? Career goals, relocation preferences, notice period, etc."></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Privacy & Submit -->
+                    <div class="form-section">
+                        <div class="privacy-agreement">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="privacy" required>
+                                <span>I agree to the <a href="/legal/privacy-policy/">Privacy Policy</a> and understand my CV will be kept confidential and only shared with employers after my permission. *</span>
+                            </label>
+                        </div>
+                        
+                        <div class="privacy-agreement">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="updates">
+                                <span>I'd like to receive occasional updates about premium hospitality opportunities (you can unsubscribe anytime).</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary btn-large btn-block">
+                            <i class="fas fa-paper-plane"></i> Submit CV & Get Matched
+                        </button>
+                        
+                        <p class="form-subtext">
+                            <i class="fas fa-shield-alt"></i> <strong>100% Confidential:</strong> We never share your CV without speaking to you first.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ - CANDIDATE OBJECTIONS -->
+    <section class="candidate-faq">
+        <div class="container">
+            <h2 class="section-title">Candidate Questions Answered</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is this really confidential?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Yes. 100%.</strong> We never share your CV or contact your current employer without your explicit permission. We use coded profiles when presenting to clients initially.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What happens after I submit?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>1. We review your CV within 48 hours.<br>
+                        2. If there's a potential match, we schedule a 30-minute career call.<br>
+                        3. We present curated opportunities that fit your goals.<br>
+                        4. We guide you through interviews and negotiation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you charge candidates?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Never.</strong> We are 100% employer-paid. Our service is free for candidates. We earn our fee when you accept a position through us.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do you help with salary negotiation?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We know market rates and employer budgets. We negotiate on your behalf for:
+                        - Higher base salary
+                        - Signing bonuses
+                        - Better benefits
+                        - Relocation packages
+                        Candidates working with us earn 42% more on average.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-cta">
+                <p>Ready to advance your hospitality career? <a href="#cv-form">Submit your CV now</a> or <a href="mailto:candidates@hospitalityrecruit.com">email us directly</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>For Candidates</h4>
+                    <p class="footer-description">Premium hospitality career opportunities.</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:candidates@hospitalityrecruit.com">candidates@hospitalityrecruit.com</a></p>
+                        <p><i class="fas fa-phone"></i> Candidate Line: <a href="tel:+15551230001">(555) 123-0001</a></p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9am-6pm EST</p>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Candidate Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="/candidates/job-board/">Browse Open Jobs</a></li>
+                        <li><a href="/resources/hospitality-interview-questions/">Interview Guide</a></li>
+                        <li><a href="/resources/onboarding-checklist/">Onboarding Checklist</a></li>
+                        <li><a href="/insights/hospitality-salary-report-2024/">Salary Report 2024</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>For Employers</h5>
+                    <ul class="footer-links">
+                        <li><a href="/services/fb-staffing/">F&B Staffing</a></li>
+                        <li><a href="/services/executive-search/">Executive Search</a></li>
+                        <li><a href="/employers/client-process/">Our Process</a></li>
+                        <li><a href="/employers/roi-calculator/">ROI Calculator</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="/legal/candidate-agreement/">Candidate Agreement</a></li>
+                        <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2024 HospitalityRecruit. All rights reserved.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="/legal/privacy-policy/">Privacy</a>
+                    <a href="/legal/terms-of-service/">Terms</a>
+                    <a href="/sitemap.xml">Sitemap</a>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // File upload UI
+        const uploadArea = document.getElementById('upload-area');
+        const fileInput = document.getElementById('cv-upload');
+        const fileNameDisplay = document.getElementById('file-name');
+        const browseLink = uploadArea.querySelector('.browse-link');
+
+        // Click on browse link
+        browseLink.addEventListener('click', () => fileInput.click());
+
+        // Click on entire upload area
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        // File selection
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                const file = this.files[0];
+                fileNameDisplay.textContent = `Selected: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                fileNameDisplay.style.color = '#059669';
+                
+                // Validate file size
+                if (file.size > 5 * 1024 * 1024) {
+                    fileNameDisplay.textContent = 'File too large (max 5MB)';
+                    fileNameDisplay.style.color = '#dc2626';
+                    this.value = '';
+                }
+            }
+        });
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.backgroundColor = '#f3f4f6';
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.backgroundColor = '';
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.backgroundColor = '';
+            
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                fileInput.dispatchEvent(new Event('change'));
+            }
+        });
+
+        // Form submission
+        document.getElementById('cv-submission-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate file
+            if (!fileInput.files.length) {
+                alert('Please upload your CV');
+                return;
+            }
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // In production: Send to backend/CRM
+            console.log('CV submitted:', Object.fromEntries(formData));
+            
+            // Show success message
+            alert('✓ CV submitted successfully! Our team will review it within 48 hours.');
+            
+            // Reset form
+            this.reset();
+            fileNameDisplay.textContent = '';
+            
+            // Redirect to thank you page in production
+            // window.location.href = '/candidates/thank-you/';
+        });
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                answer.classList.toggle('active');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+
+        // Auto-scroll to form if URL has #cv-form
+        if (window.location.hash === '#cv-form') {
+            document.getElementById('cv-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Track form views
+        const formSection = document.getElementById('cv-form');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log('CV form viewed - 30% chance of submission');
+                    // Track in analytics
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (formSection) {
+            observer.observe(formSection);
+        }
+    </script>
+</body>
+</html>

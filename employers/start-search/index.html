@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Hospitality Search | Free Discovery Call | HospitalityRecruit</title>
+    <meta name="description" content="Ready to hire? Start your executive, operational, or F&B search now. Free 30-minute discovery call. No obligation, just results.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Start Your Hospitality Search | HospitalityRecruit">
+    <meta property="og:description" content="Begin your precision talent search today. Free discovery call with a senior consultant.">
+    <meta property="og:image" content="https://hospitalityrecruit.com/img/start-search-og.jpg">
+    <meta property="og:url" content="https://hospitalityrecruit.com/employers/start-search">
+    <meta property="og:type" content="website">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://hospitalityrecruit.com/employers/start-search">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Variables & Base Styles -->
+    <style>
+        :root {
+            /* Colors */
+            --color-primary: #1a56db;
+            --color-primary-dark: #1e429f;
+            --color-secondary: #7e3af2;
+            --color-secondary-dark: #6c2bd9;
+            --color-success: #059669;
+            --color-warning: #f59e0b;
+            --color-emergency: #dc2626;
+            --color-gold: #fbbf24;
+            --color-bronze: #92400e;
+            
+            --color-white: #ffffff;
+            --color-light: #f8fafc;
+            --color-dark: #0f172a;
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-400: #9ca3af;
+            --color-gray-500: #6b7280;
+            --color-gray-600: #4b5563;
+            --color-gray-700: #374151;
+            --color-gray-800: #1f2937;
+            --color-gray-900: #111827;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            
+            /* Typography */
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-serif: Georgia, 'Times New Roman', Times, serif;
+            
+            /* Border Radius */
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-normal: 250ms ease;
+            --transition-slow: 350ms ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--color-gray-800);
+            background: var(--color-white);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Announcement Bar */
+        .announcement {
+            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
+            color: white;
+            padding: 0.75rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .announcement-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .announcement .pulse {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--color-emergency);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+        }
+
+        @keyframes pulse {
+            0% { transform: translateY(-50%) scale(1); opacity: 1; }
+            50% { transform: translateY(-50%) scale(1.5); opacity: 0.5; }
+            100% { transform: translateY(-50%) scale(1); opacity: 1; }
+        }
+
+        .announcement a {
+            color: white;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-left: var(--space-sm);
+        }
+
+        .announcement a:hover {
+            text-decoration: none;
+        }
+
+        /* Header Styles */
+        .site-header {
+            background: var(--color-white);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: var(--space-sm) 0;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-lg);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: var(--color-dark);
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo h1 {
+            font-size: 1.75rem;
+            margin-bottom: 0;
+            font-weight: 800;
+            color: var(--color-primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo h1 i {
+            color: var(--color-gold);
+        }
+
+        .logo-tagline {
+            font-size: 0.75rem;
+            color: var(--color-emergency);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-top: 1px;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--color-gray-700);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: var(--space-xs) var(--space-sm);
+            transition: color var(--transition-fast);
+        }
+
+        .main-nav a:hover {
+            color: var(--color-primary);
+        }
+
+        .main-nav a.active {
+            color: var(--color-primary);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .main-nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: var(--space-sm);
+            right: var(--space-sm);
+            height: 2px;
+            background: var(--color-primary);
+        }
+
+        .nav-cta {
+            background: var(--color-primary);
+            color: var(--color-white) !important;
+            padding: var(--space-sm) var(--space-lg) !important;
+            border-radius: var(--radius-md);
+            font-weight: 600 !important;
+            transition: all var(--transition-fast);
+        }
+
+        .nav-cta:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            cursor: pointer;
+            padding: var(--space-xs);
+        }
+
+        /* Hero Section */
+        .hero-start-search {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-start-search::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(224, 242, 254, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .search-badge {
+            background: linear-gradient(135deg, var(--color-emergency), #f97316);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-xl);
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            color: var(--color-gray-900);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--color-gray-700);
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
+            line-height: 1.6;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(120deg, var(--color-gold) 0%, var(--color-gold) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.3em;
+            background-position: 0 88%;
+            padding: 0 0.2em;
+        }
+
+        /* Quick Start Options */
+        .quick-start-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+
+        .quick-option {
+            padding: var(--space-xl);
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--color-gray-200);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .quick-option:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .quick-option-icon {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .quick-option h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-md);
+            color: var(--color-gray-900);
+        }
+
+        .quick-option p {
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-lg);
+        }
+
+        .btn-option {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-option:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Search Types Section */
+        .search-types-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-white);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+            color: var(--color-gray-900);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: var(--color-gray-600);
+            max-width: 800px;
+            margin: 0 auto var(--space-2xl);
+            line-height: 1.6;
+        }
+
+        .search-types-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .search-type-card {
+            background: var(--color-gray-50);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+        }
+
+        .search-type-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .search-type-header {
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: white;
+        }
+
+        .search-type-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .search-type-header i {
+            font-size: 1.75rem;
+        }
+
+        .search-type-content {
+            padding: var(--space-xl);
+        }
+
+        .search-type-features {
+            list-style: none;
+            margin-bottom: var(--space-lg);
+        }
+
+        .search-type-features li {
+            padding: var(--space-xs) 0;
+            border-bottom: 1px solid var(--color-gray-200);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .search-type-features li:last-child {
+            border-bottom: none;
+        }
+
+        .search-type-features i {
+            color: var(--color-primary);
+            font-size: 0.875rem;
+        }
+
+        .search-type-price {
+            text-align: center;
+            padding: var(--space-md);
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--color-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .price-note {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* Main Search Form */
+        .search-form-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
+        }
+
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+        }
+
+        .form-header {
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: white;
+            text-align: center;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            margin-bottom: var(--space-sm);
+            color: white;
+        }
+
+        .form-header p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+
+        .form-body {
+            padding: var(--space-2xl);
+        }
+
+        /* Form Styles */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            color: var(--color-gray-700);
+        }
+
+        .form-group label .required {
+            color: var(--color-emergency);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--color-gray-900);
+            background: var(--color-white);
+            transition: all var(--transition-fast);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Urgency Selector */
+        .urgency-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+        }
+
+        .urgency-option {
+            padding: var(--space-lg);
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .urgency-option:hover {
+            border-color: var(--color-primary);
+            background: var(--color-gray-50);
+        }
+
+        .urgency-option.selected {
+            border-color: var(--color-primary);
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .urgency-option.selected .urgency-icon {
+            color: white;
+        }
+
+        .urgency-icon {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-primary);
+        }
+
+        .urgency-title {
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+
+        .urgency-desc {
+            font-size: 0.875rem;
+            color: var(--color-gray-600);
+        }
+
+        .urgency-option.selected .urgency-desc {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* File Upload */
+        .file-upload {
+            border: 2px dashed var(--color-gray-300);
+            border-radius: var(--radius-md);
+            padding: var(--space-xl);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .file-upload:hover {
+            border-color: var(--color-primary);
+            background: var(--color-gray-50);
+        }
+
+        .file-upload i {
+            font-size: 3rem;
+            color: var(--color-gray-400);
+            margin-bottom: var(--space-md);
+        }
+
+        .file-upload p {
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-sm);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--color-success), #047857);
+            color: white;
+            border: none;
+            padding: var(--space-lg);
+            font-size: 1.2rem;
+            font-weight: 800;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-note {
+            text-align: center;
+            color: var(--color-gray-600);
+            font-size: 0.85rem;
+            margin-top: var(--space-md);
+        }
+
+        .form-note i {
+            margin-right: var(--space-xs);
+            color: var(--color-success);
+        }
+
+        .form-note a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .form-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* Guarantee Section */
+        .guarantee-section {
+            padding: var(--space-2xl) var(--space-md);
+            background: var(--color-white);
+            text-align: center;
+        }
+
+        .guarantee-card {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-lg);
+            padding: var(--space-xl);
+            background: var(--color-gray-50);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-gray-200);
+            box-shadow: var(--shadow-md);
+            max-width: 800px;
+        }
+
+        .guarantee-icon {
+            font-size: 3rem;
+            color: var(--color-primary);
+        }
+
+        .guarantee-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-gray-900);
+        }
+
+        .guarantee-content p {
+            color: var(--color-gray-600);
+            margin: 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--color-gray-900);
+            color: white;
+        }
+
+        .footer-content {
+            text-align: center;
+            padding: var(--space-2xl) 0;
+            border-top: 1px solid var(--color-gray-700);
+        }
+
+        .footer-content p {
+            color: var(--color-gray-400);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-content a {
+            color: var(--color-gray-400);
+            text-decoration: none;
+            margin: 0 var(--space-sm);
+        }
+
+        .footer-content a:hover {
+            color: var(--color-white);
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .quick-start-options,
+            .search-types-grid,
+            .urgency-selector {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: var(--space-xl);
+                transition: right 0.3s ease;
+                overflow-y: auto;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .main-nav.active {
+                right: 0;
+            }
+
+            .quick-start-options,
+            .search-types-grid,
+            .urgency-selector {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+            
+            .guarantee-card {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--space-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <!-- Google Tag Manager & GA4 -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXX');</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SF5LWDZDKF"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SF5LWDZDKF');</script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Announcement Bar -->
+    <div class="announcement">
+        <div class="pulse"></div>
+        <div class="announcement-content">
+            <strong>🚀 Ready to Start Your Search?</strong> Submit your search request and receive a call within 2 business hours.
+            <a href="#search-form">Start Now →</a>
+        </div>
+    </div>
+
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="/" aria-label="HospitalityRecruit Home">
+                    <h1><i class="fas fa-hotel"></i> HospitalityRecruit</h1>
+                    <span class="logo-tagline">EXECUTIVE SEARCH</span>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav">
+                <a href="/services/">Services</a>
+                <a href="/employers/" class="active">Employers</a>
+                <a href="/employers/client-process/">Our Process</a>
+                <a href="/employers/industry-expertise/">Expertise</a>
+                <a href="/case-studies/">Case Studies</a>
+                <a href="tel:+15551234567" class="nav-cta">Call Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO: Start Your Search -->
+    <section class="hero-start-search">
+        <div class="container">
+            <div class="hero-content">
+                <div class="search-badge">
+                    <i class="fas fa-rocket"></i> START YOUR SEARCH
+                </div>
+                <h1 class="hero-title">Find Exceptional Hospitality Talent.<br><span class="hero-highlight">Start Your Search Today.</span></h1>
+                <p class="hero-subtitle">Complete the form below to begin your precision talent search. A senior consultant will contact you within 2 business hours for your free discovery call.</p>
+                
+                <!-- Quick Start Options -->
+                <div class="quick-start-options">
+                    <div class="quick-option animate-on-scroll">
+                        <div class="quick-option-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Call Immediately</h3>
+                        <p>Speak directly with a senior consultant right now.</p>
+                        <a href="tel:+15551234567" class="btn-option">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                    </div>
+                    
+                    <div class="quick-option animate-on-scroll">
+                        <div class="quick-option-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <h3>Schedule a Call</h3>
+                        <p>Book a 30-minute discovery call at your convenience.</p>
+                        <a href="#search-form" class="btn-option">
+                            <i class="fas fa-calendar"></i> Schedule Call
+                        </a>
+                    </div>
+                    
+                    <div class="quick-option animate-on-scroll">
+                        <div class="quick-option-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us First</h3>
+                        <p>Send details and we'll prepare before our call.</p>
+                        <a href="mailto:search@hospitalityrecruit.com?subject=New%20Search%20Request" class="btn-option">
+                            <i class="fas fa-paper-plane"></i> Email Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH TYPES -->
+    <section class="search-types-section">
+        <div class="container">
+            <h2 class="section-title">Choose Your Search Type</h2>
+            <p class="section-subtitle">Select the service that matches your hiring needs. All searches include our 90-Day Placement Guarantee.</p>
+            
+            <div class="search-types-grid">
+                <div class="search-type-card animate-on-scroll">
+                    <div class="search-type-header">
+                        <h3><i class="fas fa-user-tie"></i> Executive Search</h3>
+                    </div>
+                    <div class="search-type-content">
+                        <ul class="search-type-features">
+                            <li><i class="fas fa-check"></i> GM, Director & Head Chef roles</li>
+                            <li><i class="fas fa-check"></i> Fully managed process</li>
+                            <li><i class="fas fa-check"></i> Deep market mapping</li>
+                            <li><i class="fas fa-check"></i> Extensive vetting & assessment</li>
+                            <li><i class="fas fa-check"></i> 6-8 week average timeline</li>
+                        </ul>
+                        <div class="search-type-price">
+                            <div class="price-amount">20-25%</div>
+                            <div class="price-note">of first year's salary</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="search-type-card animate-on-scroll">
+                    <div class="search-type-header" style="background: linear-gradient(135deg, var(--color-success), #047857);">
+                        <h3><i class="fas fa-hotel"></i> Operational Staffing</h3>
+                    </div>
+                    <div class="search-type-content">
+                        <ul class="search-type-features">
+                            <li><i class="fas fa-check"></i> Department Heads & Supervisors</li>
+                            <li><i class="fas fa-check"></i> Hotel operations teams</li>
+                            <li><i class="fas fa-check"></i> Multi-role placements</li>
+                            <li><i class="fas fa-check"></i> Bulk hiring packages</li>
+                            <li><i class="fas fa-check"></i> 4-6 week average timeline</li>
+                        </ul>
+                        <div class="search-type-price">
+                            <div class="price-amount">15-20%</div>
+                            <div class="price-note">per hire (team discounts)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="search-type-card animate-on-scroll">
+                    <div class="search-type-header" style="background: linear-gradient(135deg, var(--color-warning), #d97706);">
+                        <h3><i class="fas fa-utensils"></i> F&B Staffing</h3>
+                    </div>
+                    <div class="search-type-content">
+                        <ul class="search-type-features">
+                            <li><i class="fas fa-check"></i> Restaurant & bar teams</li>
+                            <li><i class="fas fa-check"></i> Chefs, servers, bartenders</li>
+                            <li><i class="fas fa-check"></i> Emergency staffing option</li>
+                            <li><i class="fas fa-check"></i> Temp-to-perm available</li>
+                            <li><i class="fas fa-check"></i> 2-4 week average timeline</li>
+                        </ul>
+                        <div class="search-type-price">
+                            <div class="price-amount">$30-50/hr</div>
+                            <div class="price-note">or 18-22% placement fee</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN SEARCH FORM -->
+    <section id="search-form" class="search-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Start Your Search Request</h2>
+                    <p>Complete this form and a senior consultant will contact you within 2 business hours.</p>
+                </div>
+                
+                <div class="form-body">
+                    <form id="start-search-form">
+                        <!-- Basic Information -->
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="first-name">First Name <span class="required">*</span></label>
+                                <input type="text" id="first-name" name="first_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name <span class="required">*</span></label>
+                                <input type="text" id="last-name" name="last_name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="title">Job Title <span class="required">*</span></label>
+                                <input type="text" id="title" name="title" placeholder="e.g., GM, Owner, HR Director" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Company/Property Name <span class="required">*</span></label>
+                                <input type="text" id="company" name="company" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <!-- Search Details -->
+                        <div class="form-group">
+                            <label>What type of role(s) are you hiring for? <span class="required">*</span></label>
+                            <select id="role-type" name="role_type" required>
+                                <option value="">Select role type...</option>
+                                <option value="executive">Executive (GM, Director, Head Chef)</option>
+                                <option value="management">Management (Department Head, Supervisor)</option>
+                                <option value="operational">Operational (Front Desk, Housekeeping, etc.)</option>
+                                <option value="fb">F&B (Chef, Server, Bartender, etc.)</option>
+                                <option value="multiple">Multiple Roles / Team Building</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>How urgent is this search? <span class="required">*</span></label>
+                            <div class="urgency-selector">
+                                <div class="urgency-option" data-urgency="emergency">
+                                    <div class="urgency-icon">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div class="urgency-title">Emergency</div>
+                                    <div class="urgency-desc">Need staff in 7 days or less</div>
+                                </div>
+                                <div class="urgency-option" data-urgency="urgent">
+                                    <div class="urgency-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="urgency-title">Urgent</div>
+                                    <div class="urgency-desc">Need staff in 2-4 weeks</div>
+                                </div>
+                                <div class="urgency-option" data-urgency="planned">
+                                    <div class="urgency-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="urgency-title">Planned</div>
+                                    <div class="urgency-desc">Proactive hiring for future needs</div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="urgency" name="urgency" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="position-title">Position Title(s) Needed <span class="required">*</span></label>
+                            <input type="text" id="position-title" name="position_title" placeholder="e.g., Executive Chef, Restaurant Manager, 4 Servers" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="search-details">Tell us about your search <span class="required">*</span></label>
+                            <textarea id="search-details" name="search_details" rows="4" placeholder="Please include: Brief company/property description, ideal candidate profile, timeline, budget if known, and any specific challenges..." required></textarea>
+                        </div>
+                        
+                        <!-- File Upload -->
+                        <div class="form-group">
+                            <label>Upload Job Description (Optional)</label>
+                            <div class="file-upload" id="file-upload-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop job description or click to browse</p>
+                                <p style="font-size: 0.85rem; color: var(--color-gray-500);">PDF, DOC, DOCX up to 5MB</p>
+                                <input type="file" id="job-description" name="job_description" class="file-input" accept=".pdf,.doc,.docx">
+                            </div>
+                            <div id="file-name" style="margin-top: var(--space-sm); font-size: 0.9rem; color: var(--color-gray-600);"></div>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Submit Search Request
+                        </button>
+                        
+                        <p class="form-note">
+                            <i class="fas fa-lock"></i> Your information is confidential. By submitting, you agree to our 
+                            <a href="/legal/privacy-policy/">Privacy Policy</a>. No obligation until you sign our search agreement.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUARANTEE SECTION -->
+    <section class="guarantee-section">
+        <div class="container">
+            <div class="guarantee-card">
+                <div class="guarantee-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="guarantee-content">
+                    <h3>90-Day Placement Guarantee</h3>
+                    <p>Every search includes our 90-Day Guarantee. If your new hire doesn't work out within 90 days, we'll find a replacement at no additional cost. No questions asked.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 HospitalityRecruit. Precision Hospitality Recruitment Since 2010.</p>
+                <p>
+                    <a href="/privacy-policy/">Privacy Policy</a> | 
+                    <a href="/terms-of-service/">Terms of Service</a> |
+                    <a href="/sitemap.xml">Sitemap</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+
+        mobileToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // Urgency Selector
+        const urgencyOptions = document.querySelectorAll('.urgency-option');
+        const urgencyInput = document.getElementById('urgency');
+
+        urgencyOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                urgencyOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                option.classList.add('selected');
+                
+                // Set hidden input value
+                urgencyInput.value = option.dataset.urgency;
+            });
+        });
+
+        // File Upload
+        const fileUploadArea = document.getElementById('file-upload-area');
+        const fileInput = document.getElementById('job-description');
+        const fileName = document.getElementById('file-name');
+
+        fileUploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileUploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUploadArea.style.borderColor = 'var(--color-primary)';
+            fileUploadArea.style.background = 'var(--color-gray-50)';
+        });
+
+        fileUploadArea.addEventListener('dragleave', () => {
+            fileUploadArea.style.borderColor = 'var(--color-gray-300)';
+            fileUploadArea.style.background = 'var(--color-white)';
+        });
+
+        fileUploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUploadArea.style.borderColor = 'var(--color-gray-300)';
+            fileUploadArea.style.background = 'var(--color-white)';
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelection(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelection(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelection(file) {
+            // Check file size (5MB max)
+            if (file.size > 5 * 1024 * 1024) {
+                alert('File size must be less than 5MB');
+                return;
+            }
+            
+            // Check file type
+            const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+            if (!validTypes.includes(file.type)) {
+                alert('Please upload a PDF, DOC, or DOCX file');
+                return;
+            }
+            
+            // Display file name
+            fileName.textContent = `Selected: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+            fileName.style.color = 'var(--color-success)';
+        }
+
+        // Form Submission
+        document.getElementById('start-search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate urgency selection
+            if (!urgencyInput.value) {
+                alert('Please select how urgent your search is');
+                return;
+            }
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Track conversion
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'generate_lead', {
+                    'event_category': 'Start Search Page',
+                    'event_label': 'Search Request - ' + formData.get('role_type'),
+                    'value': 1
+                });
+            }
+            
+            // Show success message
+            const phone = formData.get('phone');
+            alert(`Thank you, ${formData.get('first_name')}! Your search request has been submitted. A senior consultant will call you at ${phone} within 2 business hours.`);
+            
+            // Reset form
+            this.reset();
+            urgencyOptions.forEach(opt => opt.classList.remove('selected'));
+            urgencyInput.value = '';
+            fileName.textContent = '';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll Animation
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const triggerBottom = window.innerHeight * 0.85;
+            
+            elements.forEach((element, index) => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < triggerBottom) {
+                    // Stagger the animation
+                    setTimeout(() => {
+                        element.classList.add('visible');
+                    }, index * 150);
+                }
+            });
+        }
+
+        // Set initial state
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            el.classList.remove('visible');
+        });
+
+        // Run on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        mobileToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                    }
+                }
+            });
+        });
+
+        // Auto-populate from URL parameters (for marketing campaigns)
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            
+            if (params.has('type')) {
+                const type = params.get('type');
+                document.getElementById('role-type').value = type;
+            }
+            
+            if (params.has('urgency')) {
+                const urgency = params.get('urgency');
+                const urgencyOption = document.querySelector(`.urgency-option[data-urgency="${urgency}"]`);
+                if (urgencyOption) {
+                    urgencyOption.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
