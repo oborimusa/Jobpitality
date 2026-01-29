@@ -3,31 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CHANGE: Updated title for Jobpitality -->
-    <title>Jobpitality | Precision Recruitment for Luxury Hospitality | GM, Chef & Management Placement</title>
-    <!-- CHANGE: Updated meta description with Jobpitality and new messaging -->
-    <meta name="description" content="Jobpitality: The ruthless talent partner for luxury hotels and restaurants. We place elite General Managers, Executive Chefs, and management teams that guarantee performance. 72-hour shortlist guarantee.">
+    <!-- CHANGE: Service-specific title -->
+    <title>Culinary Leadership Search | Executive Chef & F&B Director Placement | Jobpitality</title>
+    <!-- CHANGE: Service-specific meta description -->
+    <meta name="description" content="Jobpitality's precision culinary leadership search. We place elite Executive Chefs, F&B Directors & culinary talent for Michelin-star, fine dining & luxury hotels. 72-hour guarantee.">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Jobpitality | The Ruthless Talent Partner for Luxury Hospitality">
-    <meta property="og:description" content="We guarantee a shortlist of vetted, elite hospitality leaders within 72 hours. Confidential. Guaranteed.">
-    <meta property="og:image" content="https://jobpitality.com/img/home-og.jpg">
-    <meta property="og:url" content="https://jobpitality.com">
+    <meta property="og:title" content="Culinary Leadership Search | The Ruthless Talent Partner for Luxury Restaurants">
+    <meta property="og:description" content="We acquire elite culinary artists, not just hire chefs. Guaranteed shortlist in 72 hours.">
+    <meta property="og:image" content="https://jobpitality.com/img/culinary-leadership-og.jpg">
+    <meta property="og:url" content="https://jobpitality.com/services/culinary-leadership/">
     <meta property="og:type" content="website">
     
     <!-- Canonical -->
-    <link rel="canonical" href="https://jobpitality.com">
+    <link rel="canonical" href="https://jobpitality.com/services/culinary-leadership/">
     
-    <!-- Font Awesome -->
+    <!-- Font Awesome & Google Fonts (Same as Home) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- CHANGE: Updated font selection for a sharper, more modern feel (keeping Inter) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- COMPLETE INLINE CSS -->
+    <!-- COMPLETE INLINE CSS - REPLICATING HOMEPAGE DESIGN -->
     <style>
         /* ===== CSS RESET & BASE ===== */
         * {
@@ -37,7 +34,7 @@
         }
         
         :root {
-            /* CHANGE: Updated color system for a more premium, confident palette */
+            /* EXACT Jobpitality Color Palette */
             --color-primary: #0d1b2a;      /* Deep Navy (Authority) */
             --color-primary-dark: #070d13;
             --color-accent: #ff9e00;       /* Vibrant Orange (Energy, Action) */
@@ -57,7 +54,7 @@
             --color-light: #ffffff;
             --color-white: #ffffff;
             
-            /* CHANGE: Simplified typography - a single, strong sans-serif */
+            /* EXACT Jobpitality Typography */
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             
             /* SPACING */
@@ -74,7 +71,7 @@
             --radius-md: 8px;
             --radius-lg: 12px;
             --radius-xl: 16px;
-            --radius-2xl: 20px; /* Slightly less rounded for sharper look */
+            --radius-2xl: 20px;
             
             /* SHADOWS */
             --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
@@ -111,9 +108,9 @@
             padding: 0 var(--space-md);
         }
         
-        /* ===== TYPOGRAPHY ===== */
+        /* ===== TYPOGRAPHY (Same as Home) ===== */
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 800; /* Bolder weights for impact */
+            font-weight: 800;
             line-height: 1.1;
             color: var(--color-gray-900);
             letter-spacing: -0.025em;
@@ -166,7 +163,7 @@
             text-align: center;
         }
         
-        /* ===== BUTTONS ===== */
+        /* ===== BUTTONS (Same as Home) ===== */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -241,7 +238,7 @@
             width: 100%;
         }
         
-        /* ===== HEADER & NAVIGATION ===== */
+        /* ===== HEADER & NAVIGATION (Same as Home) ===== */
         .site-header {
             background: var(--color-white);
             box-shadow: var(--shadow-lg);
@@ -272,7 +269,6 @@
             line-height: 1.2;
         }
         
-        /* CHANGE: Logo styling for Jobpitality */
         .logo h1 {
             font-size: 2.1rem;
             margin-bottom: 0;
@@ -462,36 +458,35 @@
             z-index: 999;
         }
         
-        /* ===== HERO SECTION ===== */
-        .hero {
+        /* ===== SERVICE-SPECIFIC HERO ===== */
+        .culinary-hero {
             padding: var(--space-3xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-primary) 0%, #1b263b 100%);
+            background: linear-gradient(135deg, #1a0d0a 0%, #2c1c17 100%);
             color: var(--color-white);
             position: relative;
             overflow: hidden;
         }
         
-        .hero::before {
+        .culinary-hero::before {
             content: '';
             position: absolute;
             top: 0;
             right: 0;
             width: 50%;
             height: 100%;
-            background: linear-gradient(90deg, transparent 0%, rgba(27, 38, 59, 0.8) 100%), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200');
+            background: linear-gradient(90deg, transparent 0%, rgba(44, 28, 23, 0.8) 100%), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200');
             background-size: cover;
             background-position: center;
             z-index: 1;
         }
         
-        .hero-content {
+        .culinary-hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            max-width: 800px;
         }
         
-        /* CHANGE: Hero badge updated for the 72-hour guarantee */
-        .hero-badge {
+        .culinary-hero-badge {
             background: linear-gradient(90deg, var(--color-accent), #ff6b00);
             color: var(--color-primary);
             display: inline-flex;
@@ -506,21 +501,21 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
         
-        .hero-title {
-            font-size: 4.5rem;
+        .culinary-hero-title {
+            font-size: 3.5rem;
             font-weight: 900;
-            line-height: 1;
+            line-height: 1.1;
             margin-bottom: var(--space-lg);
             color: var(--color-white);
         }
         
-        .hero-title .highlight {
+        .culinary-hero-title .highlight {
             color: var(--color-accent);
             font-style: normal;
             position: relative;
         }
         
-        .hero-subtitle {
+        .culinary-hero-subtitle {
             font-size: 1.5rem;
             color: rgba(255, 255, 255, 0.9);
             max-width: 700px;
@@ -529,22 +524,22 @@
             font-weight: 400;
         }
         
-        /* HERO STATS - Updated for Jobpitality messaging */
-        .hero-stats {
+        /* CULINARY HERO STATS */
+        .culinary-hero-stats {
             display: flex;
             gap: var(--space-2xl);
             margin: var(--space-xl) 0;
             flex-wrap: wrap;
         }
         
-        .hero-stat {
+        .culinary-hero-stat {
             text-align: center;
             flex: 1;
             min-width: 150px;
         }
         
-        .hero-stat-number {
-            font-size: 3.5rem;
+        .culinary-hero-stat-number {
+            font-size: 3rem;
             font-weight: 900;
             color: var(--color-accent);
             display: block;
@@ -552,7 +547,7 @@
             margin-bottom: var(--space-xs);
         }
         
-        .hero-stat-label {
+        .culinary-hero-stat-label {
             color: rgba(255, 255, 255, 0.8);
             font-size: 0.9rem;
             line-height: 1.4;
@@ -561,47 +556,9 @@
             font-weight: 600;
         }
         
-        /* ===== CLIENTS SECTION ===== */
-        .clients {
-            padding: var(--space-2xl) var(--space-md);
-            background: var(--color-white);
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-        
-        .clients-title {
-            text-align: center;
-            color: var(--color-gray-600);
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: var(--space-xl);
-            font-weight: 700;
-        }
-        
-        .clients-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: var(--space-2xl);
-            opacity: 0.7;
-        }
-        
-        .client-logo {
-            font-weight: 800;
-            color: var(--color-primary);
-            font-size: 1.2rem;
-            transition: all var(--transition-fast);
-        }
-        
-        .client-logo:hover {
-            opacity: 1;
-            color: var(--color-accent);
-        }
-        
-        /* ===== SERVICES SECTION ===== */
-        .services {
+        /* ===== SECTIONS (Consistent with Home) ===== */
+        .section {
             padding: var(--space-3xl) var(--space-md);
-            background: var(--color-white);
         }
         
         .section-header {
@@ -620,14 +577,15 @@
             font-size: 1.1rem;
         }
         
-        .services-grid {
+        /* ===== CULINARY ROLES ===== */
+        .culinary-roles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: var(--space-xl);
             margin: var(--space-2xl) 0;
         }
         
-        .service-card {
+        .culinary-role-card {
             background: var(--color-white);
             border-radius: var(--radius-xl);
             padding: var(--space-xl);
@@ -637,13 +595,13 @@
             overflow: hidden;
         }
         
-        .service-card:hover {
+        .culinary-role-card:hover {
             transform: translateY(-12px);
             box-shadow: var(--shadow-2xl);
             border-color: var(--color-accent);
         }
         
-        .service-icon {
+        .culinary-role-icon {
             font-size: 2.5rem;
             color: var(--color-accent);
             margin-bottom: var(--space-md);
@@ -656,16 +614,16 @@
             border-radius: var(--radius-lg);
         }
         
-        .service-card h3 {
+        .culinary-role-card h3 {
             margin-bottom: var(--space-sm);
         }
         
-        .service-features {
+        .culinary-role-features {
             list-style: none;
             margin: var(--space-md) 0;
         }
         
-        .service-features li {
+        .culinary-role-features li {
             padding: 0.5rem 0;
             color: var(--color-gray-700);
             display: flex;
@@ -674,139 +632,49 @@
             font-size: 1rem;
         }
         
-        .service-features li i {
+        .culinary-role-features li i {
             color: var(--color-success);
             margin-top: 0.25rem;
         }
         
-        /* ===== GUARANTEE BANNER ===== */
-        /* CHANGE: New section for the 72-hour guarantee */
-        .guarantee-banner {
-            padding: var(--space-2xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-primary), #1b263b);
-            color: var(--color-white);
-            text-align: center;
-            border-radius: var(--radius-xl);
-            margin: var(--space-2xl) auto;
-            max-width: 1200px;
-            border: 3px solid var(--color-accent);
-        }
-        
-        .guarantee-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .guarantee-icon {
-            font-size: 4rem;
-            color: var(--color-accent);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .guarantee-content h2 {
-            color: var(--color-white);
-            margin-bottom: var(--space-md);
-        }
-        
-        .guarantee-content .lead {
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        /* ===== CASE STUDIES PREVIEW ===== */
-        .case-studies {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-gray-100);
-        }
-        
-        .case-grid {
+        /* ===== CULINARY SPECIALTIES ===== */
+        .specialties-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: var(--space-lg);
-            max-width: 1200px;
-            margin: var(--space-2xl) auto;
+            margin: var(--space-2xl) 0;
         }
         
-        .case-card {
+        .specialty-card {
             background: var(--color-white);
+            padding: var(--space-xl);
             border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
+            text-align: center;
+            border: 1px solid var(--color-gray-200);
             transition: all var(--transition-normal);
         }
         
-        .case-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-2xl);
+        .specialty-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-accent);
         }
         
-        .case-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-            position: relative;
-        }
-        
-        .case-badge {
-            position: absolute;
-            top: var(--space-md);
-            left: var(--space-md);
-            background: var(--color-accent);
-            color: var(--color-primary);
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .case-content {
-            padding: var(--space-xl);
-        }
-        
-        .case-content h3 {
-            margin-bottom: var(--space-sm);
-        }
-        
-        .case-content h3 a {
-            color: var(--color-dark);
-            text-decoration: none;
-        }
-        
-        .case-content h3 a:hover {
-            color: var(--color-accent);
-        }
-        
-        .case-stats {
+        .specialty-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-gray-100);
+            border-radius: 50%;
             display: flex;
-            gap: var(--space-lg);
-            margin: var(--space-md) 0;
-        }
-        
-        .case-stat {
-            text-align: center;
-            flex: 1;
-        }
-        
-        .case-stat strong {
-            display: block;
-            font-size: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            font-size: 2rem;
             color: var(--color-accent);
-            font-weight: 800;
         }
         
-        .case-stat span {
-            font-size: 0.85rem;
-            color: var(--color-gray-600);
-            font-weight: 600;
-        }
-        
-        /* ===== PROCESS SECTION ===== */
-        .process {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-white);
-        }
-        
-        .process-steps {
+        /* ===== CULINARY PROCESS ===== */
+        .culinary-process-steps {
             display: flex;
             flex-direction: column;
             gap: var(--space-2xl);
@@ -815,13 +683,13 @@
             position: relative;
         }
         
-        .process-step {
+        .culinary-process-step {
             display: flex;
             gap: var(--space-xl);
             align-items: flex-start;
         }
         
-        .step-number {
+        .culinary-step-number {
             background: var(--color-accent);
             color: var(--color-primary);
             width: 70px;
@@ -839,130 +707,139 @@
             box-shadow: var(--shadow-lg);
         }
         
-        .step-content {
+        .culinary-step-content {
             flex: 1;
             padding-top: 0.75rem;
         }
         
-        .step-content h3 {
+        .culinary-step-content h3 {
             color: var(--color-primary);
         }
         
-        /* ===== TESTIMONIALS ===== */
-        .testimonials {
-            padding: var(--space-3xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-primary), #1b263b);
-            color: var(--color-white);
-        }
-        
-        .testimonial-grid {
+        /* ===== CULINARY CASE STUDIES ===== */
+        .culinary-case-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-xl);
-            margin: var(--space-2xl) 0;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-lg);
+            max-width: 1200px;
+            margin: var(--space-2xl) auto;
         }
         
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: var(--space-xl);
+        .culinary-case-card {
+            background: var(--color-white);
             border-radius: var(--radius-xl);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            backdrop-filter: blur(10px);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-normal);
         }
         
-        .testimonial-card::before {
-            content: '"';
+        .culinary-case-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .culinary-case-image {
+            height: 200px;
+            background: linear-gradient(135deg, #1a0d0a, #2c1c17);
+            position: relative;
+        }
+        
+        .culinary-case-badge {
             position: absolute;
-            top: -20px;
-            left: 20px;
-            font-size: 5rem;
-            color: var(--color-accent);
-            opacity: 0.3;
-            font-family: var(--font-sans);
-            line-height: 1;
-            font-weight: 900;
-        }
-        
-        .testimonial-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: var(--space-lg);
-            color: rgba(255, 255, 255, 0.9);
-            position: relative;
-            z-index: 2;
-            font-style: italic;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-        }
-        
-        .author-avatar {
-            width: 60px;
-            height: 60px;
+            top: var(--space-md);
+            left: var(--space-md);
             background: var(--color-accent);
-            border-radius: 50%;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             color: var(--color-primary);
-            font-weight: 800;
-            font-size: 1.5rem;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .author-info strong {
+        .culinary-case-content {
+            padding: var(--space-xl);
+        }
+        
+        .culinary-case-content h3 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .culinary-case-stats {
+            display: flex;
+            gap: var(--space-lg);
+            margin: var(--space-md) 0;
+        }
+        
+        .culinary-case-stat {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .culinary-case-stat strong {
             display: block;
-            color: var(--color-white);
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            font-weight: 800;
         }
         
-        .author-info span {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
+        .culinary-case-stat span {
+            font-size: 0.85rem;
+            color: var(--color-gray-600);
+            font-weight: 600;
         }
         
-        /* ===== EMERGENCY BANNER ===== */
-        .emergency-banner {
-            padding: var(--space-xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-emergency), var(--color-emergency-dark));
+        /* ===== CULINARY GUARANTEE BANNER ===== */
+        .culinary-guarantee-banner {
+            padding: var(--space-2xl) var(--space-md);
+            background: linear-gradient(135deg, #1a0d0a, #2c1c17);
             color: var(--color-white);
             text-align: center;
             border-radius: var(--radius-xl);
-            margin: var(--space-xl) auto;
+            margin: var(--space-2xl) auto;
             max-width: 1200px;
+            border: 3px solid var(--color-accent);
         }
         
-        .emergency-content {
+        .culinary-guarantee-content {
             max-width: 800px;
             margin: 0 auto;
         }
         
-        .emergency-content h2 {
+        .culinary-guarantee-icon {
+            font-size: 4rem;
+            color: var(--color-accent);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .culinary-guarantee-content h2 {
             color: var(--color-white);
             margin-bottom: var(--space-md);
         }
         
+        .culinary-guarantee-content .lead {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
         /* ===== CTA SECTION ===== */
-        .cta-section {
+        .culinary-cta-section {
             padding: var(--space-3xl) var(--space-md);
             background: var(--color-white);
             text-align: center;
             border-top: 1px solid var(--color-gray-200);
         }
         
-        .cta-container {
+        .culinary-cta-container {
             max-width: 800px;
             margin: 0 auto;
         }
         
-        .cta-container h2 {
+        .culinary-cta-container h2 {
             margin-bottom: var(--space-md);
         }
         
-        .cta-buttons {
+        .culinary-cta-buttons {
             display: flex;
             gap: var(--space-lg);
             justify-content: center;
@@ -970,7 +847,7 @@
             flex-wrap: wrap;
         }
         
-        .cta-note {
+        .culinary-cta-note {
             color: var(--color-gray-600);
             font-size: 0.95rem;
             margin-top: var(--space-xl);
@@ -981,12 +858,12 @@
             margin-right: auto;
         }
         
-        .cta-note i {
+        .culinary-cta-note i {
             color: var(--color-success);
             margin-right: var(--space-xs);
         }
         
-        /* ===== FOOTER ===== */
+        /* ===== FOOTER (Same as Home) ===== */
         .site-footer {
             background: var(--color-primary);
             color: var(--color-white);
@@ -1069,8 +946,8 @@
         @media (max-width: 1024px) {
             h1 { font-size: 3.5rem; }
             h2 { font-size: 2.5rem; }
-            .hero-title { font-size: 3.5rem; }
-            .hero::before { width: 40%; }
+            .culinary-hero-title { font-size: 3rem; }
+            .culinary-hero::before { width: 40%; }
         }
         
         @media (max-width: 768px) {
@@ -1179,30 +1056,30 @@
             }
             
             /* MOBILE HERO */
-            .hero {
+            .culinary-hero {
                 padding: var(--space-2xl) var(--space-md);
                 text-align: center;
             }
             
-            .hero::before {
+            .culinary-hero::before {
                 display: none;
             }
             
-            .hero-title {
-                font-size: 2.8rem;
+            .culinary-hero-title {
+                font-size: 2.5rem;
             }
             
-            .hero-subtitle {
+            .culinary-hero-subtitle {
                 font-size: 1.3rem;
             }
             
-            .hero-stats {
+            .culinary-hero-stats {
                 flex-direction: column;
                 align-items: center;
                 gap: var(--space-lg);
             }
             
-            .hero-stat {
+            .culinary-hero-stat {
                 max-width: 100%;
             }
             
@@ -1210,55 +1087,54 @@
             h1 { font-size: 3rem; }
             h2 { font-size: 2.2rem; }
             
-            .services-grid,
-            .case-grid,
-            .testimonial-grid {
+            .culinary-roles-grid,
+            .specialties-grid,
+            .culinary-case-grid {
                 grid-template-columns: 1fr;
             }
             
-            .process-step {
+            .culinary-process-step {
                 flex-direction: column;
                 gap: var(--space-md);
                 text-align: center;
             }
             
-            .step-number {
+            .culinary-step-number {
                 width: 60px;
                 height: 60px;
                 font-size: 1.5rem;
                 margin: 0 auto;
             }
             
-            .cta-buttons {
+            .culinary-cta-buttons {
                 flex-direction: column;
             }
             
-            .cta-buttons a {
+            .culinary-cta-buttons a {
                 width: 100%;
                 text-align: center;
             }
             
-            .guarantee-banner,
-            .emergency-banner {
+            .culinary-guarantee-banner {
                 margin: var(--space-xl) var(--space-md);
                 border-radius: var(--radius-lg);
             }
         }
         
         @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2.3rem;
+            .culinary-hero-title {
+                font-size: 2.2rem;
             }
             
-            .hero-subtitle {
+            .culinary-hero-subtitle {
                 font-size: 1.1rem;
             }
             
-            .hero-stat-number {
+            .culinary-hero-stat-number {
                 font-size: 2.5rem;
             }
             
-            .hero-badge {
+            .culinary-hero-badge {
                 font-size: 0.85rem;
                 padding: 0.75rem 1.5rem;
             }
@@ -1290,7 +1166,7 @@
         /* ===== PRINT STYLES ===== */
         @media print {
             .site-header,
-            .emergency-banner,
+            .culinary-guarantee-banner,
             .site-footer,
             .btn {
                 display: none !important;
@@ -1298,7 +1174,7 @@
         }
     </style>
     
-    <!-- Google Tag Manager & GA4 -->
+    <!-- Google Tag Manager & GA4 (Same as Home) -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXX');</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SF5LWDZDKF"></script>
     <script>
@@ -1312,11 +1188,10 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
-    <!-- SITE HEADER -->
+    <!-- SITE HEADER (Identical to Home with Active State for This Page) -->
     <header class="site-header">
         <div class="container">
             <div class="header-container">
-                <!-- CHANGE: Updated logo for Jobpitality -->
                 <div class="logo">
                     <a href="/" aria-label="Jobpitality Home">
                         <h1><i class="fas fa-bolt"></i> <span class="brand-name">JOBPITALITY</span></h1>
@@ -1331,13 +1206,13 @@
                 <nav class="main-nav">
                     <ul class="nav-menu">
                         <li class="nav-item">
-                            <a href="/" class="nav-link active">
+                            <a href="/" class="nav-link">
                                 <i class="fas fa-home"></i> Home
                             </a>
                         </li>
                         
                         <li class="nav-item dropdown">
-                            <a href="/services/" class="nav-link dropdown-toggle">
+                            <a href="/services/" class="nav-link dropdown-toggle active">
                                 <i class="fas fa-crosshairs"></i> Precision Search
                                 <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
                             </a>
@@ -1348,7 +1223,7 @@
                                 <a href="/services/hotel-leadership/" class="dropdown-item">
                                     <i class="fas fa-hotel"></i> Hotel Leadership
                                 </a>
-                                <a href="/services/culinary-leadership/" class="dropdown-item">
+                                <a href="/services/culinary-leadership/" class="dropdown-item active">
                                     <i class="fas fa-utensils"></i> Culinary Leadership
                                 </a>
                                 <a href="/services/management-teams/" class="dropdown-item">
@@ -1451,206 +1326,324 @@
         </div>
     </header>
     
-    <!-- HERO SECTION -->
-    <section class="hero">
+    <!-- SERVICE HERO SECTION -->
+    <section class="culinary-hero">
         <div class="container">
-            <div class="hero-content">
-                <!-- CHANGE: Hero badge updated for guarantee -->
-                <div class="hero-badge">
-                    <i class="fas fa-shield-alt"></i> 72-HOUR VETTED SHORTLIST GUARANTEE
+            <div class="culinary-hero-content">
+                <div class="culinary-hero-badge">
+                    <i class="fas fa-utensils"></i> PRECISION CULINARY LEADERSHIP SEARCH
                 </div>
-                <!-- CHANGE: Updated hero title and subtitle -->
-                <h1 class="hero-title">We Don't Find Talent.<br>We <span class="highlight">Acquire</span> It.</h1>
-                <p class="hero-subtitle">Jobpitality is the ruthless talent partner for luxury hotels and restaurants. We place elite General Managers, Executive Chefs, and management teams that guarantee performance, not just fill vacancies.</p>
+                <h1 class="culinary-hero-title">We Acquire Culinary Artists Who <span class="highlight">Define Destinations</span>.</h1>
+                <p class="culinary-hero-subtitle">Jobpitality doesn't recruit chefs. We acquire elite culinary leaders with proven track records of creating unforgettable dining experiences, driving profitability, and earning critical acclaim in the world's most demanding kitchens.</p>
                 
-                <!-- Hero Stats - Updated for Jobpitality -->
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">72h</span>
-                        <span class="hero-stat-label">Shortlist<br>Guarantee</span>
+                <!-- Culinary-specific Stats -->
+                <div class="culinary-hero-stats">
+                    <div class="culinary-hero-stat">
+                        <span class="culinary-hero-stat-number">72h</span>
+                        <span class="culinary-hero-stat-label">Vetted Shortlist<br>Guarantee</span>
                     </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">94%</span>
-                        <span class="hero-stat-label">Retention<br>at 12 Months</span>
+                    <div class="culinary-hero-stat">
+                        <span class="culinary-hero-stat-number">88%</span>
+                        <span class="culinary-hero-stat-label">Executive Chef<br>Retention at 2yrs</span>
                     </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">42%</span>
-                        <span class="hero-stat-label">Avg. Revenue<br>Impact</span>
+                    <div class="culinary-hero-stat">
+                        <span class="culinary-hero-stat-number">35%</span>
+                        <span class="culinary-hero-stat-label">Avg. F&B Profit<br>Improvement</span>
                     </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">42:1</span>
-                        <span class="hero-stat-label">ROI on<br>Search Fee</span>
+                    <div class="culinary-hero-stat">
+                        <span class="culinary-hero-stat-number">8h</span>
+                        <span class="culinary-hero-stat-label">Emergency Interim<br>Placement</span>
                     </div>
                 </div>
                 
                 <div style="margin-top: var(--space-xl);">
                     <a href="#consultation" class="btn btn-primary btn-large">
-                        <i class="fas fa-crosshairs"></i> START A PRECISION SEARCH
+                        <i class="fas fa-crosshairs"></i> START CULINARY LEADERSHIP SEARCH
                     </a>
-                    <a href="/case-studies/" class="btn btn-outline btn-large" style="margin-left: var(--space-md); color: white; border-color: white;">
-                        <i class="fas fa-chart-line"></i> SEE PROVEN RESULTS
+                    <a href="#roles" class="btn btn-outline btn-large" style="margin-left: var(--space-md); color: white; border-color: white;">
+                        <i class="fas fa-users"></i> VIEW CULINARY ROLES WE FILL
                     </a>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- TRUSTED CLIENTS -->
-    <section class="clients">
-        <div class="container">
-            <p class="clients-title">We Place Leaders At</p>
-            <div class="clients-grid">
-                <div class="client-logo">FOUR SEASONS</div>
-                <div class="client-logo">RITZ-CARLTON</div>
-                <div class="client-logo">MANDARIN ORIENTAL</div>
-                <div class="client-logo">MICHELIN</div>
-                <div class="client-logo">HYATT</div>
-                <div class="client-logo">MARRIOTT</div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SERVICES -->
-    <section class="services" id="services">
+    <!-- CULINARY LEADERSHIP ROLES -->
+    <section class="section" id="roles">
         <div class="container">
             <div class="section-header">
-                <h2>Precision Search for <span class="text-gradient">Luxury Hospitality</span></h2>
-                <p>We execute focused talent acquisition, not generic recruitment.</p>
+                <h2>Culinary Leadership Roles We <span class="text-gradient">Acquire</span></h2>
+                <p>We specialize in placing the complete culinary leadership suite for Michelin-star restaurants, luxury hotels, and destination dining venues.</p>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hotel"></i>
+            <div class="culinary-roles-grid">
+                <div class="culinary-role-card">
+                    <div class="culinary-role-icon">
+                        <i class="fas fa-chef-hat"></i>
                     </div>
-                    <h3>Hotel & Resort Leadership</h3>
-                    <p>General Managers, Directors of Operations, Revenue & Marketing Directors for luxury and boutique properties.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> 72-hour vetted shortlist</li>
-                        <li><i class="fas fa-check"></i> Deep luxury market network</li>
-                        <li><i class="fas fa-check"></i> Cultural fit guaranteed</li>
+                    <h3>Executive Chefs & Chef de Cuisine</h3>
+                    <p>Creative visionaries and operational masters for fine dining, Michelin-star, and high-volume kitchens. We assess for culinary artistry, leadership, and business acumen.</p>
+                    <ul class="culinary-role-features">
+                        <li><i class="fas fa-check"></i> Michelin-star & fine dining experts</li>
+                        <li><i class="fas fa-check"></i> Concept development & menu engineering</li>
+                        <li><i class="fas fa-check"></i> Kitchen brigade leadership & development</li>
+                        <li><i class="fas fa-check"></i> Cost control & food cost optimization</li>
                     </ul>
-                    <a href="/services/hotel-leadership/" class="btn btn-outline btn-block">
-                        <i class="fas fa-arrow-right"></i> Acquire Hotel Talent
+                    <a href="#consultation" class="btn btn-outline btn-block">
+                        <i class="fas fa-briefcase"></i> ACQUIRE AN EXECUTIVE CHEF
                     </a>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-utensils"></i>
+                <div class="culinary-role-card">
+                    <div class="culinary-role-icon">
+                        <i class="fas fa-wine-glass-alt"></i>
                     </div>
-                    <h3>Culinary & F&B Leadership</h3>
-                    <p>Executive Chefs, F&B Directors, Restaurant Managers for fine dining, Michelin-star, and high-volume venues.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Concept-specific expertise</li>
-                        <li><i class="fas fa-check"></i> Pre-vetted culinary artists</li>
-                        <li><i class="fas fa-check"></i> Crisis staffing ready</li>
+                    <h3>F&B Directors & Restaurant Managers</h3>
+                    <p>Business leaders who translate culinary vision into profitable operations. We find leaders who elevate guest experience while driving EBITDA.</p>
+                    <ul class="culinary-role-features">
+                        <li><i class="fas fa-check"></i> Multi-outlet F&B operations</li>
+                        <li><i class="fas fa-check"></i> Revenue & profit margin optimization</li>
+                        <li><i class="fas fa-check"></i> Guest experience & service standards</li>
+                        <li><i class="fas fa-check"></i> Beverage program & wine list development</li>
                     </ul>
-                    <a href="/services/culinary-leadership/" class="btn btn-outline btn-block">
-                        <i class="fas fa-arrow-right"></i> Acquire Culinary Talent
+                    <a href="#consultation" class="btn btn-outline btn-block">
+                        <i class="fas fa-briefcase"></i> ACQUIRE AN F&B DIRECTOR
                     </a>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
+                <div class="culinary-role-card">
+                    <div class="culinary-role-icon">
+                        <i class="fas fa-concierge-bell"></i>
                     </div>
-                    <h3>Management & Corporate</h3>
-                    <p>VPs of Operations, Regional Directors, and corporate leadership for multi-property groups and investors.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Strategic succession planning</li>
-                        <li><i class="fas fa-check"></i> Multi-property integration</li>
-                        <li><i class="fas fa-check"></i> Investor-ready talent</li>
+                    <h3>Restaurant General Managers</h3>
+                    <p>P&L leaders for standalone restaurants and hotel dining venues. We find operators who balance creative vision with commercial reality.</p>
+                    <ul class="culinary-role-features">
+                        <li><i class="fas fa-check"></i> Standalone restaurant P&L management</li>
+                        <li><i class="fas fa-check"></i> Front-of-house team leadership</li>
+                        <li><i class="fas fa-check"></i> Marketing & guest acquisition strategy</li>
+                        <li><i class="fas fa-check"></i> Vendor & supply chain management</li>
                     </ul>
-                    <a href="/services/management-teams/" class="btn btn-outline btn-block">
-                        <i class="fas fa-arrow-right"></i> Acquire Management Talent
+                    <a href="#consultation" class="btn btn-outline btn-block">
+                        <i class="fas fa-briefcase"></i> ACQUIRE A RESTAURANT GM
+                    </a>
+                </div>
+                
+                <div class="culinary-role-card">
+                    <div class="culinary-role-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Culinary Corporate & Group Roles</h3>
+                    <p>Strategic leaders for multi-concept groups, hotel chains, and culinary consultancies. We find visionaries who scale excellence.</p>
+                    <ul class="culinary-role-features">
+                        <li><i class="fas fa-check"></i> Corporate Executive Chefs</li>
+                        <li><i class="fas fa-check"></i> Culinary Directors for hotel groups</li>
+                        <li><i class="fas fa-check"></i> Concept Development Directors</li>
+                        <li><i class="fas fa-check"></i> F&B Consultants & Advisors</li>
+                    </ul>
+                    <a href="#consultation" class="btn btn-outline btn-block">
+                        <i class="fas fa-briefcase"></i> ACQUIRE CORPORATE CULINARY TALENT
                     </a>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- GUARANTEE BANNER -->
-    <!-- CHANGE: New section highlighting the core promise -->
-    <section class="guarantee-banner">
+    <!-- CULINARY SPECIALTIES -->
+    <section class="section" style="background: var(--color-gray-100);">
         <div class="container">
-            <div class="guarantee-content">
-                <div class="guarantee-icon">
+            <div class="section-header">
+                <h2>Culinary <span class="text-gradient">Specialties</span> We Master</h2>
+                <p>Deep expertise across the full spectrum of luxury culinary experiences.</p>
+            </div>
+            
+            <div class="specialties-grid">
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Michelin & Fine Dining</h4>
+                    <p>Executive Chefs for starred restaurants, tasting menu concepts, and haute cuisine destinations.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h4>Luxury Hotel F&B</h4>
+                    <p>F&B Directors and Executive Chefs for 5-star hotels, resorts, and boutique properties.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-utensil-spoon"></i>
+                    </div>
+                    <h4>High-Volume & Casual Luxury</h4>
+                    <p>Chefs for premium casual, brasserie, and high-cover operations with exacting standards.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4>Specialty Concepts</h4>
+                    <p>Plant-based, seafood, steakhouse, bakery, patisserie, and regional cuisine experts.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h4>Pre-Opening & Turnaround</h4>
+                    <p>Specialists in launching new concepts and revitalizing underperforming operations.</p>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>Emergency & Interim</h4>
+                    <p>Immediate placement of interim culinary leaders for crisis situations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CULINARY GUARANTEE BANNER -->
+    <section class="culinary-guarantee-banner">
+        <div class="container">
+            <div class="culinary-guarantee-content">
+                <div class="culinary-guarantee-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                <h2>Our Unwavering Guarantee</h2>
-                <p class="lead">Submit a detailed brief. Within <strong>72 hours</strong>, we will deliver a shortlist of pre-vetted, interviewed, and culturally-assessed candidates. Not just resumes. <strong>Guaranteed talent, ready to interview.</strong></p>
+                <h2>The 72-Hour Culinary Leadership Guarantee</h2>
+                <p class="lead">Submit your detailed culinary leadership brief. Within <strong>72 hours</strong>, we deliver a shortlist of pre-vetted, menu-tasted, and reference-checked candidates. Not just CVs. <strong>Elite culinary leaders, ready to stage.</strong></p>
                 <a href="/services/guarantee/" class="btn btn-primary btn-large" style="margin-top: var(--space-lg);">
-                    <i class="fas fa-file-contract"></i> READ THE FULL GUARANTEE
+                    <i class="fas fa-file-contract"></i> READ OUR CULINARY SEARCH GUARANTEE
                 </a>
             </div>
         </div>
     </section>
     
-    <!-- CASE STUDIES PREVIEW -->
-    <section class="case-studies">
+    <!-- CULINARY-SPECIFIC PROCESS -->
+    <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2>Precision <span class="text-gradient">Placements</span>, Proven Impact</h2>
-                <p>Where our talent acquisition directly drove measurable business results.</p>
+                <h2>The Jobpitality Culinary Leadership <span class="text-gradient">Method</span></h2>
+                <p>A specialized process designed to acquire leaders who understand the unique pressures of world-class kitchens.</p>
             </div>
             
-            <div class="case-grid">
-                <div class="case-card">
-                    <div class="case-image">
-                        <div class="case-badge">72-HOUR PLACEMENT</div>
-                    </div>
-                    <div class="case-content">
-                        <h3><a href="#">Luxury Boutique Hotel GM Search</a></h3>
-                        <p>Client had a 94-day vacancy crippling operations. We delivered a vetted shortlist in 72 hours. Placed GM achieved 42% revenue growth in 6 months.</p>
-                        <div class="case-stats">
-                            <div class="case-stat">
-                                <strong>72h</strong>
-                                <span>To Shortlist</span>
-                            </div>
-                            <div class="case-stat">
-                                <strong>42%</strong>
-                                <span>Revenue Growth</span>
-                            </div>
-                        </div>
+            <div class="culinary-process-steps">
+                <div class="culinary-process-step">
+                    <div class="culinary-step-number">1</div>
+                    <div class="culinary-step-content">
+                        <h3>Culinary Intelligence & Concept Brief</h3>
+                        <p>We analyze your concept, cuisine style, target audience, and competitive landscape. We don't just read your job description; we understand your culinary vision and business objectives.</p>
                     </div>
                 </div>
                 
-                <div class="case-card">
-                    <div class="case-image" style="background: linear-gradient(135deg, var(--color-accent), #ff6b00);">
-                        <div class="case-badge">CULINARY CRISIS AVERTED</div>
+                <div class="culinary-process-step">
+                    <div class="culinary-step-number">2</div>
+                    <div class="culinary-step-content">
+                        <h3>Proprietary Culinary Talent Mapping</h3>
+                        <p>We map the precise talent pool across Michelin kitchens, luxury hotels, and competitive restaurants. We engage passive culinary artists who aren't looking but are open to exceptional creative opportunities.</p>
                     </div>
-                    <div class="case-content">
-                        <h3><a href="#">Michelin-star Executive Chef</a></h3>
-                        <p>Executive chef quit 48 hours before a major review. We had an interim, Michelin-experienced chef in the kitchen within 8 hours. Permanent placement within 3 weeks.</p>
-                        <div class="case-stats">
-                            <div class="case-stat">
+                </div>
+                
+                <div class="culinary-process-step">
+                    <div class="culinary-step-number">3</div>
+                    <div class="culinary-step-content">
+                        <h3>Ruthless Culinary Assessment</h3>
+                        <p>Proprietary assessments evaluate culinary philosophy, technical skill, leadership style, and business acumen. We conduct tasting sessions and verify past performance with 360° references from owners, critics, and brigade members.</p>
+                    </div>
+                </div>
+                
+                <div class="culinary-process-step">
+                    <div class="culinary-step-number">4</div>
+                    <div class="culinary-step-content">
+                        <h3>Guaranteed Placement & Kitchen Integration</h3>
+                        <p>We manage the offer process, negotiate creative packages, and provide 12-month integration support. Our guarantee covers performance. Our relationship begins at placement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CULINARY CASE STUDIES -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Culinary Leadership <span class="text-gradient">Placements</span></h2>
+                <p>Where our acquired talent directly transformed restaurant performance and culinary reputation.</p>
+            </div>
+            
+            <div class="culinary-case-grid">
+                <div class="culinary-case-card">
+                    <div class="culinary-case-image">
+                        <div class="culinary-case-badge">MICHELIN CRISIS</div>
+                    </div>
+                    <div class="culinary-case-content">
+                        <h3>Michelin-star Executive Chef Search</h3>
+                        <p>Executive chef quit 48 hours before a major review. We had an interim, Michelin-experienced chef in the kitchen within 8 hours. Permanent placement within 3 weeks maintained the star and increased covers by 40%.</p>
+                        <div class="culinary-case-stats">
+                            <div class="culinary-case-stat">
                                 <strong>8h</strong>
-                                <span>Interim In Place</span>
+                                <span>Interim In Kitchen</span>
                             </div>
-                            <div class="case-stat">
-                                <strong>3w</strong>
-                                <span>To Permanent Hire</span>
+                            <div class="culinary-case-stat">
+                                <strong>40%</strong>
+                                <span>Cover Increase</span>
+                            </div>
+                            <div class="culinary-case-stat">
+                                <strong>1★</strong>
+                                <span>Maintained</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="case-card">
-                    <div class="case-image" style="background: linear-gradient(135deg, var(--color-success), var(--color-success-dark));">
-                        <div class="case-badge">MULTI-PROPERTY SUCCESSION</div>
+                <div class="culinary-case-card">
+                    <div class="culinary-case-image" style="background: linear-gradient(135deg, var(--color-accent), #ff6b00);">
+                        <div class="culinary-case-badge">HOTEL F&B TURNAROUND</div>
                     </div>
-                    <div class="case-content">
-                        <h3><a href="#">Resort Group Leadership Overhaul</a></h3>
-                        <p>Placed a new VP of Operations and 3 GMs across a luxury resort group. Achieved 65% seasonal revenue increase and unified culture across properties.</p>
-                        <div class="case-stats">
-                            <div class="case-stat">
-                                <strong>4</strong>
+                    <div class="culinary-case-content">
+                        <h3>Luxury Hotel F&B Overhaul</h3>
+                        <p>Placed a new F&B Director and Executive Chef for a 5-star hotel with declining restaurant revenue. Implemented new concepts and menus, driving 35% F&B profit improvement and 4.8/5 guest satisfaction in first year.</p>
+                        <div class="culinary-case-stats">
+                            <div class="culinary-case-stat">
+                                <strong>2</strong>
                                 <span>Key Placements</span>
                             </div>
-                            <div class="case-stat">
-                                <strong>65%</strong>
-                                <span>Revenue Growth</span>
+                            <div class="culinary-case-stat">
+                                <strong>35%</strong>
+                                <span>Profit Increase</span>
+                            </div>
+                            <div class="culinary-case-stat">
+                                <strong>4.8</strong>
+                                <span>Guest Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="culinary-case-card">
+                    <div class="culinary-case-image" style="background: linear-gradient(135deg, var(--color-success), var(--color-success-dark));">
+                        <div class="culinary-case-badge">RESTAURANT GROUP EXPANSION</div>
+                    </div>
+                    <div class="culinary-case-content">
+                        <h3>Multi-Concept Restaurant Group</h3>
+                        <p>Acquired Corporate Executive Chef and 3 Chef de Cuisine positions for a growing restaurant group launching new concepts. Achieved successful openings with 30% above-projected covers and critical acclaim across all venues.</p>
+                        <div class="culinary-case-stats">
+                            <div class="culinary-case-stat">
+                                <strong>4</strong>
+                                <span>Chefs Placed</span>
+                            </div>
+                            <div class="culinary-case-stat">
+                                <strong>30%</strong>
+                                <span>Above Projection</span>
+                            </div>
+                            <div class="culinary-case-stat">
+                                <strong>3</strong>
+                                <span>New Concepts</span>
                             </div>
                         </div>
                     </div>
@@ -1659,113 +1652,24 @@
             
             <div style="text-align: center; margin-top: var(--space-xl);">
                 <a href="/case-studies/" class="btn btn-secondary btn-large">
-                    <i class="fas fa-chart-line"></i> VIEW ALL IMPACT STUDIES
+                    <i class="fas fa-chart-line"></i> VIEW ALL CULINARY CASE STUDIES
                 </a>
             </div>
         </div>
     </section>
     
-    <!-- OUR PROCESS -->
-    <section class="process">
-        <div class="container">
-            <div class="section-header">
-                <h2>The Jobpitality <span class="text-gradient">Method</span></h2>
-                <p>A systematic, ruthless process designed for one outcome: placing elite talent that performs.</p>
-            </div>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Strategic Brief & Intelligence</h3>
-                        <p>We deconstruct your need. Not just the job description, but the business problem, culture, and exact performance outcomes required.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Targeted Talent Mapping</h3>
-                        <p>We map and engage the precise talent pool, including passive leaders not on the market. No spam. No databases. Just direct acquisition.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Ruthless Assessment & Vetting</h3>
-                        <p>Proprietary hospitality leadership assessments. We evaluate for proven impact, cultural alignment, and leadership agility. Only the elite pass.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Guaranteed Placement & Integration</h3>
-                        <p>We guarantee the placement and support integration with performance tracking. Our relationship begins at placement, it doesn't end there.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- TESTIMONIALS -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header" style="color: white;">
-                <h2>What <span style="color: var(--color-accent);">Industry Leaders</span> Say</h2>
-                <p>Feedback from executives who demanded results, not just candidates.</p>
-            </div>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Jobpitality's 72-hour guarantee wasn't a slogan; it was a promise kept. The GM they placed transformed our property's performance. They operate with a precision others lack."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JW</div>
-                        <div class="author-info">
-                            <strong>James Wilson</strong>
-                            <span>Managing Partner, Luxury Hotel Group</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"When our Executive Chef walked out, Jobpitality didn't send CVs. They had a solution cooking in our kitchen within hours. They understand crisis means business, not paperwork."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SC</div>
-                        <div class="author-info">
-                            <strong>Sarah Chen</strong>
-                            <span>Operations Director, Michelin Fine Dining Group</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Their 'ruthless' approach is exactly what the industry needs. No fluff, no generic candidates. They acquired a leadership team that delivered a 65% revenue increase. Period."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MR</div>
-                        <div class="author-info">
-                            <strong>Michael Rodriguez</strong>
-                            <span>VP Operations, Global Resort Collection</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- EMERGENCY BANNER -->
-    <section class="emergency-banner">
+    <!-- EMERGENCY CULINARY STAFFING BANNER -->
+    <section class="emergency-banner" style="margin: var(--space-3xl) auto; background: linear-gradient(135deg, #8B0000, #B22222);">
         <div class="container">
             <div class="emergency-content">
-                <h2><i class="fas fa-bolt"></i> Leadership Crisis or Sudden Departure?</h2>
-                <p>GM quit? Chef walked out? Opening delayed? Our rapid response team deploys interim, vetted leaders within hours to stabilize your operation while we execute a permanent search.</p>
+                <h2><i class="fas fa-bolt"></i> Culinary Leadership Crisis?</h2>
+                <p>Chef walked out? Health inspection failure? Opening delayed? Our rapid response team deploys interim, vetted culinary leaders within hours to stabilize your kitchen while we execute a permanent search.</p>
                 <div style="margin-top: var(--space-lg);">
                     <a href="/emergency/" class="btn btn-emergency btn-large">
-                        <i class="fas fa-headset"></i> ACTIVATE CRISIS RESPONSE
+                        <i class="fas fa-headset"></i> ACTIVATE CULINARY CRISIS RESPONSE
                     </a>
                     <a href="tel:+2348039661354" class="btn btn-outline btn-large" style="margin-left: var(--space-md); color: white; border-color: white;">
-                        <i class="fas fa-phone"></i> CALL CRISIS HOTLINE
+                        <i class="fas fa-phone"></i> CALL CULINARY CRISIS HOTLINE
                     </a>
                 </div>
             </div>
@@ -1773,34 +1677,33 @@
     </section>
     
     <!-- CTA SECTION -->
-    <section class="cta-section" id="consultation">
+    <section class="culinary-cta-section" id="consultation">
         <div class="container">
-            <div class="cta-container">
-                <h2>Ready to Acquire Elite Talent, Not Just Hire?</h2>
-                <p class="lead">Schedule a ruthless, no-bullshit consultation. We'll analyze your talent gap and show you exactly how we'd close it.</p>
+            <div class="culinary-cta-container">
+                <h2>Ready to Acquire a Culinary Leader, Not Just Hire a Chef?</h2>
+                <p class="lead">Schedule a ruthless, confidential consultation. We'll analyze your culinary vision and show you exactly how we'd bring it to life with elite talent.</p>
                 
-                <div class="cta-buttons">
+                <div class="culinary-cta-buttons">
                     <a href="/employers/start-search/" class="btn btn-primary btn-large">
-                        <i class="fas fa-crosshairs"></i> START PRECISION SEARCH
+                        <i class="fas fa-crosshairs"></i> START CULINARY LEADERSHIP SEARCH
                     </a>
                     <a href="tel:+2348039661354" class="btn btn-outline btn-large">
-                        <i class="fas fa-phone"></i> CALL FOR IMMEDIATE BRIEF
+                        <i class="fas fa-phone"></i> CALL FOR IMMEDIATE CULINARY BRIEF
                     </a>
                 </div>
                 
-                <div class="cta-note">
-                    <p><i class="fas fa-user-secret"></i> <strong>100% Confidential & Discrete:</strong> We operate under strict NDAs. Your search and identity are protected.</p>
+                <div class="culinary-cta-note">
+                    <p><i class="fas fa-user-secret"></i> <strong>100% Confidential for Restaurant Owners & Investors:</strong> We operate under strict NDAs. Your search, concept details, and ownership are protected.</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- FOOTER -->
+    <!-- FOOTER (Identical to Home) -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <!-- CHANGE: Updated footer branding -->
                     <h3>Jobpitality</h3>
                     <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-lg);">The ruthless talent partner for luxury hotels, restaurants, and hospitality brands. We acquire elite talent that guarantees performance.</p>
                     <div class="footer-contact">
@@ -1851,13 +1754,12 @@
                     <a href="/cookies/">Cookie Policy</a>
                     <a href="/compliance/">Compliance</a>
                 </div>
-                <!-- CHANGE: Updated copyright -->
                 <p>&copy; 2024 <strong>Jobpitality</strong>. The Ruthless Talent Partner for Luxury Hospitality. All rights reserved.</p>
             </div>
         </div>
     </footer>
     
-    <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT (Same as Home) -->
     <script>
         // Mobile Navigation
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -1927,7 +1829,7 @@
         
         // Animate elements on scroll
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.service-card, .case-card, .testimonial-card, .process-step');
+            const elements = document.querySelectorAll('.culinary-role-card, .culinary-case-card, .specialty-card, .culinary-process-step');
             
             elements.forEach(element => {
                 const rect = element.getBoundingClientRect();
@@ -1939,7 +1841,7 @@
         }
         
         // Set initial state for animation
-        document.querySelectorAll('.service-card, .case-card, .testimonial-card, .process-step').forEach(element => {
+        document.querySelectorAll('.culinary-role-card, .culinary-case-card, .specialty-card, .culinary-process-step').forEach(element => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(30px)';
             element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -1978,7 +1880,7 @@
                 if (typeof gtag !== 'undefined') {
                     const label = this.textContent.trim().substring(0, 30);
                     gtag('event', 'cta_click', {
-                        'event_category': 'Homepage',
+                        'event_category': 'Culinary Leadership Page',
                         'event_label': label,
                         'value': 1
                     });
@@ -2009,11 +1911,11 @@
         
         // Stats counter animation
         function animateStats() {
-            const stats = document.querySelectorAll('.hero-stat-number');
+            const stats = document.querySelectorAll('.culinary-hero-stat-number');
             stats.forEach(stat => {
                 const originalText = stat.textContent;
                 let target;
-                // Handle different stat formats (72h, 94%, etc.)
+                // Handle different stat formats (72h, 88%, etc.)
                 if (originalText.includes('h')) {
                     target = parseInt(originalText);
                 } else if (originalText.includes('%')) {
@@ -2026,7 +1928,7 @@
                 
                 if (!isNaN(target)) {
                     let current = 0;
-                    const increment = target / 30; // Faster animation
+                    const increment = target / 30;
                     const timer = setInterval(() => {
                         current += increment;
                         if (current >= target) {
@@ -2059,8 +1961,8 @@
             });
         }, { threshold: 0.3 });
         
-        const heroStats = document.querySelector('.hero-stats');
-        if (heroStats) observer.observe(heroStats);
+        const culinaryHeroStats = document.querySelector('.culinary-hero-stats');
+        if (culinaryHeroStats) observer.observe(culinaryHeroStats);
     </script>
 </body>
 </html>

@@ -3,61 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F&B Staffing Solutions | Restaurant & Hotel Staffing | Quick Hire</title>
-    <meta name="description" content="Emergency F&B staffing for restaurants & hotels. Get servers, chefs, bartenders, and managers in 7 days or less. 90-Day Guarantee.">
+    <!-- CHANGE: Updated title for Jobpitality Talent On-Demand -->
+    <title>Talent On-Demand for F&B Crisis & Growth | Jobpitality</title>
+    <meta name="description" content="Jobpitality Rapid-Response: Deploy pre-vetted servers, chefs & managers within 72 hours. 90-Day Mission Assurance. Solve staffing friction now.">
     
     <!-- Open Graph / Social Meta -->
-    <meta property="og:title" content="Emergency F&B Staffing - Staff in 7 Days or Less">
-    <meta property="og:description" content="Pre-vetted restaurant and hotel staff. Only pay when you hire. 90-Day Placement Guarantee.">
+    <meta property="og:title" content="Talent On-Demand for F&B Crisis & Growth | Jobpitality">
+    <meta property="og:description" content="Deploy pre-vetted F&B talent within 72 hours. 90-Day Mission Assurance. Stop staffing friction, start growth.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://yourdomain.com/images/fb-staffing-og.jpg">
-    <meta property="og:url" content="https://yourdomain.com/services/fb-staffing/">
+    <meta property="og:image" content="https://jobpitality.com/images/fb-talent-og.jpg">
+    <meta property="og:url" content="https://jobpitality.com/services/talent-on-demand/">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Service",
-        "serviceType": "Hospitality Staffing",
+        "serviceType": "Hospitality Talent Deployment",
         "provider": {
             "@type": "Organization",
-            "name": "HospitalityRecruit"
+            "name": "Jobpitality",
+            "slogan": "The Ruthless Talent Partner"
         },
-        "description": "F&B staffing solutions for restaurants and hotels",
+        "description": "Rapid-response deployment of pre-vetted F&B talent units.",
         "areaServed": {
             "@type": "Country",
-            "name": "United States"
+            "name": "Nigeria"
         },
         "offers": {
             "@type": "Offer",
-            "description": "90-Day Placement Guarantee"
+            "description": "90-Day Mission Assurance Guarantee"
         }
     }
     </script>
     
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     
     <!-- Canonical -->
-    <link rel="canonical" href="https://yourdomain.com/services/fb-staffing/">
+    <link rel="canonical" href="https://jobpitality.com/services/talent-on-demand/">
 
     <style>
         /* 
-F&B STAFFING PAGE CSS
-Conversion-focused, no fluff
+JOBPITALITY TALENT ON-DEMAND PAGE CSS
+Ruthless, fast, conversion-focused.
 */
- /* ===== HEADER & NAVIGATION ===== */
+ /* CSS Variables - UPDATED TO JOBPITALITY PALETTE */
+:root {
+    /* Colors */
+    --color-primary: #0d1b2a;
+    --color-primary-dark: #070d13;
+    --color-primary-light: #1b263b;
+    --color-accent: #ff9e00;
+    --color-accent-dark: #cc7e00;
+    --color-emergency: #e63946;
+    --color-emergency-dark: #c1121f;
+    --color-success: #2a9d8f;
+    --color-warning: #f59e0b;
+    
+    --color-white: #ffffff;
+    --color-light: #f8fafc;
+    --color-dark: #0d1b2a;
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
+    
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    
+    /* Typography */
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.25rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    color: var(--color-gray-800);
+    background: var(--color-white);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===== HEADER & NAVIGATION ===== */
         .site-header {
             background: var(--color-white);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
             position: sticky;
             top: 0;
             z-index: 1000;
             padding: var(--space-sm) 0;
+            border-bottom: 3px solid var(--color-accent);
         }
         
         .header-container {
@@ -80,27 +164,30 @@ Conversion-focused, no fluff
             line-height: 1.2;
         }
         
+        /* CHANGE: Updated logo for Jobpitality */
         .logo h1 {
             font-size: 1.65rem;
             margin-bottom: 0;
-            font-weight: 800;
+            font-weight: 900;
             color: var(--color-primary);
             letter-spacing: -0.5px;
             display: flex;
             align-items: center;
-            /* gap: 0.5rem; */
         }
         
-        .logo h1 i {
-            color: var(--color-gold);
+        .logo h1 .brand-name {
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .logo-tagline {
             font-size: 0.75rem;
             color: var(--color-emergency);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
+            letter-spacing: 1.5px;
+            font-weight: 800;
             margin-top: 1px;
         }
         
@@ -108,7 +195,6 @@ Conversion-focused, no fluff
         .main-nav {
             display: flex;
             align-items: center;
-            /* gap: var(--space-sm); */
         }
         
         .nav-menu {
@@ -125,7 +211,7 @@ Conversion-focused, no fluff
         .nav-link {
             text-decoration: none;
             color: var(--color-gray-800);
-            font-weight: 500;
+            font-weight: 600;
             font-size: 0.95rem;
             padding: 0.5rem 0.95rem;
             display: flex;
@@ -136,22 +222,22 @@ Conversion-focused, no fluff
         }
         
         .nav-link:hover {
-            color: var(--color-primary);
+            color: var(--color-accent);
         }
         
         .nav-link.active {
-            color: var(--color-primary);
-            font-weight: 600;
+            color: var(--color-accent);
+            font-weight: 700;
         }
         
         .nav-link.active::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -3px;
             left: 0.75rem;
             right: 0.75rem;
             height: 3px;
-            background: var(--color-primary);
+            background: var(--color-accent);
             border-radius: 3px 3px 0 0;
         }
         
@@ -166,7 +252,7 @@ Conversion-focused, no fluff
             left: 0;
             background: var(--color-white);
             min-width: 220px;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-xl);
             padding: var(--space-sm);
             opacity: 0;
@@ -180,7 +266,7 @@ Conversion-focused, no fluff
         .dropdown:hover .dropdown-menu {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
+            transform: translateY(5px);
         }
         
         .dropdown-item {
@@ -191,12 +277,13 @@ Conversion-focused, no fluff
             text-decoration: none;
             color: var(--color-gray-700);
             font-size: 0.9rem;
+            font-weight: 500;
             transition: all var(--transition-fast);
         }
         
         .dropdown-item:hover {
             background: var(--color-gray-100);
-            color: var(--color-primary);
+            color: var(--color-accent);
             padding-left: calc(var(--space-lg) + 0.5rem);
         }
         
@@ -220,19 +307,19 @@ Conversion-focused, no fluff
             background: var(--color-primary);
             color: var(--color-white) !important;
             padding: 0.25rem 0.75rem !important;
-            border-radius: var(--radius-md);
-            font-weight: 400 !important;
+            border-radius: var(--radius-lg);
+            font-weight: 700 !important;
             transition: all var(--transition-fast);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            
+            font-size: 0.9rem;
         }
         
         .nav-cta:hover {
             background: var(--color-primary-dark);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
             box-shadow: var(--shadow-md);
         }
         
@@ -263,22 +350,24 @@ Conversion-focused, no fluff
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(13, 27, 42, 0.9);
             z-index: 999;
         }
 
-        /* Announcement Bar */
+        /* Announcement Bar - URGENCY */
         .announcement {
-            background: linear-gradient(90deg, var(--color-emergency), #f97316);
+            background: linear-gradient(90deg, var(--color-emergency), var(--color-accent));
             color: white;
             padding: 0.75rem 0;
             text-align: center;
             font-size: 0.9rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--color-primary);
         }
 
         .announcement a {
             color: white;
-            font-weight: bold;
+            font-weight: 800;
             text-decoration: underline;
         }
 
@@ -287,114 +376,39 @@ Conversion-focused, no fluff
         }
         
 /* ===== SERVICE HERO ===== */
-.hero {
-            padding: var(--space-3xl) var(--space-md);
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: var(--color-white);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 60%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent 0%, rgba(30, 41, 59, 0.7) 100%), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="%231e429f" opacity="0.1"/></svg>');
-            background-size: cover;
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1000px;
-        }
-        
-        .hero-badge {
-            background: linear-gradient(135deg, var(--color-gold), var(--color-bronze));
-            color: var(--color-white);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.625rem 1.75rem;
-            border-radius: 50px;
-            font-weight: 700;
-            margin-bottom: var(--space-lg);
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-        }
-        
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: var(--space-lg);
-            color: var(--color-white);
-        }
-        
-        .hero-title span {
-            color: #fbbf24;
-            font-family: var(--font-serif);
-            font-style: italic;
-            position: relative;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            margin-bottom: var(--space-xl);
-            line-height: 1.6;
-        }
-        
-        /* HERO STATS */
-        .hero-stats {
-            display: flex;
-            gap: var(--space-2xl);
-            margin: var(--space-xl) 0;
-            flex-wrap: wrap;
-        }
-        
-        .hero-stat {
-            text-align: center;
-            flex: 1;
-            min-width: 150px;
-        }
-        
-        .hero-stat-number {
-            font-size: 3rem;
-            font-weight: 900;
-            color: #fbbf24;
-            display: block;
-            line-height: 1;
-            margin-bottom: var(--space-xs);
-        }
-        
-        .hero-stat-label {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            line-height: 1.4;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+.service-hero {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #1b263b 100%);
+    color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+}
 
-        /* Service Hero Section */
-        .service-hero {
-            padding: var(--space-2xl) 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
+.service-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(27, 38, 59, 0.8) 100%);
+    z-index: 1;
+}
 
-        .service-hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-2xl);
-            align-items: center;
-        }
-        
+.service-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.service-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
 /* Breadcrumb */
 .breadcrumb {
     margin-bottom: var(--space-lg);
@@ -411,60 +425,50 @@ Conversion-focused, no fluff
 .breadcrumb li:not(:last-child)::after {
     content: '/';
     margin-left: var(--space-xs);
-    color: var(--color-gray-300);
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .breadcrumb a {
-    color: var(--color-gray-800);
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
+    font-weight: 500;
 }
 
 .breadcrumb a:hover {
-    color: var(--color-primary);
+    color: var(--color-accent);
     text-decoration: underline;
 }
 
 .breadcrumb span {
-    color: var(--color-primary);
-    font-weight: 500;
+    color: var(--color-accent);
+    font-weight: 700;
 }
 
 /* Service Title */
 .service-title {
     font-size: 3.5rem;
-    line-height: 1.1;
+    line-height: 1;
     margin-bottom: var(--space-lg);
-    color: var(--color-gray-900);
+    color: var(--color-white);
+    font-weight: 900;
 }
 
-.highlight-red {
-    color: var(--color-emergency);
-    font-weight: 700;
+.highlight {
+    color: var(--color-accent);
+    font-weight: 900;
     position: relative;
-}
-
-.highlight-red::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--color-emergency), #f97316);
-    opacity: 0.3;
-    z-index: -1;
 }
 
 .service-subtitle {
     font-size: 1.25rem;
-    color: var(--color-gray-800);
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: var(--space-xl);
     line-height: 1.6;
 }
 
 .service-subtitle strong {
-    color: var(--color-dark);
-    font-weight: 600;
+    color: var(--color-white);
+    font-weight: 700;
 }
 
 /* Service Hero Stats */
@@ -483,16 +487,20 @@ Conversion-focused, no fluff
 
 .service-stat .stat-number {
     display: block;
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--color-primary);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-accent);
     margin-bottom: var(--space-xs);
+    line-height: 1;
 }
 
 .service-stat .stat-label {
     font-size: 0.875rem;
-    color: var(--color-gray-800);
+    color: rgba(255, 255, 255, 0.8);
     line-height: 1.4;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* Service Hero CTA */
@@ -501,24 +509,25 @@ Conversion-focused, no fluff
 }
 
 .btn-emergency {
-    background: linear-gradient(135deg, var(--color-emergency), #f97316);
-    color: white;
+    background: linear-gradient(135deg, var(--color-emergency), var(--color-accent));
+    color: var(--color-primary);
     padding: 1rem 2rem;
-    border-radius: var(--radius-md);
-    font-weight: 700;
+    border-radius: var(--radius-lg);
+    font-weight: 800;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    transition: all 0.3s ease;
+    transition: all var(--transition-normal);
     border: none;
     cursor: pointer;
     font-size: 1.125rem;
+    font-family: var(--font-sans);
 }
 
 .btn-emergency:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(230, 57, 70, 0.3);
 }
 
 .btn-large {
@@ -528,20 +537,22 @@ Conversion-focused, no fluff
 
 .cta-note {
     font-size: 0.95rem;
-    color: var(--color-gray-800);
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: var(--space-sm);
 }
 
 .cta-note i {
-    color: var(--color-emergency);
+    color: var(--color-accent);
     margin-right: var(--space-xs);
 }
 
 /* Service Hero Image */
 .service-hero-image {
     position: relative;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-2xl);
+    border: 3px solid rgba(255, 255, 255, 0.1);
 }
 
 .service-hero-image img {
@@ -555,37 +566,6 @@ Conversion-focused, no fluff
     transform: scale(1.02);
 }
 
-/* .image-badge {
-    position: absolute;
-    bottom: var(--space-md);
-    left: var(--space-md);
-    right: var(--space-md);
-    background: rgba(255, 255, 255, 0.95);
-    padding: var(--space-md);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    backdrop-filter: blur(10px);
-    border-left: 4px solid var(--color-secondary);
-} */
-
-.badge-content {
-    text-align: center;
-}
-
-.badge-text {
-    display: block;
-    font-style: italic;
-    margin-bottom: var(--space-xs);
-    font-size: 0.95rem;
-    color: var(--color-dark);
-}
-
-.badge-author {
-    font-size: 0.875rem;
-    color: var(--color-gray-800);
-    font-weight: 500;
-}
-
 /* ===== PAIN POINTS SECTION ===== */
 .pain-points-section {
     padding: var(--space-2xl) 0;
@@ -596,7 +576,15 @@ Conversion-focused, no fluff
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: var(--space-2xl);
-    color: var(--color-gray-900);
+    color: var(--color-primary);
+    font-weight: 900;
+}
+
+.section-title .text-gradient {
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-emergency) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .pain-points-grid {
@@ -608,15 +596,15 @@ Conversion-focused, no fluff
 .pain-point-card {
     padding: var(--space-xl);
     background: var(--color-light);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all var(--transition-normal);
     border: 1px solid var(--color-gray-300);
 }
 
 .pain-point-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-xl);
     border-color: var(--color-emergency);
     background: linear-gradient(135deg, var(--color-white), #fef3c7);
 }
@@ -631,6 +619,7 @@ Conversion-focused, no fluff
     font-size: 1.25rem;
     margin-bottom: var(--space-sm);
     color: var(--color-gray-900);
+    font-weight: 800;
 }
 
 .pain-point-card p {
@@ -657,16 +646,18 @@ Conversion-focused, no fluff
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 800;
     margin-bottom: var(--space-md);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .section-header h2 {
     font-size: 2.5rem;
     margin-bottom: var(--space-sm);
-    color: var(--color-gray-900);
+    color: var(--color-primary);
+    font-weight: 900;
 }
 
 .section-header p {
@@ -690,17 +681,18 @@ Conversion-focused, no fluff
 
 .step-number {
     flex-shrink: 0;
-    width: 60px;
-    height: 60px;
-    background: var(--color-primary);
-    color: white;
-    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background: var(--color-accent);
+    color: var(--color-primary);
+    border-radius: var(--radius-2xl);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 800;
-    box-shadow: var(--shadow-md);
+    font-size: 1.75rem;
+    font-weight: 900;
+    box-shadow: var(--shadow-lg);
+    border: 3px solid var(--color-white);
 }
 
 .step-content {
@@ -711,7 +703,8 @@ Conversion-focused, no fluff
 .step-content h3 {
     font-size: 1.5rem;
     margin-bottom: var(--space-sm);
-    color: var(--color-gray-900);
+    color: var(--color-primary);
+    font-weight: 800;
 }
 
 .step-content p {
@@ -732,10 +725,10 @@ Conversion-focused, no fluff
 }
 
 .step-features li::before {
-    content: '✓';
+    content: '→';
     position: absolute;
     left: 0;
-    color: var(--color-secondary);
+    color: var(--color-accent);
     font-weight: bold;
 }
 
@@ -745,30 +738,32 @@ Conversion-focused, no fluff
 }
 
 .btn-primary {
-    background: var(--color-primary);
-    color: white;
+    background: var(--color-accent);
+    color: var(--color-primary);
     padding: 1rem 2rem;
-    border-radius: var(--radius-md);
-    font-weight: 600;
+    border-radius: var(--radius-lg);
+    font-weight: 800;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
+    gap: 0.75rem;
+    transition: all var(--transition-normal);
     border: none;
     cursor: pointer;
+    font-family: var(--font-sans);
 }
 
 .btn-primary:hover {
-    background: var(--color-primary-dark);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    background: var(--color-accent-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl);
 }
 
 .cta-subtext {
     margin-top: var(--space-md);
     color: var(--color-gray-800);
     font-size: 0.95rem;
+    font-weight: 600;
 }
 
 .cta-subtext strong {
@@ -798,28 +793,29 @@ Conversion-focused, no fluff
 .roles-category {
     padding: var(--space-xl);
     background: var(--color-light);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     border: 1px solid var(--color-gray-300);
-    transition: all 0.3s ease;
+    transition: all var(--transition-normal);
 }
 
 .roles-category:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--color-primary);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-accent);
 }
 
 .roles-category h3 {
     font-size: 1.5rem;
     margin-bottom: var(--space-lg);
-    color: var(--color-gray-900);
+    color: var(--color-primary);
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+    font-weight: 800;
 }
 
 .roles-category h3 i {
-    color: var(--color-primary);
+    color: var(--color-accent);
 }
 
 .roles-list {
@@ -832,6 +828,7 @@ Conversion-focused, no fluff
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+    font-weight: 500;
 }
 
 .roles-list li:last-child {
@@ -839,7 +836,7 @@ Conversion-focused, no fluff
 }
 
 .roles-list li i {
-    color: var(--color-secondary);
+    color: var(--color-success);
     font-size: 0.875rem;
 }
 
@@ -847,13 +844,14 @@ Conversion-focused, no fluff
     text-align: center;
     padding: var(--space-lg);
     background: #f0f9ff;
-    border-radius: var(--radius-lg);
-    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-xl);
+    border-left: 4px solid var(--color-accent);
 }
 
 .roles-note p {
     margin: 0;
     color: var(--color-gray-800);
+    font-weight: 500;
 }
 
 .roles-note i {
@@ -864,7 +862,7 @@ Conversion-focused, no fluff
 .roles-note a {
     color: var(--color-primary);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 800;
 }
 
 .roles-note a:hover {
@@ -887,20 +885,20 @@ Conversion-focused, no fluff
 .pricing-card {
     padding: var(--space-xl);
     background: var(--color-white);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     border: 1px solid var(--color-gray-300);
     text-align: center;
     position: relative;
-    transition: all 0.3s ease;
+    transition: all var(--transition-normal);
 }
 
 .pricing-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-xl);
 }
 
 .pricing-card.featured {
-    border: 2px solid var(--color-primary);
+    border: 2px solid var(--color-accent);
     background: linear-gradient(135deg, var(--color-white), #f0f9ff);
     transform: scale(1.05);
 }
@@ -914,14 +912,15 @@ Conversion-focused, no fluff
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--color-primary);
-    color: white;
+    background: var(--color-accent);
+    color: var(--color-primary);
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    border: 2px solid var(--color-white);
 }
 
 .pricing-header {
@@ -930,14 +929,15 @@ Conversion-focused, no fluff
 
 .pricing-header h3 {
     font-size: 1.5rem;
-    color: var(--color-gray-900);
+    color: var(--color-primary);
     margin-bottom: var(--space-sm);
+    font-weight: 800;
 }
 
 .price {
     font-size: 3rem;
-    font-weight: 800;
-    color: var(--color-primary);
+    font-weight: 900;
+    color: var(--color-accent);
     line-height: 1;
     margin: var(--space-sm) 0;
 }
@@ -945,6 +945,7 @@ Conversion-focused, no fluff
 .price-note {
     color: var(--color-gray-800);
     font-size: 0.875rem;
+    font-weight: 500;
 }
 
 .pricing-features {
@@ -958,13 +959,14 @@ Conversion-focused, no fluff
     padding-left: 1.5rem;
     position: relative;
     color: var(--color-gray-800);
+    font-weight: 500;
 }
 
 .pricing-features li::before {
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--color-secondary);
+    color: var(--color-success);
     font-weight: bold;
 }
 
@@ -972,21 +974,22 @@ Conversion-focused, no fluff
     background: transparent;
     color: var(--color-primary);
     padding: 1rem 2rem;
-    border-radius: var(--radius-md);
-    font-weight: 600;
+    border-radius: var(--radius-lg);
+    font-weight: 800;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
+    gap: 0.75rem;
+    transition: all var(--transition-normal);
     border: 2px solid var(--color-primary);
     cursor: pointer;
+    font-family: var(--font-sans);
 }
 
 .btn-outline:hover {
     background: var(--color-primary);
-    color: white;
-    transform: translateY(-2px);
+    color: var(--color-white);
+    transform: translateY(-3px);
 }
 
 .pricing-guarantee {
@@ -1000,26 +1003,32 @@ Conversion-focused, no fluff
     align-items: flex-start;
     padding: var(--space-xl);
     background: var(--color-white);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     border: 1px solid var(--color-gray-300);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
 }
 
 .guarantee-card i {
     font-size: 3rem;
-    color: var(--color-primary);
+    color: var(--color-accent);
     flex-shrink: 0;
 }
 
 .guarantee-content h4 {
     font-size: 1.5rem;
     margin-bottom: var(--space-sm);
-    color: var(--color-gray-900);
+    color: var(--color-primary);
+    font-weight: 800;
 }
 
 .guarantee-content p {
     color: var(--color-gray-800);
     margin: 0;
+    font-weight: 500;
+}
+
+.guarantee-content strong {
+    color: var(--color-primary);
 }
 
 /* ===== CASE STUDY SECTION ===== */
@@ -1033,9 +1042,10 @@ Conversion-focused, no fluff
     grid-template-columns: 1fr 1fr;
     gap: var(--space-2xl);
     background: linear-gradient(135deg, var(--color-light), #f0f9ff);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--color-gray-300);
 }
 
 .case-study-content {
@@ -1044,26 +1054,29 @@ Conversion-focused, no fluff
 
 .case-study-badge {
     display: inline-block;
-    background: var(--color-secondary);
-    color: white;
+    background: var(--color-accent);
+    color: var(--color-primary);
     padding: 0.5rem 1rem;
     border-radius: 50px;
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 900;
     margin-bottom: var(--space-md);
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .case-study-content h3 {
     font-size: 2rem;
     margin-bottom: var(--space-md);
-    color: var(--color-gray-900);
+    color: var(--color-primary);
+    font-weight: 900;
 }
 
 .case-study-content p {
     color: var(--color-gray-800);
     margin-bottom: var(--space-xl);
     font-size: 1.125rem;
+    font-weight: 500;
 }
 
 .case-study-details {
@@ -1076,33 +1089,36 @@ Conversion-focused, no fluff
 
 .detail strong {
     display: block;
-    color: var(--color-primary);
+    color: var(--color-accent);
     margin-bottom: var(--space-xs);
     font-size: 1.125rem;
+    font-weight: 800;
 }
 
 .detail p {
     color: var(--color-gray-800);
     margin: 0;
     font-size: 1rem;
+    font-weight: 500;
 }
 
 .btn-secondary {
-    background: var(--color-secondary);
-    color: white;
+    background: var(--color-primary);
+    color: var(--color-white);
     padding: 0.75rem 1.5rem;
-    border-radius: var(--radius-md);
-    font-weight: 600;
+    border-radius: var(--radius-lg);
+    font-weight: 800;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
+    gap: 0.75rem;
+    transition: all var(--transition-normal);
+    font-family: var(--font-sans);
 }
 
 .btn-secondary:hover {
-    background: var(--color-secondary-dark);
-    transform: translateY(-2px);
+    background: var(--color-primary-dark);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-md);
 }
 
@@ -1131,17 +1147,20 @@ Conversion-focused, no fluff
     color: white;
     font-size: 2.5rem;
     margin-bottom: var(--space-md);
+    font-weight: 900;
 }
 
 .cta-form-content p {
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.125rem;
     margin-bottom: var(--space-xl);
+    font-weight: 500;
 }
 
 .cta-form-content a {
-    color: white;
+    color: var(--color-accent);
     text-decoration: underline;
+    font-weight: 700;
 }
 
 .cta-form-content a:hover {
@@ -1159,18 +1178,19 @@ Conversion-focused, no fluff
     align-items: center;
     gap: var(--space-sm);
     color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
 }
 
 .form-feature i {
-    color: #fbbf24;
+    color: var(--color-accent);
     font-size: 1.25rem;
 }
 
 .cta-form {
     background: white;
     padding: var(--space-2xl);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
 }
 
 .form-group {
@@ -1181,7 +1201,7 @@ Conversion-focused, no fluff
     display: block;
     margin-bottom: var(--space-xs);
     color: var(--color-gray-900);
-    font-weight: 500;
+    font-weight: 700;
     font-size: 0.95rem;
 }
 
@@ -1190,21 +1210,21 @@ Conversion-focused, no fluff
 .form-group textarea {
     width: 100%;
     padding: 0.875rem 1rem;
-    border: 1px solid var(--color-gray-300);
-    border-radius: var(--radius-md);
+    border: 2px solid var(--color-gray-300);
+    border-radius: var(--radius-lg);
     font-family: var(--font-sans);
     font-size: 1rem;
     color: var(--color-dark);
     background: var(--color-white);
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.1);
 }
 
 .form-group textarea {
@@ -1222,11 +1242,13 @@ Conversion-focused, no fluff
     font-size: 0.875rem;
     color: var(--color-gray-800);
     text-align: center;
+    font-weight: 500;
 }
 
 .form-note a {
     color: var(--color-primary);
     text-decoration: none;
+    font-weight: 700;
 }
 
 .form-note a:hover {
@@ -1247,7 +1269,7 @@ Conversion-focused, no fluff
 .faq-item {
     margin-bottom: var(--space-sm);
     border: 1px solid var(--color-gray-300);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-xl);
     overflow: hidden;
 }
 
@@ -1258,13 +1280,13 @@ Conversion-focused, no fluff
     border: none;
     text-align: left;
     font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--color-gray-900);
+    font-weight: 800;
+    color: var(--color-primary);
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background var(--transition-fast);
 }
 
 .faq-question:hover {
@@ -1272,15 +1294,15 @@ Conversion-focused, no fluff
 }
 
 .faq-question i {
-    color: var(--color-gray-800);
-    transition: transform 0.3s ease;
+    color: var(--color-primary);
+    transition: transform var(--transition-normal);
 }
 
 .faq-answer {
     padding: 0 var(--space-lg);
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all var(--transition-normal);
 }
 
 .faq-answer.active {
@@ -1292,6 +1314,7 @@ Conversion-focused, no fluff
     color: var(--color-gray-800);
     margin: 0;
     line-height: 1.6;
+    font-weight: 500;
 }
 
 .faq-answer strong {
@@ -1302,20 +1325,21 @@ Conversion-focused, no fluff
     text-align: center;
     padding: var(--space-xl);
     background: var(--color-light);
-    border-radius: var(--radius-lg);
-    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-xl);
+    border-left: 4px solid var(--color-accent);
 }
 
 .faq-cta p {
     margin: 0;
     color: var(--color-gray-800);
     font-size: 1.125rem;
+    font-weight: 500;
 }
 
 .faq-cta a {
     color: var(--color-primary);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 800;
 }
 
 .faq-cta a:hover {
@@ -1324,9 +1348,10 @@ Conversion-focused, no fluff
 
 /* ===== FOOTER ===== */
 .footer {
-    background: var(--color-dark);
+    background: var(--color-primary);
     color: white;
     padding: var(--space-2xl) 0 var(--space-lg);
+    border-top: 3px solid var(--color-accent);
 }
 
 .footer-grid {
@@ -1338,14 +1363,16 @@ Conversion-focused, no fluff
 
 .footer-col h4,
 .footer-col h5 {
-    color: white;
+    color: var(--color-accent);
     margin-bottom: var(--space-md);
+    font-weight: 800;
 }
 
 .footer-description {
     color: #cbd5e1;
     margin-bottom: var(--space-md);
     font-size: 0.95rem;
+    font-weight: 500;
 }
 
 .contact-info p {
@@ -1354,6 +1381,7 @@ Conversion-focused, no fluff
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-size: 0.9rem;
 }
 
 .contact-info a {
@@ -1362,7 +1390,7 @@ Conversion-focused, no fluff
 }
 
 .contact-info a:hover {
-    color: white;
+    color: var(--color-accent);
     text-decoration: underline;
 }
 
@@ -1380,16 +1408,17 @@ Conversion-focused, no fluff
     color: #cbd5e1;
     text-decoration: none;
     font-size: 0.9rem;
-    transition: color 0.2s ease;
+    transition: color var(--transition-fast);
+    font-weight: 500;
 }
 
 .footer-links a:hover {
-    color: white;
+    color: var(--color-accent);
     text-decoration: underline;
 }
 
 .footer-bottom {
-    border-top: 1px solid #334155;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: var(--space-lg);
     display: flex;
     justify-content: space-between;
@@ -1399,6 +1428,11 @@ Conversion-focused, no fluff
 .copyright {
     color: #94a3b8;
     font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.copyright strong {
+    color: var(--color-accent);
 }
 
 .footer-legal {
@@ -1410,10 +1444,11 @@ Conversion-focused, no fluff
     color: #94a3b8;
     text-decoration: none;
     font-size: 0.875rem;
+    font-weight: 500;
 }
 
 .footer-legal a:hover {
-    color: white;
+    color: var(--color-accent);
     text-decoration: underline;
 }
 
@@ -1629,106 +1664,24 @@ Conversion-focused, no fluff
         color: black !important;
     }
 }
-
-/* CSS Variables */
-:root {
-    /* Colors */
-    --color-primary: #1a56db;
-    --color-primary-dark: #1e429f;
-    --color-secondary: #7e3af2;
-    --color-secondary-dark: #6c2bd9;
-    --color-emergency: #dc2626;
-    --color-emergency-dark: #b91c1c;
-    --color-success: #059669;
-    --color-warning: #f59e0b;
-    --color-gold: #fbbf24;
-    --color-bronze: #92400e;
-    
-    --color-white: #ffffff;
-    --color-light: #f8fafc;
-    --color-dark: #0f172a;
-    --color-gray-50: #f9fafb;
-    --color-gray-100: #f3f4f6;
-    --color-gray-200: #e5e7eb;
-    --color-gray-300: #d1d5db;
-    --color-gray-400: #9ca3af;
-    --color-gray-500: #6b7280;
-    --color-gray-600: #4b5563;
-    --color-gray-700: #374151;
-    --color-gray-800: #1f2937;
-    --color-gray-900: #111827;
-    
-    /* Spacing */
-    --space-xs: 0.5rem;
-    --space-sm: 0.75rem;
-    --space-md: 1rem;
-    --space-lg: 1.5rem;
-    --space-xl: 2rem;
-    --space-2xl: 3rem;
-    --space-3xl: 4rem;
-    
-    /* Typography */
-    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --font-serif: Georgia, 'Times New Roman', Times, serif;
-    
-    /* Border Radius */
-    --radius-sm: 0.25rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
-    
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    
-    /* Transitions */
-    --transition-fast: 150ms ease;
-    --transition-normal: 250ms ease;
-    --transition-slow: 350ms ease;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-sans);
-    line-height: 1.6;
-    color: var(--color-gray-800);
-    background: var(--color-white);
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--space-md);
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
     </style>
 </head>
 <body>
     <!-- Announcement Bar - URGENCY -->
+    <!-- CHANGE: Updated announcement for Jobpitality -->
     <div class="announcement">
-        <p>🚨 <strong>Emergency Staffing Available:</strong> Need staff for weekend service? Call now: <a href="tel:+15551234567">(555) 123-4567</a></p>
+        <p>🔥 <strong>Rapid-Response Active:</strong> Need talent for weekend service? Deploy now: <a href="tel:+2348039661354">+234 803 966 1354</a></p>
     </div>
 
     <!-- Header -->
     <header class="site-header">
         <div class="container">
             <div class="header-container">
+                <!-- CHANGE: Updated logo for Jobpitality -->
                 <div class="logo">
-                    <a href="/" aria-label="HospitalityRecruit Home">
-                        <h1><i class="fas fa-hotel"></i> HospitalityRecruit</h1>
-                        <span class="logo-tagline">EXECUTIVE SEARCH</span>
+                    <a href="/" aria-label="Jobpitality Home">
+                        <h1><i class="fas fa-bolt"></i> <span class="brand-name">JOBPITALITY</span></h1>
+                        <span class="logo-tagline">THE RUTHLESS TALENT PARTNER</span>
                     </a>
                 </div>
                 
@@ -1745,103 +1698,72 @@ img {
                         </li>
                         
                         <li class="nav-item dropdown">
+                            <!-- CHANGE: Updated navigation label -->
                             <a href="/services/" class="nav-link dropdown-toggle active">
-                                <i class="fas fa-briefcase"></i> Services
+                                <i class="fas fa-crosshairs"></i> Talent Solutions
                                 <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
                             </a>
                             <div class="dropdown-menu">
                                 <a href="/services/executive-search/" class="dropdown-item">
-                                    <i class="fas fa-search"></i> Executive Search
+                                    <i class="fas fa-search"></i> Precision Search
                                 </a>
-                                <a href="/services/leadership-assessment/" class="dropdown-item">
-                                    <i class="fas fa-chart-line"></i> Leadership Assessment
+                                <a href="/services/hotel-leadership/" class="dropdown-item">
+                                    <i class="fas fa-hotel"></i> Hotel Leadership
                                 </a>
-                                <a href="/services/succession-planning/" class="dropdown-item">
-                                    <i class="fas fa-chess-king"></i> Succession Planning
-                                </a>
-                                <a href="/services/team-building/" class="dropdown-item">
-                                    <i class="fas fa-users"></i> Team Building
+                                <a href="/services/culinary-leadership/" class="dropdown-item">
+                                    <i class="fas fa-utensils"></i> Culinary Leadership
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a href="/services/hotel-management/" class="dropdown-item">
-                                    <i class="fas fa-concierge-bell"></i> Hotel Management
-                                </a>
-                                <a href="/services/fb-staffing/" class="dropdown-item">
-                                    <i class="fas fa-utensils"></i> F&B Staffing
+                                <a href="/services/talent-on-demand/" class="dropdown-item" style="color: var(--color-accent); font-weight: 700;">
+                                    <i class="fas fa-bolt"></i> Talent On-Demand
                                 </a>
                             </div>
                         </li>
                         
                         <li class="nav-item dropdown">
                             <a href="/employers/" class="nav-link dropdown-toggle">
-                                <i class="fas fa-building"></i> Employers
+                                <i class="fas fa-building"></i> For Employers
                                 <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
                             </a>
                             <div class="dropdown-menu">
-                                <a href="/employers/client-process/" class="dropdown-item">
-                                    <i class="fas fa-play-circle"></i> Client Process
+                                <a href="/employers/our-process/" class="dropdown-item">
+                                    <i class="fas fa-play-circle"></i> Our Method
                                 </a>
                                 <a href="/employers/roi-calculator/" class="dropdown-item">
                                     <i class="fas fa-calculator"></i> ROI Calculator
                                 </a>
                                 <a href="/employers/industry-expertise/" class="dropdown-item">
-                                    <i class="fas fa-star"></i> Industry Expertise
+                                    <i class="fas fa-star"></i> Why We're Different
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a href="/employers/start-search/" class="dropdown-item">
-                                    <i class="fas fa-rocket"></i> Start a Search
+                                    <i class="fas fa-rocket"></i> Deploy Talent
                                 </a>
                             </div>
                         </li>
                         
                         <li class="nav-item dropdown">
                             <a href="/candidates/" class="nav-link dropdown-toggle">
-                                <i class="fas fa-user-tie"></i> Candidates
+                                <i class="fas fa-user-tie"></i> For Talent
                                 <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
                             </a>
                             <div class="dropdown-menu">
                                 <a href="/candidates/submit-profile/" class="dropdown-item">
-                                    <i class="fas fa-file-upload"></i> Submit Profile
+                                    <i class="fas fa-file-upload"></i> Submit Your Profile
                                 </a>
-                                <a href="/candidates/career-opportunities/" class="dropdown-item">
-                                    <i class="fas fa-briefcase"></i> Career Opportunities
+                                <a href="/candidates/elite-opportunities/" class="dropdown-item">
+                                    <i class="fas fa-briefcase"></i> Elite Opportunities
                                 </a>
                                 <a href="/candidates/career-advice/" class="dropdown-item">
-                                    <i class="fas fa-graduation-cap"></i> Career Advice
+                                    <i class="fas fa-graduation-cap"></i> Career Strategy
                                 </a>
-                                <!-- <div class="dropdown-divider"></div>
-                                <a href="/candidates/hospitality-salaries/" class="dropdown-item">
-                                    <i class="fas fa-money-bill-wave"></i> Hospitality Salaries
-                                </a> -->
                             </div>
                         </li>
                         
-                        <!-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="/case-studies/" class="nav-link">
-                                <i class="fas fa-chart-line"></i> Case Studies
+                                <i class="fas fa-chart-line"></i> Results
                             </a>
-                        </li> -->
-                        
-                        <li class="nav-item dropdown">
-                            <a href="/insights/" class="nav-link dropdown-toggle">
-                                <i class="fas fa-lightbulb"></i> Insights
-                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
-                            </a>
-                            <div class="dropdown-menu">
-                                <a href="/insights/blog/" class="dropdown-item">
-                                    <i class="fas fa-blog"></i> Blog
-                                </a>
-                                <a href="/insights/industry-reports/" class="dropdown-item">
-                                    <i class="fas fa-chart-bar"></i> Industry Reports
-                                </a>
-                                <a href="/insights/webinars/" class="dropdown-item">
-                                    <i class="fas fa-video"></i> Webinars
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="/insights/white-papers/" class="dropdown-item">
-                                    <i class="fas fa-file-alt"></i> White Papers
-                                </a>
-                            </div>
                         </li>
                         
                         <li class="nav-item">
@@ -1853,10 +1775,10 @@ img {
                     
                     <div class="nav-cta-group">
                         <a href="/emergency/" class="nav-cta nav-cta-emergency">
-                            <i class="fas fa-bolt"></i> EMERGENCY STAFFING
+                            <i class="fas fa-bolt"></i> RAPID DEPLOYMENT
                         </a>
                         <a href="tel:+2348039661354" class="nav-cta">
-                            <i class="fas fa-phone"></i> +234 8039661354
+                            <i class="fas fa-phone"></i> +234 803 966 1354
                         </a>
                     </div> 
                 </nav>
@@ -1874,54 +1796,50 @@ img {
                     <div class="breadcrumb">
                         <ol>
                             <li><a href="/">Home</a></li>
-                            <li><a href="/services/">Services</a></li>
-                            <li><span>F&B Staffing</span></li>
+                            <li><a href="/services/">Talent Solutions</a></li>
+                            <li><span>Talent On-Demand</span></li>
                         </ol>
                     </div>
-                    
-                    <h1 class="service-title">Emergency F&B Staffing for Restaurants & Hotels</h1>
-                    <p class="service-subtitle">Stop the staffing chaos. Get <strong>pre-vetted servers, chefs, bartenders, and managers</strong> in <span class="highlight-red">7 days or less</span>. 90-Day Guarantee.</p>
+                    <!-- CHANGE: Updated hero title and subtitle -->
+                    <h1 class="service-title">Talent On-Demand for F&B <span class="highlight">Crisis & Growth</span></h1>
+                    <p class="service-subtitle">Stop the staffing chaos. <strong>Deploy pre-vetted servers, chefs, bartenders, and managers</strong> in <span class="highlight">72 hours or less</span>. 90-Day Mission Assurance.</p>
                     
                     <div class="service-hero-stats">
                         <div class="service-stat">
                             <span class="stat-number">72h</span>
-                            <span class="stat-label">Avg. first candidate</span>
+                            <span class="stat-label">Deployment Time</span>
                         </div>
                         <div class="service-stat">
                             <span class="stat-number">98%</span>
-                            <span class="stat-label">Show-up rate</span>
+                            <span class="stat-label">Show-up Rate</span>
                         </div>
                         <div class="service-stat">
                             <span class="stat-number">200+</span>
-                            <span class="stat-label">F&B placements/month</span>
+                            <span class="stat-label">Deployments/Month</span>
                         </div>
                     </div>
                     
                     <div class="service-hero-cta">
-                        <a href="tel:+15551234567" class="btn-emergency btn-large">
-                            <i class="fas fa-phone"></i> Call for Emergency Staffing
+                        <a href="tel:+2348039661354" class="btn-emergency btn-large">
+                            <i class="fas fa-phone"></i> Call for Rapid Deployment
                         </a>
-                        <p class="cta-note"><i class="fas fa-clock"></i> <strong>Weekend Crisis?</strong> We staff Saturdays and Sundays.</p>
+                        <p class="cta-note"><i class="fas fa-clock"></i> <strong>Weekend Crisis?</strong> We deploy Saturdays and Sundays.</p>
                     </div>
                 </div>
                 
                 <div class="service-hero-image">
-                    <img src="/images/hos.jpg" alt="Hotel General Manager and executive team in luxury hotel boardroom" loading="eager">
-                    <div class="image-badge">
-                        <!-- <div class="badge-content">
-                            <span class="badge-text">"Staffed 12 servers for Friday opening"</span>
-                            <span class="badge-author">- Downtown Steakhouse</span>
-                        </div> -->
-                    </div>
+                    <!-- CHANGE: Update image source and alt text -->
+                    <img src="/images/hos.jpg" alt="Jobpitality Rapid-Response Team deploying F&B talent" loading="eager">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pain Points - HIT THEM HARD -->
+    <!-- CHANGE: Updated section title -->
     <section class="pain-points-section">
         <div class="container">
-            <h2 class="section-title">Tired of These F&B Staffing Problems?</h2>
+            <h2 class="section-title">Operational Friction Points We <span class="text-gradient">Eliminate</span></h2>
             
             <div class="pain-points-grid">
                 <div class="pain-point-card">
@@ -1929,7 +1847,7 @@ img {
                         <i class="fas fa-user-slash"></i>
                     </div>
                     <h3>No-Shows & Ghosting</h3>
-                    <p>Interviews booked, candidates confirmed... and they don't show up.</p>
+                    <p>Interviews booked, candidates confirmed... and they don't show up. We guarantee show-up.</p>
                 </div>
                 
                 <div class="pain-point-card">
@@ -1937,7 +1855,7 @@ img {
                         <i class="fas fa-clock"></i>
                     </div>
                     <h3>Wasted Interview Hours</h3>
-                    <p>Spending 20+ hours weekly interviewing unqualified candidates.</p>
+                    <p>Spending 20+ hours weekly interviewing unqualified candidates. We send only vetted talent.</p>
                 </div>
                 
                 <div class="pain-point-card">
@@ -1945,7 +1863,7 @@ img {
                         <i class="fas fa-fire"></i>
                     </div>
                     <h3>Last-Minute Crises</h3>
-                    <p>Call-offs 2 hours before dinner service. No backup plan.</p>
+                    <p>Call-offs 2 hours before dinner service. No backup plan. Our rapid-response fills the gap.</p>
                 </div>
                 
                 <div class="pain-point-card">
@@ -1953,7 +1871,7 @@ img {
                         <i class="fas fa-dollar-sign"></i>
                     </div>
                     <h3>High Turnover Costs</h3>
-                    <p>$3,000+ to replace a server when training, onboarding, and lost productivity are factored.</p>
+                    <p>$3,000+ to replace a server. Our 90-Day Mission Assurance protects your investment.</p>
                 </div>
             </div>
         </div>
@@ -1963,20 +1881,22 @@ img {
     <section class="process-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Our Solution</span>
-                <h2>How We Solve Your F&B Staffing Crisis</h2>
-                <p>A proven 4-step process that actually works</p>
+                <!-- CHANGE: Updated section badge and header -->
+                <span class="section-badge">The Deployment Protocol</span>
+                <h2>How We Deploy Talent at Speed</h2>
+                <p>A proprietary 4-step protocol for guaranteed talent deployment</p>
             </div>
             
             <div class="process-steps">
                 <div class="process-step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h3>Emergency Call Assessment</h3>
-                        <p>We listen to your exact crisis. How many staff? What roles? What timeline? We get specific.</p>
+                        <!-- CHANGE: Updated step title and content -->
+                        <h3>Crisis Intelligence & Briefing</h3>
+                        <p>We diagnose your exact operational gap. How many units? What roles? What's the critical timeline? We get mission-specific.</p>
                         <ul class="step-features">
                             <li>15-minute intake call</li>
-                            <li>Same-day assessment</li>
+                            <li>Same-day situation assessment</li>
                             <li>No commitment required</li>
                         </ul>
                     </div>
@@ -1985,10 +1905,11 @@ img {
                 <div class="process-step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3>Pre-Vetted Candidate Matching</h3>
-                        <p>We tap into our active network of 2,000+ pre-screened F&B professionals.</p>
+                        <!-- CHANGE: Updated step title and content -->
+                        <h3>Network Activation & Matching</h3>
+                        <p>We activate our network of 2,000+ pre-vetted, skills-tested F&B professionals. We match for skill, attitude, and culture.</p>
                         <ul class="step-features">
-                            <li>Skills & attitude tested</li>
+                            <li>Pre-validated skills & attitude</li>
                             <li>Culture fit assessment</li>
                             <li>Reference verification</li>
                         </ul>
@@ -1998,11 +1919,12 @@ img {
                 <div class="process-step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>Rapid Interview Coordination</h3>
-                        <p>We schedule, confirm, and manage all interviews. You just show up and choose.</p>
+                        <!-- CHANGE: Updated step title and content -->
+                        <h3>Rapid Interview & Vetting</h3>
+                        <p>We schedule, confirm, and manage all interviews. You show up, assess, and select. We handle the logistics.</p>
                         <ul class="step-features">
-                            <li>We handle scheduling</li>
-                            <li>Confirmation reminders</li>
+                            <li>We handle all scheduling</li>
+                            <li>Confirmed attendance reminders</li>
                             <li>98% show-up rate</li>
                         </ul>
                     </div>
@@ -2011,22 +1933,23 @@ img {
                 <div class="process-step">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <h3>Guaranteed Placement & Support</h3>
-                        <p>You only pay when you hire. We guarantee the placement for 90 days.</p>
+                        <!-- CHANGE: Updated step title and content -->
+                        <h3>Guaranteed Deployment & Assurance</h3>
+                        <p>You invest only upon successful hire. We back the deployment with our 90-Day Mission Assurance.</p>
                         <ul class="step-features">
                             <li>90-Day replacement guarantee</li>
                             <li>Onboarding support</li>
-                            <li>Ongoing check-ins</li>
+                            <li>Ongoing performance check-ins</li>
                         </ul>
                     </div>
                 </div>
             </div>
             
             <div class="process-cta">
-                <a href="tel:+15551234567" class="btn-primary btn-large">
-                    <i class="fas fa-play-circle"></i> Start the Process Now
+                <a href="tel:+2348039661354" class="btn-primary btn-large">
+                    <i class="fas fa-bolt"></i> Activate Deployment Protocol
                 </a>
-                <p class="cta-subtext">Average time to first candidate: <strong>48 hours</strong></p>
+                <p class="cta-subtext">Average time to first vetted candidate: <strong>48 hours</strong></p>
             </div>
         </div>
     </section>
@@ -2034,8 +1957,9 @@ img {
     <!-- Roles We Fill - SPECIFICITY -->
     <section class="roles-section">
         <div class="container">
-            <h2 class="section-title">F&B Roles We Staff <span class="highlight-red">Quickly</span></h2>
-            <p class="section-subtitle">From line cooks to restaurant managers</p>
+            <!-- CHANGE: Updated section title -->
+            <h2 class="section-title">Pre-Vetted <span class="text-gradient">Talent Units</span> We Deploy</h2>
+            <p class="section-subtitle">From line cooks to restaurant managers. Ready for mission.</p>
             
             <div class="roles-grid">
                 <!-- Front of House -->
@@ -2085,65 +2009,67 @@ img {
             </div>
             
             <div class="roles-note">
-                <p><i class="fas fa-exclamation-circle"></i> <strong>Don't see your specific role?</strong> We staff it. Call us: <a href="tel:+15551234567">(555) 123-4567</a></p>
+                <!-- CHANGE: Updated note and link -->
+                <p><i class="fas fa-exclamation-circle"></i> <strong>Don't see your specific unit?</strong> We deploy it. Call our command line: <a href="tel:+2348039661354">+234 803 966 1354</a></p>
             </div>
         </div>
     </section>
 
     <!-- Pricing - NO SURPRISES -->
+    <!-- CHANGE: Updated section title and content -->
     <section class="pricing-section">
         <div class="container">
             <div class="section-header">
-                <h2>Simple, Transparent Pricing</h2>
-                <p>No hidden fees. You only pay when you hire.</p>
+                <h2>Clear-Cut Deployment Packages</h2>
+                <p>Transparent investment. You only commit on successful deployment.</p>
             </div>
             
             <div class="pricing-cards">
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Single Placement</h3>
+                        <h3>Single Unit Deployment</h3>
                         <div class="price">20-25%</div>
                         <p class="price-note">of first year's salary</p>
                     </div>
                     <ul class="pricing-features">
                         <li>One F&B professional</li>
-                        <li>90-Day guarantee</li>
+                        <li>90-Day Mission Assurance</li>
                         <li>Full replacement if needed</li>
-                        <li>Standard search timeline</li>
+                        <li>Standard deployment timeline</li>
                     </ul>
-                    <a href="#get-staff-form" class="btn-outline">Get Single Staff</a>
+                    <a href="#deploy-form" class="btn-outline">Deploy Single Unit</a>
                 </div>
                 
                 <div class="pricing-card featured">
-                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-badge">High-Value</div>
                     <div class="pricing-header">
-                        <h3>Team Package</h3>
+                        <h3>Squadron Package</h3>
                         <div class="price">15-20%</div>
-                        <p class="price-note">per hire (3+ staff)</p>
+                        <p class="price-note">per unit (3+ talent)</p>
                     </div>
                     <ul class="pricing-features">
-                        <li>3+ F&B staff</li>
-                        <li>90-Day guarantee each</li>
-                        <li>Priority search</li>
+                        <li>3+ F&B staff deployment</li>
+                        <li>90-Day Mission Assurance each</li>
+                        <li>Priority network access</li>
                         <li>7-day average fill time</li>
-                        <li>Bulk discount</li>
+                        <li>Volume deployment discount</li>
                     </ul>
-                    <a href="tel:+15551234567" class="btn-primary">Call for Team Quote</a>
+                    <a href="tel:+2348039661354" class="btn-primary">Call for Squadron Quote</a>
                 </div>
                 
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Seasonal/Contract</h3>
+                        <h3>Temporal/Contract Deployment</h3>
                         <div class="price">$30-50/hr</div>
                         <p class="price-note">all-inclusive rate</p>
                     </div>
                     <ul class="pricing-features">
-                        <li>Temporary staffing</li>
-                        <li>Holiday/peak season</li>
+                        <li>Temporary talent deployment</li>
+                        <li>Holiday/peak season cover</li>
                         <li>No placement fee</li>
-                        <li>We handle payroll & taxes</li>
+                        <li>We handle payroll & compliance</li>
                     </ul>
-                    <a href="#get-staff-form" class="btn-outline">Get Temporary Staff</a>
+                    <a href="#deploy-form" class="btn-outline">Deploy Temporal Unit</a>
                 </div>
             </div>
             
@@ -2151,8 +2077,9 @@ img {
                 <div class="guarantee-card">
                     <i class="fas fa-shield-alt"></i>
                     <div class="guarantee-content">
-                        <h4>90-Day Placement Guarantee</h4>
-                        <p>If your new hire doesn't work out within 90 days, we'll find a replacement <strong>at no additional cost.</strong> No questions asked.</p>
+                        <!-- CHANGE: Updated guarantee title and text -->
+                        <h4>90-Day Mission Assurance</h4>
+                        <p>If your deployed talent unit doesn't perform within 90 days, we'll execute a replacement <strong>at no additional cost.</strong> Mission success guaranteed.</p>
                     </div>
                 </div>
             </div>
@@ -2164,62 +2091,66 @@ img {
         <div class="container">
             <div class="case-study-showcase">
                 <div class="case-study-content">
-                    <span class="case-study-badge">Real Results</span>
-                    <h3>From 4 Servers to Fully Staffed in 5 Days</h3>
-                    <p>How we rescued a downtown bistro facing weekend dinner service with only 40% staff.</p>
+                    <!-- CHANGE: Updated badge and title -->
+                    <span class="case-study-badge">Deployment Success</span>
+                    <h3>From 4 Servers to Fully Operational in 5 Days</h3>
+                    <p>How our rapid-response team rescued a downtown bistro facing weekend dinner service with only 40% staff.</p>
                     
                     <div class="case-study-details">
                         <div class="detail">
                             <strong>The Crisis</strong>
-                            <p>Bistro lost 6 servers in one week. Friday reservations: 180 covers. Current staff: 4.</p>
+                            <p>Bistro lost 6 servers in one week. Friday reservations: 180 covers. Current staff: 4. Operational collapse imminent.</p>
                         </div>
                         <div class="detail">
-                            <strong>Our Solution</strong>
-                            <p>Emergency staffing protocol activated. Presented 8 pre-vetted candidates within 48 hours.</p>
+                            <strong>Our Deployment</strong>
+                            <p>Rapid-Response Protocol activated. Presented 8 pre-vetted, interview-ready candidates within 48 hours.</p>
                         </div>
                         <div class="detail">
                             <strong>The Result</strong>
-                            <p>6 servers hired and trained in 5 days. Weekend service saved. $18,000 in revenue preserved.</p>
+                            <p>6 servers hired, onboarded, and deployed in 5 days. Weekend service saved. $18,000 in immediate revenue preserved.</p>
                         </div>
                     </div>
                     
-                    <a href="/case-studies/restaurant-opening-staffing/" class="btn-secondary">
-                        Read Full Case Study
+                    <a href="/case-studies/restaurant-rapid-deployment/" class="btn-secondary">
+                        Read Full Deployment Report
                     </a>
                 </div>
                 <div class="case-study-image">
-                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fully staffed restaurant team working efficiently" loading="lazy">
+                    <!-- CHANGE: Updated alt text -->
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fully staffed restaurant team post-successful Jobpitality deployment" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Form - CONVERSION -->
-    <section class="cta-form-section" id="get-staff-form">
+    <!-- CHANGE: Updated section ID and content -->
+    <section class="cta-form-section" id="deploy-form">
         <div class="container">
             <div class="cta-form-grid">
                 <div class="cta-form-content">
-                    <h2>Need Staff This Week?</h2>
-                    <p>Fill out this form and we'll call you within <strong>2 hours</strong> (or call now: <a href="tel:+15551234567">(555) 123-4567</a>)</p>
+                    <h2>Need Talent This Week?</h2>
+                    <p>Submit this briefing and we'll call you within <strong>2 hours</strong> (or deploy now: <a href="tel:+2348039661354">+234 803 966 1354</a>)</p>
                     
                     <div class="form-features">
                         <div class="form-feature">
                             <i class="fas fa-bolt"></i>
-                            <span>Emergency response: 2 hours</span>
+                            <span>Rapid-response: 2 hours</span>
                         </div>
                         <div class="form-feature">
                             <i class="fas fa-check-circle"></i>
-                            <span>No obligation consultation</span>
+                            <span>No-obligation intelligence briefing</span>
                         </div>
                         <div class="form-feature">
                             <i class="fas fa-shield-alt"></i>
-                            <span>90-Day guarantee included</span>
+                            <span>90-Day Mission Assurance included</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="cta-form">
-                    <form id="staffing-request-form">
+                    <!-- CHANGE: Updated form ID -->
+                    <form id="talent-deployment-briefing">
                         <div class="form-group">
                             <label for="name">Your Name *</label>
                             <input type="text" id="name" name="name" required>
@@ -2246,25 +2177,26 @@ img {
                         </div>
                         
                         <div class="form-group">
-                            <label for="staff-needed">Staff Needed *</label>
-                            <select id="staff-needed" name="staff_needed" required>
+                            <label for="staff-needed">Deployment Urgency *</label>
+                            <select id="staff-needed" name="deployment_urgency" required>
                                 <option value="">Select...</option>
-                                <option value="emergency">Emergency - Need staff in 72 hours</option>
-                                <option value="week">Urgent - Need staff in 1 week</option>
-                                <option value="month">Planning - Need staff in 1 month</option>
+                                <option value="emergency">Crisis - Need talent in 72 hours</option>
+                                <option value="week">Urgent - Need talent in 1 week</option>
+                                <option value="month">Strategic - Need talent in 1 month</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="details">Briefly describe your needs *</label>
+                            <label for="details">Mission Brief: Describe Your Needs *</label>
                             <textarea id="details" name="details" rows="3" placeholder="e.g., Need 4 servers and 2 line cooks for new restaurant opening in 2 weeks" required></textarea>
                         </div>
                         
                         <button type="submit" class="btn-primary btn-large btn-block">
-                            <i class="fas fa-paper-plane"></i> Get Staff Now
+                            <i class="fas fa-paper-plane"></i> Submit Deployment Brief
                         </button>
                         
-                        <p class="form-note">By submitting, you agree to our <a href="/legal/privacy-policy/">Privacy Policy</a>. We'll contact you within 2 hours.</p>
+                        <!-- CHANGE: Updated form note and link -->
+                        <p class="form-note">By submitting, you agree to our <a href="/legal/privacy-policy/">Privacy & NDA Policy</a>. We'll contact you within 2 hours.</p>
                     </form>
                 </div>
             </div>
@@ -2274,16 +2206,16 @@ img {
     <!-- FAQ - OVERCOME OBJECTIONS -->
     <section class="faq-section">
         <div class="container">
-            <h2 class="section-title">F&B Staffing Questions Answered</h2>
+            <h2 class="section-title">Talent Deployment Questions <span class="text-gradient">Answered</span></h2>
             
             <div class="faq-grid">
                 <div class="faq-item">
                     <button class="faq-question">
-                        How fast can you get me staff?
+                        How fast can you deploy talent?
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p><strong>Average timeline:</strong> First candidates within 48 hours. Hire-to-start in 7 days for most roles. For emergencies, we've placed same-day.</p>
+                        <p><strong>Standard deployment timeline:</strong> First vetted candidates within 48 hours. Hire-to-deploy in 7 days for most roles. For crisis situations, we've executed same-day deployments.</p>
                     </div>
                 </div>
                 
@@ -2293,78 +2225,80 @@ img {
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p><strong>90-Day Placement Guarantee:</strong> If your new hire doesn't work out within 90 days, we find a replacement at no additional cost. No questions asked.</p>
+                        <p><strong>90-Day Mission Assurance:</strong> If your deployed talent unit doesn't meet performance standards within 90 days, we'll execute a replacement <strong>at no additional cost.</strong> No questions asked.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <button class="faq-question">
-                        Do you staff temporary/seasonal?
+                        Do you handle temporary/seasonal deployments?
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes. We staff holiday seasons, summer peaks, restaurant openings, and temporary cover. We handle payroll, taxes, and onboarding.</p>
+                        <p>Yes. We specialize in temporal deployments for holiday seasons, summer peaks, restaurant openings, and emergency cover. We manage payroll, tax compliance, and onboarding.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <button class="faq-question">
-                        What's the cost?
+                        What's the investment?
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Single placement: 20-25% of first year's salary. Team packages (3+): 15-20% each. Temporary staffing: $30-50/hr all-inclusive. <strong>You only pay when you hire.</strong></p>
+                        <p>Single unit: 20-25% of first year's salary. Squadron packages (3+): 15-20% per unit. Temporary deployment: $30-50/hr all-inclusive. <strong>You invest only upon successful deployment.</strong></p>
                     </div>
                 </div>
             </div>
             
             <div class="faq-cta">
-                <p>Still have questions? <a href="tel:+15551234567">Call us right now</a> or <a href="#get-staff-form">fill out the form above.</a></p>
+                <!-- CHANGE: Updated CTA links -->
+                <p>Still have questions? <a href="tel:+2348039661354">Call our command line now</a> or <a href="#deploy-form">submit the briefing form above.</a></p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
+    <!-- CHANGE: Updated footer for Jobpitality -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>HospitalityRecruit</h4>
-                    <p class="footer-description">Emergency F&B staffing for restaurants and hotels.</p>
+                    <h4>Jobpitality</h4>
+                    <p class="footer-description">Rapid-response talent deployment for restaurants and hotels. We eliminate staffing friction.</p>
                     <div class="contact-info">
-                        <p><i class="fas fa-phone"></i> <a href="tel:+15551234567">(555) 123-4567</a></p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:fb@hospitalityrecruit.com">fb@hospitalityrecruit.com</a></p>
-                        <p><i class="fas fa-clock"></i> Mon-Sun: 7am-11pm EST</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+2348039661354">+234 803 966 1354</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:deploy@jobpitality.com">deploy@jobpitality.com</a></p>
+                        <p><i class="fas fa-clock"></i> Mon-Sun: 7am-11pm WAT</p>
                     </div>
                 </div>
 
                 <div class="footer-col">
-                    <h5>F&B Services</h5>
+                    <h5>Talent Deployment</h5>
                     <ul class="footer-links">
-                        <li><a href="/services/fb-staffing/#roles">Front of House Staffing</a></li>
-                        <li><a href="/services/fb-staffing/#roles">Back of House Staffing</a></li>
-                        <li><a href="/services/fb-staffing/#roles">Hotel F&B Staffing</a></li>
-                        <li><a href="/services/fb-staffing/#pricing">Temporary Staffing</a></li>
-                        <li><a href="/services/fb-staffing/#pricing">Team Packages</a></li>
+                        <li><a href="/services/talent-on-demand/#roles">Front of House Deployment</a></li>
+                        <li><a href="/services/talent-on-demand/#roles">Back of House Deployment</a></li>
+                        <li><a href="/services/talent-on-demand/#roles">Hotel F&B Deployment</a></li>
+                        <li><a href="/services/talent-on-demand/#pricing">Temporal Deployment</a></li>
+                        <li><a href="/services/talent-on-demand/#pricing">Squadron Packages</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h5>Resources</h5>
                     <ul class="footer-links">
-                        <li><a href="/case-studies/">F&B Case Studies</a></li>
-                        <li><a href="/resources/hospitality-interview-questions/">Interview Questions</a></li>
-                        <li><a href="/resources/onboarding-checklist/">Onboarding Checklist</a></li>
-                        <li><a href="/insights/staff-retention-strategies/">Retention Strategies</a></li>
+                        <li><a href="/case-studies/">Deployment Case Studies</a></li>
+                        <li><a href="/resources/hospitality-interview-questions/">Interview Protocols</a></li>
+                        <li><a href="/resources/onboarding-checklist/">Deployment Onboarding</a></li>
+                        <li><a href="/insights/staff-retention-strategies/">Retention Intelligence</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h5>Quick Links</h5>
                     <ul class="footer-links">
-                        <li><a href="/candidates/submit-cv/">Submit CV (F&B Talent)</a></li>
-                        <li><a href="/employers/client-process/">Client Process</a></li>
-                        <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="/candidates/submit-cv/">Submit Profile (For Talent)</a></li>
+                        <li><a href="/employers/client-process/">Deployment Process</a></li>
+                        <li><a href="/legal/privacy-policy/">Privacy & NDA Policy</a></li>
                         <li><a href="/legal/terms-of-service/">Terms of Service</a></li>
                     </ul>
                 </div>
@@ -2372,7 +2306,8 @@ img {
 
             <div class="footer-bottom">
                 <div class="copyright">
-                    <p>&copy; 2024 HospitalityRecruit. All rights reserved.</p>
+                    <!-- CHANGE: Updated copyright -->
+                    <p>&copy; 2024 <strong>Jobpitality</strong>. The Ruthless Talent Partner. All rights reserved.</p>
                 </div>
                 <div class="footer-legal">
                     <a href="/legal/privacy-policy/">Privacy</a>
@@ -2413,7 +2348,8 @@ img {
         });
 
         // Form submission
-        document.getElementById('staffing-request-form').addEventListener('submit', function(e) {
+        // CHANGE: Updated form ID
+        document.getElementById('talent-deployment-briefing').addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Get form data
@@ -2421,10 +2357,10 @@ img {
             const data = Object.fromEntries(formData);
             
             // In production: Send to backend
-            console.log('Staffing request:', data);
+            console.log('Deployment briefing received:', data);
             
             // Show success message
-            alert('✓ Request received! Our team will call you within 2 hours at ' + data.phone);
+            alert('✓ Deployment briefing received! Our rapid-response team will contact you within 2 hours at ' + data.phone);
             this.reset();
             
             // Redirect to thank you page in production
@@ -2463,7 +2399,7 @@ img {
         // Auto-populate form from URL params (for campaigns)
         window.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
-            if (params.has('emergency')) {
+            if (params.has('crisis')) {
                 document.getElementById('staff-needed').value = 'emergency';
             }
         });

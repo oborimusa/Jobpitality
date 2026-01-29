@@ -3,31 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CHANGE: Updated title for Jobpitality -->
-    <title>Jobpitality | Precision Recruitment for Luxury Hospitality | GM, Chef & Management Placement</title>
-    <!-- CHANGE: Updated meta description with Jobpitality and new messaging -->
-    <meta name="description" content="Jobpitality: The ruthless talent partner for luxury hotels and restaurants. We place elite General Managers, Executive Chefs, and management teams that guarantee performance. 72-hour shortlist guarantee.">
+    <!-- CHANGE: Service-specific title -->
+    <title>Hotel Leadership Search | Elite GM & Director Placement | Jobpitality</title>
+    <!-- CHANGE: Service-specific meta description -->
+    <meta name="description" content="Jobpitality's ruthless hotel leadership search. We place elite General Managers, Directors of Operations & Revenue leaders for luxury hotels. 72-hour shortlist guarantee.">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Jobpitality | The Ruthless Talent Partner for Luxury Hospitality">
-    <meta property="og:description" content="We guarantee a shortlist of vetted, elite hospitality leaders within 72 hours. Confidential. Guaranteed.">
-    <meta property="og:image" content="https://jobpitality.com/img/home-og.jpg">
-    <meta property="og:url" content="https://jobpitality.com">
+    <meta property="og:title" content="Hotel Leadership Search | The Ruthless Talent Partner for Luxury Hotels">
+    <meta property="og:description" content="We acquire elite hotel leaders, not just fill vacancies. Guaranteed shortlist in 72 hours.">
+    <meta property="og:image" content="https://jobpitality.com/img/hotel-leadership-og.jpg">
+    <meta property="og:url" content="https://jobpitality.com/services/hotel-leadership/">
     <meta property="og:type" content="website">
     
     <!-- Canonical -->
-    <link rel="canonical" href="https://jobpitality.com">
+    <link rel="canonical" href="https://jobpitality.com/services/hotel-leadership/">
     
-    <!-- Font Awesome -->
+    <!-- Font Awesome & Google Fonts (Same as Home) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- CHANGE: Updated font selection for a sharper, more modern feel (keeping Inter) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- COMPLETE INLINE CSS -->
+    <!-- COMPLETE INLINE CSS - REPLICATING HOMEPAGE DESIGN -->
     <style>
         /* ===== CSS RESET & BASE ===== */
         * {
@@ -37,7 +34,7 @@
         }
         
         :root {
-            /* CHANGE: Updated color system for a more premium, confident palette */
+            /* EXACT Jobpitality Color Palette */
             --color-primary: #0d1b2a;      /* Deep Navy (Authority) */
             --color-primary-dark: #070d13;
             --color-accent: #ff9e00;       /* Vibrant Orange (Energy, Action) */
@@ -57,7 +54,7 @@
             --color-light: #ffffff;
             --color-white: #ffffff;
             
-            /* CHANGE: Simplified typography - a single, strong sans-serif */
+            /* EXACT Jobpitality Typography */
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             
             /* SPACING */
@@ -74,7 +71,7 @@
             --radius-md: 8px;
             --radius-lg: 12px;
             --radius-xl: 16px;
-            --radius-2xl: 20px; /* Slightly less rounded for sharper look */
+            --radius-2xl: 20px;
             
             /* SHADOWS */
             --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
@@ -111,9 +108,9 @@
             padding: 0 var(--space-md);
         }
         
-        /* ===== TYPOGRAPHY ===== */
+        /* ===== TYPOGRAPHY (Same as Home) ===== */
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 800; /* Bolder weights for impact */
+            font-weight: 800;
             line-height: 1.1;
             color: var(--color-gray-900);
             letter-spacing: -0.025em;
@@ -166,7 +163,7 @@
             text-align: center;
         }
         
-        /* ===== BUTTONS ===== */
+        /* ===== BUTTONS (Same as Home) ===== */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -241,7 +238,7 @@
             width: 100%;
         }
         
-        /* ===== HEADER & NAVIGATION ===== */
+        /* ===== HEADER & NAVIGATION (Same as Home) ===== */
         .site-header {
             background: var(--color-white);
             box-shadow: var(--shadow-lg);
@@ -272,7 +269,6 @@
             line-height: 1.2;
         }
         
-        /* CHANGE: Logo styling for Jobpitality */
         .logo h1 {
             font-size: 2.1rem;
             margin-bottom: 0;
@@ -462,8 +458,8 @@
             z-index: 999;
         }
         
-        /* ===== HERO SECTION ===== */
-        .hero {
+        /* ===== SERVICE-SPECIFIC HERO ===== */
+        .service-hero {
             padding: var(--space-3xl) var(--space-md);
             background: linear-gradient(135deg, var(--color-primary) 0%, #1b263b 100%);
             color: var(--color-white);
@@ -471,7 +467,7 @@
             overflow: hidden;
         }
         
-        .hero::before {
+        .service-hero::before {
             content: '';
             position: absolute;
             top: 0;
@@ -484,14 +480,13 @@
             z-index: 1;
         }
         
-        .hero-content {
+        .service-hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            max-width: 800px;
         }
         
-        /* CHANGE: Hero badge updated for the 72-hour guarantee */
-        .hero-badge {
+        .service-hero-badge {
             background: linear-gradient(90deg, var(--color-accent), #ff6b00);
             color: var(--color-primary);
             display: inline-flex;
@@ -506,21 +501,21 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
         }
         
-        .hero-title {
-            font-size: 4.5rem;
+        .service-hero-title {
+            font-size: 3.5rem;
             font-weight: 900;
-            line-height: 1;
+            line-height: 1.1;
             margin-bottom: var(--space-lg);
             color: var(--color-white);
         }
         
-        .hero-title .highlight {
+        .service-hero-title .highlight {
             color: var(--color-accent);
             font-style: normal;
             position: relative;
         }
         
-        .hero-subtitle {
+        .service-hero-subtitle {
             font-size: 1.5rem;
             color: rgba(255, 255, 255, 0.9);
             max-width: 700px;
@@ -529,22 +524,22 @@
             font-weight: 400;
         }
         
-        /* HERO STATS - Updated for Jobpitality messaging */
-        .hero-stats {
+        /* SERVICE HERO STATS */
+        .service-hero-stats {
             display: flex;
             gap: var(--space-2xl);
             margin: var(--space-xl) 0;
             flex-wrap: wrap;
         }
         
-        .hero-stat {
+        .service-hero-stat {
             text-align: center;
             flex: 1;
             min-width: 150px;
         }
         
-        .hero-stat-number {
-            font-size: 3.5rem;
+        .service-hero-stat-number {
+            font-size: 3rem;
             font-weight: 900;
             color: var(--color-accent);
             display: block;
@@ -552,7 +547,7 @@
             margin-bottom: var(--space-xs);
         }
         
-        .hero-stat-label {
+        .service-hero-stat-label {
             color: rgba(255, 255, 255, 0.8);
             font-size: 0.9rem;
             line-height: 1.4;
@@ -561,47 +556,9 @@
             font-weight: 600;
         }
         
-        /* ===== CLIENTS SECTION ===== */
-        .clients {
-            padding: var(--space-2xl) var(--space-md);
-            background: var(--color-white);
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-        
-        .clients-title {
-            text-align: center;
-            color: var(--color-gray-600);
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: var(--space-xl);
-            font-weight: 700;
-        }
-        
-        .clients-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: var(--space-2xl);
-            opacity: 0.7;
-        }
-        
-        .client-logo {
-            font-weight: 800;
-            color: var(--color-primary);
-            font-size: 1.2rem;
-            transition: all var(--transition-fast);
-        }
-        
-        .client-logo:hover {
-            opacity: 1;
-            color: var(--color-accent);
-        }
-        
-        /* ===== SERVICES SECTION ===== */
-        .services {
+        /* ===== SECTIONS (Consistent with Home) ===== */
+        .section {
             padding: var(--space-3xl) var(--space-md);
-            background: var(--color-white);
         }
         
         .section-header {
@@ -620,14 +577,15 @@
             font-size: 1.1rem;
         }
         
-        .services-grid {
+        /* ===== HOTEL LEADERSHIP ROLES ===== */
+        .roles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: var(--space-xl);
             margin: var(--space-2xl) 0;
         }
         
-        .service-card {
+        .role-card {
             background: var(--color-white);
             border-radius: var(--radius-xl);
             padding: var(--space-xl);
@@ -637,13 +595,13 @@
             overflow: hidden;
         }
         
-        .service-card:hover {
+        .role-card:hover {
             transform: translateY(-12px);
             box-shadow: var(--shadow-2xl);
             border-color: var(--color-accent);
         }
         
-        .service-icon {
+        .role-icon {
             font-size: 2.5rem;
             color: var(--color-accent);
             margin-bottom: var(--space-md);
@@ -656,16 +614,16 @@
             border-radius: var(--radius-lg);
         }
         
-        .service-card h3 {
+        .role-card h3 {
             margin-bottom: var(--space-sm);
         }
         
-        .service-features {
+        .role-features {
             list-style: none;
             margin: var(--space-md) 0;
         }
         
-        .service-features li {
+        .role-features li {
             padding: 0.5rem 0;
             color: var(--color-gray-700);
             display: flex;
@@ -674,138 +632,12 @@
             font-size: 1rem;
         }
         
-        .service-features li i {
+        .role-features li i {
             color: var(--color-success);
             margin-top: 0.25rem;
         }
         
-        /* ===== GUARANTEE BANNER ===== */
-        /* CHANGE: New section for the 72-hour guarantee */
-        .guarantee-banner {
-            padding: var(--space-2xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-primary), #1b263b);
-            color: var(--color-white);
-            text-align: center;
-            border-radius: var(--radius-xl);
-            margin: var(--space-2xl) auto;
-            max-width: 1200px;
-            border: 3px solid var(--color-accent);
-        }
-        
-        .guarantee-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .guarantee-icon {
-            font-size: 4rem;
-            color: var(--color-accent);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .guarantee-content h2 {
-            color: var(--color-white);
-            margin-bottom: var(--space-md);
-        }
-        
-        .guarantee-content .lead {
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        /* ===== CASE STUDIES PREVIEW ===== */
-        .case-studies {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-gray-100);
-        }
-        
-        .case-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-lg);
-            max-width: 1200px;
-            margin: var(--space-2xl) auto;
-        }
-        
-        .case-card {
-            background: var(--color-white);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transition: all var(--transition-normal);
-        }
-        
-        .case-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-2xl);
-        }
-        
-        .case-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-            position: relative;
-        }
-        
-        .case-badge {
-            position: absolute;
-            top: var(--space-md);
-            left: var(--space-md);
-            background: var(--color-accent);
-            color: var(--color-primary);
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .case-content {
-            padding: var(--space-xl);
-        }
-        
-        .case-content h3 {
-            margin-bottom: var(--space-sm);
-        }
-        
-        .case-content h3 a {
-            color: var(--color-dark);
-            text-decoration: none;
-        }
-        
-        .case-content h3 a:hover {
-            color: var(--color-accent);
-        }
-        
-        .case-stats {
-            display: flex;
-            gap: var(--space-lg);
-            margin: var(--space-md) 0;
-        }
-        
-        .case-stat {
-            text-align: center;
-            flex: 1;
-        }
-        
-        .case-stat strong {
-            display: block;
-            font-size: 1.5rem;
-            color: var(--color-accent);
-            font-weight: 800;
-        }
-        
-        .case-stat span {
-            font-size: 0.85rem;
-            color: var(--color-gray-600);
-            font-weight: 600;
-        }
-        
-        /* ===== PROCESS SECTION ===== */
-        .process {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-white);
-        }
-        
+        /* ===== SEARCH PROCESS ===== */
         .process-steps {
             display: flex;
             flex-direction: column;
@@ -848,121 +680,130 @@
             color: var(--color-primary);
         }
         
-        /* ===== TESTIMONIALS ===== */
-        .testimonials {
-            padding: var(--space-3xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-primary), #1b263b);
-            color: var(--color-white);
-        }
-        
-        .testimonial-grid {
+        /* ===== HOTEL CASE STUDIES ===== */
+        .hotel-case-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-xl);
-            margin: var(--space-2xl) 0;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-lg);
+            max-width: 1200px;
+            margin: var(--space-2xl) auto;
         }
         
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: var(--space-xl);
+        .hotel-case-card {
+            background: var(--color-white);
             border-radius: var(--radius-xl);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            backdrop-filter: blur(10px);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-normal);
         }
         
-        .testimonial-card::before {
-            content: '"';
+        .hotel-case-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .hotel-case-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            position: relative;
+        }
+        
+        .hotel-case-badge {
             position: absolute;
-            top: -20px;
-            left: 20px;
-            font-size: 5rem;
-            color: var(--color-accent);
-            opacity: 0.3;
-            font-family: var(--font-sans);
-            line-height: 1;
-            font-weight: 900;
-        }
-        
-        .testimonial-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: var(--space-lg);
-            color: rgba(255, 255, 255, 0.9);
-            position: relative;
-            z-index: 2;
-            font-style: italic;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-        }
-        
-        .author-avatar {
-            width: 60px;
-            height: 60px;
+            top: var(--space-md);
+            left: var(--space-md);
             background: var(--color-accent);
-            border-radius: 50%;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             color: var(--color-primary);
-            font-weight: 800;
-            font-size: 1.5rem;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .author-info strong {
+        .hotel-case-content {
+            padding: var(--space-xl);
+        }
+        
+        .hotel-case-content h3 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .hotel-case-stats {
+            display: flex;
+            gap: var(--space-lg);
+            margin: var(--space-md) 0;
+        }
+        
+        .hotel-case-stat {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .hotel-case-stat strong {
             display: block;
-            color: var(--color-white);
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            font-weight: 800;
         }
         
-        .author-info span {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
+        .hotel-case-stat span {
+            font-size: 0.85rem;
+            color: var(--color-gray-600);
+            font-weight: 600;
         }
         
-        /* ===== EMERGENCY BANNER ===== */
-        .emergency-banner {
-            padding: var(--space-xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-emergency), var(--color-emergency-dark));
+        /* ===== SERVICE GUARANTEE BANNER ===== */
+        .service-guarantee-banner {
+            padding: var(--space-2xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-primary), #1b263b);
             color: var(--color-white);
             text-align: center;
             border-radius: var(--radius-xl);
-            margin: var(--space-xl) auto;
+            margin: var(--space-2xl) auto;
             max-width: 1200px;
+            border: 3px solid var(--color-accent);
         }
         
-        .emergency-content {
+        .service-guarantee-content {
             max-width: 800px;
             margin: 0 auto;
         }
         
-        .emergency-content h2 {
+        .service-guarantee-icon {
+            font-size: 4rem;
+            color: var(--color-accent);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .service-guarantee-content h2 {
             color: var(--color-white);
             margin-bottom: var(--space-md);
         }
         
+        .service-guarantee-content .lead {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
         /* ===== CTA SECTION ===== */
-        .cta-section {
+        .service-cta-section {
             padding: var(--space-3xl) var(--space-md);
             background: var(--color-white);
             text-align: center;
             border-top: 1px solid var(--color-gray-200);
         }
         
-        .cta-container {
+        .service-cta-container {
             max-width: 800px;
             margin: 0 auto;
         }
         
-        .cta-container h2 {
+        .service-cta-container h2 {
             margin-bottom: var(--space-md);
         }
         
-        .cta-buttons {
+        .service-cta-buttons {
             display: flex;
             gap: var(--space-lg);
             justify-content: center;
@@ -970,7 +811,7 @@
             flex-wrap: wrap;
         }
         
-        .cta-note {
+        .service-cta-note {
             color: var(--color-gray-600);
             font-size: 0.95rem;
             margin-top: var(--space-xl);
@@ -981,12 +822,12 @@
             margin-right: auto;
         }
         
-        .cta-note i {
+        .service-cta-note i {
             color: var(--color-success);
             margin-right: var(--space-xs);
         }
         
-        /* ===== FOOTER ===== */
+        /* ===== FOOTER (Same as Home) ===== */
         .site-footer {
             background: var(--color-primary);
             color: var(--color-white);
@@ -1069,8 +910,8 @@
         @media (max-width: 1024px) {
             h1 { font-size: 3.5rem; }
             h2 { font-size: 2.5rem; }
-            .hero-title { font-size: 3.5rem; }
-            .hero::before { width: 40%; }
+            .service-hero-title { font-size: 3rem; }
+            .service-hero::before { width: 40%; }
         }
         
         @media (max-width: 768px) {
@@ -1179,30 +1020,30 @@
             }
             
             /* MOBILE HERO */
-            .hero {
+            .service-hero {
                 padding: var(--space-2xl) var(--space-md);
                 text-align: center;
             }
             
-            .hero::before {
+            .service-hero::before {
                 display: none;
             }
             
-            .hero-title {
-                font-size: 2.8rem;
+            .service-hero-title {
+                font-size: 2.5rem;
             }
             
-            .hero-subtitle {
+            .service-hero-subtitle {
                 font-size: 1.3rem;
             }
             
-            .hero-stats {
+            .service-hero-stats {
                 flex-direction: column;
                 align-items: center;
                 gap: var(--space-lg);
             }
             
-            .hero-stat {
+            .service-hero-stat {
                 max-width: 100%;
             }
             
@@ -1210,9 +1051,8 @@
             h1 { font-size: 3rem; }
             h2 { font-size: 2.2rem; }
             
-            .services-grid,
-            .case-grid,
-            .testimonial-grid {
+            .roles-grid,
+            .hotel-case-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1229,36 +1069,35 @@
                 margin: 0 auto;
             }
             
-            .cta-buttons {
+            .service-cta-buttons {
                 flex-direction: column;
             }
             
-            .cta-buttons a {
+            .service-cta-buttons a {
                 width: 100%;
                 text-align: center;
             }
             
-            .guarantee-banner,
-            .emergency-banner {
+            .service-guarantee-banner {
                 margin: var(--space-xl) var(--space-md);
                 border-radius: var(--radius-lg);
             }
         }
         
         @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2.3rem;
+            .service-hero-title {
+                font-size: 2.2rem;
             }
             
-            .hero-subtitle {
+            .service-hero-subtitle {
                 font-size: 1.1rem;
             }
             
-            .hero-stat-number {
+            .service-hero-stat-number {
                 font-size: 2.5rem;
             }
             
-            .hero-badge {
+            .service-hero-badge {
                 font-size: 0.85rem;
                 padding: 0.75rem 1.5rem;
             }
@@ -1290,7 +1129,7 @@
         /* ===== PRINT STYLES ===== */
         @media print {
             .site-header,
-            .emergency-banner,
+            .service-guarantee-banner,
             .site-footer,
             .btn {
                 display: none !important;
@@ -1298,7 +1137,7 @@
         }
     </style>
     
-    <!-- Google Tag Manager & GA4 -->
+    <!-- Google Tag Manager & GA4 (Same as Home) -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXX');</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SF5LWDZDKF"></script>
     <script>
@@ -1312,11 +1151,10 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
-    <!-- SITE HEADER -->
+    <!-- SITE HEADER (Identical to Home with Active State for This Page) -->
     <header class="site-header">
         <div class="container">
             <div class="header-container">
-                <!-- CHANGE: Updated logo for Jobpitality -->
                 <div class="logo">
                     <a href="/" aria-label="Jobpitality Home">
                         <h1><i class="fas fa-bolt"></i> <span class="brand-name">JOBPITALITY</span></h1>
@@ -1331,13 +1169,13 @@
                 <nav class="main-nav">
                     <ul class="nav-menu">
                         <li class="nav-item">
-                            <a href="/" class="nav-link active">
+                            <a href="/" class="nav-link">
                                 <i class="fas fa-home"></i> Home
                             </a>
                         </li>
                         
                         <li class="nav-item dropdown">
-                            <a href="/services/" class="nav-link dropdown-toggle">
+                            <a href="/services/" class="nav-link dropdown-toggle active">
                                 <i class="fas fa-crosshairs"></i> Precision Search
                                 <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
                             </a>
@@ -1345,7 +1183,7 @@
                                 <a href="/services/executive-search/" class="dropdown-item">
                                     <i class="fas fa-search"></i> Executive Search
                                 </a>
-                                <a href="/services/hotel-leadership/" class="dropdown-item">
+                                <a href="/services/hotel-leadership/" class="dropdown-item active">
                                     <i class="fas fa-hotel"></i> Hotel Leadership
                                 </a>
                                 <a href="/services/culinary-leadership/" class="dropdown-item">
@@ -1451,206 +1289,264 @@
         </div>
     </header>
     
-    <!-- HERO SECTION -->
-    <section class="hero">
+    <!-- SERVICE HERO SECTION -->
+    <section class="service-hero">
         <div class="container">
-            <div class="hero-content">
-                <!-- CHANGE: Hero badge updated for guarantee -->
-                <div class="hero-badge">
-                    <i class="fas fa-shield-alt"></i> 72-HOUR VETTED SHORTLIST GUARANTEE
+            <div class="service-hero-content">
+                <div class="service-hero-badge">
+                    <i class="fas fa-hotel"></i> PRECISION HOTEL LEADERSHIP SEARCH
                 </div>
-                <!-- CHANGE: Updated hero title and subtitle -->
-                <h1 class="hero-title">We Don't Find Talent.<br>We <span class="highlight">Acquire</span> It.</h1>
-                <p class="hero-subtitle">Jobpitality is the ruthless talent partner for luxury hotels and restaurants. We place elite General Managers, Executive Chefs, and management teams that guarantee performance, not just fill vacancies.</p>
+                <h1 class="service-hero-title">We Acquire Hotel Leaders That <span class="highlight">Transform Properties</span>.</h1>
+                <p class="service-hero-subtitle">Jobpitality doesn't recruit General Managers. We acquire elite hospitality leaders with proven track records of driving revenue, stabilizing teams, and elevating guest experience in luxury hotels and resorts.</p>
                 
-                <!-- Hero Stats - Updated for Jobpitality -->
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">72h</span>
-                        <span class="hero-stat-label">Shortlist<br>Guarantee</span>
+                <!-- Service-specific Stats -->
+                <div class="service-hero-stats">
+                    <div class="service-hero-stat">
+                        <span class="service-hero-stat-number">72h</span>
+                        <span class="service-hero-stat-label">Vetted Shortlist<br>Guarantee</span>
                     </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">94%</span>
-                        <span class="hero-stat-label">Retention<br>at 12 Months</span>
+                    <div class="service-hero-stat">
+                        <span class="service-hero-stat-number">92%</span>
+                        <span class="service-hero-stat-label">Hotel Leader<br>Retention at 2yrs</span>
                     </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">42%</span>
-                        <span class="hero-stat-label">Avg. Revenue<br>Impact</span>
+                    <div class="service-hero-stat">
+                        <span class="service-hero-stat-number">31%</span>
+                        <span class="service-hero-stat-label">Avg. GOP<br>Improvement</span>
                     </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">42:1</span>
-                        <span class="hero-stat-label">ROI on<br>Search Fee</span>
+                    <div class="service-hero-stat">
+                        <span class="service-hero-stat-number">40:1</span>
+                        <span class="service-hero-stat-label">ROI on<br>Hotel Search Fee</span>
                     </div>
                 </div>
                 
                 <div style="margin-top: var(--space-xl);">
                     <a href="#consultation" class="btn btn-primary btn-large">
-                        <i class="fas fa-crosshairs"></i> START A PRECISION SEARCH
+                        <i class="fas fa-crosshairs"></i> START HOTEL LEADERSHIP SEARCH
                     </a>
-                    <a href="/case-studies/" class="btn btn-outline btn-large" style="margin-left: var(--space-md); color: white; border-color: white;">
-                        <i class="fas fa-chart-line"></i> SEE PROVEN RESULTS
+                    <a href="#roles" class="btn btn-outline btn-large" style="margin-left: var(--space-md); color: white; border-color: white;">
+                        <i class="fas fa-users"></i> VIEW HOTEL ROLES WE FILL
                     </a>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- TRUSTED CLIENTS -->
-    <section class="clients">
-        <div class="container">
-            <p class="clients-title">We Place Leaders At</p>
-            <div class="clients-grid">
-                <div class="client-logo">FOUR SEASONS</div>
-                <div class="client-logo">RITZ-CARLTON</div>
-                <div class="client-logo">MANDARIN ORIENTAL</div>
-                <div class="client-logo">MICHELIN</div>
-                <div class="client-logo">HYATT</div>
-                <div class="client-logo">MARRIOTT</div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SERVICES -->
-    <section class="services" id="services">
+    <!-- HOTEL LEADERSHIP ROLES -->
+    <section class="section" id="roles">
         <div class="container">
             <div class="section-header">
-                <h2>Precision Search for <span class="text-gradient">Luxury Hospitality</span></h2>
-                <p>We execute focused talent acquisition, not generic recruitment.</p>
+                <h2>Hotel Leadership Roles We <span class="text-gradient">Acquire</span></h2>
+                <p>We specialize in placing the complete leadership suite for luxury hotels, resorts, and boutique properties.</p>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hotel"></i>
+            <div class="roles-grid">
+                <div class="role-card">
+                    <div class="role-icon">
+                        <i class="fas fa-crown"></i>
                     </div>
-                    <h3>Hotel & Resort Leadership</h3>
-                    <p>General Managers, Directors of Operations, Revenue & Marketing Directors for luxury and boutique properties.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> 72-hour vetted shortlist</li>
-                        <li><i class="fas fa-check"></i> Deep luxury market network</li>
-                        <li><i class="fas fa-check"></i> Cultural fit guaranteed</li>
+                    <h3>General Managers</h3>
+                    <p>Visionary P&L leaders for luxury hotels, resorts, and boutique properties. We assess for strategic agility, commercial acumen, and cultural leadership.</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Luxury & boutique property experts</li>
+                        <li><i class="fas fa-check"></i> Turnaround & high-growth specialists</li>
+                        <li><i class="fas fa-check"></i> Multi-property and cluster experience</li>
+                        <li><i class="fas fa-check"></i> Pre-vetted with 360° references</li>
                     </ul>
-                    <a href="/services/hotel-leadership/" class="btn btn-outline btn-block">
-                        <i class="fas fa-arrow-right"></i> Acquire Hotel Talent
+                    <a href="#consultation" class="btn btn-outline btn-block">
+                        <i class="fas fa-briefcase"></i> ACQUIRE A GM
                     </a>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-utensils"></i>
+                <div class="role-card">
+                    <div class="role-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Culinary & F&B Leadership</h3>
-                    <p>Executive Chefs, F&B Directors, Restaurant Managers for fine dining, Michelin-star, and high-volume venues.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Concept-specific expertise</li>
-                        <li><i class="fas fa-check"></i> Pre-vetted culinary artists</li>
-                        <li><i class="fas fa-check"></i> Crisis staffing ready</li>
+                    <h3>Directors of Operations</h3>
+                    <p>Operational masters who execute the GM's vision. We find leaders who optimize efficiency, elevate service standards, and drive EBITDA.</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Daily operations & service excellence</li>
+                        <li><i class="fas fa-check"></i> Cost control & procurement experts</li>
+                        <li><i class="fas fa-check"></i> Labor optimization & scheduling</li>
+                        <li><i class="fas fa-check"></i> Pre-opening & renovation experience</li>
                     </ul>
-                    <a href="/services/culinary-leadership/" class="btn btn-outline btn-block">
-                        <i class="fas fa-arrow-right"></i> Acquire Culinary Talent
+                    <a href="#consultation" class="btn btn-outline btn-block">
+                        <i class="fas fa-briefcase"></i> ACQUIRE A DIRECTOR OF OPS
                     </a>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
+                <div class="role-card">
+                    <div class="role-icon">
+                        <i class="fas fa-dollar-sign"></i>
                     </div>
-                    <h3>Management & Corporate</h3>
-                    <p>VPs of Operations, Regional Directors, and corporate leadership for multi-property groups and investors.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Strategic succession planning</li>
-                        <li><i class="fas fa-check"></i> Multi-property integration</li>
-                        <li><i class="fas fa-check"></i> Investor-ready talent</li>
+                    <h3>Revenue & Commercial Directors</h3>
+                    <p>Data-driven commercial strategists who maximize RevPAR, ADR, and total revenue. We find analysts who think like CEOs.</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Pricing, distribution & channel strategy</li>
+                        <li><i class="fas fa-check"></i> CRM & loyalty program leadership</li>
+                        <li><i class="fas fa-check"></i> Group & corporate sales strategy</li>
+                        <li><i class="fas fa-check"></i> Forecasting & budgeting accuracy</li>
                     </ul>
-                    <a href="/services/management-teams/" class="btn btn-outline btn-block">
-                        <i class="fas fa-arrow-right"></i> Acquire Management Talent
+                    <a href="#consultation" class="btn btn-outline btn-block">
+                        <i class="fas fa-briefcase"></i> ACQUIRE A REVENUE LEADER
+                    </a>
+                </div>
+                
+                <div class="role-card">
+                    <div class="role-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>Heads of Department (HODs)</h3>
+                    <p>Specialist leaders for Rooms, F&B, Spa, and Guest Experience. We find department heads who are future GMs.</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Executive Housekeepers & Rooms Directors</li>
+                        <li><i class="fas fa-check"></i> F&B Managers & Restaurant Directors</li>
+                        <li><i class="fas fa-check"></i> Spa & Wellness Directors</li>
+                        <li><i class="fas fa-check"></i> Guest Services & Front Office Directors</li>
+                    </ul>
+                    <a href="#consultation" class="btn btn-outline btn-block">
+                        <i class="fas fa-briefcase"></i> ACQUIRE HOD TALENT
                     </a>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- GUARANTEE BANNER -->
-    <!-- CHANGE: New section highlighting the core promise -->
-    <section class="guarantee-banner">
+    <!-- SERVICE GUARANTEE BANNER -->
+    <section class="service-guarantee-banner">
         <div class="container">
-            <div class="guarantee-content">
-                <div class="guarantee-icon">
+            <div class="service-guarantee-content">
+                <div class="service-guarantee-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                <h2>Our Unwavering Guarantee</h2>
-                <p class="lead">Submit a detailed brief. Within <strong>72 hours</strong>, we will deliver a shortlist of pre-vetted, interviewed, and culturally-assessed candidates. Not just resumes. <strong>Guaranteed talent, ready to interview.</strong></p>
+                <h2>The 72-Hour Hotel Leadership Guarantee</h2>
+                <p class="lead">Submit your detailed hotel leadership brief. Within <strong>72 hours</strong>, we deliver a shortlist of pre-vetted, interviewed, and reference-checked candidates. Not just CVs. <strong>Elite hotel leaders, ready to interview.</strong></p>
                 <a href="/services/guarantee/" class="btn btn-primary btn-large" style="margin-top: var(--space-lg);">
-                    <i class="fas fa-file-contract"></i> READ THE FULL GUARANTEE
+                    <i class="fas fa-file-contract"></i> READ OUR HOTEL SEARCH GUARANTEE
                 </a>
             </div>
         </div>
     </section>
     
-    <!-- CASE STUDIES PREVIEW -->
-    <section class="case-studies">
+    <!-- HOTEL-SPECIFIC PROCESS -->
+    <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2>Precision <span class="text-gradient">Placements</span>, Proven Impact</h2>
-                <p>Where our talent acquisition directly drove measurable business results.</p>
+                <h2>The Jobpitality Hotel Leadership <span class="text-gradient">Method</span></h2>
+                <p>A specialized process designed to acquire leaders who understand luxury hospitality's unique pressures.</p>
             </div>
             
-            <div class="case-grid">
-                <div class="case-card">
-                    <div class="case-image">
-                        <div class="case-badge">72-HOUR PLACEMENT</div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Hotel Intelligence & Brief</h3>
+                        <p>We analyze your property's positioning, competitive set, ownership expectations, and cultural dynamics. We don't just read your job description; we understand your business problem.</p>
                     </div>
-                    <div class="case-content">
-                        <h3><a href="#">Luxury Boutique Hotel GM Search</a></h3>
-                        <p>Client had a 94-day vacancy crippling operations. We delivered a vetted shortlist in 72 hours. Placed GM achieved 42% revenue growth in 6 months.</p>
-                        <div class="case-stats">
-                            <div class="case-stat">
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Proprietary Hotel Talent Mapping</h3>
+                        <p>We map the precise talent pool across competitive hotels, luxury groups, and relevant markets. We engage passive leaders who aren't looking but are open to exceptional opportunities.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Ruthless Hospitality Assessment</h3>
+                        <p>Proprietary assessments evaluate luxury service philosophy, commercial acumen, crisis leadership, and cultural fit. We verify past performance with 360° references from owners, peers, and direct reports.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Guaranteed Placement & Integration</h3>
+                        <p>We manage the offer process, negotiate on your behalf, and provide 12-month integration support. Our guarantee covers performance. Our relationship begins at placement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- HOTEL CASE STUDIES -->
+    <section class="section" style="background: var(--color-gray-100);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hotel Leadership <span class="text-gradient">Placements</span></h2>
+                <p>Where our acquired talent directly transformed hotel performance.</p>
+            </div>
+            
+            <div class="hotel-case-grid">
+                <div class="hotel-case-card">
+                    <div class="hotel-case-image">
+                        <div class="hotel-case-badge">LUXURY BOUTIQUE</div>
+                    </div>
+                    <div class="hotel-case-content">
+                        <h3>Boutique Hotel GM Search</h3>
+                        <p>94-day GM vacancy was crippling owner relations and team morale. We delivered a vetted shortlist in 72 hours. Placed GM achieved 42% revenue growth in 6 months and stabilized the leadership team.</p>
+                        <div class="hotel-case-stats">
+                            <div class="hotel-case-stat">
                                 <strong>72h</strong>
                                 <span>To Shortlist</span>
                             </div>
-                            <div class="case-stat">
+                            <div class="hotel-case-stat">
                                 <strong>42%</strong>
                                 <span>Revenue Growth</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="case-card">
-                    <div class="case-image" style="background: linear-gradient(135deg, var(--color-accent), #ff6b00);">
-                        <div class="case-badge">CULINARY CRISIS AVERTED</div>
-                    </div>
-                    <div class="case-content">
-                        <h3><a href="#">Michelin-star Executive Chef</a></h3>
-                        <p>Executive chef quit 48 hours before a major review. We had an interim, Michelin-experienced chef in the kitchen within 8 hours. Permanent placement within 3 weeks.</p>
-                        <div class="case-stats">
-                            <div class="case-stat">
-                                <strong>8h</strong>
-                                <span>Interim In Place</span>
-                            </div>
-                            <div class="case-stat">
-                                <strong>3w</strong>
-                                <span>To Permanent Hire</span>
+                            <div class="hotel-case-stat">
+                                <strong>94%</strong>
+                                <span>Team Retention</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="case-card">
-                    <div class="case-image" style="background: linear-gradient(135deg, var(--color-success), var(--color-success-dark));">
-                        <div class="case-badge">MULTI-PROPERTY SUCCESSION</div>
+                <div class="hotel-case-card">
+                    <div class="hotel-case-image" style="background: linear-gradient(135deg, var(--color-accent), #ff6b00);">
+                        <div class="hotel-case-badge">RESORT TURNAROUND</div>
                     </div>
-                    <div class="case-content">
-                        <h3><a href="#">Resort Group Leadership Overhaul</a></h3>
-                        <p>Placed a new VP of Operations and 3 GMs across a luxury resort group. Achieved 65% seasonal revenue increase and unified culture across properties.</p>
-                        <div class="case-stats">
-                            <div class="case-stat">
-                                <strong>4</strong>
+                    <div class="hotel-case-content">
+                        <h3>Luxury Resort Leadership Overhaul</h3>
+                        <p>Placed a new GM and Director of Operations for an underperforming 250-key luxury resort. Implemented new operating models, driving a 31% GOP improvement in the first fiscal year post-placement.</p>
+                        <div class="hotel-case-stats">
+                            <div class="hotel-case-stat">
+                                <strong>2</strong>
                                 <span>Key Placements</span>
                             </div>
-                            <div class="case-stat">
-                                <strong>65%</strong>
-                                <span>Revenue Growth</span>
+                            <div class="hotel-case-stat">
+                                <strong>31%</strong>
+                                <span>GOP Increase</span>
+                            </div>
+                            <div class="hotel-case-stat">
+                                <strong>4.9</strong>
+                                <span>Guest Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hotel-case-card">
+                    <div class="hotel-case-image" style="background: linear-gradient(135deg, var(--color-success), var(--color-success-dark));">
+                        <div class="hotel-case-badge">PRE-OPENING SUCCESS</div>
+                    </div>
+                    <div class="hotel-case-content">
+                        <h3>New Luxury Hotel Pre-Opening Team</h3>
+                        <p>Acquired the complete pre-opening leadership team (GM, DOO, Revenue Director, F&B Director) for a new 5-star hotel. Achieved on-time, on-budget opening with 85% occupancy in first 90 days.</p>
+                        <div class="hotel-case-stats">
+                            <div class="hotel-case-stat">
+                                <strong>4</strong>
+                                <span>Leaders Placed</span>
+                            </div>
+                            <div class="hotel-case-stat">
+                                <strong>85%</strong>
+                                <span>Opening Occupancy</span>
+                            </div>
+                            <div class="hotel-case-stat">
+                                <strong>$2.1M</strong>
+                                <span>Saved vs Budget</span>
                             </div>
                         </div>
                     </div>
@@ -1659,113 +1555,24 @@
             
             <div style="text-align: center; margin-top: var(--space-xl);">
                 <a href="/case-studies/" class="btn btn-secondary btn-large">
-                    <i class="fas fa-chart-line"></i> VIEW ALL IMPACT STUDIES
+                    <i class="fas fa-chart-line"></i> VIEW ALL HOTEL CASE STUDIES
                 </a>
             </div>
         </div>
     </section>
     
-    <!-- OUR PROCESS -->
-    <section class="process">
-        <div class="container">
-            <div class="section-header">
-                <h2>The Jobpitality <span class="text-gradient">Method</span></h2>
-                <p>A systematic, ruthless process designed for one outcome: placing elite talent that performs.</p>
-            </div>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Strategic Brief & Intelligence</h3>
-                        <p>We deconstruct your need. Not just the job description, but the business problem, culture, and exact performance outcomes required.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Targeted Talent Mapping</h3>
-                        <p>We map and engage the precise talent pool, including passive leaders not on the market. No spam. No databases. Just direct acquisition.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Ruthless Assessment & Vetting</h3>
-                        <p>Proprietary hospitality leadership assessments. We evaluate for proven impact, cultural alignment, and leadership agility. Only the elite pass.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Guaranteed Placement & Integration</h3>
-                        <p>We guarantee the placement and support integration with performance tracking. Our relationship begins at placement, it doesn't end there.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- TESTIMONIALS -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header" style="color: white;">
-                <h2>What <span style="color: var(--color-accent);">Industry Leaders</span> Say</h2>
-                <p>Feedback from executives who demanded results, not just candidates.</p>
-            </div>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Jobpitality's 72-hour guarantee wasn't a slogan; it was a promise kept. The GM they placed transformed our property's performance. They operate with a precision others lack."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JW</div>
-                        <div class="author-info">
-                            <strong>James Wilson</strong>
-                            <span>Managing Partner, Luxury Hotel Group</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"When our Executive Chef walked out, Jobpitality didn't send CVs. They had a solution cooking in our kitchen within hours. They understand crisis means business, not paperwork."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SC</div>
-                        <div class="author-info">
-                            <strong>Sarah Chen</strong>
-                            <span>Operations Director, Michelin Fine Dining Group</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Their 'ruthless' approach is exactly what the industry needs. No fluff, no generic candidates. They acquired a leadership team that delivered a 65% revenue increase. Period."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MR</div>
-                        <div class="author-info">
-                            <strong>Michael Rodriguez</strong>
-                            <span>VP Operations, Global Resort Collection</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- EMERGENCY BANNER -->
-    <section class="emergency-banner">
+    <!-- EMERGENCY HOTEL STAFFING BANNER -->
+    <section class="emergency-banner" style="margin: var(--space-3xl) auto;">
         <div class="container">
             <div class="emergency-content">
-                <h2><i class="fas fa-bolt"></i> Leadership Crisis or Sudden Departure?</h2>
-                <p>GM quit? Chef walked out? Opening delayed? Our rapid response team deploys interim, vetted leaders within hours to stabilize your operation while we execute a permanent search.</p>
+                <h2><i class="fas fa-bolt"></i> Hotel Leadership Crisis?</h2>
+                <p>GM resigned? Sudden termination? Opening delayed? Our rapid response team deploys interim, vetted hotel leaders within hours to stabilize your operation while we execute a permanent search.</p>
                 <div style="margin-top: var(--space-lg);">
                     <a href="/emergency/" class="btn btn-emergency btn-large">
-                        <i class="fas fa-headset"></i> ACTIVATE CRISIS RESPONSE
+                        <i class="fas fa-headset"></i> ACTIVATE HOTEL CRISIS RESPONSE
                     </a>
                     <a href="tel:+2348039661354" class="btn btn-outline btn-large" style="margin-left: var(--space-md); color: white; border-color: white;">
-                        <i class="fas fa-phone"></i> CALL CRISIS HOTLINE
+                        <i class="fas fa-phone"></i> CALL HOTEL CRISIS HOTLINE
                     </a>
                 </div>
             </div>
@@ -1773,34 +1580,33 @@
     </section>
     
     <!-- CTA SECTION -->
-    <section class="cta-section" id="consultation">
+    <section class="service-cta-section" id="consultation">
         <div class="container">
-            <div class="cta-container">
-                <h2>Ready to Acquire Elite Talent, Not Just Hire?</h2>
-                <p class="lead">Schedule a ruthless, no-bullshit consultation. We'll analyze your talent gap and show you exactly how we'd close it.</p>
+            <div class="service-cta-container">
+                <h2>Ready to Acquire a Hotel Leader, Not Just Hire One?</h2>
+                <p class="lead">Schedule a ruthless, confidential consultation. We'll analyze your hotel's leadership gap and show you exactly how we'd close it with elite talent.</p>
                 
-                <div class="cta-buttons">
+                <div class="service-cta-buttons">
                     <a href="/employers/start-search/" class="btn btn-primary btn-large">
-                        <i class="fas fa-crosshairs"></i> START PRECISION SEARCH
+                        <i class="fas fa-crosshairs"></i> START HOTEL LEADERSHIP SEARCH
                     </a>
                     <a href="tel:+2348039661354" class="btn btn-outline btn-large">
-                        <i class="fas fa-phone"></i> CALL FOR IMMEDIATE BRIEF
+                        <i class="fas fa-phone"></i> CALL FOR IMMEDIATE HOTEL BRIEF
                     </a>
                 </div>
                 
-                <div class="cta-note">
-                    <p><i class="fas fa-user-secret"></i> <strong>100% Confidential & Discrete:</strong> We operate under strict NDAs. Your search and identity are protected.</p>
+                <div class="service-cta-note">
+                    <p><i class="fas fa-user-secret"></i> <strong>100% Confidential for Hotel Owners & Investors:</strong> We operate under strict NDAs. Your search, property identity, and ownership details are protected.</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- FOOTER -->
+    <!-- FOOTER (Identical to Home) -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <!-- CHANGE: Updated footer branding -->
                     <h3>Jobpitality</h3>
                     <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-lg);">The ruthless talent partner for luxury hotels, restaurants, and hospitality brands. We acquire elite talent that guarantees performance.</p>
                     <div class="footer-contact">
@@ -1851,13 +1657,12 @@
                     <a href="/cookies/">Cookie Policy</a>
                     <a href="/compliance/">Compliance</a>
                 </div>
-                <!-- CHANGE: Updated copyright -->
                 <p>&copy; 2024 <strong>Jobpitality</strong>. The Ruthless Talent Partner for Luxury Hospitality. All rights reserved.</p>
             </div>
         </div>
     </footer>
     
-    <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT (Same as Home) -->
     <script>
         // Mobile Navigation
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -1927,7 +1732,7 @@
         
         // Animate elements on scroll
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.service-card, .case-card, .testimonial-card, .process-step');
+            const elements = document.querySelectorAll('.role-card, .hotel-case-card, .process-step');
             
             elements.forEach(element => {
                 const rect = element.getBoundingClientRect();
@@ -1939,7 +1744,7 @@
         }
         
         // Set initial state for animation
-        document.querySelectorAll('.service-card, .case-card, .testimonial-card, .process-step').forEach(element => {
+        document.querySelectorAll('.role-card, .hotel-case-card, .process-step').forEach(element => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(30px)';
             element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -1978,7 +1783,7 @@
                 if (typeof gtag !== 'undefined') {
                     const label = this.textContent.trim().substring(0, 30);
                     gtag('event', 'cta_click', {
-                        'event_category': 'Homepage',
+                        'event_category': 'Hotel Leadership Page',
                         'event_label': label,
                         'value': 1
                     });
@@ -2009,7 +1814,7 @@
         
         // Stats counter animation
         function animateStats() {
-            const stats = document.querySelectorAll('.hero-stat-number');
+            const stats = document.querySelectorAll('.service-hero-stat-number');
             stats.forEach(stat => {
                 const originalText = stat.textContent;
                 let target;
@@ -2059,8 +1864,8 @@
             });
         }, { threshold: 0.3 });
         
-        const heroStats = document.querySelector('.hero-stats');
-        if (heroStats) observer.observe(heroStats);
+        const serviceHeroStats = document.querySelector('.service-hero-stats');
+        if (serviceHeroStats) observer.observe(serviceHeroStats);
     </script>
 </body>
 </html>
