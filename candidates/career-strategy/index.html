@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Strategy | Jobpitality Nigeria - Hospitality Career Planning & Advancement</title>
+    <meta name="description" content="Strategic career planning for hospitality professionals. Get expert guidance, salary negotiation tactics, and career advancement strategies from Nigeria's top hospitality talent partner.">
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Jobpitality Color Palette */
+            --color-primary: #0d1b2a;      /* Deep Navy */
+            --color-primary-dark: #070d13;
+            --color-accent: #ff9e00;       /* Vibrant Orange */
+            --color-accent-dark: #cc7e00;
+            --color-success: #2a9d8f;      /* Teal */
+            --color-success-dark: #21867a;
+            --color-emergency: #e63946;    /* Crimson */
+            --color-emergency-dark: #c1121f;
+            --color-gray-900: #1b263b;
+            --color-gray-800: #415a77;
+            --color-gray-700: #778da9;
+            --color-gray-600: #a0aec0;
+            --color-gray-300: #e2e8f0;
+            --color-gray-200: #edf2f7;
+            --color-gray-100: #f7fafc;
+            --color-white: #ffffff;
+            
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 20px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--color-gray-800);
+            background: var(--color-white);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        /* ===== HEADER & NAVIGATION ===== */
+        .site-header {
+            background: var(--color-white);
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: var(--space-sm) 0;
+            border-bottom: 3px solid var(--color-accent);
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-lg);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo a {
+            text-decoration: none;
+            color: var(--color-dark);
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo h1 {
+            font-size: 2.1rem;
+            margin-bottom: 0;
+            font-weight: 900;
+            color: var(--color-primary);
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .logo h1 .brand-name {
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .logo-tagline {
+            font-size: 0.7rem;
+            color: var(--color-emergency);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            margin-top: 2px;
+        }
+        
+        /* MAIN NAVIGATION */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--space-md);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.5rem 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--color-accent);
+        }
+        
+        .nav-link.active {
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0.75rem;
+            right: 0.75rem;
+            height: 3px;
+            background: var(--color-accent);
+            border-radius: 3px 3px 0 0;
+        }
+        
+        /* DROPDOWN MENUS */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--color-white);
+            min-width: 240px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-2xl);
+            padding: var(--space-sm) 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all var(--transition-normal);
+            z-index: 1000;
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+        
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem var(--space-lg);
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+        
+        .dropdown-item:hover {
+            background: var(--color-gray-100);
+            color: var(--color-accent);
+            padding-left: calc(var(--space-lg) + 0.75rem);
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background: var(--color-gray-200);
+            margin: var(--space-xs) 0;
+        }
+        
+        /* NAV CTA BUTTONS */
+        .nav-cta-group {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .nav-cta {
+            background: var(--color-primary);
+            color: var(--color-white) !important;
+            padding: 0.75rem 1.75rem !important;
+            border-radius: var(--radius-lg);
+            font-weight: 700 !important;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+        }
+        
+        .nav-cta:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .nav-cta-emergency {
+            background: var(--color-emergency);
+        }
+        
+        .nav-cta-emergency:hover {
+            background: var(--color-emergency-dark);
+        }
+        
+        /* MOBILE MENU */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            cursor: pointer;
+            padding: var(--space-xs);
+            z-index: 1001;
+        }
+        
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 27, 42, 0.9);
+            z-index: 999;
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--color-gray-900);
+            letter-spacing: -0.025em;
+        }
+        
+        h1 { 
+            font-size: 3.5rem; 
+            font-weight: 900; 
+            line-height: 1;
+        }
+        
+        h2 { 
+            font-size: 2.5rem; 
+            margin-bottom: var(--space-lg);
+        }
+        
+        h3 { 
+            font-size: 1.75rem; 
+            margin-bottom: var(--space-md);
+        }
+        
+        h4 { 
+            font-size: 1.25rem; 
+            margin-bottom: var(--space-sm);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-emergency) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--color-gray-700);
+            font-weight: 400;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .highlight {
+            color: var(--color-accent);
+            font-weight: 800;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2.25rem;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-sans);
+            letter-spacing: 0.01em;
+        }
+        
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-secondary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-3px);
+        }
+        
+        .btn-emergency {
+            background: linear-gradient(135deg, var(--color-emergency), var(--color-emergency-dark));
+            color: var(--color-white);
+            font-weight: 800;
+        }
+        
+        .btn-emergency:hover {
+            background: var(--color-emergency-dark);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.3);
+        }
+        
+        .btn-success {
+            background: var(--color-success);
+            color: var(--color-white);
+        }
+        
+        .btn-success:hover {
+            background: var(--color-success-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-large {
+            padding: 1.25rem 3.5rem;
+            font-size: 1.125rem;
+            font-weight: 800;
+        }
+        
+        .btn-block {
+            width: 100%;
+        }
+        
+        /* ===== CAREER STRATEGY HERO ===== */
+        .strategy-hero {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1b263b 100%);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .strategy-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(27, 38, 59, 0.9) 100%), url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+        
+        .strategy-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .strategy-hero-badge {
+            background: linear-gradient(90deg, var(--color-success), var(--color-success-dark));
+            color: var(--color-white);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 900;
+            margin-bottom: var(--space-lg);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .strategy-hero h1 {
+            color: var(--color-white);
+            margin-bottom: var(--space-md);
+        }
+        
+        .strategy-hero .lead {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+        }
+        
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--color-accent);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* ===== STRATEGY PATHWAYS ===== */
+        .pathways-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-gray-100);
+        }
+        
+        .pathways-tabs {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-2xl);
+            border-bottom: 2px solid var(--color-gray-300);
+            overflow-x: auto;
+            padding-bottom: 2px;
+        }
+        
+        .pathway-tab {
+            padding: var(--space-md) var(--space-lg);
+            background: none;
+            border: none;
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-gray-600);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+            position: relative;
+        }
+        
+        .pathway-tab:hover {
+            color: var(--color-accent);
+        }
+        
+        .pathway-tab.active {
+            color: var(--color-accent);
+        }
+        
+        .pathway-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--color-accent);
+        }
+        
+        .pathway-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .pathway-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pathway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+        }
+        
+        .pathway-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pathway-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--color-accent), var(--color-emergency));
+        }
+        
+        .pathway-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .pathway-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-md);
+            font-size: 1.5rem;
+            color: var(--color-accent);
+        }
+        
+        .pathway-card h3 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .pathway-metrics {
+            display: flex;
+            gap: var(--space-lg);
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-gray-200);
+        }
+        
+        .metric {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-accent);
+        }
+        
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--color-gray-600);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* ===== SALARY BENCHMARKING ===== */
+        .salary-section {
+            padding: var(--space-3xl) var(--space-md);
+        }
+        
+        .salary-calculator {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-2xl);
+            padding: var(--space-2xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .calculator-field {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        .calculator-field label {
+            font-weight: 600;
+            color: var(--color-gray-900);
+        }
+        
+        .calculator-field select,
+        .calculator-field input {
+            padding: 1rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .calculator-field select:focus,
+        .calculator-field input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+        
+        .salary-result {
+            background: linear-gradient(135deg, var(--color-primary), #1b263b);
+            color: var(--color-white);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-top: var(--space-xl);
+            display: none;
+        }
+        
+        .salary-result.active {
+            display: block;
+            animation: slideUp 0.5s ease;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .salary-range {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--color-accent);
+            margin: var(--space-sm) 0;
+        }
+        
+        .salary-note {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: var(--space-sm);
+        }
+        
+        /* ===== SKILLS ASSESSMENT ===== */
+        .skills-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-gray-100);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .skill-category {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .skill-category h3 {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+        
+        .skill-name {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .skill-demand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .demand-high {
+            color: var(--color-emergency);
+            font-weight: 700;
+        }
+        
+        .demand-medium {
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+        
+        .demand-low {
+            color: var(--color-success);
+            font-weight: 700;
+        }
+        
+        /* ===== NEGOTIATION GUIDE ===== */
+        .negotiation-section {
+            padding: var(--space-3xl) var(--space-md);
+        }
+        
+        .negotiation-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .negotiation-tip {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 2px solid transparent;
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+        
+        .negotiation-tip:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .tip-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 40px;
+            height: 40px;
+            background: var(--color-accent);
+            color: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+        
+        /* ===== STRATEGY CONSULTATION ===== */
+        .consultation-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-primary), #1b263b);
+            color: var(--color-white);
+        }
+        
+        .consultation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .consultation-container h2 {
+            color: var(--color-white);
+            margin-bottom: var(--space-md);
+        }
+        
+        .consultation-container .lead {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .consultation-form {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            margin-top: var(--space-xl);
+            text-align: left;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            color: var(--color-gray-900);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--space-3xl) var(--space-md) var(--space-xl);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .footer-column h3 {
+            color: var(--color-white);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+        
+        .footer-contact {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-contact p {
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--space-xl);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            margin: var(--space-md) 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.25rem; }
+        }
+        
+        @media (max-width: 768px) {
+            /* Mobile Navigation */
+            .header-container {
+                flex-wrap: wrap;
+                gap: var(--space-md);
+            }
+            
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.65rem;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--color-white);
+                flex-direction: column;
+                padding: var(--space-3xl) var(--space-xl) var(--space-xl);
+                transition: left 0.3s ease;
+                overflow-y: auto;
+                z-index: 1000;
+            }
+            
+            .main-nav.active {
+                left: 0;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 1.125rem 0;
+                border-bottom: 1px solid var(--color-gray-200);
+                width: 100%;
+                font-size: 1.1rem;
+            }
+            
+            .nav-link.active::after {
+                display: none;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding-left: var(--space-md);
+                display: none;
+                background: var(--color-gray-100);
+                border-radius: var(--radius-md);
+                margin-top: var(--space-xs);
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .nav-cta-group {
+                flex-direction: column;
+                width: 100%;
+                margin-top: var(--space-xl);
+            }
+            
+            .nav-cta {
+                width: 100%;
+                justify-content: center;
+                padding: 1.25rem 1.75rem !important;
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .mobile-overlay.active {
+                display: block;
+            }
+            
+            /* Mobile Content */
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            
+            .strategy-hero::before {
+                width: 100%;
+                opacity: 0.2;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: var(--space-lg);
+            }
+            
+            .pathways-tabs {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .pathway-tab {
+                text-align: left;
+                padding: var(--space-md);
+                border-bottom: 1px solid var(--color-gray-300);
+            }
+            
+            .pathway-tab.active::after {
+                left: 0;
+                width: 5px;
+                height: 100%;
+                bottom: 0;
+            }
+            
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .pathway-metrics {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .pathway-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .negotiation-tips {
+                grid-template-columns: 1fr;
+            }
+            
+            .consultation-form {
+                padding: var(--space-xl);
+            }
+            
+            .salary-range {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="/" aria-label="Jobpitality Home">
+                        <h1><i class="fas fa-bolt"></i> <span class="brand-name">JOBPITALITY</span></h1>
+                        <span class="logo-tagline">THE RUTHLESS TALENT PARTNER</span>
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="main-nav" id="mainNav">
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/services/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-crosshairs"></i> Precision Search
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/services/executive-search/" class="dropdown-item">
+                                    <i class="fas fa-search"></i> Executive Search
+                                </a>
+                                <a href="/services/hotel-leadership/" class="dropdown-item">
+                                    <i class="fas fa-hotel"></i> Hotel Leadership
+                                </a>
+                                <a href="/services/culinary-leadership/" class="dropdown-item">
+                                    <i class="fas fa-utensils"></i> Culinary Leadership
+                                </a>
+                                <a href="/services/management-teams/" class="dropdown-item">
+                                    <i class="fas fa-users"></i> Management Teams
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/services/guarantee/" class="dropdown-item" style="color: var(--color-accent); font-weight: 700;">
+                                    <i class="fas fa-shield-alt"></i> 72-Hour Guarantee
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/employers/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-building"></i> For Employers
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/employers/our-process/" class="dropdown-item">
+                                    <i class="fas fa-play-circle"></i> Our Process
+                                </a>
+                                <a href="/employers/roi-calculator/" class="dropdown-item">
+                                    <i class="fas fa-calculator"></i> ROI Calculator
+                                </a>
+                                <a href="/employers/industry-expertise/" class="dropdown-item">
+                                    <i class="fas fa-star"></i> Why We're Different
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/employers/start-search/" class="dropdown-item">
+                                    <i class="fas fa-rocket"></i> Start Your Search
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/candidates/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-user-tie"></i> For Candidates
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/candidates/submit-profile/" class="dropdown-item">
+                                    <i class="fas fa-user-plus"></i> Submit Profile
+                                </a>
+                                <a href="/elite-opportunities/" class="dropdown-item">
+                                    <i class="fas fa-crown"></i> Elite Opportunities
+                                </a>
+                                <a href="/career-strategy/" class="dropdown-item active">
+                                    <i class="fas fa-chess-knight"></i> Career Strategy
+                                </a>
+                                <a href="/candidates/interview-prep/" class="dropdown-item">
+                                    <i class="fas fa-comments"></i> Interview Prep
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/candidates/salary-guide/" class="dropdown-item">
+                                    <i class="fas fa-chart-line"></i> Salary Guide
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/industries/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-industry"></i> Industries
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/industries/luxury-hotels/" class="dropdown-item">
+                                    <i class="fas fa-crown"></i> Luxury Hotels
+                                </a>
+                                <a href="/industries/fine-dining/" class="dropdown-item">
+                                    <i class="fas fa-utensil-spoon"></i> Fine Dining
+                                </a>
+                                <a href="/industries/resorts-spas/" class="dropdown-item">
+                                    <i class="fas fa-spa"></i> Resorts & Spas
+                                </a>
+                                <a href="/industries/quick-service/" class="dropdown-item">
+                                    <i class="fas fa-running"></i> Quick Service
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="/insights/" class="nav-link">
+                                <i class="fas fa-chart-line"></i> Insights
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="nav-cta-group">
+                        <a href="/emergency-hiring/" class="nav-cta nav-cta-emergency">
+                            <i class="fas fa-bullhorn"></i> Emergency Hiring
+                        </a>
+                        <a href="/employers/contact/" class="nav-cta">
+                            <i class="fas fa-headset"></i> Hire Talent
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+    </header>
+
+    <!-- CAREER STRATEGY HERO -->
+    <section class="strategy-hero">
+        <div class="container">
+            <div class="strategy-hero-content">
+                <div class="strategy-hero-badge">
+                    <i class="fas fa-chess-knight"></i>
+                    <span>STRATEGIC CAREER PLANNING</span>
+                </div>
+                
+                <h1>Master Your Hospitality Career Strategy</h1>
+                <p class="lead">Stop guessing your next move. Get data-driven career planning, salary benchmarking, and strategic guidance from Nigeria's most ruthless talent partner.</p>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="stat-number">42%</div>
+                        <div class="stat-label">Average salary increase for strategized candidates</div>
+                    </div>
+                    
+                    <div class="hero-stat">
+                        <div class="stat-number">18 months</div>
+                        <div class="stat-label">Faster progression to leadership roles</div>
+                    </div>
+                    
+                    <div class="hero-stat">
+                        <div class="stat-number">94%</div>
+                        <div class="stat-label">Success rate in target role attainment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAREER PATHWAYS -->
+    <section class="pathways-section">
+        <div class="container">
+            <h2 class="text-center">Strategic Career Pathways</h2>
+            <p class="lead text-center">Choose your specialization and see the optimal progression path to leadership roles.</p>
+            
+            <div class="pathways-tabs">
+                <button class="pathway-tab active" data-pathway="hotel-management">
+                    <i class="fas fa-hotel"></i> Hotel Management
+                </button>
+                <button class="pathway-tab" data-pathway="culinary">
+                    <i class="fas fa-utensils"></i> Culinary Leadership
+                </button>
+                <button class="pathway-tab" data-pathway="f-b-management">
+                    <i class="fas fa-wine-glass-alt"></i> F&B Management
+                </button>
+                <button class="pathway-tab" data-pathway="sales-marketing">
+                    <i class="fas fa-chart-line"></i> Sales & Marketing
+                </button>
+                <button class="pathway-tab" data-pathway="operations">
+                    <i class="fas fa-cogs"></i> Operations
+                </button>
+            </div>
+            
+            <!-- Hotel Management Pathway -->
+            <div class="pathway-content active" id="hotel-management">
+                <div class="pathway-grid">
+                    <div class="pathway-card">
+                        <div class="pathway-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Early Career (0-3 years)</h3>
+                        <p>Front Office Supervisor, Assistant Manager roles. Focus on guest experience mastery and basic operational management.</p>
+                        <div class="pathway-metrics">
+                            <div class="metric">
+                                <div class="metric-value">₦180-350K</div>
+                                <div class="metric-label">Monthly Salary</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">18-24</div>
+                                <div class="metric-label">Months to Next Level</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pathway-card">
+                        <div class="pathway-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Mid-Level (3-8 years)</h3>
+                        <p>Department Head, Rooms Division Manager. Develop P&L responsibility and team leadership skills.</p>
+                        <div class="pathway-metrics">
+                            <div class="metric">
+                                <div class="metric-value">₦400-800K</div>
+                                <div class="metric-label">Monthly Salary</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">24-36</div>
+                                <div class="metric-label">Months to Next Level</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pathway-card">
+                        <div class="pathway-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Leadership (8-15 years)</h3>
+                        <p>Hotel Manager, General Manager. Full property P&L, strategic planning, and executive leadership.</p>
+                        <div class="pathway-metrics">
+                            <div class="metric">
+                                <div class="metric-value">₦1.2-3M</div>
+                                <div class="metric-label">Monthly Salary</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">36-48</div>
+                                <div class="metric-label">Months to Executive</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pathway-card">
+                        <div class="pathway-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Executive (15+ years)</h3>
+                        <p>Regional Director, VP Operations, Managing Director. Multi-property oversight and corporate strategy.</p>
+                        <div class="pathway-metrics">
+                            <div class="metric">
+                                <div class="metric-value">₦4-10M+</div>
+                                <div class="metric-label">Monthly Package</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">Equity</div>
+                                <div class="metric-label">Additional Compensation</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Culinary Pathway -->
+            <div class="pathway-content" id="culinary">
+                <div class="pathway-grid">
+                    <div class="pathway-card">
+                        <div class="pathway-icon">
+                            <i class="fas fa-utensil-spoon"></i>
+                        </div>
+                        <h3>Commis Chef (0-3 years)</h3>
+                        <p>Master basic techniques, station management, and kitchen operations fundamentals.</p>
+                        <div class="pathway-metrics">
+                            <div class="metric">
+                                <div class="metric-value">₦80-150K</div>
+                                <div class="metric-label">Monthly Salary</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">18-24</div>
+                                <div class="metric-label">Months to CDP</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pathway-card">
+                        <div class="pathway-icon">
+                            <i class="fas fa-hat-chef"></i>
+                        </div>
+                        <h3>Chef de Partie (3-5 years)</h3>
+                        <p>Lead kitchen sections, manage junior staff, and develop specialized culinary expertise.</p>
+                        <div class="pathway-metrics">
+                            <div class="metric">
+                                <div class="metric-value">₦180-300K</div>
+                                <div class="metric-label">Monthly Salary</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">24-36</div>
+                                <div class="metric-label">Months to Sous Chef</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pathway-card">
+                        <div class="pathway-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Sous Chef (5-8 years)</h3>
+                        <p>Second-in-command, menu development, kitchen management, and cost control.</p>
+                        <div class="pathway-metrics">
+                            <div class="metric">
+                                <div class="metric-value">₦350-600K</div>
+                                <div class="metric-label">Monthly Salary</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">36-48</div>
+                                <div class="metric-label">Months to Executive</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pathway-card">
+                        <div class="pathway-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Executive Chef (8+ years)</h3>
+                        <p>Full kitchen P&L, creative direction, multiple outlet management, and culinary innovation.</p>
+                        <div class="pathway-metrics">
+                            <div class="metric">
+                                <div class="metric-value">₦800K-2M</div>
+                                <div class="metric-label">Monthly Salary</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">Profit Share</div>
+                                <div class="metric-label">Additional Earnings</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SALARY BENCHMARKING -->
+    <section class="salary-section">
+        <div class="container">
+            <h2 class="text-center">Hospitality Salary Benchmarking</h2>
+            <p class="lead text-center">Get real-time salary data for your role, experience level, and location in Nigeria.</p>
+            
+            <div class="salary-calculator">
+                <div class="calculator-grid">
+                    <div class="calculator-field">
+                        <label for="role">Select Your Role</label>
+                        <select id="role">
+                            <option value="">Choose your role</option>
+                            <option value="gm">General Manager</option>
+                            <option value="hm">Hotel Manager</option>
+                            <option value="fom">Front Office Manager</option>
+                            <option value="ec">Executive Chef</option>
+                            <option value="sc">Sous Chef</option>
+                            <option value="fbm">F&B Manager</option>
+                            <option value="sm">Sales Manager</option>
+                            <option value="rm">Revenue Manager</option>
+                            <option value="hr">HR Manager</option>
+                        </select>
+                    </div>
+                    
+                    <div class="calculator-field">
+                        <label for="experience">Years of Experience</label>
+                        <select id="experience">
+                            <option value="">Select experience</option>
+                            <option value="0-3">0-3 years</option>
+                            <option value="3-5">3-5 years</option>
+                            <option value="5-8">5-8 years</option>
+                            <option value="8-12">8-12 years</option>
+                            <option value="12+">12+ years</option>
+                        </select>
+                    </div>
+                    
+                    <div class="calculator-field">
+                        <label for="location">Location</label>
+                        <select id="location">
+                            <option value="">Select location</option>
+                            <option value="lagos">Lagos</option>
+                            <option value="abuja">Abuja</option>
+                            <option value="port-harcourt">Port Harcourt</option>
+                            <option value="other">Other Cities</option>
+                        </select>
+                    </div>
+                    
+                    <div class="calculator-field">
+                        <label for="property-type">Property Type</label>
+                        <select id="property-type">
+                            <option value="">Select property type</option>
+                            <option value="5star">5-Star Luxury</option>
+                            <option value="4star">4-Star Hotel</option>
+                            <option value="boutique">Boutique Hotel</option>
+                            <option value="resort">Resort</option>
+                            <option value="restaurant">Restaurant Group</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary btn-block" id="calculateSalary">
+                    <i class="fas fa-calculator"></i> Calculate Market Salary
+                </button>
+                
+                <div class="salary-result" id="salaryResult">
+                    <h3>Your Market Value</h3>
+                    <div class="salary-range" id="salaryRange">₦0 - ₦0</div>
+                    <p id="salaryDetails">Complete the form above to see your personalized salary benchmark.</p>
+                    <div class="salary-note">
+                        <i class="fas fa-info-circle"></i> Based on Q4 2023 data from 150+ hospitality employers in Nigeria
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS ASSESSMENT -->
+    <section class="skills-section">
+        <div class="container">
+            <h2 class="text-center">Critical Skills Assessment</h2>
+            <p class="lead text-center">Identify the most in-demand skills for your target role and career level.</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line" style="color: var(--color-accent);"></i> Leadership Skills</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <i class="fas fa-users"></i>
+                                <span>Team Development</span>
+                            </div>
+                            <div class="skill-demand demand-high">HIGH DEMAND</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <i class="fas fa-bullseye"></i>
+                                <span>Strategic Planning</span>
+                            </div>
+                            <div class="skill-demand demand-high">HIGH DEMAND</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <i class="fas fa-handshake"></i>
+                                <span>Stakeholder Management</span>
+                            </div>
+                            <div class="skill-demand demand-high">HIGH DEMAND</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <i class="fas fa-comments-dollar"></i>
+                                <span>P&L Management</span>
+                            </div>
+                            <div class="skill-demand demand-high">HIGH DEMAND</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs" style="color: var(--color-success);"></i> Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Revenue Management</span>
+                            </div>
+                            <div class="skill-demand demand-high">HIGH DEMAND</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <i class="fas fa-digital-tachograph"></i>
+                                <span>Hotel Tech Systems</span>
+                            </div>
+                            <div class="skill-demand demand-medium">MEDIUM DEMAND</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                <span>Budgeting & Forecasting</span>
+                            </div>
+                            <div class="skill-demand demand-high">HIGH DEMAND</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <i class="fas fa-chart-pie"></i>
+                                <span>Data Analytics</span>
+                            </div>
+                            <div class="skill-demand demand-medium">MEDIUM DEMAND</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain" style="color: var(--color-emergency);"></i> Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <i class="fas fa-comment-alt"></i>
+                                <span>Cross-Cultural Communication</span>
+                            </div>
+                            <div class="skill-demand demand-high">HIGH DEMAND</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Problem Solving</span>
+                            </div>
+                            <div class="skill-demand demand-high">HIGH DEMAND</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <i class="fas fa-balance-scale"></i>
+                                <span>Crisis Management</span>
+                            </div>
+                            <div class="skill-demand demand-high">HIGH DEMAND</div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <i class="fas fa-sync-alt"></i>
+                                <span>Adaptability</span>
+                            </div>
+                            <div class="skill-demand demand-medium">MEDIUM DEMAND</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEGOTIATION GUIDE -->
+    <section class="negotiation-section">
+        <div class="container">
+            <h2 class="text-center">The Ruthless Negotiation Guide</h2>
+            <p class="lead text-center">Master the art of salary and package negotiation with our proven tactics.</p>
+            
+            <div class="negotiation-tips">
+                <div class="negotiation-tip">
+                    <div class="tip-number">1</div>
+                    <h3>Know Your Worth</h3>
+                    <p>Always benchmark against market data. Never negotiate from a position of ignorance. Our salary calculator gives you the ammunition you need.</p>
+                </div>
+                
+                <div class="negotiation-tip">
+                    <div class="tip-number">2</div>
+                    <h3>Package Over Salary</h3>
+                    <p>Negotiate the complete package: bonuses, equity, training budgets, housing allowance, car, and relocation packages. Salary is just one component.</p>
+                </div>
+                
+                <div class="negotiation-tip">
+                    <div class="tip-number">3</div>
+                    <h3>The First Offer Rule</h3>
+                    <p>Never accept the first offer. Politely acknowledge it, express enthusiasm, then ask for 15-25% more based on your market research.</p>
+                </div>
+                
+                <div class="negotiation-tip">
+                    <div class="tip-number">4</div>
+                    <h3>Silence is Power</h3>
+                    <p>After making your counter-offer, stay silent. The first person to speak loses leverage. Let them respond to your proposal.</p>
+                </div>
+                
+                <div class="negotiation-tip">
+                    <div class="tip-number">5</div>
+                    <h3>Walk Away Power</h3>
+                    <p>Always have alternative options. The ability to walk away from a bad deal is your most powerful negotiation tool.</p>
+                </div>
+                
+                <div class="negotiation-tip">
+                    <div class="tip-number">6</div>
+                    <h3>Get It in Writing</h3>
+                    <p>Verbal agreements mean nothing. Ensure all negotiated terms are included in your formal offer letter before accepting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRATEGY CONSULTATION -->
+    <section class="consultation-section">
+        <div class="container">
+            <div class="consultation-container">
+                <h2>Get a Personalized Career Strategy Session</h2>
+                <p class="lead">Book a confidential 60-minute session with our career strategists. We'll analyze your profile, map your optimal career path, and create a ruthless action plan.</p>
+                
+                <div class="consultation-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="consultName">Full Name *</label>
+                            <input type="text" id="consultName" placeholder="Your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="consultEmail">Email Address *</label>
+                            <input type="email" id="consultEmail" placeholder="Your email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="consultRole">Current Role *</label>
+                            <input type="text" id="consultRole" placeholder="Your current position">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="consultExperience">Years of Experience *</label>
+                            <select id="consultExperience">
+                                <option value="">Select experience</option>
+                                <option value="0-3">0-3 years</option>
+                                <option value="3-5">3-5 years</option>
+                                <option value="5-8">5-8 years</option>
+                                <option value="8-12">8-12 years</option>
+                                <option value="12+">12+ years</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="consultGoal">Primary Career Goal *</label>
+                        <select id="consultGoal">
+                            <option value="">Select your goal</option>
+                            <option value="promotion">Get promoted in current role</option>
+                            <option value="new-role">Find a new role at same level</option>
+                            <option value="career-switch">Switch hospitality specialization</option>
+                            <option value="leadership">Move into leadership position</option>
+                            <option value="salary">Significant salary increase</option>
+                            <option value="international">International opportunity</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="consultChallenge">Biggest Career Challenge</label>
+                        <textarea id="consultChallenge" placeholder="What's holding you back from reaching your career goals?"></textarea>
+                    </div>
+                    
+                    <button class="btn btn-emergency btn-block" id="bookConsultation">
+                        <i class="fas fa-calendar-check"></i> Book Strategy Session (₦25,000)
+                    </button>
+                    
+                    <p style="text-align: center; margin-top: var(--space-md); font-size: 0.9rem; color: var(--color-gray-600);">
+                        <i class="fas fa-shield-alt"></i> 100% confidential. Our strategists are bound by strict NDAs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Jobpitality</h3>
+                    <ul class="footer-links">
+                        <li><a href="/about/"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="/methodology/"><i class="fas fa-chevron-right"></i> Our Methodology</a></li>
+                        <li><a href="/guarantee/"><i class="fas fa-chevron-right"></i> 72-Hour Guarantee</a></li>
+                        <li><a href="/contact/"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>For Employers</h3>
+                    <ul class="footer-links">
+                        <li><a href="/employers/"><i class="fas fa-chevron-right"></i> Start a Search</a></li>
+                        <li><a href="/employers/process/"><i class="fas fa-chevron-right"></i> Our Process</a></li>
+                        <li><a href="/employers/roi/"><i class="fas fa-chevron-right"></i> ROI Calculator</a></li>
+                        <li><a href="/employers/emergency/"><i class="fas fa-chevron-right"></i> Emergency Hiring</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Career Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="/candidates/"><i class="fas fa-chevron-right"></i> Submit Profile</a></li>
+                        <li><a href="/elite-opportunities/"><i class="fas fa-chevron-right"></i> Elite Opportunities</a></li>
+                        <li><a href="/career-strategy/"><i class="fas fa-chevron-right"></i> Career Strategy</a></li>
+                        <li><a href="/candidates/interview-prep/"><i class="fas fa-chevron-right"></i> Interview Preparation</a></li>
+                        <li><a href="/candidates/salary-guide/"><i class="fas fa-chevron-right"></i> Salary Guide 2024</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
+                        <p><i class="fas fa-phone"></i> +234 (0) 800 000 0000</p>
+                        <p><i class="fas fa-envelope"></i> strategy@jobpitality.ng</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-links">
+                    <a href="/privacy/">Privacy Policy</a>
+                    <a href="/terms/">Terms of Service</a>
+                    <a href="/cookies/">Cookie Policy</a>
+                </div>
+                <p>&copy; 2023 Jobpitality Nigeria. All rights reserved. "The Ruthless Talent Partner" is a trademark of Jobpitality.</p>
+                <p><small><i class="fas fa-chart-line"></i> Career strategy services are backed by our data-driven methodology</small></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        mobileOverlay.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Mobile Dropdown Toggle
+        const dropdowns = document.querySelectorAll('.dropdown > .nav-link');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const parent = dropdown.parentElement;
+                    parent.classList.toggle('active');
+                    
+                    // Close other dropdowns
+                    document.querySelectorAll('.dropdown').forEach(other => {
+                        if (other !== parent) {
+                            other.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Career Pathway Tabs
+        const pathwayTabs = document.querySelectorAll('.pathway-tab');
+        const pathwayContents = document.querySelectorAll('.pathway-content');
+        
+        pathwayTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const pathway = tab.getAttribute('data-pathway');
+                
+                // Update active tab
+                pathwayTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Show active content
+                pathwayContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === pathway) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // Salary Calculator
+        const calculateBtn = document.getElementById('calculateSalary');
+        const salaryResult = document.getElementById('salaryResult');
+        const salaryRange = document.getElementById('salaryRange');
+        const salaryDetails = document.getElementById('salaryDetails');
+        
+        // Salary data structure
+        const salaryData = {
+            'gm': {
+                '0-3': { 'lagos': '₦1.8M - ₦2.5M', 'abuja': '₦2.0M - ₦2.8M', 'port-harcourt': '₦1.6M - ₦2.2M', 'other': '₦1.4M - ₦2.0M' },
+                '3-5': { 'lagos': '₦2.5M - ₦3.5M', 'abuja': '₦2.8M - ₦3.8M', 'port-harcourt': '₦2.2M - ₦3.0M', 'other': '₦2.0M - ₦2.8M' },
+                '5-8': { 'lagos': '₦3.5M - ₦5.0M', 'abuja': '₦3.8M - ₦5.5M', 'port-harcourt': '₦3.0M - ₦4.2M', 'other': '₦2.8M - ₦4.0M' },
+                '8-12': { 'lagos': '₦5.0M - ₦8.0M', 'abuja': '₦5.5M - ₦8.5M', 'port-harcourt': '₦4.2M - ₦6.5M', 'other': '₦4.0M - ₦6.0M' },
+                '12+': { 'lagos': '₦8.0M - ₦15M+', 'abuja': '₦8.5M - ₦16M+', 'port-harcourt': '₦6.5M - ₦12M+', 'other': '₦6.0M - ₦10M+' }
+            },
+            'ec': {
+                '0-3': { 'lagos': '₦450K - ₦650K', 'abuja': '₦500K - ₦700K', 'port-harcourt': '₦400K - ₦600K', 'other': '₦350K - ₦550K' },
+                '3-5': { 'lagos': '₦650K - ₦950K', 'abuja': '₦700K - ₦1.0M', 'port-harcourt': '₦600K - ₦850K', 'other': '₦550K - ₦800K' },
+                '5-8': { 'lagos': '₦950K - ₦1.5M', 'abuja': '₦1.0M - ₦1.6M', 'port-harcourt': '₦850K - ₦1.3M', 'other': '₦800K - ₦1.2M' },
+                '8-12': { 'lagos': '₦1.5M - ₦2.5M', 'abuja': '₦1.6M - ₦2.7M', 'port-harcourt': '₦1.3M - ₦2.1M', 'other': '₦1.2M - ₦2.0M' },
+                '12+': { 'lagos': '₦2.5M - ₦4.0M+', 'abuja': '₦2.7M - ₦4.2M+', 'port-harcourt': '₦2.1M - ₦3.5M+', 'other': '₦2.0M - ₦3.2M+' }
+            }
+        };
+        
+        calculateBtn.addEventListener('click', () => {
+            const role = document.getElementById('role').value;
+            const experience = document.getElementById('experience').value;
+            const location = document.getElementById('location').value;
+            const propertyType = document.getElementById('property-type').value;
+            
+            if (!role || !experience || !location || !propertyType) {
+                alert('Please fill in all fields to calculate your salary benchmark.');
+                return;
+            }
+            
+            // For demo purposes, using simplified logic
+            // In a real application, this would be more sophisticated
+            
+            let baseRange = '';
+            let details = '';
+            
+            if (salaryData[role] && salaryData[role][experience]) {
+                baseRange = salaryData[role][experience][location] || '₦0 - ₦0';
+                
+                details = `Based on your selection: ${getRoleName(role)} with ${experience} years experience in ${getLocationName(location)}. `;
+                
+                if (propertyType === '5star') {
+                    baseRange = increaseRange(baseRange, 1.3);
+                    details += 'Premium adjusted for 5-star luxury property.';
+                } else if (propertyType === '4star') {
+                    baseRange = increaseRange(baseRange, 1.15);
+                    details += 'Adjusted for 4-star hotel property.';
+                } else if (propertyType === 'resort') {
+                    baseRange = increaseRange(baseRange, 1.2);
+                    details += 'Adjusted for resort property (includes housing allowance).';
+                }
+            } else {
+                // Fallback calculation
+                const baseSalaries = {
+                    'gm': { min: 1800000, max: 3000000 },
+                    'hm': { min: 1200000, max: 2200000 },
+                    'fom': { min: 450000, max: 850000 },
+                    'ec': { min: 800000, max: 1800000 },
+                    'sc': { min: 350000, max: 650000 },
+                    'fbm': { min: 600000, max: 1200000 },
+                    'sm': { min: 550000, max: 950000 },
+                    'rm': { min: 700000, max: 1300000 },
+                    'hr': { min: 500000, max: 900000 }
+                };
+                
+                const base = baseSalaries[role] || { min: 300000, max: 600000 };
+                const expMultiplier = getExpMultiplier(experience);
+                const locMultiplier = getLocMultiplier(location);
+                const propMultiplier = getPropMultiplier(propertyType);
+                
+                const min = Math.round(base.min * expMultiplier * locMultiplier * propMultiplier);
+                const max = Math.round(base.max * expMultiplier * locMultiplier * propMultiplier);
+                
+                baseRange = `₦${(min/1000000).toFixed(1)}M - ₦${(max/1000000).toFixed(1)}M`;
+                details = `Calculated based on market averages for ${getRoleName(role)} in ${getLocationName(location)}.`;
+            }
+            
+            salaryRange.textContent = baseRange;
+            salaryDetails.textContent = details;
+            salaryResult.classList.add('active');
+            
+            // Scroll to result
+            salaryResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+        
+        function getRoleName(role) {
+            const roles = {
+                'gm': 'General Manager',
+                'hm': 'Hotel Manager',
+                'fom': 'Front Office Manager',
+                'ec': 'Executive Chef',
+                'sc': 'Sous Chef',
+                'fbm': 'F&B Manager',
+                'sm': 'Sales Manager',
+                'rm': 'Revenue Manager',
+                'hr': 'HR Manager'
+            };
+            return roles[role] || role;
+        }
+        
+        function getLocationName(location) {
+            const locations = {
+                'lagos': 'Lagos',
+                'abuja': 'Abuja',
+                'port-harcourt': 'Port Harcourt',
+                'other': 'Other Nigerian cities'
+            };
+            return locations[location] || location;
+        }
+        
+        function getExpMultiplier(exp) {
+            const multipliers = {
+                '0-3': 1.0,
+                '3-5': 1.3,
+                '5-8': 1.7,
+                '8-12': 2.2,
+                '12+': 3.0
+            };
+            return multipliers[exp] || 1.0;
+        }
+        
+        function getLocMultiplier(location) {
+            const multipliers = {
+                'lagos': 1.2,
+                'abuja': 1.3,
+                'port-harcourt': 1.1,
+                'other': 1.0
+            };
+            return multipliers[location] || 1.0;
+        }
+        
+        function getPropMultiplier(property) {
+            const multipliers = {
+                '5star': 1.4,
+                '4star': 1.2,
+                'boutique': 1.1,
+                'resort': 1.3,
+                'restaurant': 1.0
+            };
+            return multipliers[property] || 1.0;
+        }
+        
+        function increaseRange(range, multiplier) {
+            const match = range.match(/₦([\d.]+)(M?)\s*-\s*₦([\d.]+)(M?)/);
+            if (match) {
+                let min = parseFloat(match[1]) * (match[2] === 'M' ? 1000000 : 1);
+                let max = parseFloat(match[3]) * (match[4] === 'M' ? 1000000 : 1);
+                
+                min = Math.round(min * multiplier);
+                max = Math.round(max * multiplier);
+                
+                const formatMin = min >= 1000000 ? `₦${(min/1000000).toFixed(1)}M` : `₦${(min/1000).toFixed(0)}K`;
+                const formatMax = max >= 1000000 ? `₦${(max/1000000).toFixed(1)}M` : `₦${(max/1000).toFixed(0)}K`;
+                
+                return `${formatMin} - ${formatMax}`;
+            }
+            return range;
+        }
+        
+        // Consultation Booking
+        const bookConsultation = document.getElementById('bookConsultation');
+        
+        bookConsultation.addEventListener('click', () => {
+            const name = document.getElementById('consultName').value;
+            const email = document.getElementById('consultEmail').value;
+            const role = document.getElementById('consultRole').value;
+            const experience = document.getElementById('consultExperience').value;
+            const goal = document.getElementById('consultGoal').value;
+            
+            if (!name || !email || !role || !experience || !goal) {
+                alert('Please fill in all required fields to book your strategy session.');
+                return;
+            }
+            
+            // In a real application, this would submit to a server
+            alert(`Thank you, ${name}! Your career strategy session has been booked. Our team will contact you within 24 hours to schedule your 60-minute consultation.`);
+            
+            // Reset form
+            document.getElementById('consultName').value = '';
+            document.getElementById('consultEmail').value = '';
+            document.getElementById('consultRole').value = '';
+            document.getElementById('consultExperience').value = '';
+            document.getElementById('consultGoal').value = '';
+            document.getElementById('consultChallenge').value = '';
+        });
+    </script>
+</body>
+</html>

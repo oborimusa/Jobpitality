@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confidentiality & Privacy | Jobpitality Nigeria - Secure Talent Management</title>
+    <meta name="description" content="Jobpitality's ironclad confidentiality protocols. Learn how we protect your privacy with military-grade security, blind submissions, and strict data handling procedures.">
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Jobpitality Color Palette */
+            --color-primary: #0d1b2a;      /* Deep Navy */
+            --color-primary-dark: #070d13;
+            --color-accent: #ff9e00;       /* Vibrant Orange */
+            --color-accent-dark: #cc7e00;
+            --color-success: #2a9d8f;      /* Teal */
+            --color-success-dark: #21867a;
+            --color-emergency: #e63946;    /* Crimson */
+            --color-emergency-dark: #c1121f;
+            --color-gray-900: #1b263b;
+            --color-gray-800: #415a77;
+            --color-gray-700: #778da9;
+            --color-gray-600: #a0aec0;
+            --color-gray-300: #e2e8f0;
+            --color-gray-200: #edf2f7;
+            --color-gray-100: #f7fafc;
+            --color-white: #ffffff;
+            
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 20px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--color-gray-800);
+            background: var(--color-white);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        /* ===== HEADER & NAVIGATION ===== */
+        .site-header {
+            background: var(--color-white);
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: var(--space-sm) 0;
+            border-bottom: 3px solid var(--color-accent);
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-lg);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo a {
+            text-decoration: none;
+            color: var(--color-dark);
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo h1 {
+            font-size: 2.1rem;
+            margin-bottom: 0;
+            font-weight: 900;
+            color: var(--color-primary);
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .logo h1 .brand-name {
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .logo-tagline {
+            font-size: 0.7rem;
+            color: var(--color-emergency);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            margin-top: 2px;
+        }
+        
+        /* MAIN NAVIGATION */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--space-md);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.5rem 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--color-accent);
+        }
+        
+        .nav-link.active {
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0.75rem;
+            right: 0.75rem;
+            height: 3px;
+            background: var(--color-accent);
+            border-radius: 3px 3px 0 0;
+        }
+        
+        /* DROPDOWN MENUS */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--color-white);
+            min-width: 240px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-2xl);
+            padding: var(--space-sm) 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all var(--transition-normal);
+            z-index: 1000;
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+        
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem var(--space-lg);
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+        
+        .dropdown-item:hover {
+            background: var(--color-gray-100);
+            color: var(--color-accent);
+            padding-left: calc(var(--space-lg) + 0.75rem);
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background: var(--color-gray-200);
+            margin: var(--space-xs) 0;
+        }
+        
+        /* NAV CTA BUTTONS */
+        .nav-cta-group {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .nav-cta {
+            background: var(--color-primary);
+            color: var(--color-white) !important;
+            padding: 0.75rem 1.75rem !important;
+            border-radius: var(--radius-lg);
+            font-weight: 700 !important;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+        }
+        
+        .nav-cta:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .nav-cta-emergency {
+            background: var(--color-emergency);
+        }
+        
+        .nav-cta-emergency:hover {
+            background: var(--color-emergency-dark);
+        }
+        
+        /* MOBILE MENU */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            cursor: pointer;
+            padding: var(--space-xs);
+            z-index: 1001;
+        }
+        
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 27, 42, 0.9);
+            z-index: 999;
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--color-gray-900);
+            letter-spacing: -0.025em;
+        }
+        
+        h1 { 
+            font-size: 3.5rem; 
+            font-weight: 900; 
+            line-height: 1;
+        }
+        
+        h2 { 
+            font-size: 2.5rem; 
+            margin-bottom: var(--space-lg);
+        }
+        
+        h3 { 
+            font-size: 1.75rem; 
+            margin-bottom: var(--space-md);
+        }
+        
+        h4 { 
+            font-size: 1.25rem; 
+            margin-bottom: var(--space-sm);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-emergency) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--color-gray-700);
+            font-weight: 400;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .highlight {
+            color: var(--color-accent);
+            font-weight: 800;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2.25rem;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-sans);
+            letter-spacing: 0.01em;
+        }
+        
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-secondary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-3px);
+        }
+        
+        .btn-emergency {
+            background: linear-gradient(135deg, var(--color-emergency), var(--color-emergency-dark));
+            color: var(--color-white);
+            font-weight: 800;
+        }
+        
+        .btn-emergency:hover {
+            background: var(--color-emergency-dark);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.3);
+        }
+        
+        .btn-success {
+            background: var(--color-success);
+            color: var(--color-white);
+        }
+        
+        .btn-success:hover {
+            background: var(--color-success-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-large {
+            padding: 1.25rem 3.5rem;
+            font-size: 1.125rem;
+            font-weight: 800;
+        }
+        
+        .btn-block {
+            width: 100%;
+        }
+        
+        /* ===== CONFIDENTIALITY HERO ===== */
+        .confidentiality-hero {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1b263b 100%);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .confidentiality-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(27, 38, 59, 0.9) 100%), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+        
+        .confidentiality-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .confidentiality-hero-badge {
+            background: linear-gradient(90deg, var(--color-success), var(--color-success-dark));
+            color: var(--color-white);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 900;
+            margin-bottom: var(--space-lg);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .confidentiality-hero h1 {
+            color: var(--color-white);
+            margin-bottom: var(--space-md);
+        }
+        
+        .confidentiality-hero .lead {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .security-stats {
+            display: flex;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+        }
+        
+        .security-stat {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .stat-icon {
+            font-size: 2rem;
+            color: var(--color-accent);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* ===== IRONCLAD GUARANTEES ===== */
+        .guarantees-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-gray-100);
+        }
+        
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .guarantee-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 2px solid transparent;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guarantee-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-success), var(--color-success-dark));
+        }
+        
+        .guarantee-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-success);
+        }
+        
+        .guarantee-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--color-gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-md);
+            font-size: 1.75rem;
+            color: var(--color-success);
+        }
+        
+        .guarantee-card h3 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* ===== BLIND SUBMISSION PROCESS ===== */
+        .blind-submission-section {
+            padding: var(--space-3xl) var(--space-md);
+        }
+        
+        .process-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: var(--space-2xl) 0;
+            position: relative;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: var(--space-xl);
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--color-gray-200);
+            position: relative;
+            z-index: 2;
+            width: 250px;
+            transition: all var(--transition-normal);
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-accent);
+        }
+        
+        .process-step.middle {
+            margin: 0 var(--space-xl);
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            width: 30px;
+            height: 2px;
+            background: var(--color-gray-300);
+            z-index: 1;
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            font-size: 2rem;
+            color: var(--color-accent);
+        }
+        
+        /* ===== DATA SECURITY ===== */
+        .data-security-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-gray-100);
+        }
+        
+        .security-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .security-feature {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border-left: 5px solid var(--color-primary);
+            transition: all var(--transition-normal);
+        }
+        
+        .security-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .feature-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        /* ===== CANDIDATE CONTROLS ===== */
+        .controls-section {
+            padding: var(--space-3xl) var(--space-md);
+        }
+        
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .control-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 2px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+            text-align: center;
+        }
+        
+        .control-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-emergency);
+        }
+        
+        .control-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            font-size: 2rem;
+            color: var(--color-emergency);
+        }
+        
+        /* ===== COMPLIANCE & CERTIFICATIONS ===== */
+        .compliance-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-gray-100);
+        }
+        
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .compliance-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+            height: 180px;
+        }
+        
+        .compliance-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-success);
+        }
+        
+        .compliance-icon {
+            font-size: 2.5rem;
+            color: var(--color-success);
+            margin-bottom: var(--space-md);
+        }
+        
+        .compliance-card h4 {
+            text-align: center;
+            margin: 0;
+        }
+        
+        /* ===== CONFIDENTIALITY PLEDGE ===== */
+        .pledge-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-primary), #1b263b);
+            color: var(--color-white);
+            text-align: center;
+        }
+        
+        .pledge-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .pledge-container h2 {
+            color: var(--color-white);
+            margin-bottom: var(--space-md);
+        }
+        
+        .pledge-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            margin: var(--space-xl) 0;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+        }
+        
+        .pledge-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .pledge-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .pledge-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            flex-shrink: 0;
+        }
+        
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            padding: var(--space-3xl) var(--space-md);
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .faq-item {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            border: 2px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+        }
+        
+        .faq-item:hover {
+            border-color: var(--color-accent);
+        }
+        
+        .faq-question {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+            cursor: pointer;
+        }
+        
+        .faq-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--color-accent);
+            flex-shrink: 0;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        /* ===== CTA SECTION ===== */
+        .confidentiality-cta {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-emergency), var(--color-emergency-dark));
+            color: var(--color-white);
+            text-align: center;
+        }
+        
+        .confidentiality-cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .confidentiality-cta h2 {
+            color: var(--color-white);
+            margin-bottom: var(--space-md);
+        }
+        
+        .confidentiality-cta .lead {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-lg);
+            justify-content: center;
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+        }
+        
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--space-3xl) var(--space-md) var(--space-xl);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .footer-column h3 {
+            color: var(--color-white);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+        
+        .footer-contact {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-contact p {
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--space-xl);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            margin: var(--space-md) 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.25rem; }
+        }
+        
+        @media (max-width: 768px) {
+            /* Mobile Navigation */
+            .header-container {
+                flex-wrap: wrap;
+                gap: var(--space-md);
+            }
+            
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.65rem;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--color-white);
+                flex-direction: column;
+                padding: var(--space-3xl) var(--space-xl) var(--space-xl);
+                transition: left 0.3s ease;
+                overflow-y: auto;
+                z-index: 1000;
+            }
+            
+            .main-nav.active {
+                left: 0;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 1.125rem 0;
+                border-bottom: 1px solid var(--color-gray-200);
+                width: 100%;
+                font-size: 1.1rem;
+            }
+            
+            .nav-link.active::after {
+                display: none;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding-left: var(--space-md);
+                display: none;
+                background: var(--color-gray-100);
+                border-radius: var(--radius-md);
+                margin-top: var(--space-xs);
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .nav-cta-group {
+                flex-direction: column;
+                width: 100%;
+                margin-top: var(--space-xl);
+            }
+            
+            .nav-cta {
+                width: 100%;
+                justify-content: center;
+                padding: 1.25rem 1.75rem !important;
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .mobile-overlay.active {
+                display: block;
+            }
+            
+            /* Mobile Content */
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            
+            .confidentiality-hero::before {
+                width: 100%;
+                opacity: 0.2;
+            }
+            
+            .security-stats {
+                flex-direction: column;
+                gap: var(--space-lg);
+            }
+            
+            .process-visual {
+                flex-direction: column;
+            }
+            
+            .process-step {
+                width: 100%;
+                margin: var(--space-md) 0 !important;
+            }
+            
+            .process-step::after {
+                top: 100%;
+                right: 50%;
+                width: 2px;
+                height: 30px;
+                transform: translateX(50%);
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .pledge-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .guarantees-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .security-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .controls-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .compliance-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pledge-box {
+                padding: var(--space-xl);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="/" aria-label="Jobpitality Home">
+                        <h1><i class="fas fa-bolt"></i> <span class="brand-name">JOBPITALITY</span></h1>
+                        <span class="logo-tagline">THE RUTHLESS TALENT PARTNER</span>
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="main-nav" id="mainNav">
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/services/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-crosshairs"></i> Precision Search
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/services/executive-search/" class="dropdown-item">
+                                    <i class="fas fa-search"></i> Executive Search
+                                </a>
+                                <a href="/services/hotel-leadership/" class="dropdown-item">
+                                    <i class="fas fa-hotel"></i> Hotel Leadership
+                                </a>
+                                <a href="/services/culinary-leadership/" class="dropdown-item">
+                                    <i class="fas fa-utensils"></i> Culinary Leadership
+                                </a>
+                                <a href="/services/management-teams/" class="dropdown-item">
+                                    <i class="fas fa-users"></i> Management Teams
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/services/guarantee/" class="dropdown-item" style="color: var(--color-accent); font-weight: 700;">
+                                    <i class="fas fa-shield-alt"></i> 72-Hour Guarantee
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/employers/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-building"></i> For Employers
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/employers/our-process/" class="dropdown-item">
+                                    <i class="fas fa-play-circle"></i> Our Process
+                                </a>
+                                <a href="/employers/roi-calculator/" class="dropdown-item">
+                                    <i class="fas fa-calculator"></i> ROI Calculator
+                                </a>
+                                <a href="/employers/industry-expertise/" class="dropdown-item">
+                                    <i class="fas fa-star"></i> Why We're Different
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/employers/start-search/" class="dropdown-item">
+                                    <i class="fas fa-rocket"></i> Start Your Search
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/candidates/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-user-tie"></i> For Candidates
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/candidates/submit-profile/" class="dropdown-item">
+                                    <i class="fas fa-user-plus"></i> Submit Profile
+                                </a>
+                                <a href="/elite-opportunities/" class="dropdown-item">
+                                    <i class="fas fa-crown"></i> Elite Opportunities
+                                </a>
+                                <a href="/career-strategy/" class="dropdown-item">
+                                    <i class="fas fa-chess-knight"></i> Career Strategy
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/confidentiality/" class="dropdown-item active">
+                                    <i class="fas fa-user-shield"></i> Confidentiality
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/industries/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-industry"></i> Industries
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/industries/luxury-hotels/" class="dropdown-item">
+                                    <i class="fas fa-crown"></i> Luxury Hotels
+                                </a>
+                                <a href="/industries/fine-dining/" class="dropdown-item">
+                                    <i class="fas fa-utensil-spoon"></i> Fine Dining
+                                </a>
+                                <a href="/industries/resorts-spas/" class="dropdown-item">
+                                    <i class="fas fa-spa"></i> Resorts & Spas
+                                </a>
+                                <a href="/industries/quick-service/" class="dropdown-item">
+                                    <i class="fas fa-running"></i> Quick Service
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <!-- <li class="nav-item">
+                            <a href="/insights/" class="nav-link">
+                                <i class="fas fa-chart-line"></i> Insights
+                            </a>
+                        </li> -->
+                    </ul>
+                    
+                    <div class="nav-cta-group">
+                        <a href="/emergency-hiring/" class="nav-cta nav-cta-emergency">
+                            <i class="fas fa-bullhorn"></i> Emergency Hiring
+                        </a>
+                        <a href="/employers/contact/" class="nav-cta">
+                            <i class="fas fa-headset"></i> Hire Talent
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+    </header>
+
+    <!-- CONFIDENTIALITY HERO -->
+    <section class="confidentiality-hero">
+        <div class="container">
+            <div class="confidentiality-hero-content">
+                <div class="confidentiality-hero-badge">
+                    <i class="fas fa-user-shield"></i>
+                    <span>IRONCLAD CONFIDENTIALITY</span>
+                </div>
+                
+                <h1>Your Privacy is Our <span class="highlight">Sacred Trust</span></h1>
+                <p class="lead">We operate with military-grade security protocols to protect your career and reputation. Your confidentiality isn't just a policy—it's our core operating principle.</p>
+                
+                <div class="security-stats">
+                    <div class="security-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Privacy Breaches</div>
+                    </div>
+                    
+                    <div class="security-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-eye-slash"></i>
+                        </div>
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Blind Submissions</div>
+                    </div>
+                    
+                    <div class="security-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="stat-number">256-bit</div>
+                        <div class="stat-label">Encryption</div>
+                    </div>
+                    
+                    <div class="security-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="stat-number">72-Hour</div>
+                        <div class="stat-label">Data Deletion</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IRONCLAD GUARANTEES -->
+    <section class="guarantees-section">
+        <div class="container">
+            <h2 class="text-center">Our Ironclad Confidentiality Guarantees</h2>
+            <p class="lead text-center">These aren't just promises—they're legally binding commitments to protect your career.</p>
+            
+            <div class="guarantees-grid">
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Explicit Consent Required</h3>
+                    <p>We never share your profile without your explicit written consent for each specific opportunity. No blanket permissions, no assumptions.</p>
+                </div>
+                
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3>Current Employer Protection</h3>
+                    <p>We have sophisticated protocols to prevent your profile from reaching your current employer or anyone connected to them.</p>
+                </div>
+                
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Strict NDA Enforcement</h3>
+                    <p>All our consultants and staff sign comprehensive NDAs. Violation results in immediate termination and legal action.</p>
+                </div>
+                
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>7-Year Audit Trail</h3>
+                    <p>Every profile access, view, and submission is logged and maintained for 7 years. Complete transparency and accountability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLIND SUBMISSION PROCESS -->
+    <section class="blind-submission-section">
+        <div class="container">
+            <h2 class="text-center">The Blind Submission Process</h2>
+            <p class="lead text-center">How we protect your identity while showcasing your qualifications.</p>
+            
+            <div class="process-visual">
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <h4>Anonymized Profile</h4>
+                    <p>We remove all identifying information—name, current employer, contact details.</p>
+                </div>
+                
+                <div class="process-step middle">
+                    <div class="process-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h4>Blind Submission</h4>
+                    <p>Employers see qualifications, achievements, and skills—not personal identity.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <h4>Consent Before Reveal</h4>
+                    <p>Your identity is only revealed after employer interest and your explicit approval.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DATA SECURITY -->
+    <section class="data-security-section">
+        <div class="container">
+            <h2 class="text-center">Military-Grade Data Security</h2>
+            <p class="lead text-center">We protect your information with enterprise-level security measures.</p>
+            
+            <div class="security-features">
+                <div class="security-feature">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div>
+                            <h3>End-to-End Encryption</h3>
+                            <p class="highlight">256-bit AES Encryption</p>
+                        </div>
+                    </div>
+                    <p>All data—in transit and at rest—is encrypted using bank-grade security protocols. Even we cannot access your raw data without decryption keys.</p>
+                </div>
+                
+                <div class="security-feature">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div>
+                            <h3>Secure Infrastructure</h3>
+                            <p class="highlight">AWS SOC 2 Type II Certified</p>
+                        </div>
+                    </div>
+                    <p>Our infrastructure is hosted on Amazon Web Services with multiple redundancy layers, DDoS protection, and 99.99% uptime SLA.</p>
+                </div>
+                
+                <div class="security-feature">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Access Control</h3>
+                            <p class="highlight">Role-Based Permissions</p>
+                        </div>
+                    </div>
+                    <p>Strict access controls ensure only authorized personnel can view your data. All access is logged, monitored, and requires multi-factor authentication.</p>
+                </div>
+                
+                <div class="security-feature">
+                    <div class="feature-header">
+                        <div class="feature-icon">
+                            <i class="fas fa-trash-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Right to Erasure</h3>
+                            <p class="highlight">GDPR & NDPR Compliant</p>
+                        </div>
+                    </div>
+                    <p>You can request complete deletion of your data at any time. We guarantee permanent deletion within 72 hours, with confirmation provided.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CANDIDATE CONTROLS -->
+    <section class="controls-section">
+        <div class="container">
+            <h2 class="text-center">You're in Complete Control</h2>
+            <p class="lead text-center">These tools put you in charge of your privacy and career decisions.</p>
+            
+            <div class="controls-grid">
+                <div class="control-card">
+                    <div class="control-icon">
+                        <i class="fas fa-pause-circle"></i>
+                    </div>
+                    <h3>Profile Freeze</h3>
+                    <p>Temporarily hide your profile from all searches and submissions while keeping it in our database for future use.</p>
+                </div>
+                
+                <div class="control-card">
+                    <div class="control-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h3>Employer Blocklist</h3>
+                    <p>Specify companies or individuals who should never see your profile, including your current employer.</p>
+                </div>
+                
+                <div class="control-card">
+                    <div class="control-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Submission History</h3>
+                    <p>See exactly where your profile has been submitted, when, and to whom. Complete transparency.</p>
+                </div>
+                
+                <div class="control-card">
+                    <div class="control-icon">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    <h3>Communication Preferences</h3>
+                    <p>Control how and when we contact you. Opt out of certain types of opportunities or communications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPLIANCE & CERTIFICATIONS -->
+    <section class="compliance-section">
+        <div class="container">
+            <h2 class="text-center">Compliance & Certifications</h2>
+            <p class="lead text-center">We adhere to the highest international standards for data protection and privacy.</p>
+            
+            <div class="compliance-grid">
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h4>NDPR Compliant</h4>
+                </div>
+                
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-globe-europe"></i>
+                    </div>
+                    <h4>GDPR Compliant</h4>
+                </div>
+                
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>ISO 27001</h4>
+                </div>
+                
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4>Professional Standards</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONFIDENTIALITY PLEDGE -->
+    <section class="pledge-section">
+        <div class="container">
+            <div class="pledge-container">
+                <h2>Our Confidentiality Pledge</h2>
+                <p class="lead">These solemn commitments define how we operate and protect your career.</p>
+                
+                <div class="pledge-box">
+                    <div class="pledge-item">
+                        <div class="pledge-icon">
+                            <i class="fas fa-hand"></i>
+                        </div>
+                        <div>
+                            <h4>We Never Assume Consent</h4>
+                            <p>Every profile submission requires fresh, explicit written consent. No blanket permissions, no "opt-out" schemes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pledge-item">
+                        <div class="pledge-icon">
+                            <i class="fas fa-user-lock"></i>
+                        </div>
+                        <div>
+                            <h4>We Protect Your Current Position</h4>
+                            <p>We have sophisticated vetting processes to prevent your profile from reaching anyone connected to your current employer.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pledge-item">
+                        <div class="pledge-icon">
+                            <i class="fas fa-trash"></i>
+                        </div>
+                        <div>
+                            <h4>We Honor Delete Requests Immediately</h4>
+                            <p>Request deletion and we guarantee complete removal within 72 hours, with written confirmation provided.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pledge-item">
+                        <div class="pledge-icon">
+                            <i class="fas fa-scroll"></i>
+                        </div>
+                        <div>
+                            <h4>We're Legally Bound to Protect You</h4>
+                            <p>Our confidentiality agreements are legally binding. We've never had a breach, and we're committed to keeping that record perfect.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="text-center">Confidentiality FAQs</h2>
+            <p class="lead text-center">Common questions about how we protect your privacy and career.</p>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-icon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <h4>What if my current employer finds out I'm looking?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We have multiple safeguards against this: employer blocklists, blind submissions, and rigorous vetting of client relationships. In our 8-year history, we've never had a candidate's current employer discover they were exploring opportunities through us.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-icon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <h4>How do you ensure blind submissions work?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our system automatically removes all identifying information before submission. Employers see qualifications, achievements, and skills—not names, current employers, or contact details. We only reveal identity after both mutual interest and explicit candidate consent.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-icon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <h4>Can I see who has viewed my profile?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Our portal provides complete transparency: you can see every employer who has viewed your anonymized profile, when they viewed it, and whether they expressed interest. Full audit trail available upon request.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-icon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <h4>What happens if I want to delete my data?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Submit a deletion request through our portal or email privacy@jobpitality.ng. We guarantee complete deletion within 72 hours, including backups. You'll receive written confirmation once deletion is complete. No questions asked.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-icon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <h4>Are your staff bound by confidentiality agreements?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Every Jobpitality employee, consultant, and contractor signs comprehensive confidentiality and non-disclosure agreements. Violation results in immediate termination and potential legal action. We take these agreements extremely seriously.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-icon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <h4>How do you handle data breaches?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We have a comprehensive incident response plan that includes immediate containment, investigation, notification of affected individuals within 72 hours (as required by NDPR), and regulatory reporting. Thankfully, we've never had to activate this plan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="confidentiality-cta">
+        <div class="container">
+            <div class="confidentiality-cta-container">
+                <h2>Ready to Explore Opportunities with Complete Confidence?</h2>
+                <p class="lead">Join thousands of hospitality professionals who trust us with their most sensitive career moves.</p>
+                
+                <div class="cta-buttons">
+                    <a href="/candidates/submit-profile/" class="btn btn-primary btn-large">
+                        <i class="fas fa-user-shield"></i> Submit Profile Securely
+                    </a>
+                    <a href="/contact/" class="btn btn-outline btn-large" style="color: var(--color-white); border-color: var(--color-white);">
+                        <i class="fas fa-question-circle"></i> Ask Confidentiality Questions
+                    </a>
+                </div>
+                
+                <p style="margin-top: var(--space-xl); font-size: 0.9rem; opacity: 0.8;">
+                    <i class="fas fa-lock"></i> All communications are encrypted and confidential
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Jobpitality</h3>
+                    <ul class="footer-links">
+                        <li><a href="/about/"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="/methodology/"><i class="fas fa-chevron-right"></i> Our Methodology</a></li>
+                        <li><a href="/guarantee/"><i class="fas fa-chevron-right"></i> 72-Hour Guarantee</a></li>
+                        <li><a href="/contact/"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>For Employers</h3>
+                    <ul class="footer-links">
+                        <li><a href="/employers/"><i class="fas fa-chevron-right"></i> Start a Search</a></li>
+                        <li><a href="/employers/process/"><i class="fas fa-chevron-right"></i> Our Process</a></li>
+                        <li><a href="/employers/roi/"><i class="fas fa-chevron-right"></i> ROI Calculator</a></li>
+                        <li><a href="/employers/emergency/"><i class="fas fa-chevron-right"></i> Emergency Hiring</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>For Candidates</h3>
+                    <ul class="footer-links">
+                        <li><a href="/candidates/"><i class="fas fa-chevron-right"></i> Submit Profile</a></li>
+                        <li><a href="/elite-opportunities/"><i class="fas fa-chevron-right"></i> Elite Opportunities</a></li>
+                        <li><a href="/career-strategy/"><i class="fas fa-chevron-right"></i> Career Strategy</a></li>
+                        <li><a href="/confidentiality/"><i class="fas fa-chevron-right"></i> Confidentiality</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact & Privacy</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
+                        <p><i class="fas fa-phone"></i> +234 (0) 800 000 0000</p>
+                        <p><i class="fas fa-envelope"></i> privacy@jobpitality.ng</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-links">
+                    <a href="/privacy/"><i class="fas fa-user-shield"></i> Privacy Policy</a>
+                    <a href="/terms/"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                    <a href="/cookies/"><i class="fas fa-cookie-bite"></i> Cookie Policy</a>
+                    <a href="/confidentiality/"><i class="fas fa-lock"></i> Confidentiality</a>
+                </div>
+                <p>&copy; 2023 Jobpitality Nigeria. All rights reserved. "The Ruthless Talent Partner" is a trademark of Jobpitality.</p>
+                <p><small><i class="fas fa-shield-alt"></i> NDPR & GDPR Compliant | ISO 27001 Security Standards</small></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        mobileOverlay.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Mobile Dropdown Toggle
+        const dropdowns = document.querySelectorAll('.dropdown > .nav-link');
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const parent = dropdown.parentElement;
+                    parent.classList.toggle('active');
+                    
+                    // Close other dropdowns
+                    document.querySelectorAll('.dropdown').forEach(other => {
+                        if (other !== parent) {
+                            other.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // FAQ Toggle Function
+        function toggleFAQ(element) {
+            const faqItem = element.closest('.faq-item');
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // If the clicked item wasn't active, open it
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+        
+        // Add click event to all FAQ questions
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                toggleFAQ(this);
+            });
+        });
+        
+        // Security Stats Counter Animation
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+            }, 16);
+        }
+        
+        // Animate counters when in viewport
+        function startCounters() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent.replace(/\D/g, '')) || 0;
+                if (target > 0) {
+                    stat.textContent = '0';
+                    animateCounter(stat, target);
+                }
+            });
+        }
+        
+        // Start counters when page loads
+        window.addEventListener('load', startCounters);
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add visual feedback for security features
+        const securityFeatures = document.querySelectorAll('.security-feature');
+        securityFeatures.forEach(feature => {
+            feature.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.feature-icon');
+                icon.style.transform = 'scale(1.1) rotate(5deg)';
+                icon.style.transition = 'transform 0.3s ease';
+            });
+            
+            feature.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.feature-icon');
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+        
+        // Add pulse animation to security badge
+        const heroBadge = document.querySelector('.confidentiality-hero-badge');
+        if (heroBadge) {
+            setInterval(() => {
+                heroBadge.style.boxShadow = '0 0 0 0 rgba(42, 157, 143, 0.7)';
+                setTimeout(() => {
+                    heroBadge.style.boxShadow = '0 0 0 10px rgba(42, 157, 143, 0)';
+                }, 300);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

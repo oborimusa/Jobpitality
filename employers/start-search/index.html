@@ -3,173 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start Your Hospitality Search | Free Discovery Call | HospitalityRecruit</title>
-    <meta name="description" content="Ready to hire? Start your executive, operational, or F&B search now. Free 30-minute discovery call. No obligation, just results.">
+    <title>Start a Hospitality Recruitment Search | Jobpitality Nigeria</title>
+    <meta name="description" content="Begin your specialized hospitality talent search with Jobpitality Nigeria. Submit your requirements for luxury hotel, fine dining, and premium hospitality roles.">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Start Your Hospitality Search | HospitalityRecruit">
-    <meta property="og:description" content="Begin your precision talent search today. Free discovery call with a senior consultant.">
-    <meta property="og:image" content="https://hospitalityrecruit.com/img/start-search-og.jpg">
-    <meta property="og:url" content="https://hospitalityrecruit.com/employers/start-search">
-    <meta property="og:type" content="website">
-    
-    <!-- Canonical -->
-    <link rel="canonical" href="https://hospitalityrecruit.com/employers/start-search">
-    
-    <!-- Font Awesome -->
+    <!-- Font Awesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- CSS Variables & Base Styles -->
     <style>
-        :root {
-            /* Colors */
-            --color-primary: #1a56db;
-            --color-primary-dark: #1e429f;
-            --color-secondary: #7e3af2;
-            --color-secondary-dark: #6c2bd9;
-            --color-success: #059669;
-            --color-warning: #f59e0b;
-            --color-emergency: #dc2626;
-            --color-gold: #fbbf24;
-            --color-bronze: #92400e;
-            
-            --color-white: #ffffff;
-            --color-light: #f8fafc;
-            --color-dark: #0f172a;
-            --color-gray-50: #f9fafb;
-            --color-gray-100: #f3f4f6;
-            --color-gray-200: #e5e7eb;
-            --color-gray-300: #d1d5db;
-            --color-gray-400: #9ca3af;
-            --color-gray-500: #6b7280;
-            --color-gray-600: #4b5563;
-            --color-gray-700: #374151;
-            --color-gray-800: #1f2937;
-            --color-gray-900: #111827;
-            
-            /* Spacing */
-            --space-xs: 0.5rem;
-            --space-sm: 0.75rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-2xl: 3rem;
-            --space-3xl: 4rem;
-            
-            /* Typography */
-            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            --font-serif: Georgia, 'Times New Roman', Times, serif;
-            
-            /* Border Radius */
-            --radius-sm: 0.25rem;
-            --radius-md: 0.5rem;
-            --radius-lg: 0.75rem;
-            --radius-xl: 1rem;
-            
-            /* Shadows */
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            
-            /* Transitions */
-            --transition-fast: 150ms ease;
-            --transition-normal: 250ms ease;
-            --transition-slow: 350ms ease;
-        }
-
+        /* ===== CSS RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
+        :root {
+            /* Jobpitality Color Palette */
+            --color-primary: #0d1b2a;      /* Deep Navy */
+            --color-primary-dark: #070d13;
+            --color-accent: #ff9e00;       /* Vibrant Orange */
+            --color-accent-dark: #cc7e00;
+            --color-success: #2a9d8f;      /* Teal */
+            --color-success-dark: #21867a;
+            --color-emergency: #e63946;    /* Crimson */
+            --color-emergency-dark: #c1121f;
+            --color-gray-900: #1b263b;
+            --color-gray-800: #415a77;
+            --color-gray-700: #778da9;
+            --color-gray-600: #a0aec0;
+            --color-gray-300: #e2e8f0;
+            --color-gray-200: #edf2f7;
+            --color-gray-100: #f7fafc;
+            --color-white: #ffffff;
+            
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 20px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+        
         body {
             font-family: var(--font-sans);
+            font-weight: 400;
             line-height: 1.6;
             color: var(--color-gray-800);
             background: var(--color-white);
+            overflow-x: hidden;
         }
-
+        
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 0 var(--space-md);
         }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Announcement Bar */
-        .announcement {
-            background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
-            color: white;
-            padding: 0.75rem 0;
-            text-align: center;
-            font-size: 0.9rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .announcement-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .announcement .pulse {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--color-emergency);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-            top: 50%;
-            left: 20px;
-            transform: translateY(-50%);
-        }
-
-        @keyframes pulse {
-            0% { transform: translateY(-50%) scale(1); opacity: 1; }
-            50% { transform: translateY(-50%) scale(1.5); opacity: 0.5; }
-            100% { transform: translateY(-50%) scale(1); opacity: 1; }
-        }
-
-        .announcement a {
-            color: white;
-            font-weight: bold;
-            text-decoration: underline;
-            margin-left: var(--space-sm);
-        }
-
-        .announcement a:hover {
-            text-decoration: none;
-        }
-
-        /* Header Styles */
+        
+        /* ===== HEADER & NAVIGATION ===== */
         .site-header {
             background: var(--color-white);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
             position: sticky;
             top: 0;
             z-index: 1000;
             padding: var(--space-sm) 0;
+            border-bottom: 3px solid var(--color-accent);
         }
-
+        
         .header-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: var(--space-lg);
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
         }
-
+        
         .logo a {
             text-decoration: none;
             color: var(--color-dark);
@@ -177,83 +123,174 @@
             flex-direction: column;
             line-height: 1.2;
         }
-
+        
         .logo h1 {
-            font-size: 1.75rem;
+            font-size: 2.1rem;
             margin-bottom: 0;
-            font-weight: 800;
+            font-weight: 900;
             color: var(--color-primary);
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
-
-        .logo h1 i {
-            color: var(--color-gold);
+        
+        .logo h1 .brand-name {
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-
+        
         .logo-tagline {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--color-emergency);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-            margin-top: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            margin-top: 2px;
         }
-
-        /* Main Navigation */
+        
+        /* MAIN NAVIGATION */
         .main-nav {
             display: flex;
             align-items: center;
-            gap: var(--space-lg);
+            gap: var(--space-xs);
         }
-
-        .main-nav a {
-            text-decoration: none;
-            color: var(--color-gray-700);
-            font-weight: 500;
-            font-size: 0.95rem;
-            padding: var(--space-xs) var(--space-sm);
-            transition: color var(--transition-fast);
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--space-md);
+            margin: 0;
+            padding: 0;
         }
-
-        .main-nav a:hover {
-            color: var(--color-primary);
-        }
-
-        .main-nav a.active {
-            color: var(--color-primary);
-            font-weight: 600;
+        
+        .nav-item {
             position: relative;
         }
-
-        .main-nav a.active::after {
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.5rem 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--color-accent);
+        }
+        
+        .nav-link.active {
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+        
+        .nav-link.active::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: var(--space-sm);
-            right: var(--space-sm);
-            height: 2px;
-            background: var(--color-primary);
+            bottom: -3px;
+            left: 0.75rem;
+            right: 0.75rem;
+            height: 3px;
+            background: var(--color-accent);
+            border-radius: 3px 3px 0 0;
         }
-
+        
+        /* DROPDOWN MENUS */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--color-white);
+            min-width: 240px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-2xl);
+            padding: var(--space-sm) 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all var(--transition-normal);
+            z-index: 1000;
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+        
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem var(--space-lg);
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+        
+        .dropdown-item:hover {
+            background: var(--color-gray-100);
+            color: var(--color-accent);
+            padding-left: calc(var(--space-lg) + 0.75rem);
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background: var(--color-gray-200);
+            margin: var(--space-xs) 0;
+        }
+        
+        /* NAV CTA BUTTONS */
+        .nav-cta-group {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
         .nav-cta {
             background: var(--color-primary);
             color: var(--color-white) !important;
-            padding: var(--space-sm) var(--space-lg) !important;
-            border-radius: var(--radius-md);
-            font-weight: 600 !important;
+            padding: 0.75rem 1.75rem !important;
+            border-radius: var(--radius-lg);
+            font-weight: 700 !important;
             transition: all var(--transition-fast);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
         }
-
+        
         .nav-cta:hover {
             background: var(--color-primary-dark);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
-
-        /* Mobile Menu Toggle */
+        
+        .nav-cta-emergency {
+            background: var(--color-emergency);
+        }
+        
+        .nav-cta-emergency:hover {
+            background: var(--color-emergency-dark);
+        }
+        
+        /* MOBILE MENU */
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -262,1117 +299,1604 @@
             color: var(--color-dark);
             cursor: pointer;
             padding: var(--space-xs);
+            z-index: 1001;
         }
-
-        /* Hero Section */
-        .hero-start-search {
-            padding: var(--space-3xl) var(--space-md);
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 27, 42, 0.9);
+            z-index: 999;
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--color-gray-900);
+            letter-spacing: -0.025em;
+        }
+        
+        h1 { 
+            font-size: 3.5rem; 
+            font-weight: 900; 
+            line-height: 1;
+        }
+        
+        h2 { 
+            font-size: 2.5rem; 
+            margin-bottom: var(--space-lg);
+        }
+        
+        h3 { 
+            font-size: 1.75rem; 
+            margin-bottom: var(--space-md);
+        }
+        
+        h4 { 
+            font-size: 1.25rem; 
+            margin-bottom: var(--space-sm);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-emergency) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--color-gray-700);
+            font-weight: 400;
+        }
+        
+        .text-center {
             text-align: center;
+        }
+        
+        .highlight {
+            color: var(--color-accent);
+            font-weight: 800;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2.25rem;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-sans);
+            letter-spacing: 0.01em;
+        }
+        
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-secondary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-3px);
+        }
+        
+        .btn-emergency {
+            background: linear-gradient(135deg, var(--color-emergency), var(--color-emergency-dark));
+            color: var(--color-white);
+            font-weight: 800;
+        }
+        
+        .btn-emergency:hover {
+            background: var(--color-emergency-dark);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.3);
+        }
+        
+        .btn-large {
+            padding: 1.25rem 3.5rem;
+            font-size: 1.125rem;
+            font-weight: 800;
+        }
+        
+        .btn-block {
+            width: 100%;
+        }
+        
+        /* ===== SEARCH HERO SECTION ===== */
+        .search-hero {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1b263b 100%);
+            color: var(--color-white);
             position: relative;
             overflow: hidden;
         }
-
-        .hero-start-search::before {
+        
+        .search-hero::before {
             content: '';
             position: absolute;
             top: 0;
             right: 0;
             width: 40%;
             height: 100%;
-            background: linear-gradient(90deg, transparent 0%, rgba(224, 242, 254, 0.7) 100%);
+            background: linear-gradient(90deg, transparent 0%, rgba(27, 38, 59, 0.8) 100%), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800');
+            background-size: cover;
+            background-position: center;
             z-index: 1;
         }
-
-        .hero-content {
+        
+        .search-hero-content {
             position: relative;
             z-index: 2;
             max-width: 800px;
-            margin: 0 auto;
         }
-
-        .search-badge {
-            background: linear-gradient(135deg, var(--color-emergency), #f97316);
-            color: white;
+        
+        .search-hero-badge {
+            background: linear-gradient(90deg, var(--color-accent), #ff6b00);
+            color: var(--color-primary);
             display: inline-flex;
             align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm) var(--space-xl);
+            gap: 0.75rem;
+            padding: 0.75rem 2rem;
             border-radius: 50px;
-            font-weight: 700;
-            margin-bottom: var(--space-lg);
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
             font-weight: 900;
-            line-height: 1.1;
             margin-bottom: var(--space-lg);
-            color: var(--color-gray-900);
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            color: var(--color-gray-700);
-            max-width: 700px;
-            margin: 0 auto var(--space-xl);
-            line-height: 1.6;
-        }
-
-        .hero-highlight {
-            background: linear-gradient(120deg, var(--color-gold) 0%, var(--color-gold) 100%);
-            background-repeat: no-repeat;
-            background-size: 100% 0.3em;
-            background-position: 0 88%;
-            padding: 0 0.2em;
-        }
-
-        /* Quick Start Options */
-        .quick-start-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-xl);
-            margin: var(--space-2xl) 0;
-        }
-
-        .quick-option {
-            padding: var(--space-xl);
-            background: var(--color-white);
-            border-radius: var(--radius-lg);
-            border: 2px solid var(--color-gray-200);
-            text-align: center;
-            transition: all var(--transition-normal);
-        }
-
-        .quick-option:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--color-primary);
-        }
-
-        .quick-option-icon {
-            font-size: 3rem;
-            color: var(--color-primary);
-            margin-bottom: var(--space-lg);
-        }
-
-        .quick-option h3 {
-            font-size: 1.5rem;
-            margin-bottom: var(--space-md);
-            color: var(--color-gray-900);
-        }
-
-        .quick-option p {
-            color: var(--color-gray-600);
-            margin-bottom: var(--space-lg);
-        }
-
-        .btn-option {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            background: var(--color-primary);
-            color: white;
-            padding: var(--space-sm) var(--space-lg);
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all var(--transition-fast);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-option:hover {
-            background: var(--color-primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Search Types Section */
-        .search-types-section {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-white);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-            color: var(--color-gray-900);
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            text-align: center;
-            color: var(--color-gray-600);
-            max-width: 800px;
-            margin: 0 auto var(--space-2xl);
-            line-height: 1.6;
-        }
-
-        .search-types-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-            margin-bottom: var(--space-2xl);
-        }
-
-        .search-type-card {
-            background: var(--color-gray-50);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            border: 1px solid var(--color-gray-200);
-            transition: all var(--transition-normal);
-        }
-
-        .search-type-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .search-type-header {
-            padding: var(--space-xl);
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-            color: white;
-        }
-
-        .search-type-header h3 {
-            font-size: 1.5rem;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-
-        .search-type-header i {
-            font-size: 1.75rem;
-        }
-
-        .search-type-content {
-            padding: var(--space-xl);
-        }
-
-        .search-type-features {
-            list-style: none;
-            margin-bottom: var(--space-lg);
-        }
-
-        .search-type-features li {
-            padding: var(--space-xs) 0;
-            border-bottom: 1px solid var(--color-gray-200);
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-
-        .search-type-features li:last-child {
-            border-bottom: none;
-        }
-
-        .search-type-features i {
-            color: var(--color-primary);
-            font-size: 0.875rem;
-        }
-
-        .search-type-price {
-            text-align: center;
-            padding: var(--space-md);
-            background: var(--color-white);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--color-gray-200);
-        }
-
-        .price-amount {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--color-primary);
-            margin-bottom: var(--space-xs);
-        }
-
-        .price-note {
-            color: var(--color-gray-600);
-            font-size: 0.9rem;
-        }
-
-        /* Main Search Form */
-        .search-form-section {
-            padding: var(--space-3xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
-        }
-
-        .form-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--color-white);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
-            overflow: hidden;
-        }
-
-        .form-header {
-            padding: var(--space-xl);
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-            color: white;
-            text-align: center;
-        }
-
-        .form-header h2 {
-            font-size: 2rem;
-            margin-bottom: var(--space-sm);
-            color: white;
-        }
-
-        .form-header p {
-            color: rgba(255, 255, 255, 0.9);
-            margin: 0;
-        }
-
-        .form-body {
-            padding: var(--space-2xl);
-        }
-
-        /* Form Styles */
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-lg);
-            margin-bottom: var(--space-lg);
-        }
-
-        .form-group {
-            margin-bottom: var(--space-lg);
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-            color: var(--color-gray-700);
-        }
-
-        .form-group label .required {
-            color: var(--color-emergency);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: var(--space-md);
-            border: 2px solid var(--color-gray-300);
-            border-radius: var(--radius-md);
-            font-family: var(--font-sans);
             font-size: 1rem;
-            color: var(--color-gray-900);
-            background: var(--color-white);
-            transition: all var(--transition-fast);
+            letter-spacing: 0.5px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-
-        /* Urgency Selector */
-        .urgency-selector {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-sm);
-            margin-bottom: var(--space-xl);
-        }
-
-        .urgency-option {
-            padding: var(--space-lg);
-            border: 2px solid var(--color-gray-300);
-            border-radius: var(--radius-md);
-            text-align: center;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-        }
-
-        .urgency-option:hover {
-            border-color: var(--color-primary);
-            background: var(--color-gray-50);
-        }
-
-        .urgency-option.selected {
-            border-color: var(--color-primary);
-            background: var(--color-primary);
-            color: white;
-        }
-
-        .urgency-option.selected .urgency-icon {
-            color: white;
-        }
-
-        .urgency-icon {
-            font-size: 1.5rem;
-            margin-bottom: var(--space-sm);
-            color: var(--color-primary);
-        }
-
-        .urgency-title {
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-        }
-
-        .urgency-desc {
-            font-size: 0.875rem;
-            color: var(--color-gray-600);
-        }
-
-        .urgency-option.selected .urgency-desc {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* File Upload */
-        .file-upload {
-            border: 2px dashed var(--color-gray-300);
-            border-radius: var(--radius-md);
-            padding: var(--space-xl);
-            text-align: center;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-        }
-
-        .file-upload:hover {
-            border-color: var(--color-primary);
-            background: var(--color-gray-50);
-        }
-
-        .file-upload i {
-            font-size: 3rem;
-            color: var(--color-gray-400);
+        
+        .search-hero h1 {
+            color: var(--color-white);
             margin-bottom: var(--space-md);
         }
-
-        .file-upload p {
-            color: var(--color-gray-600);
-            margin-bottom: var(--space-sm);
+        
+        .search-hero .lead {
+            color: rgba(255, 255, 255, 0.9);
         }
-
-        .file-input {
-            display: none;
+        
+        .search-hero-steps {
+            display: flex;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
         }
-
-        /* Submit Button */
-        .btn-submit {
-            width: 100%;
-            background: linear-gradient(135deg, var(--color-success), #047857);
-            color: white;
-            border: none;
-            padding: var(--space-lg);
-            font-size: 1.2rem;
-            font-weight: 800;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: all var(--transition-normal);
+        
+        .search-step {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .step-number {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: var(--space-sm);
+            font-weight: 900;
+            font-size: 1.125rem;
+            flex-shrink: 0;
         }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+        
+        .step-content h4 {
+            color: var(--color-white);
+            margin-bottom: var(--space-xs);
         }
-
-        .form-note {
-            text-align: center;
-            color: var(--color-gray-600);
-            font-size: 0.85rem;
-            margin-top: var(--space-md);
+        
+        .step-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            margin-bottom: 0;
         }
-
-        .form-note i {
-            margin-right: var(--space-xs);
-            color: var(--color-success);
+        
+        /* ===== SEARCH FORM SECTION ===== */
+        .search-form-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-gray-100);
         }
-
-        .form-note a {
-            color: var(--color-primary);
-            text-decoration: none;
-        }
-
-        .form-note a:hover {
-            text-decoration: underline;
-        }
-
-        /* Guarantee Section */
-        .guarantee-section {
-            padding: var(--space-2xl) var(--space-md);
+        
+        .form-container {
             background: var(--color-white);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-2xl);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .form-header {
+            background: linear-gradient(135deg, var(--color-primary), #1b263b);
+            color: var(--color-white);
+            padding: var(--space-xl) var(--space-2xl);
             text-align: center;
         }
-
-        .guarantee-card {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-lg);
-            padding: var(--space-xl);
-            background: var(--color-gray-50);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--color-gray-200);
-            box-shadow: var(--shadow-md);
-            max-width: 800px;
+        
+        .form-header h2 {
+            color: var(--color-white);
+            margin-bottom: var(--space-sm);
         }
-
-        .guarantee-icon {
-            font-size: 3rem;
-            color: var(--color-primary);
+        
+        .form-body {
+            padding: var(--space-2xl);
         }
-
-        .guarantee-content h3 {
-            font-size: 1.5rem;
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
             margin-bottom: var(--space-sm);
             color: var(--color-gray-900);
         }
-
-        .guarantee-content p {
+        
+        .required::after {
+            content: ' *';
+            color: var(--color-emergency);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            font-size: 1rem;
+            font-family: var(--font-sans);
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            background: var(--color-white);
+            transition: all var(--transition-fast);
+            color: var(--color-gray-900);
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.2);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .input-hint {
+            font-size: 0.85rem;
             color: var(--color-gray-600);
-            margin: 0;
+            margin-top: var(--space-xs);
         }
-
-        /* Footer */
-        .site-footer {
-            background: var(--color-gray-900);
-            color: white;
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            margin-top: var(--space-sm);
         }
-
-        .footer-content {
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .checkbox-item input {
+            width: auto;
+        }
+        
+        .salary-input {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: var(--space-md);
+            align-items: center;
+        }
+        
+        .salary-input span {
             text-align: center;
-            padding: var(--space-2xl) 0;
-            border-top: 1px solid var(--color-gray-700);
+            color: var(--color-gray-600);
+            font-weight: 600;
         }
-
-        .footer-content p {
-            color: var(--color-gray-400);
+        
+        .naira-input {
+            position: relative;
+        }
+        
+        .naira-input::before {
+            content: '₦';
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 700;
+            color: var(--color-gray-700);
+            z-index: 1;
+        }
+        
+        .naira-input input {
+            padding-left: 2.5rem;
+        }
+        
+        .urgency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(230, 57, 70, 0.1);
+            color: var(--color-emergency);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-lg);
             font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: var(--space-xs);
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: var(--space-lg);
+            justify-content: center;
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--color-gray-200);
+        }
+        
+        /* ===== BENEFITS SECTION ===== */
+        .benefits-section {
+            padding: var(--space-3xl) var(--space-md);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .benefit-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+            text-align: center;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-accent);
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            font-size: 2rem;
+            color: var(--color-accent);
+        }
+        
+        /* ===== PROCESS SECTION ===== */
+        .process-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-gray-100);
+        }
+        
+        .process-timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: var(--color-gray-300);
+            z-index: 1;
+        }
+        
+        .process-step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .process-step-circle {
+            width: 80px;
+            height: 80px;
+            background: var(--color-white);
+            border: 4px solid var(--color-gray-300);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--color-gray-600);
+            margin: 0 auto var(--space-md);
+            transition: all var(--transition-normal);
+        }
+        
+        .process-step.active .process-step-circle {
+            border-color: var(--color-accent);
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+        
+        .process-step h4 {
+            margin-bottom: var(--space-xs);
+        }
+        
+        /* ===== URGENT SECTION ===== */
+        .urgent-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, #1b263b, var(--color-primary));
+            color: var(--color-white);
+            text-align: center;
+        }
+        
+        .urgent-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .urgent-container h2 {
+            color: var(--color-white);
+            margin-bottom: var(--space-md);
+        }
+        
+        .urgent-container .lead {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .urgent-features {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2xl);
+            margin: var(--space-xl) 0;
+            flex-wrap: wrap;
+        }
+        
+        .urgent-feature {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .urgent-icon {
+            font-size: 2.5rem;
+            color: var(--color-accent);
             margin-bottom: var(--space-sm);
         }
-
-        .footer-content a {
-            color: var(--color-gray-400);
-            text-decoration: none;
-            margin: 0 var(--space-sm);
-        }
-
-        .footer-content a:hover {
+        
+        .urgent-feature h4 {
             color: var(--color-white);
+            margin-bottom: var(--space-xs);
+        }
+        
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--space-3xl) var(--space-md) var(--space-xl);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .footer-column h3 {
+            color: var(--color-white);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+        
+        .footer-contact {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-contact p {
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--space-xl);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            margin: var(--space-md) 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: var(--color-accent);
             text-decoration: underline;
         }
-
-        /* Responsive Design */
+        
+        /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 1024px) {
-            .quick-start-options,
-            .search-types-grid,
-            .urgency-selector {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .hero-title {
-                font-size: 2.8rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .main-nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                padding: var(--space-xl);
-                transition: right 0.3s ease;
-                overflow-y: auto;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            }
-
-            .main-nav.active {
-                right: 0;
-            }
-
-            .quick-start-options,
-            .search-types-grid,
-            .urgency-selector {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
             .form-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.25rem; }
+        }
+        
+        @media (max-width: 768px) {
+            /* Mobile Navigation */
+            .header-container {
+                flex-wrap: wrap;
                 gap: var(--space-md);
             }
             
-            .guarantee-card {
-                flex-direction: column;
-                text-align: center;
-                gap: var(--space-md);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
+            .logo h1 {
                 font-size: 1.8rem;
             }
             
-            .section-title {
-                font-size: 1.75rem;
+            .logo-tagline {
+                font-size: 0.65rem;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--color-white);
+                flex-direction: column;
+                padding: var(--space-3xl) var(--space-xl) var(--space-xl);
+                transition: left 0.3s ease;
+                overflow-y: auto;
+                z-index: 1000;
+            }
+            
+            .main-nav.active {
+                left: 0;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 1.125rem 0;
+                border-bottom: 1px solid var(--color-gray-200);
+                width: 100%;
+                font-size: 1.1rem;
+            }
+            
+            .nav-link.active::after {
+                display: none;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding-left: var(--space-md);
+                display: none;
+                background: var(--color-gray-100);
+                border-radius: var(--radius-md);
+                margin-top: var(--space-xs);
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .nav-cta-group {
+                flex-direction: column;
+                width: 100%;
+                margin-top: var(--space-xl);
+            }
+            
+            .nav-cta {
+                width: 100%;
+                justify-content: center;
+                padding: 1.25rem 1.75rem !important;
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .mobile-overlay.active {
+                display: block;
+            }
+            
+            /* Mobile Content */
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            
+            .search-hero::before {
+                width: 100%;
+                opacity: 0.2;
+            }
+            
+            .search-hero-steps {
+                flex-direction: column;
+                gap: var(--space-lg);
+            }
+            
+            .process-timeline {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-timeline::before {
+                display: none;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+            
+            .salary-input {
+                grid-template-columns: 1fr;
+                gap: var(--space-sm);
+            }
+            
+            .salary-input span {
+                display: none;
             }
         }
-
-        /* Animation Classes */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
+        
+        @media (max-width: 480px) {
+            .form-body {
+                padding: var(--space-xl) var(--space-lg);
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .urgent-features {
+                flex-direction: column;
+                gap: var(--space-lg);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-
-    <!-- Google Tag Manager & GA4 -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXX');</script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SF5LWDZDKF"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SF5LWDZDKF');</script>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
-    <!-- Announcement Bar -->
-    <div class="announcement">
-        <div class="pulse"></div>
-        <div class="announcement-content">
-            <strong>🚀 Ready to Start Your Search?</strong> Submit your search request and receive a call within 2 business hours.
-            <a href="#search-form">Start Now →</a>
-        </div>
-    </div>
-
     <!-- SITE HEADER -->
     <header class="site-header">
-        <div class="container header-container">
-            <div class="logo">
-                <a href="/" aria-label="HospitalityRecruit Home">
-                    <h1><i class="fas fa-hotel"></i> HospitalityRecruit</h1>
-                    <span class="logo-tagline">EXECUTIVE SEARCH</span>
-                </a>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="/" aria-label="Jobpitality Home">
+                        <h1><i class="fas fa-bolt"></i> <span class="brand-name">JOBPITALITY</span></h1>
+                        <span class="logo-tagline">THE RUTHLESS TALENT PARTNER</span>
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="main-nav" id="mainNav">
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/services/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-crosshairs"></i> Precision Search
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/services/executive-search/" class="dropdown-item">
+                                    <i class="fas fa-search"></i> Executive Search
+                                </a>
+                                <a href="/services/hotel-leadership/" class="dropdown-item">
+                                    <i class="fas fa-hotel"></i> Hotel Leadership
+                                </a>
+                                <a href="/services/culinary-leadership/" class="dropdown-item">
+                                    <i class="fas fa-utensils"></i> Culinary Leadership
+                                </a>
+                                <a href="/services/management-teams/" class="dropdown-item">
+                                    <i class="fas fa-users"></i> Management Teams
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/services/guarantee/" class="dropdown-item" style="color: var(--color-accent); font-weight: 700;">
+                                    <i class="fas fa-shield-alt"></i> 72-Hour Guarantee
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/employers/" class="nav-link dropdown-toggle active">
+                                <i class="fas fa-building"></i> For Employers
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/employers/our-process/" class="dropdown-item">
+                                    <i class="fas fa-play-circle"></i> Our Process
+                                </a>
+                                <a href="/employers/roi-calculator/" class="dropdown-item">
+                                    <i class="fas fa-calculator"></i> ROI Calculator
+                                </a>
+                                <a href="/employers/industry-expertise/" class="dropdown-item">
+                                    <i class="fas fa-star"></i> Why We're Different
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/employers/start-search/" class="dropdown-item">
+                                    <i class="fas fa-rocket"></i> Start a Search
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/candidates/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-user-tie"></i> For Talent
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/candidates/submit-profile/" class="dropdown-item">
+                                    <i class="fas fa-file-upload"></i> Submit Your Profile
+                                </a>
+                                <a href="/candidates/elite-opportunities/" class="dropdown-item">
+                                    <i class="fas fa-briefcase"></i> Elite Opportunities
+                                </a>
+                                <a href="/candidates/career-advice/" class="dropdown-item">
+                                    <i class="fas fa-graduation-cap"></i> Career Strategy
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/candidates/confidentiality/" class="dropdown-item">
+                                    <i class="fas fa-user-secret"></i> Confidential Process
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="/case-studies/" class="nav-link">
+                                <i class="fas fa-chart-line"></i> Results
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/insights/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-lightbulb"></i> Insights
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/insights/blog/" class="dropdown-item">
+                                    <i class="fas fa-blog"></i> Blog
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="/about/" class="nav-link">
+                                <i class="fas fa-info-circle"></i> About
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="nav-cta-group">
+                        <a href="#search-form" class="nav-cta nav-cta-emergency">
+                            <i class="fas fa-search-plus"></i> Start a Search
+                        </a>
+                        <a href="tel:+2348039661354" class="nav-cta">
+                            <i class="fas fa-phone"></i> +234 803 966 1354
+                        </a>
+                    </div>
+                </nav>
             </div>
-            
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <nav class="main-nav">
-                <a href="/services/">Services</a>
-                <a href="/employers/" class="active">Employers</a>
-                <a href="/employers/client-process/">Our Process</a>
-                <a href="/employers/industry-expertise/">Expertise</a>
-                <a href="/case-studies/">Case Studies</a>
-                <a href="tel:+15551234567" class="nav-cta">Call Us</a>
-            </nav>
         </div>
+        <div class="mobile-overlay" id="mobileOverlay"></div>
     </header>
 
-    <!-- HERO: Start Your Search -->
-    <section class="hero-start-search">
-        <div class="container">
-            <div class="hero-content">
-                <div class="search-badge">
-                    <i class="fas fa-rocket"></i> START YOUR SEARCH
-                </div>
-                <h1 class="hero-title">Find Exceptional Hospitality Talent.<br><span class="hero-highlight">Start Your Search Today.</span></h1>
-                <p class="hero-subtitle">Complete the form below to begin your precision talent search. A senior consultant will contact you within 2 business hours for your free discovery call.</p>
-                
-                <!-- Quick Start Options -->
-                <div class="quick-start-options">
-                    <div class="quick-option animate-on-scroll">
-                        <div class="quick-option-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <h3>Call Immediately</h3>
-                        <p>Speak directly with a senior consultant right now.</p>
-                        <a href="tel:+15551234567" class="btn-option">
-                            <i class="fas fa-phone"></i> Call Now
-                        </a>
-                    </div>
-                    
-                    <div class="quick-option animate-on-scroll">
-                        <div class="quick-option-icon">
-                            <i class="fas fa-comment-dots"></i>
-                        </div>
-                        <h3>Schedule a Call</h3>
-                        <p>Book a 30-minute discovery call at your convenience.</p>
-                        <a href="#search-form" class="btn-option">
-                            <i class="fas fa-calendar"></i> Schedule Call
-                        </a>
-                    </div>
-                    
-                    <div class="quick-option animate-on-scroll">
-                        <div class="quick-option-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Email Us First</h3>
-                        <p>Send details and we'll prepare before our call.</p>
-                        <a href="mailto:search@hospitalityrecruit.com?subject=New%20Search%20Request" class="btn-option">
-                            <i class="fas fa-paper-plane"></i> Email Now
-                        </a>
-                    </div>
-                </div>
+    <!-- ===== SEARCH HERO SECTION ===== -->
+    <section class="search-hero">
+        <div class="container search-hero-content">
+            <div class="search-hero-badge">
+                <i class="fas fa-search-plus"></i>
+                Begin Your Talent Search
             </div>
-        </div>
-    </section>
-
-    <!-- SEARCH TYPES -->
-    <section class="search-types-section">
-        <div class="container">
-            <h2 class="section-title">Choose Your Search Type</h2>
-            <p class="section-subtitle">Select the service that matches your hiring needs. All searches include our 90-Day Placement Guarantee.</p>
             
-            <div class="search-types-grid">
-                <div class="search-type-card animate-on-scroll">
-                    <div class="search-type-header">
-                        <h3><i class="fas fa-user-tie"></i> Executive Search</h3>
-                    </div>
-                    <div class="search-type-content">
-                        <ul class="search-type-features">
-                            <li><i class="fas fa-check"></i> GM, Director & Head Chef roles</li>
-                            <li><i class="fas fa-check"></i> Fully managed process</li>
-                            <li><i class="fas fa-check"></i> Deep market mapping</li>
-                            <li><i class="fas fa-check"></i> Extensive vetting & assessment</li>
-                            <li><i class="fas fa-check"></i> 6-8 week average timeline</li>
-                        </ul>
-                        <div class="search-type-price">
-                            <div class="price-amount">20-25%</div>
-                            <div class="price-note">of first year's salary</div>
-                        </div>
+            <h1>Start Your <span class="highlight">Specialized Hospitality</span> Search</h1>
+            <p class="lead">Complete this form to initiate your executive search with Jobpitality Nigeria. Our hospitality specialists will contact you within 24 hours to discuss your requirements.</p>
+            
+            <div class="search-hero-steps">
+                <div class="search-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Submit Requirements</h4>
+                        <p>Complete our detailed search form below</p>
                     </div>
                 </div>
-                
-                <div class="search-type-card animate-on-scroll">
-                    <div class="search-type-header" style="background: linear-gradient(135deg, var(--color-success), #047857);">
-                        <h3><i class="fas fa-hotel"></i> Operational Staffing</h3>
-                    </div>
-                    <div class="search-type-content">
-                        <ul class="search-type-features">
-                            <li><i class="fas fa-check"></i> Department Heads & Supervisors</li>
-                            <li><i class="fas fa-check"></i> Hotel operations teams</li>
-                            <li><i class="fas fa-check"></i> Multi-role placements</li>
-                            <li><i class="fas fa-check"></i> Bulk hiring packages</li>
-                            <li><i class="fas fa-check"></i> 4-6 week average timeline</li>
-                        </ul>
-                        <div class="search-type-price">
-                            <div class="price-amount">15-20%</div>
-                            <div class="price-note">per hire (team discounts)</div>
-                        </div>
+                <div class="search-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Strategy Session</h4>
+                        <p>24-hour consultation with our hospitality experts</p>
                     </div>
                 </div>
-                
-                <div class="search-type-card animate-on-scroll">
-                    <div class="search-type-header" style="background: linear-gradient(135deg, var(--color-warning), #d97706);">
-                        <h3><i class="fas fa-utensils"></i> F&B Staffing</h3>
-                    </div>
-                    <div class="search-type-content">
-                        <ul class="search-type-features">
-                            <li><i class="fas fa-check"></i> Restaurant & bar teams</li>
-                            <li><i class="fas fa-check"></i> Chefs, servers, bartenders</li>
-                            <li><i class="fas fa-check"></i> Emergency staffing option</li>
-                            <li><i class="fas fa-check"></i> Temp-to-perm available</li>
-                            <li><i class="fas fa-check"></i> 2-4 week average timeline</li>
-                        </ul>
-                        <div class="search-type-price">
-                            <div class="price-amount">$30-50/hr</div>
-                            <div class="price-note">or 18-22% placement fee</div>
-                        </div>
+                <div class="search-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Talent Identification</h4>
+                        <p>Access to our exclusive hospitality network</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MAIN SEARCH FORM -->
-    <section id="search-form" class="search-form-section">
+    <!-- ===== SEARCH FORM SECTION ===== -->
+    <section class="search-form-section" id="search-form">
         <div class="container">
             <div class="form-container">
                 <div class="form-header">
-                    <h2>Start Your Search Request</h2>
-                    <p>Complete this form and a senior consultant will contact you within 2 business hours.</p>
+                    <h2>Hospitality Search Requirements</h2>
+                    <p class="lead">Please provide detailed information about your talent needs</p>
                 </div>
                 
                 <div class="form-body">
-                    <form id="start-search-form">
-                        <!-- Basic Information -->
+                    <form id="searchForm">
                         <div class="form-grid">
+                            <!-- Company Information -->
                             <div class="form-group">
-                                <label for="first-name">First Name <span class="required">*</span></label>
-                                <input type="text" id="first-name" name="first_name" required>
+                                <label for="companyName" class="required">Company/Property Name</label>
+                                <input type="text" id="companyName" name="companyName" required placeholder="e.g., Luxury Suites Lagos">
                             </div>
+                            
                             <div class="form-group">
-                                <label for="last-name">Last Name <span class="required">*</span></label>
-                                <input type="text" id="last-name" name="last_name" required>
+                                <label for="contactPerson" class="required">Contact Person</label>
+                                <input type="text" id="contactPerson" name="contactPerson" required placeholder="Full name">
                             </div>
-                        </div>
-                        
-                        <div class="form-grid">
+                            
                             <div class="form-group">
-                                <label for="title">Job Title <span class="required">*</span></label>
-                                <input type="text" id="title" name="title" placeholder="e.g., GM, Owner, HR Director" required>
+                                <label for="jobTitle" class="required">Your Job Title</label>
+                                <input type="text" id="jobTitle" name="jobTitle" required placeholder="e.g., HR Director, General Manager">
                             </div>
+                            
                             <div class="form-group">
-                                <label for="company">Company/Property Name <span class="required">*</span></label>
-                                <input type="text" id="company" name="company" required>
+                                <label for="email" class="required">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="you@company.com">
                             </div>
-                        </div>
-                        
-                        <div class="form-grid">
+                            
                             <div class="form-group">
-                                <label for="email">Email <span class="required">*</span></label>
-                                <input type="email" id="email" name="email" required>
+                                <label for="phone" class="required">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+234 XXX XXX XXXX">
                             </div>
+                            
                             <div class="form-group">
-                                <label for="phone">Phone <span class="required">*</span></label>
-                                <input type="tel" id="phone" name="phone" required>
+                                <label for="propertyType">Property Type</label>
+                                <select id="propertyType" name="propertyType">
+                                    <option value="">Select Property Type</option>
+                                    <option value="luxury_hotel">Luxury Hotel</option>
+                                    <option value="boutique_hotel">Boutique Hotel</option>
+                                    <option value="resort">Resort</option>
+                                    <option value="fine_dining">Fine Dining Restaurant</option>
+                                    <option value="restaurant_group">Restaurant Group</option>
+                                    <option value="private_club">Private Club</option>
+                                    <option value="event_venue">Event Venue</option>
+                                    <option value="hospitality_group">Hospitality Group</option>
+                                    <option value="other">Other</option>
+                                </select>
                             </div>
-                        </div>
-                        
-                        <!-- Search Details -->
-                        <div class="form-group">
-                            <label>What type of role(s) are you hiring for? <span class="required">*</span></label>
-                            <select id="role-type" name="role_type" required>
-                                <option value="">Select role type...</option>
-                                <option value="executive">Executive (GM, Director, Head Chef)</option>
-                                <option value="management">Management (Department Head, Supervisor)</option>
-                                <option value="operational">Operational (Front Desk, Housekeeping, etc.)</option>
-                                <option value="fb">F&B (Chef, Server, Bartender, etc.)</option>
-                                <option value="multiple">Multiple Roles / Team Building</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>How urgent is this search? <span class="required">*</span></label>
-                            <div class="urgency-selector">
-                                <div class="urgency-option" data-urgency="emergency">
-                                    <div class="urgency-icon">
-                                        <i class="fas fa-bolt"></i>
+                            
+                            <!-- Position Details -->
+                            <div class="form-group full-width">
+                                <h3 style="margin-bottom: var(--space-lg); color: var(--color-primary);">Position Details</h3>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="positionTitle" class="required">Position Title</label>
+                                <select id="positionTitle" name="positionTitle" required>
+                                    <option value="">Select Position</option>
+                                    <option value="general_manager">General Manager / Hotel Manager</option>
+                                    <option value="operations_director">Director of Operations</option>
+                                    <option value="sales_director">Director of Sales & Marketing</option>
+                                    <option value="f&b_director">Food & Beverage Director</option>
+                                    <option value="executive_chef">Executive Chef</option>
+                                    <option value="rooms_division">Rooms Division Manager</option>
+                                    <option value="hr_director">HR Director / Manager</option>
+                                    <option value="finance_director">Finance Director / Controller</option>
+                                    <option value="revenue_manager">Revenue Manager</option>
+                                    <option value="spa_director">Spa & Wellness Director</option>
+                                    <option value="event_manager">Event & Catering Manager</option>
+                                    <option value="other_executive">Other Executive Role</option>
+                                    <option value="other_management">Other Management Role</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="positionLevel">Position Level</label>
+                                <select id="positionLevel" name="positionLevel">
+                                    <option value="">Select Level</option>
+                                    <option value="c_suite">C-Suite / Executive</option>
+                                    <option value="senior_management">Senior Management</option>
+                                    <option value="middle_management">Middle Management</option>
+                                    <option value="supervisory">Supervisory</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="employmentType">Employment Type</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="radio" id="fullTime" name="employmentType" value="full_time" checked>
+                                        <label for="fullTime">Full-time</label>
                                     </div>
-                                    <div class="urgency-title">Emergency</div>
-                                    <div class="urgency-desc">Need staff in 7 days or less</div>
-                                </div>
-                                <div class="urgency-option" data-urgency="urgent">
-                                    <div class="urgency-icon">
-                                        <i class="fas fa-clock"></i>
+                                    <div class="checkbox-item">
+                                        <input type="radio" id="contract" name="employmentType" value="contract">
+                                        <label for="contract">Contract</label>
                                     </div>
-                                    <div class="urgency-title">Urgent</div>
-                                    <div class="urgency-desc">Need staff in 2-4 weeks</div>
-                                </div>
-                                <div class="urgency-option" data-urgency="planned">
-                                    <div class="urgency-icon">
-                                        <i class="fas fa-calendar-alt"></i>
+                                    <div class="checkbox-item">
+                                        <input type="radio" id="temporary" name="employmentType" value="temporary">
+                                        <label for="temporary">Temporary</label>
                                     </div>
-                                    <div class="urgency-title">Planned</div>
-                                    <div class="urgency-desc">Proactive hiring for future needs</div>
                                 </div>
                             </div>
-                            <input type="hidden" id="urgency" name="urgency" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="position-title">Position Title(s) Needed <span class="required">*</span></label>
-                            <input type="text" id="position-title" name="position_title" placeholder="e.g., Executive Chef, Restaurant Manager, 4 Servers" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="search-details">Tell us about your search <span class="required">*</span></label>
-                            <textarea id="search-details" name="search_details" rows="4" placeholder="Please include: Brief company/property description, ideal candidate profile, timeline, budget if known, and any specific challenges..." required></textarea>
-                        </div>
-                        
-                        <!-- File Upload -->
-                        <div class="form-group">
-                            <label>Upload Job Description (Optional)</label>
-                            <div class="file-upload" id="file-upload-area">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                <p>Drag & drop job description or click to browse</p>
-                                <p style="font-size: 0.85rem; color: var(--color-gray-500);">PDF, DOC, DOCX up to 5MB</p>
-                                <input type="file" id="job-description" name="job_description" class="file-input" accept=".pdf,.doc,.docx">
+                            
+                            <div class="form-group">
+                                <label for="location">Location (City, Nigeria)</label>
+                                <input type="text" id="location" name="location" placeholder="e.g., Lagos, Abuja, Port Harcourt">
                             </div>
-                            <div id="file-name" style="margin-top: var(--space-sm); font-size: 0.9rem; color: var(--color-gray-600);"></div>
+                            
+                            <!-- Compensation -->
+                            <div class="form-group full-width">
+                                <label for="salaryRange">Expected Salary Range (₦ per annum)</label>
+                                <div class="salary-input">
+                                    <div class="naira-input">
+                                        <input type="number" id="salaryMin" name="salaryMin" placeholder="Minimum" min="0" step="100000">
+                                    </div>
+                                    <span>to</span>
+                                    <div class="naira-input">
+                                        <input type="number" id="salaryMax" name="salaryMax" placeholder="Maximum" min="0" step="100000">
+                                    </div>
+                                </div>
+                                <p class="input-hint">Typical ranges: Executive ₦15-50M, Management ₦5-20M, Supervisory ₦2-8M</p>
+                            </div>
+                            
+                            <!-- Requirements & Timeline -->
+                            <div class="form-group">
+                                <label for="startDate">Desired Start Date</label>
+                                <input type="date" id="startDate" name="startDate">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="urgency">Search Urgency</label>
+                                <select id="urgency" name="urgency">
+                                    <option value="standard">Standard (4-8 weeks)</option>
+                                    <option value="urgent">Urgent (2-4 weeks)</option>
+                                    <option value="critical">Critical (1-2 weeks)</option>
+                                </select>
+                                <div class="urgency-badge" id="urgencyBadge" style="display: none;">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Urgent searches receive priority attention</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Special Requirements (Select all that apply)</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="international_exp" name="specialRequirements" value="international_exp">
+                                        <label for="international_exp">International Experience</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="language_skills" name="specialRequirements" value="language_skills">
+                                        <label for="language_skills">Multiple Languages</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="brand_specific" name="specialRequirements" value="brand_specific">
+                                        <label for="brand_specific">Brand-Specific Experience</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="preopening_exp" name="specialRequirements" value="preopening_exp">
+                                        <label for="preopening_exp">Pre-Opening Experience</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="turnaround_exp" name="specialRequirements" value="turnaround_exp">
+                                        <label for="turnaround_exp">Turnaround Experience</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Detailed Requirements -->
+                            <div class="form-group full-width">
+                                <label for="positionDescription" class="required">Position Description & Key Responsibilities</label>
+                                <textarea id="positionDescription" name="positionDescription" required placeholder="Please describe the role, key responsibilities, reporting structure, and challenges..."></textarea>
+                                <p class="input-hint">Detailed descriptions help us identify the most suitable candidates</p>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="idealCandidate">Ideal Candidate Profile</label>
+                                <textarea id="idealCandidate" name="idealCandidate" placeholder="Describe the ideal candidate's experience, skills, personality traits, and qualifications..."></textarea>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="additionalInfo">Additional Information / Special Instructions</label>
+                                <textarea id="additionalInfo" name="additionalInfo" placeholder="Any additional information about your company culture, specific requirements, or hiring process..."></textarea>
+                            </div>
                         </div>
                         
-                        <!-- Submit Button -->
-                        <button type="submit" class="btn-submit">
-                            <i class="fas fa-paper-plane"></i> Submit Search Request
-                        </button>
-                        
-                        <p class="form-note">
-                            <i class="fas fa-lock"></i> Your information is confidential. By submitting, you agree to our 
-                            <a href="/legal/privacy-policy/">Privacy Policy</a>. No obligation until you sign our search agreement.
-                        </p>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Search Request
+                            </button>
+                            <button type="button" id="saveDraft" class="btn btn-outline btn-large">
+                                <i class="fas fa-save"></i>
+                                Save as Draft
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GUARANTEE SECTION -->
-    <section class="guarantee-section">
+    <!-- ===== BENEFITS SECTION ===== -->
+    <section class="benefits-section">
         <div class="container">
-            <div class="guarantee-card">
-                <div class="guarantee-icon">
-                    <i class="fas fa-shield-alt"></i>
+            <div class="text-center">
+                <h2>Why Start Your Search <span class="text-gradient">With Jobpitality</span></h2>
+                <p class="lead">Our specialized approach delivers superior results for Nigeria's hospitality industry</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Exclusive Hospitality Network</h3>
+                    <p>Access to Nigeria's most extensive network of premium hospitality professionals, including passive candidates not actively looking.</p>
                 </div>
-                <div class="guarantee-content">
-                    <h3>90-Day Placement Guarantee</h3>
-                    <p>Every search includes our 90-Day Guarantee. If your new hire doesn't work out within 90 days, we'll find a replacement at no additional cost. No questions asked.</p>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>Industry-Specific Vetting</h3>
+                    <p>Our consultants have hospitality operational experience, allowing nuanced evaluation beyond resumes to assess true service mentality.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>94% Retention Rate</h3>
+                    <p>Our specialized matching results in 94% retention at 2 years vs. industry average of 70%, reducing turnover costs significantly.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ===== PROCESS SECTION ===== -->
+    <section class="process-section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Our <span class="text-gradient">Search Process</span></h2>
+                <p class="lead">A structured, transparent approach to finding your ideal hospitality talent</p>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="process-step active">
+                    <div class="process-step-circle">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h4>1. Requirements Analysis</h4>
+                    <p>24-hour consultation to understand your specific needs, culture, and challenges</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-step-circle">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4>2. Targeted Search</h4>
+                    <p>Proactive identification and approach of suitable candidates from our network</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-step-circle">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h4>3. Rigorous Screening</h4>
+                    <p>Hospitality-specific assessment including technical skills and cultural fit</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-step-circle">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4>4. Presentation & Support</h4>
+                    <p>Candidate presentation, interview coordination, and offer negotiation support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== URGENT SECTION ===== -->
+    <section class="urgent-section">
+        <div class="container urgent-container">
+            <h2>Need to Fill a Position <span class="highlight">Urgently?</span></h2>
+            <p class="lead">For critical vacancies that require immediate attention, our Priority Search Service delivers results faster.</p>
+            
+            <div class="urgent-features">
+                <div class="urgent-feature">
+                    <div class="urgent-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>48-Hour Response</h4>
+                    <p>Initial candidate shortlist within 48 hours</p>
+                </div>
+                
+                <div class="urgent-feature">
+                    <div class="urgent-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Priority Attention</h4>
+                    <p>Dedicated senior consultant assigned to your search</p>
+                </div>
+                
+                <div class="urgent-feature">
+                    <div class="urgent-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>Accelerated Timeline</h4>
+                    <p>Complete search process in 2-4 weeks</p>
+                </div>
+            </div>
+            
+            <a href="tel:+2348039661354" class="btn btn-emergency btn-large">
+                <i class="fas fa-phone-alt"></i>
+                Call for Urgent Search: +234 803 966 1354
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2024 HospitalityRecruit. Precision Hospitality Recruitment Since 2010.</p>
-                <p>
-                    <a href="/privacy-policy/">Privacy Policy</a> | 
-                    <a href="/terms-of-service/">Terms of Service</a> |
-                    <a href="/sitemap.xml">Sitemap</a>
-                </p>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Jobpitality Nigeria</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-md);">Nigeria's exclusive hospitality talent partner. Specializing in luxury hotels, fine dining, and premium hospitality recruitment across Nigeria.</p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> +234 803 966 1354</p>
+                        <p><i class="fas fa-envelope"></i> info@jobpitality.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Lagos, Abuja, Port Harcourt</p>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>For Employers</h3>
+                    <ul class="footer-links">
+                        <li><a href="#search-form"><i class="fas fa-chevron-right"></i> Start a Search</a></li>
+                        <li><a href="/employers/services/"><i class="fas fa-chevron-right"></i> Services & Process</a></li>
+                        <li><a href="/employers/industry-expertise/"><i class="fas fa-chevron-right"></i> Industry Expertise</a></li>
+                        <li><a href="/employers/roi-calculator/"><i class="fas fa-chevron-right"></i> ROI Calculator</a></li>
+                        <li><a href="/contact/"><i class="fas fa-chevron-right"></i> Employer Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>For Candidates</h3>
+                    <ul class="footer-links">
+                        <li><a href="/candidates/jobs/"><i class="fas fa-chevron-right"></i> Find Hospitality Jobs</a></li>
+                        <li><a href="/candidates/submit-resume/"><i class="fas fa-chevron-right"></i> Submit Your Resume</a></li>
+                        <li><a href="/candidates/career-advice/"><i class="fas fa-chevron-right"></i> Hospitality Career Advice</a></li>
+                        <li><a href="/candidates/interview-prep/"><i class="fas fa-chevron-right"></i> Interview Preparation</a></li>
+                        <li><a href="/candidates/contact/"><i class="fas fa-chevron-right"></i> Candidate Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-links">
+                    <a href="/privacy/">Privacy Policy</a>
+                    <a href="/terms/">Terms of Service</a>
+                    <a href="/cookies/">Cookie Policy</a>
+                    <a href="/accessibility/">Accessibility</a>
+                </div>
+                <p>&copy; 2023 Jobpitality Nigeria. All rights reserved. Jobpitality is Nigeria's exclusive talent partner for luxury hospitality.</p>
+                <p style="margin-top: var(--space-sm); font-size: 0.8rem; color: rgba(255, 255, 255, 0.5);">We specialize where others generalize. 100% hospitality focus in Nigeria.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // Mobile Menu Toggle
-        const mobileToggle = document.querySelector('.mobile-menu-toggle');
-        const mainNav = document.querySelector('.main-nav');
-
-        mobileToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            const icon = mobileToggle.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.main-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('active');
-                mobileToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
-            });
-        });
-
-        // Urgency Selector
-        const urgencyOptions = document.querySelectorAll('.urgency-option');
-        const urgencyInput = document.getElementById('urgency');
-
-        urgencyOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                // Remove selected class from all options
-                urgencyOptions.forEach(opt => opt.classList.remove('selected'));
+        document.addEventListener('DOMContentLoaded', function() {
+            // MOBILE NAVIGATION TOGGLE - FIXED
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mainNav = document.getElementById('mainNav');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            
+            // Mobile menu toggle
+            if (mobileMenuToggle && mainNav && mobileOverlay) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    mobileOverlay.classList.toggle('active');
+                    document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+                    
+                    // Change icon
+                    const icon = this.querySelector('i');
+                    if (mainNav.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
                 
-                // Add selected class to clicked option
-                option.classList.add('selected');
+                // Close menu when clicking overlay
+                mobileOverlay.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    this.classList.remove('active');
+                    document.body.style.overflow = '';
+                    mobileMenuToggle.querySelector('i').classList.remove('fa-times');
+                    mobileMenuToggle.querySelector('i').classList.add('fa-bars');
+                });
                 
-                // Set hidden input value
-                urgencyInput.value = option.dataset.urgency;
-            });
-        });
-
-        // File Upload
-        const fileUploadArea = document.getElementById('file-upload-area');
-        const fileInput = document.getElementById('job-description');
-        const fileName = document.getElementById('file-name');
-
-        fileUploadArea.addEventListener('click', () => {
-            fileInput.click();
-        });
-
-        fileUploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            fileUploadArea.style.borderColor = 'var(--color-primary)';
-            fileUploadArea.style.background = 'var(--color-gray-50)';
-        });
-
-        fileUploadArea.addEventListener('dragleave', () => {
-            fileUploadArea.style.borderColor = 'var(--color-gray-300)';
-            fileUploadArea.style.background = 'var(--color-white)';
-        });
-
-        fileUploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            fileUploadArea.style.borderColor = 'var(--color-gray-300)';
-            fileUploadArea.style.background = 'var(--color-white)';
-            
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                handleFileSelection(files[0]);
-            }
-        });
-
-        fileInput.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                handleFileSelection(e.target.files[0]);
-            }
-        });
-
-        function handleFileSelection(file) {
-            // Check file size (5MB max)
-            if (file.size > 5 * 1024 * 1024) {
-                alert('File size must be less than 5MB');
-                return;
-            }
-            
-            // Check file type
-            const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-            if (!validTypes.includes(file.type)) {
-                alert('Please upload a PDF, DOC, or DOCX file');
-                return;
-            }
-            
-            // Display file name
-            fileName.textContent = `Selected: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
-            fileName.style.color = 'var(--color-success)';
-        }
-
-        // Form Submission
-        document.getElementById('start-search-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Validate urgency selection
-            if (!urgencyInput.value) {
-                alert('Please select how urgent your search is');
-                return;
-            }
-            
-            // Get form data
-            const formData = new FormData(this);
-            
-            // Track conversion
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'generate_lead', {
-                    'event_category': 'Start Search Page',
-                    'event_label': 'Search Request - ' + formData.get('role_type'),
-                    'value': 1
+                // Close menu when clicking a nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth <= 768) {
+                            mainNav.classList.remove('active');
+                            mobileOverlay.classList.remove('active');
+                            document.body.style.overflow = '';
+                            mobileMenuToggle.querySelector('i').classList.remove('fa-times');
+                            mobileMenuToggle.querySelector('i').classList.add('fa-bars');
+                        }
+                    });
                 });
             }
             
-            // Show success message
-            const phone = formData.get('phone');
-            alert(`Thank you, ${formData.get('first_name')}! Your search request has been submitted. A senior consultant will call you at ${phone} within 2 business hours.`);
+            // SEARCH FORM FUNCTIONALITY - FIXED
+            const searchForm = document.getElementById('searchForm');
+            const urgencySelect = document.getElementById('urgency');
+            const urgencyBadge = document.getElementById('urgencyBadge');
+            const saveDraftBtn = document.getElementById('saveDraft');
             
-            // Reset form
-            this.reset();
-            urgencyOptions.forEach(opt => opt.classList.remove('selected'));
-            urgencyInput.value = '';
-            fileName.textContent = '';
+            if (urgencySelect && urgencyBadge) {
+                // Show urgency badge when urgent or critical is selected
+                urgencySelect.addEventListener('change', function() {
+                    if (this.value === 'urgent' || this.value === 'critical') {
+                        urgencyBadge.style.display = 'inline-flex';
+                        if (this.value === 'critical') {
+                            urgencyBadge.innerHTML = '<i class="fas fa-bolt"></i><span>CRITICAL: We will contact you within 2 hours</span>';
+                        } else {
+                            urgencyBadge.innerHTML = '<i class="fas fa-bolt"></i><span>Urgent searches receive priority attention</span>';
+                        }
+                    } else {
+                        urgencyBadge.style.display = 'none';
+                    }
+                });
+            }
             
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Scroll Animation
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.animate-on-scroll');
-            const triggerBottom = window.innerHeight * 0.85;
+            // Set minimum date for start date to today
+            const startDateInput = document.getElementById('startDate');
+            if (startDateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                startDateInput.min = today;
+                
+                // Set default start date to 30 days from now
+                const defaultStartDate = new Date();
+                defaultStartDate.setDate(defaultStartDate.getDate() + 30);
+                startDateInput.value = defaultStartDate.toISOString().split('T')[0];
+            }
             
-            elements.forEach((element, index) => {
-                const elementTop = element.getBoundingClientRect().top;
-                
-                if (elementTop < triggerBottom) {
-                    // Stagger the animation
-                    setTimeout(() => {
-                        element.classList.add('visible');
-                    }, index * 150);
-                }
-            });
-        }
-
-        // Set initial state
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            el.classList.remove('visible');
-        });
-
-        // Run on load and scroll
-        window.addEventListener('load', animateOnScroll);
-        window.addEventListener('scroll', animateOnScroll);
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
+            // Form submission
+            if (searchForm) {
+                searchForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Basic validation
+                    const requiredFields = searchForm.querySelectorAll('[required]');
+                    let isValid = true;
+                    let firstInvalidField = null;
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.style.borderColor = 'var(--color-emergency)';
+                            
+                            if (!firstInvalidField) {
+                                firstInvalidField = field;
+                            }
+                        } else {
+                            field.style.borderColor = '';
+                        }
                     });
                     
-                    // Close mobile menu if open
-                    if (mainNav.classList.contains('active')) {
-                        mainNav.classList.remove('active');
-                        mobileToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                    // Salary validation
+                    const salaryMin = document.getElementById('salaryMin');
+                    const salaryMax = document.getElementById('salaryMax');
+                    
+                    if (salaryMin && salaryMax && salaryMin.value && salaryMax.value && parseInt(salaryMin.value) > parseInt(salaryMax.value)) {
+                        alert('Minimum salary cannot be higher than maximum salary');
+                        salaryMin.style.borderColor = 'var(--color-emergency)';
+                        salaryMax.style.borderColor = 'var(--color-emergency)';
+                        isValid = false;
+                    }
+                    
+                    if (!isValid) {
+                        alert('Please fill in all required fields (marked with *)');
+                        if (firstInvalidField) {
+                            firstInvalidField.focus();
+                        }
+                        return;
+                    }
+                    
+                    // Show loading state
+                    const submitBtn = searchForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate form submission
+                    setTimeout(() => {
+                        // In a real implementation, this would be an AJAX call to your server
+                        alert('Thank you for submitting your search request! Our hospitality specialists will contact you within 24 hours.');
+                        
+                        // Reset form
+                        searchForm.reset();
+                        
+                        // Reset start date to default
+                        if (startDateInput) {
+                            const defaultStartDate = new Date();
+                            defaultStartDate.setDate(defaultStartDate.getDate() + 30);
+                            startDateInput.value = defaultStartDate.toISOString().split('T')[0];
+                        }
+                        
+                        // Reset button state
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        
+                        // Scroll to thank you message or show confirmation
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    }, 1500);
+                });
+            }
+            
+            // Save draft functionality
+            if (saveDraftBtn && searchForm) {
+                saveDraftBtn.addEventListener('click', function() {
+                    // Collect form data
+                    const formData = {};
+                    const formElements = searchForm.elements;
+                    
+                    for (let i = 0; i < formElements.length; i++) {
+                        const element = formElements[i];
+                        if (element.name) {
+                            if (element.type === 'checkbox' || element.type === 'radio') {
+                                if (element.checked) {
+                                    formData[element.name] = element.value;
+                                }
+                            } else {
+                                formData[element.name] = element.value;
+                            }
+                        }
+                    }
+                    
+                    // Save to localStorage (in a real app, this would go to a server)
+                    localStorage.setItem('jobpitality_search_draft', JSON.stringify(formData));
+                    
+                    // Show confirmation
+                    const originalText = saveDraftBtn.innerHTML;
+                    saveDraftBtn.innerHTML = '<i class="fas fa-check"></i> Draft Saved!';
+                    saveDraftBtn.style.backgroundColor = 'var(--color-success)';
+                    saveDraftBtn.style.color = 'var(--color-white)';
+                    saveDraftBtn.style.borderColor = 'var(--color-success)';
+                    
+                    setTimeout(() => {
+                        saveDraftBtn.innerHTML = originalText;
+                        saveDraftBtn.style.backgroundColor = '';
+                        saveDraftBtn.style.color = '';
+                        saveDraftBtn.style.borderColor = '';
+                    }, 2000);
+                });
+                
+                // Load draft from localStorage if exists
+                const savedDraft = localStorage.getItem('jobpitality_search_draft');
+                if (savedDraft) {
+                    const loadDraft = confirm('You have a saved search draft. Would you like to load it?');
+                    if (loadDraft) {
+                        const formData = JSON.parse(savedDraft);
+                        
+                        for (const [name, value] of Object.entries(formData)) {
+                            const element = searchForm.elements[name];
+                            if (element) {
+                                if (element.type === 'checkbox' || element.type === 'radio') {
+                                    if (element.value === value) {
+                                        element.checked = true;
+                                    }
+                                } else {
+                                    element.value = value;
+                                }
+                            }
+                        }
+                        
+                        // Trigger urgency badge if needed
+                        if (urgencySelect && urgencySelect.value === 'urgent' || urgencySelect.value === 'critical') {
+                            urgencySelect.dispatchEvent(new Event('change'));
+                        }
                     }
                 }
+            }
+            
+            // Auto-suggest salary ranges based on position
+            const positionTitle = document.getElementById('positionTitle');
+            const salaryMinInput = document.getElementById('salaryMin');
+            const salaryMaxInput = document.getElementById('salaryMax');
+            
+            if (positionTitle && salaryMinInput && salaryMaxInput) {
+                const salaryRanges = {
+                    'general_manager': { min: 15000000, max: 50000000 },
+                    'operations_director': { min: 12000000, max: 35000000 },
+                    'sales_director': { min: 10000000, max: 30000000 },
+                    'f&b_director': { min: 10000000, max: 28000000 },
+                    'executive_chef': { min: 8000000, max: 25000000 },
+                    'rooms_division': { min: 7000000, max: 20000000 },
+                    'hr_director': { min: 8000000, max: 22000000 },
+                    'finance_director': { min: 10000000, max: 30000000 },
+                    'revenue_manager': { min: 6000000, max: 18000000 },
+                    'spa_director': { min: 6000000, max: 15000000 },
+                    'event_manager': { min: 5000000, max: 12000000 }
+                };
+                
+                positionTitle.addEventListener('change', function() {
+                    const range = salaryRanges[this.value];
+                    if (range) {
+                        salaryMinInput.value = range.min;
+                        salaryMaxInput.value = range.max;
+                    }
+                });
+            }
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
-        });
-
-        // Auto-populate from URL parameters (for marketing campaigns)
-        window.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            
-            if (params.has('type')) {
-                const type = params.get('type');
-                document.getElementById('role-type').value = type;
-            }
-            
-            if (params.has('urgency')) {
-                const urgency = params.get('urgency');
-                const urgencyOption = document.querySelector(`.urgency-option[data-urgency="${urgency}"]`);
-                if (urgencyOption) {
-                    urgencyOption.click();
-                }
-            }
         });
     </script>
 </body>
