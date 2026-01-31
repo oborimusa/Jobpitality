@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobpitality | Precision Search for Elite Hospitality Talent | GM, Chef & Leadership Placement</title>
-    <meta name="description" content="Jobpitality deploys Precision Search to connect Nigeria's luxury hospitality industry with Elite Talent. 72-hour vetted shortlist guarantee for transformative leaders.">
+    <title>72-Hour Guarantee | Jobpitality - Precision Search for Elite Hospitality Talent</title>
+    <meta name="description" content="Jobpitality's 72-Hour Guarantee: We deliver pre-vetted elite hospitality candidates within 72 hours. No compromise on quality—just ruthless efficiency.">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Jobpitality | Precision Search for Elite Hospitality Talent">
-    <meta property="og:description" content="We deploy targeted talent acquisition to place elite General Managers, Executive Chefs, and leadership teams that guarantee performance.">
-    <meta property="og:image" content="https://jobpitality.com/img/home-og.jpg">
-    <meta property="og:url" content="https://jobpitality.com">
+    <meta property="og:title" content="72-Hour Guarantee | Jobpitality - Elite Hospitality Talent Acquisition">
+    <meta property="og:description" content="Submit a detailed brief. Within 72 hours, we deliver a shortlist of pre-vetted, culturally-assessed elite candidates. Guaranteed talent, ready to interview.">
+    <meta property="og:image" content="https://jobpitality.com/img/guarantee-og.jpg">
+    <meta property="og:url" content="https://jobpitality.com/services/guarantee/">
     <meta property="og:type" content="website">
     
     <!-- Canonical -->
-    <link rel="canonical" href="https://jobpitality.com">
+    <link rel="canonical" href="https://jobpitality.com/services/guarantee/">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- COMPLETE INLINE CSS -->
+    <!-- COMPLETE INLINE CSS (Maintaining existing styles, adding guarantee-specific styles) -->
     <style>
         /* ===== CSS RESET & BASE ===== */
         * {
@@ -227,6 +227,19 @@
             box-shadow: 0 15px 30px rgba(230, 57, 70, 0.3);
         }
         
+        .btn-guarantee {
+            background: linear-gradient(135deg, var(--color-accent), var(--color-emergency));
+            color: var(--color-white);
+            font-weight: 800;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-guarantee:hover {
+            background: linear-gradient(135deg, var(--color-accent-dark), var(--color-emergency-dark));
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 158, 0, 0.3);
+        }
+        
         .btn-large {
             padding: 1.25rem 3.5rem;
             font-size: 1.125rem;
@@ -237,6 +250,514 @@
             width: 100%;
         }
         
+        /* ===== GUARANTEE SPECIFIC STYLES ===== */
+        /* GUARANTEE HERO */
+        .guarantee-hero {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1b263b 100%);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .guarantee-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-emergency), var(--color-accent));
+            animation: pulse 2s infinite;
+            z-index: 2;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .guarantee-badge {
+            background: linear-gradient(90deg, var(--color-accent), #ff6b00);
+            color: var(--color-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 900;
+            margin-bottom: var(--space-lg);
+            font-size: 1.25rem;
+            letter-spacing: 0.5px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .guarantee-hero h1 {
+            color: var(--color-white);
+            margin-bottom: var(--space-md);
+        }
+        
+        .guarantee-hero .lead {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto var(--space-xl);
+        }
+        
+        /* COUNTDOWN TIMER */
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            margin: var(--space-xl) auto;
+            max-width: 800px;
+        }
+        
+        .countdown-unit {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            min-width: 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .countdown-unit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-emergency));
+        }
+        
+        .countdown-value {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--color-accent);
+            margin-bottom: var(--space-xs);
+            line-height: 1;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        
+        /* HOW IT WORKS */
+        .process-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: var(--space-2xl) auto;
+            padding: var(--space-xl) 0;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--color-accent), var(--color-emergency));
+            border-radius: 4px;
+        }
+        
+        .timeline-step {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-2xl);
+            position: relative;
+        }
+        
+        .timeline-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .step-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-weight: 900;
+            font-size: 1.5rem;
+            border: 4px solid var(--color-accent);
+            z-index: 2;
+        }
+        
+        .step-content {
+            width: 45%;
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--color-gray-200);
+        }
+        
+        .step-content:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-2xl);
+            transition: all var(--transition-normal);
+        }
+        
+        .step-time {
+            display: inline-block;
+            background: var(--color-emergency);
+            color: var(--color-white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            margin-top: var(--space-sm);
+        }
+        
+        /* ELIGIBLE POSITIONS */
+        .positions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .position-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+            border-left: 4px solid var(--color-accent);
+        }
+        
+        .position-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-accent);
+        }
+        
+        .position-icon {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            margin-bottom: var(--space-md);
+        }
+        
+        .position-list {
+            list-style: none;
+            margin-top: var(--space-md);
+        }
+        
+        .position-list li {
+            padding: 0.5rem 0;
+            color: var(--color-gray-700);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .position-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .position-list li i {
+            color: var(--color-success);
+            font-size: 0.9rem;
+        }
+        
+        /* TERMS & CONDITIONS */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .term-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 2px solid transparent;
+            transition: all var(--transition-normal);
+        }
+        
+        .term-card.included {
+            border-color: var(--color-success);
+        }
+        
+        .term-card.excluded {
+            border-color: var(--color-gray-300);
+        }
+        
+        .term-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .term-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .term-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .term-icon.included {
+            background: rgba(42, 157, 143, 0.1);
+            color: var(--color-success);
+        }
+        
+        .term-icon.excluded {
+            background: rgba(160, 174, 192, 0.1);
+            color: var(--color-gray-600);
+        }
+        
+        .term-list {
+            list-style: none;
+        }
+        
+        .term-list li {
+            padding: 0.75rem 0;
+            color: var(--color-gray-700);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .term-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .term-list li i {
+            margin-top: 0.25rem;
+        }
+        
+        .term-list.included li i {
+            color: var(--color-success);
+        }
+        
+        .term-list.excluded li i {
+            color: var(--color-gray-600);
+        }
+        
+        /* GUARANTEE CTA */
+        .guarantee-cta {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-primary), #1b263b);
+            color: var(--color-white);
+            text-align: center;
+            border-radius: var(--radius-xl);
+            margin: var(--space-2xl) auto;
+            max-width: 1200px;
+            border: 3px solid var(--color-accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guarantee-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .guarantee-cta .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guarantee-cta h2 {
+            color: var(--color-white);
+        }
+        
+        .guarantee-cta .lead {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto var(--space-xl);
+        }
+        
+        /* FAQ SECTION */
+        .faq-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-gray-100);
+        }
+        
+        .faq-grid {
+            max-width: 800px;
+            margin: var(--space-2xl) auto;
+        }
+        
+        .faq-item {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-md);
+            overflow: hidden;
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+        }
+        
+        .faq-item:hover {
+            border-color: var(--color-accent);
+        }
+        
+        .faq-question {
+            padding: var(--space-lg);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: var(--color-white);
+        }
+        
+        .faq-question:hover {
+            background: var(--color-gray-100);
+        }
+        
+        .faq-question i {
+            color: var(--color-accent);
+            transition: transform var(--transition-normal);
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 var(--space-lg);
+            max-height: 0;
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            color: var(--color-gray-700);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 var(--space-lg) var(--space-lg);
+            max-height: 500px;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            
+            .process-timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-step {
+                flex-direction: row !important;
+            }
+            
+            .step-marker {
+                left: 30px;
+                transform: translateX(-50%);
+            }
+            
+            .step-content {
+                width: calc(100% - 80px);
+                margin-left: 80px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .guarantee-badge {
+                font-size: 1rem;
+                padding: 0.75rem 1.5rem;
+            }
+            
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+            
+            .countdown-unit {
+                min-width: 100px;
+                padding: var(--space-md);
+            }
+            
+            .countdown-value {
+                font-size: 2.5rem;
+            }
+            
+            .positions-grid,
+            .terms-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-content {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+                padding: var(--space-lg);
+            }
+            
+            .step-marker {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .guarantee-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .guarantee-hero .lead {
+                font-size: 1.2rem;
+            }
+            
+            .countdown-unit {
+                min-width: 80px;
+                padding: var(--space-md);
+            }
+            
+            .countdown-value {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Import existing styles from homepage */
         /* ===== HEADER & NAVIGATION ===== */
         .site-header {
             background: var(--color-white);
@@ -402,8 +923,9 @@
         /* NAV CTA BUTTONS */
         .nav-cta-group {
             display: flex;
-            align-items: center;
+            align-items:end;
             gap: var(--space-sm);
+            
         }
         
         .nav-cta {
@@ -455,640 +977,6 @@
             height: 100%;
             background: rgba(13, 27, 42, 0.9);
             z-index: 999;
-        }
-        
-        /* ===== HERO SECTION ===== */
-        .hero {
-            padding: var(--space-3xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-primary) 0%, #1b263b 100%);
-            color: var(--color-white);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent 0%, rgba(27, 38, 59, 0.8) 100%), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-        }
-        
-        .hero-badge {
-            background: linear-gradient(90deg, var(--color-accent), #ff6b00);
-            color: var(--color-primary);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            font-weight: 900;
-            margin-bottom: var(--space-lg);
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .hero-title {
-            font-size: 4.5rem;
-            font-weight: 900;
-            line-height: 1;
-            margin-bottom: var(--space-lg);
-            color: var(--color-white);
-        }
-        
-        .hero-title .highlight {
-            color: var(--color-accent);
-            font-style: normal;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            margin-bottom: var(--space-xl);
-            line-height: 1.6;
-            font-weight: 400;
-        }
-        
-        /* HERO STATS */
-        .hero-stats {
-            display: flex;
-            gap: var(--space-2xl);
-            margin: var(--space-xl) 0;
-            flex-wrap: wrap;
-        }
-        
-        .hero-stat {
-            text-align: center;
-            flex: 1;
-            min-width: 150px;
-        }
-        
-        .hero-stat-number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--color-accent);
-            display: block;
-            line-height: 1;
-            margin-bottom: var(--space-xs);
-        }
-        
-        .hero-stat-label {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            line-height: 1.4;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-        
-        /* ===== CLIENTS SECTION ===== */
-        .clients {
-            padding: var(--space-2xl) var(--space-md);
-            background: var(--color-white);
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-        
-        .clients-title {
-            text-align: center;
-            color: var(--color-gray-600);
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: var(--space-xl);
-            font-weight: 700;
-        }
-        
-        .clients-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: var(--space-2xl);
-            opacity: 0.7;
-        }
-        
-        .client-logo {
-            font-weight: 800;
-            color: var(--color-primary);
-            font-size: 1.2rem;
-            transition: all var(--transition-fast);
-        }
-        
-        .client-logo:hover {
-            opacity: 1;
-            color: var(--color-accent);
-        }
-        
-        /* ===== SERVICES SECTION ===== */
-        .services {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-white);
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-        }
-        
-        .section-header h2 {
-            color: var(--color-dark);
-        }
-        
-        .section-header p {
-            color: var(--color-gray-600);
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-xl);
-            margin: var(--space-2xl) 0;
-        }
-        
-        .service-card {
-            background: var(--color-white);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            border: 1px solid var(--color-gray-200);
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-2xl);
-            border-color: var(--color-accent);
-        }
-        
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--color-accent);
-            margin-bottom: var(--space-md);
-            background: var(--color-gray-100);
-            width: 70px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: var(--radius-lg);
-        }
-        
-        .service-card h3 {
-            margin-bottom: var(--space-sm);
-        }
-        
-        .service-features {
-            list-style: none;
-            margin: var(--space-md) 0;
-        }
-        
-        .service-features li {
-            padding: 0.5rem 0;
-            color: var(--color-gray-700);
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            font-size: 1rem;
-        }
-        
-        .service-features li i {
-            color: var(--color-success);
-            margin-top: 0.25rem;
-        }
-        
-        /* ===== METHODOLOGY SECTION (NEW) ===== */
-        .methodology {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-gray-100);
-        }
-        
-        .methodology-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-xl);
-            margin-top: var(--space-2xl);
-        }
-        
-        .methodology-card {
-            background: var(--color-white);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            border: 2px solid transparent;
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .methodology-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-2xl);
-        }
-        
-        .methodology-card.precision {
-            border-color: var(--color-accent);
-        }
-        
-        .methodology-card.elite {
-            border-color: var(--color-success);
-        }
-        
-        .methodology-icon {
-            font-size: 3rem;
-            color: var(--color-white);
-            margin-bottom: var(--space-md);
-            background: var(--color-accent);
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-        
-        .methodology-card.elite .methodology-icon {
-            background: var(--color-success);
-        }
-        
-        .methodology-card h3 {
-            margin-bottom: var(--space-sm);
-        }
-        
-        .comparison-table {
-            background: var(--color-gray-100);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            margin: var(--space-lg) 0;
-            border: 1px solid var(--color-gray-200);
-        }
-        
-        .table-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            background: var(--color-primary);
-            color: var(--color-white);
-            font-weight: 700;
-            padding: var(--space-md);
-            text-align: center;
-        }
-        
-        .table-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding: var(--space-md);
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-        
-        .table-row:last-child {
-            border-bottom: none;
-        }
-        
-        .table-row:nth-child(even) {
-            background: var(--color-white);
-        }
-        
-        .elite-traits {
-            list-style: none;
-            margin: var(--space-lg) 0;
-        }
-        
-        .elite-traits li {
-            padding: 0.75rem 0;
-            color: var(--color-gray-700);
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-        
-        .elite-traits li:last-child {
-            border-bottom: none;
-        }
-        
-        .elite-traits li i {
-            color: var(--color-success);
-            margin-top: 0.25rem;
-        }
-        
-        /* ===== GUARANTEE BANNER ===== */
-        .guarantee-banner {
-            padding: var(--space-2xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-primary), #1b263b);
-            color: var(--color-white);
-            text-align: center;
-            border-radius: var(--radius-xl);
-            margin: var(--space-2xl) auto;
-            max-width: 1200px;
-            border: 3px solid var(--color-accent);
-        }
-        
-        .guarantee-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .guarantee-icon {
-            font-size: 4rem;
-            color: var(--color-accent);
-            margin-bottom: var(--space-lg);
-        }
-        
-        .guarantee-content h2 {
-            color: var(--color-white);
-            margin-bottom: var(--space-md);
-        }
-        
-        .guarantee-content .lead {
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        /* ===== CASE STUDIES PREVIEW ===== */
-        .case-studies {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-white);
-        }
-        
-        .case-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-lg);
-            max-width: 1200px;
-            margin: var(--space-2xl) auto;
-        }
-        
-        .case-card {
-            background: var(--color-white);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transition: all var(--transition-normal);
-        }
-        
-        .case-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-2xl);
-        }
-        
-        .case-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-            position: relative;
-        }
-        
-        .case-badge {
-            position: absolute;
-            top: var(--space-md);
-            left: var(--space-md);
-            background: var(--color-accent);
-            color: var(--color-primary);
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .case-content {
-            padding: var(--space-xl);
-        }
-        
-        .case-content h3 {
-            margin-bottom: var(--space-sm);
-        }
-        
-        .case-content h3 a {
-            color: var(--color-dark);
-            text-decoration: none;
-        }
-        
-        .case-content h3 a:hover {
-            color: var(--color-accent);
-        }
-        
-        .case-stats {
-            display: flex;
-            gap: var(--space-lg);
-            margin: var(--space-md) 0;
-        }
-        
-        .case-stat {
-            text-align: center;
-            flex: 1;
-        }
-        
-        .case-stat strong {
-            display: block;
-            font-size: 1.5rem;
-            color: var(--color-accent);
-            font-weight: 800;
-        }
-        
-        .case-stat span {
-            font-size: 0.85rem;
-            color: var(--color-gray-600);
-            font-weight: 600;
-        }
-        
-        /* ===== PROCESS SECTION ===== */
-        .process {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-gray-100);
-        }
-        
-        .process-steps {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-2xl);
-            max-width: 800px;
-            margin: var(--space-2xl) auto;
-            position: relative;
-        }
-        
-        .process-step {
-            display: flex;
-            gap: var(--space-xl);
-            align-items: flex-start;
-        }
-        
-        .step-number {
-            background: var(--color-accent);
-            color: var(--color-primary);
-            width: 70px;
-            height: 70px;
-            border-radius: var(--radius-2xl);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            font-weight: 900;
-            flex-shrink: 0;
-            position: relative;
-            z-index: 2;
-            border: 3px solid var(--color-white);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .step-content {
-            flex: 1;
-            padding-top: 0.75rem;
-        }
-        
-        .step-content h3 {
-            color: var(--color-primary);
-        }
-        
-        /* ===== TESTIMONIALS ===== */
-        .testimonials {
-            padding: var(--space-3xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-primary), #1b263b);
-            color: var(--color-white);
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-xl);
-            margin: var(--space-2xl) 0;
-        }
-        
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: var(--space-xl);
-            border-radius: var(--radius-xl);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            backdrop-filter: blur(10px);
-        }
-        
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            font-size: 5rem;
-            color: var(--color-accent);
-            opacity: 0.3;
-            font-family: var(--font-sans);
-            line-height: 1;
-            font-weight: 900;
-        }
-        
-        .testimonial-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: var(--space-lg);
-            color: rgba(255, 255, 255, 0.9);
-            position: relative;
-            z-index: 2;
-            font-style: italic;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-        }
-        
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            background: var(--color-accent);
-            border-radius: 50%;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-primary);
-            font-weight: 800;
-            font-size: 1.5rem;
-        }
-        
-        .author-info strong {
-            display: block;
-            color: var(--color-white);
-        }
-        
-        .author-info span {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-        }
-        
-        /* ===== EMERGENCY BANNER ===== */
-        .emergency-banner {
-            padding: var(--space-xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-emergency), var(--color-emergency-dark));
-            color: var(--color-white);
-            text-align: center;
-            border-radius: var(--radius-xl);
-            margin: var(--space-xl) auto;
-            max-width: 1200px;
-        }
-        
-        .emergency-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .emergency-content h2 {
-            color: var(--color-white);
-            margin-bottom: var(--space-md);
-        }
-        
-        /* ===== CTA SECTION ===== */
-        .cta-section {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-white);
-            text-align: center;
-            border-top: 1px solid var(--color-gray-200);
-        }
-        
-        .cta-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .cta-container h2 {
-            margin-bottom: var(--space-md);
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: var(--space-lg);
-            justify-content: center;
-            margin: var(--space-xl) 0;
-            flex-wrap: wrap;
-        }
-        
-        .cta-note {
-            color: var(--color-gray-600);
-            font-size: 0.95rem;
-            margin-top: var(--space-xl);
-            padding-top: var(--space-lg);
-            border-top: 1px solid var(--color-gray-300);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-note i {
-            color: var(--color-success);
-            margin-right: var(--space-xs);
         }
         
         /* ===== FOOTER ===== */
@@ -1168,14 +1056,6 @@
         .footer-bottom-links a:hover {
             color: var(--color-accent);
             text-decoration: underline;
-        }
-        
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 1024px) {
-            h1 { font-size: 3.5rem; }
-            h2 { font-size: 2.5rem; }
-            .hero-title { font-size: 3.5rem; }
-            .hero::before { width: 40%; }
         }
         
         @media (max-width: 768px) {
@@ -1282,149 +1162,8 @@
             .mobile-overlay.active {
                 display: block;
             }
-            
-            /* MOBILE HERO */
-            .hero {
-                padding: var(--space-2xl) var(--space-md);
-                text-align: center;
-            }
-            
-            .hero::before {
-                display: none;
-            }
-            
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                align-items: center;
-                gap: var(--space-lg);
-            }
-            
-            .hero-stat {
-                max-width: 100%;
-            }
-            
-            /* MOBILE CONTENT */
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.2rem; }
-            
-            .services-grid,
-            .methodology-grid,
-            .case-grid,
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .process-step {
-                flex-direction: column;
-                gap: var(--space-md);
-                text-align: center;
-            }
-            
-            .step-number {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-                margin: 0 auto;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-            }
-            
-            .cta-buttons a {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .guarantee-banner,
-            .emergency-banner {
-                margin: var(--space-xl) var(--space-md);
-                border-radius: var(--radius-lg);
-            }
-            
-            .table-header,
-            .table-row {
-                grid-template-columns: 1fr;
-                text-align: left;
-            }
-            
-            .table-header span:first-child {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-                padding-bottom: var(--space-sm);
-                margin-bottom: var(--space-sm);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2.3rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .hero-stat-number {
-                font-size: 2.5rem;
-            }
-            
-            .hero-badge {
-                font-size: 0.85rem;
-                padding: 0.75rem 1.5rem;
-            }
-            
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            
-            .logo h1 {
-                font-size: 1.6rem;
-            }
-        }
-        
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-in {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        
-        /* ===== PRINT STYLES ===== */
-        @media print {
-            .site-header,
-            .emergency-banner,
-            .site-footer,
-            .btn {
-                display: none !important;
-            }
         }
     </style>
-    
-    <!-- Google Tag Manager & GA4 -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXX');</script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SF5LWDZDKF"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-SF5LWDZDKF');
-    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -1448,13 +1187,13 @@
                 <nav class="main-nav">
                     <ul class="nav-menu">
                         <li class="nav-item">
-                            <a href="/" class="nav-link active">
+                            <a href="/" class="nav-link">
                                 <i class="fas fa-home"></i> Home
                             </a>
                         </li>
                         
                         <li class="nav-item dropdown">
-                            <a href="/services/" class="nav-link dropdown-toggle">
+                            <a href="/services/" class="nav-link dropdown-toggle active">
                                 <i class="fas fa-crosshairs"></i> Precision Search
                                 <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
                             </a>
@@ -1528,7 +1267,7 @@
                             </a>
                         </li>
                         
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a href="/insights/" class="nav-link dropdown-toggle">
                                 <i class="fas fa-lightbulb"></i> Insights
                                 <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
@@ -1538,13 +1277,13 @@
                                     <i class="fas fa-blog"></i> Blog
                                 </a>
                             </div>
-                        </li>
+                        </li> -->
                         
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="/about/" class="nav-link">
                                 <i class="fas fa-info-circle"></i> About
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                     
                     <div class="nav-cta-group">
@@ -1561,412 +1300,269 @@
             </div>
         </div>
     </header>
-    
-    <!-- HERO SECTION -->
-    <section class="hero">
+
+    <!-- GUARANTEE HERO -->
+    <section class="guarantee-hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-shield-alt"></i> 72-HOUR VETTED SHORTLIST GUARANTEE
-                </div>
-                <h1 class="hero-title"><span class="highlight">Precision Search</span> for <span class="highlight">Elite Hospitality Talent</span></h1>
-                <p class="hero-subtitle">Jobpitality deploys targeted talent acquisition to place elite General Managers, Executive Chefs, and leadership teams that guarantee performance. We don't just fill vacancies—we deliver transformative leaders.</p>
-                
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">72h</span>
-                        <span class="hero-stat-label">Shortlist<br>Guarantee</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">94%</span>
-                        <span class="hero-stat-label">Elite Talent<br>Retention</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">42%</span>
-                        <span class="hero-stat-label">Avg. Revenue<br>Impact</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">42:1</span>
-                        <span class="hero-stat-label">ROI on<br>Search Fee</span>
-                    </div>
-                </div>
-                
-                <div style="margin-top: var(--space-xl);">
-                    <a href="#consultation" class="btn btn-primary btn-large">
-                        <i class="fas fa-crosshairs"></i> START A PRECISION SEARCH
-                    </a>
-                    <a href="/case-studies/" class="btn btn-outline btn-large" style="margin-left: var(--space-md); color: white; border-color: white;">
-                        <i class="fas fa-chart-line"></i> SEE PROVEN RESULTS
-                    </a>
-                </div>
+            <div class="guarantee-badge">
+                <i class="fas fa-shield-alt"></i> 72-HOUR GUARANTEE
             </div>
-        </div>
-    </section>
-    
-    <!-- TRUSTED CLIENTS -->
-    <section class="clients">
-        <div class="container">
-            <p class="clients-title">We Place Elite Leaders At</p>
-            <div class="clients-grid">
-                <div class="client-logo">FOUR SEASONS</div>
-                <div class="client-logo">RITZ-CARLTON</div>
-                <div class="client-logo">MANDARIN ORIENTAL</div>
-                <div class="client-logo">MICHELIN</div>
-                <div class="client-logo">HYATT</div>
-                <div class="client-logo">MARRIOTT</div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SERVICES -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Precision Search for <span class="text-gradient">Elite Hospitality</span></h2>
-                <p>Targeted talent acquisition executed across Nigeria's luxury hospitality segments.</p>
+            <h1>Elite Talent. Guaranteed. <span class="text-gradient">72 Hours.</span></h1>
+            <p class="lead">When you can't afford to wait for leadership talent, our 72-Hour Guarantee delivers pre-vetted elite candidates for urgent hospitality positions. No compromise on quality—just ruthless efficiency.</p>
+            
+            <div class="countdown-timer">
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="hours">72</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
+            <a href="#activate-guarantee" class="btn btn-guarantee btn-large">
+                <i class="fas fa-bolt"></i> ACTIVATE 72-HOUR GUARANTEE
+            </a>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="services" style="padding: var(--space-3xl) var(--space-md);">
+        <div class="container">
+            <div class="section-header">
+                <h2>How The <span class="text-gradient">72-Hour Guarantee</span> Works</h2>
+                <p>A surgical approach to urgent talent acquisition for Nigeria's luxury hospitality sector.</p>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="timeline-step">
+                    <div class="step-marker">1</div>
+                    <div class="step-content">
+                        <h3>Strategic Briefing (Hour 0-2)</h3>
+                        <p>We conduct an intensive discovery session with key stakeholders to understand your exact requirements, culture, and urgency. This includes role specifications, success metrics, and non-negotiable criteria.</p>
+                        <div class="step-time">2 Hours</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-marker">2</div>
+                    <div class="step-content">
+                        <h3>Talent Mapping & Activation (Hour 2-24)</h3>
+                        <p>Our proprietary database and network mapping identifies elite candidates. We activate our network across Nigeria's hospitality hubs and reach out to passive candidates who match your criteria.</p>
+                        <div class="step-time">22 Hours</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-marker">3</div>
+                    <div class="step-content">
+                        <h3>Rigorous Assessment (Hour 24-60)</h3>
+                        <p>Multi-stage vetting including competency interviews, psychometric testing, practical scenario assessments, and reference checks. We evaluate both technical skills and cultural fit.</p>
+                        <div class="step-time">36 Hours</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-marker">4</div>
+                    <div class="step-content">
+                        <h3>Candidate Presentation (Hour 60-72)</h3>
+                        <p>We present a shortlist of 2-3 elite candidates with detailed profiles, assessment results, and recommendations. No CV dumps—just carefully curated talent ready for your interviews.</p>
+                        <div class="step-time">12 Hours</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ELIGIBLE POSITIONS -->
+    <section class="process" style="background: var(--color-white); padding: var(--space-3xl) var(--space-md);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Positions Covered By <span class="text-gradient">Our Guarantee</span></h2>
+                <p>Urgent leadership roles where time is critical and quality is non-negotiable.</p>
+            </div>
+            
+            <div class="positions-grid">
+                <div class="position-card">
+                    <div class="position-icon">
                         <i class="fas fa-hotel"></i>
                     </div>
-                    <h3>Hotel & Resort Leadership</h3>
-                    <p>General Managers, Directors of Operations, Revenue & Marketing Directors for luxury and boutique properties.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> 72-hour vetted shortlist</li>
-                        <li><i class="fas fa-check"></i> Deep luxury market network</li>
-                        <li><i class="fas fa-check"></i> Cultural fit guaranteed</li>
+                    <h3>Hotel Leadership</h3>
+                    <ul class="position-list">
+                        <li><i class="fas fa-check"></i> Hotel General Managers</li>
+                        <li><i class="fas fa-check"></i> Directors of Operations</li>
+                        <li><i class="fas fa-check"></i> Front Office Directors</li>
+                        <li><i class="fas fa-check"></i> Revenue Directors</li>
+                        <li><i class="fas fa-check"></i> Housekeeping Directors</li>
                     </ul>
-                    <a href="/services/hotel-leadership/" class="btn btn-outline btn-block">
-                        <i class="fas fa-arrow-right"></i> Acquire Hotel Talent
-                    </a>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="position-card">
+                    <div class="position-icon">
                         <i class="fas fa-utensils"></i>
                     </div>
-                    <h3>Culinary & F&B Leadership</h3>
-                    <p>Executive Chefs, F&B Directors, Restaurant Managers for fine dining, Michelin-star, and high-volume venues.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Concept-specific expertise</li>
-                        <li><i class="fas fa-check"></i> Pre-vetted culinary artists</li>
-                        <li><i class="fas fa-check"></i> Crisis staffing ready</li>
+                    <h3>Culinary Leadership</h3>
+                    <ul class="position-list">
+                        <li><i class="fas fa-check"></i> Executive Chefs</li>
+                        <li><i class="fas fa-check"></i> Sous Chefs</li>
+                        <li><i class="fas fa-check"></i> F&B Directors</li>
+                        <li><i class="fas fa-check"></i> Pastry Chefs</li>
+                        <li><i class="fas fa-check"></i> Banquet Chefs</li>
                     </ul>
-                    <a href="/services/culinary-leadership/" class="btn btn-outline btn-block">
-                        <i class="fas fa-arrow-right"></i> Acquire Culinary Talent
-                    </a>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
+                <div class="position-card">
+                    <div class="position-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Management & Corporate</h3>
-                    <p>VPs of Operations, Regional Directors, and corporate leadership for multi-property groups and investors.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Strategic succession planning</li>
-                        <li><i class="fas fa-check"></i> Multi-property integration</li>
-                        <li><i class="fas fa-check"></i> Investor-ready talent</li>
+                    <h3>Specialized Management</h3>
+                    <ul class="position-list">
+                        <li><i class="fas fa-check"></i> Sales & Marketing Directors</li>
+                        <li><i class="fas fa-check"></i> HR Directors</li>
+                        <li><i class="fas fa-check"></i> Finance Controllers</li>
+                        <li><i class="fas fa-check"></i> Spa & Wellness Directors</li>
+                        <li><i class="fas fa-check"></i> Event Directors</li>
                     </ul>
-                    <a href="/services/management-teams/" class="btn btn-outline btn-block">
-                        <i class="fas fa-arrow-right"></i> Acquire Management Talent
-                    </a>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- METHODOLOGY SECTION (NEW) -->
-    <section class="methodology">
+
+    <!-- TERMS & CONDITIONS -->
+    <section class="methodology" style="padding: var(--space-3xl) var(--space-md);">
         <div class="container">
             <div class="section-header">
-                <h2>The Jobpitality <span class="text-gradient">Methodology</span></h2>
-                <p>Our unique approach combines targeted search with elite talent assessment to guarantee transformative placements.</p>
+                <h2>Terms & <span class="text-gradient">Conditions</span></h2>
+                <p>What's included—and what's not—in our 72-Hour Guarantee</p>
             </div>
             
-            <div class="methodology-grid">
-                <div class="methodology-card precision">
-                    <div class="methodology-icon">
-                        <i class="fas fa-crosshairs"></i>
+            <div class="terms-grid">
+                <div class="term-card included">
+                    <div class="term-header">
+                        <div class="term-icon included">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>What's Included</h3>
                     </div>
-                    <h3>Precision Search</h3>
-                    <p>We don't recruit—we acquire. Our targeted approach focuses on quality over quantity, identifying the perfect fit, not just a possible one.</p>
-                    
-                    <div class="comparison-table">
-                        <div class="table-header">
-                            <span>Broad Recruitment</span>
-                            <span>Precision Search</span>
-                        </div>
-                        <div class="table-row">
-                            <span>Goal: Capture most/all possible candidates</span>
-                            <span>Goal: Identify few, highly relevant candidates</span>
-                        </div>
-                        <div class="table-row">
-                            <span>Pro: Lower risk of missing matches</span>
-                            <span>Pro: Less time wasted on bad fits</span>
-                        </div>
-                        <div class="table-row">
-                            <span>Con: More irrelevant results to filter</span>
-                            <span>Con: Risk of missing some relevant candidates</span>
-                        </div>
-                    </div>
-                    
-                    <p><strong>Ideal for:</strong> Critical leadership roles with non-negotiable requirements where cultural fit and exact skills are paramount.</p>
-                    <a href="/services/precision-search/" class="btn btn-outline btn-block" style="margin-top: var(--space-md);">
-                        <i class="fas fa-arrow-right"></i> Learn About Our Search Process
-                    </a>
+                    <ul class="term-list included">
+                        <li><i class="fas fa-check"></i> 72-hour turnaround from completed brief to candidate shortlist</li>
+                        <li><i class="fas fa-check"></i> 2-3 pre-vetted elite candidates matching your specifications</li>
+                        <li><i class="fas fa-check"></i> Comprehensive candidate profiles with assessment results</li>
+                        <li><i class="fas fa-check"></i> Priority access to our proprietary talent database</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager available 24/7 during the process</li>
+                        <li><i class="fas fa-check"></i> Post-placement support for 90 days</li>
+                    </ul>
                 </div>
                 
-                <div class="methodology-card elite">
-                    <div class="methodology-icon">
-                        <i class="fas fa-crown"></i>
+                <div class="term-card excluded">
+                    <div class="term-header">
+                        <div class="term-icon excluded">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <h3>What's Not Included</h3>
                     </div>
-                    <h3>Elite Talent</h3>
-                    <p>The transformative leaders we place combine rare skills and character traits that drive disproportionate business impact.</p>
-                    
-                    <ul class="elite-traits">
-                        <li><i class="fas fa-brain"></i> <strong>Cognitive & Strategic:</strong> Strong problem-solving, rapid learning, strategic thinking</li>
-                        <li><i class="fas fa-fist-raised"></i> <strong>Character & Drive:</strong> High integrity, courageous decision-making, perseverance</li>
-                        <li><i class="fas fa-handshake"></i> <strong>Relationship & Leadership:</strong> Network building, persuasion, team inspiration</li>
-                        <li><i class="fas fa-sync-alt"></i> <strong>Resilience & Adaptability:</strong> Authenticity, confidence under pressure, change navigation</li>
+                    <ul class="term-list excluded">
+                        <li><i class="fas fa-times"></i> Mass recruitment for multiple positions (10+ roles)</li>
+                        <li><i class="fas fa-times"></i> Entry-level or non-specialized positions</li>
+                        <li><i class="fas fa-times"></i> Positions outside Nigeria's hospitality industry</li>
+                        <li><i class="fas fa-times"></i> Roles with compensation below industry benchmarks</li>
+                        <li><i class="fas fa-times"></i> Unlimited candidate iterations beyond initial shortlist</li>
+                        <li><i class="fas fa-times"></i> Guarantee of candidate acceptance of your offer</li>
                     </ul>
-                    
-                    <p><strong>The Impact:</strong> One elite performer can increase team performance by <strong>5-15%</strong> and deliver financial returns well above average.</p>
-                    <a href="/elite-opportunities/" class="btn btn-outline btn-block" style="margin-top: var(--space-md);">
-                        <i class="fas fa-arrow-right"></i> Explore Elite Opportunities
-                    </a>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- GUARANTEE BANNER -->
-    <section class="guarantee-banner">
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
         <div class="container">
-            <div class="guarantee-content">
-                <div class="guarantee-icon">
-                    <i class="fas fa-shield-alt"></i>
+            <div class="section-header">
+                <h2>Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p>Everything you need to know about activating our 72-Hour Guarantee.</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What happens if you don't deliver within 72 hours?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If we fail to deliver a pre-vetted shortlist of 2-3 elite candidates within 72 hours of receiving your completed brief, we will refund 50% of our standard search fee. However, in our 3 years of operation, we have never missed a 72-hour deadline.</p>
+                    </div>
                 </div>
-                <h2>Our Precision Search Guarantee</h2>
-                <p class="lead">Submit a detailed brief. Within <strong>72 hours</strong>, we will deliver a shortlist of pre-vetted, culturally-assessed <strong>elite candidates</strong>. Not just resumes. Guaranteed talent, ready to interview.</p>
-                <a href="/services/guarantee/" class="btn btn-primary btn-large" style="margin-top: var(--space-lg);">
-                    <i class="fas fa-file-contract"></i> READ THE FULL GUARANTEE
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do you ensure quality with such a tight timeline?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our Precision Search methodology and proprietary elite talent database allow us to rapidly identify and assess candidates who are already pre-vetted. We don't start from scratch—we activate our network of verified elite hospitality professionals across Nigeria.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is this guarantee available for all hospitality positions?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The 72-Hour Guarantee applies specifically to leadership and specialized roles in luxury hospitality. It does not cover entry-level positions, bulk recruitment, or roles outside the hospitality industry. See our "Eligible Positions" section for details.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What information do you need to activate the guarantee?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We require a detailed brief including: role specifications, required experience, cultural fit requirements, compensation range, and specific challenges the role needs to address. The 72-hour countdown begins once we receive this completed brief.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I use this for interim/contract positions?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Our guarantee covers both permanent and interim placements. For crisis staffing situations, we can often deploy interim elite talent within 8-24 hours while executing the full Precision Search for a permanent solution.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUARANTEE CTA -->
+    <section id="activate-guarantee" class="guarantee-cta">
+        <div class="container">
+            <h2>Activate Your <span style="color: var(--color-accent);">72-Hour Guarantee</span></h2>
+            <p class="lead">Time is critical. Don't let talent gaps compromise your operations. Activate our 72-Hour Guarantee and get elite candidates delivered to you within three days.</p>
+            
+            <div style="display: flex; gap: var(--space-lg); justify-content: center; flex-wrap: wrap; margin-top: var(--space-xl);">
+                <a href="tel:+2348039661354" class="btn btn-guarantee btn-large">
+                    <i class="fas fa-phone"></i> CALL NOW: +234 803 966 1354
+                </a>
+                <a href="mailto:acquire@jobpitality.com?subject=Activate 72-Hour Guarantee&body=I would like to activate the 72-Hour Guarantee for an urgent position." class="btn btn-primary btn-large">
+                    <i class="fas fa-envelope"></i> EMAIL TO ACTIVATE
                 </a>
             </div>
-        </div>
-    </section>
-    
-    <!-- CASE STUDIES PREVIEW -->
-    <section class="case-studies">
-        <div class="container">
-            <div class="section-header">
-                <h2>Precision <span class="text-gradient">Placements</span>, Proven Impact</h2>
-                <p>Where our elite talent acquisition directly drove measurable business transformation.</p>
-            </div>
             
-            <div class="case-grid">
-                <div class="case-card">
-                    <div class="case-image">
-                        <div class="case-badge">PRECISION PLACEMENT</div>
-                    </div>
-                    <div class="case-content">
-                        <h3><a href="#">Luxury Boutique Hotel GM Search</a></h3>
-                        <p>Client had a 94-day vacancy crippling operations. Our <strong>Precision Search</strong> delivered a vetted shortlist in 72 hours. The <strong>elite GM</strong> placed achieved 42% revenue growth in 6 months.</p>
-                        <div class="case-stats">
-                            <div class="case-stat">
-                                <strong>72h</strong>
-                                <span>To Shortlist</span>
-                            </div>
-                            <div class="case-stat">
-                                <strong>42%</strong>
-                                <span>Revenue Growth</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="case-card">
-                    <div class="case-image" style="background: linear-gradient(135deg, var(--color-accent), #ff6b00);">
-                        <div class="case-badge">ELITE CULINARY TALENT</div>
-                    </div>
-                    <div class="case-content">
-                        <h3><a href="#">Michelin-star Executive Chef</a></h3>
-                        <p>Executive chef quit 48 hours before a major review. We deployed an interim, <strong>elite Michelin-experienced chef</strong> within 8 hours. Permanent placement within 3 weeks preserved the restaurant's reputation.</p>
-                        <div class="case-stats">
-                            <div class="case-stat">
-                                <strong>8h</strong>
-                                <span>Interim In Place</span>
-                            </div>
-                            <div class="case-stat">
-                                <strong>3w</strong>
-                                <span>To Permanent Hire</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="case-card">
-                    <div class="case-image" style="background: linear-gradient(135deg, var(--color-success), var(--color-success-dark));">
-                        <div class="case-badge">TRANSFORMATIVE LEADERSHIP</div>
-                    </div>
-                    <div class="case-content">
-                        <h3><a href="#">Resort Group Leadership Overhaul</a></h3>
-                        <p>Using <strong>Precision Search</strong>, we placed a new VP of Operations and 3 GMs across a luxury resort group. The <strong>elite leadership team</strong> achieved 65% seasonal revenue increase and unified culture across properties.</p>
-                        <div class="case-stats">
-                            <div class="case-stat">
-                                <strong>4</strong>
-                                <span>Key Placements</span>
-                            </div>
-                            <div class="case-stat">
-                                <strong>65%</strong>
-                                <span>Revenue Growth</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: var(--space-xl);">
-                <a href="/case-studies/" class="btn btn-secondary btn-large">
-                    <i class="fas fa-chart-line"></i> VIEW ALL IMPACT STUDIES
-                </a>
-            </div>
+            <p style="margin-top: var(--space-lg); color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">
+                <i class="fas fa-clock"></i> Available 24/7 for urgent hospitality leadership needs
+            </p>
         </div>
     </section>
-    
-    <!-- OUR PROCESS -->
-    <section class="process">
-        <div class="container">
-            <div class="section-header">
-                <h2>The Jobpitality <span class="text-gradient">Method</span></h2>
-                <p>Our systematic process for placing elite talent that performs.</p>
-            </div>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Strategic Brief & Intelligence</h3>
-                        <p>We deconstruct your need. Not just the job description, but the business problem, culture, and exact performance outcomes required for <strong>elite talent</strong> success.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Targeted Talent Mapping</h3>
-                        <p>We map and engage the precise talent pool using <strong>Precision Search</strong> methodology, including passive leaders not on the market. No spam. No databases. Just direct acquisition.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Ruthless Assessment & Vetting</h3>
-                        <p>Proprietary hospitality leadership assessments evaluate for proven impact, cultural alignment, and leadership agility—the hallmarks of <strong>elite talent</strong>. Only the elite pass.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Guaranteed Placement & Integration</h3>
-                        <p>We guarantee the placement and support integration with performance tracking. Our relationship begins at placement, it doesn't end there. We ensure <strong>elite talent</strong> delivers transformative impact.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- TESTIMONIALS -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header" style="color: white;">
-                <h2>What <span style="color: var(--color-accent);">Industry Leaders</span> Say</h2>
-                <p>Feedback from executives who demanded elite talent, not just candidates.</p>
-            </div>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Jobpitality's <strong>Precision Search</strong> methodology delivered an elite GM who transformed our property's performance. They understand that luxury hospitality requires targeted acquisition, not generic recruitment."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JW</div>
-                        <div class="author-info">
-                            <strong>James Wilson</strong>
-                            <span>Managing Partner, Luxury Hotel Group</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"When our Executive Chef walked out, Jobpitality didn't send CVs. They had <strong>elite culinary talent</strong> cooking in our kitchen within hours. They understand crisis means business, not paperwork."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SC</div>
-                        <div class="author-info">
-                            <strong>Sarah Chen</strong>
-                            <span>Operations Director, Michelin Fine Dining Group</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Their <strong>Precision Search</strong> for elite talent delivered a leadership team that achieved a 65% revenue increase. They operate with a focus on transformative impact that others simply don't match."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MR</div>
-                        <div class="author-info">
-                            <strong>Michael Rodriguez</strong>
-                            <span>VP Operations, Global Resort Collection</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- EMERGENCY BANNER -->
-    <section class="emergency-banner">
-        <div class="container">
-            <div class="emergency-content">
-                <h2><i class="fas fa-bolt"></i> Leadership Crisis or Sudden Departure?</h2>
-                <p>GM quit? Chef walked out? Our rapid response team deploys <strong>interim elite talent</strong> within hours to stabilize your operation while we execute a permanent <strong>Precision Search</strong>.</p>
-                <div style="margin-top: var(--space-lg);">
-                    <a href="/emergency/" class="btn btn-emergency btn-large">
-                        <i class="fas fa-headset"></i> ACTIVATE CRISIS RESPONSE
-                    </a>
-                    <a href="tel:+2348039661354" class="btn btn-outline btn-large" style="margin-left: var(--space-md); color: white; border-color: white;">
-                        <i class="fas fa-phone"></i> CALL CRISIS HOTLINE
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA SECTION -->
-    <section class="cta-section" id="consultation">
-        <div class="container">
-            <div class="cta-container">
-                <h2>Ready to Acquire <span class="text-gradient">Elite Talent</span>?</h2>
-                <p class="lead">Schedule a ruthless, no-bullshit consultation. We'll analyze your talent gap and show you exactly how <strong>Precision Search</strong> would close it with transformative leadership.</p>
-                
-                <div class="cta-buttons">
-                    <a href="/employers/start-search/" class="btn btn-primary btn-large">
-                        <i class="fas fa-crosshairs"></i> START PRECISION SEARCH
-                    </a>
-                    <a href="tel:+2348039661354" class="btn btn-outline btn-large">
-                        <i class="fas fa-phone"></i> CALL FOR IMMEDIATE BRIEF
-                    </a>
-                </div>
-                
-                <div class="cta-note">
-                    <p><i class="fas fa-user-secret"></i> <strong>100% Confidential & Discrete:</strong> We operate under strict NDAs. Your search and identity are protected.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-       <!-- FOOTER -->
+
+    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
@@ -1987,7 +1583,7 @@
                         <li><a href="/services/hotel-leadership/"><i class="fas fa-chevron-right"></i> Hotel Leadership</a></li>
                         <li><a href="/services/culinary-leadership/"><i class="fas fa-chevron-right"></i> Culinary Leadership</a></li>
                         <li><a href="/services/management-teams/"><i class="fas fa-chevron-right"></i> Management Teams</a></li>
-                        <li><a href="/services/guarantee/"><i class="fas fa-chevron-right"></i> 72-Hour Guarantee</a></li>
+                        <li><a href="/services/guarantee/" style="color: var(--color-accent); font-weight: 700;"><i class="fas fa-chevron-right"></i> 72-Hour Guarantee</a></li>
                     </ul>
                 </div>
                 
@@ -2016,11 +1612,9 @@
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <p>&copy; 2023 Jobpitality. All rights reserved. The ruthless talent partner for Nigeria's luxury hospitality industry.</p>
-                    <div class="footer-legal">
+                    <div class="footer-bottom-links">
                         <a href="/privacy-policy/">Privacy Policy</a>
-                        <span class="separator">|</span>
                         <a href="/terms-of-service/">Terms of Service</a>
-                        <span class="separator">|</span>
                         <a href="/cookies/">Cookie Policy</a>
                     </div>
                 </div>
@@ -2033,71 +1627,145 @@
         // Mobile Navigation Toggle
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
+            const mainNav = document.querySelector('.main-nav');
+            const mobileOverlay = document.querySelector('.mobile-overlay');
             
             if (mobileMenuToggle) {
                 mobileMenuToggle.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
+                    mainNav.classList.toggle('active');
+                    mobileOverlay.classList.toggle('active');
                     this.classList.toggle('active');
                 });
             }
             
+            // Mobile overlay click to close menu
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    this.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                });
+            }
+            
+            // Mobile dropdown toggle
+            document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const dropdown = this.parentElement;
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+            
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
                     
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
+                        e.preventDefault();
                         window.scrollTo({
                             top: targetElement.offsetTop - 100,
                             behavior: 'smooth'
                         });
                         
                         // Close mobile menu if open
-                        if (navLinks.classList.contains('active')) {
-                            navLinks.classList.remove('active');
+                        if (mainNav.classList.contains('active')) {
+                            mainNav.classList.remove('active');
+                            mobileOverlay.classList.remove('active');
                             mobileMenuToggle.classList.remove('active');
                         }
                     }
                 });
             });
             
-            // Form submission handling
-            const contactForm = document.querySelector('.contact-form form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Get form data
-                    const formData = new FormData(this);
-                    const submitBtn = this.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.textContent;
-                    
-                    // Simulate form submission
-                    submitBtn.textContent = 'Sending...';
-                    submitBtn.disabled = true;
-                    
-                    // In a real application, you would send this data to a server
-                    setTimeout(() => {
-                        alert('Thank you for your message! We will contact you shortly.');
-                        this.reset();
-                        submitBtn.textContent = originalText;
-                        submitBtn.disabled = false;
-                    }, 1500);
-                });
+            // Countdown Timer
+            function updateCountdown() {
+                const hoursElement = document.getElementById('hours');
+                const minutesElement = document.getElementById('minutes');
+                const secondsElement = document.getElementById('seconds');
+                
+                // For demo: Count down from 72 hours
+                let hours = 72;
+                let minutes = 0;
+                let seconds = 0;
+                
+                // Simulate countdown based on current time
+                const now = new Date();
+                seconds = 59 - now.getSeconds();
+                minutes = 59 - now.getMinutes();
+                hours = 71 - now.getHours() % 24;
+                
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                }
+                
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                }
+                
+                if (hours < 0) hours = 0;
+                
+                hoursElement.textContent = hours.toString().padStart(2, '0');
+                minutesElement.textContent = minutes.toString().padStart(2, '0');
+                secondsElement.textContent = seconds.toString().padStart(2, '0');
             }
             
-            // Sticky header
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('.site-header');
-                if (window.scrollY > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
+            // Update countdown every second
+            setInterval(updateCountdown, 1000);
+            updateCountdown(); // Initial call
+            
+            // FAQ Accordion
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    faqItem.classList.toggle('active');
+                    
+                    // Close other FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        if (item !== faqItem && item.classList.contains('active')) {
+                            item.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe timeline steps, position cards, and term cards
+            document.querySelectorAll('.step-content, .position-card, .term-card, .faq-item').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Activate Guarantee button animation
+            const activateButtons = document.querySelectorAll('a[href="#activate-guarantee"]');
+            activateButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const target = document.querySelector('#activate-guarantee');
+                    if (target) {
+                        target.style.animation = 'pulse 1s';
+                        setTimeout(() => {
+                            target.style.animation = '';
+                        }, 1000);
+                    }
+                });
             });
         });
     </script>

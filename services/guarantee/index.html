@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>72-Hour Guarantee | Jobpitality - Elite Hospitality Talent Acquisition</title>
+    <meta name="description" content="Jobpitality's 72-Hour Guarantee: We deliver pre-vetted elite hospitality candidates within 72 hours. No compromise on quality—just ruthless efficiency.">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d4af37;
+            --accent-dark: #b8941f;
+            --text-color: #333;
+            --text-light: #666;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #495057;
+            --white: #ffffff;
+            --black: #000000;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+            --container-width: 1200px;
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 3rem;
+            --space-xl: 5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* Header Styles */
+        .site-header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .header-cta {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+            border-color: var(--accent-dark);
+        }
+
+        .btn-guarantee {
+            background-color: #e74c3c;
+            color: var(--white);
+            border: 2px solid #e74c3c;
+            font-size: 1rem;
+            padding: 1rem 2rem;
+        }
+
+        .btn-guarantee:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .guarantee-hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.95)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: var(--space-xl) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guarantee-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), #e74c3c, var(--accent-color));
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .guarantee-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: var(--space-sm);
+            line-height: 1.2;
+        }
+
+        .guarantee-tag {
+            background-color: #e74c3c;
+            color: var(--white);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: var(--space-lg);
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .guarantee-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto var(--space-lg);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            padding: var(--space-xl) 0;
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+
+        .countdown-header {
+            margin-bottom: var(--space-lg);
+        }
+
+        .countdown-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: var(--space-sm);
+        }
+
+        .countdown-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin: var(--space-lg) auto;
+            max-width: 800px;
+        }
+
+        .countdown-unit {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            min-width: 120px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-unit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), #e74c3c);
+        }
+
+        .countdown-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--space-xs);
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: var(--space-xl) 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: var(--space-lg) auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            background-color: var(--accent-color);
+        }
+
+        .timeline-step {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+            position: relative;
+        }
+
+        .timeline-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .step-content {
+            width: 45%;
+            background-color: var(--light-gray);
+            padding: var(--space-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .step-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .timeline-step:nth-child(odd) .step-content::before {
+            right: -60px;
+        }
+
+        .timeline-step:nth-child(even) .step-content::before {
+            left: -60px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-sm);
+        }
+
+        .step-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--space-sm);
+            color: var(--primary-color);
+        }
+
+        .step-time {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: var(--space-sm);
+        }
+
+        /* Eligible Positions */
+        .eligible-positions {
+            padding: var(--space-xl) 0;
+            background-color: var(--light-gray);
+        }
+
+        .positions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .position-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .position-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .position-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: var(--space-md);
+        }
+
+        .position-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-sm);
+            color: var(--primary-color);
+        }
+
+        .position-card ul {
+            list-style: none;
+            margin-top: var(--space-sm);
+        }
+
+        .position-card li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+        }
+
+        .position-card li i {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+        }
+
+        /* Terms & Conditions */
+        .terms {
+            padding: var(--space-xl) 0;
+            background-color: var(--white);
+        }
+
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .term-card {
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            border: 1px solid var(--medium-gray);
+        }
+
+        .term-card.included {
+            border-top: 4px solid #2ecc71;
+        }
+
+        .term-card.excluded {
+            border-top: 4px solid #e74c3c;
+        }
+
+        .term-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .term-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .term-icon.included {
+            background-color: rgba(46, 204, 113, 0.1);
+            color: #2ecc71;
+        }
+
+        .term-icon.excluded {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+
+        .term-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+        }
+
+        .term-card ul {
+            list-style: none;
+            margin-top: var(--space-sm);
+        }
+
+        .term-card li {
+            margin-bottom: 8px;
+            padding-left: var(--space-sm);
+            position: relative;
+        }
+
+        .term-card.included li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .term-card.excluded li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .guarantee-cta {
+            padding: var(--space-xl) 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2a2a2a 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guarantee-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=30');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+
+        .guarantee-cta .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .guarantee-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+            color: var(--white);
+        }
+
+        .guarantee-cta p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto var(--space-lg);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding-top: var(--space-xl);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: var(--space-md);
+            color: var(--white);
+        }
+
+        .footer-contact p {
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            gap: 12px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--space-md) 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: var(--space-sm);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-legal a:hover {
+            color: var(--accent-color);
+        }
+
+        .separator {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .positions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .terms-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .guarantee-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-step {
+                flex-direction: row !important;
+            }
+            
+            .step-content {
+                width: calc(100% - 80px);
+                margin-left: 80px;
+            }
+            
+            .step-content::before {
+                left: -60px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: var(--space-lg);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .header-cta {
+                display: none;
+            }
+            
+            .positions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .guarantee-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .countdown-header h2,
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Job<span>pitality</span></a>
+                
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/services/precision-search/">Precision Search</a>
+                    <a href="/elite-opportunities/">Elite Talent</a>
+                    <a href="/insights/">Insights</a>
+                    <a href="/about/">About</a>
+                    <a href="/contact/">Contact</a>
+                </nav>
+                
+                <div class="header-cta">
+                    <a href="/candidates/submit-profile/" class="btn btn-outline">For Candidates</a>
+                    <a href="#activate-guarantee" class="btn btn-primary">Activate Guarantee</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="guarantee-hero">
+        <div class="container">
+            <div class="guarantee-tag">72-Hour Guarantee</div>
+            <h1>Elite Talent. Guaranteed. 72 Hours.</h1>
+            <p>When you can't afford to wait for leadership talent, our 72-Hour Guarantee delivers pre-vetted elite candidates for urgent hospitality positions. No compromise on quality—just ruthless efficiency.</p>
+            <a href="#activate-guarantee" class="btn btn-guarantee">Activate 72-Hour Guarantee</a>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN SECTION -->
+    <section class="countdown-section">
+        <div class="container">
+            <div class="countdown-header">
+                <h2>The Clock Starts Now</h2>
+                <p class="countdown-subtitle">From your initial briefing to candidate shortlist—we work against the clock so you don't have to.</p>
+            </div>
+            
+            <div class="countdown-timer">
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="hours">72</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            
+            <p class="countdown-subtitle">That's all we need to deliver 2-3 elite candidates who match your exact requirements. The countdown starts the moment we receive your completed brief.</p>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How The 72-Hour Guarantee Works</h2>
+                <p class="section-subtitle">A surgical approach to urgent talent acquisition</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="step-content">
+                        <div class="step-number">1</div>
+                        <h3>Strategic Briefing (Hour 0-2)</h3>
+                        <p>We conduct an intensive discovery session with key stakeholders to understand your exact requirements, culture, and urgency. This includes role specifications, success metrics, and non-negotiable criteria.</p>
+                        <div class="step-time">2 Hours</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-content">
+                        <div class="step-number">2</div>
+                        <h3>Talent Mapping & Activation (Hour 2-24)</h3>
+                        <p>Our proprietary database and network mapping identifies elite candidates. We activate our network across Nigeria's hospitality hubs and reach out to passive candidates who match your criteria.</p>
+                        <div class="step-time">22 Hours</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-content">
+                        <div class="step-number">3</div>
+                        <h3>Rigorous Assessment (Hour 24-60)</h3>
+                        <p>Multi-stage vetting including competency interviews, psychometric testing, practical scenario assessments, and reference checks. We evaluate both technical skills and cultural fit.</p>
+                        <div class="step-time">36 Hours</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="step-content">
+                        <div class="step-number">4</div>
+                        <h3>Candidate Presentation (Hour 60-72)</h3>
+                        <p>We present a shortlist of 2-3 elite candidates with detailed profiles, assessment results, and recommendations. No CV dumps—just carefully curated talent ready for your interviews.</p>
+                        <div class="step-time">12 Hours</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ELIGIBLE POSITIONS -->
+    <section class="eligible-positions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Positions Covered By Our Guarantee</h2>
+                <p class="section-subtitle">Urgent leadership roles where time is critical</p>
+            </div>
+            
+            <div class="positions-grid">
+                <div class="position-card">
+                    <div class="position-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>Hotel Leadership</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Hotel General Managers</li>
+                        <li><i class="fas fa-check"></i> Directors of Operations</li>
+                        <li><i class="fas fa-check"></i> Front Office Directors</li>
+                        <li><i class="fas fa-check"></i> Revenue Directors</li>
+                        <li><i class="fas fa-check"></i> Housekeeping Directors</li>
+                    </ul>
+                </div>
+                
+                <div class="position-card">
+                    <div class="position-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Culinary Leadership</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Executive Chefs</li>
+                        <li><i class="fas fa-check"></i> Sous Chefs</li>
+                        <li><i class="fas fa-check"></i> F&B Directors</li>
+                        <li><i class="fas fa-check"></i> Pastry Chefs</li>
+                        <li><i class="fas fa-check"></i> Banquet Chefs</li>
+                    </ul>
+                </div>
+                
+                <div class="position-card">
+                    <div class="position-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Specialized Management</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Sales & Marketing Directors</li>
+                        <li><i class="fas fa-check"></i> HR Directors</li>
+                        <li><i class="fas fa-check"></i> Finance Controllers</li>
+                        <li><i class="fas fa-check"></i> Spa & Wellness Directors</li>
+                        <li><i class="fas fa-check"></i> Event Directors</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TERMS & CONDITIONS -->
+    <section class="terms">
+        <div class="container">
+            <div class="section-header">
+                <h2>Terms & Conditions</h2>
+                <p class="section-subtitle">What's included—and what's not—in our guarantee</p>
+            </div>
+            
+            <div class="terms-grid">
+                <div class="term-card included">
+                    <div class="term-header">
+                        <div class="term-icon included">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>What's Included</h3>
+                    </div>
+                    <ul>
+                        <li>72-hour turnaround from completed brief to candidate shortlist</li>
+                        <li>2-3 pre-vetted elite candidates matching your specifications</li>
+                        <li>Comprehensive candidate profiles with assessment results</li>
+                        <li>Priority access to our proprietary talent database</li>
+                        <li>Dedicated account manager available 24/7 during the process</li>
+                        <li>Post-placement support for 90 days</li>
+                    </ul>
+                </div>
+                
+                <div class="term-card excluded">
+                    <div class="term-header">
+                        <div class="term-icon excluded">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <h3>What's Not Included</h3>
+                    </div>
+                    <ul>
+                        <li>Mass recruitment for multiple positions (10+ roles)</li>
+                        <li>Entry-level or non-specialized positions</li>
+                        <li>Positions outside Nigeria's hospitality industry</li>
+                        <li>Roles with compensation below industry benchmarks</li>
+                        <li>Unlimited candidate iterations beyond initial shortlist</li>
+                        <li>Guarantee of candidate acceptance of your offer</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section id="activate-guarantee" class="guarantee-cta">
+        <div class="container">
+            <h2>Activate Your 72-Hour Guarantee</h2>
+            <p>Time is critical. Don't let talent gaps compromise your operations. Activate our 72-Hour Guarantee and get elite candidates delivered to you within three days.</p>
+            <div class="cta-buttons">
+                <a href="tel:+2348039661354" class="btn btn-guarantee">
+                    <i class="fas fa-phone"></i> Call Now: +234 803 966 1354
+                </a>
+                <a href="mailto:acquire@jobpitality.com?subject=Activate 72-Hour Guarantee&body=I would like to activate the 72-Hour Guarantee for an urgent position." class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Email to Activate
+                </a>
+            </div>
+            <p style="margin-top: var(--space-md); font-size: 0.9rem; opacity: 0.8;">Available 24/7 for urgent hospitality leadership needs</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Jobpitality</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-lg);">We deploy <strong>Precision Search</strong> to connect Nigeria's luxury hospitality industry with <strong>Elite Talent</strong>. The ruthless talent partner for hotels, restaurants, and resorts.</p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> +234 803 966 1354</p>
+                        <p><i class="fas fa-envelope"></i> acquire@jobpitality.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Ilori • Osogbo • Kaduna • Lagos</p>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Precision Search</h3>
+                    <ul class="footer-links">
+                        <li><a href="/services/executive-search/"><i class="fas fa-chevron-right"></i> Executive Search</a></li>
+                        <li><a href="/services/hotel-leadership/"><i class="fas fa-chevron-right"></i> Hotel Leadership</a></li>
+                        <li><a href="/services/culinary-leadership/"><i class="fas fa-chevron-right"></i> Culinary Leadership</a></li>
+                        <li><a href="/services/management-teams/"><i class="fas fa-chevron-right"></i> Management Teams</a></li>
+                        <li><a href="/services/guarantee/" class="active"><i class="fas fa-chevron-right"></i> 72-Hour Guarantee</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Elite Talent</h3>
+                    <ul class="footer-links">
+                        <li><a href="/candidates/submit-profile/"><i class="fas fa-chevron-right"></i> Join Elite Database</a></li>
+                        <li><a href="/elite-opportunities/"><i class="fas fa-chevron-right"></i> Elite Opportunities</a></li>
+                        <li><a href="/candidates/career-strategy/"><i class="fas fa-chevron-right"></i> Career Strategy</a></li>
+                        <li><a href="/candidates/application-process/"><i class="fas fa-chevron-right"></i> Application Process</a></li>
+                        <li><a href="/candidates/faq/"><i class="fas fa-chevron-right"></i> Candidate FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Insights</h3>
+                    <ul class="footer-links">
+                        <li><a href="/insights/hospitality-trends/"><i class="fas fa-chevron-right"></i> Hospitality Trends</a></li>
+                        <li><a href="/insights/salary-benchmarks/"><i class="fas fa-chevron-right"></i> Salary Benchmarks</a></li>
+                        <li><a href="/insights/industry-reports/"><i class="fas fa-chevron-right"></i> Industry Reports</a></li>
+                        <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Jobpitality Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 Jobpitality. All rights reserved. The ruthless talent partner for Nigeria's luxury hospitality industry.</p>
+                    <div class="footer-legal">
+                        <a href="/privacy-policy/">Privacy Policy</a>
+                        <span class="separator">|</span>
+                        <a href="/terms-of-service/">Terms of Service</a>
+                        <span class="separator">|</span>
+                        <a href="/cookies/">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            mobileMenuToggle.classList.remove('active');
+                        }
+                    }
+                });
+            });
+            
+            // Sticky header
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.site-header');
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Countdown Timer
+            function updateCountdown() {
+                const hoursElement = document.getElementById('hours');
+                const minutesElement = document.getElementById('minutes');
+                const secondsElement = document.getElementById('seconds');
+                
+                // Simulate 72-hour countdown (for demo purposes)
+                // In a real implementation, this would be tied to actual guarantee activation
+                let hours = 72;
+                let minutes = 0;
+                let seconds = 0;
+                
+                // For demo: Count down from current time to show dynamic effect
+                const now = new Date();
+                seconds = 59 - now.getSeconds();
+                minutes = 59 - now.getMinutes();
+                hours = 71 - now.getHours() % 24;
+                
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                }
+                
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                }
+                
+                if (hours < 0) hours = 0;
+                
+                hoursElement.textContent = hours.toString().padStart(2, '0');
+                minutesElement.textContent = minutes.toString().padStart(2, '0');
+                secondsElement.textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            // Update countdown every second
+            setInterval(updateCountdown, 1000);
+            updateCountdown(); // Initial call
+            
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe timeline steps and position cards
+            document.querySelectorAll('.step-content, .position-card, .term-card').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Activate Guarantee form handling
+            const activateButtons = document.querySelectorAll('a[href="#activate-guarantee"]');
+            activateButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const target = document.querySelector('#activate-guarantee');
+                    if (target) {
+                        // Add a visual pulse effect to the CTA section
+                        target.style.animation = 'pulse 1s';
+                        setTimeout(() => {
+                            target.style.animation = '';
+                        }, 1000);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
