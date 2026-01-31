@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CHANGE: Updated title for Jobpitality -->
-    <title>Jobpitality | Precision Recruitment for Luxury Hospitality | GM, Chef & Management Placement</title>
-    <!-- CHANGE: Updated meta description with Jobpitality and new messaging -->
-    <meta name="description" content="Jobpitality: The ruthless talent partner for luxury hotels and restaurants. We place elite General Managers, Executive Chefs, and management teams that guarantee performance. 72-hour shortlist guarantee.">
+    <title>Jobpitality | Precision Search for Elite Hospitality Talent | GM, Chef & Leadership Placement</title>
+    <meta name="description" content="Jobpitality deploys Precision Search to connect Nigeria's luxury hospitality industry with Elite Talent. 72-hour vetted shortlist guarantee for transformative leaders.">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Jobpitality | The Ruthless Talent Partner for Luxury Hospitality">
-    <meta property="og:description" content="We guarantee a shortlist of vetted, elite hospitality leaders within 72 hours. Confidential. Guaranteed.">
+    <meta property="og:title" content="Jobpitality | Precision Search for Elite Hospitality Talent">
+    <meta property="og:description" content="We deploy targeted talent acquisition to place elite General Managers, Executive Chefs, and leadership teams that guarantee performance.">
     <meta property="og:image" content="https://jobpitality.com/img/home-og.jpg">
     <meta property="og:url" content="https://jobpitality.com">
     <meta property="og:type" content="website">
@@ -24,7 +22,6 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- CHANGE: Updated font selection for a sharper, more modern feel (keeping Inter) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- COMPLETE INLINE CSS -->
@@ -37,7 +34,7 @@
         }
         
         :root {
-            /* CHANGE: Updated color system for a more premium, confident palette */
+            /* Jobpitality Color Palette */
             --color-primary: #0d1b2a;      /* Deep Navy (Authority) */
             --color-primary-dark: #070d13;
             --color-accent: #ff9e00;       /* Vibrant Orange (Energy, Action) */
@@ -46,7 +43,7 @@
             --color-emergency-dark: #c1121f;
             --color-success: #2a9d8f;       /* Teal (Success, Trust) */
             --color-success-dark: #21867a;
-            --color-dark: #0d1b2a;          /* Text Black */
+            --color-dark: #0d1b2a;
             --color-gray-900: #1b263b;
             --color-gray-800: #415a77;
             --color-gray-700: #778da9;
@@ -54,10 +51,9 @@
             --color-gray-300: #e2e8f0;
             --color-gray-200: #edf2f7;
             --color-gray-100: #f7fafc;
-            --color-light: #ffffff;
             --color-white: #ffffff;
             
-            /* CHANGE: Simplified typography - a single, strong sans-serif */
+            /* Typography */
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             
             /* SPACING */
@@ -74,7 +70,7 @@
             --radius-md: 8px;
             --radius-lg: 12px;
             --radius-xl: 16px;
-            --radius-2xl: 20px; /* Slightly less rounded for sharper look */
+            --radius-2xl: 20px;
             
             /* SHADOWS */
             --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
@@ -113,7 +109,7 @@
         
         /* ===== TYPOGRAPHY ===== */
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 800; /* Bolder weights for impact */
+            font-weight: 800;
             line-height: 1.1;
             color: var(--color-gray-900);
             letter-spacing: -0.025em;
@@ -272,7 +268,6 @@
             line-height: 1.2;
         }
         
-        /* CHANGE: Logo styling for Jobpitality */
         .logo h1 {
             font-size: 2.1rem;
             margin-bottom: 0;
@@ -490,7 +485,6 @@
             max-width: 900px;
         }
         
-        /* CHANGE: Hero badge updated for the 72-hour guarantee */
         .hero-badge {
             background: linear-gradient(90deg, var(--color-accent), #ff6b00);
             color: var(--color-primary);
@@ -517,7 +511,6 @@
         .hero-title .highlight {
             color: var(--color-accent);
             font-style: normal;
-            position: relative;
         }
         
         .hero-subtitle {
@@ -529,7 +522,7 @@
             font-weight: 400;
         }
         
-        /* HERO STATS - Updated for Jobpitality messaging */
+        /* HERO STATS */
         .hero-stats {
             display: flex;
             gap: var(--space-2xl);
@@ -679,8 +672,120 @@
             margin-top: 0.25rem;
         }
         
+        /* ===== METHODOLOGY SECTION (NEW) ===== */
+        .methodology {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-gray-100);
+        }
+        
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .methodology-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 2px solid transparent;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .methodology-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .methodology-card.precision {
+            border-color: var(--color-accent);
+        }
+        
+        .methodology-card.elite {
+            border-color: var(--color-success);
+        }
+        
+        .methodology-icon {
+            font-size: 3rem;
+            color: var(--color-white);
+            margin-bottom: var(--space-md);
+            background: var(--color-accent);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .methodology-card.elite .methodology-icon {
+            background: var(--color-success);
+        }
+        
+        .methodology-card h3 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .comparison-table {
+            background: var(--color-gray-100);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin: var(--space-lg) 0;
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .table-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--color-primary);
+            color: var(--color-white);
+            font-weight: 700;
+            padding: var(--space-md);
+            text-align: center;
+        }
+        
+        .table-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .table-row:last-child {
+            border-bottom: none;
+        }
+        
+        .table-row:nth-child(even) {
+            background: var(--color-white);
+        }
+        
+        .elite-traits {
+            list-style: none;
+            margin: var(--space-lg) 0;
+        }
+        
+        .elite-traits li {
+            padding: 0.75rem 0;
+            color: var(--color-gray-700);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .elite-traits li:last-child {
+            border-bottom: none;
+        }
+        
+        .elite-traits li i {
+            color: var(--color-success);
+            margin-top: 0.25rem;
+        }
+        
         /* ===== GUARANTEE BANNER ===== */
-        /* CHANGE: New section for the 72-hour guarantee */
         .guarantee-banner {
             padding: var(--space-2xl) var(--space-md);
             background: linear-gradient(135deg, var(--color-primary), #1b263b);
@@ -715,7 +820,7 @@
         /* ===== CASE STUDIES PREVIEW ===== */
         .case-studies {
             padding: var(--space-3xl) var(--space-md);
-            background: var(--color-gray-100);
+            background: var(--color-white);
         }
         
         .case-grid {
@@ -803,7 +908,7 @@
         /* ===== PROCESS SECTION ===== */
         .process {
             padding: var(--space-3xl) var(--space-md);
-            background: var(--color-white);
+            background: var(--color-gray-100);
         }
         
         .process-steps {
@@ -1211,6 +1316,7 @@
             h2 { font-size: 2.2rem; }
             
             .services-grid,
+            .methodology-grid,
             .case-grid,
             .testimonial-grid {
                 grid-template-columns: 1fr;
@@ -1242,6 +1348,18 @@
             .emergency-banner {
                 margin: var(--space-xl) var(--space-md);
                 border-radius: var(--radius-lg);
+            }
+            
+            .table-header,
+            .table-row {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+            
+            .table-header span:first-child {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                padding-bottom: var(--space-sm);
+                margin-bottom: var(--space-sm);
             }
         }
         
@@ -1316,7 +1434,6 @@
     <header class="site-header">
         <div class="container">
             <div class="header-container">
-                <!-- CHANGE: Updated logo for Jobpitality -->
                 <div class="logo">
                     <a href="/" aria-label="Jobpitality Home">
                         <h1><i class="fas fa-bolt"></i> <span class="brand-name">JOBPITALITY</span></h1>
@@ -1420,12 +1537,6 @@
                                 <a href="/insights/blog/" class="dropdown-item">
                                     <i class="fas fa-blog"></i> Blog
                                 </a>
-                                <!-- <a href="/insights/industry-reports/" class="dropdown-item">
-                                    <i class="fas fa-chart-bar"></i> Market Intelligence
-                                </a>
-                                <a href="/insights/salary-guide/" class="dropdown-item">
-                                    <i class="fas fa-money-bill-wave"></i> Salary Guide
-                                </a> -->
                             </div>
                         </li>
                         
@@ -1455,15 +1566,12 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <!-- CHANGE: Hero badge updated for guarantee -->
                 <div class="hero-badge">
                     <i class="fas fa-shield-alt"></i> 72-HOUR VETTED SHORTLIST GUARANTEE
                 </div>
-                <!-- CHANGE: Updated hero title and subtitle -->
-                <h1 class="hero-title">We Don't Find Talent.<br>We <span class="highlight">Acquire</span> It.</h1>
-                <p class="hero-subtitle">Jobpitality is the ruthless talent partner for luxury hotels and restaurants. We place elite General Managers, Executive Chefs, and management teams that guarantee performance, not just fill vacancies.</p>
+                <h1 class="hero-title"><span class="highlight">Precision Search</span> for <span class="highlight">Elite Hospitality Talent</span></h1>
+                <p class="hero-subtitle">Jobpitality deploys targeted talent acquisition to place elite General Managers, Executive Chefs, and leadership teams that guarantee performance. We don't just fill vacancies—we deliver transformative leaders.</p>
                 
-                <!-- Hero Stats - Updated for Jobpitality -->
                 <div class="hero-stats">
                     <div class="hero-stat">
                         <span class="hero-stat-number">72h</span>
@@ -1471,7 +1579,7 @@
                     </div>
                     <div class="hero-stat">
                         <span class="hero-stat-number">94%</span>
-                        <span class="hero-stat-label">Retention<br>at 12 Months</span>
+                        <span class="hero-stat-label">Elite Talent<br>Retention</span>
                     </div>
                     <div class="hero-stat">
                         <span class="hero-stat-number">42%</span>
@@ -1498,7 +1606,7 @@
     <!-- TRUSTED CLIENTS -->
     <section class="clients">
         <div class="container">
-            <p class="clients-title">We Place Leaders At</p>
+            <p class="clients-title">We Place Elite Leaders At</p>
             <div class="clients-grid">
                 <div class="client-logo">FOUR SEASONS</div>
                 <div class="client-logo">RITZ-CARLTON</div>
@@ -1514,8 +1622,8 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-header">
-                <h2>Precision Search for <span class="text-gradient">Luxury Hospitality</span></h2>
-                <p>We execute focused talent acquisition, not generic recruitment.</p>
+                <h2>Precision Search for <span class="text-gradient">Elite Hospitality</span></h2>
+                <p>Targeted talent acquisition executed across Nigeria's luxury hospitality segments.</p>
             </div>
             
             <div class="services-grid">
@@ -1570,16 +1678,79 @@
         </div>
     </section>
     
+    <!-- METHODOLOGY SECTION (NEW) -->
+    <section class="methodology">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Jobpitality <span class="text-gradient">Methodology</span></h2>
+                <p>Our unique approach combines targeted search with elite talent assessment to guarantee transformative placements.</p>
+            </div>
+            
+            <div class="methodology-grid">
+                <div class="methodology-card precision">
+                    <div class="methodology-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3>Precision Search</h3>
+                    <p>We don't recruit—we acquire. Our targeted approach focuses on quality over quantity, identifying the perfect fit, not just a possible one.</p>
+                    
+                    <div class="comparison-table">
+                        <div class="table-header">
+                            <span>Broad Recruitment</span>
+                            <span>Precision Search</span>
+                        </div>
+                        <div class="table-row">
+                            <span>Goal: Capture most/all possible candidates</span>
+                            <span>Goal: Identify few, highly relevant candidates</span>
+                        </div>
+                        <div class="table-row">
+                            <span>Pro: Lower risk of missing matches</span>
+                            <span>Pro: Less time wasted on bad fits</span>
+                        </div>
+                        <div class="table-row">
+                            <span>Con: More irrelevant results to filter</span>
+                            <span>Con: Risk of missing some relevant candidates</span>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Ideal for:</strong> Critical leadership roles with non-negotiable requirements where cultural fit and exact skills are paramount.</p>
+                    <a href="/services/precision-search/" class="btn btn-outline btn-block" style="margin-top: var(--space-md);">
+                        <i class="fas fa-arrow-right"></i> Learn About Our Search Process
+                    </a>
+                </div>
+                
+                <div class="methodology-card elite">
+                    <div class="methodology-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Elite Talent</h3>
+                    <p>The transformative leaders we place combine rare skills and character traits that drive disproportionate business impact.</p>
+                    
+                    <ul class="elite-traits">
+                        <li><i class="fas fa-brain"></i> <strong>Cognitive & Strategic:</strong> Strong problem-solving, rapid learning, strategic thinking</li>
+                        <li><i class="fas fa-fist-raised"></i> <strong>Character & Drive:</strong> High integrity, courageous decision-making, perseverance</li>
+                        <li><i class="fas fa-handshake"></i> <strong>Relationship & Leadership:</strong> Network building, persuasion, team inspiration</li>
+                        <li><i class="fas fa-sync-alt"></i> <strong>Resilience & Adaptability:</strong> Authenticity, confidence under pressure, change navigation</li>
+                    </ul>
+                    
+                    <p><strong>The Impact:</strong> One elite performer can increase team performance by <strong>5-15%</strong> and deliver financial returns well above average.</p>
+                    <a href="/elite-opportunities/" class="btn btn-outline btn-block" style="margin-top: var(--space-md);">
+                        <i class="fas fa-arrow-right"></i> Explore Elite Opportunities
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- GUARANTEE BANNER -->
-    <!-- CHANGE: New section highlighting the core promise -->
     <section class="guarantee-banner">
         <div class="container">
             <div class="guarantee-content">
                 <div class="guarantee-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                <h2>Our Unwavering Guarantee</h2>
-                <p class="lead">Submit a detailed brief. Within <strong>72 hours</strong>, we will deliver a shortlist of pre-vetted, interviewed, and culturally-assessed candidates. Not just resumes. <strong>Guaranteed talent, ready to interview.</strong></p>
+                <h2>Our Precision Search Guarantee</h2>
+                <p class="lead">Submit a detailed brief. Within <strong>72 hours</strong>, we will deliver a shortlist of pre-vetted, culturally-assessed <strong>elite candidates</strong>. Not just resumes. Guaranteed talent, ready to interview.</p>
                 <a href="/services/guarantee/" class="btn btn-primary btn-large" style="margin-top: var(--space-lg);">
                     <i class="fas fa-file-contract"></i> READ THE FULL GUARANTEE
                 </a>
@@ -1592,17 +1763,17 @@
         <div class="container">
             <div class="section-header">
                 <h2>Precision <span class="text-gradient">Placements</span>, Proven Impact</h2>
-                <p>Where our talent acquisition directly drove measurable business results.</p>
+                <p>Where our elite talent acquisition directly drove measurable business transformation.</p>
             </div>
             
             <div class="case-grid">
                 <div class="case-card">
                     <div class="case-image">
-                        <div class="case-badge">72-HOUR PLACEMENT</div>
+                        <div class="case-badge">PRECISION PLACEMENT</div>
                     </div>
                     <div class="case-content">
                         <h3><a href="#">Luxury Boutique Hotel GM Search</a></h3>
-                        <p>Client had a 94-day vacancy crippling operations. We delivered a vetted shortlist in 72 hours. Placed GM achieved 42% revenue growth in 6 months.</p>
+                        <p>Client had a 94-day vacancy crippling operations. Our <strong>Precision Search</strong> delivered a vetted shortlist in 72 hours. The <strong>elite GM</strong> placed achieved 42% revenue growth in 6 months.</p>
                         <div class="case-stats">
                             <div class="case-stat">
                                 <strong>72h</strong>
@@ -1618,11 +1789,11 @@
                 
                 <div class="case-card">
                     <div class="case-image" style="background: linear-gradient(135deg, var(--color-accent), #ff6b00);">
-                        <div class="case-badge">CULINARY CRISIS AVERTED</div>
+                        <div class="case-badge">ELITE CULINARY TALENT</div>
                     </div>
                     <div class="case-content">
                         <h3><a href="#">Michelin-star Executive Chef</a></h3>
-                        <p>Executive chef quit 48 hours before a major review. We had an interim, Michelin-experienced chef in the kitchen within 8 hours. Permanent placement within 3 weeks.</p>
+                        <p>Executive chef quit 48 hours before a major review. We deployed an interim, <strong>elite Michelin-experienced chef</strong> within 8 hours. Permanent placement within 3 weeks preserved the restaurant's reputation.</p>
                         <div class="case-stats">
                             <div class="case-stat">
                                 <strong>8h</strong>
@@ -1638,11 +1809,11 @@
                 
                 <div class="case-card">
                     <div class="case-image" style="background: linear-gradient(135deg, var(--color-success), var(--color-success-dark));">
-                        <div class="case-badge">MULTI-PROPERTY SUCCESSION</div>
+                        <div class="case-badge">TRANSFORMATIVE LEADERSHIP</div>
                     </div>
                     <div class="case-content">
                         <h3><a href="#">Resort Group Leadership Overhaul</a></h3>
-                        <p>Placed a new VP of Operations and 3 GMs across a luxury resort group. Achieved 65% seasonal revenue increase and unified culture across properties.</p>
+                        <p>Using <strong>Precision Search</strong>, we placed a new VP of Operations and 3 GMs across a luxury resort group. The <strong>elite leadership team</strong> achieved 65% seasonal revenue increase and unified culture across properties.</p>
                         <div class="case-stats">
                             <div class="case-stat">
                                 <strong>4</strong>
@@ -1670,7 +1841,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>The Jobpitality <span class="text-gradient">Method</span></h2>
-                <p>A systematic, ruthless process designed for one outcome: placing elite talent that performs.</p>
+                <p>Our systematic process for placing elite talent that performs.</p>
             </div>
             
             <div class="process-steps">
@@ -1678,7 +1849,7 @@
                     <div class="step-number">1</div>
                     <div class="step-content">
                         <h3>Strategic Brief & Intelligence</h3>
-                        <p>We deconstruct your need. Not just the job description, but the business problem, culture, and exact performance outcomes required.</p>
+                        <p>We deconstruct your need. Not just the job description, but the business problem, culture, and exact performance outcomes required for <strong>elite talent</strong> success.</p>
                     </div>
                 </div>
                 
@@ -1686,7 +1857,7 @@
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h3>Targeted Talent Mapping</h3>
-                        <p>We map and engage the precise talent pool, including passive leaders not on the market. No spam. No databases. Just direct acquisition.</p>
+                        <p>We map and engage the precise talent pool using <strong>Precision Search</strong> methodology, including passive leaders not on the market. No spam. No databases. Just direct acquisition.</p>
                     </div>
                 </div>
                 
@@ -1694,7 +1865,7 @@
                     <div class="step-number">3</div>
                     <div class="step-content">
                         <h3>Ruthless Assessment & Vetting</h3>
-                        <p>Proprietary hospitality leadership assessments. We evaluate for proven impact, cultural alignment, and leadership agility. Only the elite pass.</p>
+                        <p>Proprietary hospitality leadership assessments evaluate for proven impact, cultural alignment, and leadership agility—the hallmarks of <strong>elite talent</strong>. Only the elite pass.</p>
                     </div>
                 </div>
                 
@@ -1702,7 +1873,7 @@
                     <div class="step-number">4</div>
                     <div class="step-content">
                         <h3>Guaranteed Placement & Integration</h3>
-                        <p>We guarantee the placement and support integration with performance tracking. Our relationship begins at placement, it doesn't end there.</p>
+                        <p>We guarantee the placement and support integration with performance tracking. Our relationship begins at placement, it doesn't end there. We ensure <strong>elite talent</strong> delivers transformative impact.</p>
                     </div>
                 </div>
             </div>
@@ -1714,12 +1885,12 @@
         <div class="container">
             <div class="section-header" style="color: white;">
                 <h2>What <span style="color: var(--color-accent);">Industry Leaders</span> Say</h2>
-                <p>Feedback from executives who demanded results, not just candidates.</p>
+                <p>Feedback from executives who demanded elite talent, not just candidates.</p>
             </div>
             
             <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Jobpitality's 72-hour guarantee wasn't a slogan; it was a promise kept. The GM they placed transformed our property's performance. They operate with a precision others lack."</p>
+                    <p class="testimonial-text">"Jobpitality's <strong>Precision Search</strong> methodology delivered an elite GM who transformed our property's performance. They understand that luxury hospitality requires targeted acquisition, not generic recruitment."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">JW</div>
                         <div class="author-info">
@@ -1730,7 +1901,7 @@
                 </div>
                 
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"When our Executive Chef walked out, Jobpitality didn't send CVs. They had a solution cooking in our kitchen within hours. They understand crisis means business, not paperwork."</p>
+                    <p class="testimonial-text">"When our Executive Chef walked out, Jobpitality didn't send CVs. They had <strong>elite culinary talent</strong> cooking in our kitchen within hours. They understand crisis means business, not paperwork."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">SC</div>
                         <div class="author-info">
@@ -1741,7 +1912,7 @@
                 </div>
                 
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Their 'ruthless' approach is exactly what the industry needs. No fluff, no generic candidates. They acquired a leadership team that delivered a 65% revenue increase. Period."</p>
+                    <p class="testimonial-text">"Their <strong>Precision Search</strong> for elite talent delivered a leadership team that achieved a 65% revenue increase. They operate with a focus on transformative impact that others simply don't match."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">MR</div>
                         <div class="author-info">
@@ -1759,7 +1930,7 @@
         <div class="container">
             <div class="emergency-content">
                 <h2><i class="fas fa-bolt"></i> Leadership Crisis or Sudden Departure?</h2>
-                <p>GM quit? Chef walked out? Opening delayed? Our rapid response team deploys interim, vetted leaders within hours to stabilize your operation while we execute a permanent search.</p>
+                <p>GM quit? Chef walked out? Our rapid response team deploys <strong>interim elite talent</strong> within hours to stabilize your operation while we execute a permanent <strong>Precision Search</strong>.</p>
                 <div style="margin-top: var(--space-lg);">
                     <a href="/emergency/" class="btn btn-emergency btn-large">
                         <i class="fas fa-headset"></i> ACTIVATE CRISIS RESPONSE
@@ -1776,8 +1947,8 @@
     <section class="cta-section" id="consultation">
         <div class="container">
             <div class="cta-container">
-                <h2>Ready to Acquire Elite Talent, Not Just Hire?</h2>
-                <p class="lead">Schedule a ruthless, no-bullshit consultation. We'll analyze your talent gap and show you exactly how we'd close it.</p>
+                <h2>Ready to Acquire <span class="text-gradient">Elite Talent</span>?</h2>
+                <p class="lead">Schedule a ruthless, no-bullshit consultation. We'll analyze your talent gap and show you exactly how <strong>Precision Search</strong> would close it with transformative leadership.</p>
                 
                 <div class="cta-buttons">
                     <a href="/employers/start-search/" class="btn btn-primary btn-large">
@@ -1795,14 +1966,13 @@
         </div>
     </section>
     
-    <!-- FOOTER -->
+       <!-- FOOTER -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <!-- CHANGE: Updated footer branding -->
                     <h3>Jobpitality</h3>
-                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-lg);">The ruthless talent partner for luxury hotels, restaurants, and hospitality brands. We acquire elite talent that guarantees performance.</p>
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-lg);">We deploy <strong>Precision Search</strong> to connect Nigeria's luxury hospitality industry with <strong>Elite Talent</strong>. The ruthless talent partner for hotels, restaurants, and resorts.</p>
                     <div class="footer-contact">
                         <p><i class="fas fa-phone"></i> +234 803 966 1354</p>
                         <p><i class="fas fa-envelope"></i> acquire@jobpitality.com</p>
@@ -1822,245 +1992,114 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Insights</h3>
+                    <h3>Elite Talent</h3>
                     <ul class="footer-links">
-                        <li><a href="/case-studies/"><i class="fas fa-chevron-right"></i> Impact Studies</a></li>
-                        <li><a href="/insights/blog/"><i class="fas fa-chevron-right"></i> Blog & Intelligence</a></li>
-                        <li><a href="/insights/salary-guide/"><i class="fas fa-chevron-right"></i> Luxury Salary Guide</a></li>
-                        <li><a href="/insights/industry-reports/"><i class="fas fa-chevron-right"></i> Market Reports</a></li>
-                        <li><a href="/employers/roi-calculator/"><i class="fas fa-chevron-right"></i> ROI Calculator</a></li>
+                        <li><a href="/candidates/submit-profile/"><i class="fas fa-chevron-right"></i> Join Elite Database</a></li>
+                        <li><a href="/elite-opportunities/"><i class="fas fa-chevron-right"></i> Elite Opportunities</a></li>
+                        <li><a href="/candidates/career-strategy/"><i class="fas fa-chevron-right"></i> Career Strategy</a></li>
+                        <li><a href="/candidates/application-process/"><i class="fas fa-chevron-right"></i> Application Process</a></li>
+                        <li><a href="/candidates/faq/"><i class="fas fa-chevron-right"></i> Candidate FAQ</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Company</h3>
+                    <h3>Insights</h3>
                     <ul class="footer-links">
-                        <li><a href="/about/"><i class="fas fa-chevron-right"></i> Our Method</a></li>
-                        <li><a href="/careers/"><i class="fas fa-chevron-right"></i> Join Our Team</a></li>
-                        <li><a href="/contact/"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                        <li><a href="/privacy/"><i class="fas fa-chevron-right"></i> Privacy & NDA</a></li>
-                        <li><a href="/terms/"><i class="fas fa-chevron-right"></i> Terms</a></li>
+                        <li><a href="/insights/hospitality-trends/"><i class="fas fa-chevron-right"></i> Hospitality Trends</a></li>
+                        <li><a href="/insights/salary-benchmarks/"><i class="fas fa-chevron-right"></i> Salary Benchmarks</a></li>
+                        <li><a href="/insights/industry-reports/"><i class="fas fa-chevron-right"></i> Industry Reports</a></li>
+                        <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Jobpitality Blog</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <div class="footer-bottom-links">
-                    <a href="/sitemap/">Sitemap</a>
-                    <a href="/accessibility/">Accessibility</a>
-                    <a href="/cookies/">Cookie Policy</a>
-                    <a href="/compliance/">Compliance</a>
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 Jobpitality. All rights reserved. The ruthless talent partner for Nigeria's luxury hospitality industry.</p>
+                    <div class="footer-legal">
+                        <a href="/privacy-policy/">Privacy Policy</a>
+                        <span class="separator">|</span>
+                        <a href="/terms-of-service/">Terms of Service</a>
+                        <span class="separator">|</span>
+                        <a href="/cookies/">Cookie Policy</a>
+                    </div>
                 </div>
-                <!-- CHANGE: Updated copyright -->
-                <p>&copy; 2024 <strong>Jobpitality</strong>. The Ruthless Talent Partner for Luxury Hospitality. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    
+
     <!-- JAVASCRIPT -->
     <script>
-        // Mobile Navigation
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const mainNav = document.querySelector('.main-nav');
-        const mobileOverlay = document.querySelector('.mobile-overlay');
-        
-        if (mobileMenuToggle && mainNav) {
-            mobileMenuToggle.addEventListener('click', () => {
-                mainNav.classList.toggle('active');
-                mobileOverlay.classList.toggle('active');
-                const icon = mobileMenuToggle.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-                document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
-            });
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
             
-            // Close menu when clicking overlay
-            if (mobileOverlay) {
-                mobileOverlay.addEventListener('click', () => {
-                    mainNav.classList.remove('active');
-                    mobileOverlay.classList.remove('active');
-                    const icon = mobileMenuToggle.querySelector('i');
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-times');
-                    document.body.style.overflow = '';
-                    
-                    // Close all dropdowns
-                    document.querySelectorAll('.dropdown').forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                    });
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    this.classList.toggle('active');
                 });
             }
             
-            // Mobile dropdown functionality
-            document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-                toggle.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        const dropdown = this.parentElement;
-                        dropdown.classList.toggle('active');
-                        
-                        // Close other dropdowns
-                        document.querySelectorAll('.dropdown').forEach(otherDropdown => {
-                            if (otherDropdown !== dropdown) {
-                                otherDropdown.classList.remove('active');
-                            }
-                        });
-                    }
-                });
-            });
-            
-            // Close menu when clicking a link
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth <= 768) {
-                        mainNav.classList.remove('active');
-                        mobileOverlay.classList.remove('active');
-                        const icon = mobileMenuToggle.querySelector('i');
-                        icon.classList.add('fa-bars');
-                        icon.classList.remove('fa-times');
-                        document.body.style.overflow = '';
-                    }
-                });
-            });
-        }
-        
-        // Animate elements on scroll
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.service-card, .case-card, .testimonial-card, .process-step');
-            
-            elements.forEach(element => {
-                const rect = element.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        }
-        
-        // Set initial state for animation
-        document.querySelectorAll('.service-card, .case-card, .testimonial-card, .process-step').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        });
-        
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll(); // Initial check
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        // Close mobile menu if open
-                        if (window.innerWidth <= 768 && mainNav.classList.contains('active')) {
-                            mainNav.classList.remove('active');
-                            mobileOverlay.classList.remove('active');
-                            const icon = mobileMenuToggle.querySelector('i');
-                            icon.classList.add('fa-bars');
-                            icon.classList.remove('fa-times');
-                            document.body.style.overflow = '';
-                        }
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
                         
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }
-            });
-        });
-        
-        // Track CTA clicks
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', function() {
-                if (typeof gtag !== 'undefined') {
-                    const label = this.textContent.trim().substring(0, 30);
-                    gtag('event', 'cta_click', {
-                        'event_category': 'Homepage',
-                        'event_label': label,
-                        'value': 1
-                    });
-                }
-            });
-        });
-        
-        // Add active class to current page in navigation
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentPath = window.location.pathname;
-            document.querySelectorAll('.nav-link').forEach(link => {
-                if (link.getAttribute('href') === currentPath || 
-                    (currentPath === '/' && link.getAttribute('href') === '/')) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // Sticky header shadow on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.site-header');
-            if (window.scrollY > 20) {
-                header.style.boxShadow = 'var(--shadow-2xl)';
-            } else {
-                header.style.boxShadow = 'var(--shadow-lg)';
-            }
-        });
-        
-        // Stats counter animation
-        function animateStats() {
-            const stats = document.querySelectorAll('.hero-stat-number');
-            stats.forEach(stat => {
-                const originalText = stat.textContent;
-                let target;
-                // Handle different stat formats (72h, 94%, etc.)
-                if (originalText.includes('h')) {
-                    target = parseInt(originalText);
-                } else if (originalText.includes('%')) {
-                    target = parseInt(originalText);
-                } else if (originalText.includes(':')) {
-                    target = parseInt(originalText.split(':')[0]);
-                } else {
-                    target = parseInt(originalText);
-                }
-                
-                if (!isNaN(target)) {
-                    let current = 0;
-                    const increment = target / 30; // Faster animation
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            stat.textContent = originalText;
-                            clearInterval(timer);
-                        } else {
-                            // Format based on original
-                            if (originalText.includes('h')) {
-                                stat.textContent = Math.floor(current) + 'h';
-                            } else if (originalText.includes('%')) {
-                                stat.textContent = Math.floor(current) + '%';
-                            } else if (originalText.includes(':')) {
-                                stat.textContent = Math.floor(current) + ':1';
-                            } else {
-                                stat.textContent = Math.floor(current);
-                            }
+                        // Close mobile menu if open
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            mobileMenuToggle.classList.remove('active');
                         }
-                    }, 40);
+                    }
+                });
+            });
+            
+            // Form submission handling
+            const contactForm = document.querySelector('.contact-form form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(this);
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    
+                    // Simulate form submission
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // In a real application, you would send this data to a server
+                    setTimeout(() => {
+                        alert('Thank you for your message! We will contact you shortly.');
+                        this.reset();
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }, 1500);
+                });
+            }
+            
+            // Sticky header
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.site-header');
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
             });
-        }
-        
-        // Trigger stats animation when in view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateStats();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-        
-        const heroStats = document.querySelector('.hero-stats');
-        if (heroStats) observer.observe(heroStats);
+        });
     </script>
 </body>
 </html>
