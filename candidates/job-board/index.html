@@ -1082,71 +1082,71 @@
     </style>
 </head>
 <body>
-    <!-- SITE HEADER -->
+   <!-- SITE HEADER -->
     <header class="site-header">
         <div class="container">
             <div class="header-container">
                 <div class="logo">
-                    <a href="/" aria-label="HospitalityRecruit Home">
-                        <h1><i class="fas fa-hotel"></i> HospitalityRecruit</h1><hr>
-                        <span class="logo-tagline">EXECUTIVE SEARCH</span>
+                    <a href="/" aria-label="Jobpitality Home">
+                        <h1><i class="fas fa-bolt"></i> <span class="brand-name">JOBPITALITY</span></h1>
+                        <span class="logo-tagline">THE RUTHLESS TALENT PARTNER</span>
                     </a>
                 </div>
                 
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
                 </button>
                 
-                <nav class="main-nav">
+                <nav class="main-nav" id="mainNav">
                     <ul class="nav-menu">
                         <li class="nav-item">
-                            <a href="/" class="nav-link">
+                            <a href="/" class="nav-link active">
                                 <i class="fas fa-home"></i> Home
                             </a>
                         </li>
                         
                         <li class="nav-item dropdown">
                             <a href="/services/" class="nav-link dropdown-toggle">
-                                <i class="fas fa-briefcase"></i> Services
+                                <i class="fas fa-crosshairs"></i> Precision Search
                                 <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
                             </a>
                             <div class="dropdown-menu">
                                 <a href="/services/executive-search/" class="dropdown-item">
                                     <i class="fas fa-search"></i> Executive Search
                                 </a>
-                                <a href="/services/leadership-assessment/" class="dropdown-item">
-                                    <i class="fas fa-chart-line"></i> Leadership Assessment
+                                <a href="/services/hotel-leadership/" class="dropdown-item">
+                                    <i class="fas fa-hotel"></i> Hotel Leadership
                                 </a>
-                                <a href="/services/succession-planning/" class="dropdown-item">
-                                    <i class="fas fa-chess-king"></i> Succession Planning
+                                <a href="/services/culinary-leadership/" class="dropdown-item">
+                                    <i class="fas fa-utensils"></i> Culinary Leadership
                                 </a>
-                                <a href="/services/team-building/" class="dropdown-item">
-                                    <i class="fas fa-users"></i> Team Building
+                                <a href="/services/management-teams/" class="dropdown-item">
+                                    <i class="fas fa-users"></i> Management Teams
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a href="/services/hotel-management/" class="dropdown-item">
-                                    <i class="fas fa-concierge-bell"></i> Hotel Management
-                                </a>
-                                <a href="/services/fb-staffing/" class="dropdown-item">
-                                    <i class="fas fa-utensils"></i> F&B Staffing
+                                <a href="/services/guarantee/" class="dropdown-item">
+                                    <i class="fas fa-shield-alt"></i> 72-Hour Guarantee
                                 </a>
                             </div>
                         </li>
                         
                         <li class="nav-item dropdown">
                             <a href="/employers/" class="nav-link dropdown-toggle">
-                                <i class="fas fa-building"></i> Employers
+                                <i class="fas fa-building"></i> For Employers
                                 <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
                             </a>
                             <div class="dropdown-menu">
-                                <a href="/employers/client-process/" class="dropdown-item">
-                                    <i class="fas fa-play-circle"></i> Client Process
+                                <a href="/employers/our-process/" class="dropdown-item">
+                                    <i class="fas fa-play-circle"></i> Our Process
                                 </a>
-                                <a href="/employers/roi-calculator/" class="dropdown-item">
-                                    <i class="fas fa-calculator"></i> ROI Calculator
+                                <a href="/employers/post-job/" class="dropdown-item" style="color: var(--color-accent); font-weight: 700;">
+                                    <i class="fas fa-plus-circle"></i> Post a Job
                                 </a>
-                                <a href="/employers/industry-expertise/" class="dropdown-item">
-                                    <i class="fas fa-star"></i> Industry Expertise
+                                <a href="/employers/search-talent/" class="dropdown-item">
+                                    <i class="fas fa-search"></i> Search Talent
+                                </a>
+                                <a href="/employers/pricing/" class="dropdown-item">
+                                    <i class="fas fa-tag"></i> Pricing
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a href="/employers/start-search/" class="dropdown-item">
@@ -1156,61 +1156,34 @@
                         </li>
                         
                         <li class="nav-item dropdown">
-                            <a href="/candidates/" class="nav-link dropdown-toggle active">
-                                <i class="fas fa-user-tie"></i> Candidates
+                            <a href="/candidates/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-user-tie"></i> For Talent
                                 <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
                             </a>
                             <div class="dropdown-menu">
-                                <a href="/candidates/submit-profile/" class="dropdown-item">
-                                    <i class="fas fa-file-upload"></i> Submit Profile
-                                </a>
-                                 <a href="/candidates/career-opportunities/" class="dropdown-item">
-                                    <i class="fas fa-briefcase"></i> Career Opportunities
+                                <a href="/candidates/jobs/" class="dropdown-item">
+                                    <i class="fas fa-briefcase"></i> Browse Jobs
                                 </a>
                                 <a href="/candidates/job-board/" class="dropdown-item">
                                     <i class="fas fa-briefcase"></i> Job Board
                                 </a>
-                                <a href="/candidates/career-advice/" class="dropdown-item">
-                                    <i class="fas fa-graduation-cap"></i> Career Advice
+                                <a href="/candidates/submit-profile/" class="dropdown-item">
+                                    <i class="fas fa-file-upload"></i> Submit Profile
                                 </a>
-                            </div>
-                        </li>
-                        
-                        <li class="nav-item dropdown">
-                            <a href="/insights/" class="nav-link dropdown-toggle">
-                                <i class="fas fa-lightbulb"></i> Insights
-                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
-                            </a>
-                            <div class="dropdown-menu">
-                                <a href="/insights/blog/" class="dropdown-item">
-                                    <i class="fas fa-blog"></i> Blog
-                                </a>
-                                <a href="/insights/industry-reports/" class="dropdown-item">
-                                    <i class="fas fa-chart-bar"></i> Industry Reports
-                                </a>
-                                <a href="/insights/webinars/" class="dropdown-item">
-                                    <i class="fas fa-video"></i> Webinars
+                                <a href="/candidates/career-strategy/" class="dropdown-item">
+                                    <i class="fas fa-graduation-cap"></i> Career Strategy
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a href="/insights/white-papers/" class="dropdown-item">
-                                    <i class="fas fa-file-alt"></i> White Papers
+                                <a href="/candidates/confidentiality/" class="dropdown-item">
+                                    <i class="fas fa-user-secret"></i> Confidential Process
                                 </a>
                             </div>
                         </li>
                         
-                        <li class="nav-item dropdown">
+                        <li class="nav-item">
                             <a href="/about/" class="nav-link">
                                 <i class="fas fa-info-circle"></i> About
-                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
                             </a>
-                            <div class="dropdown-menu">
-                                <a href="/about/our-difference/" class="dropdown-item">
-                                    <i class="fas fa-search"></i> Our Difference
-                                </a>
-                                <a href="/about/our-team/" class="dropdown-item">
-                                    <i class="fas fa-users"></i> Our Team
-                                </a>
-                            </div>
                         </li>
                     </ul>
                     

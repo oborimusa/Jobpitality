@@ -704,23 +704,6 @@
             margin-bottom: var(--space-md);
         }
         
-        /* ===== COMMON COMPONENTS ===== */
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-        }
-        
-        .section-header h2 {
-            margin-bottom: var(--space-md);
-        }
-        
-        .section-header p {
-            color: var(--color-gray-600);
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-        
         /* ===== HEADER & NAVIGATION ===== */
         .site-header {
             background: var(--color-white);
@@ -1210,6 +1193,12 @@
             }
         }
         
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
         .animate-fade-in-up {
             animation: fadeInUp 0.6s ease-out;
         }
@@ -1251,7 +1240,7 @@
 </head>
 <body>
     <!-- HEADER -->
-   <header class="site-header">
+    <header class="site-header">
         <div class="container">
             <div class="header-container">
                 <div class="logo">
@@ -1261,11 +1250,11 @@
                     </a>
                 </div>
                 
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
                 </button>
                 
-                <nav class="main-nav">
+                <nav class="main-nav" id="mainNav">
                     <ul class="nav-menu">
                         <li class="nav-item">
                             <a href="/" class="nav-link">
@@ -1345,39 +1334,27 @@
                             </div>
                         </li>
                         
-                        <!-- <li class="nav-item">
-                            <a href="/case-studies/" class="nav-link">
-                                <i class="fas fa-chart-line"></i> Success Stories
+                        <li class="nav-item">
+                            <a href="/about/" class="nav-link">
+                                <i class="fas fa-info-circle"></i> About
                             </a>
-                        </li> -->
-                        
-                    <li class="nav-item">
-                        <a href="/about/" class="nav-link">
-                            <i class="fas fa-info-circle"></i>
-                            About 
-                        </a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a href="/blog/" class="nav-link">
-                            <i class="fas fa-blog"></i>
-                            Blog
-                        </a>
-                    </li> -->
-                </ul>
+                        </li>
+                    </ul>
 
-                <div class="nav-cta-group">
-                    <a href="/auth/login/" class="nav-cta">
-                        <i class="fas fa-sign-in-alt"></i>
-                        Employer Login
-                    </a>
-                    <a href="/employers/urgent-hiring/" class="nav-cta nav-cta-emergency">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        Urgent Hiring
-                    </a>
-                </div>
-            </nav>
-            
-            <div class="mobile-overlay" id="mobileOverlay"></div>
+                    <div class="nav-cta-group">
+                        <a href="/auth/login/" class="nav-cta">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Employer Login
+                        </a>
+                        <a href="/employers/urgent-hiring/" class="nav-cta nav-cta-emergency">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Urgent Hiring
+                        </a>
+                    </div>
+                </nav>
+                
+                <div class="mobile-overlay" id="mobileOverlay"></div>
+            </div>
         </div>
     </header>
 
@@ -1770,7 +1747,7 @@
                 </div>
                 
                 <div class="text-center">
-                    <a href="/contact/sales/" class="btn btn-success btn-large">
+                    <a href="/contact/sales/" class="btn btn-success btn-large" id="consultationBtn">
                         <i class="fas fa-calendar-check"></i>
                         Schedule a Consultation
                     </a>
@@ -1853,24 +1830,48 @@
         <i class="fas fa-chevron-up"></i>
     </a>
 
+    <!-- Consultation Modal -->
+    <div id="consultationModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center;">
+        <div style="background: white; padding: 2rem; border-radius: 1rem; max-width: 500px; width: 90%; position: relative;">
+            <h3>Schedule Enterprise Consultation</h3>
+            <form id="consultationForm">
+                <input type="text" placeholder="Company Name" required style="width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 0.5rem;">
+                <input type="email" placeholder="Email Address" required style="width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 0.5rem;">
+                <input type="tel" placeholder="Phone Number" style="width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 0.5rem;">
+                <select style="width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 0.5rem;">
+                    <option>Number of Employees</option>
+                    <option>1-50</option>
+                    <option>51-200</option>
+                    <option>201-500</option>
+                    <option>500+</option>
+                </select>
+                <textarea placeholder="Tell us about your hiring needs..." rows="4" style="width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 0.5rem;"></textarea>
+                <button type="submit" style="background: #2a9d8f; color: white; border: none; padding: 1rem 2rem; border-radius: 0.5rem; cursor: pointer; width: 100%; margin-top: 1rem;">Request Consultation</button>
+            </form>
+            <button id="closeModal" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+        </div>
+    </div>
+
     <!-- INLINE JAVASCRIPT -->
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mainNav = document.getElementById('mainNav');
-        const mobileOverlay = document.getElementById('mobileOverlay');
+        // Mobile Menu Toggle - FIXED SELECTORS
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+        const mobileOverlay = document.querySelector('.mobile-overlay');
 
-        mobileMenuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            mobileOverlay.classList.toggle('active');
-            document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
-        });
+        if (mobileMenuToggle && mainNav && mobileOverlay) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                mobileOverlay.classList.toggle('active');
+                document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+            });
 
-        mobileOverlay.addEventListener('click', () => {
-            mainNav.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+            mobileOverlay.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
 
         // Dropdown Toggle for Mobile
         document.querySelectorAll('.dropdown > .nav-link').forEach(link => {
@@ -1885,30 +1886,34 @@
 
         // Billing Toggle
         const billingToggle = document.getElementById('billingToggle');
-        const monthlyPrices = document.querySelectorAll('.monthly-price');
-        const yearlyPrices = document.querySelectorAll('.yearly-price');
+        if (billingToggle) {
+            const monthlyPrices = document.querySelectorAll('.monthly-price');
+            const yearlyPrices = document.querySelectorAll('.yearly-price');
 
-        billingToggle.addEventListener('change', function() {
-            if (this.checked) {
-                // Switch to yearly
-                monthlyPrices.forEach(price => price.classList.add('hidden'));
-                yearlyPrices.forEach(price => price.classList.remove('hidden'));
-                
-                // Update pricing amounts for yearly
-                document.querySelectorAll('.pricing-amount .monthly-price').forEach(el => {
-                    const monthlyAmount = el.textContent.replace('₦', '').replace(',', '');
-                    if (monthlyAmount !== '0' && monthlyAmount !== 'Custom') {
-                        const yearlyAmount = Math.round(parseInt(monthlyAmount) * 12 * 0.8);
-                        const yearlyEl = el.nextElementSibling;
-                        yearlyEl.textContent = `₦${yearlyAmount.toLocaleString()}`;
-                    }
-                });
-            } else {
-                // Switch to monthly
-                monthlyPrices.forEach(price => price.classList.remove('hidden'));
-                yearlyPrices.forEach(price => price.classList.add('hidden'));
-            }
-        });
+            billingToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    // Switch to yearly
+                    monthlyPrices.forEach(price => price.classList.add('hidden'));
+                    yearlyPrices.forEach(price => price.classList.remove('hidden'));
+                    
+                    // Update pricing amounts for yearly
+                    document.querySelectorAll('.pricing-amount .monthly-price').forEach(el => {
+                        const monthlyAmount = el.textContent.replace('₦', '').replace(',', '');
+                        if (monthlyAmount !== '0' && monthlyAmount !== 'Custom') {
+                            const yearlyAmount = Math.round(parseInt(monthlyAmount) * 12 * 0.8);
+                            const yearlyEl = el.nextElementSibling;
+                            if (yearlyEl) {
+                                yearlyEl.textContent = `₦${yearlyAmount.toLocaleString()}`;
+                            }
+                        }
+                    });
+                } else {
+                    // Switch to monthly
+                    monthlyPrices.forEach(price => price.classList.remove('hidden'));
+                    yearlyPrices.forEach(price => price.classList.add('hidden'));
+                }
+            });
+        }
 
         // FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(question => {
@@ -1931,8 +1936,14 @@
                 button.textContent.includes('Get Started Free')) {
                 
                 button.addEventListener('click', function(e) {
+                    const billingToggle = document.getElementById('billingToggle');
+                    if (!billingToggle) return;
+                    
                     const isYearly = billingToggle.checked;
-                    const plan = this.closest('.pricing-card').querySelector('h3').textContent;
+                    const card = this.closest('.pricing-card');
+                    if (!card) return;
+                    
+                    const plan = card.querySelector('h3')?.textContent || '';
                     
                     // Store plan and billing info in session storage
                     sessionStorage.setItem('selectedPlan', plan);
@@ -1961,32 +1972,35 @@
                     
                     // Smooth scroll to enterprise CTA section
                     const enterpriseCTA = document.getElementById('enterprise-cta');
-                    enterpriseCTA.scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Add a slight animation to the enterprise section
-                    enterpriseCTA.style.animation = 'pulse 2s';
-                    setTimeout(() => {
-                        enterpriseCTA.style.animation = '';
-                    }, 2000);
+                    if (enterpriseCTA) {
+                        enterpriseCTA.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Add a slight animation to the enterprise section
+                        enterpriseCTA.style.animation = 'pulse 2s';
+                        setTimeout(() => {
+                            enterpriseCTA.style.animation = '';
+                        }, 2000);
+                    }
                 });
             }
         });
 
         // Scroll to Top
         const scrollToTop = document.getElementById('scrollToTop');
+        if (scrollToTop) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollToTop.classList.add('visible');
+                } else {
+                    scrollToTop.classList.remove('visible');
+                }
+            });
 
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTop.classList.add('visible');
-            } else {
-                scrollToTop.classList.remove('visible');
-            }
-        });
-
-        scrollToTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+            scrollToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
 
         // Plan Comparison Highlight
         document.querySelectorAll('.comparison-table tr').forEach(row => {
@@ -2014,6 +2028,44 @@
         `;
         document.head.appendChild(style);
 
+        // Consultation Modal
+        const consultationBtn = document.getElementById('consultationBtn');
+        const consultationModal = document.getElementById('consultationModal');
+        const closeModal = document.getElementById('closeModal');
+        const consultationForm = document.getElementById('consultationForm');
+
+        if (consultationBtn && consultationModal) {
+            consultationBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                consultationModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        if (closeModal && consultationModal) {
+            closeModal.addEventListener('click', function() {
+                consultationModal.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+
+            // Close modal on outside click
+            consultationModal.addEventListener('click', function(e) {
+                if (e.target === consultationModal) {
+                    consultationModal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        if (consultationForm) {
+            consultationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you! Our sales team will contact you within 24 hours.');
+                consultationModal.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             // Add animation to pricing cards
@@ -2030,44 +2082,15 @@
             }
         });
 
-        // Enterprise Consultation Form
-        const enterpriseForm = document.createElement('div');
-        enterpriseForm.innerHTML = `
-            <div id="consultationModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; align-items: center; justify-content: center;">
-                <div style="background: white; padding: 2rem; border-radius: 1rem; max-width: 500px; width: 90%;">
-                    <h3>Schedule Enterprise Consultation</h3>
-                    <form id="consultationForm">
-                        <input type="text" placeholder="Company Name" required style="width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 0.5rem;">
-                        <input type="email" placeholder="Email Address" required style="width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 0.5rem;">
-                        <input type="tel" placeholder="Phone Number" style="width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 0.5rem;">
-                        <select style="width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 0.5rem;">
-                            <option>Number of Employees</option>
-                            <option>1-50</option>
-                            <option>51-200</option>
-                            <option>201-500</option>
-                            <option>500+</option>
-                        </select>
-                        <textarea placeholder="Tell us about your hiring needs..." rows="4" style="width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 0.5rem;"></textarea>
-                        <button type="submit" style="background: #2a9d8f; color: white; border: none; padding: 1rem 2rem; border-radius: 0.5rem; cursor: pointer; width: 100%; margin-top: 1rem;">Request Consultation</button>
-                    </form>
-                    <button onclick="document.getElementById('consultationModal').style.display = 'none'" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
-                </div>
-            </div>
-        `;
-        document.body.appendChild(enterpriseForm);
-
-        // Add consultation form functionality
-        document.querySelector('.btn-success').addEventListener('click', function(e) {
-            if (this.textContent.includes('Schedule a Consultation')) {
-                e.preventDefault();
-                document.getElementById('consultationModal').style.display = 'flex';
-            }
-        });
-
-        document.getElementById('consultationForm')?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you! Our sales team will contact you within 24 hours.');
-            document.getElementById('consultationModal').style.display = 'none';
+        // Close mobile menu when clicking on nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    mainNav?.classList.remove('active');
+                    mobileOverlay?.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
         });
     </script>
 </body>

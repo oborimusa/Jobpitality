@@ -457,6 +457,23 @@
             z-index: 999;
         }
         
+        /* ===== SECTION HEADER ===== */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .section-header h2 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .section-header p {
+            color: var(--color-gray-600);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
         /* ===== HERO SECTION ===== */
         .hero {
             padding: var(--space-3xl) var(--space-md);
@@ -951,6 +968,12 @@
         
         .signin-modal.active {
             display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         .modal-content {
@@ -1254,28 +1277,41 @@
                 font-size: 0.65rem;
             }
             
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
             .main-nav {
                 position: fixed;
                 top: 0;
-                left: -100%;
-                width: 100%;
+                right: -100%;
+                width: 85%;
+                max-width: 400px;
                 height: 100vh;
                 background: var(--color-white);
-                flex-direction: column;
-                padding: var(--space-3xl) var(--space-xl) var(--space-xl);
-                transition: left 0.3s ease;
-                overflow-y: auto;
+                padding: var(--space-2xl) var(--space-xl);
+                box-shadow: var(--shadow-2xl);
+                transition: right var(--transition-slow);
                 z-index: 1000;
+                flex-direction: column;
+                align-items: flex-start;
+                overflow-y: auto;
             }
             
             .main-nav.active {
-                left: 0;
+                right: 0;
+            }
+            
+            .mobile-overlay.active {
+                display: block;
+                animation: fadeIn 0.3s ease;
             }
             
             .nav-menu {
                 flex-direction: column;
                 width: 100%;
                 gap: 0;
+                margin-top: var(--space-xl);
             }
             
             .nav-item {
@@ -1287,6 +1323,7 @@
                 border-bottom: 1px solid var(--color-gray-200);
                 width: 100%;
                 font-size: 1.1rem;
+                justify-content: space-between;
             }
             
             .nav-link.active::after {
@@ -1300,11 +1337,11 @@
                 transform: none;
                 box-shadow: none;
                 border: none;
-                padding-left: var(--space-md);
+                padding: 0;
+                margin-left: var(--space-lg);
+                margin-top: var(--space-sm);
+                border-left: 2px solid var(--color-gray-200);
                 display: none;
-                background: var(--color-gray-100);
-                border-radius: var(--radius-md);
-                margin-top: var(--space-xs);
             }
             
             .dropdown.active .dropdown-menu {
@@ -1315,7 +1352,6 @@
                 content: '\f078';
                 font-family: 'Font Awesome 6 Free';
                 font-weight: 900;
-                margin-left: auto;
                 transition: transform 0.3s ease;
             }
             
@@ -1333,15 +1369,6 @@
                 width: 100%;
                 text-align: center;
                 justify-content: center;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-                margin-left: auto;
-            }
-            
-            .mobile-overlay.active {
-                display: block;
             }
             
             /* MOBILE HERO */
@@ -1424,6 +1451,18 @@
             .logo h1 {
                 font-size: 1.6rem;
             }
+            
+            .container {
+                padding: 0 var(--space-sm);
+            }
+            
+            .hero,
+            .company-description,
+            .job-listings,
+            .talent-availability,
+            .employers-section {
+                padding: var(--space-xl) var(--space-sm);
+            }
         }
         
         /* ===== ANIMATIONS ===== */
@@ -1444,9 +1483,6 @@
     </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    
     <!-- SIGN-IN MODAL -->
     <div class="signin-modal" id="signinModal">
         <div class="modal-content">
@@ -1546,7 +1582,7 @@
     </div>
     
     <!-- SITE HEADER -->
-   <header class="site-header">
+    <header class="site-header">
         <div class="container">
             <div class="header-container">
                 <div class="logo">
@@ -1556,14 +1592,14 @@
                     </a>
                 </div>
                 
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
                 </button>
                 
-                <nav class="main-nav">
+                <nav class="main-nav" id="mainNav">
                     <ul class="nav-menu">
                         <li class="nav-item">
-                            <a href="/" class="nav-link">
+                            <a href="/" class="nav-link active">
                                 <i class="fas fa-home"></i> Home
                             </a>
                         </li>
@@ -1594,7 +1630,7 @@
                         </li>
                         
                         <li class="nav-item dropdown">
-                            <a href="/employers/" class="nav-link dropdown-toggle active">
+                            <a href="/employers/" class="nav-link dropdown-toggle">
                                 <i class="fas fa-building"></i> For Employers
                                 <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
                             </a>
@@ -1627,6 +1663,9 @@
                                 <a href="/candidates/jobs/" class="dropdown-item">
                                     <i class="fas fa-briefcase"></i> Browse Jobs
                                 </a>
+                                <a href="/candidates/job-board/" class="dropdown-item">
+                                    <i class="fas fa-briefcase"></i> Job Board
+                                </a>
                                 <a href="/candidates/submit-profile/" class="dropdown-item">
                                     <i class="fas fa-file-upload"></i> Submit Profile
                                 </a>
@@ -1639,12 +1678,6 @@
                                 </a>
                             </div>
                         </li>
-                        
-                        <!-- <li class="nav-item">
-                            <a href="/case-studies/" class="nav-link">
-                                <i class="fas fa-chart-line"></i> Success Stories
-                            </a>
-                        </li> -->
                         
                         <li class="nav-item">
                             <a href="/about/" class="nav-link">
@@ -1663,7 +1696,7 @@
                     </div>
                 </nav>
                 
-                <div class="mobile-overlay"></div>
+                <div class="mobile-overlay" id="mobileOverlay"></div>
             </div>
         </div>
     </header>
@@ -2014,8 +2047,8 @@
     </section>
     
     <!-- REGISTRATION BANNER -->
-    <section class="registration-banner">
-        <div class="container">
+    <div class="container">
+        <section class="registration-banner">
             <div class="registration-content">
                 <div class="registration-icon">
                     <i class="fas fa-user-plus"></i>
@@ -2032,8 +2065,8 @@
                     </button>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
     
     <!-- FOOTER -->
     <footer class="site-footer">
@@ -2085,7 +2118,7 @@
             
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <p>&copy; 2023 Jobpitality. All rights reserved. The ruthless talent partner for Nigeria's luxury hospitality industry.</p>
+                    <p>&copy; 2024 Jobpitality. All rights reserved. The ruthless talent partner for Nigeria's luxury hospitality industry.</p>
                     <div class="footer-bottom-links">
                         <a href="/privacy-policy/">Privacy Policy</a>
                         <a href="/terms-of-service/">Terms of Service</a>
@@ -2100,15 +2133,15 @@
     <script>
         // Mobile Navigation Toggle
         document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const mainNav = document.querySelector('.main-nav');
-            const mobileOverlay = document.querySelector('.mobile-overlay');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mainNav = document.getElementById('mainNav');
+            const mobileOverlay = document.getElementById('mobileOverlay');
             
-            if (mobileMenuToggle) {
+            if (mobileMenuToggle && mainNav && mobileOverlay) {
                 mobileMenuToggle.addEventListener('click', function() {
                     mainNav.classList.toggle('active');
                     mobileOverlay.classList.toggle('active');
-                    this.classList.toggle('active');
+                    document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : 'auto';
                 });
             }
             
@@ -2117,7 +2150,7 @@
                 mobileOverlay.addEventListener('click', function() {
                     mainNav.classList.remove('active');
                     this.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
+                    document.body.style.overflow = 'auto';
                 });
             }
             
@@ -2126,10 +2159,29 @@
                 toggle.addEventListener('click', function(e) {
                     if (window.innerWidth <= 768) {
                         e.preventDefault();
-                        const dropdown = this.parentElement;
+                        e.stopPropagation();
+                        const dropdown = this.closest('.dropdown');
                         dropdown.classList.toggle('active');
+                        
+                        // Close other dropdowns
+                        document.querySelectorAll('.dropdown').forEach(other => {
+                            if (other !== dropdown) {
+                                other.classList.remove('active');
+                            }
+                        });
                     }
                 });
+            });
+            
+            // Close dropdowns when clicking outside on mobile
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    if (!e.target.closest('.dropdown')) {
+                        document.querySelectorAll('.dropdown').forEach(dropdown => {
+                            dropdown.classList.remove('active');
+                        });
+                    }
+                }
             });
             
             // Smooth scrolling for anchor links
@@ -2147,10 +2199,10 @@
                         });
                         
                         // Close mobile menu if open
-                        if (mainNav.classList.contains('active')) {
+                        if (mainNav && mainNav.classList.contains('active')) {
                             mainNav.classList.remove('active');
                             mobileOverlay.classList.remove('active');
-                            mobileMenuToggle.classList.remove('active');
+                            document.body.style.overflow = 'auto';
                         }
                     }
                 });
@@ -2161,6 +2213,25 @@
             const modalClose = document.getElementById('modalClose');
             const modalTabs = document.querySelectorAll('.modal-tab');
             const modalForms = document.querySelectorAll('.modal-form');
+            
+            // Function to switch tabs
+            function switchTab(tabName) {
+                modalTabs.forEach(tab => {
+                    if (tab.getAttribute('data-tab') === tabName) {
+                        tab.classList.add('active');
+                    } else {
+                        tab.classList.remove('active');
+                    }
+                });
+                
+                modalForms.forEach(form => {
+                    if (form.id === tabName + 'Form') {
+                        form.classList.add('active');
+                    } else {
+                        form.classList.remove('active');
+                    }
+                });
+            }
             
             // Open modal triggers
             const openModalTriggers = [
@@ -2230,24 +2301,6 @@
             });
             
             // Tab switching
-            function switchTab(tabName) {
-                modalTabs.forEach(tab => {
-                    if (tab.getAttribute('data-tab') === tabName) {
-                        tab.classList.add('active');
-                    } else {
-                        tab.classList.remove('active');
-                    }
-                });
-                
-                modalForms.forEach(form => {
-                    if (form.id === tabName + 'Form') {
-                        form.classList.add('active');
-                    } else {
-                        form.classList.remove('active');
-                    }
-                });
-            }
-            
             modalTabs.forEach(tab => {
                 tab.addEventListener('click', function() {
                     const tabName = this.getAttribute('data-tab');
@@ -2256,33 +2309,50 @@
             });
             
             // Form submission
-            document.getElementById('candidateForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = document.getElementById('candidateEmail').value;
-                const password = document.getElementById('candidatePassword').value;
-                
-                // Simulate sign in
-                showNotification(`Signing in as candidate: ${email}`);
-                setTimeout(() => {
-                    signinModal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                    showNotification('Successfully signed in! Redirecting to candidate dashboard...');
-                }, 1500);
-            });
+            const candidateForm = document.getElementById('candidateForm');
+            const employerForm = document.getElementById('employerForm');
             
-            document.getElementById('employerForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = document.getElementById('employerEmail').value;
-                const password = document.getElementById('employerPassword').value;
-                
-                // Simulate sign in
-                showNotification(`Signing in as employer: ${email}`);
-                setTimeout(() => {
-                    signinModal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                    showNotification('Successfully signed in! Redirecting to employer dashboard...');
-                }, 1500);
-            });
+            if (candidateForm) {
+                candidateForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('candidateEmail').value;
+                    const password = document.getElementById('candidatePassword').value;
+                    
+                    if (!email || !password) {
+                        showNotification('Please fill in all required fields');
+                        return;
+                    }
+                    
+                    // Simulate sign in
+                    showNotification(`Signing in as candidate: ${email}`);
+                    setTimeout(() => {
+                        signinModal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                        showNotification('Successfully signed in! Redirecting to candidate dashboard...');
+                    }, 1500);
+                });
+            }
+            
+            if (employerForm) {
+                employerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('employerEmail').value;
+                    const password = document.getElementById('employerPassword').value;
+                    
+                    if (!email || !password) {
+                        showNotification('Please fill in all required fields');
+                        return;
+                    }
+                    
+                    // Simulate sign in
+                    showNotification(`Signing in as employer: ${email}`);
+                    setTimeout(() => {
+                        signinModal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                        showNotification('Successfully signed in! Redirecting to employer dashboard...');
+                    }, 1500);
+                });
+            }
             
             // Social sign in buttons
             document.querySelectorAll('.social-btn').forEach(button => {
@@ -2326,8 +2396,15 @@
             
             // Notification function
             function showNotification(message) {
+                // Remove existing notification
+                const existingNotification = document.querySelector('.notification');
+                if (existingNotification) {
+                    existingNotification.remove();
+                }
+                
                 // Create notification element
                 const notification = document.createElement('div');
+                notification.className = 'notification';
                 notification.style.cssText = `
                     position: fixed;
                     top: 100px;
@@ -2341,6 +2418,7 @@
                     animation: slideIn 0.3s ease-out;
                     border-left: 4px solid var(--color-accent);
                     max-width: 400px;
+                    font-family: var(--font-sans);
                 `;
                 
                 notification.innerHTML = `
@@ -2352,6 +2430,33 @@
                 
                 document.body.appendChild(notification);
                 
+                // Add animation styles
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes slideIn {
+                        from {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                        to {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+                    
+                    @keyframes slideOut {
+                        from {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                        to {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+                
                 // Remove notification after 3 seconds
                 setTimeout(() => {
                     notification.style.animation = 'slideOut 0.3s ease-out forwards';
@@ -2362,33 +2467,6 @@
                     }, 300);
                 }, 3000);
             }
-            
-            // Add notification animation styles
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideIn {
-                    from {
-                        transform: translateX(100%);
-                        opacity: 0;
-                    }
-                    to {
-                        transform: translateX(0);
-                        opacity: 1;
-                    }
-                }
-                
-                @keyframes slideOut {
-                    from {
-                        transform: translateX(0);
-                        opacity: 1;
-                    }
-                    to {
-                        transform: translateX(100%);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
             
             // Animate elements on scroll
             const observerOptions = {
@@ -2408,6 +2486,24 @@
             document.querySelectorAll('.job-card, .employer-card, .availability-card').forEach(el => {
                 observer.observe(el);
             });
+            
+            // Add animation styles
+            const animationStyle = document.createElement('style');
+            animationStyle.textContent = `
+                .job-card, .employer-card, .availability-card {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                
+                .job-card.animate-in,
+                .employer-card.animate-in,
+                .availability-card.animate-in {
+                    opacity: 1;
+                    transform: translateY(0);
+                    transition: opacity 0.6s ease, transform 0.6s ease;
+                }
+            `;
+            document.head.appendChild(animationStyle);
         });
     </script>
 </body>

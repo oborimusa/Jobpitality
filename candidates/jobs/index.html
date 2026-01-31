@@ -1,0 +1,2862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Hospitality Jobs in Nigeria | Jobpitality Job Board</title>
+    <meta name="description" content="Browse 500+ active hospitality jobs in Nigeria. Find opportunities in luxury hotels, restaurants, resorts. Executive Chef, General Manager, F&B Director positions.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Browse Hospitality Jobs in Nigeria | Jobpitality Job Board">
+    <meta property="og:description" content="Find elite hospitality jobs across Nigeria. 500+ active listings updated daily.">
+    <meta property="og:image" content="https://jobpitality.com/img/jobs-og.jpg">
+    <meta property="og:url" content="https://jobpitality.com/candidates/jobs/">
+    <meta property="og:type" content="website">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://jobpitality.com/candidates/jobs/">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- COMPLETE INLINE CSS -->
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Jobpitality Color Palette */
+            --color-primary: #0d1b2a;      /* Deep Navy (Authority) */
+            --color-primary-dark: #070d13;
+            --color-accent: #ff9e00;       /* Vibrant Orange (Energy, Action) */
+            --color-accent-dark: #cc7e00;
+            --color-emergency: #e63946;     /* Urgent Crimson */
+            --color-emergency-dark: #c1121f;
+            --color-success: #2a9d8f;       /* Teal (Success, Trust) */
+            --color-success-dark: #21867a;
+            --color-dark: #0d1b2a;
+            --color-gray-900: #1b263b;
+            --color-gray-800: #415a77;
+            --color-gray-700: #778da9;
+            --color-gray-600: #a0aec0;
+            --color-gray-300: #e2e8f0;
+            --color-gray-200: #edf2f7;
+            --color-gray-100: #f7fafc;
+            --color-white: #ffffff;
+            
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            
+            /* SPACING */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* BORDER RADIUS */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 20px;
+            
+            /* SHADOWS */
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            /* TRANSITIONS */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background: var(--color-white);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--color-gray-900);
+            letter-spacing: -0.025em;
+        }
+        
+        h1 { 
+            font-size: 4rem; 
+            font-weight: 900; 
+            line-height: 1;
+        }
+        
+        h2 { 
+            font-size: 3rem; 
+            margin-bottom: var(--space-lg);
+        }
+        
+        h3 { 
+            font-size: 2rem; 
+            margin-bottom: var(--space-md);
+        }
+        
+        h4 { 
+            font-size: 1.5rem; 
+            margin-bottom: var(--space-sm);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-emergency) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--color-gray-800);
+        }
+        
+        .lead {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: var(--color-gray-700);
+            font-weight: 400;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2.25rem;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-sans);
+            letter-spacing: 0.01em;
+        }
+        
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-secondary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-3px);
+        }
+        
+        .btn-emergency {
+            background: linear-gradient(135deg, var(--color-emergency), var(--color-emergency-dark));
+            color: var(--color-white);
+            font-weight: 800;
+        }
+        
+        .btn-emergency:hover {
+            background: var(--color-emergency-dark);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.3);
+        }
+        
+        .btn-success {
+            background: var(--color-success);
+            color: var(--color-white);
+        }
+        
+        .btn-success:hover {
+            background: var(--color-success-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-large {
+            padding: 1.25rem 3.5rem;
+            font-size: 1.125rem;
+            font-weight: 800;
+        }
+        
+        .btn-block {
+            width: 100%;
+        }
+        
+        /* ===== CANDIDATE JOBS SPECIFIC STYLES ===== */
+        /* HERO SECTION */
+        .jobs-hero {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1b263b 100%);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .jobs-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(27, 38, 59, 0.8) 100%), url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+        
+        .jobs-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .jobs-hero-badge {
+            background: linear-gradient(90deg, var(--color-accent), #ff6b00);
+            color: var(--color-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 900;
+            margin-bottom: var(--space-lg);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .jobs-hero h1 {
+            color: var(--color-white);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .jobs-hero .lead {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin-bottom: var(--space-xl);
+        }
+        
+        /* JOB FILTERS SECTION */
+        .job-filters-section {
+            padding: var(--space-xl) var(--space-md);
+            background: var(--color-white);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .filters-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Main Search Bar */
+        .jobs-search-bar {
+            position: relative;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .jobs-search-bar input {
+            width: 100%;
+            padding: 1.25rem 1.5rem 1.25rem 3.5rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            transition: all var(--transition-fast);
+            background: var(--color-white);
+        }
+        
+        .jobs-search-bar input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.1);
+        }
+        
+        .jobs-search-bar i {
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-gray-600);
+            font-size: 1.25rem;
+        }
+        
+        /* Advanced Filters */
+        .advanced-filters {
+            background: var(--color-gray-100);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+        
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+            cursor: pointer;
+        }
+        
+        .filter-header h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+            color: var(--color-gray-800);
+        }
+        
+        .filter-toggle {
+            background: none;
+            border: none;
+            color: var(--color-accent);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: transform var(--transition-fast);
+        }
+        
+        .filter-toggle.rotated {
+            transform: rotate(180deg);
+        }
+        
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-slow);
+        }
+        
+        .filter-grid.expanded {
+            max-height: 500px;
+        }
+        
+        .filter-group {
+            margin-bottom: 0;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+            color: var(--color-gray-800);
+            font-size: 0.95rem;
+        }
+        
+        .filter-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: all var(--transition-fast);
+            background: var(--color-white);
+        }
+        
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 2px rgba(255, 158, 0, 0.1);
+        }
+        
+        .filter-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: space-between;
+            margin-top: var(--space-lg);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--color-gray-300);
+        }
+        
+        /* Quick Filter Chips */
+        .quick-filters {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            margin: var(--space-lg) 0;
+        }
+        
+        .filter-chip {
+            padding: 0.5rem 1.25rem;
+            background: var(--color-white);
+            border: 2px solid var(--color-gray-300);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--color-gray-700);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .filter-chip:hover,
+        .filter-chip.active {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            border-color: var(--color-accent);
+        }
+        
+        /* JOBS RESULTS SECTION */
+        .jobs-results-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-gray-100);
+        }
+        
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+        
+        .results-count {
+            font-weight: 600;
+            color: var(--color-gray-700);
+        }
+        
+        .results-count span {
+            color: var(--color-accent);
+            font-weight: 800;
+        }
+        
+        .sort-options {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .sort-options label {
+            font-weight: 600;
+            color: var(--color-gray-700);
+            font-size: 0.95rem;
+        }
+        
+        .sort-select {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            background: var(--color-white);
+            min-width: 200px;
+        }
+        
+        /* JOBS GRID */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        .job-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-accent);
+        }
+        
+        .job-card.featured {
+            border: 2px solid var(--color-accent);
+            background: linear-gradient(to bottom right, var(--color-white), rgba(255, 158, 0, 0.05));
+        }
+        
+        .job-badge {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            background: var(--color-emergency);
+            color: var(--color-white);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .job-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-gray-700);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .job-card h3 {
+            margin-bottom: var(--space-sm);
+            color: var(--color-primary);
+        }
+        
+        .job-company {
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            font-size: 1.1rem;
+        }
+        
+        .job-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-gray-700);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .job-location i {
+            color: var(--color-accent);
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: var(--space-md);
+            margin: var(--space-md) 0;
+            flex-wrap: wrap;
+        }
+        
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-gray-700);
+            font-size: 0.9rem;
+        }
+        
+        .job-meta-item i {
+            color: var(--color-accent);
+        }
+        
+        .job-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: var(--space-md) 0;
+        }
+        
+        .skill-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            color: var(--color-gray-700);
+            font-weight: 500;
+        }
+        
+        .job-description {
+            color: var(--color-gray-700);
+            margin: var(--space-md) 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .job-posted {
+            color: var(--color-gray-600);
+            font-size: 0.85rem;
+            margin-top: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* JOB DETAILS MODAL */
+        .job-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 27, 42, 0.9);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-md);
+            overflow-y: auto;
+        }
+        
+        .job-modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-gray-600);
+            cursor: pointer;
+            padding: var(--space-xs);
+            z-index: 2;
+        }
+        
+        .modal-close:hover {
+            color: var(--color-emergency);
+        }
+        
+        .job-details-header {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-xl);
+            border-bottom: 2px solid var(--color-gray-200);
+        }
+        
+        .job-logo {
+            width: 100px;
+            height: 100px;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            font-weight: 800;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .modal-job-info h2 {
+            margin-bottom: var(--space-xs);
+            color: var(--color-primary);
+        }
+        
+        .modal-job-company {
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            font-size: 1.25rem;
+        }
+        
+        .modal-job-location {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--color-gray-700);
+            margin-bottom: var(--space-md);
+        }
+        
+        .modal-job-location i {
+            color: var(--color-accent);
+        }
+        
+        .modal-job-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+            padding: var(--space-xl);
+            background: var(--color-gray-100);
+            border-radius: var(--radius-lg);
+        }
+        
+        .modal-meta-item h4 {
+            color: var(--color-gray-700);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .modal-meta-item p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 0;
+        }
+        
+        .modal-section {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .modal-section h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 2px solid var(--color-gray-200);
+        }
+        
+        .modal-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: var(--space-md);
+        }
+        
+        .modal-skill-tag {
+            padding: 0.5rem 1rem;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            color: var(--color-gray-700);
+            font-weight: 500;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+            padding-top: var(--space-xl);
+            border-top: 2px solid var(--color-gray-200);
+        }
+        
+        /* APPLICATION MODAL */
+        .application-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 27, 42, 0.9);
+            z-index: 10001;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-md);
+        }
+        
+        .application-modal.active {
+            display: flex;
+        }
+        
+        .application-content {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .application-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .application-header h3 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .application-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-xl);
+            position: relative;
+        }
+        
+        .application-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: var(--color-gray-300);
+            z-index: 1;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--color-gray-200);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--color-gray-600);
+            margin: 0 auto var(--space-sm);
+        }
+        
+        .step.active .step-number {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+        
+        .step-label {
+            font-size: 0.85rem;
+            color: var(--color-gray-600);
+            font-weight: 600;
+        }
+        
+        .application-form {
+            display: none;
+        }
+        
+        .application-form.active {
+            display: block;
+        }
+        
+        .form-section {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .form-section h4 {
+            margin-bottom: var(--space-md);
+            color: var(--color-primary);
+        }
+        
+        .upload-area {
+            border: 2px dashed var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .upload-area:hover {
+            border-color: var(--color-accent);
+            background: var(--color-gray-100);
+        }
+        
+        .upload-icon {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            margin-bottom: var(--space-md);
+        }
+        
+        .file-list {
+            margin-top: var(--space-md);
+        }
+        
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-sm);
+            background: var(--color-gray-100);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .remove-file {
+            color: var(--color-emergency);
+            cursor: pointer;
+        }
+        
+        .application-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: var(--space-xl);
+        }
+        
+        /* CANDIDATE PROFILE SECTION */
+        .candidate-profile-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-white);
+        }
+        
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .profile-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+            text-align: center;
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-accent);
+        }
+        
+        .profile-icon {
+            font-size: 2.5rem;
+            color: var(--color-accent);
+            margin-bottom: var(--space-md);
+            background: var(--color-gray-100);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto var(--space-md);
+        }
+        
+        .profile-card h3 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .profile-features {
+            list-style: none;
+            margin: var(--space-md) 0;
+            text-align: left;
+        }
+        
+        .profile-features li {
+            padding: 0.5rem 0;
+            color: var(--color-gray-700);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .profile-features li i {
+            color: var(--color-success);
+        }
+        
+        /* PAGINATION */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--color-gray-300);
+        }
+        
+        .page-link {
+            padding: 0.5rem 1rem;
+            background: var(--color-white);
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            color: var(--color-gray-700);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+        }
+        
+        .page-link:hover {
+            background: var(--color-gray-100);
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+        
+        .page-link.active {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-primary);
+        }
+        
+        .page-link.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .page-link.disabled:hover {
+            background: var(--color-white);
+            border-color: var(--color-gray-300);
+            color: var(--color-gray-700);
+        }
+        
+        /* ===== COMMON COMPONENTS ===== */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .section-header h2 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .section-header p {
+            color: var(--color-gray-600);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* ===== HEADER & NAVIGATION ===== */
+        .site-header {
+            background: var(--color-white);
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: var(--space-sm) 0;
+            border-bottom: 3px solid var(--color-accent);
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-lg);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo a {
+            text-decoration: none;
+            color: var(--color-dark);
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo h1 {
+            font-size: 2.1rem;
+            margin-bottom: 0;
+            font-weight: 900;
+            color: var(--color-primary);
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .logo h1 .brand-name {
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .logo-tagline {
+            font-size: 0.7rem;
+            color: var(--color-emergency);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            margin-top: 2px;
+        }
+        
+        /* MAIN NAVIGATION */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--space-md);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.5rem 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--color-accent);
+        }
+        
+        .nav-link.active {
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0.75rem;
+            right: 0.75rem;
+            height: 3px;
+            background: var(--color-accent);
+            border-radius: 3px 3px 0 0;
+        }
+        
+        /* DROPDOWN MENUS */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--color-white);
+            min-width: 240px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-2xl);
+            padding: var(--space-sm) 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all var(--transition-normal);
+            z-index: 1000;
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+        
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem var(--space-lg);
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+        
+        .dropdown-item:hover {
+            background: var(--color-gray-100);
+            color: var(--color-accent);
+            padding-left: calc(var(--space-lg) + 0.75rem);
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background: var(--color-gray-200);
+            margin: var(--space-xs) 0;
+        }
+        
+        /* NAV CTA BUTTONS */
+        .nav-cta-group {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .nav-cta {
+            background: var(--color-primary);
+            color: var(--color-white) !important;
+            padding: 0.75rem 1.75rem !important;
+            border-radius: var(--radius-lg);
+            font-weight: 700 !important;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+        }
+        
+        .nav-cta:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .nav-cta-emergency {
+            background: var(--color-emergency);
+        }
+        
+        .nav-cta-emergency:hover {
+            background: var(--color-emergency-dark);
+        }
+        
+        /* MOBILE MENU */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            cursor: pointer;
+            padding: var(--space-xs);
+            z-index: 1001;
+        }
+        
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 27, 42, 0.9);
+            z-index: 999;
+        }
+        
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--space-3xl) var(--space-md) var(--space-xl);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .footer-column h3 {
+            color: var(--color-white);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--color-accent);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a i {
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
+            h3 { font-size: 1.75rem; }
+            
+            .jobs-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 80px;
+            }
+            
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            
+            .lead {
+                font-size: 1.25rem;
+            }
+            
+            .btn-large {
+                padding: 1rem 2.5rem;
+                font-size: 1rem;
+            }
+            
+            /* HEADER RESPONSIVE */
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--color-white);
+                padding: var(--space-2xl) var(--space-xl);
+                box-shadow: var(--shadow-2xl);
+                transition: right var(--transition-slow);
+                z-index: 1000;
+                flex-direction: column;
+                align-items: flex-start;
+                overflow-y: auto;
+            }
+            
+            .main-nav.active {
+                right: 0;
+            }
+            
+            .mobile-overlay.active {
+                display: block;
+                animation: fadeIn 0.3s ease;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                margin-top: var(--space-xl);
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: var(--space-md) 0;
+                font-size: 1rem;
+                justify-content: space-between;
+                border-bottom: 1px solid var(--color-gray-200);
+                width: 100%;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                padding: 0;
+                margin-left: var(--space-lg);
+                margin-top: var(--space-sm);
+                border: none;
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .nav-cta-group {
+                flex-direction: column;
+                width: 100%;
+                margin-top: var(--space-xl);
+            }
+            
+            .nav-cta {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            /* JOBS RESPONSIVE */
+            .jobs-hero::before {
+                width: 100%;
+                opacity: 0.3;
+            }
+            
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-actions {
+                flex-direction: column;
+            }
+            
+            .results-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .sort-options {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .job-card {
+                padding: var(--space-lg);
+            }
+            
+            .job-details-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .job-logo {
+                margin: 0 auto;
+            }
+            
+            .modal-job-meta {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+            }
+            
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .application-steps {
+                flex-direction: column;
+                gap: var(--space-lg);
+            }
+            
+            .application-steps::before {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            
+            .container {
+                padding: 0 var(--space-sm);
+            }
+            
+            .jobs-hero {
+                padding: var(--space-xl) var(--space-sm);
+            }
+            
+            .job-filters-section,
+            .jobs-results-section,
+            .candidate-profile-section {
+                padding: var(--space-xl) var(--space-sm);
+            }
+            
+            .modal-content,
+            .application-content {
+                padding: var(--space-xl) var(--space-lg);
+            }
+        }
+        
+        /* ===== UTILITY CLASSES ===== */
+        .hidden {
+            display: none !important;
+        }
+        
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        .text-success {
+            color: var(--color-success);
+        }
+        
+        .text-emergency {
+            color: var(--color-emergency);
+        }
+        
+        .text-accent {
+            color: var(--color-accent);
+        }
+        
+        .bg-gray-100 {
+            background: var(--color-gray-100);
+        }
+        
+        .bg-primary {
+            background: var(--color-primary);
+        }
+        
+        .bg-accent {
+            background: var(--color-accent);
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* ===== LOADING STATES ===== */
+        .loading {
+            position: relative;
+            pointer-events: none;
+        }
+        
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: var(--color-white);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-to-top {
+            position: fixed;
+            bottom: var(--space-lg);
+            right: var(--space-lg);
+            background: var(--color-accent);
+            color: var(--color-primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.25rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all var(--transition-normal);
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .scroll-to-top:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+   <!-- SITE HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="/" aria-label="Jobpitality Home">
+                        <h1><i class="fas fa-bolt"></i> <span class="brand-name">JOBPITALITY</span></h1>
+                        <span class="logo-tagline">THE RUTHLESS TALENT PARTNER</span>
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="main-nav" id="mainNav">
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link active">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/services/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-crosshairs"></i> Precision Search
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/services/executive-search/" class="dropdown-item">
+                                    <i class="fas fa-search"></i> Executive Search
+                                </a>
+                                <a href="/services/hotel-leadership/" class="dropdown-item">
+                                    <i class="fas fa-hotel"></i> Hotel Leadership
+                                </a>
+                                <a href="/services/culinary-leadership/" class="dropdown-item">
+                                    <i class="fas fa-utensils"></i> Culinary Leadership
+                                </a>
+                                <a href="/services/management-teams/" class="dropdown-item">
+                                    <i class="fas fa-users"></i> Management Teams
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/services/guarantee/" class="dropdown-item">
+                                    <i class="fas fa-shield-alt"></i> 72-Hour Guarantee
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/employers/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-building"></i> For Employers
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/employers/our-process/" class="dropdown-item">
+                                    <i class="fas fa-play-circle"></i> Our Process
+                                </a>
+                                <a href="/employers/post-job/" class="dropdown-item" style="color: var(--color-accent); font-weight: 700;">
+                                    <i class="fas fa-plus-circle"></i> Post a Job
+                                </a>
+                                <a href="/employers/search-talent/" class="dropdown-item">
+                                    <i class="fas fa-search"></i> Search Talent
+                                </a>
+                                <a href="/employers/pricing/" class="dropdown-item">
+                                    <i class="fas fa-tag"></i> Pricing
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/employers/start-search/" class="dropdown-item">
+                                    <i class="fas fa-rocket"></i> Start a Search
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a href="/candidates/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-user-tie"></i> For Talent
+                                <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/candidates/jobs/" class="dropdown-item">
+                                    <i class="fas fa-briefcase"></i> Browse Jobs
+                                </a>
+                                <a href="/candidates/job-board/" class="dropdown-item">
+                                    <i class="fas fa-briefcase"></i> Job Board
+                                </a>
+                                <a href="/candidates/submit-profile/" class="dropdown-item">
+                                    <i class="fas fa-file-upload"></i> Submit Profile
+                                </a>
+                                <a href="/candidates/career-strategy/" class="dropdown-item">
+                                    <i class="fas fa-graduation-cap"></i> Career Strategy
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/candidates/confidentiality/" class="dropdown-item">
+                                    <i class="fas fa-user-secret"></i> Confidential Process
+                                </a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="/about/" class="nav-link">
+                                <i class="fas fa-info-circle"></i> About
+                            </a>
+                        </li>
+                    </ul>
+
+                <div class="nav-cta-group">
+                    <a href="/auth/login/" class="nav-cta">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Candidate Login
+                    </a>
+                    <a href="/candidates/submit-profile/" class="nav-cta nav-cta-emergency">
+                        <i class="fas fa-user-plus"></i>
+                        Submit Profile
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="mobile-overlay" id="mobileOverlay"></div>
+        </div>
+    </header>
+
+    <main>
+        <!-- JOBS HERO -->
+        <section class="jobs-hero">
+            <div class="container">
+                <div class="jobs-hero-content">
+                    <div class="jobs-hero-badge">
+                        <i class="fas fa-briefcase"></i>
+                        BROWSE 500+ ACTIVE JOBS
+                    </div>
+                    
+                    <h1>Find Your Dream <span class="text-gradient">Hospitality Job</span> in Nigeria</h1>
+                    
+                    <p class="lead">
+                        Access elite opportunities in luxury hotels, fine dining restaurants, premium resorts, 
+                        and hospitality groups across Nigeria. Updated daily with new positions.
+                    </p>
+                    
+                    <div class="quick-filters">
+                        <button class="filter-chip active" data-filter="all">All Jobs</button>
+                        <button class="filter-chip" data-filter="hotel-management">Hotel Management</button>
+                        <button class="filter-chip" data-filter="culinary">Culinary & F&B</button>
+                        <button class="filter-chip" data-filter="sales-marketing">Sales & Marketing</button>
+                        <button class="filter-chip" data-filter="finance-hr">Finance & HR</button>
+                        <button class="filter-chip" data-filter="urgent">Urgent Hire</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOB FILTERS SECTION -->
+        <section class="job-filters-section">
+            <div class="container filters-container">
+                <!-- Main Search -->
+                <div class="jobs-search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="jobsSearch" placeholder="Search by job title, company, location, or skills..." aria-label="Search jobs">
+                </div>
+                
+                <!-- Advanced Filters -->
+                <div class="advanced-filters">
+                    <div class="filter-header" id="filterHeader">
+                        <h3><i class="fas fa-sliders-h"></i> Advanced Filters</h3>
+                        <button class="filter-toggle" id="filterToggle" aria-label="Toggle filters">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="filter-grid" id="filterGrid">
+                        <div class="filter-group">
+                            <label for="jobCategory"><i class="fas fa-tags"></i> Job Category</label>
+                            <select id="jobCategory" class="filter-select">
+                                <option value="">All Categories</option>
+                                <option value="general-manager">General Manager</option>
+                                <option value="executive-chef">Executive Chef</option>
+                                <option value="fandb-director">F&B Director</option>
+                                <option value="hotel-manager">Hotel Manager</option>
+                                <option value="sales-director">Sales Director</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="jobLocation"><i class="fas fa-map-marker-alt"></i> Location</label>
+                            <select id="jobLocation" class="filter-select">
+                                <option value="">All Locations</option>
+                                <option value="lagos">Lagos</option>
+                                <option value="abuja">Abuja</option>
+                                <option value="port-harcourt">Port Harcourt</option>
+                                <option value="calabar">Calabar</option>
+                                <option value="remote">Remote / Anywhere</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="salaryRange"><i class="fas fa-money-bill-wave"></i> Salary Range</label>
+                            <select id="salaryRange" class="filter-select">
+                                <option value="">Any Salary</option>
+                                <option value="2-4">₦2M - ₦4M/year</option>
+                                <option value="4-8">₦4M - ₦8M/year</option>
+                                <option value="8-15">₦8M - ₦15M/year</option>
+                                <option value="15+">₦15M+/year</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="experienceLevel"><i class="fas fa-chart-line"></i> Experience Level</label>
+                            <select id="experienceLevel" class="filter-select">
+                                <option value="">Any Experience</option>
+                                <option value="entry">Entry Level (0-2 years)</option>
+                                <option value="mid">Mid Level (3-5 years)</option>
+                                <option value="senior">Senior (6-10 years)</option>
+                                <option value="executive">Executive (10+ years)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="jobType"><i class="fas fa-clock"></i> Job Type</label>
+                            <select id="jobType" class="filter-select">
+                                <option value="">Any Type</option>
+                                <option value="full-time">Full-time</option>
+                                <option value="contract">Contract</option>
+                                <option value="part-time">Part-time</option>
+                                <option value="temporary">Temporary</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="postedWithin"><i class="fas fa-calendar"></i> Posted Within</label>
+                            <select id="postedWithin" class="filter-select">
+                                <option value="">Any Time</option>
+                                <option value="24h">Last 24 Hours</option>
+                                <option value="7d">Last 7 Days</option>
+                                <option value="30d">Last 30 Days</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button class="btn btn-outline" id="resetFilters">
+                            <i class="fas fa-redo"></i>
+                            Reset Filters
+                        </button>
+                        <button class="btn btn-primary" id="applyFilters">
+                            <i class="fas fa-filter"></i>
+                            Apply Filters
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOBS RESULTS SECTION -->
+        <section class="jobs-results-section">
+            <div class="container">
+                <div class="results-header">
+                    <div>
+                        <h2>Available Jobs</h2>
+                        <p class="results-count">Showing <span id="resultsCount">12</span> of 500+ active hospitality jobs</p>
+                    </div>
+                    
+                    <div class="sort-options">
+                        <label for="sortBy">Sort by:</label>
+                        <select id="sortBy" class="sort-select">
+                            <option value="relevance">Relevance</option>
+                            <option value="newest">Newest First</option>
+                            <option value="salary-high">Salary (High to Low)</option>
+                            <option value="salary-low">Salary (Low to High)</option>
+                            <option value="deadline">Application Deadline</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Jobs Grid -->
+                <div class="jobs-grid" id="jobsGrid">
+                    <!-- Job cards will be loaded here dynamically -->
+                    <!-- Sample job 1 -->
+                    <div class="job-card featured">
+                        <div class="job-badge">
+                            <i class="fas fa-bolt"></i> URGENT HIRE
+                        </div>
+                        
+                        <span class="job-type">Full-time</span>
+                        <h3>General Manager</h3>
+                        <div class="job-company">5-Star Luxury Hotel Group</div>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Lagos, Nigeria
+                        </div>
+                        
+                        <div class="job-meta">
+                            <div class="job-meta-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                ₦15-20M/year
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                10+ years experience
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                7 days ago
+                            </div>
+                        </div>
+                        
+                        <div class="job-skills">
+                            <span class="skill-tag">Hotel Operations</span>
+                            <span class="skill-tag">Revenue Management</span>
+                            <span class="skill-tag">Team Leadership</span>
+                            <span class="skill-tag">Luxury Service</span>
+                        </div>
+                        
+                        <p class="job-description">
+                            Lead operations for a premier luxury hotel in Lagos. Drive revenue growth, 
+                            manage 200+ staff, and maintain Forbes 5-star standards.
+                        </p>
+                        
+                        <div class="job-posted">
+                            <i class="fas fa-calendar"></i>
+                            Posted: 7 days ago • Deadline: 14 days
+                        </div>
+                        
+                        <button class="btn btn-primary btn-block view-job-btn" data-job-id="GM001">
+                            <i class="fas fa-eye"></i>
+                            View & Apply
+                        </button>
+                    </div>
+                    
+                    <!-- Sample job 2 -->
+                    <div class="job-card">
+                        <span class="job-type">Full-time</span>
+                        <h3>Executive Chef</h3>
+                        <div class="job-company">Michelin-Star Restaurant</div>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Abuja, Nigeria
+                        </div>
+                        
+                        <div class="job-meta">
+                            <div class="job-meta-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                ₦8-12M/year
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                8+ years experience
+                            </div>
+                            <div class="job-meta-item">
+                                <i class="fas fa-clock"></i>
+                                2 days ago
+                            </div>
+                        </div>
+                        
+                        <div class="job-skills">
+                            <span class="skill-tag">Fine Dining</span>
+                            <span class="skill-tag">Menu Development</span>
+                            <span class="skill-tag">Kitchen Management</span>
+                            <span class="skill-tag">Cost Control</span>
+                        </div>
+                        
+                        <p class="job-description">
+                            Lead culinary operations for award-winning restaurant. Menu development, 
+                            kitchen management, Michelin standards maintenance.
+                        </p>
+                        
+                        <div class="job-posted">
+                            <i class="fas fa-calendar"></i>
+                            Posted: 2 days ago • Deadline: 21 days
+                        </div>
+                        
+                        <button class="btn btn-outline btn-block view-job-btn" data-job-id="EC002">
+                            <i class="fas fa-eye"></i>
+                            View & Apply
+                        </button>
+                    </div>
+                    
+                    <!-- More job cards would be here -->
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href="#" class="page-link disabled">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#" class="page-link active">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <span class="page-link">...</span>
+                    <a href="#" class="page-link">25</a>
+                    <a href="#" class="page-link">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Email Alerts -->
+                <div style="text-align: center; margin-top: var(--space-2xl); background: var(--color-white); padding: var(--space-xl); border-radius: var(--radius-xl); border: 2px solid var(--color-gray-200);">
+                    <h3>Get New Jobs Emailed to You</h3>
+                    <p style="margin-bottom: var(--space-lg);">Receive daily updates of new hospitality jobs matching your criteria</p>
+                    
+                    <div style="max-width: 500px; margin: 0 auto;">
+                        <div style="display: flex; gap: var(--space-sm);">
+                            <input type="email" placeholder="Your email address" style="flex: 1; padding: 0.875rem 1.25rem; border: 2px solid var(--color-gray-300); border-radius: var(--radius-md); font-family: var(--font-sans);">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-bell"></i>
+                                Create Alert
+                            </button>
+                        </div>
+                        <p style="margin-top: var(--space-sm); font-size: 0.85rem; color: var(--color-gray-600);">
+                            <i class="fas fa-shield-alt"></i> We'll never share your email with anyone else
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CANDIDATE PROFILE SECTION -->
+        <section class="candidate-profile-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Ready to <span class="text-gradient">Apply</span>?</h2>
+                    <p>Create your candidate profile to apply for jobs and get discovered by top employers</p>
+                </div>
+                
+                <div class="profile-grid">
+                    <div class="profile-card">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3>Submit Your Profile</h3>
+                        <p>Join our elite talent database of 2,500+ hospitality professionals</p>
+                        
+                        <ul class="profile-features">
+                            <li><i class="fas fa-check"></i> Create professional profile</li>
+                            <li><i class="fas fa-check"></i> Upload CV & portfolio</li>
+                            <li><i class="fas fa-check"></i> Highlight your expertise</li>
+                            <li><i class="fas fa-check"></i> Set salary expectations</li>
+                        </ul>
+                        
+                        <a href="/candidates/submit-profile/" class="btn btn-outline btn-block">
+                            <i class="fas fa-file-upload"></i>
+                            Submit Profile
+                        </a>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <div class="profile-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Fast-Track Applications</h3>
+                        <p>Apply to multiple jobs with one-click using your saved profile</p>
+                        
+                        <ul class="profile-features">
+                            <li><i class="fas fa-check"></i> One-click job applications</li>
+                            <li><i class="fas fa-check"></i> Track application status</li>
+                            <li><i class="fas fa-check"></i> Save favorite jobs</li>
+                            <li><i class="fas fa-check"></i> Receive interview invites</li>
+                        </ul>
+                        
+                        <a href="/auth/register/?type=candidate" class="btn btn-primary btn-block">
+                            <i class="fas fa-user-plus"></i>
+                            Register Now
+                        </a>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <h3>Confidential Search</h3>
+                        <p>Explore new opportunities discreetly while employed</p>
+                        
+                        <ul class="profile-features">
+                            <li><i class="fas fa-check"></i> Hide from current employer</li>
+                            <li><i class="fas fa-check"></i> Control profile visibility</li>
+                            <li><i class="fas fa-check"></i> Discreet notifications</li>
+                            <li><i class="fas fa-check"></i> Private messaging</li>
+                        </ul>
+                        
+                        <a href="/candidates/confidentiality/" class="btn btn-outline btn-block">
+                            <i class="fas fa-lock"></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JOB DETAILS MODAL -->
+    <div class="job-modal" id="jobModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="job-details-header">
+                <div class="job-logo">
+                    HS
+                </div>
+                <div class="modal-job-info">
+                    <h2>General Manager</h2>
+                    <div class="modal-job-company">5-Star Luxury Hotel Group</div>
+                    <div class="modal-job-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Lagos, Nigeria
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-job-meta">
+                <div class="modal-meta-item">
+                    <h4>Salary Range</h4>
+                    <p>₦15,000,000 - ₦20,000,000/year</p>
+                </div>
+                <div class="modal-meta-item">
+                    <h4>Experience Level</h4>
+                    <p>10+ years</p>
+                </div>
+                <div class="modal-meta-item">
+                    <h4>Job Type</h4>
+                    <p>Full-time</p>
+                </div>
+                <div class="modal-meta-item">
+                    <h4>Application Deadline</h4>
+                    <p class="text-emergency">14 days remaining</p>
+                </div>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Job Description</h3>
+                <p>
+                    We are seeking an experienced General Manager to lead our premier 5-star luxury hotel in Lagos. 
+                    The ideal candidate will be responsible for overall hotel operations, driving revenue growth, 
+                    maintaining Forbes 5-star standards, and leading a team of 200+ hospitality professionals.
+                </p>
+                <p>
+                    This role requires strategic leadership, exceptional operational expertise, and a proven track 
+                    record in luxury hotel management. You will be responsible for the hotel's profitability, 
+                    guest satisfaction, and team development.
+                </p>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Key Responsibilities</h3>
+                <ul style="padding-left: var(--space-lg); color: var(--color-gray-700);">
+                    <li style="margin-bottom: var(--space-sm);">Drive hotel revenue and profitability through strategic planning</li>
+                    <li style="margin-bottom: var(--space-sm);">Maintain and exceed Forbes 5-star service standards</li>
+                    <li style="margin-bottom: var(--space-sm);">Lead and develop a team of 200+ hospitality professionals</li>
+                    <li style="margin-bottom: var(--space-sm);">Oversee all hotel operations including F&B, rooms, spa, and events</li>
+                    <li style="margin-bottom: var(--space-sm);">Develop and implement marketing and sales strategies</li>
+                    <li>Ensure compliance with all regulatory requirements and brand standards</li>
+                </ul>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Requirements</h3>
+                <ul style="padding-left: var(--space-lg); color: var(--color-gray-700);">
+                    <li style="margin-bottom: var(--space-sm);">Bachelor's degree in Hospitality Management or related field (MBA preferred)</li>
+                    <li style="margin-bottom: var(--space-sm);">10+ years of experience in luxury hotel management</li>
+                    <li style="margin-bottom: var(--space-sm);">Proven track record of driving revenue growth and profitability</li>
+                    <li style="margin-bottom: var(--space-sm);">Strong leadership and team development skills</li>
+                    <li style="margin-bottom: var(--space-sm);">Excellent communication and interpersonal abilities</li>
+                    <li>Familiarity with Nigerian hospitality market and regulations</li>
+                </ul>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Benefits</h3>
+                <div class="modal-skills">
+                    <span class="modal-skill-tag">₦15-20M annual salary</span>
+                    <span class="modal-skill-tag">Performance bonus</span>
+                    <span class="modal-skill-tag">Health insurance</span>
+                    <span class="modal-skill-tag">                    <span class="modal-skill-tag">Company car</span>
+                    <span class="modal-skill-tag">Housing allowance</span>
+                    <span class="modal-skill-tag">Professional development</span>
+                </div>
+            </div>
+            
+            <div class="modal-section">
+                <h3>Required Skills</h3>
+                <div class="modal-skills">
+                    <span class="modal-skill-tag">Hotel Operations</span>
+                    <span class="modal-skill-tag">Revenue Management</span>
+                    <span class="modal-skill-tag">Team Leadership</span>
+                    <span class="modal-skill-tag">Luxury Service Standards</span>
+                    <span class="modal-skill-tag">Financial Analysis</span>
+                    <span class="modal-skill-tag">Strategic Planning</span>
+                    <span class="modal-skill-tag">Guest Relations</span>
+                    <span class="modal-skill-tag">Brand Management</span>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="saveJobBtn">
+                    <i class="fas fa-bookmark"></i>
+                    Save for Later
+                </button>
+                <button class="btn btn-emergency btn-large" id="applyNowBtn">
+                    <i class="fas fa-paper-plane"></i>
+                    Apply Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- APPLICATION MODAL -->
+    <div class="application-modal" id="applicationModal">
+        <div class="application-content">
+            <button class="modal-close" id="applicationClose" aria-label="Close application">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="application-header">
+                <h3>Apply for: General Manager</h3>
+                <p>Complete your application in 3 simple steps</p>
+            </div>
+            
+            <div class="application-steps">
+                <div class="step active">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Profile</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Documents</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Review</div>
+                </div>
+            </div>
+            
+            <div class="application-form active" id="step1">
+                <div class="form-section">
+                    <h4>Your Profile</h4>
+                    <p>We'll use your Jobpitality profile to pre-fill this application</p>
+                    
+                    <div style="background: var(--color-gray-100); padding: var(--space-lg); border-radius: var(--radius-lg); margin-bottom: var(--space-md);">
+                        <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-sm);">
+                            <div style="width: 60px; height: 60px; background: var(--color-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-primary); font-weight: 800; font-size: 1.5rem;">
+                                JD
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 0;">John Doe</h4>
+                                <p style="color: var(--color-gray-600); margin-bottom: 0;">General Manager • 15 years experience</p>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.9rem; color: var(--color-gray-700);">
+                            <i class="fas fa-check-circle text-success"></i> Profile complete • Last updated: 2 days ago
+                        </p>
+                    </div>
+                    
+                    <div style="margin-top: var(--space-lg);">
+                        <label style="display: block; margin-bottom: var(--space-sm); font-weight: 600; color: var(--color-gray-800);">
+                            <i class="fas fa-envelope"></i> Email Address
+                        </label>
+                        <input type="email" style="width: 100%; padding: 0.875rem; border: 2px solid var(--color-gray-300); border-radius: var(--radius-md); font-family: var(--font-sans);" value="john.doe@example.com">
+                    </div>
+                    
+                    <div style="margin-top: var(--space-md);">
+                        <label style="display: block; margin-bottom: var(--space-sm); font-weight: 600; color: var(--color-gray-800);">
+                            <i class="fas fa-phone"></i> Phone Number
+                        </label>
+                        <input type="tel" style="width: 100%; padding: 0.875rem; border: 2px solid var(--color-gray-300); border-radius: var(--radius-md); font-family: var(--font-sans);" value="+234 800 000 0000">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="application-form" id="step2">
+                <div class="form-section">
+                    <h4>Required Documents</h4>
+                    <p>Upload your CV and other required documents</p>
+                    
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h4>Drop your files here</h4>
+                        <p>or click to browse</p>
+                        <p style="font-size: 0.9rem; color: var(--color-gray-600); margin-top: var(--space-sm);">
+                            Max file size: 10MB • PDF, DOC, DOCX
+                        </p>
+                        <input type="file" id="fileUpload" multiple style="display: none;">
+                    </div>
+                    
+                    <div class="file-list" id="fileList">
+                        <!-- Files will appear here -->
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h4>Cover Letter</h4>
+                    <textarea placeholder="Write a custom cover letter for this position (optional)" style="width: 100%; height: 150px; padding: var(--space-md); border: 2px solid var(--color-gray-300); border-radius: var(--radius-lg); font-family: var(--font-sans); font-size: 0.95rem;"></textarea>
+                </div>
+            </div>
+            
+            <div class="application-form" id="step3">
+                <div class="form-section">
+                    <h4>Review Your Application</h4>
+                    
+                    <div style="background: var(--color-gray-100); padding: var(--space-xl); border-radius: var(--radius-lg);">
+                        <h4 style="color: var(--color-primary); margin-bottom: var(--space-md);">General Manager Application</h4>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); margin-bottom: var(--space-lg);">
+                            <div>
+                                <p style="font-weight: 600; color: var(--color-gray-700);">Candidate:</p>
+                                <p>John Doe</p>
+                            </div>
+                            <div>
+                                <p style="font-weight: 600; color: var(--color-gray-700);">Email:</p>
+                                <p>john.doe@example.com</p>
+                            </div>
+                            <div>
+                                <p style="font-weight: 600; color: var(--color-gray-700);">Phone:</p>
+                                <p>+234 800 000 0000</p>
+                            </div>
+                            <div>
+                                <p style="font-weight: 600; color: var(--color-gray-700);">Applied:</p>
+                                <p>Just now</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p style="font-weight: 600; color: var(--color-gray-700); margin-bottom: var(--space-sm);">Documents:</p>
+                            <p><i class="fas fa-file-pdf text-emergency"></i> John_Doe_CV.pdf (Updated 2 days ago)</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--color-gray-100); border-radius: var(--radius-lg);">
+                        <p style="display: flex; align-items: flex-start; gap: var(--space-sm);">
+                            <i class="fas fa-info-circle text-accent"></i>
+                            <span style="font-size: 0.9rem;">Your application will be reviewed by our team and shared with the employer. You'll receive email updates on your application status.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="application-navigation">
+                <button class="btn btn-outline" id="prevStep" style="display: none;">
+                    <i class="fas fa-arrow-left"></i>
+                    Previous
+                </button>
+                <button class="btn btn-primary" id="nextStep">
+                    Continue
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="btn btn-success" id="submitApplication" style="display: none;">
+                    <i class="fas fa-paper-plane"></i>
+                    Submit Application
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Jobpitality</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: var(--space-lg);">
+                        Nigeria's premier hospitality recruitment partner. Connecting elite talent with premium opportunities.
+                    </p>
+                    <div style="display: flex; gap: var(--space-sm);">
+                        <a href="#" style="color: var(--color-white); background: rgba(255, 255, 255, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all var(--transition-fast);">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" style="color: var(--color-white); background: rgba(255, 255, 255, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all var(--transition-fast);">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" style="color: var(--color-white); background: rgba(255, 255, 255, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all var(--transition-fast);">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" style="color: var(--color-white); background: rgba(255, 255, 255, 0.1); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all var(--transition-fast);">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>For Candidates</h3>
+                    <ul class="footer-links">
+                        <li><a href="/candidates/jobs/"><i class="fas fa-chevron-right"></i> Browse Jobs</a></li>
+                        <li><a href="/candidates/submit-profile/"><i class="fas fa-chevron-right"></i> Submit Profile</a></li>
+                        <li><a href="/candidates/career-strategy/"><i class="fas fa-chevron-right"></i> Career Strategy</a></li>
+                        <li><a href="/candidates/confidentiality/"><i class="fas fa-chevron-right"></i> Confidential Search</a></li>
+                        <li><a href="/auth/login/"><i class="fas fa-chevron-right"></i> Candidate Login</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>For Employers</h3>
+                    <ul class="footer-links">
+                        <li><a href="/employers/search-talent/"><i class="fas fa-chevron-right"></i> Search Talent</a></li>
+                        <li><a href="/employers/recruitment-solutions/"><i class="fas fa-chevron-right"></i> Recruitment Solutions</a></li>
+                        <li><a href="/employers/pricing/"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+                        <li><a href="/employers/post-job/"><i class="fas fa-chevron-right"></i> Post a Job</a></li>
+                        <li><a href="/auth/login/?type=employer"><i class="fas fa-chevron-right"></i> Employer Login</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@jobpitality.com"><i class="fas fa-envelope"></i> info@jobpitality.com</a></li>
+                        <li><a href="tel:+2348001234567"><i class="fas fa-phone"></i> +234 800 123 4567</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</li>
+                        <li><a href="/contact/"><i class="fas fa-chevron-right"></i> Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jobpitality. All rights reserved. "The Ruthless Talent Partner" is a trademark of Jobpitality.</p>
+                <p style="margin-top: var(--space-sm);">
+                    <a href="/privacy/" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; margin: 0 var(--space-sm);">Privacy Policy</a> • 
+                    <a href="/terms/" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; margin: 0 var(--space-sm);">Terms of Service</a> • 
+                    <a href="/cookies/" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; margin: 0 var(--space-sm);">Cookie Policy</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCROLL TO TOP -->
+    <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // ===== DOM ELEMENTS =====
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const filterToggle = document.getElementById('filterToggle');
+        const filterGrid = document.getElementById('filterGrid');
+        const filterHeader = document.getElementById('filterHeader');
+        const applyFiltersBtn = document.getElementById('applyFilters');
+        const resetFiltersBtn = document.getElementById('resetFilters');
+        const jobsSearch = document.getElementById('jobsSearch');
+        const jobModal = document.getElementById('jobModal');
+        const modalClose = document.getElementById('modalClose');
+        const viewJobBtns = document.querySelectorAll('.view-job-btn');
+        const applicationModal = document.getElementById('applicationModal');
+        const applicationClose = document.getElementById('applicationClose');
+        const applyNowBtn = document.getElementById('applyNowBtn');
+        const scrollToTop = document.getElementById('scrollToTop');
+        const filterChips = document.querySelectorAll('.filter-chip');
+        const sortSelect = document.getElementById('sortBy');
+        const nextStepBtn = document.getElementById('nextStep');
+        const prevStepBtn = document.getElementById('prevStep');
+        const submitAppBtn = document.getElementById('submitApplication');
+        const uploadArea = document.getElementById('uploadArea');
+        const fileUpload = document.getElementById('fileUpload');
+        const fileList = document.getElementById('fileList');
+        const saveJobBtn = document.getElementById('saveJobBtn');
+
+        // ===== MOBILE MENU =====
+        mobileMenuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        mobileOverlay.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close mobile menu when clicking dropdown arrows
+        document.querySelectorAll('.dropdown > .nav-link i.fa-chevron-down').forEach(arrow => {
+            arrow.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const dropdown = arrow.closest('.dropdown');
+                dropdown.classList.toggle('active');
+            });
+        });
+
+        // ===== FILTERS FUNCTIONALITY =====
+        filterToggle.addEventListener('click', () => {
+            const isExpanded = filterGrid.classList.toggle('expanded');
+            filterToggle.classList.toggle('rotated', isExpanded);
+            filterToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Quick filter chips
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                // Remove active class from all chips
+                filterChips.forEach(c => c.classList.remove('active'));
+                // Add active class to clicked chip
+                chip.classList.add('active');
+                
+                // Filter jobs based on data-filter attribute
+                const filter = chip.dataset.filter;
+                filterJobs(filter);
+            });
+        });
+
+        function filterJobs(filter) {
+            // This would normally make an API call
+            // For demo, we'll just show a message
+            console.log(`Filtering jobs by: ${filter}`);
+            
+            // Update results count
+            const resultsCount = document.getElementById('resultsCount');
+            const counts = {
+                'all': 12,
+                'hotel-management': 4,
+                'culinary': 3,
+                'sales-marketing': 2,
+                'finance-hr': 2,
+                'urgent': 1
+            };
+            
+            resultsCount.textContent = counts[filter] || 12;
+        }
+
+        // Apply filters
+        applyFiltersBtn.addEventListener('click', () => {
+            const category = document.getElementById('jobCategory').value;
+            const location = document.getElementById('jobLocation').value;
+            const salary = document.getElementById('salaryRange').value;
+            const experience = document.getElementById('experienceLevel').value;
+            const jobType = document.getElementById('jobType').value;
+            const posted = document.getElementById('postedWithin').value;
+            
+            console.log('Applying filters:', { category, location, salary, experience, jobType, posted });
+            // In a real app, this would make an API call to filter jobs
+        });
+
+        // Reset filters
+        resetFiltersBtn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-select').forEach(select => {
+                select.value = '';
+            });
+            
+            // Reset quick filter chips
+            filterChips.forEach(chip => {
+                chip.classList.remove('active');
+                if (chip.dataset.filter === 'all') {
+                    chip.classList.add('active');
+                }
+            });
+            
+            // Reset search
+            jobsSearch.value = '';
+            
+            // Reset results
+            document.getElementById('resultsCount').textContent = 12;
+            
+            console.log('Filters reset');
+        });
+
+        // Search functionality
+        let searchTimeout;
+        jobsSearch.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                console.log('Searching for:', e.target.value);
+                // This would make an API call in a real app
+            }, 500);
+        });
+
+        // Sort functionality
+        sortSelect.addEventListener('change', (e) => {
+            console.log('Sorting by:', e.target.value);
+            // This would reorder jobs based on selected sort
+        });
+
+        // ===== JOB MODAL =====
+        viewJobBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const jobId = btn.dataset.jobId;
+                openJobModal(jobId);
+            });
+        });
+
+        function openJobModal(jobId) {
+            // In a real app, this would fetch job details from an API
+            // For demo, we'll just show the modal
+            jobModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        modalClose.addEventListener('click', () => {
+            jobModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close modal when clicking outside
+        jobModal.addEventListener('click', (e) => {
+            if (e.target === jobModal) {
+                jobModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // ===== APPLICATION MODAL =====
+        applyNowBtn.addEventListener('click', () => {
+            jobModal.classList.remove('active');
+            applicationModal.classList.add('active');
+            resetApplicationSteps();
+        });
+
+        applicationClose.addEventListener('click', () => {
+            applicationModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close application modal when clicking outside
+        applicationModal.addEventListener('click', (e) => {
+            if (e.target === applicationModal) {
+                applicationModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // ===== APPLICATION STEPS =====
+        let currentStep = 1;
+
+        function resetApplicationSteps() {
+            currentStep = 1;
+            updateSteps();
+        }
+
+        function updateSteps() {
+            // Update step indicators
+            document.querySelectorAll('.step').forEach((step, index) => {
+                step.classList.toggle('active', index + 1 === currentStep);
+            });
+
+            // Show/hide forms
+            document.querySelectorAll('.application-form').forEach((form, index) => {
+                form.classList.toggle('active', index + 1 === currentStep);
+            });
+
+            // Update navigation buttons
+            prevStepBtn.style.display = currentStep > 1 ? 'flex' : 'none';
+            nextStepBtn.style.display = currentStep < 3 ? 'flex' : 'none';
+            submitAppBtn.style.display = currentStep === 3 ? 'flex' : 'none';
+        }
+
+        nextStepBtn.addEventListener('click', () => {
+            if (currentStep < 3) {
+                currentStep++;
+                updateSteps();
+            }
+        });
+
+        prevStepBtn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateSteps();
+            }
+        });
+
+        submitAppBtn.addEventListener('click', () => {
+            // Submit application
+            alert('Application submitted successfully! You will receive a confirmation email shortly.');
+            applicationModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // ===== FILE UPLOAD =====
+        uploadArea.addEventListener('click', () => {
+            fileUpload.click();
+        });
+
+        fileUpload.addEventListener('change', (e) => {
+            const files = Array.from(e.target.files);
+            files.forEach(file => {
+                if (file.size > 10 * 1024 * 1024) {
+                    alert('File size exceeds 10MB limit');
+                    return;
+                }
+
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                
+                const fileInfo = document.createElement('div');
+                fileInfo.className = 'file-info';
+                
+                const icon = document.createElement('i');
+                icon.className = file.type.includes('pdf') ? 'fas fa-file-pdf text-emergency' : 'fas fa-file-word text-success';
+                
+                const fileName = document.createElement('span');
+                fileName.textContent = file.name;
+                
+                fileInfo.appendChild(icon);
+                fileInfo.appendChild(fileName);
+                
+                const removeBtn = document.createElement('i');
+                removeBtn.className = 'fas fa-times remove-file';
+                removeBtn.addEventListener('click', () => {
+                    fileItem.remove();
+                });
+                
+                fileItem.appendChild(fileInfo);
+                fileItem.appendChild(removeBtn);
+                fileList.appendChild(fileItem);
+            });
+        });
+
+        // Drag and drop file upload
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            uploadArea.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+        });
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            uploadArea.addEventListener(eventName, () => {
+                uploadArea.style.borderColor = 'var(--color-accent)';
+                uploadArea.style.background = 'var(--color-gray-100)';
+            });
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            uploadArea.addEventListener(eventName, () => {
+                uploadArea.style.borderColor = 'var(--color-gray-300)';
+                uploadArea.style.background = '';
+            });
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            const files = e.dataTransfer.files;
+            const inputEvent = new Event('change');
+            fileUpload.files = files;
+            fileUpload.dispatchEvent(inputEvent);
+        });
+
+        // ===== SAVE JOB =====
+        saveJobBtn.addEventListener('click', () => {
+            saveJobBtn.innerHTML = '<i class="fas fa-check"></i> Saved!';
+            saveJobBtn.classList.remove('btn-outline');
+            saveJobBtn.classList.add('btn-success');
+            
+            setTimeout(() => {
+                saveJobBtn.innerHTML = '<i class="fas fa-bookmark"></i> Save for Later';
+                saveJobBtn.classList.remove('btn-success');
+                saveJobBtn.classList.add('btn-outline');
+            }, 2000);
+        });
+
+        // ===== SCROLL TO TOP =====
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTop.classList.add('visible');
+            } else {
+                scrollToTop.classList.remove('visible');
+            }
+        });
+
+        scrollToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ===== KEYBOARD NAVIGATION =====
+        document.addEventListener('keydown', (e) => {
+            // Escape key closes modals
+            if (e.key === 'Escape') {
+                if (jobModal.classList.contains('active')) {
+                    jobModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+                if (applicationModal.classList.contains('active')) {
+                    applicationModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate elements on load
+            const animatedElements = document.querySelectorAll('.job-card, .profile-card');
+            animatedElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+                el.classList.add('animate-fade-in-up');
+            });
+
+            // Set current year in footer
+            const yearSpan = document.querySelector('.footer-bottom p');
+            if (yearSpan) {
+                yearSpan.innerHTML = yearSpan.innerHTML.replace('2024', new Date().getFullYear());
+            }
+        });
+    </script>
+</body>
+</html>
