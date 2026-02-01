@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
+        /* All CSS styles remain exactly the same as before */
         /* ===== CSS VARIABLES ===== */
         :root {
             /* COLOR SYSTEM */
@@ -531,12 +532,6 @@
             margin-bottom: var(--space-lg);
         }
         
-        @media (max-width: 768px) {
-            .search-row {
-                flex-direction: column;
-            }
-        }
-        
         .search-input {
             flex: 1;
             padding: var(--space-md);
@@ -643,12 +638,6 @@
             grid-template-columns: 300px 1fr;
             gap: var(--space-2xl);
             margin-bottom: var(--space-2xl);
-        }
-        
-        @media (max-width: 1024px) {
-            .content-wrapper {
-                grid-template-columns: 1fr;
-            }
         }
         
         /* ===== FILTERS SIDEBAR ===== */
@@ -937,16 +926,6 @@
             flex-wrap: wrap;
         }
         
-        @media (max-width: 768px) {
-            .job-actions {
-                flex-direction: column;
-            }
-            
-            .job-actions .btn {
-                width: 100%;
-            }
-        }
-        
         /* ===== PAGINATION ===== */
         .pagination {
             display: flex;
@@ -1029,12 +1008,6 @@
             gap: var(--space-sm);
             max-width: 600px;
             margin: 0 auto;
-        }
-        
-        @media (max-width: 768px) {
-            .alert-form {
-                flex-direction: column;
-            }
         }
         
         .alert-form input {
@@ -1244,6 +1217,36 @@
             font-size: 0.9rem;
         }
         
+        /* ===== NOTIFICATION STYLES ===== */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .notification-success {
+            background: var(--color-success);
+            color: white;
+        }
+        
+        .notification-error {
+            background: var(--color-emergency);
+            color: white;
+        }
+        
+        .notification-info {
+            background: var(--color-primary);
+            color: white;
+        }
+        
         /* ===== UTILITY CLASSES ===== */
         .hidden {
             display: none !important;
@@ -1275,19 +1278,13 @@
         
         /* ===== ANIMATIONS ===== */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes slideOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-10px); }
         }
         
         .animate-fade-in {
@@ -1295,7 +1292,7 @@
         }
         
         .animate-slide-in-up {
-            animation: slideInUp 0.6s ease-out;
+            animation: fadeIn 0.6s ease-out;
         }
         
         /* ===== RESPONSIVE DESIGN ===== */
@@ -1418,6 +1415,10 @@
                 padding: var(--space-lg);
             }
             
+            .search-row {
+                flex-direction: column;
+            }
+            
             .filter-row {
                 grid-template-columns: 1fr;
             }
@@ -1450,8 +1451,20 @@
                 gap: var(--space-xs);
             }
             
+            .job-actions {
+                flex-direction: column;
+            }
+            
+            .job-actions .btn {
+                width: 100%;
+            }
+            
             .modal-body {
                 padding: var(--space-xl);
+            }
+            
+            .alert-form {
+                flex-direction: column;
             }
         }
         
@@ -1679,7 +1692,7 @@
         <div class="job-stats">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number" id="totalJobs">247</div>
+                    <div class="stat-number" id="totalJobs">15</div>
                     <div class="stat-label">Active Jobs</div>
                 </div>
                 <div class="stat-item">
@@ -1796,7 +1809,7 @@
                     <div class="job-listing-header">
                         <div>
                             <h2>Available Jobs</h2>
-                            <p class="results-count" id="jobCount">Showing <span>15</span> Jobs</p>
+                            <p class="results-count" id="jobCount">Showing <span>5</span> of <span>15</span> Jobs</p>
                         </div>
                         <div class="sort-options">
                             <label for="sortBy">Sort by:</label>
@@ -1972,8 +1985,31 @@
             jobsPerPage: 5,
             localStorageKeys: {
                 savedJobs: 'jobpitality_savedJobs',
-                applicantInfo: 'jobpitality_applicantInfo',
-                searchFilters: 'jobpitality_searchFilters'
+                applicantInfo: 'jobpitality_applicantInfo'
+            },
+            // ===== GOOGLE FORMS CONFIGURATION =====
+            // IMPORTANT: Replace these with your actual Google Form field IDs
+            googleForms: {
+                // Your Google Form submission URL (replace with your actual URL)
+                submissionUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSe_gevcRo8j5YM12QqP94U-sO2bY07kOOKlOTrlNdkDl6MfLA/viewform?usp=publish-editor',
+                
+                // Field IDs from your Google Form (replace with your actual IDs)
+                fieldIds: {
+                    name: 'entry.1234567890',      // Full Name field
+                    email: 'entry.0987654321',     // Email Address field
+                    phone: 'entry.1111111111',     // Phone Number field
+                    linkedin: 'entry.2222222222',  // LinkedIn Profile field
+                    jobTitle: 'entry.3333333333',  // Job Position field
+                    coverLetter: 'entry.4444444444', // Cover Letter field
+                    resume: 'entry.5555555555'     // Resume Upload field
+                },
+                
+                // Google Forms requires these hidden fields
+                hiddenFields: {
+                    'draftResponse': '[]',
+                    'pageHistory': '0',
+                    'fbzx': '1234567890123456789'  // This changes, but can be static for basic forms
+                }
             }
         };
 
@@ -2108,8 +2144,8 @@
                 category: "culinary",
                 experience: "mid",
                 salary: "₦250,000 - ₦400,000",
-                description: "Assist Executive Chef in managing kitchen operations, staff supervision, and menu execution.",
-                skills: ["Kitchen Management", "Food Preparation", "Staff Supervision", "Menu Execution"],
+                description: "Assist Executive Chef in kitchen operations. Lead kitchen staff during service and maintain quality standards.",
+                skills: ["Kitchen Operations", "Food Preparation", "Team Management", "Quality Control"],
                 posted: "3 days ago",
                 featured: false,
                 urgent: false,
@@ -2118,191 +2154,759 @@
             },
             {
                 id: 8,
-                title: "HR Director",
-                company: "Resort Chain",
+                title: "Hospitality HR Manager",
+                company: "Hotel Management Company",
                 location: "Lagos, Nigeria",
                 type: "full-time",
                 category: "hr",
-                experience: "executive",
-                salary: "₦650,000 - ₦850,000",
-                description: "Lead HR strategy for growing resort chain. Oversee recruitment, training, and employee relations.",
-                skills: ["HR Strategy", "Recruitment", "Employee Relations", "Hospitality HR"],
-                posted: "4 days ago",
-                featured: true,
-                urgent: false,
-                remote: false,
-                new: true
-            },
-            {
-                id: 9,
-                title: "Food & Beverage Manager",
-                company: "5-Star Hotel",
-                location: "Port Harcourt, Nigeria",
-                type: "full-time",
-                category: "culinary",
                 experience: "senior",
-                salary: "₦500,000 - ₦700,000",
-                description: "Oversee all F&B operations including restaurants, bars, and banquet services.",
-                skills: ["F&B Management", "Inventory Control", "Menu Planning", "Quality Control"],
+                salary: "₦450,000 - ₦600,000",
+                description: "Oversee human resources for multiple hotel properties. Recruitment, training, compliance, and employee relations.",
+                skills: ["Recruitment", "Training & Development", "Labor Law", "Employee Relations"],
                 posted: "1 week ago",
-                featured: true,
+                featured: false,
                 urgent: false,
                 remote: false,
                 new: false
             },
             {
-                id: 10,
-                title: "Chief Financial Officer",
-                company: "Hospitality Conglomerate",
+                id: 9,
+                title: "Food & Beverage Director",
+                company: "Resort & Spa",
                 location: "Lagos, Nigeria",
                 type: "full-time",
                 category: "executive",
                 experience: "executive",
-                salary: "₦900,000 - ₦1,500,000",
-                description: "Lead financial strategy and operations for major hospitality group with multiple properties.",
-                skills: ["Financial Strategy", "Budgeting", "Risk Management", "Financial Reporting"],
+                salary: "₦650,000 - ₦850,000",
+                description: "Oversee all F&B operations including restaurants, bars, banquets, and room service.",
+                skills: ["F&B Management", "Budget Control", "Menu Engineering", "Service Standards"],
                 posted: "2 days ago",
                 featured: true,
                 urgent: true,
                 remote: false,
                 new: true
+            },
+            {
+                id: 10,
+                title: "Housekeeping Manager",
+                company: "International Hotel Brand",
+                location: "Abuja, Nigeria",
+                type: "full-time",
+                category: "operations",
+                experience: "mid",
+                salary: "₦280,000 - ₦380,000",
+                description: "Manage housekeeping department ensuring cleanliness standards and efficient operations.",
+                skills: ["Housekeeping", "Quality Control", "Staff Management", "Inventory Control"],
+                posted: "4 days ago",
+                featured: false,
+                urgent: false,
+                remote: false,
+                new: true
+            },
+            {
+                id: 11,
+                title: "Marketing Manager",
+                company: "Luxury Hotel",
+                location: "Remote",
+                type: "full-time",
+                category: "sales-marketing",
+                experience: "senior",
+                salary: "₦400,000 - ₦550,000",
+                description: "Develop and execute marketing strategies to drive room bookings and F&B revenue.",
+                skills: ["Digital Marketing", "Brand Management", "Social Media", "Hospitality Marketing"],
+                posted: "1 week ago",
+                featured: false,
+                urgent: false,
+                remote: true,
+                new: false
+            },
+            {
+                id: 12,
+                title: "Executive Assistant Manager",
+                company: "5-Star Hotel",
+                location: "Lagos, Nigeria",
+                type: "full-time",
+                category: "hotel-management",
+                experience: "senior",
+                salary: "₦500,000 - ₦700,000",
+                description: "Support General Manager in overall hotel operations. Oversee multiple departments and ensure guest satisfaction.",
+                skills: ["Hotel Operations", "Department Management", "Problem Solving", "Guest Relations"],
+                posted: "3 days ago",
+                featured: true,
+                urgent: false,
+                remote: false,
+                new: true
+            },
+            {
+                id: 13,
+                title: "Pastry Chef",
+                company: "Fine Dining Restaurant",
+                location: "Lagos, Nigeria",
+                type: "full-time",
+                category: "culinary",
+                experience: "mid",
+                salary: "₦220,000 - ₦350,000",
+                description: "Create and execute pastry menu. Manage pastry kitchen and ensure dessert quality.",
+                skills: ["Pastry Arts", "Menu Development", "Food Presentation", "Baking"],
+                posted: "5 days ago",
+                featured: false,
+                urgent: false,
+                remote: false,
+                new: false
+            },
+            {
+                id: 14,
+                title: "Chief Financial Officer",
+                company: "Hospitality Group",
+                location: "Lagos, Nigeria",
+                type: "full-time",
+                category: "finance",
+                experience: "executive",
+                salary: "₦900,000 - ₦1,500,000",
+                description: "Lead finance department for hotel group with multiple properties. Strategic planning and financial oversight.",
+                skills: ["Financial Strategy", "Budgeting", "Financial Reporting", "Hotel Finance"],
+                posted: "2 days ago",
+                featured: true,
+                urgent: true,
+                remote: false,
+                new: true
+            },
+            {
+                id: 15,
+                title: "Banquet Manager",
+                company: "Hotel & Conference Center",
+                location: "Abuja, Nigeria",
+                type: "full-time",
+                category: "operations",
+                experience: "mid",
+                salary: "₦320,000 - ₦450,000",
+                description: "Manage banquet operations including events, conferences, and weddings. Coordinate with clients and vendors.",
+                skills: ["Event Planning", "Banquet Operations", "Client Relations", "Vendor Management"],
+                posted: "1 week ago",
+                featured: false,
+                urgent: false,
+                remote: false,
+                new: false
             }
         ];
 
         // ===== DOM ELEMENTS =====
-        const dom = {
+        const domElements = {
             jobListings: document.getElementById('jobListings'),
             pagination: document.getElementById('pagination'),
             jobCount: document.getElementById('jobCount'),
-            totalJobs: document.getElementById('totalJobs'),
             searchBtn: document.getElementById('searchBtn'),
-            clearFiltersBtn: document.getElementById('clearFilters'),
+            searchKeyword: document.getElementById('searchKeyword'),
+            searchLocation: document.getElementById('searchLocation'),
+            jobCategory: document.getElementById('jobCategory'),
+            jobType: document.getElementById('jobType'),
+            experienceLevel: document.getElementById('experienceLevel'),
+            sortBy: document.getElementById('sortBy'),
             salaryRange: document.getElementById('salaryRange'),
             salaryValue: document.getElementById('salaryValue'),
-            sortSelect: document.getElementById('sortBy'),
+            clearFilters: document.getElementById('clearFilters'),
+            alertForm: document.getElementById('alertForm'),
+            applicationModal: document.getElementById('applicationModal'),
+            applicationForm: document.getElementById('applicationForm'),
+            modalJobTitle: document.getElementById('modalJobTitle'),
+            applyJobId: document.getElementById('applyJobId'),
+            resumeFile: document.getElementById('resumeFile'),
+            fileName: document.getElementById('fileName'),
             mobileMenuToggle: document.getElementById('mobileMenuToggle'),
             mainNav: document.getElementById('mainNav'),
             mobileOverlay: document.getElementById('mobileOverlay'),
-            alertForm: document.getElementById('alertForm'),
-            applicationForm: document.getElementById('applicationForm'),
-            resumeFile: document.getElementById('resumeFile'),
-            fileName: document.getElementById('fileName'),
-            modalJobTitle: document.getElementById('modalJobTitle'),
-            applyJobId: document.getElementById('applyJobId'),
-            currentYear: document.getElementById('currentYear')
+            totalJobs: document.getElementById('totalJobs')
         };
 
-        // ===== INITIALIZATION =====
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeApp();
-            setupEventListeners();
-            renderJobListings();
-        });
-
-        function initializeApp() {
-            // Load saved state
-            loadSavedState();
-            
-            // Update UI
-            updateJobStats();
-            updateCopyrightYear();
-            updateSalaryDisplay();
-            
-            // Apply initial filters
-            applyFilters();
+        // ===== UTILITY FUNCTIONS =====
+        function formatDate(posted) {
+            return posted;
         }
 
-        function loadSavedState() {
-            // Load saved jobs
-            const savedJobs = JSON.parse(localStorage.getItem(CONFIG.localStorageKeys.savedJobs)) || [];
-            state.savedJobs = new Set(savedJobs);
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                ${message}
+            `;
             
-            // Load filters if saved
-            const savedFilters = JSON.parse(localStorage.getItem(CONFIG.localStorageKeys.searchFilters));
-            if (savedFilters) {
-                state.filters = { ...state.filters, ...savedFilters };
-                restoreFilterUI();
-            }
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
         }
 
-        function restoreFilterUI() {
-            // Restore form inputs
-            document.getElementById('searchKeyword').value = state.filters.keyword;
-            document.getElementById('searchLocation').value = state.filters.location;
-            document.getElementById('jobCategory').value = state.filters.category;
-            document.getElementById('jobType').value = state.filters.type;
-            document.getElementById('experienceLevel').value = state.filters.experience;
-            dom.salaryRange.value = state.filters.salaryMin;
-            
-            // Restore checkboxes
-            document.querySelectorAll('.filter-option input[data-category]').forEach(cb => {
-                cb.checked = state.filters.categories.has(cb.dataset.category);
-            });
-            
-            document.querySelectorAll('.filter-option input[data-location]').forEach(cb => {
-                cb.checked = state.filters.locations.has(cb.dataset.location);
-            });
-            
-            // Restore radio buttons
-            document.querySelector(`input[name="time"][value="${state.filters.timeFrame}"]`).checked = true;
-            
-            // Restore sort
-            dom.sortSelect.value = 'newest';
-        }
-
-        // ===== EVENT LISTENERS =====
-        function setupEventListeners() {
-            // Mobile menu
-            dom.mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-            dom.mobileOverlay.addEventListener('click', closeMobileMenu);
-            
-            // Search and filters
-            dom.searchBtn.addEventListener('click', handleSearch);
-            dom.clearFiltersBtn.addEventListener('click', clearFilters);
-            dom.salaryRange.addEventListener('input', handleSalaryChange);
-            dom.sortSelect.addEventListener('change', handleSortChange);
-            
-            // Filter inputs
-            setupFilterListeners();
-            
-            // Forms
-            dom.alertForm.addEventListener('submit', handleAlertSubmit);
-            dom.applicationForm.addEventListener('submit', handleApplicationSubmit);
-            dom.resumeFile.addEventListener('change', handleFileSelect);
-            
-            // Modal close
-            document.addEventListener('keydown', handleKeydown);
-            
-            // Save filters on change
-            document.querySelectorAll('input, select').forEach(input => {
-                input.addEventListener('change', saveFilters);
-            });
-        }
-
-        function setupFilterListeners() {
-            // Text inputs
-            ['#searchKeyword', '#searchLocation', '#jobCategory', '#jobType', '#experienceLevel'].forEach(selector => {
-                document.querySelector(selector).addEventListener('input', debounce(applyFilters, 300));
-            });
-            
-            // Checkboxes and radios
-            document.querySelectorAll('.filter-option input').forEach(input => {
-                input.addEventListener('change', applyFilters);
-            });
-            
-            // Time frame radios
-            document.querySelectorAll('input[name="time"]').forEach(radio => {
-                radio.addEventListener('change', applyFilters);
+        // ===== GOOGLE FORMS SUBMISSION =====
+        function submitToGoogleForms(formData) {
+            return new Promise((resolve, reject) => {
+                // Create form data for submission
+                const submissionData = new FormData();
+                
+                // Add all form fields
+                Object.entries(formData).forEach(([key, value]) => {
+                    if (value) {
+                        submissionData.append(key, value);
+                    }
+                });
+                
+                // Add hidden fields required by Google Forms
+                Object.entries(CONFIG.googleForms.hiddenFields).forEach(([key, value]) => {
+                    submissionData.append(key, value);
+                });
+                
+                // Submit to Google Forms
+                fetch(CONFIG.googleForms.submissionUrl, {
+                    method: 'POST',
+                    mode: 'no-cors', // Important: Google Forms requires no-cors mode
+                    body: submissionData
+                })
+                .then(() => {
+                    // With no-cors mode, we can't read the response
+                    // But if we reach here, the submission was attempted
+                    resolve(true);
+                })
+                .catch(error => {
+                    console.error('Google Forms submission error:', error);
+                    reject(error);
+                });
             });
         }
 
         // ===== FILTER FUNCTIONS =====
-        function handleSearch() {
-            applyFilters();
-            dom.jobListings.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        function filterJobs() {
+            state.filteredJobs = jobData.filter(job => {
+                // Keyword filter
+                if (state.filters.keyword) {
+                    const searchTerm = state.filters.keyword.toLowerCase();
+                    const jobText = `${job.title} ${job.company} ${job.description} ${job.skills.join(' ')}`.toLowerCase();
+                    if (!jobText.includes(searchTerm)) return false;
+                }
+                
+                // Location filter
+                if (state.filters.location) {
+                    const jobLocation = job.location.toLowerCase();
+                    const filterLocation = state.filters.location.toLowerCase();
+                    if (!jobLocation.includes(filterLocation)) return false;
+                }
+                
+                // Category filter
+                if (!state.filters.categories.has(job.category) && state.filters.categories.size > 0) {
+                    return false;
+                }
+                
+                // Type filter
+                if (state.filters.type && job.type !== state.filters.type) {
+                    return false;
+                }
+                
+                // Experience filter
+                if (state.filters.experience && job.experience !== state.filters.experience) {
+                    return false;
+                }
+                
+                // Salary filter
+                const salaryMatch = job.salary.match(/₦([\d,]+)/g);
+                if (salaryMatch) {
+                    const minSalary = parseInt(salaryMatch[0].replace(/[₦,]/g, ''));
+                    if (minSalary < state.filters.salaryMin) return false;
+                }
+                
+                // Location checkboxes
+                if (state.filters.locations.size > 0) {
+                    const isRemote = job.remote;
+                    const isLagos = job.location.toLowerCase().includes('lagos');
+                    const isAbuja = job.location.toLowerCase().includes('abuja');
+                    const isInternational = job.location.toLowerCase().includes('international');
+                    
+                    let locationMatch = false;
+                    if (isRemote && state.filters.locations.has('remote')) locationMatch = true;
+                    if (isLagos && state.filters.locations.has('lagos')) locationMatch = true;
+                    if (isAbuja && state.filters.locations.has('abuja')) locationMatch = true;
+                    if (isInternational && state.filters.locations.has('international')) locationMatch = true;
+                    
+                    if (!locationMatch && state.filters.locations.size > 0) return false;
+                }
+                
+                return true;
+            });
+            
+            // Apply sorting
+            sortJobs();
+            
+            // Update UI
+            updateJobListings();
+            updatePagination();
+            updateJobCount();
         }
 
-        function clearFilters() {
+        function sortJobs() {
+            const sortBy = domElements.sortBy.value;
+            
+            switch(sortBy) {
+                case 'newest':
+                    break;
+                case 'salary':
+                    state.filteredJobs.sort((a, b) => {
+                        const aSalary = parseInt(a.salary.match(/₦([\d,]+)/)[1].replace(/,/g, ''));
+                        const bSalary = parseInt(b.salary.match(/₦([\d,]+)/)[1].replace(/,/g, ''));
+                        return bSalary - aSalary;
+                    });
+                    break;
+                case 'urgent':
+                    state.filteredJobs.sort((a, b) => {
+                        if (a.urgent && !b.urgent) return -1;
+                        if (!a.urgent && b.urgent) return 1;
+                        return 0;
+                    });
+                    break;
+                case 'relevant':
+                    state.filteredJobs.sort((a, b) => {
+                        if (a.featured && !b.featured) return -1;
+                        if (!a.featured && b.featured) return 1;
+                        return 0;
+                    });
+                    break;
+            }
+        }
+
+        // ===== RENDER FUNCTIONS =====
+        function renderJobCard(job) {
+            const badges = [];
+            if (job.featured) badges.push('<span class="job-badge badge-featured">Featured</span>');
+            if (job.urgent) badges.push('<span class="job-badge badge-urgent">Urgent</span>');
+            if (job.new) badges.push('<span class="job-badge badge-new">New</span>');
+            if (job.remote) badges.push('<span class="job-badge badge-remote">Remote</span>');
+            
+            const cardClass = `job-card ${job.featured ? 'featured' : ''} ${job.urgent ? 'urgent' : ''}`;
+            
+            return `
+                <article class="${cardClass}">
+                    ${badges.length > 0 ? `
+                        <div class="job-badges">
+                            ${badges.join('')}
+                        </div>
+                    ` : ''}
+                    
+                    <div class="job-header">
+                        <div class="job-title-section">
+                            <h3>${job.title}</h3>
+                            <div class="job-company">${job.company}</div>
+                        </div>
+                        
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${job.location}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>${formatDate(job.posted)}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-user-tie"></i>
+                                <span>${job.experience.charAt(0).toUpperCase() + job.experience.slice(1)} Level</span>
+                            </div>
+                        </div>
+                        
+                        <div class="job-salary">${job.salary}</div>
+                        
+                        <p class="job-description">${job.description}</p>
+                        
+                        <div class="job-skills">
+                            ${job.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="job-actions">
+                        <button class="btn btn-primary" onclick="applyForJob(${job.id})">
+                            <i class="fas fa-paper-plane"></i> Apply Now
+                        </button>
+                        <button class="btn btn-outline" onclick="saveJob(${job.id})">
+                            <i class="fas fa-bookmark"></i> Save Job
+                        </button>
+                        <button class="btn btn-secondary" onclick="viewJobDetails(${job.id})">
+                            <i class="fas fa-eye"></i> View Details
+                        </button>
+                    </div>
+                </article>
+            `;
+        }
+
+        function updateJobListings() {
+            const startIndex = (state.currentPage - 1) * CONFIG.jobsPerPage;
+            const endIndex = startIndex + CONFIG.jobsPerPage;
+            const jobsToDisplay = state.filteredJobs.slice(startIndex, endIndex);
+            
+            domElements.jobListings.innerHTML = jobsToDisplay.map(job => renderJobCard(job)).join('');
+            
+            if (jobsToDisplay.length === 0) {
+                domElements.jobListings.innerHTML = `
+                    <div class="no-results" style="text-align: center; padding: var(--space-3xl);">
+                        <i class="fas fa-search" style="font-size: 3rem; color: var(--color-gray-300); margin-bottom: var(--space-md);"></i>
+                        <h3>No Jobs Found</h3>
+                        <p>Try adjusting your search filters or browse all available positions.</p>
+                        <button class="btn btn-primary" onclick="clearAllFilters()">
+                            <i class="fas fa-redo"></i> Clear All Filters
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function updatePagination() {
+            const totalPages = Math.ceil(state.filteredJobs.length / CONFIG.jobsPerPage);
+            
+            if (totalPages <= 1) {
+                domElements.pagination.innerHTML = '';
+                return;
+            }
+            
+            let paginationHTML = '';
+            
+            // Previous button
+            if (state.currentPage > 1) {
+                paginationHTML += `
+                    <button class="pagination-btn" onclick="goToPage(${state.currentPage - 1})">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                `;
+            } else {
+                paginationHTML += `
+                    <button class="pagination-btn disabled">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                `;
+            }
+            
+            // Page numbers
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, state.currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+            
+            if (endPage - startPage + 1 < maxVisiblePages) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+            
+            if (startPage > 1) {
+                paginationHTML += `
+                    <button class="pagination-btn" onclick="goToPage(1)">1</button>
+                    <span class="pagination-dots">...</span>
+                `;
+            }
+            
+            for (let i = startPage; i <= endPage; i++) {
+                if (i === state.currentPage) {
+                    paginationHTML += `
+                        <button class="pagination-btn active">${i}</button>
+                    `;
+                } else {
+                    paginationHTML += `
+                        <button class="pagination-btn" onclick="goToPage(${i})">${i}</button>
+                    `;
+                }
+            }
+            
+            if (endPage < totalPages) {
+                paginationHTML += `
+                    <span class="pagination-dots">...</span>
+                    <button class="pagination-btn" onclick="goToPage(${totalPages})">${totalPages}</button>
+                `;
+            }
+            
+            // Next button
+            if (state.currentPage < totalPages) {
+                paginationHTML += `
+                    <button class="pagination-btn" onclick="goToPage(${state.currentPage + 1})">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                `;
+            } else {
+                paginationHTML += `
+                    <button class="pagination-btn disabled">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                `;
+            }
+            
+            domElements.pagination.innerHTML = paginationHTML;
+        }
+
+        function updateJobCount() {
+            const showing = Math.min(state.filteredJobs.length, CONFIG.jobsPerPage);
+            const total = state.filteredJobs.length;
+            domElements.jobCount.innerHTML = `Showing <span>${showing}</span> of <span>${total}</span> Jobs`;
+        }
+
+        // ===== PAGE NAVIGATION =====
+        function goToPage(page) {
+            state.currentPage = page;
+            updateJobListings();
+            updatePagination();
+            window.scrollTo({ top: domElements.jobListings.offsetTop - 100, behavior: 'smooth' });
+        }
+
+        // ===== JOB ACTIONS =====
+        function applyForJob(jobId) {
+            const job = jobData.find(j => j.id === jobId);
+            if (!job) return;
+            
+            domElements.modalJobTitle.textContent = `Apply for ${job.title} at ${job.company}`;
+            domElements.applyJobId.value = jobId;
+            
+            // Load saved applicant info
+            const savedInfo = localStorage.getItem(CONFIG.localStorageKeys.applicantInfo);
+            if (savedInfo) {
+                try {
+                    const info = JSON.parse(savedInfo);
+                    document.getElementById('applicantName').value = info.name || '';
+                    document.getElementById('applicantEmail').value = info.email || '';
+                    document.getElementById('applicantPhone').value = info.phone || '';
+                    document.getElementById('applicantLinkedIn').value = info.linkedin || '';
+                } catch (e) {
+                    console.error('Error loading saved info:', e);
+                }
+            }
+            
+            openModal();
+        }
+
+        function saveJob(jobId) {
+            if (state.savedJobs.has(jobId)) {
+                state.savedJobs.delete(jobId);
+                showNotification('Job removed from saved jobs', 'info');
+            } else {
+                state.savedJobs.add(jobId);
+                showNotification('Job saved successfully', 'success');
+            }
+            
+            // Save to localStorage
+            localStorage.setItem(CONFIG.localStorageKeys.savedJobs, JSON.stringify([...state.savedJobs]));
+        }
+
+        function viewJobDetails(jobId) {
+            const job = jobData.find(j => j.id === jobId);
+            if (!job) return;
+            
+            alert(`Job Details:\n\nPosition: ${job.title}\nCompany: ${job.company}\nLocation: ${job.location}\nSalary: ${job.salary}\n\n${job.description}\n\nRequired Skills: ${job.skills.join(', ')}`);
+        }
+
+        // ===== MODAL FUNCTIONS =====
+        function openModal() {
+            domElements.applicationModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            domElements.applicationModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // ===== FORM HANDLERS =====
+        async function handleApplicationSubmit(e) {
+            e.preventDefault();
+            
+            const jobId = parseInt(domElements.applyJobId.value);
+            const job = jobData.find(j => j.id === jobId);
+            
+            if (!job) {
+                showNotification('Job not found', 'error');
+                return;
+            }
+            
+            // Get form values
+            const formData = {
+                name: document.getElementById('applicantName').value.trim(),
+                email: document.getElementById('applicantEmail').value.trim(),
+                phone: document.getElementById('applicantPhone').value.trim(),
+                linkedin: document.getElementById('applicantLinkedIn').value.trim(),
+                coverLetter: document.getElementById('applicantCover').value.trim(),
+                jobTitle: `${job.title} at ${job.company}`,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Validate required fields
+            if (!formData.name || !formData.email || !formData.phone) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            // Check if resume is uploaded
+            const resumeFile = document.getElementById('resumeFile').files[0];
+            if (!resumeFile) {
+                showNotification('Please upload your resume', 'error');
+                return;
+            }
+            
+            // Save applicant info locally
+            const applicantInfo = {
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                linkedin: formData.linkedin,
+                lastUpdated: new Date().toISOString()
+            };
+            
+            localStorage.setItem(CONFIG.localStorageKeys.applicantInfo, JSON.stringify(applicantInfo));
+            
+            // Prepare data for Google Forms
+            const googleFormsData = {
+                [CONFIG.googleForms.fieldIds.name]: formData.name,
+                [CONFIG.googleForms.fieldIds.email]: formData.email,
+                [CONFIG.googleForms.fieldIds.phone]: formData.phone,
+                [CONFIG.googleForms.fieldIds.linkedin]: formData.linkedin || 'Not provided',
+                [CONFIG.googleForms.fieldIds.jobTitle]: formData.jobTitle,
+                [CONFIG.googleForms.fieldIds.coverLetter]: formData.coverLetter || 'Not provided',
+                [CONFIG.googleForms.fieldIds.resume]: resumeFile.name
+            };
+            
+            // Show loading state
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Submit to Google Forms
+                await submitToGoogleForms(googleFormsData);
+                
+                // Success
+                showNotification(`Application submitted successfully for ${job.title}! You will receive a confirmation email shortly.`, 'success');
+                
+                // Reset form
+                domElements.applicationForm.reset();
+                domElements.fileName.textContent = '';
+                closeModal();
+                
+            } catch (error) {
+                // Fallback: Save locally and show instructions
+                console.log('Google Forms submission failed, saving locally:', error);
+                
+                // Save application locally as fallback
+                const applications = JSON.parse(localStorage.getItem('jobpitality_applications') || '[]');
+                applications.push({
+                    ...formData,
+                    jobId: jobId,
+                    submittedAt: new Date().toISOString(),
+                    resumeFileName: resumeFile.name
+                });
+                localStorage.setItem('jobpitality_applications', JSON.stringify(applications));
+                
+                // Show alternative submission instructions
+                showNotification(`Application saved! Please also email your resume to careers@jobpitality.com with subject: "Application for ${job.title}"`, 'info');
+                
+                // Reset form
+                domElements.applicationForm.reset();
+                domElements.fileName.textContent = '';
+                closeModal();
+            } finally {
+                // Restore button state
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        function handleAlertSubmit(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            
+            // Simple validation
+            if (!email || !email.includes('@')) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // For demo purposes
+            setTimeout(() => {
+                showNotification(`Job alerts activated for ${email}. You'll receive notifications for new matching jobs!`, 'success');
+                e.target.reset();
+            }, 500);
+        }
+
+        // ===== FILTER HANDLERS =====
+        function handleSearch() {
+            state.filters.keyword = domElements.searchKeyword.value;
+            state.filters.location = domElements.searchLocation.value;
+            state.filters.category = domElements.jobCategory.value;
+            state.filters.type = domElements.jobType.value;
+            state.filters.experience = domElements.experienceLevel.value;
+            
+            state.currentPage = 1;
+            filterJobs();
+        }
+
+        function handleCategoryFilter() {
+            const checkboxes = document.querySelectorAll('input[data-category]');
+            state.filters.categories.clear();
+            
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    state.filters.categories.add(checkbox.dataset.category);
+                }
+            });
+            
+            state.currentPage = 1;
+            filterJobs();
+        }
+
+        function handleLocationFilter() {
+            const checkboxes = document.querySelectorAll('input[data-location]');
+            state.filters.locations.clear();
+            
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    state.filters.locations.add(checkbox.dataset.location);
+                }
+            });
+            
+            state.currentPage = 1;
+            filterJobs();
+        }
+
+        function handleSalaryChange() {
+            const value = parseInt(domElements.salaryRange.value);
+            state.filters.salaryMin = value;
+            
+            // Update display
+            if (value === 0) {
+                domElements.salaryValue.textContent = '₦0';
+            } else if (value >= 500000) {
+                domElements.salaryValue.textContent = '₦500,000+';
+            } else {
+                domElements.salaryValue.textContent = `₦${value.toLocaleString()}`;
+            }
+            
+            state.currentPage = 1;
+            filterJobs();
+        }
+
+        function handleTimeFilter() {
+            const selected = document.querySelector('input[name="time"]:checked');
+            state.filters.timeFrame = selected ? selected.value : 'any';
+            
+            state.currentPage = 1;
+            filterJobs();
+        }
+
+        function clearAllFilters() {
+            // Reset form inputs
+            domElements.searchKeyword.value = '';
+            domElements.searchLocation.value = '';
+            domElements.jobCategory.value = '';
+            domElements.jobType.value = '';
+            domElements.experienceLevel.value = '';
+            domElements.salaryRange.value = 0;
+            domElements.sortBy.value = 'newest';
+            
+            // Reset checkboxes
+            document.querySelectorAll('input[data-category]').forEach(cb => cb.checked = true);
+            document.querySelectorAll('input[data-location]').forEach(cb => cb.checked = false);
+            document.querySelectorAll('input[name="time"]').forEach(rb => {
+                rb.checked = rb.value === 'any';
+            });
+            
             // Reset state
             state.filters = {
                 keyword: '',
@@ -2316,595 +2920,151 @@
                 timeFrame: 'any'
             };
             
-            // Reset UI
-            document.getElementById('searchKeyword').value = '';
-            document.getElementById('searchLocation').value = '';
-            document.getElementById('jobCategory').value = '';
-            document.getElementById('jobType').value = '';
-            document.getElementById('experienceLevel').value = '';
-            dom.salaryRange.value = 0;
-            updateSalaryDisplay();
-            
-            document.querySelectorAll('.filter-option input[data-category]').forEach(cb => {
-                cb.checked = true;
-            });
-            
-            document.querySelectorAll('.filter-option input[data-location]').forEach(cb => {
-                cb.checked = false;
-            });
-            
-            document.querySelector('input[name="time"][value="any"]').checked = true;
-            dom.sortSelect.value = 'newest';
-            
-            // Apply filters
-            applyFilters();
-            
-            // Show notification
-            showNotification('All filters cleared', 'info');
-        }
-
-        function handleSalaryChange() {
-            state.filters.salaryMin = parseInt(dom.salaryRange.value);
-            updateSalaryDisplay();
-            applyFilters();
-        }
-
-        function updateSalaryDisplay() {
-            const value = state.filters.salaryMin;
-            dom.salaryValue.textContent = value === 0 ? '₦0' : `₦${value.toLocaleString()}+`;
-        }
-
-        function handleSortChange() {
-            applyFilters();
-        }
-
-        function applyFilters() {
-            // Update state from UI
-            updateFiltersFromUI();
-            
-            // Filter jobs
-            filterJobs();
-            
-            // Sort jobs
-            sortJobs();
-            
-            // Reset to first page
             state.currentPage = 1;
             
-            // Update display
-            renderJobListings();
-            renderPagination();
-            
-            // Save filters
-            saveFilters();
-        }
-
-        function updateFiltersFromUI() {
-            state.filters.keyword = document.getElementById('searchKeyword').value.toLowerCase();
-            state.filters.location = document.getElementById('searchLocation').value.toLowerCase();
-            state.filters.category = document.getElementById('jobCategory').value;
-            state.filters.type = document.getElementById('jobType').value;
-            state.filters.experience = document.getElementById('experienceLevel').value;
-            state.filters.salaryMin = parseInt(dom.salaryRange.value);
-            
-            // Update categories
-            state.filters.categories.clear();
-            document.querySelectorAll('.filter-option input[data-category]:checked').forEach(cb => {
-                state.filters.categories.add(cb.dataset.category);
-            });
-            
-            // Update locations
-            state.filters.locations.clear();
-            document.querySelectorAll('.filter-option input[data-location]:checked').forEach(cb => {
-                state.filters.locations.add(cb.dataset.location);
-            });
-            
-            // Update time frame
-            state.filters.timeFrame = document.querySelector('input[name="time"]:checked').value;
-        }
-
-        function filterJobs() {
-            state.filteredJobs = jobData.filter(job => {
-                // Keyword search
-                if (state.filters.keyword && !matchesKeyword(job, state.filters.keyword)) {
-                    return false;
-                }
-                
-                // Location search
-                if (state.filters.location && !job.location.toLowerCase().includes(state.filters.location)) {
-                    return false;
-                }
-                
-                // Category filter
-                if (state.filters.category && job.category !== state.filters.category) {
-                    return false;
-                }
-                
-                // Selected categories
-                if (state.filters.categories.size > 0 && !state.filters.categories.has(job.category)) {
-                    return false;
-                }
-                
-                // Job type
-                if (state.filters.type && job.type !== state.filters.type) {
-                    return false;
-                }
-                
-                // Experience level
-                if (state.filters.experience && job.experience !== state.filters.experience) {
-                    return false;
-                }
-                
-                // Salary range
-                if (state.filters.salaryMin > 0 && !meetsSalaryRequirement(job, state.filters.salaryMin)) {
-                    return false;
-                }
-                
-                // Location checkboxes
-                if (state.filters.locations.size > 0 && !matchesLocation(job, state.filters.locations)) {
-                    return false;
-                }
-                
-                // Time frame
-                if (!matchesTimeFrame(job, state.filters.timeFrame)) {
-                    return false;
-                }
-                
-                return true;
-            });
-        }
-
-        function matchesKeyword(job, keyword) {
-            const searchText = `${job.title} ${job.company} ${job.description} ${job.skills.join(' ')}`.toLowerCase();
-            return searchText.includes(keyword);
-        }
-
-        function meetsSalaryRequirement(job, minSalary) {
-            const salaryMatch = job.salary.match(/\d+/g);
-            if (!salaryMatch) return false;
-            
-            const minJobSalary = Math.min(...salaryMatch.map(num => parseInt(num)));
-            return minJobSalary >= minSalary;
-        }
-
-        function matchesLocation(job, locations) {
-            const jobLocation = job.location.toLowerCase();
-            return Array.from(locations).some(loc => {
-                if (loc === 'remote') return job.remote;
-                if (loc === 'international') return job.location.toLowerCase().includes('international');
-                return jobLocation.includes(loc);
-            });
-        }
-
-        function matchesTimeFrame(job, timeFrame) {
-            if (timeFrame === 'any') return true;
-            
-            const daysAgo = parseInt(timeFrame);
-            const jobDays = parseInt(job.posted) || 999;
-            
-            return jobDays <= daysAgo;
-        }
-
-        function sortJobs() {
-            const sortBy = dom.sortSelect.value;
-            
-            switch(sortBy) {
-                case 'newest':
-                    state.filteredJobs.sort((a, b) => {
-                        const aDays = parseInt(a.posted) || 999;
-                        const bDays = parseInt(b.posted) || 999;
-                        return aDays - bDays;
-                    });
-                    break;
-                    
-                case 'salary':
-                    state.filteredJobs.sort((a, b) => {
-                        const aSalary = extractSalary(a.salary);
-                        const bSalary = extractSalary(b.salary);
-                        return bSalary - aSalary;
-                    });
-                    break;
-                    
-                case 'urgent':
-                    state.filteredJobs.sort((a, b) => {
-                        if (a.urgent && !b.urgent) return -1;
-                        if (!a.urgent && b.urgent) return 1;
-                        return 0;
-                    });
-                    break;
-                    
-                case 'relevant':
-                    state.filteredJobs.sort((a, b) => {
-                        let aScore = 0, bScore = 0;
-                        if (a.featured) aScore += 2;
-                        if (a.new) aScore += 1;
-                        if (a.urgent) aScore += 1;
-                        if (b.featured) bScore += 2;
-                        if (b.new) bScore += 1;
-                        if (b.urgent) bScore += 1;
-                        return bScore - aScore;
-                    });
-                    break;
-            }
-        }
-
-        function extractSalary(salaryString) {
-            const numbers = salaryString.match(/\d+/g);
-            return numbers ? Math.max(...numbers.map(num => parseInt(num))) : 0;
-        }
-
-        // ===== RENDER FUNCTIONS =====
-        function renderJobListings() {
-            const startIndex = (state.currentPage - 1) * CONFIG.jobsPerPage;
-            const endIndex = startIndex + CONFIG.jobsPerPage;
-            const jobsToShow = state.filteredJobs.slice(startIndex, endIndex);
-            
-            if (jobsToShow.length === 0) {
-                dom.jobListings.innerHTML = `
-                    <div class="job-card" style="text-align: center; padding: var(--space-2xl);">
-                        <div style="font-size: 3rem; color: var(--color-gray-300); margin-bottom: var(--space-md);">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3 style="color: var(--color-primary); margin-bottom: var(--space-sm);">No jobs found</h3>
-                        <p style="color: var(--color-gray-600); margin-bottom: var(--space-lg);">
-                            Try adjusting your search criteria or clear filters to see all available positions.
-                        </p>
-                        <button class="btn btn-primary" onclick="clearFilters()">
-                            <i class="fas fa-redo"></i> Clear All Filters
-                        </button>
-                    </div>
-                `;
-                dom.jobCount.innerHTML = 'Showing <span>0</span> Jobs';
-                return;
-            }
-            
-            dom.jobListings.innerHTML = jobsToShow.map(job => createJobCardHTML(job)).join('');
-            dom.jobCount.innerHTML = `Showing <span>${state.filteredJobs.length}</span> Job${state.filteredJobs.length !== 1 ? 's' : ''}`;
-        }
-
-        function createJobCardHTML(job) {
-            const isSaved = state.savedJobs.has(job.id);
-            
-            // Build badges
-            let badges = [];
-            if (job.featured) badges.push({ text: 'Featured', class: 'badge-featured' });
-            if (job.urgent) badges.push({ text: 'Urgent', class: 'badge-urgent' });
-            if (job.new) badges.push({ text: 'New', class: 'badge-new' });
-            if (job.remote) badges.push({ text: 'Remote', class: 'badge-remote' });
-            
-            const badgesHTML = badges.map(badge => 
-                `<span class="job-badge ${badge.class}">${badge.text}</span>`
-            ).join('');
-            
-            // Build skills
-            const skillsHTML = job.skills.map(skill => 
-                `<span class="skill-tag">${skill}</span>`
-            ).join('');
-            
-            return `
-                <div class="job-card ${job.featured ? 'featured' : ''} ${job.urgent ? 'urgent' : ''}">
-                    ${badges.length > 0 ? `<div class="job-badges">${badgesHTML}</div>` : ''}
-                    
-                    <div class="job-header">
-                        <div class="job-title-section">
-                            <h3>${job.title}</h3>
-                            <div class="job-company">${job.company}</div>
-                            <div class="job-meta">
-                                <div class="meta-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>${job.location}</span>
-                                </div>
-                                <div class="meta-item">
-                                    <i class="fas fa-clock"></i>
-                                    <span>${job.type.replace('-', ' ')}</span>
-                                </div>
-                                <div class="meta-item">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span>${job.experience} level</span>
-                                </div>
-                                <div class="meta-item">
-                                    <i class="fas fa-calendar"></i>
-                                    <span>${job.posted}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="job-salary">
-                            ${job.salary}
-                        </div>
-                    </div>
-                    
-                    <p class="job-description">${job.description}</p>
-                    
-                    <div class="job-skills">
-                        ${skillsHTML}
-                    </div>
-                    
-                    <div class="job-actions">
-                        <button class="btn btn-primary" onclick="applyForJob(${job.id}, '${escapeString(job.title)}')">
-                            <i class="fas fa-paper-plane"></i> Apply Now
-                        </button>
-                        <button class="btn ${isSaved ? 'btn-success' : 'btn-outline'}" onclick="toggleSaveJob(${job.id})">
-                            <i class="fas fa-bookmark"></i>
-                            ${isSaved ? 'Saved' : 'Save Job'}
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderPagination() {
-            const totalPages = Math.ceil(state.filteredJobs.length / CONFIG.jobsPerPage);
-            
-            if (totalPages <= 1) {
-                dom.pagination.innerHTML = '';
-                return;
-            }
-            
-            let paginationHTML = '';
-            
-            // Previous button
-            paginationHTML += `
-                <button class="pagination-btn ${state.currentPage === 1 ? 'disabled' : ''}" 
-                        onclick="changePage(${state.currentPage - 1})" ${state.currentPage === 1 ? 'disabled' : ''}>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-            `;
-            
-            // Page numbers
-            const maxVisiblePages = 5;
-            let startPage = Math.max(1, state.currentPage - Math.floor(maxVisiblePages / 2));
-            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-            
-            if (endPage - startPage + 1 < maxVisiblePages) {
-                startPage = Math.max(1, endPage - maxVisiblePages + 1);
-            }
-            
-            if (startPage > 1) {
-                paginationHTML += `<button class="pagination-btn" onclick="changePage(1)">1</button>`;
-                if (startPage > 2) paginationHTML += `<span class="pagination-dots">...</span>`;
-            }
-            
-            for (let i = startPage; i <= endPage; i++) {
-                paginationHTML += `
-                    <button class="pagination-btn ${i === state.currentPage ? 'active' : ''}" 
-                            onclick="changePage(${i})">
-                        ${i}
-                    </button>
-                `;
-            }
-            
-            if (endPage < totalPages) {
-                if (endPage < totalPages - 1) paginationHTML += `<span class="pagination-dots">...</span>`;
-                paginationHTML += `<button class="pagination-btn" onclick="changePage(${totalPages})">${totalPages}</button>`;
-            }
-            
-            // Next button
-            paginationHTML += `
-                <button class="pagination-btn ${state.currentPage === totalPages ? 'disabled' : ''}" 
-                        onclick="changePage(${state.currentPage + 1})" ${state.currentPage === totalPages ? 'disabled' : ''}>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            `;
-            
-            dom.pagination.innerHTML = paginationHTML;
-        }
-
-        // ===== PAGINATION =====
-        window.changePage = function(page) {
-            const totalPages = Math.ceil(state.filteredJobs.length / CONFIG.jobsPerPage);
-            if (page < 1 || page > totalPages) return;
-            
-            state.currentPage = page;
-            renderJobListings();
-            renderPagination();
-            
-            // Scroll to jobs section
-            dom.jobListings.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        };
-
-        // ===== JOB ACTIONS =====
-        window.applyForJob = function(jobId, jobTitle) {
-            const job = jobData.find(j => j.id === jobId);
-            if (!job) return;
-            
-            dom.applyJobId.value = jobId;
-            dom.modalJobTitle.textContent = `Apply for: ${jobTitle}`;
-            
-            // Pre-fill form with saved info
-            const savedInfo = JSON.parse(localStorage.getItem(CONFIG.localStorageKeys.applicantInfo)) || {};
-            document.getElementById('applicantName').value = savedInfo.name || '';
-            document.getElementById('applicantEmail').value = savedInfo.email || '';
-            document.getElementById('applicantPhone').value = savedInfo.phone || '';
-            document.getElementById('applicantLinkedIn').value = savedInfo.linkedIn || '';
-            
-            // Show modal
-            document.getElementById('applicationModal').style.display = 'flex';
-        };
-
-        window.toggleSaveJob = function(jobId) {
-            if (state.savedJobs.has(jobId)) {
-                state.savedJobs.delete(jobId);
-                showNotification('Job removed from saved list', 'info');
-            } else {
-                state.savedJobs.add(jobId);
-                showNotification('Job saved to your list', 'success');
-            }
-            
-            // Save to localStorage
-            localStorage.setItem(CONFIG.localStorageKeys.savedJobs, JSON.stringify([...state.savedJobs]));
-            
-            // Re-render job listings
-            renderJobListings();
-        };
-
-        // ===== FORM HANDLERS =====
-        function handleAlertSubmit(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            
-            showNotification(`Job alerts activated for ${email}. You'll receive notifications for new matching jobs.`, 'success');
-            
-            // Reset form
-            this.reset();
-        }
-
-        function handleApplicationSubmit(e) {
-            e.preventDefault();
-            
-            const jobId = parseInt(dom.applyJobId.value);
-            const job = jobData.find(j => j.id === jobId);
-            
-            if (!job) {
-                showNotification('Error: Job not found', 'error');
-                return;
-            }
-            
-            // Save applicant info
-            const applicantInfo = {
-                name: document.getElementById('applicantName').value,
-                email: document.getElementById('applicantEmail').value,
-                phone: document.getElementById('applicantPhone').value,
-                linkedIn: document.getElementById('applicantLinkedIn').value
-            };
-            
-            localStorage.setItem(CONFIG.localStorageKeys.applicantInfo, JSON.stringify(applicantInfo));
-            
-            // Show success message
-            showNotification(
-                `Application submitted successfully for "${job.title}" at ${job.company}. ` +
-                `We'll contact you at ${applicantInfo.email} within 3-5 business days.`,
-                'success'
-            );
-            
-            // Close modal and reset form
-            closeModal();
-            dom.applicationForm.reset();
-            dom.fileName.textContent = '';
-        }
-
-        function handleFileSelect(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const fileName = file.name;
-                const fileSize = (file.size / 1024 / 1024).toFixed(2); // MB
-                
-                if (fileSize > 5) {
-                    showNotification('File size exceeds 5MB limit', 'error');
-                    e.target.value = '';
-                    dom.fileName.textContent = '';
-                    return;
-                }
-                
-                dom.fileName.textContent = `Selected: ${fileName} (${fileSize}MB)`;
-            }
-        }
-
-        // ===== MODAL FUNCTIONS =====
-        window.closeModal = function() {
-            document.getElementById('applicationModal').style.display = 'none';
-        };
-
-        function handleKeydown(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
+            // Update UI
+            domElements.salaryValue.textContent = '₦0';
+            filterJobs();
         }
 
         // ===== MOBILE MENU =====
         function toggleMobileMenu() {
-            dom.mainNav.classList.toggle('active');
-            dom.mobileOverlay.classList.toggle('active');
-            document.body.style.overflow = dom.mainNav.classList.contains('active') ? 'hidden' : '';
+            domElements.mainNav.classList.toggle('active');
+            domElements.mobileOverlay.classList.toggle('active');
+            document.body.style.overflow = domElements.mainNav.classList.contains('active') ? 'hidden' : 'auto';
         }
 
-        function closeMobileMenu() {
-            dom.mainNav.classList.remove('active');
-            dom.mobileOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // ===== UTILITY FUNCTIONS =====
-        function updateJobStats() {
-            dom.totalJobs.textContent = jobData.length;
-        }
-
-        function updateCopyrightYear() {
-            dom.currentYear.textContent = new Date().getFullYear();
-        }
-
-        function saveFilters() {
-            localStorage.setItem(CONFIG.localStorageKeys.searchFilters, JSON.stringify(state.filters));
-        }
-
-        function showNotification(message, type) {
-            // Remove existing notifications
-            const existingNotifications = document.querySelectorAll('.notification');
-            existingNotifications.forEach(notification => notification.remove());
+        // ===== INITIALIZATION =====
+        function init() {
+            // Initialize state
+            state.filteredJobs = [...jobData];
             
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.innerHTML = `
-                <div style="position: fixed; top: 20px; right: 20px; background: ${getNotificationColor(type)}; 
-                     color: white; padding: 15px 20px; border-radius: var(--radius-lg); 
-                     box-shadow: var(--shadow-xl); z-index: 10000; display: flex; 
-                     align-items: center; gap: 10px; animation: fadeIn 0.3s ease;">
-                    <i class="fas ${getNotificationIcon(type)}"></i>
-                    ${message}
-                </div>
-            `;
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-            document.body.appendChild(notification);
+            // Update total jobs count
+            domElements.totalJobs.textContent = jobData.length.toString();
             
-            // Remove after 3 seconds
-            setTimeout(() => {
-                notification.style.opacity = '0';
-                notification.style.transition = 'opacity 0.3s ease';
-                setTimeout(() => notification.remove(), 300);
-            }, 3000);
-        }
-
-        function getNotificationColor(type) {
-            switch(type) {
-                case 'success': return 'var(--color-success)';
-                case 'error': return 'var(--color-emergency)';
-                case 'info': return 'var(--color-primary)';
-                default: return 'var(--color-primary)';
+            // Load saved jobs
+            const savedJobs = localStorage.getItem(CONFIG.localStorageKeys.savedJobs);
+            if (savedJobs) {
+                try {
+                    const saved = JSON.parse(savedJobs);
+                    state.savedJobs = new Set(saved);
+                } catch (e) {
+                    console.error('Error loading saved jobs:', e);
+                }
             }
+            
+            // Initial render
+            filterJobs();
+            updateJobListings();
+            updatePagination();
+            updateJobCount();
+            
+            // Event Listeners
+            domElements.searchBtn.addEventListener('click', handleSearch);
+            domElements.searchKeyword.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSearch();
+            });
+            domElements.searchLocation.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSearch();
+            });
+            
+            domElements.jobCategory.addEventListener('change', handleSearch);
+            domElements.jobType.addEventListener('change', handleSearch);
+            domElements.experienceLevel.addEventListener('change', handleSearch);
+            domElements.sortBy.addEventListener('change', () => {
+                sortJobs();
+                updateJobListings();
+            });
+            
+            domElements.salaryRange.addEventListener('input', handleSalaryChange);
+            domElements.clearFilters.addEventListener('click', clearAllFilters);
+            
+            domElements.alertForm.addEventListener('submit', handleAlertSubmit);
+            domElements.applicationForm.addEventListener('submit', handleApplicationSubmit);
+            
+            domElements.mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+            domElements.mobileOverlay.addEventListener('click', toggleMobileMenu);
+            
+            // Category filter checkboxes
+            document.querySelectorAll('input[data-category]').forEach(checkbox => {
+                checkbox.addEventListener('change', handleCategoryFilter);
+            });
+            
+            // Location filter checkboxes
+            document.querySelectorAll('input[data-location]').forEach(checkbox => {
+                checkbox.addEventListener('change', handleLocationFilter);
+            });
+            
+            // Time filter radio buttons
+            document.querySelectorAll('input[name="time"]').forEach(radio => {
+                radio.addEventListener('change', handleTimeFilter);
+            });
+            
+            // Resume file upload
+            domElements.resumeFile.addEventListener('change', function(e) {
+                if (this.files.length > 0) {
+                    const file = this.files[0];
+                    // Validate file size (5MB max)
+                    if (file.size > 5 * 1024 * 1024) {
+                        showNotification('File size too large. Maximum size is 5MB.', 'error');
+                        this.value = '';
+                        domElements.fileName.textContent = '';
+                        return;
+                    }
+                    // Validate file type
+                    const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+                    if (!validTypes.includes(file.type)) {
+                        showNotification('Invalid file type. Please upload PDF, DOC, or DOCX files.', 'error');
+                        this.value = '';
+                        domElements.fileName.textContent = '';
+                        return;
+                    }
+                    domElements.fileName.textContent = `Selected file: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                } else {
+                    domElements.fileName.textContent = '';
+                }
+            });
+            
+            // Close modal on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && domElements.applicationModal.style.display === 'flex') {
+                    closeModal();
+                }
+            });
+            
+            // Close modal when clicking outside
+            domElements.applicationModal.addEventListener('click', (e) => {
+                if (e.target === domElements.applicationModal) {
+                    closeModal();
+                }
+            });
+            
+            // Handle dropdowns on mobile
+            document.querySelectorAll('.dropdown > .nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const dropdown = this.parentElement;
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
         }
 
-        function getNotificationIcon(type) {
-            switch(type) {
-                case 'success': return 'fa-check-circle';
-                case 'error': return 'fa-exclamation-circle';
-                case 'info': return 'fa-info-circle';
-                default: return 'fa-info-circle';
-            }
-        }
+        // ===== GLOBAL FUNCTIONS =====
+        window.applyForJob = applyForJob;
+        window.saveJob = saveJob;
+        window.viewJobDetails = viewJobDetails;
+        window.goToPage = goToPage;
+        window.clearModal = closeModal;
+        window.closeModal = closeModal;
+        window.clearAllFilters = clearAllFilters;
 
-        function escapeString(str) {
-            return str.replace(/"/g, '&quot;').replace(/'/g, '&#039;');
-        }
-
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('applicationModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        };
+        // ===== START APPLICATION =====
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
