@@ -2136,6 +2136,7 @@
     </footer>
 
     <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT -->
     <script>
         // Mobile Navigation Toggle
         document.addEventListener('DOMContentLoaded', function() {
@@ -2214,11 +2215,120 @@
                 });
             });
             
+            // EMPLOYER DASHBOARD REDIRECT FUNCTIONALITY
+            // These are the employer-related buttons that should redirect to the employer dashboard
+            const employerRedirectButtons = [
+                'postJobTrigger',
+                'postJobBtn',
+                'registerAsEmployer', 
+                'accessTalentDb'
+            ];
+            
+            // Handle employer button clicks - REDIRECT TO EMPLOYER DASHBOARD
+            employerRedirectButtons.forEach(buttonId => {
+                const button = document.getElementById(buttonId);
+                if (button) {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Show notification before redirect
+                        let actionMessage = '';
+                        
+                        if (buttonId === 'postJobTrigger' || buttonId === 'postJobBtn') {
+                            actionMessage = 'Redirecting to employer dashboard to post a job...';
+                        } else if (buttonId === 'registerAsEmployer') {
+                            actionMessage = 'Redirecting to employer registration...';
+                        } else if (buttonId === 'accessTalentDb') {
+                            actionMessage = 'Redirecting to access talent database...';
+                        } else {
+                            actionMessage = 'Redirecting to employer dashboard...';
+                        }
+                        
+                        showNotification(actionMessage);
+                        
+                        // Redirect to employer dashboard after a short delay
+                        setTimeout(() => {
+                            window.location.href = '/employer-dashboard/index.html';
+                        }, 1500);
+                    });
+                }
+            });
+            
+            // CANDIDATE DASHBOARD REDIRECT FUNCTIONALITY
+            // These are the candidate-related buttons that should redirect to the candidate dashboard
+            const candidateRedirectButtons = [
+                'registerAsCandidate',
+                'registerCta'
+            ];
+            
+            // Handle candidate button clicks - REDIRECT TO CANDIDATE DASHBOARD
+            candidateRedirectButtons.forEach(buttonId => {
+                const button = document.getElementById(buttonId);
+                if (button) {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Show notification before redirect
+                        let actionMessage = '';
+                        
+                        if (buttonId === 'registerAsCandidate') {
+                            actionMessage = 'Redirecting to candidate registration...';
+                        } else if (buttonId === 'registerCta') {
+                            actionMessage = 'Redirecting to create candidate account...';
+                        } else {
+                            actionMessage = 'Redirecting to candidate dashboard...';
+                        }
+                        
+                        showNotification(actionMessage);
+                        
+                        // Redirect to candidate dashboard after a short delay
+                        setTimeout(() => {
+                            window.location.href = '/candidate-dashboard/index.html';
+                        }, 1500);
+                    });
+                }
+            });
+            
+            // View Job buttons - Show sign-in modal for candidates
+            const viewJobButtons = document.querySelectorAll('.view-job-btn');
+            viewJobButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const jobId = this.getAttribute('data-job-id');
+                    showNotification(`Please sign in to view job details and apply for Job ID: ${jobId}`);
+                    openSignInModal('candidate');
+                });
+            });
+            
+            // View Talent buttons for employers
+            const viewTalentButtons = [
+                document.getElementById('viewHotelTalent'),
+                document.getElementById('viewCulinaryTalent'),
+                document.getElementById('viewSpecializedTalent')
+            ];
+            
+            viewTalentButtons.forEach(button => {
+                if (button) {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        showNotification('Please sign in as employer to view candidate profiles');
+                        openSignInModal('employer');
+                    });
+                }
+            });
+            
             // Sign In Modal Functionality
             const signinModal = document.getElementById('signinModal');
             const modalClose = document.getElementById('modalClose');
             const modalTabs = document.querySelectorAll('.modal-tab');
             const modalForms = document.querySelectorAll('.modal-form');
+            
+            // Function to open modal with specific tab
+            function openSignInModal(tabName) {
+                signinModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                switchTab(tabName);
+            }
             
             // Function to switch tabs
             function switchTab(tabName) {
@@ -2239,56 +2349,23 @@
                 });
             }
             
-            // Open modal triggers
-            const openModalTriggers = [
-                document.getElementById('signinTrigger'),
-                document.getElementById('signinCta'),
-                ...document.querySelectorAll('.view-job-btn'),
-                document.getElementById('postJobTrigger'),
-                document.getElementById('postJobBtn'),
-                document.getElementById('viewHotelTalent'),
-                document.getElementById('viewCulinaryTalent'),
-                document.getElementById('viewSpecializedTalent'),
-                document.getElementById('accessTalentDb'),
-                document.getElementById('registerAsCandidate'),
-                document.getElementById('registerAsEmployer'),
-                document.getElementById('registerCta')
-            ];
+            // Open modal for candidate triggers
+            const signinTrigger = document.getElementById('signinTrigger');
+            const signinCta = document.getElementById('signinCta');
             
-            openModalTriggers.forEach(trigger => {
-                if (trigger) {
-                    trigger.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        signinModal.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                        
-                        // Check if it's a job view button
-                        if (this.classList.contains('view-job-btn')) {
-                            const jobId = this.getAttribute('data-job-id');
-                            showNotification(`Sign in to view job details and apply for Job ID: ${jobId}`);
-                        }
-                        
-                        // Check if it's a post job button
-                        if (this.id === 'postJobTrigger' || this.id === 'postJobBtn') {
-                            // Switch to employer tab
-                            switchTab('employer');
-                        }
-                        
-                        // Check if it's a candidate registration button
-                        if (this.id === 'registerAsCandidate') {
-                            // Switch to candidate tab and show registration message
-                            switchTab('candidate');
-                            showNotification('Sign in or register to access elite candidate profiles');
-                        }
-                        
-                        // Check if it's an employer registration button
-                        if (this.id === 'registerAsEmployer' || this.id === 'accessTalentDb') {
-                            // Switch to employer tab
-                            switchTab('employer');
-                        }
-                    });
-                }
-            });
+            if (signinTrigger) {
+                signinTrigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openSignInModal('candidate');
+                });
+            }
+            
+            if (signinCta) {
+                signinCta.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openSignInModal('candidate');
+                });
+            }
             
             // Close modal
             if (modalClose) {
@@ -2314,10 +2391,8 @@
                 });
             });
             
-            // Form submission
+            // Form submission - Candidate Form - FIXED REDIRECTION
             const candidateForm = document.getElementById('candidateForm');
-            const employerForm = document.getElementById('employerForm');
-            
             if (candidateForm) {
                 candidateForm.addEventListener('submit', function(e) {
                     e.preventDefault();
@@ -2329,16 +2404,37 @@
                         return;
                     }
                     
-                    // Simulate sign in
-                    showNotification(`Signing in as candidate: ${email}`);
+                    // Show notification and redirect to candidate dashboard
+                    showNotification(`Successfully signed in as candidate: ${email}. Redirecting to dashboard...`);
+                    
+                    // Close modal first
+                    signinModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                    
+                    // Create user session
+                    const userData = {
+                        email: email,
+                        name: email.split('@')[0], // Use email prefix as name
+                        role: 'candidate',
+                        title: 'Executive Chef', // Default title
+                        timestamp: new Date().toISOString()
+                    };
+                    
+                    // Store user data in localStorage
+                    localStorage.setItem('currentUser', JSON.stringify(userData));
+                    
+                    // Redirect to candidate dashboard after a short delay
                     setTimeout(() => {
-                        signinModal.classList.remove('active');
-                        document.body.style.overflow = 'auto';
-                        showNotification('Successfully signed in! Redirecting to candidate dashboard...');
+                        window.location.href = '/candidate-dashboard/index.html';
                     }, 1500);
+                    
+                    // Prevent form from submitting (which would cause page refresh)
+                    return false;
                 });
             }
             
+            // Employer Form - Redirects to employer dashboard
+            const employerForm = document.getElementById('employerForm');
             if (employerForm) {
                 employerForm.addEventListener('submit', function(e) {
                     e.preventDefault();
@@ -2350,21 +2446,73 @@
                         return;
                     }
                     
-                    // Simulate sign in
-                    showNotification(`Signing in as employer: ${email}`);
+                    // Show notification and redirect to employer dashboard
+                    showNotification(`Signing in as employer: ${email}. Redirecting to dashboard...`);
+                    
+                    // Close modal first
+                    signinModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                    
+                    // Create user session
+                    const userData = {
+                        email: email,
+                        name: email.split('@')[0], // Use email prefix as name
+                        role: 'employer',
+                        title: 'Recruitment Manager', // Default title
+                        timestamp: new Date().toISOString()
+                    };
+                    
+                    // Store user data in localStorage
+                    localStorage.setItem('currentUser', JSON.stringify(userData));
+                    
+                    // Redirect to employer dashboard after a short delay
                     setTimeout(() => {
-                        signinModal.classList.remove('active');
-                        document.body.style.overflow = 'auto';
-                        showNotification('Successfully signed in! Redirecting to employer dashboard...');
+                        window.location.href = '/employer-dashboard/index.html';
                     }, 1500);
+                    
+                    // Prevent form from submitting (which would cause page refresh)
+                    return false;
                 });
             }
             
-            // Social sign in buttons
+            // Social sign in buttons - FIXED TO REDIRECT PROPERLY
             document.querySelectorAll('.social-btn').forEach(button => {
                 button.addEventListener('click', function() {
                     const platform = this.textContent.trim();
-                    showNotification(`Redirecting to ${platform} authentication...`);
+                    const isCandidateTab = document.querySelector('.modal-tab.active[data-tab="candidate"]');
+                    
+                    showNotification(`Authenticating with ${platform}...`);
+                    
+                    // Create user session based on selected tab
+                    const userData = {
+                        email: `demo@${platform.toLowerCase()}.com`,
+                        name: platform === 'Google' ? 'Google User' : 'LinkedIn User',
+                        role: isCandidateTab ? 'candidate' : 'employer',
+                        title: isCandidateTab ? 'Hospitality Professional' : 'Recruitment Manager',
+                        timestamp: new Date().toISOString(),
+                        socialLogin: true
+                    };
+                    
+                    // Store user data
+                    localStorage.setItem('currentUser', JSON.stringify(userData));
+                    
+                    // Determine which dashboard to redirect to based on active tab
+                    setTimeout(() => {
+                        signinModal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                        
+                        if (isCandidateTab) {
+                            showNotification(`Successfully authenticated with ${platform}. Redirecting to candidate dashboard...`);
+                            setTimeout(() => {
+                                window.location.href = '/candidate-dashboard/index.html';
+                            }, 1500);
+                        } else {
+                            showNotification(`Successfully authenticated with ${platform}. Redirecting to employer dashboard...`);
+                            setTimeout(() => {
+                                window.location.href = '/employer-dashboard/index.html';
+                            }, 1500);
+                        }
+                    }, 1500);
                 });
             });
             
@@ -2400,8 +2548,27 @@
                 });
             }
             
+            // Check for existing session on page load
+            function checkExistingSession() {
+                const currentUser = localStorage.getItem('currentUser');
+                if (currentUser) {
+                    const userData = JSON.parse(currentUser);
+                    console.log(`User already signed in as ${userData.role}: ${userData.email}`);
+                    
+                    // Show welcome message if user is signed in
+                    if (userData.role === 'candidate') {
+                        showNotification(`Welcome back, ${userData.name}! You are signed in as a candidate.`, 'info');
+                    } else if (userData.role === 'employer') {
+                        showNotification(`Welcome back, ${userData.name}! You are signed in as an employer.`, 'info');
+                    }
+                }
+            }
+            
+            // Run session check on page load
+            checkExistingSession();
+            
             // Notification function
-            function showNotification(message) {
+            function showNotification(message, type = 'info') {
                 // Remove existing notification
                 const existingNotification = document.querySelector('.notification');
                 if (existingNotification) {
@@ -2427,41 +2594,55 @@
                     font-family: var(--font-sans);
                 `;
                 
+                // Add type-specific styling
+                if (type === 'success') {
+                    notification.style.borderLeftColor = 'var(--color-success)';
+                } else if (type === 'error') {
+                    notification.style.borderLeftColor = 'var(--color-emergency)';
+                } else if (type === 'warning') {
+                    notification.style.borderLeftColor = 'var(--color-warning)';
+                }
+                
                 notification.innerHTML = `
                     <div style="display: flex; align-items: center; gap: 0.75rem;">
-                        <i class="fas fa-info-circle" style="color: var(--color-accent);"></i>
+                        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'}" 
+                           style="color: ${type === 'success' ? 'var(--color-success)' : type === 'error' ? 'var(--color-emergency)' : type === 'warning' ? 'var(--color-warning)' : 'var(--color-accent)'};">
+                        </i>
                         <span>${message}</span>
                     </div>
                 `;
                 
                 document.body.appendChild(notification);
                 
-                // Add animation styles
-                const style = document.createElement('style');
-                style.textContent = `
-                    @keyframes slideIn {
-                        from {
-                            transform: translateX(100%);
-                            opacity: 0;
+                // Add animation styles if not already added
+                if (!document.querySelector('style[data-notification-animation]')) {
+                    const style = document.createElement('style');
+                    style.setAttribute('data-notification-animation', 'true');
+                    style.textContent = `
+                        @keyframes slideIn {
+                            from {
+                                transform: translateX(100%);
+                                opacity: 0;
+                            }
+                            to {
+                                transform: translateX(0);
+                                opacity: 1;
+                            }
                         }
-                        to {
-                            transform: translateX(0);
-                            opacity: 1;
+                        
+                        @keyframes slideOut {
+                            from {
+                                transform: translateX(0);
+                                opacity: 1;
+                            }
+                            to {
+                                transform: translateX(100%);
+                                opacity: 0;
+                            }
                         }
-                    }
-                    
-                    @keyframes slideOut {
-                        from {
-                            transform: translateX(0);
-                            opacity: 1;
-                        }
-                        to {
-                            transform: translateX(100%);
-                            opacity: 0;
-                        }
-                    }
-                `;
-                document.head.appendChild(style);
+                    `;
+                    document.head.appendChild(style);
+                }
                 
                 // Remove notification after 3 seconds
                 setTimeout(() => {
@@ -2493,23 +2674,26 @@
                 observer.observe(el);
             });
             
-            // Add animation styles
-            const animationStyle = document.createElement('style');
-            animationStyle.textContent = `
-                .job-card, .employer-card, .availability-card {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                
-                .job-card.animate-in,
-                .employer-card.animate-in,
-                .availability-card.animate-in {
-                    opacity: 1;
-                    transform: translateY(0);
-                    transition: opacity 0.6s ease, transform 0.6s ease;
-                }
-            `;
-            document.head.appendChild(animationStyle);
+            // Add animation styles if not already added
+            if (!document.querySelector('style[data-card-animation]')) {
+                const animationStyle = document.createElement('style');
+                animationStyle.setAttribute('data-card-animation', 'true');
+                animationStyle.textContent = `
+                    .job-card, .employer-card, .availability-card {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    
+                    .job-card.animate-in,
+                    .employer-card.animate-in,
+                    .availability-card.animate-in {
+                        opacity: 1;
+                        transform: translateY(0);
+                        transition: opacity 0.6s ease, transform 0.6s ease;
+                    }
+                `;
+                document.head.appendChild(animationStyle);
+            }
         });
     </script>
 </body>

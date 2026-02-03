@@ -1,0 +1,2615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Dashboard | Jobpitality - Job Search & Career Management</title>
+    <meta name="description" content="Manage your hospitality career, applications, profile, and job search from your Jobpitality candidate dashboard.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Candidate Dashboard | Jobpitality - Job Search & Career Management">
+    <meta property="og:description" content="Track your applications, update your profile, and find elite hospitality opportunities in Nigeria.">
+    <meta property="og:image" content="https://jobpitality.com/img/candidate-dashboard-og.jpg">
+    <meta property="og:url" content="https://jobpitality.com/candidates/dashboard/">
+    <meta property="og:type" content="website">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://jobpitality.com/candidates/dashboard/">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js for Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Jobpitality Color Palette */
+            --color-primary: #0d1b2a;      /* Deep Navy (Authority) */
+            --color-primary-dark: #070d13;
+            --color-accent: #ff9e00;       /* Vibrant Orange (Energy, Action) */
+            --color-accent-dark: #cc7e00;
+            --color-emergency: #e63946;     /* Urgent Crimson */
+            --color-emergency-dark: #c1121f;
+            --color-success: #2a9d8f;       /* Teal (Success, Trust) */
+            --color-success-dark: #21867a;
+            --color-warning: #f59e0b;       /* Amber (Warning) */
+            --color-warning-dark: #d97706;
+            --color-info: #3b82f6;          /* Blue (Info) */
+            --color-info-dark: #2563eb;
+            --color-dark: #0d1b2a;
+            --color-gray-900: #1b263b;
+            --color-gray-800: #415a77;
+            --color-gray-700: #778da9;
+            --color-gray-600: #a0aec0;
+            --color-gray-300: #e2e8f0;
+            --color-gray-200: #edf2f7;
+            --color-gray-100: #f7fafc;
+            --color-white: #ffffff;
+            
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            
+            /* SPACING */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* BORDER RADIUS */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 20px;
+            
+            /* SHADOWS */
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            /* TRANSITIONS */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* SIDEBAR */
+            --sidebar-width: 280px;
+            --sidebar-collapsed: 80px;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background: var(--color-gray-100);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--color-gray-900);
+            letter-spacing: -0.025em;
+        }
+        
+        h1 { 
+            font-size: 2.5rem; 
+            font-weight: 900; 
+            line-height: 1;
+        }
+        
+        h2 { 
+            font-size: 2rem; 
+            margin-bottom: var(--space-md);
+        }
+        
+        h3 { 
+            font-size: 1.5rem; 
+            margin-bottom: var(--space-sm);
+        }
+        
+        h4 { 
+            font-size: 1.25rem; 
+            margin-bottom: var(--space-xs);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-emergency) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--color-gray-800);
+        }
+        
+        .lead {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--color-gray-700);
+            font-weight: 400;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.75rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-sans);
+            letter-spacing: 0.01em;
+            min-height: 44px;
+        }
+        
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background: var(--color-success);
+            color: var(--color-white);
+        }
+        
+        .btn-success:hover {
+            background: var(--color-success-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-emergency {
+            background: var(--color-emergency);
+            color: var(--color-white);
+        }
+        
+        .btn-emergency:hover {
+            background: var(--color-emergency-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-info {
+            background: var(--color-info);
+            color: var(--color-white);
+        }
+        
+        .btn-info:hover {
+            background: var(--color-info-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-sm {
+            padding: 0.5rem 1.25rem;
+            font-size: 0.875rem;
+        }
+        
+        .btn-lg {
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+        }
+        
+        .btn-block {
+            width: 100%;
+        }
+        
+        /* ===== DASHBOARD LAYOUT ===== */
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* SIDEBAR */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--color-primary);
+            color: var(--color-white);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 1000;
+            transition: width var(--transition-normal);
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .sidebar.collapsed {
+            width: var(--sidebar-collapsed);
+        }
+        
+        .sidebar-header {
+            padding: var(--space-lg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+            color: var(--color-white);
+        }
+        
+        .sidebar-logo h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--color-white);
+        }
+        
+        .sidebar-logo .brand-name {
+            background: linear-gradient(90deg, var(--color-white) 0%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .sidebar-toggle {
+            margin-left: auto;
+            background: none;
+            border: none;
+            color: var(--color-white);
+            cursor: pointer;
+            padding: var(--space-xs);
+            border-radius: var(--radius-sm);
+            transition: background var(--transition-fast);
+        }
+        
+        .sidebar-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar-nav {
+            padding: var(--space-lg) var(--space-md);
+        }
+        
+        .nav-section {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .nav-section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: var(--space-sm);
+            padding-left: var(--space-sm);
+        }
+        
+        .sidebar.collapsed .nav-section-title {
+            display: none;
+        }
+        
+        .nav-links {
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm);
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-white);
+        }
+        
+        .nav-link.active {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        
+        .nav-link i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .sidebar.collapsed .nav-link span {
+            display: none;
+        }
+        
+        .sidebar.collapsed .nav-link {
+            justify-content: center;
+        }
+        
+        .sidebar-footer {
+            padding: var(--space-lg) var(--space-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: auto;
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-accent), var(--color-emergency));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .user-info {
+            flex: 1;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            color: var(--color-white);
+            font-size: 0.95rem;
+        }
+        
+        .user-role {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .sidebar.collapsed .user-info {
+            display: none;
+        }
+        
+        /* MAIN CONTENT */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            transition: margin-left var(--transition-normal);
+        }
+        
+        .sidebar.collapsed ~ .main-content {
+            margin-left: var(--sidebar-collapsed);
+        }
+        
+        /* TOP BAR */
+        .top-bar {
+            background: var(--color-white);
+            padding: var(--space-md) var(--space-lg);
+            border-bottom: 1px solid var(--color-gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.95rem;
+            color: var(--color-gray-700);
+        }
+        
+        .breadcrumb a {
+            color: var(--color-gray-700);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--color-accent);
+        }
+        
+        .breadcrumb-separator {
+            color: var(--color-gray-400);
+        }
+        
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        .search-bar {
+            position: relative;
+        }
+        
+        .search-bar input {
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            width: 300px;
+            transition: all var(--transition-fast);
+        }
+        
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.1);
+        }
+        
+        .search-bar i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-gray-600);
+        }
+        
+        .notifications {
+            position: relative;
+        }
+        
+        .notification-btn {
+            background: none;
+            border: none;
+            color: var(--color-gray-700);
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: var(--space-xs);
+            position: relative;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--color-emergency);
+            color: var(--color-white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* DASHBOARD CONTENT */
+        .dashboard-content {
+            padding: var(--space-xl);
+        }
+        
+        .dashboard-header {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .welcome-message {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+        
+        .welcome-text h1 {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .quick-actions {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        /* STATS CARDS */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .stat-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-accent);
+        }
+        
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-accent);
+        }
+        
+        .stat-change {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .stat-change.positive {
+            color: var(--color-success);
+        }
+        
+        .stat-change.negative {
+            color: var(--color-emergency);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--color-gray-700);
+        }
+        
+        /* DASHBOARD SECTIONS */
+        .dashboard-section {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-xl);
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .section-actions {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        /* RECENT APPLICATIONS TABLE */
+        .applications-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .applications-table th {
+            text-align: left;
+            padding: var(--space-sm) var(--space-md);
+            font-weight: 600;
+            color: var(--color-gray-700);
+            border-bottom: 2px solid var(--color-gray-200);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .applications-table td {
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--color-gray-200);
+            vertical-align: middle;
+        }
+        
+        .applications-table tr:hover {
+            background: var(--color-gray-100);
+        }
+        
+        .job-title {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .application-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .status-under-review {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--color-warning);
+        }
+        
+        .status-shortlisted {
+            background: rgba(42, 157, 143, 0.1);
+            color: var(--color-success);
+        }
+        
+        .status-interview {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--color-info);
+        }
+        
+        .status-rejected {
+            background: rgba(230, 57, 70, 0.1);
+            color: var(--color-emergency);
+        }
+        
+        .status-accepted {
+            background: rgba(255, 158, 0, 0.1);
+            color: var(--color-accent);
+        }
+        
+        /* RECOMMENDED JOBS */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-lg);
+        }
+        
+        .job-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+        }
+        
+        .job-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-accent);
+        }
+        
+        .job-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-md);
+        }
+        
+        .job-company {
+            font-size: 0.95rem;
+            color: var(--color-gray-700);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .job-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-gray-700);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .job-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin: var(--space-md) 0;
+            padding: var(--space-md) 0;
+            border-top: 1px solid var(--color-gray-200);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--color-gray-700);
+        }
+        
+        .meta-item i {
+            color: var(--color-accent);
+        }
+        
+        .job-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .skill-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            color: var(--color-gray-700);
+            font-weight: 500;
+        }
+        
+        /* PROFILE STRENGTH */
+        .profile-strength {
+            background: linear-gradient(135deg, var(--color-primary), #1b263b);
+            color: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .profile-header h3 {
+            color: var(--color-white);
+        }
+        
+        .profile-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .metric-item {
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .metric-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin: var(--space-lg) 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--color-accent);
+            border-radius: 4px;
+            transition: width var(--transition-slow);
+        }
+        
+        /* QUICK ACTIONS */
+        .quick-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+        
+        .action-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-normal);
+            text-align: center;
+        }
+        
+        .action-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-accent);
+        }
+        
+        .action-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            margin: 0 auto var(--space-md);
+        }
+        
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--space-xl) var(--space-md);
+            margin-top: auto;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: var(--sidebar-width);
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .search-bar input {
+                width: 200px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.5rem; }
+            
+            .dashboard-content {
+                padding: var(--space-md);
+            }
+            
+            .welcome-message {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .quick-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+            
+            .quick-actions .btn {
+                width: 100%;
+            }
+            
+            .search-bar input {
+                width: 150px;
+            }
+            
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .applications-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .top-bar {
+                flex-direction: column;
+                gap: var(--space-md);
+                align-items: flex-start;
+            }
+            
+            .top-bar-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .search-bar input {
+                width: 100%;
+            }
+            
+            .quick-actions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* ===== UTILITY CLASSES ===== */
+        .hidden {
+            display: none !important;
+        }
+        
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        .text-success {
+            color: var(--color-success);
+        }
+        
+        .text-emergency {
+            color: var(--color-emergency);
+        }
+        
+        .text-warning {
+            color: var(--color-warning);
+        }
+        
+        .text-accent {
+            color: var(--color-accent);
+        }
+        
+        .bg-gray-100 {
+            background: var(--color-gray-100);
+        }
+        
+        .bg-primary {
+            background: var(--color-primary);
+        }
+        
+        .bg-accent {
+            background: var(--color-accent);
+        }
+        
+        /* ===== LOADING STATES ===== */
+        .loading {
+            position: relative;
+            pointer-events: none;
+        }
+        
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: var(--color-white);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ===== MOBILE MENU TOGGLE ===== */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            cursor: pointer;
+            padding: var(--space-xs);
+            z-index: 1001;
+        }
+        
+        @media (max-width: 1024px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- DASHBOARD CONTAINER -->
+    <div class="dashboard-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="/candidates/dashboard/" class="sidebar-logo">
+                    <i class="fas fa-bolt"></i>
+                    <h2><span class="brand-name">JOBPITALITY</span></h2>
+                </a>
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav" aria-label="Main navigation">
+                <!-- Dashboard Section -->
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Dashboard</h3>
+                    <ul class="nav-links">
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/index.html" class="nav-link active">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/profile.html" class="nav-link">
+                                <i class="fas fa-user"></i>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/applications.html" class="nav-link">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Applications</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Job Search Section -->
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Job Search</h3>
+                    <ul class="nav-links">
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/jobs.html" class="nav-link">
+                                <i class="fas fa-search"></i>
+                                <span>Find Jobs</span>
+                                <span class="notification-badge">12</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/saved-jobs.html" class="nav-link">
+                                <i class="fas fa-bookmark"></i>
+                                <span>Saved Jobs</span>
+                                <span class="notification-badge">5</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/alerts.html" class="nav-link">
+                                <i class="fas fa-bell"></i>
+                                <span>Job Alerts</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Career Section -->
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Career</h3>
+                    <ul class="nav-links">
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/resume.html" class="nav-link">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>My Resume</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/portfolio.html" class="nav-link">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Portfolio</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/skills.html" class="nav-link">
+                                <i class="fas fa-star"></i>
+                                <span>Skills & Badges</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Support Section -->
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Support</h3>
+                    <ul class="nav-links">
+                        <li class="nav-item">
+                            <a href="/candidates/support/" class="nav-link">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Help Center</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidates/contact/" class="nav-link">
+                                <i class="fas fa-headset"></i>
+                                <span>Contact Support</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/settings.html" class="nav-link">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">JD</div>
+                    <div class="user-info">
+                        <div class="user-name">John Doe</div>
+                        <div class="user-role">Executive Chef</div>
+                    </div>
+                    <button class="btn btn-sm btn-outline" id="logoutBtn" style="color: var(--color-white); border-color: var(--color-white);">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- TOP BAR -->
+            <header class="top-bar">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="/candidates/">Candidates</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <a href="/candidates/dashboard/">Dashboard</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span>Overview</span>
+                </nav>
+                
+                <div class="top-bar-actions">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search jobs, companies..." aria-label="Search jobs">
+                    </div>
+                    
+                    <div class="notifications">
+                        <button class="notification-btn" id="notificationBtn" aria-label="View notifications">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    
+                    <button class="btn btn-primary" id="uploadResumeBtn">
+                        <i class="fas fa-upload"></i>
+                        Upload Resume
+                    </button>
+                </div>
+            </header>
+            
+            <!-- DASHBOARD CONTENT -->
+            <main class="dashboard-content">
+                <!-- Welcome Section -->
+                <div class="dashboard-header">
+                    <div class="welcome-message">
+                        <div class="welcome-text">
+                            <h1>Welcome back, <span class="text-gradient">John</span>!</h1>
+                            <p class="lead">Track your job applications and find your next hospitality opportunity.</p>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="btn btn-outline" id="refreshBtn">
+                                <i class="fas fa-sync-alt"></i>
+                                Refresh
+                            </button>
+                            <button class="btn btn-primary" id="quickApplyBtn">
+                                <i class="fas fa-bolt"></i>
+                                Quick Apply
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats Overview -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                8%
+                            </div>
+                        </div>
+                        <div class="stat-value" id="applicationsCount">12</div>
+                        <div class="stat-label">Applications Sent</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                15%
+                            </div>
+                        </div>
+                        <div class="stat-value" id="profileViews">48</div>
+                        <div class="stat-label">Profile Views</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                5%
+                            </div>
+                        </div>
+                        <div class="stat-value" id="interviewsCount">3</div>
+                        <div class="stat-label">Interviews</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                12%
+                            </div>
+                        </div>
+                        <div class="stat-value" id="shortlistedCount">8</div>
+                        <div class="stat-label">Shortlisted</div>
+                    </div>
+                </div>
+                
+                <!-- Recent Applications & Profile Strength -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <div>
+                            <h2>Recent Applications</h2>
+                            <p class="lead">Track your job applications and their current status</p>
+                        </div>
+                        <div class="section-actions">
+                            <button class="btn btn-outline btn-sm">
+                                <i class="fas fa-filter"></i>
+                                Filter
+                            </button>
+                            <button class="btn btn-primary btn-sm" id="viewAllApplications">
+                                <i class="fas fa-list"></i>
+                                View All
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="applications-table">
+                            <thead>
+                                <tr>
+                                    <th>Position</th>
+                                    <th>Company</th>
+                                    <th>Date Applied</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="applicationsTable">
+                                <!-- Applications will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Recommended Jobs & Quick Actions -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <div>
+                            <h2>Recommended Jobs</h2>
+                            <p class="lead">Jobs that match your profile and preferences</p>
+                        </div>
+                        <div class="section-actions">
+                            <button class="btn btn-outline btn-sm">
+                                <i class="fas fa-sync"></i>
+                                Refresh
+                            </button>
+                            <button class="btn btn-primary btn-sm" id="viewAllJobs">
+                                <i class="fas fa-search"></i>
+                                Find More
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="jobs-grid">
+                        <div class="job-card">
+                            <div class="job-header">
+                                <div>
+                                    <h3 class="job-title">Executive Chef</h3>
+                                    <div class="job-company">5-Star Hotel Group</div>
+                                </div>
+                                <button class="btn btn-sm btn-outline">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Lagos, Nigeria</span>
+                            </div>
+                            
+                            <div class="job-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>₦12-18M/year</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Full-time</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-skills">
+                                <span class="skill-tag">Fine Dining</span>
+                                <span class="skill-tag">Leadership</span>
+                                <span class="skill-tag">Menu Development</span>
+                            </div>
+                            
+                            <div style="display: flex; gap: var(--space-sm);">
+                                <button class="btn btn-outline btn-sm btn-block">
+                                    <i class="fas fa-eye"></i>
+                                    View Job
+                                </button>
+                                <button class="btn btn-primary btn-sm btn-block">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="job-card">
+                            <div class="job-header">
+                                <div>
+                                    <h3 class="job-title">F&B Director</h3>
+                                    <div class="job-company">Luxury Resort Chain</div>
+                                </div>
+                                <button class="btn btn-sm btn-outline">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Abuja, Nigeria</span>
+                            </div>
+                            
+                            <div class="job-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>₦10-15M/year</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Full-time</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-skills">
+                                <span class="skill-tag">Beverage</span>
+                                <span class="skill-tag">Operations</span>
+                                <span class="skill-tag">Cost Control</span>
+                            </div>
+                            
+                            <div style="display: flex; gap: var(--space-sm);">
+                                <button class="btn btn-outline btn-sm btn-block">
+                                    <i class="fas fa-eye"></i>
+                                    View Job
+                                </button>
+                                <button class="btn btn-primary btn-sm btn-block">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="job-card">
+                            <div class="job-header">
+                                <div>
+                                    <h3 class="job-title">Hotel Manager</h3>
+                                    <div class="job-company">Boutique Hotel Group</div>
+                                </div>
+                                <button class="btn btn-sm btn-outline">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Port Harcourt, Nigeria</span>
+                            </div>
+                            
+                            <div class="job-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>₦8-12M/year</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Full-time</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-skills">
+                                <span class="skill-tag">Hospitality</span>
+                                <span class="skill-tag">Management</span>
+                                <span class="skill-tag">Customer Service</span>
+                            </div>
+                            
+                            <div style="display: flex; gap: var(--space-sm);">
+                                <button class="btn btn-outline btn-sm btn-block">
+                                    <i class="fas fa-eye"></i>
+                                    View Job
+                                </button>
+                                <button class="btn btn-primary btn-sm btn-block">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profile Strength & Quick Actions -->
+                <div class="profile-strength">
+                    <div class="profile-header">
+                        <div>
+                            <h3>Your Profile Strength</h3>
+                            <p style="color: rgba(255, 255, 255, 0.8);">Complete your profile to get more visibility and job matches</p>
+                        </div>
+                        <div style="font-size: 1.1rem; font-weight: 600; color: var(--color-accent);">75%</div>
+                    </div>
+                    
+                    <div class="profile-metrics">
+                        <div class="metric-item">
+                            <div class="metric-value" id="profileComplete">75%</div>
+                            <div class="metric-label">Profile Complete</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value" id="visibilityScore">8.5/10</div>
+                            <div class="metric-label">Visibility Score</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value" id="matchRate">92%</div>
+                            <div class="metric-label">Job Match Rate</div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%;"></div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <div>
+                            <div style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.8);">
+                                <i class="fas fa-info-circle"></i>
+                                Complete profile to increase visibility by 40%
+                            </div>
+                        </div>
+                        <button class="btn btn-accent" style="background: var(--color-accent); color: var(--color-primary);" id="completeProfileBtn">
+                            <i class="fas fa-user-edit"></i>
+                            Complete Profile
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Quick Actions -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Quick Actions</h2>
+                        <p class="lead">Complete your job search tasks quickly</p>
+                    </div>
+                    
+                    <div class="quick-actions-grid">
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>Search Jobs</h3>
+                            <p style="color: var(--color-gray-700); font-size: 0.95rem;">Find hospitality jobs that match your skills</p>
+                            <button class="btn btn-outline btn-block">
+                                <i class="fas fa-search"></i>
+                                Start Search
+                            </button>
+                        </div>
+                        
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <h3>Update Profile</h3>
+                            <p style="color: var(--color-gray-700); font-size: 0.95rem;">Keep your profile fresh and attractive to employers</p>
+                            <button class="btn btn-outline btn-block">
+                                <i class="fas fa-edit"></i>
+                                Edit Profile
+                            </button>
+                        </div>
+                        
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>View Resume</h3>
+                            <p style="color: var(--color-gray-700); font-size: 0.95rem;">Review and download your current resume</p>
+                            <button class="btn btn-outline btn-block">
+                                <i class="fas fa-eye"></i>
+                                View Resume
+                            </button>
+                        </div>
+                        
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <h3>Notifications</h3>
+                            <p style="color: var(--color-gray-700); font-size: 0.95rem;">Check your application updates and alerts</p>
+                            <button class="btn btn-outline btn-block">
+                                <i class="fas fa-bell"></i>
+                                View Alerts
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="container">
+                    <div class="footer-bottom">
+                        <p>&copy; <span id="currentYear"></span> Jobpitality. All rights reserved. "The Ruthless Talent Partner" is a trademark of Jobpitality.</p>
+                        <p style="margin-top: var(--space-sm);">
+                            <a href="/privacy/" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; margin: 0 var(--space-sm);">Privacy Policy</a> • 
+                            <a href="/terms/" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; margin: 0 var(--space-sm);">Terms of Service</a> • 
+                            <a href="/help/" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; margin: 0 var(--space-sm);">Help Center</a>
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // ===== DOM ELEMENTS =====
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const uploadResumeBtn = document.getElementById('uploadResumeBtn');
+        const quickApplyBtn = document.getElementById('quickApplyBtn');
+        const refreshBtn = document.getElementById('refreshBtn');
+        const notificationBtn = document.getElementById('notificationBtn');
+        const viewAllApplications = document.getElementById('viewAllApplications');
+        const viewAllJobs = document.getElementById('viewAllJobs');
+        const completeProfileBtn = document.getElementById('completeProfileBtn');
+        const currentYear = document.getElementById('currentYear');
+        const searchInput = document.querySelector('.search-bar input');
+        const applicationsTable = document.getElementById('applicationsTable');
+        
+        // ===== DASHBOARD DATA =====
+        const dashboardData = {
+            applications: [
+                { position: 'Executive Chef', company: 'Luxury Hotel Group', date: '2024-01-15', status: 'Under Review' },
+                { position: 'F&B Director', company: 'Resort Chain', date: '2024-01-12', status: 'Shortlisted' },
+                { position: 'Hotel Manager', company: 'Boutique Hotels', date: '2024-01-10', status: 'Interview' },
+                { position: 'Sous Chef', company: 'Fine Dining Restaurant', date: '2024-01-08', status: 'Under Review' },
+                { position: 'Revenue Manager', company: 'Hotel Management Co.', date: '2024-01-05', status: 'Rejected' }
+            ],
+            stats: {
+                applications: 12,
+                profileViews: 48,
+                interviews: 3,
+                shortlisted: 8
+            },
+            profileStrength: {
+                completeness: 75,
+                visibility: 8.5,
+                matchRate: 92
+            }
+        };
+        
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year
+            if (currentYear) {
+                currentYear.textContent = new Date().getFullYear();
+            }
+            
+            // Load user data
+            loadUserData();
+            
+            // Load applications
+            loadApplications();
+            
+            // Load stats
+            loadStats();
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Check if user is authenticated
+            checkAuth();
+        });
+        
+        // ===== AUTHENTICATION =====
+        function checkAuth() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser || currentUser.role !== 'candidate') {
+                // Redirect to home if not authenticated as candidate
+                window.location.href = '/index.html';
+                return false;
+            }
+            return true;
+        }
+        
+        function loadUserData() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                // Update user name in welcome message
+                const welcomeName = document.querySelector('.text-gradient');
+                if (welcomeName) {
+                    welcomeName.textContent = currentUser.name || 'Candidate';
+                }
+                
+                // Update sidebar user info
+                const userName = document.querySelector('.user-name');
+                const userRole = document.querySelector('.user-role');
+                const userAvatar = document.querySelector('.user-avatar');
+                
+                if (userName) userName.textContent = currentUser.name || 'John Doe';
+                if (userRole) userRole.textContent = currentUser.title || 'Executive Chef';
+                if (userAvatar) {
+                    const initials = currentUser.name ? currentUser.name.split(' ').map(n => n[0]).join('') : 'JD';
+                    userAvatar.textContent = initials;
+                }
+            }
+        }
+        
+        // ===== DATA LOADING =====
+        function loadApplications() {
+            if (!applicationsTable) return;
+            
+            applicationsTable.innerHTML = dashboardData.applications.map(app => `
+                <tr>
+                    <td>
+                        <div class="job-title">${app.position}</div>
+                        <div style="font-size: 0.875rem; color: var(--color-gray-600);">${app.company}</div>
+                    </td>
+                    <td>${app.company}</td>
+                    <td>${formatDate(app.date)}</td>
+                    <td>
+                        <span class="application-status status-${getStatusClass(app.status)}">
+                            <i class="fas fa-circle"></i>
+                            ${app.status}
+                        </span>
+                    </td>
+                    <td>
+                        <div style="display: flex; gap: var(--space-xs);">
+                            <button class="btn btn-outline btn-sm view-application-btn" data-position="${app.position}">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn btn-outline btn-sm withdraw-application-btn" data-position="${app.position}">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function loadStats() {
+            // Update stats cards
+            document.getElementById('applicationsCount').textContent = dashboardData.stats.applications;
+            document.getElementById('profileViews').textContent = dashboardData.stats.profileViews;
+            document.getElementById('interviewsCount').textContent = dashboardData.stats.interviews;
+            document.getElementById('shortlistedCount').textContent = dashboardData.stats.shortlisted;
+            
+            // Update profile strength
+            document.getElementById('profileComplete').textContent = dashboardData.profileStrength.completeness + '%';
+            document.getElementById('visibilityScore').textContent = dashboardData.profileStrength.visibility + '/10';
+            document.getElementById('matchRate').textContent = dashboardData.profileStrength.matchRate + '%';
+        }
+        
+        // ===== HELPER FUNCTIONS =====
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+        
+        function getStatusClass(status) {
+            const statusMap = {
+                'Under Review': 'under-review',
+                'Shortlisted': 'shortlisted',
+                'Interview': 'interview',
+                'Rejected': 'rejected',
+                'Accepted': 'accepted'
+            };
+            return statusMap[status] || 'under-review';
+        }
+        
+        // ===== SIDEBAR FUNCTIONALITY =====
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('collapsed');
+                const icon = sidebarToggle.querySelector('i');
+                if (icon) {
+                    icon.className = sidebar.classList.contains('collapsed') 
+                        ? 'fas fa-chevron-right' 
+                        : 'fas fa-chevron-left';
+                }
+            });
+        }
+        
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+        }
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024 && 
+                !sidebar.contains(e.target) && 
+                !mobileMenuToggle.contains(e.target) && 
+                sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+        
+        // ===== EVENT LISTENERS =====
+        function setupEventListeners() {
+            // Logout Button
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', () => {
+                    localStorage.removeItem('currentUser');
+                    window.location.href = '/index.html';
+                });
+            }
+            
+            // Upload Resume Button
+            if (uploadResumeBtn) {
+                uploadResumeBtn.addEventListener('click', () => {
+                    showUploadResumeModal();
+                });
+            }
+            
+            // Quick Apply Button
+            if (quickApplyBtn) {
+                quickApplyBtn.addEventListener('click', () => {
+                    window.location.href = '/candidate-dashboard/jobs.html';
+                });
+            }
+            
+            // Refresh Button
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', () => {
+                    refreshDashboard();
+                });
+            }
+            
+            // Notification Button
+            if (notificationBtn) {
+                notificationBtn.addEventListener('click', () => {
+                    showNotifications();
+                });
+            }
+            
+            // View All Applications
+            if (viewAllApplications) {
+                viewAllApplications.addEventListener('click', () => {
+                    window.location.href = '/candidate-dashboard/applications.html';
+                });
+            }
+            
+            // View All Jobs
+            if (viewAllJobs) {
+                viewAllJobs.addEventListener('click', () => {
+                    window.location.href = '/candidate-dashboard/jobs.html';
+                });
+            }
+            
+            // Complete Profile
+            if (completeProfileBtn) {
+                completeProfileBtn.addEventListener('click', () => {
+                    window.location.href = '/candidate-dashboard/profile.html';
+                });
+            }
+            
+            // Search functionality
+            if (searchInput) {
+                const debouncedSearch = debounce((searchTerm) => {
+                    console.log('Searching for:', searchTerm);
+                    // Implement job search functionality
+                }, 500);
+                
+                searchInput.addEventListener('input', (e) => {
+                    debouncedSearch(e.target.value);
+                });
+                
+                searchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' && searchInput.value.trim()) {
+                        performSearch(searchInput.value);
+                    }
+                });
+            }
+            
+            // Application actions
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.view-application-btn')) {
+                    const button = e.target.closest('.view-application-btn');
+                    const position = button.getAttribute('data-position');
+                    viewApplication(position);
+                }
+                
+                if (e.target.closest('.withdraw-application-btn')) {
+                    const button = e.target.closest('.withdraw-application-btn');
+                    const position = button.getAttribute('data-position');
+                    withdrawApplication(position, button);
+                }
+            });
+            
+            // Job card actions
+            document.querySelectorAll('.job-card .btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const action = btn.textContent.trim();
+                    const jobTitle = btn.closest('.job-card').querySelector('.job-title').textContent;
+                    
+                    switch(action) {
+                        case 'View Job':
+                            viewJobDetails(jobTitle);
+                            break;
+                        case 'Apply':
+                            applyForJob(jobTitle, btn);
+                            break;
+                    }
+                });
+            });
+            
+            // Quick action buttons
+            document.querySelectorAll('.action-card .btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const action = btn.textContent.trim();
+                    
+                    switch(action) {
+                        case 'Start Search':
+                            window.location.href = '/candidate-dashboard/jobs.html';
+                            break;
+                        case 'Edit Profile':
+                            window.location.href = '/candidate-dashboard/profile.html';
+                            break;
+                        case 'View Resume':
+                            window.location.href = '/candidate-dashboard/resume.html';
+                            break;
+                        case 'View Alerts':
+                            showNotifications();
+                            break;
+                    }
+                });
+            });
+            
+            // Table row clicks
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('tr') && !e.target.closest('button') && e.target.closest('#applicationsTable')) {
+                    const row = e.target.closest('tr');
+                    const position = row.querySelector('.job-title').textContent;
+                    viewApplication(position);
+                }
+            });
+        }
+        
+        // ===== UTILITY FUNCTIONS =====
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        function performSearch(searchTerm) {
+            console.log('Performing job search for:', searchTerm);
+            // Implement job search logic
+            alert(`Searching jobs for: ${searchTerm}`);
+        }
+        
+        // ===== APPLICATION ACTIONS =====
+        function viewApplication(position) {
+            console.log('Viewing application for:', position);
+            // In production, redirect to application details page
+            // window.location.href = `/candidates/applications/${encodeURIComponent(position)}/`;
+            alert(`Viewing application for: ${position}`);
+        }
+        
+        function withdrawApplication(position, button) {
+            if (confirm(`Are you sure you want to withdraw your application for ${position}?`)) {
+                // Show loading state
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                button.disabled = true;
+                
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-check"></i>';
+                    button.classList.remove('btn-outline');
+                    button.classList.add('btn-success');
+                    
+                    setTimeout(() => {
+                        // Remove the row from table
+                        const row = button.closest('tr');
+                        row.style.opacity = '0.5';
+                        
+                        setTimeout(() => {
+                            row.remove();
+                            showNotification(`Application for ${position} withdrawn successfully`, 'success');
+                        }, 300);
+                    }, 1000);
+                }, 1500);
+            }
+        }
+        
+        function viewJobDetails(jobTitle) {
+            console.log('Viewing job details for:', jobTitle);
+            // In production, redirect to job details page
+            // window.location.href = `/jobs/${encodeURIComponent(jobTitle.toLowerCase().replace(/\s+/g, '-'))}/`;
+            alert(`Viewing job details for: ${jobTitle}`);
+        }
+        
+        function applyForJob(jobTitle, button) {
+            console.log('Applying for job:', jobTitle);
+            
+            // Show loading state
+            const originalHTML = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Applying...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> Applied!';
+                button.classList.remove('btn-primary');
+                button.classList.add('btn-success');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalHTML;
+                    button.classList.remove('btn-success');
+                    button.classList.add('btn-primary');
+                    button.disabled = false;
+                    
+                    showNotification(`Successfully applied for ${jobTitle}`, 'success');
+                    
+                    // Update applications count
+                    const applicationsCount = document.getElementById('applicationsCount');
+                    applicationsCount.textContent = parseInt(applicationsCount.textContent) + 1;
+                }, 2000);
+            }, 2000);
+        }
+        
+        // ===== NOTIFICATIONS =====
+        function showNotifications() {
+            // Create notifications modal
+            const notificationsModal = document.createElement('div');
+            notificationsModal.className = 'notifications-modal';
+            notificationsModal.innerHTML = `
+                <div class="notifications-content">
+                    <div class="notifications-header">
+                        <h3>Notifications</h3>
+                        <button class="notifications-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="notifications-list">
+                        <div class="notification-item unread">
+                            <div class="notification-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-title">Application Viewed</div>
+                                <div class="notification-text">Luxury Hotel Group viewed your application</div>
+                                <div class="notification-time">2 hours ago</div>
+                            </div>
+                        </div>
+                        <div class="notification-item unread">
+                            <div class="notification-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-title">Interview Scheduled</div>
+                                <div class="notification-text">Interview with Resort Chain scheduled</div>
+                                <div class="notification-time">5 hours ago</div>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-title">Profile Shortlisted</div>
+                                <div class="notification-text">Your profile was shortlisted by 3 employers</div>
+                                <div class="notification-time">1 day ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notifications-footer">
+                        <button class="btn btn-block btn-outline" id="markAllRead">
+                            Mark all as read
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Add styles
+            if (!document.querySelector('#notifications-styles')) {
+                const style = document.createElement('style');
+                style.id = 'notifications-styles';
+                style.textContent = `
+                    .notifications-modal {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(13, 27, 42, 0.9);
+                        z-index: 10000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: var(--space-md);
+                        animation: fadeIn 0.3s ease;
+                    }
+                    .notifications-content {
+                        background: var(--color-white);
+                        border-radius: var(--radius-xl);
+                        padding: var(--space-xl);
+                        max-width: 500px;
+                        width: 100%;
+                        max-height: 80vh;
+                        overflow-y: auto;
+                    }
+                    .notifications-header {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-bottom: var(--space-lg);
+                    }
+                    .notifications-close {
+                        background: none;
+                        border: none;
+                        color: var(--color-gray-600);
+                        font-size: 1.25rem;
+                        cursor: pointer;
+                        padding: var(--space-xs);
+                    }
+                    .notification-item {
+                        display: flex;
+                        gap: var(--space-md);
+                        padding: var(--space-md);
+                        border-bottom: 1px solid var(--color-gray-200);
+                        transition: background var(--transition-fast);
+                    }
+                    .notification-item:hover {
+                        background: var(--color-gray-100);
+                    }
+                    .notification-item.unread {
+                        background: rgba(59, 130, 246, 0.05);
+                    }
+                    .notification-icon {
+                        width: 40px;
+                        height: 40px;
+                        background: var(--color-gray-100);
+                        border-radius: var(--radius-lg);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: var(--color-accent);
+                        font-size: 1.25rem;
+                        flex-shrink: 0;
+                    }
+                    .notification-content {
+                        flex: 1;
+                    }
+                    .notification-title {
+                        font-weight: 600;
+                        color: var(--color-primary);
+                        margin-bottom: var(--space-xs);
+                    }
+                    .notification-text {
+                        color: var(--color-gray-700);
+                        font-size: 0.95rem;
+                        margin-bottom: var(--space-xs);
+                    }
+                    .notification-time {
+                        font-size: 0.85rem;
+                        color: var(--color-gray-600);
+                    }
+                    .notifications-footer {
+                        margin-top: var(--space-lg);
+                        padding-top: var(--space-lg);
+                        border-top: 1px solid var(--color-gray-200);
+                    }
+                    @keyframes fadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(notificationsModal);
+            
+            // Close modal
+            const closeBtn = notificationsModal.querySelector('.notifications-close');
+            closeBtn.addEventListener('click', () => {
+                notificationsModal.remove();
+            });
+            
+            // Mark all as read
+            const markAllReadBtn = notificationsModal.querySelector('#markAllRead');
+            markAllReadBtn.addEventListener('click', () => {
+                notificationsModal.querySelectorAll('.notification-item').forEach(item => {
+                    item.classList.remove('unread');
+                });
+                // Update notification badge
+                const badge = document.querySelector('.notification-badge');
+                if (badge) {
+                    badge.textContent = '0';
+                }
+            });
+            
+            // Close on ESC
+            const handleEscape = (e) => {
+                if (e.key === 'Escape') {
+                    notificationsModal.remove();
+                    document.removeEventListener('keydown', handleEscape);
+                }
+            };
+            document.addEventListener('keydown', handleEscape);
+            
+            // Close when clicking outside
+            notificationsModal.addEventListener('click', (e) => {
+                if (e.target === notificationsModal) {
+                    notificationsModal.remove();
+                }
+            });
+        }
+        
+        // ===== UPLOAD RESUME MODAL =====
+        function showUploadResumeModal() {
+            const modal = document.createElement('div');
+            modal.className = 'upload-resume-modal';
+            modal.innerHTML = `
+                <div class="upload-resume-content">
+                    <div class="upload-resume-header">
+                        <h3>Upload Resume</h3>
+                        <button class="upload-resume-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="upload-resume-body">
+                        <div class="upload-area" id="uploadArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h4>Drop your resume here</h4>
+                            <p>PDF, DOC, DOCX (Max 5MB)</p>
+                            <button class="btn btn-primary" id="selectFileBtn">
+                                <i class="fas fa-folder-open"></i>
+                                Select File
+                            </button>
+                            <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" hidden>
+                        </div>
+                        <div class="current-resume" style="margin-top: var(--space-lg);">
+                            <h4>Current Resume</h4>
+                            <div class="resume-file">
+                                <i class="fas fa-file-pdf"></i>
+                                <div>
+                                    <div style="font-weight: 600;">John_Doe_Resume.pdf</div>
+                                    <div style="font-size: 0.875rem; color: var(--color-gray-600);">Uploaded: Jan 10, 2024 • 245 KB</div>
+                                </div>
+                                <button class="btn btn-sm btn-outline">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upload-resume-footer">
+                        <button class="btn btn-outline" id="cancelUpload">
+                            Cancel
+                        </button>
+                        <button class="btn btn-primary" id="saveResume" disabled>
+                            <i class="fas fa-save"></i>
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Add styles
+            if (!document.querySelector('#upload-resume-styles')) {
+                const style = document.createElement('style');
+                style.id = 'upload-resume-styles';
+                style.textContent = `
+                    .upload-resume-modal {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(13, 27, 42, 0.9);
+                        z-index: 10000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: var(--space-md);
+                        animation: fadeIn 0.3s ease;
+                    }
+                    .upload-resume-content {
+                        background: var(--color-white);
+                        border-radius: var(--radius-xl);
+                        padding: var(--space-xl);
+                        max-width: 600px;
+                        width: 100%;
+                        max-height: 80vh;
+                        overflow-y: auto;
+                    }
+                    .upload-resume-header {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-bottom: var(--space-lg);
+                    }
+                    .upload-resume-close {
+                        background: none;
+                        border: none;
+                        color: var(--color-gray-600);
+                        font-size: 1.25rem;
+                        cursor: pointer;
+                        padding: var(--space-xs);
+                    }
+                    .upload-area {
+                        border: 2px dashed var(--color-gray-300);
+                        border-radius: var(--radius-lg);
+                        padding: var(--space-xl);
+                        text-align: center;
+                        transition: all var(--transition-fast);
+                    }
+                    .upload-area:hover {
+                        border-color: var(--color-accent);
+                        background: var(--color-gray-100);
+                    }
+                    .upload-area i {
+                        font-size: 3rem;
+                        color: var(--color-gray-400);
+                        margin-bottom: var(--space-md);
+                    }
+                    .resume-file {
+                        display: flex;
+                        align-items: center;
+                        gap: var(--space-md);
+                        padding: var(--space-md);
+                        background: var(--color-gray-100);
+                        border-radius: var(--radius-lg);
+                        margin-top: var(--space-sm);
+                    }
+                    .resume-file i {
+                        font-size: 2rem;
+                        color: var(--color-emergency);
+                    }
+                    .upload-resume-footer {
+                        display: flex;
+                        gap: var(--space-sm);
+                        margin-top: var(--space-lg);
+                        padding-top: var(--space-lg);
+                        border-top: 1px solid var(--color-gray-200);
+                    }
+                    @keyframes fadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(modal);
+            
+            // File upload functionality
+            const uploadArea = modal.querySelector('#uploadArea');
+            const selectFileBtn = modal.querySelector('#selectFileBtn');
+            const resumeFileInput = modal.querySelector('#resumeFile');
+            const saveBtn = modal.querySelector('#saveResume');
+            let selectedFile = null;
+            
+            selectFileBtn.addEventListener('click', () => {
+                resumeFileInput.click();
+            });
+            
+            resumeFileInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    selectedFile = file;
+                    // Validate file
+                    const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+                    const maxSize = 5 * 1024 * 1024; // 5MB
+                    
+                    if (!validTypes.includes(file.type)) {
+                        alert('Please upload a PDF, DOC, or DOCX file.');
+                        return;
+                    }
+                    
+                    if (file.size > maxSize) {
+                        alert('File size must be less than 5MB.');
+                        return;
+                    }
+                    
+                    // Update upload area
+                    uploadArea.innerHTML = `
+                        <i class="fas fa-file-pdf"></i>
+                        <h4>${file.name}</h4>
+                        <p>${(file.size / 1024).toFixed(2)} KB • Ready to upload</p>
+                        <button class="btn btn-outline" id="changeFileBtn">
+                            <i class="fas fa-exchange-alt"></i>
+                            Change File
+                        </button>
+                    `;
+                    
+                    // Enable save button
+                    saveBtn.disabled = false;
+                    
+                    // Add change file handler
+                    modal.querySelector('#changeFileBtn').addEventListener('click', () => {
+                        resumeFileInput.click();
+                    });
+                }
+            });
+            
+            // Save resume
+            saveBtn.addEventListener('click', () => {
+                if (selectedFile) {
+                    // Show loading
+                    saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
+                    saveBtn.disabled = true;
+                    
+                    // Simulate upload
+                    setTimeout(() => {
+                        showNotification('Resume uploaded successfully!', 'success');
+                        modal.remove();
+                    }, 2000);
+                }
+            });
+            
+            // Cancel and close
+            modal.querySelector('#cancelUpload').addEventListener('click', () => {
+                modal.remove();
+            });
+            
+            modal.querySelector('.upload-resume-close').addEventListener('click', () => {
+                modal.remove();
+            });
+            
+            // Close on ESC and outside click
+            const handleEscape = (e) => {
+                if (e.key === 'Escape') modal.remove();
+            };
+            document.addEventListener('keydown', handleEscape);
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.remove();
+            });
+        }
+        
+        // ===== REFRESH DASHBOARD =====
+        function refreshDashboard() {
+            const refreshIcon = refreshBtn.querySelector('i');
+            const originalClass = refreshIcon.className;
+            
+            // Show loading
+            refreshIcon.className = 'fas fa-spinner fa-spin';
+            refreshBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Reload data
+                loadApplications();
+                loadStats();
+                
+                // Restore button
+                refreshIcon.className = originalClass;
+                refreshBtn.disabled = false;
+                
+                showNotification('Dashboard data refreshed', 'success');
+            }, 1500);
+        }
+        
+        // ===== NOTIFICATION FUNCTION =====
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `dashboard-notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            // Add styles if not already added
+            if (!document.querySelector('#dashboard-notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'dashboard-notification-styles';
+                style.textContent = `
+                    .dashboard-notification {
+                        position: fixed;
+                        top: 100px;
+                        right: 20px;
+                        background: var(--color-white);
+                        color: var(--color-gray-900);
+                        padding: var(--space-md) var(--space-lg);
+                        border-radius: var(--radius-lg);
+                        box-shadow: var(--shadow-xl);
+                        display: flex;
+                        align-items: center;
+                        gap: var(--space-sm);
+                        z-index: 10001;
+                        animation: slideInRight 0.3s ease;
+                    }
+                    .notification-success {
+                        border-left: 4px solid var(--color-success);
+                    }
+                    .notification-info {
+                        border-left: 4px solid var(--color-info);
+                    }
+                    @keyframes slideInRight {
+                        from {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                        to {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // ===== DEMO FUNCTIONALITY =====
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ctrl+Shift+R to refresh dashboard
+            if (e.ctrlKey && e.shiftKey && e.key === 'R') {
+                e.preventDefault();
+                refreshDashboard();
+            }
+            
+            // Ctrl+Shift+N to show notifications
+            if (e.ctrlKey && e.shiftKey && e.key === 'N') {
+                e.preventDefault();
+                showNotifications();
+            }
+            
+            // Ctrl+Shift+U to upload resume
+            if (e.ctrlKey && e.shiftKey && e.key === 'U') {
+                e.preventDefault();
+                showUploadResumeModal();
+            }
+            
+            // Ctrl+Shift+S to search
+            if (e.ctrlKey && e.shiftKey && e.key === 'S') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+        
+        // Log demo hints
+        console.log('Candidate Dashboard Demo Controls:');
+        console.log('• Ctrl+Shift+R to refresh dashboard data');
+        console.log('• Ctrl+Shift+N to show notifications');
+        console.log('• Ctrl+Shift+U to upload resume');
+        console.log('• Ctrl+Shift+S to focus search');
+        console.log('• Click on job cards to view details or apply');
+        console.log('• Click on application rows to view details');
+    </script>
+</body>
+</html>

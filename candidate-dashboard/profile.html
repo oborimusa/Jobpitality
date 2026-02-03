@@ -1,0 +1,3411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | Jobpitality Candidate Dashboard</title>
+    <meta name="description" content="Manage your professional profile, skills, experience, and career preferences on Jobpitality's candidate dashboard.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="My Profile | Jobpitality Candidate Dashboard">
+    <meta property="og:description" content="Update your professional profile to attract elite hospitality employers in Nigeria.">
+    <meta property="og:image" content="https://jobpitality.com/img/profile-og.jpg">
+    <meta property="og:url" content="https://jobpitality.com/candidates/dashboard/profile/">
+    <meta property="og:type" content="website">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://jobpitality.com/candidates/dashboard/profile/">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Jobpitality Color Palette */
+            --color-primary: #0d1b2a;      /* Deep Navy (Authority) */
+            --color-primary-dark: #070d13;
+            --color-accent: #ff9e00;       /* Vibrant Orange (Energy, Action) */
+            --color-accent-dark: #cc7e00;
+            --color-emergency: #e63946;     /* Urgent Crimson */
+            --color-emergency-dark: #c1121f;
+            --color-success: #2a9d8f;       /* Teal (Success, Trust) */
+            --color-success-dark: #21867a;
+            --color-warning: #f59e0b;       /* Amber (Warning) */
+            --color-warning-dark: #d97706;
+            --color-info: #3b82f6;          /* Blue (Info) */
+            --color-info-dark: #2563eb;
+            --color-dark: #0d1b2a;
+            --color-gray-900: #1b263b;
+            --color-gray-800: #415a77;
+            --color-gray-700: #778da9;
+            --color-gray-600: #a0aec0;
+            --color-gray-300: #e2e8f0;
+            --color-gray-200: #edf2f7;
+            --color-gray-100: #f7fafc;
+            --color-white: #ffffff;
+            
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            
+            /* SPACING */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* BORDER RADIUS */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 20px;
+            
+            /* SHADOWS */
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            /* TRANSITIONS */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* SIDEBAR */
+            --sidebar-width: 280px;
+            --sidebar-collapsed: 80px;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background: var(--color-gray-100);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--color-gray-900);
+            letter-spacing: -0.025em;
+        }
+        
+        h1 { 
+            font-size: 2.5rem; 
+            font-weight: 900; 
+            line-height: 1;
+        }
+        
+        h2 { 
+            font-size: 2rem; 
+            margin-bottom: var(--space-md);
+        }
+        
+        h3 { 
+            font-size: 1.5rem; 
+            margin-bottom: var(--space-sm);
+        }
+        
+        h4 { 
+            font-size: 1.25rem; 
+            margin-bottom: var(--space-xs);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-emergency) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--color-gray-800);
+        }
+        
+        .lead {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--color-gray-700);
+            font-weight: 400;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.75rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-sans);
+            letter-spacing: 0.01em;
+            min-height: 44px;
+        }
+        
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background: var(--color-success);
+            color: var(--color-white);
+        }
+        
+        .btn-success:hover {
+            background: var(--color-success-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-emergency {
+            background: var(--color-emergency);
+            color: var(--color-white);
+        }
+        
+        .btn-emergency:hover {
+            background: var(--color-emergency-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-info {
+            background: var(--color-info);
+            color: var(--color-white);
+        }
+        
+        .btn-info:hover {
+            background: var(--color-info-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-sm {
+            padding: 0.5rem 1.25rem;
+            font-size: 0.875rem;
+        }
+        
+        .btn-lg {
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+        }
+        
+        .btn-block {
+            width: 100%;
+        }
+        
+        /* ===== DASHBOARD LAYOUT ===== */
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* SIDEBAR */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--color-primary);
+            color: var(--color-white);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 1000;
+            transition: width var(--transition-normal);
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .sidebar.collapsed {
+            width: var(--sidebar-collapsed);
+        }
+        
+        .sidebar-header {
+            padding: var(--space-lg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+            color: var(--color-white);
+        }
+        
+        .sidebar-logo h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--color-white);
+        }
+        
+        .sidebar-logo .brand-name {
+            background: linear-gradient(90deg, var(--color-white) 0%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .sidebar-toggle {
+            margin-left: auto;
+            background: none;
+            border: none;
+            color: var(--color-white);
+            cursor: pointer;
+            padding: var(--space-xs);
+            border-radius: var(--radius-sm);
+            transition: background var(--transition-fast);
+        }
+        
+        .sidebar-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar-nav {
+            padding: var(--space-lg) var(--space-md);
+        }
+        
+        .nav-section {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .nav-section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: var(--space-sm);
+            padding-left: var(--space-sm);
+        }
+        
+        .sidebar.collapsed .nav-section-title {
+            display: none;
+        }
+        
+        .nav-links {
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm);
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-white);
+        }
+        
+        .nav-link.active {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        
+        .nav-link i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .sidebar.collapsed .nav-link span {
+            display: none;
+        }
+        
+        .sidebar.collapsed .nav-link {
+            justify-content: center;
+        }
+        
+        .sidebar-footer {
+            padding: var(--space-lg) var(--space-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: auto;
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-accent), var(--color-emergency));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .user-info {
+            flex: 1;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            color: var(--color-white);
+            font-size: 0.95rem;
+        }
+        
+        .user-role {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .sidebar.collapsed .user-info {
+            display: none;
+        }
+        
+        /* MAIN CONTENT */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            transition: margin-left var(--transition-normal);
+        }
+        
+        .sidebar.collapsed ~ .main-content {
+            margin-left: var(--sidebar-collapsed);
+        }
+        
+        /* TOP BAR */
+        .top-bar {
+            background: var(--color-white);
+            padding: var(--space-md) var(--space-lg);
+            border-bottom: 1px solid var(--color-gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.95rem;
+            color: var(--color-gray-700);
+        }
+        
+        .breadcrumb a {
+            color: var(--color-gray-700);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--color-accent);
+        }
+        
+        .breadcrumb-separator {
+            color: var(--color-gray-400);
+        }
+        
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        .search-bar {
+            position: relative;
+        }
+        
+        .search-bar input {
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            width: 300px;
+            transition: all var(--transition-fast);
+        }
+        
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.1);
+        }
+        
+        .search-bar i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-gray-600);
+        }
+        
+        .notifications {
+            position: relative;
+        }
+        
+        .notification-btn {
+            background: none;
+            border: none;
+            color: var(--color-gray-700);
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: var(--space-xs);
+            position: relative;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--color-emergency);
+            color: var(--color-white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* DASHBOARD CONTENT */
+        .dashboard-content {
+            padding: var(--space-xl);
+        }
+        
+        .dashboard-header {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .welcome-message {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+        
+        .welcome-text h1 {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .quick-actions {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        /* PROFILE CONTENT */
+        .profile-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: var(--space-xl);
+        }
+        
+        @media (max-width: 1024px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* PROFILE SIDEBAR */
+        .profile-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        .profile-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 1px solid var(--color-gray-200);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .profile-header {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--color-accent), var(--color-emergency));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 auto var(--space-md);
+            position: relative;
+        }
+        
+        .avatar-upload {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: var(--color-white);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-fast);
+        }
+        
+        .avatar-upload:hover {
+            background: var(--color-gray-100);
+            transform: scale(1.1);
+        }
+        
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .profile-title {
+            color: var(--color-gray-700);
+            font-size: 1rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: var(--space-sm);
+            background: var(--color-gray-100);
+            border-radius: var(--radius-lg);
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--color-gray-700);
+        }
+        
+        .profile-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        /* PROFILE NAV */
+        .profile-nav {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-md);
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .profile-nav-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm);
+            color: var(--color-gray-700);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .profile-nav-item:hover {
+            background: var(--color-gray-100);
+            color: var(--color-primary);
+        }
+        
+        .profile-nav-item.active {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        
+        .profile-nav-item i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* PROFILE CONTENT */
+        .profile-content {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .profile-section {
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            border-bottom: 2px solid var(--color-gray-200);
+        }
+        
+        .section-actions {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        /* FORM STYLES */
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 600;
+            color: var(--color-gray-900);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-md);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.1);
+        }
+        
+        .form-text {
+            font-size: 0.875rem;
+            color: var(--color-gray-600);
+            margin-top: var(--space-xs);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* SKILLS TAGS */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+        
+        .skill-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-lg);
+            font-size: 0.9rem;
+            color: var(--color-gray-800);
+        }
+        
+        .skill-tag .remove-skill {
+            background: none;
+            border: none;
+            color: var(--color-gray-600);
+            cursor: pointer;
+            padding: 0;
+            font-size: 0.8rem;
+            transition: color var(--transition-fast);
+        }
+        
+        .skill-tag .remove-skill:hover {
+            color: var(--color-emergency);
+        }
+        
+        .skill-input-container {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        /* EXPERIENCE & EDUCATION CARDS */
+        .experience-card,
+        .education-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            border: 1px solid var(--color-gray-200);
+            margin-bottom: var(--space-md);
+            transition: all var(--transition-normal);
+        }
+        
+        .experience-card:hover,
+        .education-card:hover {
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .experience-header,
+        .education-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .experience-title,
+        .education-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        
+        .experience-company,
+        .education-institution {
+            color: var(--color-gray-700);
+            font-size: 0.95rem;
+        }
+        
+        .experience-duration,
+        .education-duration {
+            font-size: 0.85rem;
+            color: var(--color-gray-600);
+            background: var(--color-gray-100);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+        }
+        
+        .experience-description,
+        .education-description {
+            color: var(--color-gray-700);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* PROGRESS BAR */
+        .progress-container {
+            margin-top: var(--space-md);
+        }
+        
+        .progress-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .progress-label {
+            font-size: 0.95rem;
+            color: var(--color-gray-700);
+        }
+        
+        .progress-percentage {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: var(--color-gray-200);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--color-accent);
+            border-radius: 4px;
+            transition: width var(--transition-slow);
+        }
+        
+        /* PRIVACY SETTINGS */
+        .privacy-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .privacy-item:last-child {
+            border-bottom: none;
+        }
+        
+        .privacy-label {
+            flex: 1;
+        }
+        
+        .privacy-label h4 {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .privacy-label p {
+            font-size: 0.95rem;
+            color: var(--color-gray-700);
+            margin-bottom: 0;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--color-gray-300);
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: var(--color-success);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--space-xl) var(--space-md);
+            margin-top: auto;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: var(--sidebar-width);
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .search-bar input {
+                width: 200px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.5rem; }
+            
+            .dashboard-content {
+                padding: var(--space-md);
+            }
+            
+            .welcome-message {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .quick-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+            
+            .quick-actions .btn {
+                width: 100%;
+            }
+            
+            .search-bar input {
+                width: 150px;
+            }
+            
+            .profile-card,
+            .profile-content {
+                padding: var(--space-lg);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .top-bar {
+                flex-direction: column;
+                gap: var(--space-md);
+                align-items: flex-start;
+            }
+            
+            .top-bar-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .search-bar input {
+                width: 100%;
+            }
+        }
+        
+        /* ===== UTILITY CLASSES ===== */
+        .hidden {
+            display: none !important;
+        }
+        
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        .text-success {
+            color: var(--color-success);
+        }
+        
+        .text-emergency {
+            color: var(--color-emergency);
+        }
+        
+        .text-warning {
+            color: var(--color-warning);
+        }
+        
+        .text-accent {
+            color: var(--color-accent);
+        }
+        
+        .bg-gray-100 {
+            background: var(--color-gray-100);
+        }
+        
+        .bg-primary {
+            background: var(--color-primary);
+        }
+        
+        .bg-accent {
+            background: var(--color-accent);
+        }
+        
+        /* ===== LOADING STATES ===== */
+        .loading {
+            position: relative;
+            pointer-events: none;
+        }
+        
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: var(--color-white);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ===== MOBILE MENU TOGGLE ===== */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-dark);
+            cursor: pointer;
+            padding: var(--space-xs);
+            z-index: 1001;
+        }
+        
+        @media (max-width: 1024px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
+        
+        /* ===== TABS ===== */
+        .profile-tabs {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+            border-bottom: 2px solid var(--color-gray-200);
+            overflow-x: auto;
+        }
+        
+        .profile-tab {
+            padding: var(--space-md) var(--space-lg);
+            background: none;
+            border: none;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-gray-600);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+            position: relative;
+        }
+        
+        .profile-tab:hover {
+            color: var(--color-primary);
+        }
+        
+        .profile-tab.active {
+            color: var(--color-accent);
+        }
+        
+        .profile-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--color-accent);
+        }
+        
+        /* ===== UPLOAD AREA ===== */
+        .upload-area {
+            border: 2px dashed var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+        
+        .upload-area:hover {
+            border-color: var(--color-accent);
+            background: var(--color-gray-100);
+        }
+        
+        .upload-area i {
+            font-size: 3rem;
+            color: var(--color-gray-400);
+            margin-bottom: var(--space-md);
+        }
+        
+        /* ===== BADGES ===== */
+        .badges-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--space-lg);
+        }
+        
+        .badge-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            border: 1px solid var(--color-gray-200);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+        
+        .badge-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .badge-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-accent), var(--color-emergency));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 2rem;
+            margin: 0 auto var(--space-md);
+        }
+        
+        .badge-title {
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .badge-description {
+            font-size: 0.9rem;
+            color: var(--color-gray-700);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .badge-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge-earned {
+            background: rgba(42, 157, 143, 0.1);
+            color: var(--color-success);
+        }
+        
+        .badge-locked {
+            background: rgba(160, 174, 192, 0.1);
+            color: var(--color-gray-600);
+        }
+    </style>
+</head>
+<body>
+    <!-- DASHBOARD CONTAINER -->
+    <div class="dashboard-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="/candidate-dashboard/index.html" class="sidebar-logo">
+                    <i class="fas fa-bolt"></i>
+                    <h2><span class="brand-name">JOBPITALITY</span></h2>
+                </a>
+                <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav" aria-label="Main navigation">
+                <!-- Dashboard Section -->
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Dashboard</h3>
+                    <ul class="nav-links">
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/index.html" class="nav-link">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/profile.html" class="nav-link active">
+                                <i class="fas fa-user"></i>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/applications.html" class="nav-link">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Applications</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Job Search Section -->
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Job Search</h3>
+                    <ul class="nav-links">
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/job.html" class="nav-link">
+                                <i class="fas fa-search"></i>
+                                <span>Find Jobs</span>
+                                <span class="notification-badge">12</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/saved-jobs.html" class="nav-link">
+                                <i class="fas fa-bookmark"></i>
+                                <span>Saved Jobs</span>
+                                <span class="notification-badge">5</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/alerts.html" class="nav-link">
+                                <i class="fas fa-bell"></i>
+                                <span>Job Alerts</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Career Section -->
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Career</h3>
+                    <ul class="nav-links">
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/resume.html" class="nav-link">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>My Resume</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/portfolio.html" class="nav-link">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Portfolio</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/skills.html" class="nav-link">
+                                <i class="fas fa-star"></i>
+                                <span>Skills & Badges</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Support Section -->
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Support</h3>
+                    <ul class="nav-links">
+                        <li class="nav-item">
+                            <a href="/candidates/support/" class="nav-link">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Help Center</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidates/contact/" class="nav-link">
+                                <i class="fas fa-headset"></i>
+                                <span>Contact Support</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/candidate-dashboard/settings.html" class="nav-link">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">JD</div>
+                    <div class="user-info">
+                        <div class="user-name">John Doe</div>
+                        <div class="user-role">Executive Chef</div>
+                    </div>
+                    <button class="btn btn-sm btn-outline" id="logoutBtn" style="color: var(--color-white); border-color: var(--color-white);">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- TOP BAR -->
+            <header class="top-bar">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="/candidates/">Candidates</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <a href="/candidate-dashboard/index.html">Dashboard</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span>My Profile</span>
+                </nav>
+                
+                <div class="top-bar-actions">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search profile sections..." aria-label="Search profile">
+                    </div>
+                    
+                    <div class="notifications">
+                        <button class="notification-btn" id="notificationBtn" aria-label="View notifications">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    
+                    <button class="btn btn-primary" id="saveProfileBtn">
+                        <i class="fas fa-save"></i>
+                        Save Profile
+                    </button>
+                </div>
+            </header>
+            
+            <!-- DASHBOARD CONTENT -->
+            <main class="dashboard-content">
+                <!-- Welcome Section -->
+                <div class="dashboard-header">
+                    <div class="welcome-message">
+                        <div class="welcome-text">
+                            <h1>My <span class="text-gradient">Profile</span></h1>
+                            <p class="lead">Complete your professional profile to attract elite hospitality employers.</p>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="btn btn-outline" id="previewProfileBtn">
+                                <i class="fas fa-eye"></i>
+                                Preview Profile
+                            </button>
+                            <button class="btn btn-primary" id="downloadProfileBtn">
+                                <i class="fas fa-download"></i>
+                                Download CV
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profile Tabs -->
+                <div class="profile-tabs">
+                    <button class="profile-tab active" data-tab="personal">Personal Info</button>
+                    <button class="profile-tab" data-tab="experience">Experience</button>
+                    <button class="profile-tab" data-tab="education">Education</button>
+                    <button class="profile-tab" data-tab="skills">Skills</button>
+                    <button class="profile-tab" data-tab="preferences">Preferences</button>
+                    <button class="profile-tab" data-tab="privacy">Privacy</button>
+                </div>
+                
+                <!-- Profile Content -->
+                <div class="profile-container">
+                    <!-- Profile Sidebar -->
+                    <aside class="profile-sidebar">
+                        <div class="profile-card">
+                            <div class="profile-header">
+                                <div class="profile-avatar">
+                                    JD
+                                    <div class="avatar-upload" id="avatarUploadBtn">
+                                        <i class="fas fa-camera"></i>
+                                    </div>
+                                </div>
+                                <h2 class="profile-name">John Doe</h2>
+                                <div class="profile-title">Executive Chef</div>
+                                <div class="profile-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Lagos, Nigeria
+                                </div>
+                            </div>
+                            
+                            <div class="profile-stats">
+                                <div class="stat-item">
+                                    <div class="stat-value">85%</div>
+                                    <div class="stat-label">Profile Complete</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">48</div>
+                                    <div class="stat-label">Profile Views</div>
+                                </div>
+                            </div>
+                            
+                            <div class="profile-actions">
+                                <button class="btn btn-primary btn-block" id="uploadResumeBtn">
+                                    <i class="fas fa-upload"></i>
+                                    Upload Resume
+                                </button>
+                                <button class="btn btn-outline btn-block" id="shareProfileBtn">
+                                    <i class="fas fa-share-alt"></i>
+                                    Share Profile
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <nav class="profile-nav">
+                            <a href="#personal" class="profile-nav-item active" data-section="personal">
+                                <i class="fas fa-user"></i>
+                                Personal Information
+                            </a>
+                            <a href="#experience" class="profile-nav-item" data-section="experience">
+                                <i class="fas fa-briefcase"></i>
+                                Work Experience
+                            </a>
+                            <a href="#education" class="profile-nav-item" data-section="education">
+                                <i class="fas fa-graduation-cap"></i>
+                                Education
+                            </a>
+                            <a href="#skills" class="profile-nav-item" data-section="skills">
+                                <i class="fas fa-star"></i>
+                                Skills & Expertise
+                            </a>
+                            <a href="#preferences" class="profile-nav-item" data-section="preferences">
+                                <i class="fas fa-sliders-h"></i>
+                                Job Preferences
+                            </a>
+                            <a href="#privacy" class="profile-nav-item" data-section="privacy">
+                                <i class="fas fa-shield-alt"></i>
+                                Privacy Settings
+                            </a>
+                        </nav>
+                    </aside>
+                    
+                    <!-- Main Profile Content -->
+                    <div class="profile-content">
+                        <!-- Personal Information Section -->
+                        <div class="profile-section" id="personal">
+                            <div class="section-header">
+                                <div>
+                                    <h2>Personal Information</h2>
+                                    <p class="lead">Basic information about you and your contact details</p>
+                                </div>
+                                <div class="section-actions">
+                                    <button class="btn btn-outline btn-sm" id="editPersonalBtn">
+                                        <i class="fas fa-edit"></i>
+                                        Edit
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <form id="personalForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="firstName">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" value="John" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="lastName">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" value="Doe" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Email Address</label>
+                                        <input type="email" class="form-control" id="email" value="john.doe@example.com" required>
+                                        <div class="form-text">This email will be used for job applications and notifications</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="phone">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" value="+234 803 966 1354" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="location">Current Location</label>
+                                    <input type="text" class="form-control" id="location" value="Lagos, Nigeria" required>
+                                    <div class="form-text">City and country where you're currently based</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="title">Professional Title</label>
+                                    <input type="text" class="form-control" id="title" value="Executive Chef" required>
+                                    <div class="form-text">Your current or desired job title (e.g., Executive Chef, Hotel Manager)</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="summary">Professional Summary</label>
+                                    <textarea class="form-control" id="summary" rows="4" required>Experienced Executive Chef with over 10 years in luxury hospitality. Specialized in fine dining, menu development, and kitchen operations. Proven track record in leading culinary teams and maintaining Michelin standards. Passionate about creating exceptional dining experiences and mentoring young chefs.</textarea>
+                                    <div class="form-text">Brief overview of your professional background and expertise (3-4 sentences)</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i>
+                                        Save Changes
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Work Experience Section -->
+                        <div class="profile-section" id="experience" style="display: none;">
+                            <div class="section-header">
+                                <div>
+                                    <h2>Work Experience</h2>
+                                    <p class="lead">Your professional work history and achievements</p>
+                                </div>
+                                <div class="section-actions">
+                                    <button class="btn btn-primary btn-sm" id="addExperienceBtn">
+                                        <i class="fas fa-plus"></i>
+                                        Add Experience
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div id="experienceList">
+                                <!-- Experience Card 1 -->
+                                <div class="experience-card">
+                                    <div class="experience-header">
+                                        <div>
+                                            <h3 class="experience-title">Executive Chef</h3>
+                                            <div class="experience-company">Luxury Hotel Group | 5-Star Hotel</div>
+                                        </div>
+                                        <div class="experience-duration">2020 - Present</div>
+                                    </div>
+                                    <div class="experience-description">
+                                        <p>Lead culinary operations for a 300-room luxury hotel with 5 restaurants. Manage team of 45+ kitchen staff, oversee menu development, maintain Forbes 5-star standards. Achieved 30% increase in F&B revenue through innovative menu design and cost control measures.</p>
+                                    </div>
+                                    <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-md);">
+                                        <button class="btn btn-outline btn-sm edit-experience-btn">
+                                            <i class="fas fa-edit"></i>
+                                            Edit
+                                        </button>
+                                        <button class="btn btn-outline btn-sm delete-experience-btn">
+                                            <i class="fas fa-trash"></i>
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Experience Card 2 -->
+                                <div class="experience-card">
+                                    <div class="experience-header">
+                                        <div>
+                                            <h3 class="experience-title">Sous Chef</h3>
+                                            <div class="experience-company">Fine Dining Restaurant | Michelin Star</div>
+                                        </div>
+                                        <div class="experience-duration">2018 - 2020</div>
+                                    </div>
+                                    <div class="experience-description">
+                                        <p>Assisted Executive Chef in daily kitchen operations. Managed pantry and pastry sections, trained junior chefs, maintained quality control. Contributed to restaurant achieving its first Michelin star through innovative menu contributions.</p>
+                                    </div>
+                                    <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-md);">
+                                        <button class="btn btn-outline btn-sm edit-experience-btn">
+                                            <i class="fas fa-edit"></i>
+                                            Edit
+                                        </button>
+                                        <button class="btn btn-outline btn-sm delete-experience-btn">
+                                            <i class="fas fa-trash"></i>
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Education Section -->
+                        <div class="profile-section" id="education" style="display: none;">
+                            <div class="section-header">
+                                <div>
+                                    <h2>Education</h2>
+                                    <p class="lead">Your academic background and qualifications</p>
+                                </div>
+                                <div class="section-actions">
+                                    <button class="btn btn-primary btn-sm" id="addEducationBtn">
+                                        <i class="fas fa-plus"></i>
+                                        Add Education
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div id="educationList">
+                                <!-- Education Card 1 -->
+                                <div class="education-card">
+                                    <div class="education-header">
+                                        <div>
+                                            <h3 class="education-title">Bachelor of Culinary Arts</h3>
+                                            <div class="education-institution">International Culinary Center</div>
+                                        </div>
+                                        <div class="education-duration">2014 - 2017</div>
+                                    </div>
+                                    <div class="education-description">
+                                        <p>Specialized in French Cuisine and Pastry Arts. Graduated with honors. President of Culinary Arts Society.</p>
+                                    </div>
+                                    <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-md);">
+                                        <button class="btn btn-outline btn-sm edit-education-btn">
+                                            <i class="fas fa-edit"></i>
+                                            Edit
+                                        </button>
+                                        <button class="btn btn-outline btn-sm delete-education-btn">
+                                            <i class="fas fa-trash"></i>
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Education Card 2 -->
+                                <div class="education-card">
+                                    <div class="education-header">
+                                        <div>
+                                            <h3 class="education-title">Diploma in Hotel Management</h3>
+                                            <div class="education-institution">Hospitality Institute</div>
+                                        </div>
+                                        <div class="education-duration">2012 - 2014</div>
+                                    </div>
+                                    <div class="education-description">
+                                        <p>Focused on hotel operations, revenue management, and customer service excellence.</p>
+                                    </div>
+                                    <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-md);">
+                                        <button class="btn btn-outline btn-sm edit-education-btn">
+                                            <i class="fas fa-edit"></i>
+                                            Edit
+                                        </button>
+                                        <button class="btn btn-outline btn-sm delete-education-btn">
+                                            <i class="fas fa-trash"></i>
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Skills Section -->
+                        <div class="profile-section" id="skills" style="display: none;">
+                            <div class="section-header">
+                                <div>
+                                    <h2>Skills & Expertise</h2>
+                                    <p class="lead">Your professional skills and areas of expertise</p>
+                                </div>
+                                <div class="section-actions">
+                                    <button class="btn btn-outline btn-sm" id="skillSuggestionsBtn">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Suggestions
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-container">
+                                <div class="progress-header">
+                                    <div class="progress-label">Profile Strength</div>
+                                    <div class="progress-percentage">85%</div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Core Skills</label>
+                                <div class="skills-container" id="coreSkillsContainer">
+                                    <span class="skill-tag">
+                                        Fine Dining
+                                        <button class="remove-skill" data-skill="Fine Dining">×</button>
+                                    </span>
+                                    <span class="skill-tag">
+                                        Menu Development
+                                        <button class="remove-skill" data-skill="Menu Development">×</button>
+                                    </span>
+                                    <span class="skill-tag">
+                                        Kitchen Management
+                                        <button class="remove-skill" data-skill="Kitchen Management">×</button>
+                                    </span>
+                                    <span class="skill-tag">
+                                        Team Leadership
+                                        <button class="remove-skill" data-skill="Team Leadership">×</button>
+                                    </span>
+                                    <span class="skill-tag">
+                                        Cost Control
+                                        <button class="remove-skill" data-skill="Cost Control">×</button>
+                                    </span>
+                                    <span class="skill-tag">
+                                        Food Safety
+                                        <button class="remove-skill" data-skill="Food Safety">×</button>
+                                    </span>
+                                </div>
+                                <div class="skill-input-container">
+                                    <input type="text" class="form-control" id="newSkillInput" placeholder="Add a new skill (e.g., 'Wine Pairing')">
+                                    <button class="btn btn-primary" id="addSkillBtn">
+                                        <i class="fas fa-plus"></i>
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Languages</label>
+                                <div class="skills-container" id="languagesContainer">
+                                    <span class="skill-tag">
+                                        English (Native)
+                                        <button class="remove-skill" data-skill="English">×</button>
+                                    </span>
+                                    <span class="skill-tag">
+                                        French (Intermediate)
+                                        <button class="remove-skill" data-skill="French">×</button>
+                                    </span>
+                                    <span class="skill-tag">
+                                        Spanish (Basic)
+                                        <button class="remove-skill" data-skill="Spanish">×</button>
+                                    </span>
+                                </div>
+                                <div class="skill-input-container">
+                                    <input type="text" class="form-control" id="newLanguageInput" placeholder="Add a language (e.g., 'Italian - Advanced')">
+                                    <button class="btn btn-primary" id="addLanguageBtn">
+                                        <i class="fas fa-plus"></i>
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Certifications</label>
+                                <div class="skills-container" id="certificationsContainer">
+                                    <span class="skill-tag">
+                                        ServSafe Manager
+                                        <button class="remove-skill" data-skill="ServSafe Manager">×</button>
+                                    </span>
+                                    <span class="skill-tag">
+                                        HACCP Certified
+                                        <button class="remove-skill" data-skill="HACCP Certified">×</button>
+                                    </span>
+                                    <span class="skill-tag">
+                                        Wine & Spirit Education Trust (WSET)
+                                        <button class="remove-skill" data-skill="WSET">×</button>
+                                    </span>
+                                </div>
+                                <div class="skill-input-container">
+                                    <input type="text" class="form-control" id="newCertificationInput" placeholder="Add a certification">
+                                    <button class="btn btn-primary" id="addCertificationBtn">
+                                        <i class="fas fa-plus"></i>
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Preferences Section -->
+                        <div class="profile-section" id="preferences" style="display: none;">
+                            <div class="section-header">
+                                <div>
+                                    <h2>Job Preferences</h2>
+                                    <p class="lead">Your preferred job types, locations, and work settings</p>
+                                </div>
+                                <div class="section-actions">
+                                    <button class="btn btn-outline btn-sm" id="resetPreferencesBtn">
+                                        <i class="fas fa-redo"></i>
+                                        Reset
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <form id="preferencesForm">
+                                <div class="form-group">
+                                    <label class="form-label">Preferred Job Types</label>
+                                    <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="jobType" value="Full-time" checked> Full-time
+                                        </label>
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="jobType" value="Part-time"> Part-time
+                                        </label>
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="jobType" value="Contract"> Contract
+                                        </label>
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="jobType" value="Temporary"> Temporary
+                                        </label>
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="jobType" value="Remote"> Remote
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Preferred Locations</label>
+                                    <div class="skills-container" id="preferredLocationsContainer">
+                                        <span class="skill-tag">
+                                            Lagos, Nigeria
+                                            <button class="remove-skill" data-location="Lagos">×</button>
+                                        </span>
+                                        <span class="skill-tag">
+                                            Abuja, Nigeria
+                                            <button class="remove-skill" data-location="Abuja">×</button>
+                                        </span>
+                                        <span class="skill-tag">
+                                            Port Harcourt, Nigeria
+                                            <button class="remove-skill" data-location="Port Harcourt">×</button>
+                                        </span>
+                                    </div>
+                                    <div class="skill-input-container">
+                                        <input type="text" class="form-control" id="newLocationInput" placeholder="Add a location (e.g., 'Calabar, Nigeria')">
+                                        <button class="btn btn-primary" id="addLocationBtn">
+                                            <i class="fas fa-plus"></i>
+                                            Add
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Desired Salary Range (Annual)</label>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" id="minSalary" placeholder="Minimum" value="12000000">
+                                            <div class="form-text">Minimum salary in Naira</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" id="maxSalary" placeholder="Maximum" value="18000000">
+                                            <div class="form-text">Maximum salary in Naira</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Industry Preferences</label>
+                                    <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="industry" value="Hotels" checked> Hotels
+                                        </label>
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="industry" value="Restaurants" checked> Restaurants
+                                        </label>
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="industry" value="Resorts"> Resorts
+                                        </label>
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="industry" value="Cruise Lines"> Cruise Lines
+                                        </label>
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="industry" value="Catering"> Catering
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Company Size Preference</label>
+                                    <select class="form-control" id="companySize">
+                                        <option value="">Any Size</option>
+                                        <option value="small">Small (1-50 employees)</option>
+                                        <option value="medium">Medium (51-200 employees)</option>
+                                        <option value="large" selected>Large (201+ employees)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Work Environment</label>
+                                    <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="environment" value="Luxury" checked> Luxury
+                                        </label>
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="environment" value="Boutique"> Boutique
+                                        </label>
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="environment" value="Chain"> Chain
+                                        </label>
+                                        <label class="skill-tag" style="cursor: pointer;">
+                                            <input type="checkbox" name="environment" value="Independent"> Independent
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i>
+                                        Save Preferences
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Privacy Section -->
+                        <div class="profile-section" id="privacy" style="display: none;">
+                            <div class="section-header">
+                                <div>
+                                    <h2>Privacy Settings</h2>
+                                    <p class="lead">Control who can see your profile and contact you</p>
+                                </div>
+                                <div class="section-actions">
+                                    <button class="btn btn-outline btn-sm" id="exportDataBtn">
+                                        <i class="fas fa-download"></i>
+                                        Export Data
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="privacy-settings">
+                                <div class="privacy-item">
+                                    <div class="privacy-label">
+                                        <h4>Profile Visibility</h4>
+                                        <p>Control who can see your profile on Jobpitality</p>
+                                    </div>
+                                    <div>
+                                        <select class="form-control" id="profileVisibility">
+                                            <option value="public" selected>Public (All Employers)</option>
+                                            <option value="registered">Registered Employers Only</option>
+                                            <option value="private">Private (Searchable but details hidden)</option>
+                                            <option value="hidden">Hidden (Not searchable)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="privacy-item">
+                                    <div class="privacy-label">
+                                        <h4>Contact Information</h4>
+                                        <p>Choose who can see your contact details</p>
+                                    </div>
+                                    <div>
+                                        <select class="form-control" id="contactVisibility">
+                                            <option value="after-apply">After I Apply</option>
+                                            <option value="shortlisted" selected>When I'm Shortlisted</option>
+                                            <option value="interview">When Interview is Scheduled</option>
+                                            <option value="never">Never Show Contact Info</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="privacy-item">
+                                    <div class="privacy-label">
+                                        <h4>Current Employer Visibility</h4>
+                                        <p>Hide your current employer from specific companies</p>
+                                    </div>
+                                    <div class="switch">
+                                        <input type="checkbox" id="hideCurrentEmployer" checked>
+                                        <span class="slider"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="privacy-item">
+                                    <div class="privacy-label">
+                                        <h4>Email Notifications</h4>
+                                        <p>Receive emails about job matches and updates</p>
+                                    </div>
+                                    <div class="switch">
+                                        <input type="checkbox" id="emailNotifications" checked>
+                                        <span class="slider"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="privacy-item">
+                                    <div class="privacy-label">
+                                        <h4>SMS Notifications</h4>
+                                        <p>Receive text messages about urgent job opportunities</p>
+                                    </div>
+                                    <div class="switch">
+                                        <input type="checkbox" id="smsNotifications">
+                                        <span class="slider"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="privacy-item">
+                                    <div class="privacy-label">
+                                        <h4>Job Recommendation Algorithm</h4>
+                                        <p>Allow Jobpitality to use your profile data to suggest relevant jobs</p>
+                                    </div>
+                                    <div class="switch">
+                                        <input type="checkbox" id="jobRecommendations" checked>
+                                        <span class="slider"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group" style="margin-top: var(--space-xl);">
+                                    <button class="btn btn-primary" id="savePrivacyBtn">
+                                        <i class="fas fa-save"></i>
+                                        Save Privacy Settings
+                                    </button>
+                                    <button class="btn btn-outline" id="deleteAccountBtn" style="margin-left: var(--space-sm);">
+                                        <i class="fas fa-trash"></i>
+                                        Request Account Deletion
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="container">
+                    <div class="footer-bottom">
+                        <p>&copy; <span id="currentYear"></span> Jobpitality. All rights reserved. "The Ruthless Talent Partner" is a trademark of Jobpitality.</p>
+                        <p style="margin-top: var(--space-sm);">
+                            <a href="/privacy/" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; margin: 0 var(--space-sm);">Privacy Policy</a> • 
+                            <a href="/terms/" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; margin: 0 var(--space-sm);">Terms of Service</a> • 
+                            <a href="/help/" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; margin: 0 var(--space-sm);">Help Center</a>
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // ===== DOM ELEMENTS =====
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const saveProfileBtn = document.getElementById('saveProfileBtn');
+        const previewProfileBtn = document.getElementById('previewProfileBtn');
+        const downloadProfileBtn = document.getElementById('downloadProfileBtn');
+        const notificationBtn = document.getElementById('notificationBtn');
+        const uploadResumeBtn = document.getElementById('uploadResumeBtn');
+        const shareProfileBtn = document.getElementById('shareProfileBtn');
+        const avatarUploadBtn = document.getElementById('avatarUploadBtn');
+        const currentYear = document.getElementById('currentYear');
+        const searchInput = document.querySelector('.search-bar input');
+        
+        // Profile tabs
+        const profileTabs = document.querySelectorAll('.profile-tab');
+        const profileNavItems = document.querySelectorAll('.profile-nav-item');
+        const profileSections = document.querySelectorAll('.profile-section');
+        
+        // Form elements
+        const personalForm = document.getElementById('personalForm');
+        const preferencesForm = document.getElementById('preferencesForm');
+        const editPersonalBtn = document.getElementById('editPersonalBtn');
+        
+        // Experience
+        const addExperienceBtn = document.getElementById('addExperienceBtn');
+        const experienceList = document.getElementById('experienceList');
+        
+        // Education
+        const addEducationBtn = document.getElementById('addEducationBtn');
+        const educationList = document.getElementById('educationList');
+        
+        // Skills
+        const addSkillBtn = document.getElementById('addSkillBtn');
+        const newSkillInput = document.getElementById('newSkillInput');
+        const coreSkillsContainer = document.getElementById('coreSkillsContainer');
+        const addLanguageBtn = document.getElementById('addLanguageBtn');
+        const newLanguageInput = document.getElementById('newLanguageInput');
+        const languagesContainer = document.getElementById('languagesContainer');
+        const addCertificationBtn = document.getElementById('addCertificationBtn');
+        const newCertificationInput = document.getElementById('newCertificationInput');
+        const certificationsContainer = document.getElementById('certificationsContainer');
+        const skillSuggestionsBtn = document.getElementById('skillSuggestionsBtn');
+        
+        // Preferences
+        const addLocationBtn = document.getElementById('addLocationBtn');
+        const newLocationInput = document.getElementById('newLocationInput');
+        const preferredLocationsContainer = document.getElementById('preferredLocationsContainer');
+        const resetPreferencesBtn = document.getElementById('resetPreferencesBtn');
+        
+        // Privacy
+        const savePrivacyBtn = document.getElementById('savePrivacyBtn');
+        const exportDataBtn = document.getElementById('exportDataBtn');
+        const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+        
+        // ===== PROFILE DATA =====
+        const profileData = {
+            personal: {
+                firstName: 'John',
+                lastName: 'Doe',
+                email: 'john.doe@example.com',
+                phone: '+234 803 966 1354',
+                location: 'Lagos, Nigeria',
+                title: 'Executive Chef',
+                summary: 'Experienced Executive Chef with over 10 years in luxury hospitality. Specialized in fine dining, menu development, and kitchen operations. Proven track record in leading culinary teams and maintaining Michelin standards. Passionate about creating exceptional dining experiences and mentoring young chefs.'
+            },
+            experience: [
+                {
+                    id: 1,
+                    title: 'Executive Chef',
+                    company: 'Luxury Hotel Group | 5-Star Hotel',
+                    duration: '2020 - Present',
+                    description: 'Lead culinary operations for a 300-room luxury hotel with 5 restaurants. Manage team of 45+ kitchen staff, oversee menu development, maintain Forbes 5-star standards. Achieved 30% increase in F&B revenue through innovative menu design and cost control measures.'
+                },
+                {
+                    id: 2,
+                    title: 'Sous Chef',
+                    company: 'Fine Dining Restaurant | Michelin Star',
+                    duration: '2018 - 2020',
+                    description: 'Assisted Executive Chef in daily kitchen operations. Managed pantry and pastry sections, trained junior chefs, maintained quality control. Contributed to restaurant achieving its first Michelin star through innovative menu contributions.'
+                }
+            ],
+            education: [
+                {
+                    id: 1,
+                    title: 'Bachelor of Culinary Arts',
+                    institution: 'International Culinary Center',
+                    duration: '2014 - 2017',
+                    description: 'Specialized in French Cuisine and Pastry Arts. Graduated with honors. President of Culinary Arts Society.'
+                },
+                {
+                    id: 2,
+                    title: 'Diploma in Hotel Management',
+                    institution: 'Hospitality Institute',
+                    duration: '2012 - 2014',
+                    description: 'Focused on hotel operations, revenue management, and customer service excellence.'
+                }
+            ],
+            skills: {
+                core: ['Fine Dining', 'Menu Development', 'Kitchen Management', 'Team Leadership', 'Cost Control', 'Food Safety'],
+                languages: ['English (Native)', 'French (Intermediate)', 'Spanish (Basic)'],
+                certifications: ['ServSafe Manager', 'HACCP Certified', 'Wine & Spirit Education Trust (WSET)']
+            },
+            preferences: {
+                jobTypes: ['Full-time'],
+                locations: ['Lagos, Nigeria', 'Abuja, Nigeria', 'Port Harcourt, Nigeria'],
+                minSalary: 12000000,
+                maxSalary: 18000000,
+                industries: ['Hotels', 'Restaurants'],
+                companySize: 'large',
+                environments: ['Luxury']
+            },
+            privacy: {
+                profileVisibility: 'public',
+                contactVisibility: 'shortlisted',
+                hideCurrentEmployer: true,
+                emailNotifications: true,
+                smsNotifications: false,
+                jobRecommendations: true
+            }
+        };
+        
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year
+            if (currentYear) {
+                currentYear.textContent = new Date().getFullYear();
+            }
+            
+            // Load user data
+            loadUserData();
+            
+            // Load profile data
+            loadProfileData();
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Check if user is authenticated
+            checkAuth();
+            
+            // Initialize profile sections
+            initializeProfileSections();
+        });
+        
+        // ===== AUTHENTICATION =====
+        function checkAuth() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser || currentUser.role !== 'candidate') {
+                // Redirect to home if not authenticated as candidate
+                window.location.href = '/index.html';
+                return false;
+            }
+            return true;
+        }
+        
+        function loadUserData() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                // Update user name in sidebar
+                const userName = document.querySelector('.user-name');
+                const userRole = document.querySelector('.user-role');
+                const userAvatar = document.querySelector('.user-avatar');
+                const profileAvatar = document.querySelector('.profile-avatar');
+                const profileName = document.querySelector('.profile-name');
+                
+                if (userName) userName.textContent = currentUser.name || 'John Doe';
+                if (userRole) userRole.textContent = currentUser.title || 'Executive Chef';
+                if (userAvatar) {
+                    const initials = currentUser.name ? currentUser.name.split(' ').map(n => n[0]).join('') : 'JD';
+                    userAvatar.textContent = initials;
+                }
+                if (profileAvatar) {
+                    const initials = currentUser.name ? currentUser.name.split(' ').map(n => n[0]).join('') : 'JD';
+                    profileAvatar.textContent = initials;
+                }
+                if (profileName) profileName.textContent = currentUser.name || 'John Doe';
+                
+                // Update form fields if user data exists
+                if (currentUser.name) {
+                    const nameParts = currentUser.name.split(' ');
+                    document.getElementById('firstName').value = nameParts[0] || '';
+                    document.getElementById('lastName').value = nameParts.slice(1).join(' ') || '';
+                }
+                if (currentUser.email) {
+                    document.getElementById('email').value = currentUser.email;
+                }
+                if (currentUser.title) {
+                    document.getElementById('title').value = currentUser.title;
+                }
+            }
+        }
+        
+        // ===== PROFILE DATA LOADING =====
+        function loadProfileData() {
+            // Load skills into containers
+            loadSkillsIntoContainer(coreSkillsContainer, profileData.skills.core);
+            loadSkillsIntoContainer(languagesContainer, profileData.skills.languages);
+            loadSkillsIntoContainer(certificationsContainer, profileData.skills.certifications);
+            loadSkillsIntoContainer(preferredLocationsContainer, profileData.preferences.locations);
+            
+            // Set preference checkboxes
+            setCheckboxGroup('jobType', profileData.preferences.jobTypes);
+            setCheckboxGroup('industry', profileData.preferences.industries);
+            setCheckboxGroup('environment', profileData.preferences.environments);
+            
+            // Set other preference values
+            document.getElementById('minSalary').value = profileData.preferences.minSalary;
+            document.getElementById('maxSalary').value = profileData.preferences.maxSalary;
+            document.getElementById('companySize').value = profileData.preferences.companySize;
+            
+            // Set privacy settings
+            document.getElementById('profileVisibility').value = profileData.privacy.profileVisibility;
+            document.getElementById('contactVisibility').value = profileData.privacy.contactVisibility;
+            document.getElementById('hideCurrentEmployer').checked = profileData.privacy.hideCurrentEmployer;
+            document.getElementById('emailNotifications').checked = profileData.privacy.emailNotifications;
+            document.getElementById('smsNotifications').checked = profileData.privacy.smsNotifications;
+            document.getElementById('jobRecommendations').checked = profileData.privacy.jobRecommendations;
+        }
+        
+        function loadSkillsIntoContainer(container, skills) {
+            container.innerHTML = skills.map(skill => `
+                <span class="skill-tag">
+                    ${skill}
+                    <button class="remove-skill" data-skill="${skill}">×</button>
+                </span>
+            `).join('');
+        }
+        
+        function setCheckboxGroup(name, values) {
+            document.querySelectorAll(`input[name="${name}"]`).forEach(checkbox => {
+                checkbox.checked = values.includes(checkbox.value);
+            });
+        }
+        
+        // ===== PROFILE SECTIONS =====
+        function initializeProfileSections() {
+            // Show first section by default
+            showSection('personal');
+            
+            // Set active nav item
+            setActiveNav('personal');
+        }
+        
+        function showSection(sectionId) {
+            // Hide all sections
+            profileSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show selected section
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.style.display = 'block';
+            }
+            
+            // Update active tab
+            profileTabs.forEach(tab => {
+                if (tab.getAttribute('data-tab') === sectionId) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        }
+        
+        function setActiveNav(sectionId) {
+            profileNavItems.forEach(item => {
+                if (item.getAttribute('data-section') === sectionId) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+        
+        // ===== SIDEBAR FUNCTIONALITY =====
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('collapsed');
+                const icon = sidebarToggle.querySelector('i');
+                if (icon) {
+                    icon.className = sidebar.classList.contains('collapsed') 
+                        ? 'fas fa-chevron-right' 
+                        : 'fas fa-chevron-left';
+                }
+            });
+        }
+        
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+        }
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024 && 
+                !sidebar.contains(e.target) && 
+                !mobileMenuToggle.contains(e.target) && 
+                sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+        
+        // ===== EVENT LISTENERS =====
+        function setupEventListeners() {
+            // Logout Button
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', () => {
+                    localStorage.removeItem('currentUser');
+                    window.location.href = '/index.html';
+                });
+            }
+            
+            // Save Profile Button
+            if (saveProfileBtn) {
+                saveProfileBtn.addEventListener('click', () => {
+                    saveAllProfileData();
+                });
+            }
+            
+            // Preview Profile Button
+            if (previewProfileBtn) {
+                previewProfileBtn.addEventListener('click', () => {
+                    previewProfile();
+                });
+            }
+            
+            // Download Profile Button
+            if (downloadProfileBtn) {
+                downloadProfileBtn.addEventListener('click', () => {
+                    downloadCV();
+                });
+            }
+            
+            // Upload Resume Button
+            if (uploadResumeBtn) {
+                uploadResumeBtn.addEventListener('click', () => {
+                    uploadResume();
+                });
+            }
+            
+            // Share Profile Button
+            if (shareProfileBtn) {
+                shareProfileBtn.addEventListener('click', () => {
+                    shareProfile();
+                });
+            }
+            
+            // Avatar Upload Button
+            if (avatarUploadBtn) {
+                avatarUploadBtn.addEventListener('click', () => {
+                    uploadAvatar();
+                });
+            }
+            
+            // Notification Button
+            if (notificationBtn) {
+                notificationBtn.addEventListener('click', () => {
+                    showNotifications();
+                });
+            }
+            
+            // Profile Tabs
+            profileTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const sectionId = tab.getAttribute('data-tab');
+                    showSection(sectionId);
+                    setActiveNav(sectionId);
+                });
+            });
+            
+            // Profile Navigation
+            profileNavItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = item.getAttribute('data-section');
+                    showSection(sectionId);
+                    setActiveNav(sectionId);
+                    
+                    // Update tabs
+                    profileTabs.forEach(tab => {
+                        if (tab.getAttribute('data-tab') === sectionId) {
+                            tab.classList.add('active');
+                        } else {
+                            tab.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // Form Submissions
+            if (personalForm) {
+                personalForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    savePersonalInfo();
+                });
+            }
+            
+            if (preferencesForm) {
+                preferencesForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    savePreferences();
+                });
+            }
+            
+            // Edit Personal Info Button
+            if (editPersonalBtn) {
+                editPersonalBtn.addEventListener('click', () => {
+                    toggleFormEditMode('personalForm');
+                });
+            }
+            
+            // Add Experience Button
+            if (addExperienceBtn) {
+                addExperienceBtn.addEventListener('click', () => {
+                    addExperience();
+                });
+            }
+            
+            // Add Education Button
+            if (addEducationBtn) {
+                addEducationBtn.addEventListener('click', () => {
+                    addEducation();
+                });
+            }
+            
+            // Experience and Education buttons (delegated)
+            document.addEventListener('click', (e) => {
+                // Experience edit/delete
+                if (e.target.closest('.edit-experience-btn')) {
+                    const card = e.target.closest('.experience-card');
+                    editExperience(card);
+                }
+                
+                if (e.target.closest('.delete-experience-btn')) {
+                    const card = e.target.closest('.experience-card');
+                    deleteExperience(card);
+                }
+                
+                // Education edit/delete
+                if (e.target.closest('.edit-education-btn')) {
+                    const card = e.target.closest('.education-card');
+                    editEducation(card);
+                }
+                
+                if (e.target.closest('.delete-education-btn')) {
+                    const card = e.target.closest('.education-card');
+                    deleteEducation(card);
+                }
+                
+                // Remove skill buttons
+                if (e.target.closest('.remove-skill')) {
+                    const skillTag = e.target.closest('.skill-tag');
+                    const skill = e.target.closest('.remove-skill').getAttribute('data-skill');
+                    removeSkill(skillTag, skill);
+                }
+            });
+            
+            // Add Skill Button
+            if (addSkillBtn) {
+                addSkillBtn.addEventListener('click', () => {
+                    addSkill(newSkillInput.value, coreSkillsContainer, 'core');
+                    newSkillInput.value = '';
+                });
+                
+                newSkillInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        addSkill(newSkillInput.value, coreSkillsContainer, 'core');
+                        newSkillInput.value = '';
+                    }
+                });
+            }
+            
+            // Add Language Button
+            if (addLanguageBtn) {
+                addLanguageBtn.addEventListener('click', () => {
+                    addSkill(newLanguageInput.value, languagesContainer, 'languages');
+                    newLanguageInput.value = '';
+                });
+                
+                newLanguageInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        addSkill(newLanguageInput.value, languagesContainer, 'languages');
+                        newLanguageInput.value = '';
+                    }
+                });
+            }
+            
+            // Add Certification Button
+            if (addCertificationBtn) {
+                addCertificationBtn.addEventListener('click', () => {
+                    addSkill(newCertificationInput.value, certificationsContainer, 'certifications');
+                    newCertificationInput.value = '';
+                });
+                
+                newCertificationInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        addSkill(newCertificationInput.value, certificationsContainer, 'certifications');
+                        newCertificationInput.value = '';
+                    }
+                });
+            }
+            
+            // Add Location Button
+            if (addLocationBtn) {
+                addLocationBtn.addEventListener('click', () => {
+                    addSkill(newLocationInput.value, preferredLocationsContainer, 'locations');
+                    newLocationInput.value = '';
+                });
+                
+                newLocationInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        addSkill(newLocationInput.value, preferredLocationsContainer, 'locations');
+                        newLocationInput.value = '';
+                    }
+                });
+            }
+            
+            // Skill Suggestions Button
+            if (skillSuggestionsBtn) {
+                skillSuggestionsBtn.addEventListener('click', () => {
+                    showSkillSuggestions();
+                });
+            }
+            
+            // Reset Preferences Button
+            if (resetPreferencesBtn) {
+                resetPreferencesBtn.addEventListener('click', () => {
+                    resetPreferences();
+                });
+            }
+            
+            // Save Privacy Button
+            if (savePrivacyBtn) {
+                savePrivacyBtn.addEventListener('click', () => {
+                    savePrivacySettings();
+                });
+            }
+            
+            // Export Data Button
+            if (exportDataBtn) {
+                exportDataBtn.addEventListener('click', () => {
+                    exportProfileData();
+                });
+            }
+            
+            // Delete Account Button
+            if (deleteAccountBtn) {
+                deleteAccountBtn.addEventListener('click', () => {
+                    requestAccountDeletion();
+                });
+            }
+            
+            // Search functionality
+            if (searchInput) {
+                const debouncedSearch = debounce((searchTerm) => {
+                    searchProfileSections(searchTerm);
+                }, 500);
+                
+                searchInput.addEventListener('input', (e) => {
+                    debouncedSearch(e.target.value);
+                });
+            }
+        }
+        
+        // ===== UTILITY FUNCTIONS =====
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `dashboard-notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            // Add styles if not already added
+            if (!document.querySelector('#dashboard-notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'dashboard-notification-styles';
+                style.textContent = `
+                    .dashboard-notification {
+                        position: fixed;
+                        top: 100px;
+                        right: 20px;
+                        background: var(--color-white);
+                        color: var(--color-gray-900);
+                        padding: var(--space-md) var(--space-lg);
+                        border-radius: var(--radius-lg);
+                        box-shadow: var(--shadow-xl);
+                        display: flex;
+                        align-items: center;
+                        gap: var(--space-sm);
+                        z-index: 10001;
+                        animation: slideInRight 0.3s ease;
+                    }
+                    .notification-success {
+                        border-left: 4px solid var(--color-success);
+                    }
+                    .notification-info {
+                        border-left: 4px solid var(--color-info);
+                    }
+                    .notification-error {
+                        border-left: 4px solid var(--color-emergency);
+                    }
+                    @keyframes slideInRight {
+                        from {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                        to {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // ===== PROFILE FUNCTIONS =====
+        function toggleFormEditMode(formId) {
+            const form = document.getElementById(formId);
+            const inputs = form.querySelectorAll('input, textarea, select');
+            const isReadOnly = inputs[0].readOnly;
+            
+            inputs.forEach(input => {
+                input.readOnly = !isReadOnly;
+                if (input.type !== 'checkbox' && input.type !== 'radio') {
+                    input.style.backgroundColor = isReadOnly ? 'var(--color-white)' : 'var(--color-gray-100)';
+                }
+            });
+            
+            const saveBtn = form.querySelector('button[type="submit"]');
+            if (saveBtn) {
+                saveBtn.style.display = isReadOnly ? 'block' : 'none';
+            }
+            
+            if (editPersonalBtn) {
+                editPersonalBtn.innerHTML = isReadOnly ? 
+                    '<i class="fas fa-times"></i> Cancel' : 
+                    '<i class="fas fa-edit"></i> Edit';
+            }
+        }
+        
+        function savePersonalInfo() {
+            // Get form data
+            const personalData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                location: document.getElementById('location').value,
+                title: document.getElementById('title').value,
+                summary: document.getElementById('summary').value
+            };
+            
+            // Update profile data
+            profileData.personal = personalData;
+            
+            // Update UI
+            document.querySelector('.profile-name').textContent = `${personalData.firstName} ${personalData.lastName}`;
+            document.querySelector('.profile-title').textContent = personalData.title;
+            document.querySelector('.profile-location').innerHTML = `<i class="fas fa-map-marker-alt"></i> ${personalData.location}`;
+            
+            // Update current user in localStorage
+            const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
+            currentUser.name = `${personalData.firstName} ${personalData.lastName}`;
+            currentUser.email = personalData.email;
+            currentUser.title = personalData.title;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            
+            showNotification('Personal information saved successfully!', 'success');
+            
+            // Toggle back to read-only mode
+            toggleFormEditMode('personalForm');
+        }
+        
+        function addExperience() {
+            const experienceModal = document.createElement('div');
+            experienceModal.className = 'modal-overlay';
+            experienceModal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Add Work Experience</h3>
+                        <button class="modal-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="experienceForm">
+                            <div class="form-group">
+                                <label class="form-label">Job Title</label>
+                                <input type="text" class="form-control" id="expTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Company</label>
+                                <input type="text" class="form-control" id="expCompany" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Start Date</label>
+                                    <input type="month" class="form-control" id="expStartDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">End Date</label>
+                                    <input type="month" class="form-control" id="expEndDate">
+                                    <div class="form-text">Leave empty if current position</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" id="expDescription" rows="4" required></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" id="cancelExperience">Cancel</button>
+                        <button class="btn btn-primary" id="saveExperience">Save Experience</button>
+                    </div>
+                </div>
+            `;
+            
+            // Add modal styles
+            addModalStyles();
+            
+            document.body.appendChild(experienceModal);
+            
+            // Modal functionality
+            const closeBtn = experienceModal.querySelector('.modal-close');
+            const cancelBtn = experienceModal.querySelector('#cancelExperience');
+            const saveBtn = experienceModal.querySelector('#saveExperience');
+            
+            const closeModal = () => experienceModal.remove();
+            
+            closeBtn.addEventListener('click', closeModal);
+            cancelBtn.addEventListener('click', closeModal);
+            
+            saveBtn.addEventListener('click', () => {
+                const title = document.getElementById('expTitle').value;
+                const company = document.getElementById('expCompany').value;
+                const startDate = document.getElementById('expStartDate').value;
+                const endDate = document.getElementById('expEndDate').value;
+                const description = document.getElementById('expDescription').value;
+                
+                if (!title || !company || !startDate || !description) {
+                    showNotification('Please fill in all required fields', 'error');
+                    return;
+                }
+                
+                // Create new experience
+                const newExperience = {
+                    id: Date.now(),
+                    title: title,
+                    company: company,
+                    duration: `${startDate} - ${endDate || 'Present'}`,
+                    description: description
+                };
+                
+                // Add to profile data
+                profileData.experience.unshift(newExperience);
+                
+                // Add to UI
+                const experienceCard = createExperienceCard(newExperience);
+                experienceList.prepend(experienceCard);
+                
+                showNotification('Experience added successfully!', 'success');
+                closeModal();
+            });
+            
+            // Close on ESC
+            const handleEscape = (e) => {
+                if (e.key === 'Escape') closeModal();
+            };
+            document.addEventListener('keydown', handleEscape);
+            
+            // Close on outside click
+            experienceModal.addEventListener('click', (e) => {
+                if (e.target === experienceModal) closeModal();
+            });
+        }
+        
+        function createExperienceCard(experience) {
+            const card = document.createElement('div');
+            card.className = 'experience-card';
+            card.innerHTML = `
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">${experience.title}</h3>
+                        <div class="experience-company">${experience.company}</div>
+                    </div>
+                    <div class="experience-duration">${experience.duration}</div>
+                </div>
+                <div class="experience-description">
+                    <p>${experience.description}</p>
+                </div>
+                <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-md);">
+                    <button class="btn btn-outline btn-sm edit-experience-btn">
+                        <i class="fas fa-edit"></i>
+                        Edit
+                    </button>
+                    <button class="btn btn-outline btn-sm delete-experience-btn">
+                        <i class="fas fa-trash"></i>
+                        Delete
+                    </button>
+                </div>
+            `;
+            return card;
+        }
+        
+        function editExperience(card) {
+            // Implementation for editing experience
+            showNotification('Edit experience functionality coming soon!', 'info');
+        }
+        
+        function deleteExperience(card) {
+            if (confirm('Are you sure you want to delete this experience?')) {
+                card.style.opacity = '0.5';
+                setTimeout(() => {
+                    card.remove();
+                    showNotification('Experience deleted successfully!', 'success');
+                }, 300);
+            }
+        }
+        
+        function addEducation() {
+            // Similar to addExperience but for education
+            showNotification('Add education functionality coming soon!', 'info');
+        }
+        
+        function editEducation(card) {
+            showNotification('Edit education functionality coming soon!', 'info');
+        }
+        
+        function deleteEducation(card) {
+            if (confirm('Are you sure you want to delete this education?')) {
+                card.style.opacity = '0.5';
+                setTimeout(() => {
+                    card.remove();
+                    showNotification('Education deleted successfully!', 'success');
+                }, 300);
+            }
+        }
+        
+        function addSkill(skill, container, skillType) {
+            if (!skill.trim()) {
+                showNotification('Please enter a skill', 'error');
+                return;
+            }
+            
+            // Add to profile data
+            if (!profileData.skills[skillType]) {
+                profileData.skills[skillType] = [];
+            }
+            
+            if (profileData.skills[skillType].includes(skill)) {
+                showNotification('Skill already added', 'error');
+                return;
+            }
+            
+            profileData.skills[skillType].push(skill);
+            
+            // Add to UI
+            const skillTag = document.createElement('span');
+            skillTag.className = 'skill-tag';
+            skillTag.innerHTML = `
+                ${skill}
+                <button class="remove-skill" data-skill="${skill}">×</button>
+            `;
+            
+            container.appendChild(skillTag);
+            showNotification('Skill added successfully!', 'success');
+        }
+        
+        function removeSkill(skillTag, skill) {
+            skillTag.style.opacity = '0.5';
+            setTimeout(() => {
+                skillTag.remove();
+                
+                // Remove from profile data
+                Object.keys(profileData.skills).forEach(key => {
+                    const index = profileData.skills[key].indexOf(skill);
+                    if (index > -1) {
+                        profileData.skills[key].splice(index, 1);
+                    }
+                });
+                
+                showNotification('Skill removed', 'success');
+            }, 300);
+        }
+        
+        function savePreferences() {
+            // Get form data
+            const jobTypes = Array.from(document.querySelectorAll('input[name="jobType"]:checked'))
+                .map(checkbox => checkbox.value);
+            
+            const industries = Array.from(document.querySelectorAll('input[name="industry"]:checked'))
+                .map(checkbox => checkbox.value);
+            
+            const environments = Array.from(document.querySelectorAll('input[name="environment"]:checked'))
+                .map(checkbox => checkbox.value);
+            
+            const preferences = {
+                jobTypes: jobTypes,
+                locations: Array.from(preferredLocationsContainer.querySelectorAll('.skill-tag'))
+                    .map(tag => tag.textContent.replace('×', '').trim()),
+                minSalary: parseInt(document.getElementById('minSalary').value) || 0,
+                maxSalary: parseInt(document.getElementById('maxSalary').value) || 0,
+                industries: industries,
+                companySize: document.getElementById('companySize').value,
+                environments: environments
+            };
+            
+            profileData.preferences = preferences;
+            showNotification('Preferences saved successfully!', 'success');
+        }
+        
+        function resetPreferences() {
+            if (confirm('Are you sure you want to reset all preferences to default?')) {
+                // Reset to default preferences
+                profileData.preferences = {
+                    jobTypes: ['Full-time'],
+                    locations: ['Lagos, Nigeria', 'Abuja, Nigeria', 'Port Harcourt, Nigeria'],
+                    minSalary: 12000000,
+                    maxSalary: 18000000,
+                    industries: ['Hotels', 'Restaurants'],
+                    companySize: 'large',
+                    environments: ['Luxury']
+                };
+                
+                // Reload preferences
+                loadProfileData();
+                showNotification('Preferences reset to default', 'success');
+            }
+        }
+        
+        function savePrivacySettings() {
+            const privacyData = {
+                profileVisibility: document.getElementById('profileVisibility').value,
+                contactVisibility: document.getElementById('contactVisibility').value,
+                hideCurrentEmployer: document.getElementById('hideCurrentEmployer').checked,
+                emailNotifications: document.getElementById('emailNotifications').checked,
+                smsNotifications: document.getElementById('smsNotifications').checked,
+                jobRecommendations: document.getElementById('jobRecommendations').checked
+            };
+            
+            profileData.privacy = privacyData;
+            showNotification('Privacy settings saved successfully!', 'success');
+        }
+        
+        function saveAllProfileData() {
+            // Save all profile data
+            showNotification('All profile changes saved successfully!', 'success');
+            
+            // Update profile strength
+            updateProfileStrength();
+        }
+        
+        function updateProfileStrength() {
+            // Calculate profile completeness
+            let completeness = 0;
+            
+            // Check personal info (30%)
+            if (profileData.personal.firstName && profileData.personal.lastName) completeness += 15;
+            if (profileData.personal.email) completeness += 10;
+            if (profileData.personal.title) completeness += 5;
+            
+            // Check experience (30%)
+            if (profileData.experience.length > 0) completeness += 30;
+            
+            // Check skills (20%)
+            if (profileData.skills.core.length > 3) completeness += 20;
+            
+            // Check preferences (10%)
+            if (profileData.preferences.locations.length > 0) completeness += 10;
+            
+            // Check education (10%)
+            if (profileData.education.length > 0) completeness += 10;
+            
+            // Cap at 100%
+            completeness = Math.min(completeness, 100);
+            
+            // Update UI
+            document.querySelector('.stat-value').textContent = `${completeness}%`;
+            document.querySelector('.progress-percentage').textContent = `${completeness}%`;
+            document.querySelector('.progress-fill').style.width = `${completeness}%`;
+        }
+        
+        // ===== OTHER PROFILE FUNCTIONS =====
+        function previewProfile() {
+            showNotification('Profile preview functionality coming soon!', 'info');
+        }
+        
+        function downloadCV() {
+            showNotification('CV download functionality coming soon!', 'info');
+        }
+        
+        function uploadResume() {
+            showNotification('Resume upload functionality coming soon!', 'info');
+        }
+        
+        function shareProfile() {
+            if (navigator.share) {
+                navigator.share({
+                    title: `${profileData.personal.firstName} ${profileData.personal.lastName} - ${profileData.personal.title}`,
+                    text: `Check out my professional profile on Jobpitality`,
+                    url: window.location.href,
+                })
+                .then(() => showNotification('Profile shared successfully!', 'success'))
+                .catch(error => showNotification('Error sharing profile', 'error'));
+            } else {
+                // Fallback: copy link to clipboard
+                navigator.clipboard.writeText(window.location.href)
+                    .then(() => showNotification('Profile link copied to clipboard!', 'success'))
+                    .catch(() => showNotification('Failed to copy link', 'error'));
+            }
+        }
+        
+        function uploadAvatar() {
+            showNotification('Avatar upload functionality coming soon!', 'info');
+        }
+        
+        function showNotifications() {
+            showNotification('Notifications functionality coming soon!', 'info');
+        }
+        
+        function showSkillSuggestions() {
+            const suggestions = [
+                'Wine Pairing', 'Menu Engineering', 'Inventory Management', 
+                'Staff Training', 'Quality Control', 'Event Planning',
+                'Customer Service', 'Revenue Optimization', 'Supplier Management'
+            ];
+            
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Suggested Skills for Hospitality Professionals</h3>
+                        <button class="modal-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="skills-container" style="margin-bottom: var(--space-lg);">
+                            ${suggestions.map(skill => `
+                                <span class="skill-tag" style="cursor: pointer;" data-skill="${skill}">
+                                    ${skill} <i class="fas fa-plus" style="font-size: 0.8rem;"></i>
+                                </span>
+                            `).join('')}
+                        </div>
+                        <p style="color: var(--color-gray-700); font-size: 0.95rem;">
+                            Click on any skill to add it to your profile. These skills are commonly sought by hospitality employers.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" id="closeSuggestions">Close</button>
+                    </div>
+                </div>
+            `;
+            
+            addModalStyles();
+            document.body.appendChild(modal);
+            
+            // Add skill on click
+            modal.querySelectorAll('.skill-tag').forEach(tag => {
+                tag.addEventListener('click', () => {
+                    const skill = tag.getAttribute('data-skill');
+                    addSkill(skill, coreSkillsContainer, 'core');
+                    tag.style.backgroundColor = 'var(--color-success)';
+                    tag.style.color = 'var(--color-white)';
+                    setTimeout(() => {
+                        tag.style.backgroundColor = '';
+                        tag.style.color = '';
+                    }, 500);
+                });
+            });
+            
+            // Close modal
+            const closeModal = () => modal.remove();
+            modal.querySelector('.modal-close').addEventListener('click', closeModal);
+            modal.querySelector('#closeSuggestions').addEventListener('click', closeModal);
+            
+            // Close on ESC and outside click
+            const handleEscape = (e) => {
+                if (e.key === 'Escape') closeModal();
+            };
+            document.addEventListener('keydown', handleEscape);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+        }
+        
+        function searchProfileSections(searchTerm) {
+            if (!searchTerm.trim()) return;
+            
+            // Highlight search term in visible section
+            const currentSection = document.querySelector('.profile-section[style="display: block;"]');
+            if (currentSection) {
+                const text = currentSection.textContent.toLowerCase();
+                if (text.includes(searchTerm.toLowerCase())) {
+                    showNotification(`Found "${searchTerm}" in current section`, 'info');
+                } else {
+                    showNotification(`"${searchTerm}" not found in current section`, 'info');
+                }
+            }
+        }
+        
+        function exportProfileData() {
+            const dataStr = JSON.stringify(profileData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `jobpitality-profile-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showNotification('Profile data exported successfully!', 'success');
+        }
+        
+        function requestAccountDeletion() {
+            if (confirm('Are you sure you want to request account deletion? This action cannot be undone and all your data will be permanently deleted.')) {
+                showNotification('Account deletion request submitted. Our team will contact you shortly.', 'info');
+            }
+        }
+        
+        // ===== MODAL STYLES =====
+        function addModalStyles() {
+            if (!document.querySelector('#modal-styles')) {
+                const style = document.createElement('style');
+                style.id = 'modal-styles';
+                style.textContent = `
+                    .modal-overlay {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(13, 27, 42, 0.9);
+                        z-index: 10000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: var(--space-md);
+                        animation: fadeIn 0.3s ease;
+                    }
+                    .modal-content {
+                        background: var(--color-white);
+                        border-radius: var(--radius-xl);
+                        padding: var(--space-xl);
+                        max-width: 600px;
+                        width: 100%;
+                        max-height: 80vh;
+                        overflow-y: auto;
+                    }
+                    .modal-header {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-bottom: var(--space-lg);
+                    }
+                    .modal-close {
+                        background: none;
+                        border: none;
+                        color: var(--color-gray-600);
+                        font-size: 1.25rem;
+                        cursor: pointer;
+                        padding: var(--space-xs);
+                    }
+                    .modal-body {
+                        margin-bottom: var(--space-lg);
+                    }
+                    .modal-footer {
+                        display: flex;
+                        gap: var(--space-sm);
+                        justify-content: flex-end;
+                    }
+                    @keyframes fadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+        
+        // ===== DEMO FUNCTIONALITY =====
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ctrl+S to save profile
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                saveAllProfileData();
+            }
+            
+            // Ctrl+P to preview profile
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                previewProfile();
+            }
+            
+            // Ctrl+E to edit personal info
+            if (e.ctrlKey && e.key === 'e') {
+                e.preventDefault();
+                toggleFormEditMode('personalForm');
+            }
+            
+            // Escape to cancel edit mode
+            if (e.key === 'Escape') {
+                const inputs = document.querySelectorAll('#personalForm input, #personalForm textarea');
+                if (inputs[0] && !inputs[0].readOnly) {
+                    toggleFormEditMode('personalForm');
+                }
+            }
+        });
+        
+        // Log demo hints
+        console.log('Profile Page Demo Controls:');
+        console.log('• Ctrl+S to save profile');
+        console.log('• Ctrl+P to preview profile');
+        console.log('• Ctrl+E to edit personal info');
+        console.log('• Escape to cancel edit mode');
+        console.log('• Click on skills to add/remove them');
+        console.log('• Use tabs to navigate between profile sections');
+    </script>
+</body>
+</html>
