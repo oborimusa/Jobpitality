@@ -285,13 +285,42 @@
             left: 0;
             height: 100vh;
             z-index: 1000;
-            transition: width var(--transition-normal);
+            transition: all var(--transition-normal);
             overflow-y: auto;
             box-shadow: var(--shadow-xl);
+            transform: translateX(0);
         }
         
         .sidebar.collapsed {
             width: var(--sidebar-collapsed);
+        }
+        
+        /* Mobile sidebar state */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: var(--sidebar-width);
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            /* Overlay for mobile */
+            .sidebar-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .sidebar-overlay.active {
+                display: block;
+            }
         }
         
         .sidebar-header {
@@ -458,6 +487,12 @@
             margin-left: var(--sidebar-collapsed);
         }
         
+        @media (max-width: 1024px) {
+            .main-content {
+                margin-left: 0;
+            }
+        }
+        
         /* TOP BAR */
         .top-bar {
             background: var(--color-white);
@@ -491,7 +526,7 @@
         }
         
         .breadcrumb-separator {
-            color: var(--color-gray-600);
+            color: var(--color-gray-400);
         }
         
         .top-bar-actions {
@@ -1549,6 +1584,9 @@
             </div>
         </aside>
         
+        <!-- Overlay for mobile sidebar -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        
         <!-- ===== MAIN CONTENT ===== -->
         <main class="main-content">
             
@@ -1999,7 +2037,9 @@
         const sidebar = document.getElementById('sidebar');
         const sidebarToggle = document.getElementById('sidebarToggle');
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
         
+        // Desktop sidebar toggle (collapse/expand)
         sidebarToggle.addEventListener('click', () => {
             sidebar.classList.toggle('collapsed');
             const icon = sidebarToggle.querySelector('i');
@@ -2007,17 +2047,37 @@
             icon.classList.toggle('fa-chevron-right');
         });
         
+        // Mobile menu toggle (show/hide sidebar)
         mobileMenuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
+            sidebar.classList.add('active');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
         });
         
-        // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', (event) => {
-            if (window.innerWidth <= 1024 && 
-                !sidebar.contains(event.target) && 
-                !mobileMenuToggle.contains(event.target) && 
-                sidebar.classList.contains('active')) {
+        // Close sidebar when clicking overlay
+        sidebarOverlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+        
+        // Close sidebar when clicking on a link (mobile)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 1024) {
+                    sidebar.classList.remove('active');
+                    sidebarOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        
+        // Close sidebar with Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && sidebar.classList.contains('active')) {
                 sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
         
@@ -2179,6 +2239,12 @@
         // Print functionality
         document.getElementById('printApplications').addEventListener('click', () => {
             window.print();
+        });
+        
+        // Apply to New Job button
+        document.getElementById('applyNewJob').addEventListener('click', () => {
+            alert('This would redirect to the jobs page. In a real application, this would navigate to /jobs.html');
+            // window.location.href = '/jobs.html';
         });
         
         // Initialize
