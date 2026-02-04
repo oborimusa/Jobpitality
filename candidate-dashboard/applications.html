@@ -706,6 +706,13 @@
             background: none;
             border: none;
             cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background var(--transition-fast);
+        }
+        
+        .filter-reset:hover {
+            background: rgba(255, 158, 0, 0.1);
         }
         
         .filter-options {
@@ -1481,7 +1488,7 @@
         <aside class="sidebar" id="sidebar">
             <!-- Sidebar Header -->
             <div class="sidebar-header">
-                <a href="/candidate-dashboard/" class="sidebar-logo">
+                <a href="/candidate-dashboard/index.html" class="sidebar-logo">
                     <div style="width: 32px; height: 32px; background: linear-gradient(135deg, var(--color-accent), var(--color-emergency)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--color-white); font-weight: 800;">J</div>
                     <h2><span class="brand-name">Jobpitality</span></h2>
                 </a>
@@ -1497,7 +1504,7 @@
                     <h4 class="nav-section-title">Main</h4>
                     <ul class="nav-links">
                         <li class="nav-item">
-                            <a href="/candidate-dashboard/" class="nav-link">
+                            <a href="/candidate-dashboard/index.html" class="nav-link">
                                 <i class="fas fa-home"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -1604,7 +1611,7 @@
                 </button>
                 
                 <nav class="breadcrumb">
-                    <a href="/candidate-dashboard/">Dashboard</a>
+                    <a href="/candidate-dashboard/index.html">Dashboard</a>
                     <span class="breadcrumb-separator">/</span>
                     <span>My Applications</span>
                 </nav>
@@ -1692,31 +1699,31 @@
                             <div class="filter-group">
                                 <div class="filter-title">
                                     <span>Status</span>
-                                    <button class="filter-reset">Clear</button>
+                                    <button class="filter-reset" data-clear="status">Clear</button>
                                 </div>
-                                <div class="filter-options">
+                                <div class="filter-options" data-filter-group="status">
                                     <div class="filter-option">
-                                        <input type="checkbox" id="status-under-review" checked>
+                                        <input type="checkbox" id="status-under-review" data-status="under-review" checked>
                                         <label for="status-under-review">Under Review</label>
                                         <span class="filter-count">8</span>
                                     </div>
                                     <div class="filter-option">
-                                        <input type="checkbox" id="status-shortlisted">
+                                        <input type="checkbox" id="status-shortlisted" data-status="shortlisted">
                                         <label for="status-shortlisted">Shortlisted</label>
                                         <span class="filter-count">5</span>
                                     </div>
                                     <div class="filter-option">
-                                        <input type="checkbox" id="status-interview" checked>
+                                        <input type="checkbox" id="status-interview" data-status="interview" checked>
                                         <label for="status-interview">Interview</label>
                                         <span class="filter-count">3</span>
                                     </div>
                                     <div class="filter-option">
-                                        <input type="checkbox" id="status-offer">
+                                        <input type="checkbox" id="status-offer" data-status="offer">
                                         <label for="status-offer">Offer</label>
                                         <span class="filter-count">2</span>
                                     </div>
                                     <div class="filter-option">
-                                        <input type="checkbox" id="status-rejected">
+                                        <input type="checkbox" id="status-rejected" data-status="rejected">
                                         <label for="status-rejected">Rejected</label>
                                         <span class="filter-count">6</span>
                                     </div>
@@ -1727,7 +1734,7 @@
                             <div class="filter-group">
                                 <div class="filter-title">
                                     <span>Date Applied</span>
-                                    <button class="filter-reset">Clear</button>
+                                    <button class="filter-reset" data-clear="date">Clear</button>
                                 </div>
                                 <div class="date-filter">
                                     <input type="date" class="date-input" id="dateFrom" placeholder="From">
@@ -1739,21 +1746,21 @@
                             <div class="filter-group">
                                 <div class="filter-title">
                                     <span>Job Type</span>
-                                    <button class="filter-reset">Clear</button>
+                                    <button class="filter-reset" data-clear="type">Clear</button>
                                 </div>
-                                <div class="filter-options">
+                                <div class="filter-options" data-filter-group="type">
                                     <div class="filter-option">
-                                        <input type="checkbox" id="type-fulltime" checked>
+                                        <input type="checkbox" id="type-fulltime" data-type="fulltime" checked>
                                         <label for="type-fulltime">Full-time</label>
                                         <span class="filter-count">18</span>
                                     </div>
                                     <div class="filter-option">
-                                        <input type="checkbox" id="type-parttime">
+                                        <input type="checkbox" id="type-parttime" data-type="parttime">
                                         <label for="type-parttime">Part-time</label>
                                         <span class="filter-count">4</span>
                                     </div>
                                     <div class="filter-option">
-                                        <input type="checkbox" id="type-contract">
+                                        <input type="checkbox" id="type-contract" data-type="contract">
                                         <label for="type-contract">Contract</label>
                                         <span class="filter-count">2</span>
                                     </div>
@@ -1764,26 +1771,26 @@
                             <div class="filter-group">
                                 <div class="filter-title">
                                     <span>Location</span>
-                                    <button class="filter-reset">Clear</button>
+                                    <button class="filter-reset" data-clear="location">Clear</button>
                                 </div>
-                                <div class="filter-options">
+                                <div class="filter-options" data-filter-group="location">
                                     <div class="filter-option">
-                                        <input type="checkbox" id="location-remote">
+                                        <input type="checkbox" id="location-remote" data-location="remote">
                                         <label for="location-remote">Remote</label>
                                         <span class="filter-count">6</span>
                                     </div>
                                     <div class="filter-option">
-                                        <input type="checkbox" id="location-nyc" checked>
+                                        <input type="checkbox" id="location-nyc" data-location="nyc" checked>
                                         <label for="location-nyc">New York City</label>
                                         <span class="filter-count">10</span>
                                     </div>
                                     <div class="filter-option">
-                                        <input type="checkbox" id="location-la">
+                                        <input type="checkbox" id="location-la" data-location="la">
                                         <label for="location-la">Los Angeles</label>
                                         <span class="filter-count">5</span>
                                     </div>
                                     <div class="filter-option">
-                                        <input type="checkbox" id="location-chicago">
+                                        <input type="checkbox" id="location-chicago" data-location="chicago">
                                         <label for="location-chicago">Chicago</label>
                                         <span class="filter-count">3</span>
                                     </div>
@@ -1816,165 +1823,7 @@
                         
                         <!-- Applications List -->
                         <div class="applications-list" id="applicationsList">
-                            <!-- Application Card 1 -->
-                            <div class="application-card" data-status="interview">
-                                <div class="application-header">
-                                    <div class="application-info">
-                                        <h3 class="application-title">Front Desk Manager</h3>
-                                        <div class="application-company">Grand Luxury Hotels & Resorts</div>
-                                        <div class="application-meta">
-                                            <span class="meta-item">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                New York, NY
-                                            </span>
-                                            <span class="meta-item">
-                                                <i class="fas fa-clock"></i>
-                                                Applied: Nov 15, 2023
-                                            </span>
-                                            <span class="meta-item">
-                                                <i class="fas fa-briefcase"></i>
-                                                Full-time
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <span class="application-status status-interview">
-                                        <i class="fas fa-calendar-alt"></i>
-                                        Interview Scheduled
-                                    </span>
-                                </div>
-                                
-                                <p>Responsible for overseeing front desk operations, managing staff, and ensuring exceptional guest experiences at our flagship property.</p>
-                                
-                                <!-- Interview Section -->
-                                <div class="interview-section">
-                                    <h4>Upcoming Interview</h4>
-                                    <div class="interview-item">
-                                        <div class="interview-time">
-                                            <i class="fas fa-calendar"></i>
-                                            Nov 28, 2023
-                                        </div>
-                                        <div class="interview-time">
-                                            <i class="fas fa-clock"></i>
-                                            10:00 AM EST
-                                        </div>
-                                        <div class="interview-type">Video Call (Zoom)</div>
-                                        <div class="interview-actions">
-                                            <button class="btn btn-sm btn-info">
-                                                <i class="fas fa-video"></i>
-                                                Join
-                                            </button>
-                                            <button class="btn btn-sm btn-outline">
-                                                <i class="fas fa-calendar-alt"></i>
-                                                Reschedule
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="application-actions">
-                                    <button class="btn btn-sm btn-primary view-details" data-id="1">
-                                        <i class="fas fa-eye"></i>
-                                        View Details
-                                    </button>
-                                    <button class="btn btn-sm btn-outline">
-                                        <i class="fas fa-envelope"></i>
-                                        Contact
-                                    </button>
-                                    <button class="btn btn-sm btn-outline">
-                                        <i class="fas fa-times"></i>
-                                        Withdraw
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <!-- Application Card 2 -->
-                            <div class="application-card" data-status="under-review">
-                                <div class="application-header">
-                                    <div class="application-info">
-                                        <h3 class="application-title">Hotel Operations Director</h3>
-                                        <div class="application-company">Coastal Resorts International</div>
-                                        <div class="application-meta">
-                                            <span class="meta-item">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                Miami, FL
-                                            </span>
-                                            <span class="meta-item">
-                                                <i class="fas fa-clock"></i>
-                                                Applied: Nov 10, 2023
-                                            </span>
-                                            <span class="meta-item">
-                                                <i class="fas fa-briefcase"></i>
-                                                Full-time
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <span class="application-status status-under-review">
-                                        <i class="fas fa-hourglass-half"></i>
-                                        Under Review
-                                    </span>
-                                </div>
-                                
-                                <p>Oversee all operational aspects of our 500-room luxury resort, including housekeeping, maintenance, and guest services departments.</p>
-                                
-                                <div class="application-actions">
-                                    <button class="btn btn-sm btn-primary view-details" data-id="2">
-                                        <i class="fas fa-eye"></i>
-                                        View Details
-                                    </button>
-                                    <button class="btn btn-sm btn-outline">
-                                        <i class="fas fa-file-alt"></i>
-                                        Update Resume
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <!-- Application Card 3 -->
-                            <div class="application-card" data-status="offer">
-                                <div class="application-header">
-                                    <div class="application-info">
-                                        <h3 class="application-title">Restaurant General Manager</h3>
-                                        <div class="application-company">Urban Dining Group</div>
-                                        <div class="application-meta">
-                                            <span class="meta-item">
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                Chicago, IL
-                                            </span>
-                                            <span class="meta-item">
-                                                <i class="fas fa-clock"></i>
-                                                Applied: Nov 5, 2023
-                                            </span>
-                                            <span class="meta-item">
-                                                <i class="fas fa-briefcase"></i>
-                                                Full-time
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <span class="application-status status-offer">
-                                        <i class="fas fa-award"></i>
-                                        Offer Received
-                                    </span>
-                                </div>
-                                
-                                <p>Lead our flagship fine-dining restaurant with 120 seats, managing all aspects of operations, staffing, and guest satisfaction.</p>
-                                
-                                <div class="application-actions">
-                                    <button class="btn btn-sm btn-success">
-                                        <i class="fas fa-check"></i>
-                                        Accept Offer
-                                    </button>
-                                    <button class="btn btn-sm btn-outline">
-                                        <i class="fas fa-comments"></i>
-                                        Negotiate
-                                    </button>
-                                    <button class="btn btn-sm btn-outline view-details" data-id="3">
-                                        <i class="fas fa-eye"></i>
-                                        View Details
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <!-- More application cards would continue here -->
-                            
+                            <!-- Application cards will be dynamically inserted here -->
                         </div>
                         
                         <!-- Empty State (Hidden by default) -->
@@ -1984,7 +1833,7 @@
                             </div>
                             <h3>No Applications Found</h3>
                             <p class="lead">Try adjusting your filters or search terms to find what you're looking for.</p>
-                            <button class="btn btn-primary" id="clearFilters">
+                            <button class="btn btn-primary" id="clearAllFilters">
                                 <i class="fas fa-filter"></i>
                                 Clear All Filters
                             </button>
@@ -2040,236 +1889,580 @@
     
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // Sidebar Toggle
+        // Application Data Structure
+        const applicationsData = [
+            {
+                id: 1,
+                title: "Front Desk Manager",
+                company: "Grand Luxury Hotels & Resorts",
+                location: "New York, NY",
+                appliedDate: "2023-11-15",
+                jobType: "fulltime",
+                status: "interview",
+                description: "Responsible for overseeing front desk operations, managing staff, and ensuring exceptional guest experiences at our flagship property.",
+                salary: "$65,000 - $75,000",
+                interview: {
+                    date: "2023-11-28",
+                    time: "10:00 AM EST",
+                    type: "Video Call (Zoom)"
+                },
+                timeline: [
+                    {
+                        date: "Nov 15, 2023",
+                        title: "Application Submitted",
+                        description: "Your application was successfully submitted.",
+                        status: "completed"
+                    },
+                    {
+                        date: "Nov 18, 2023",
+                        title: "Application Reviewed",
+                        description: "Your application has been reviewed by the hiring team.",
+                        status: "completed"
+                    },
+                    {
+                        date: "Nov 28, 2023",
+                        title: "Interview Scheduled",
+                        description: "Video interview scheduled for 10:00 AM EST.",
+                        status: "upcoming"
+                    },
+                    {
+                        date: "TBD",
+                        title: "Final Decision",
+                        description: "Awaiting interview results.",
+                        status: "pending"
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: "Hotel Operations Director",
+                company: "Coastal Resorts International",
+                location: "Miami, FL",
+                appliedDate: "2023-11-10",
+                jobType: "fulltime",
+                status: "under-review",
+                description: "Oversee all operational aspects of our 500-room luxury resort, including housekeeping, maintenance, and guest services departments.",
+                salary: "$85,000 - $100,000"
+            },
+            {
+                id: 3,
+                title: "Restaurant General Manager",
+                company: "Urban Dining Group",
+                location: "Chicago, IL",
+                appliedDate: "2023-11-05",
+                jobType: "fulltime",
+                status: "offer",
+                description: "Lead our flagship fine-dining restaurant with 120 seats, managing all aspects of operations, staffing, and guest satisfaction.",
+                salary: "$70,000 - $85,000"
+            },
+            {
+                id: 4,
+                title: "Event Coordinator",
+                company: "Prestige Events & Conferences",
+                location: "Remote",
+                appliedDate: "2023-10-28",
+                jobType: "fulltime",
+                status: "shortlisted",
+                description: "Plan and execute corporate events and conferences for high-profile clients.",
+                salary: "$55,000 - $65,000"
+            },
+            {
+                id: 5,
+                title: "Housekeeping Supervisor",
+                company: "Metropolitan Hotel Group",
+                location: "Los Angeles, CA",
+                appliedDate: "2023-10-20",
+                jobType: "fulltime",
+                status: "rejected",
+                description: "Manage housekeeping staff and ensure highest standards of cleanliness.",
+                salary: "$45,000 - $55,000"
+            },
+            {
+                id: 6,
+                title: "Guest Services Agent",
+                company: "Boutique Hotel Collection",
+                location: "New York, NY",
+                appliedDate: "2023-10-15",
+                jobType: "parttime",
+                status: "under-review",
+                description: "Provide exceptional guest service and handle check-in/check-out processes.",
+                salary: "$25/hour"
+            },
+            {
+                id: 7,
+                title: "Catering Manager",
+                company: "Culinary Excellence Inc.",
+                location: "Chicago, IL",
+                appliedDate: "2023-10-10",
+                jobType: "contract",
+                status: "interview",
+                description: "Manage catering operations for corporate and social events.",
+                salary: "$60,000 - $75,000"
+            },
+            {
+                id: 8,
+                title: "Spa Director",
+                company: "Wellness Retreats International",
+                location: "Miami, FL",
+                appliedDate: "2023-10-05",
+                jobType: "fulltime",
+                status: "under-review",
+                description: "Oversee spa operations and wellness programs at luxury resort.",
+                salary: "$75,000 - $90,000"
+            }
+        ];
+
+        // DOM Elements
         const sidebar = document.getElementById('sidebar');
         const sidebarToggle = document.getElementById('sidebarToggle');
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const sidebarOverlay = document.getElementById('sidebarOverlay');
-        
-        // Desktop sidebar toggle (collapse/expand)
-        sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('collapsed');
-            const icon = sidebarToggle.querySelector('i');
-            icon.classList.toggle('fa-chevron-left');
-            icon.classList.toggle('fa-chevron-right');
-        });
-        
-        // Mobile menu toggle (show/hide sidebar)
-        mobileMenuToggle.addEventListener('click', () => {
-            sidebar.classList.add('active');
-            sidebarOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
-        
-        // Close sidebar when clicking overlay
-        sidebarOverlay.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
-        });
-        
-        // Close sidebar when clicking on a link (mobile)
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 1024) {
+        const applicationsList = document.getElementById('applicationsList');
+        const emptyState = document.getElementById('emptyState');
+        const resultsCount = document.getElementById('resultsCount');
+        const searchInput = document.getElementById('searchApplications');
+        const sortSelect = document.getElementById('sortApplications');
+        const clearAllFiltersBtn = document.getElementById('clearAllFilters');
+        const filterResetButtons = document.querySelectorAll('.filter-reset');
+        const filterCheckboxes = document.querySelectorAll('.filter-options input[type="checkbox"]');
+        const applicationModal = document.getElementById('applicationModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalCancel = document.getElementById('modalCancel');
+
+        // Sidebar Toggle Functionality
+        function setupSidebar() {
+            // Desktop sidebar toggle
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('collapsed');
+                const icon = sidebarToggle.querySelector('i');
+                icon.classList.toggle('fa-chevron-left');
+                icon.classList.toggle('fa-chevron-right');
+            });
+
+            // Mobile menu toggle
+            mobileMenuToggle.addEventListener('click', () => {
+                sidebar.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Close sidebar when clicking overlay
+            sidebarOverlay.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            // Close sidebar when clicking on a link (mobile)
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 1024) {
+                        sidebar.classList.remove('active');
+                        sidebarOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+
+            // Close sidebar with Escape key
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && sidebar.classList.contains('active')) {
                     sidebar.classList.remove('active');
                     sidebarOverlay.classList.remove('active');
                     document.body.style.overflow = '';
                 }
             });
-        });
-        
-        // Close sidebar with Escape key
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && sidebar.classList.contains('active')) {
-                sidebar.classList.remove('active');
-                sidebarOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-        
-        // Application Filtering
-        const filterCheckboxes = document.querySelectorAll('.filter-options input[type="checkbox"]');
-        const searchInput = document.getElementById('searchApplications');
-        const sortSelect = document.getElementById('sortApplications');
-        const clearFiltersBtn = document.getElementById('clearFilters');
-        const resultsCount = document.getElementById('resultsCount');
-        const applicationsList = document.getElementById('applicationsList');
-        const emptyState = document.getElementById('emptyState');
-        
-        let applications = [
-            // This would be populated from a real API
-            // For demo, we're using the static HTML cards
-        ];
-        
-        function updateApplications() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const sortValue = sortSelect.value;
-            const statusFilters = Array.from(document.querySelectorAll('.filter-options input[type="checkbox"]:checked'))
-                .map(cb => cb.id.replace('status-', '').replace('type-', '').replace('location-', ''));
-            
-            // Get all application cards
-            const cards = document.querySelectorAll('.application-card');
-            let visibleCount = 0;
-            
-            cards.forEach(card => {
-                const status = card.getAttribute('data-status');
-                const text = card.textContent.toLowerCase();
-                const matchesSearch = !searchTerm || text.includes(searchTerm);
-                const matchesStatus = statusFilters.length === 0 || statusFilters.some(filter => 
-                    card.querySelector(`[for*="${filter}"]`) || 
-                    card.getAttribute('data-status')?.includes(filter) ||
-                    card.querySelector('.application-meta')?.textContent.toLowerCase().includes(filter)
-                );
-                
-                if (matchesSearch && matchesStatus) {
-                    card.style.display = 'block';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            
-            // Update results count
-            resultsCount.textContent = `Showing ${visibleCount} of ${cards.length} applications`;
-            
-            // Show/hide empty state
-            if (visibleCount === 0) {
-                emptyState.classList.remove('hidden');
-                applicationsList.classList.add('hidden');
-            } else {
-                emptyState.classList.add('hidden');
-                applicationsList.classList.remove('hidden');
-            }
-            
-            // Sort applications
-            const cardsArray = Array.from(cards);
-            cardsArray.sort((a, b) => {
-                if (sortValue === 'newest') {
-                    const dateA = new Date(a.querySelector('.meta-item:nth-child(2)')?.textContent.replace('Applied: ', '') || 0);
-                    const dateB = new Date(b.querySelector('.meta-item:nth-child(2)')?.textContent.replace('Applied: ', '') || 0);
-                    return dateB - dateA;
-                } else if (sortValue === 'oldest') {
-                    const dateA = new Date(a.querySelector('.meta-item:nth-child(2)')?.textContent.replace('Applied: ', '') || 0);
-                    const dateB = new Date(b.querySelector('.meta-item:nth-child(2)')?.textContent.replace('Applied: ', '') || 0);
-                    return dateA - dateB;
-                } else if (sortValue === 'status') {
-                    const statusOrder = ['offer', 'interview', 'shortlisted', 'under-review', 'rejected'];
-                    const statusA = a.getAttribute('data-status') || '';
-                    const statusB = b.getAttribute('data-status') || '';
-                    return statusOrder.indexOf(statusA) - statusOrder.indexOf(statusB);
-                }
-                return 0;
-            });
-            
-            // Reorder DOM
-            cardsArray.forEach(card => {
-                applicationsList.appendChild(card);
-            });
         }
-        
-        // Event listeners for filtering
-        filterCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', updateApplications);
-        });
-        
-        searchInput.addEventListener('input', updateApplications);
-        sortSelect.addEventListener('change', updateApplications);
-        
-        clearFiltersBtn.addEventListener('click', () => {
-            filterCheckboxes.forEach(checkbox => checkbox.checked = false);
-            searchInput.value = '';
-            updateApplications();
-        });
-        
-        // View Application Details Modal
-        const viewButtons = document.querySelectorAll('.view-details');
-        const applicationModal = document.getElementById('applicationModal');
-        const modalClose = document.getElementById('modalClose');
-        const modalCancel = document.getElementById('modalCancel');
-        
-        viewButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const applicationId = button.getAttribute('data-id');
-                // In a real application, you would fetch the details from an API
-                // For demo, we'll show some static content
-                const modalBody = document.querySelector('.modal-body');
-                modalBody.innerHTML = `
-                    <h3>Front Desk Manager Application</h3>
-                    <p><strong>Company:</strong> Grand Luxury Hotels & Resorts</p>
-                    <p><strong>Status:</strong> Interview Scheduled</p>
-                    <p><strong>Applied:</strong> November 15, 2023</p>
-                    
-                    <div class="timeline">
-                        <div class="timeline-item completed">
-                            <div class="timeline-date">Nov 15, 2023</div>
-                            <div class="timeline-title">Application Submitted</div>
-                            <div class="timeline-description">Your application was successfully submitted.</div>
-                        </div>
-                        <div class="timeline-item completed">
-                            <div class="timeline-date">Nov 18, 2023</div>
-                            <div class="timeline-title">Application Reviewed</div>
-                            <div class="timeline-description">Your application has been reviewed by the hiring team.</div>
-                        </div>
-                        <div class="timeline-item upcoming">
-                            <div class="timeline-date">Nov 28, 2023</div>
-                            <div class="timeline-title">Interview Scheduled</div>
-                            <div class="timeline-description">Video interview scheduled for 10:00 AM EST.</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">TBD</div>
-                            <div class="timeline-title">Final Decision</div>
-                            <div class="timeline-description">Awaiting interview results.</div>
+
+        // Application Card Template
+        function createApplicationCard(application) {
+            const statusClasses = {
+                'under-review': 'status-under-review',
+                'shortlisted': 'status-shortlisted',
+                'interview': 'status-interview',
+                'offer': 'status-offer',
+                'rejected': 'status-rejected',
+                'accepted': 'status-accepted'
+            };
+
+            const statusText = {
+                'under-review': 'Under Review',
+                'shortlisted': 'Shortlisted',
+                'interview': 'Interview Scheduled',
+                'offer': 'Offer Received',
+                'rejected': 'Rejected',
+                'accepted': 'Accepted'
+            };
+
+            const statusIcon = {
+                'under-review': 'fas fa-hourglass-half',
+                'shortlisted': 'fas fa-star',
+                'interview': 'fas fa-calendar-alt',
+                'offer': 'fas fa-award',
+                'rejected': 'fas fa-times',
+                'accepted': 'fas fa-check'
+            };
+
+            const formatDate = (dateStr) => {
+                const date = new Date(dateStr);
+                return date.toLocaleDateString('en-US', { 
+                    month: 'short', 
+                    day: 'numeric', 
+                    year: 'numeric' 
+                });
+            };
+
+            // Build interview section if exists
+            let interviewSection = '';
+            if (application.interview) {
+                interviewSection = `
+                    <div class="interview-section">
+                        <h4>Upcoming Interview</h4>
+                        <div class="interview-item">
+                            <div class="interview-time">
+                                <i class="fas fa-calendar"></i>
+                                ${formatDate(application.interview.date)}
+                            </div>
+                            <div class="interview-time">
+                                <i class="fas fa-clock"></i>
+                                ${application.interview.time}
+                            </div>
+                            <div class="interview-type">${application.interview.type}</div>
+                            <div class="interview-actions">
+                                <button class="btn btn-sm btn-info">
+                                    <i class="fas fa-video"></i>
+                                    Join
+                                </button>
+                                <button class="btn btn-sm btn-outline">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Reschedule
+                                </button>
+                            </div>
                         </div>
                     </div>
                 `;
-                applicationModal.classList.remove('hidden');
-            });
-        });
-        
-        // Close modal
-        modalClose.addEventListener('click', () => {
-            applicationModal.classList.add('hidden');
-        });
-        
-        modalCancel.addEventListener('click', () => {
-            applicationModal.classList.add('hidden');
-        });
-        
-        // Close modal when clicking outside
-        applicationModal.addEventListener('click', (event) => {
-            if (event.target === applicationModal) {
-                applicationModal.classList.add('hidden');
             }
-        });
-        
-        // Print functionality
-        document.getElementById('printApplications').addEventListener('click', () => {
-            window.print();
-        });
-        
-        // Apply to New Job button
-        document.getElementById('applyNewJob').addEventListener('click', () => {
-            alert('This would redirect to the jobs page. In a real application, this would navigate to /jobs.html');
-            // window.location.href = '/jobs.html';
-        });
-        
-        // Initialize
-        updateApplications();
-        
-        // Dark mode detection
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.body.classList.add('dark-mode');
-        }
-        
-        // Listen for dark mode changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-            if (e.matches) {
-                document.body.classList.add('dark-mode');
+
+            // Build action buttons based on status
+            let actionButtons = '';
+            if (application.status === 'offer') {
+                actionButtons = `
+                    <button class="btn btn-sm btn-success">
+                        <i class="fas fa-check"></i>
+                        Accept Offer
+                    </button>
+                    <button class="btn btn-sm btn-outline">
+                        <i class="fas fa-comments"></i>
+                        Negotiate
+                    </button>
+                    <button class="btn btn-sm btn-outline view-details" data-id="${application.id}">
+                        <i class="fas fa-eye"></i>
+                        View Details
+                    </button>
+                `;
             } else {
-                document.body.classList.remove('dark-mode');
+                actionButtons = `
+                    <button class="btn btn-sm btn-primary view-details" data-id="${application.id}">
+                        <i class="fas fa-eye"></i>
+                        View Details
+                    </button>
+                    <button class="btn btn-sm btn-outline">
+                        <i class="fas fa-envelope"></i>
+                        Contact
+                    </button>
+                    <button class="btn btn-sm btn-outline">
+                        <i class="fas fa-times"></i>
+                        Withdraw
+                    </button>
+                `;
             }
-        });
+
+            return `
+                <div class="application-card" 
+                     data-id="${application.id}"
+                     data-status="${application.status}"
+                     data-type="${application.jobType}"
+                     data-location="${application.location.toLowerCase().includes('remote') ? 'remote' : 
+                                   application.location.toLowerCase().includes('new york') ? 'nyc' : 
+                                   application.location.toLowerCase().includes('los angeles') ? 'la' : 
+                                   application.location.toLowerCase().includes('chicago') ? 'chicago' : ''}"
+                     data-date="${application.appliedDate}">
+                    <div class="application-header">
+                        <div class="application-info">
+                            <h3 class="application-title">${application.title}</h3>
+                            <div class="application-company">${application.company}</div>
+                            <div class="application-meta">
+                                <span class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    ${application.location}
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    Applied: ${formatDate(application.appliedDate)}
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-briefcase"></i>
+                                    ${application.jobType.charAt(0).toUpperCase() + application.jobType.slice(1)}
+                                </span>
+                            </div>
+                        </div>
+                        <span class="application-status ${statusClasses[application.status]}">
+                            <i class="${statusIcon[application.status]}"></i>
+                            ${statusText[application.status]}
+                        </span>
+                    </div>
+                    
+                    <p>${application.description}</p>
+                    
+                    ${interviewSection}
+                    
+                    <div class="application-actions">
+                        ${actionButtons}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render Applications
+        function renderApplications(applications = applicationsData) {
+            if (applications.length === 0) {
+                applicationsList.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                applicationsList.classList.add('hidden');
+                resultsCount.textContent = 'Showing 0 applications';
+                return;
+            }
+
+            applicationsList.innerHTML = applications.map(app => createApplicationCard(app)).join('');
+            emptyState.classList.add('hidden');
+            applicationsList.classList.remove('hidden');
+            resultsCount.textContent = `Showing ${applications.length} of ${applicationsData.length} applications`;
+            
+            // Reattach event listeners to view buttons
+            attachViewButtonListeners();
+        }
+
+        // Filter Applications
+        function filterApplications() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const statusFilters = Array.from(document.querySelectorAll('[data-filter-group="status"] input:checked'))
+                .map(cb => cb.getAttribute('data-status'));
+            const typeFilters = Array.from(document.querySelectorAll('[data-filter-group="type"] input:checked'))
+                .map(cb => cb.getAttribute('data-type'));
+            const locationFilters = Array.from(document.querySelectorAll('[data-filter-group="location"] input:checked'))
+                .map(cb => cb.getAttribute('data-location'));
+            const dateFrom = document.getElementById('dateFrom').value;
+            const dateTo = document.getElementById('dateTo').value;
+
+            const filtered = applicationsData.filter(app => {
+                // Search filter
+                const matchesSearch = !searchTerm || 
+                    app.title.toLowerCase().includes(searchTerm) ||
+                    app.company.toLowerCase().includes(searchTerm) ||
+                    app.description.toLowerCase().includes(searchTerm);
+
+                // Status filter
+                const matchesStatus = statusFilters.length === 0 || statusFilters.includes(app.status);
+
+                // Type filter
+                const matchesType = typeFilters.length === 0 || typeFilters.includes(app.jobType);
+
+                // Location filter
+                const location = app.location.toLowerCase().includes('remote') ? 'remote' : 
+                               app.location.toLowerCase().includes('new york') ? 'nyc' : 
+                               app.location.toLowerCase().includes('los angeles') ? 'la' : 
+                               app.location.toLowerCase().includes('chicago') ? 'chicago' : '';
+                const matchesLocation = locationFilters.length === 0 || locationFilters.includes(location);
+
+                // Date filter
+                const appliedDate = new Date(app.appliedDate);
+                const matchesDateFrom = !dateFrom || appliedDate >= new Date(dateFrom);
+                const matchesDateTo = !dateTo || appliedDate <= new Date(dateTo);
+
+                return matchesSearch && matchesStatus && matchesType && matchesLocation && matchesDateFrom && matchesDateTo;
+            });
+
+            // Sort applications
+            const sortValue = sortSelect.value;
+            filtered.sort((a, b) => {
+                if (sortValue === 'newest') {
+                    return new Date(b.appliedDate) - new Date(a.appliedDate);
+                } else if (sortValue === 'oldest') {
+                    return new Date(a.appliedDate) - new Date(b.appliedDate);
+                } else if (sortValue === 'status') {
+                    const statusOrder = ['offer', 'interview', 'shortlisted', 'under-review', 'rejected'];
+                    return statusOrder.indexOf(a.status) - statusOrder.indexOf(b.status);
+                } else if (sortValue === 'company') {
+                    return a.company.localeCompare(b.company);
+                }
+                return 0;
+            });
+
+            renderApplications(filtered);
+        }
+
+        // Clear Filter Functions
+        function setupFilterControls() {
+            // Clear individual filter groups
+            filterResetButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const filterGroup = button.getAttribute('data-clear');
+                    document.querySelectorAll(`[data-filter-group="${filterGroup}"] input`).forEach(input => {
+                        input.checked = false;
+                    });
+                    if (filterGroup === 'date') {
+                        document.getElementById('dateFrom').value = '';
+                        document.getElementById('dateTo').value = '';
+                    }
+                    filterApplications();
+                });
+            });
+
+            // Clear all filters
+            clearAllFiltersBtn.addEventListener('click', () => {
+                filterCheckboxes.forEach(checkbox => checkbox.checked = false);
+                document.getElementById('dateFrom').value = '';
+                document.getElementById('dateTo').value = '';
+                searchInput.value = '';
+                sortSelect.value = 'newest';
+                filterApplications();
+            });
+
+            // Filter checkboxes
+            filterCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', filterApplications);
+            });
+
+            // Date inputs
+            document.getElementById('dateFrom').addEventListener('change', filterApplications);
+            document.getElementById('dateTo').addEventListener('change', filterApplications);
+
+            // Search input
+            searchInput.addEventListener('input', filterApplications);
+
+            // Sort select
+            sortSelect.addEventListener('change', filterApplications);
+        }
+
+        // Modal Functions
+        function setupModal() {
+            // Attach event listeners to view buttons
+            function attachViewButtonListeners() {
+                document.querySelectorAll('.view-details').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const applicationId = parseInt(e.target.closest('.view-details').getAttribute('data-id'));
+                        const application = applicationsData.find(app => app.id === applicationId);
+                        if (application) {
+                            showApplicationModal(application);
+                        }
+                    });
+                });
+            }
+
+            // Show application modal
+            function showApplicationModal(application) {
+                const modalBody = document.querySelector('.modal-body');
+                
+                // Build timeline HTML if exists
+                let timelineHTML = '';
+                if (application.timeline) {
+                    timelineHTML = `
+                        <div class="timeline">
+                            ${application.timeline.map(item => `
+                                <div class="timeline-item ${item.status}">
+                                    <div class="timeline-date">${item.date}</div>
+                                    <div class="timeline-title">${item.title}</div>
+                                    <div class="timeline-description">${item.description}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+
+                modalBody.innerHTML = `
+                    <h3>${application.title}</h3>
+                    <p><strong>Company:</strong> ${application.company}</p>
+                    <p><strong>Location:</strong> ${application.location}</p>
+                    <p><strong>Salary:</strong> ${application.salary}</p>
+                    <p><strong>Applied:</strong> ${new Date(application.appliedDate).toLocaleDateString('en-US', { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    })}</p>
+                    <p><strong>Description:</strong> ${application.description}</p>
+                    ${timelineHTML}
+                `;
+                
+                applicationModal.classList.remove('hidden');
+            }
+
+            // Close modal
+            modalClose.addEventListener('click', () => {
+                applicationModal.classList.add('hidden');
+            });
+
+            modalCancel.addEventListener('click', () => {
+                applicationModal.classList.add('hidden');
+            });
+
+            // Close modal when clicking outside
+            applicationModal.addEventListener('click', (event) => {
+                if (event.target === applicationModal) {
+                    applicationModal.classList.add('hidden');
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !applicationModal.classList.contains('hidden')) {
+                    applicationModal.classList.add('hidden');
+                }
+            });
+
+            return { attachViewButtonListeners };
+        }
+
+        // Other Button Functions
+        function setupOtherButtons() {
+            // Print functionality
+            document.getElementById('printApplications').addEventListener('click', () => {
+                window.print();
+            });
+
+            // Apply to New Job button
+            document.getElementById('applyNewJob').addEventListener('click', () => {
+                window.location.href = '/jobs.html';
+            });
+
+            // Export functionality
+            document.getElementById('exportApplications').addEventListener('click', () => {
+                // In a real application, this would generate a CSV or PDF
+                alert('Export functionality would be implemented here. This would generate a CSV file of your applications.');
+            });
+
+            // Notification button
+            document.getElementById('notificationBtn').addEventListener('click', () => {
+                alert('Notifications panel would open here.');
+            });
+        }
+
+        // Initialize Application
+        function init() {
+            setupSidebar();
+            renderApplications();
+            setupFilterControls();
+            const { attachViewButtonListeners } = setupModal();
+            window.attachViewButtonListeners = attachViewButtonListeners; // Make available globally
+            setupOtherButtons();
+            
+            // Initial filter update
+            filterApplications();
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
