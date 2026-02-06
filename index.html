@@ -409,7 +409,7 @@
         .nav-cta {
             background: var(--color-primary);
             color: var(--color-white) !important;
-            padding: 0.75rem 1.75rem !important;
+            padding: 0.5rem .75rem !important;
             border-radius: var(--radius-lg);
             font-weight: 700 !important;
             transition: all var(--transition-fast);
@@ -474,6 +474,29 @@
             font-size: 1.1rem;
         }
         
+
+        /* Add to your stylesheet */
+.fa-brands:before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background: var(--color-accent);
+    border-radius: 2px;
+}
+
+.fa-brands.fa-google:before {
+    background: #4285F4;
+}
+
+.fa-brands.fa-linkedin:before {
+    background: #0077B5;
+}
+
+.fas:before {
+    content: "•";
+    color: var(--color-accent);
+}
         /* ===== HERO SECTION ===== */
         .hero {
             padding: var(--space-3xl) var(--space-md);
@@ -1678,18 +1701,44 @@
                                 </a>
                             </div>
                         </li>
+
+                         <li class="nav-item dropdown">
+                            <a href="/candidates/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-user-tie"></i> Our Team
+                                <!-- <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i> -->
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/about/index.html" class="dropdown-item">
+                                    <i class="fas fa-briefcase"></i> About
+                                </a>
+    
+                               </div>
+                        </li>
+
+                                   <li class="nav-item dropdown">
+                            <a href="/candidates/" class="nav-link dropdown-toggle">
+                                <i class="fas fa-user-tie"></i> Reach Out
+                                <!-- <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i> -->
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/contact/index.html" class="dropdown-item">
+                                <i class="fas fa-info-circle"></i> Contact
+                                </a>
+    
+                               </div>
+                        </li>
                         
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="/about/" class="nav-link">
                                 <i class="fas fa-info-circle"></i> About
                             </a>
-                        </li>
+                        </li> -->
                         
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="/contact/" class="nav-link">
                                 <i class="fas fa-info-circle"></i> Contact
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                     
                     <div class="nav-cta-group">
@@ -2135,8 +2184,7 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
-    <!-- JAVASCRIPT -->
+     <!-- JAVASCRIPT -->
     <script>
         // Mobile Navigation Toggle
         document.addEventListener('DOMContentLoaded', function() {
