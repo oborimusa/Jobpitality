@@ -428,6 +428,12 @@
             align-items: end;
         }
         
+        @media (max-width: 1024px) {
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         .form-group {
             display: flex;
             flex-direction: column;
@@ -464,6 +470,12 @@
             background: var(--color-white);
             cursor: pointer;
             transition: all var(--transition-fast);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23778da9' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 16px;
+            padding-right: 3rem;
         }
         
         .form-select:focus {
@@ -593,6 +605,11 @@
             border: none;
             cursor: pointer;
             font-weight: 600;
+            padding: 0;
+        }
+        
+        .filter-reset:hover {
+            color: var(--color-accent-dark);
         }
         
         .filter-options {
@@ -609,10 +626,18 @@
             cursor: pointer;
         }
         
-        .filter-option input {
+        .filter-option input[type="checkbox"] {
             width: 18px;
             height: 18px;
             accent-color: var(--color-accent);
+            cursor: pointer;
+        }
+        
+        .filter-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--color-accent);
+            cursor: pointer;
         }
         
         .filter-option label {
@@ -682,6 +707,14 @@
             margin-bottom: var(--space-xl);
         }
         
+        @media (max-width: 768px) {
+            .jobs-content-header {
+                flex-direction: column;
+                gap: var(--space-md);
+                align-items: flex-start;
+            }
+        }
+        
         .results-count {
             font-size: 1.1rem;
             color: var(--color-gray-700);
@@ -716,9 +749,16 @@
             border: 1px solid var(--color-gray-200);
             transition: all var(--transition-normal);
             display: grid;
-            grid-template-columns: 80px 1fr auto;
+            grid-template-columns: auto 1fr auto;
             gap: var(--space-lg);
             align-items: start;
+        }
+        
+        @media (max-width: 768px) {
+            .job-card {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
         }
         
         .job-card:hover {
@@ -754,6 +794,14 @@
             justify-content: center;
             overflow: hidden;
             border: 1px solid var(--color-gray-200);
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .company-logo {
+                width: 60px;
+                height: 60px;
+            }
         }
         
         .company-logo img {
@@ -770,6 +818,7 @@
         
         .job-info {
             flex: 1;
+            min-width: 0; /* Prevents overflow */
         }
         
         .job-title {
@@ -779,6 +828,7 @@
             margin-bottom: var(--space-xs);
             text-decoration: none;
             display: block;
+            word-wrap: break-word;
         }
         
         .job-title:hover {
@@ -798,6 +848,13 @@
             flex-wrap: wrap;
         }
         
+        @media (max-width: 480px) {
+            .job-meta {
+                flex-direction: column;
+                gap: var(--space-xs);
+            }
+        }
+        
         .meta-item {
             display: flex;
             align-items: center;
@@ -808,6 +865,7 @@
         
         .meta-item i {
             color: var(--color-accent);
+            min-width: 16px;
         }
         
         .job-description {
@@ -817,6 +875,7 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            word-wrap: break-word;
         }
         
         .job-tags {
@@ -832,6 +891,7 @@
             border-radius: var(--radius-lg);
             font-size: 0.85rem;
             font-weight: 500;
+            white-space: nowrap;
         }
         
         .tag.highlight {
@@ -846,6 +906,14 @@
             min-width: 140px;
         }
         
+        @media (max-width: 768px) {
+            .job-actions {
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+        
         .save-job {
             background: none;
             border: 1px solid var(--color-gray-300);
@@ -854,6 +922,10 @@
             color: var(--color-gray-600);
             cursor: pointer;
             transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
         }
         
         .save-job:hover {
@@ -877,6 +949,12 @@
             border-top: 1px solid var(--color-gray-200);
         }
         
+        @media (max-width: 480px) {
+            .pagination {
+                flex-wrap: wrap;
+            }
+        }
+        
         .page-btn {
             width: 44px;
             height: 44px;
@@ -892,7 +970,7 @@
             font-weight: 600;
         }
         
-        .page-btn:hover {
+        .page-btn:hover:not(.disabled) {
             border-color: var(--color-accent);
             color: var(--color-accent);
         }
@@ -983,6 +1061,18 @@
             gap: var(--space-xl);
         }
         
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         .footer-col h3 {
             color: var(--color-white);
             font-size: 1.25rem;
@@ -1040,14 +1130,6 @@
         
         /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 1024px) {
-            .search-form {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .main-nav {
                 position: fixed;
                 top: var(--header-height);
@@ -1090,25 +1172,6 @@
                 padding: var(--space-2xl) 0;
             }
             
-            .job-card {
-                grid-template-columns: 1fr;
-                gap: var(--space-md);
-            }
-            
-            .company-logo {
-                width: 60px;
-                height: 60px;
-            }
-            
-            .job-meta {
-                gap: var(--space-md);
-            }
-            
-            .job-actions {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-            
             .categories-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1129,15 +1192,6 @@
             
             .categories-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .job-meta {
-                flex-direction: column;
-                gap: var(--space-xs);
             }
             
             .pagination {
@@ -1232,6 +1286,10 @@
             padding: var(--space-xs);
         }
         
+        .modal-close:hover {
+            color: var(--color-emergency);
+        }
+        
         .modal-body {
             margin-bottom: var(--space-lg);
         }
@@ -1247,58 +1305,78 @@
             to { opacity: 1; }
         }
         
-        /* ===== DARK MODE ===== */
-        @media (prefers-color-scheme: dark) {
-            body:not(.light-mode) {
-                --color-primary: #0f172a;
-                --color-primary-dark: #020617;
-                --color-dark: #f8fafc;
-                --color-gray-900: #e2e8f0;
-                --color-gray-800: #cbd5e1;
-                --color-gray-700: #94a3b8;
-                --color-gray-600: #64748b;
-                --color-gray-300: #334155;
-                --color-gray-200: #1e293b;
-                --color-gray-100: #0f172a;
-                --color-white: #1e293b;
-                background: var(--color-primary);
-                color: var(--color-gray-900);
-            }
-            
-            body:not(.light-mode) .site-header,
-            body:not(.light-mode) .categories-section,
-            body:not(.light-mode) .jobs-sidebar,
-            body:not(.light-mode) .job-card,
-            body:not(.light-mode) .employer-card,
-            body:not(.light-mode) .empty-state {
-                background: var(--color-white);
-                border-color: var(--color-gray-200);
-            }
-            
-            body:not(.light-mode) .category-card {
-                background: var(--color-primary);
-            }
-            
-            body:not(.light-mode) .employers-section {
-                background: var(--color-primary);
-            }
-            
-            body:not(.light-mode) .search-container {
-                background: var(--color-primary);
-            }
-            
-            body:not(.light-mode) .form-input,
-            body:not(.light-mode) .form-select,
-            body:not(.light-mode) .sort-select {
-                background: var(--color-primary);
-                border-color: var(--color-gray-300);
-                color: var(--color-gray-900);
-            }
-            
-            body:not(.light-mode) .modal-content {
-                background: var(--color-primary);
-                color: var(--color-gray-900);
-            }
+        /* ===== LOADING STATES ===== */
+        .loading {
+            position: relative;
+            pointer-events: none;
+        }
+        
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-accent);
+        }
+        
+        /* ===== TOAST NOTIFICATION ===== */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md) var(--space-lg);
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all var(--transition-normal);
+            z-index: 10001;
+            max-width: 400px;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .toast.success {
+            border-left: 4px solid var(--color-success);
+        }
+        
+        .toast.error {
+            border-left: 4px solid var(--color-emergency);
+        }
+        
+        .toast.info {
+            border-left: 4px solid var(--color-info);
+        }
+        
+        .toast-icon {
+            font-size: 1.25rem;
+        }
+        
+        .toast.success .toast-icon {
+            color: var(--color-success);
+        }
+        
+        .toast.error .toast-icon {
+            color: var(--color-emergency);
+        }
+        
+        .toast.info .toast-icon {
+            color: var(--color-info);
         }
     </style>
 </head>
@@ -1330,7 +1408,7 @@
                     <a href="/candidates/login/" class="btn btn-outline btn-sm">Sign In</a>
                     <a href="/candidates/register/" class="btn btn-primary btn-sm">Get Started</a>
                 </div>
-                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -1380,13 +1458,13 @@
                 
                 <div style="margin-top: var(--space-md); display: flex; gap: var(--space-sm); flex-wrap: wrap; justify-content: center;">
                     <span style="color: rgba(255, 255, 255, 0.8); font-size: 0.95rem;">Popular searches:</span>
-                    <a href="#" style="color: var(--color-accent); font-size: 0.95rem; text-decoration: none;">Front Desk Agent</a>
+                    <a href="?search=Front+Desk+Agent" style="color: var(--color-accent); font-size: 0.95rem; text-decoration: none;">Front Desk Agent</a>
                     <span style="color: rgba(255, 255, 255, 0.5);">•</span>
-                    <a href="#" style="color: var(--color-accent); font-size: 0.95rem; text-decoration: none;">Executive Chef</a>
+                    <a href="?search=Executive+Chef" style="color: var(--color-accent); font-size: 0.95rem; text-decoration: none;">Executive Chef</a>
                     <span style="color: rgba(255, 255, 255, 0.5);">•</span>
-                    <a href="#" style="color: var(--color-accent); font-size: 0.95rem; text-decoration: none;">Hotel Manager</a>
+                    <a href="?search=Hotel+Manager" style="color: var(--color-accent); font-size: 0.95rem; text-decoration: none;">Hotel Manager</a>
                     <span style="color: rgba(255, 255, 255, 0.5);">•</span>
-                    <a href="#" style="color: var(--color-accent); font-size: 0.95rem; text-decoration: none;">Event Planner</a>
+                    <a href="?search=Event+Planner" style="color: var(--color-accent); font-size: 0.95rem; text-decoration: none;">Event Planner</a>
                 </div>
             </div>
         </div>
@@ -1536,9 +1614,9 @@
                             </div>
                             <div class="salary-range">
                                 <div class="range-inputs">
-                                    <input type="number" id="salaryMin" placeholder="Min" value="40000">
+                                    <input type="number" id="salaryMin" placeholder="Min" value="40000" min="0">
                                     <span class="range-separator">to</span>
-                                    <input type="number" id="salaryMax" placeholder="Max" value="120000">
+                                    <input type="number" id="salaryMax" placeholder="Max" value="120000" min="0">
                                 </div>
                                 <div style="font-size: 0.9rem; color: var(--color-gray-600); text-align: center;">
                                     Annual Salary (USD)
@@ -1602,8 +1680,8 @@
                             Get notified when new jobs match your search
                         </p>
                         <div style="display: flex; gap: var(--space-sm);">
-                            <input type="email" placeholder="Your email" style="flex: 1; padding: 0.75rem; border: 2px solid var(--color-gray-300); border-radius: var(--radius-md);">
-                            <button class="btn btn-primary">
+                            <input type="email" id="alertEmail" placeholder="Your email" style="flex: 1; padding: 0.75rem; border: 2px solid var(--color-gray-300); border-radius: var(--radius-md);">
+                            <button class="btn btn-primary" id="subscribeAlerts">
                                 <i class="fas fa-bell"></i>
                             </button>
                         </div>
@@ -1616,7 +1694,7 @@
                     <div class="jobs-content-header">
                         <div>
                             <h2>Featured Hospitality Jobs</h2>
-                            <div class="results-count" id="resultsCount">Showing 1-10 of 2,348 jobs</div>
+                            <div class="results-count" id="resultsCount">Showing 1-5 of 5 jobs</div>
                         </div>
                         <div class="sort-options">
                             <label for="sortJobs" style="font-weight: 600; color: var(--color-gray-700);">Sort by:</label>
@@ -1631,236 +1709,7 @@
                     
                     <!-- Jobs Grid -->
                     <div class="jobs-grid" id="jobsGrid">
-                        <!-- Job Card 1 -->
-                        <div class="job-card featured">
-                            <div class="featured-badge">Featured</div>
-                            <div class="company-logo">
-                                <div class="logo-placeholder">GLH</div>
-                            </div>
-                            <div class="job-info">
-                                <a href="/jobs/hotel-manager-grand-luxury/" class="job-title">Hotel General Manager</a>
-                                <div class="job-company">Grand Luxury Hotels & Resorts</div>
-                                <div class="job-meta">
-                                    <div class="meta-item">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        New York, NY
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-money-bill-wave"></i>
-                                        $120,000 - $150,000
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-clock"></i>
-                                        Full-time
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-calendar"></i>
-                                        Posted 2 days ago
-                                    </div>
-                                </div>
-                                <p class="job-description">
-                                    We're seeking an experienced Hotel General Manager to lead our flagship 5-star property. 
-                                    You'll be responsible for overall operations, guest satisfaction, and financial performance.
-                                </p>
-                                <div class="job-tags">
-                                    <span class="tag">Hotel Management</span>
-                                    <span class="tag">5-star Experience</span>
-                                    <span class="tag highlight">Relocation Package</span>
-                                </div>
-                            </div>
-                            <div class="job-actions">
-                                <button class="btn btn-primary btn-block apply-now" data-job-id="1">
-                                    Apply Now
-                                </button>
-                                <button class="save-job" data-job-id="1">
-                                    <i class="far fa-bookmark"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Job Card 2 -->
-                        <div class="job-card">
-                            <div class="company-logo">
-                                <div class="logo-placeholder">UDG</div>
-                            </div>
-                            <div class="job-info">
-                                <a href="/jobs/executive-chef-urban-dining/" class="job-title">Executive Chef</a>
-                                <div class="job-company">Urban Dining Group</div>
-                                <div class="job-meta">
-                                    <div class="meta-item">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Chicago, IL
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-money-bill-wave"></i>
-                                        $85,000 - $110,000
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-clock"></i>
-                                        Full-time
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-calendar"></i>
-                                        Posted 5 days ago
-                                    </div>
-                                </div>
-                                <p class="job-description">
-                                    Lead culinary operations for our award-winning restaurant group. 
-                                    Creative menu development, kitchen management, and quality control.
-                                </p>
-                                <div class="job-tags">
-                                    <span class="tag">Fine Dining</span>
-                                    <span class="tag">Menu Development</span>
-                                    <span class="tag highlight">Signing Bonus</span>
-                                </div>
-                            </div>
-                            <div class="job-actions">
-                                <button class="btn btn-primary btn-block apply-now" data-job-id="2">
-                                    Apply Now
-                                </button>
-                                <button class="save-job" data-job-id="2">
-                                    <i class="far fa-bookmark"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Job Card 3 -->
-                        <div class="job-card">
-                            <div class="company-logo">
-                                <div class="logo-placeholder">CRI</div>
-                            </div>
-                            <div class="job-info">
-                                <a href="/jobs/event-manager-coastal-resorts/" class="job-title">Event & Wedding Manager</a>
-                                <div class="job-company">Coastal Resorts International</div>
-                                <div class="job-meta">
-                                    <div class="meta-item">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Miami, FL
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-money-bill-wave"></i>
-                                        $65,000 - $85,000
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-clock"></i>
-                                        Full-time
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-calendar"></i>
-                                        Posted 1 week ago
-                                    </div>
-                                </div>
-                                <p class="job-description">
-                                    Plan and execute luxury weddings and events at our beachfront resort. 
-                                    Client relationship management and vendor coordination.
-                                </p>
-                                <div class="job-tags">
-                                    <span class="tag">Wedding Planning</span>
-                                    <span class="tag">Event Management</span>
-                                    <span class="tag">Luxury Hospitality</span>
-                                </div>
-                            </div>
-                            <div class="job-actions">
-                                <button class="btn btn-primary btn-block apply-now" data-job-id="3">
-                                    Apply Now
-                                </button>
-                                <button class="save-job" data-job-id="3">
-                                    <i class="far fa-bookmark"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Job Card 4 -->
-                        <div class="job-card">
-                            <div class="company-logo">
-                                <div class="logo-placeholder">RCC</div>
-                            </div>
-                            <div class="job-info">
-                                <a href="/jobs/cruise-director-royal-cruises/" class="job-title">Cruise Director</a>
-                                <div class="job-company">Royal Caribbean Cruises</div>
-                                <div class="job-meta">
-                                    <div class="meta-item">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Remote (Global Itineraries)
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-money-bill-wave"></i>
-                                        $75,000 - $95,000 + Benefits
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-clock"></i>
-                                        Contract (6 months)
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-calendar"></i>
-                                        Posted 3 days ago
-                                    </div>
-                                </div>
-                                <p class="job-description">
-                                    Lead entertainment and activities on board our luxury cruise ships. 
-                                    Manage entertainment staff and coordinate guest activities.
-                                </p>
-                                <div class="job-tags">
-                                    <span class="tag">Cruise Industry</span>
-                                    <span class="tag">Entertainment</span>
-                                    <span class="tag highlight">Travel Benefits</span>
-                                </div>
-                            </div>
-                            <div class="job-actions">
-                                <button class="btn btn-primary btn-block apply-now" data-job-id="4">
-                                    Apply Now
-                                </button>
-                                <button class="save-job" data-job-id="4">
-                                    <i class="far fa-bookmark"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Job Card 5 -->
-                        <div class="job-card">
-                            <div class="company-logo">
-                                <div class="logo-placeholder">MCC</div>
-                            </div>
-                            <div class="job-info">
-                                <a href="/jobs/front-desk-manager-metro-convention/" class="job-title">Front Desk Manager</a>
-                                <div class="job-company">Metro Convention Center</div>
-                                <div class="job-meta">
-                                    <div class="meta-item">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        Los Angeles, CA
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-money-bill-wave"></i>
-                                        $55,000 - $70,000
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-clock"></i>
-                                        Full-time
-                                    </div>
-                                    <div class="meta-item">
-                                        <i class="fas fa-calendar"></i>
-                                        Posted 2 weeks ago
-                                    </div>
-                                </div>
-                                <p class="job-description">
-                                    Manage front desk operations for large convention center. 
-                                    Supervise team, handle guest inquiries, and coordinate with event teams.
-                                </p>
-                                <div class="job-tags">
-                                    <span class="tag">Convention Center</span>
-                                    <span class="tag">Guest Services</span>
-                                    <span class="tag">Team Management</span>
-                                </div>
-                            </div>
-                            <div class="job-actions">
-                                <button class="btn btn-primary btn-block apply-now" data-job-id="5">
-                                    Apply Now
-                                </button>
-                                <button class="save-job" data-job-id="5">
-                                    <i class="far fa-bookmark"></i>
-                                </button>
-                            </div>
-                        </div>
+                        <!-- Job cards will be populated here -->
                     </div>
                     
                     <!-- Empty State -->
@@ -1878,17 +1727,17 @@
                     
                     <!-- Pagination -->
                     <div class="pagination">
-                        <button class="page-btn disabled">
+                        <button class="page-btn disabled" id="prevPage">
                             <i class="fas fa-chevron-left"></i>
                         </button>
-                        <button class="page-btn active">1</button>
-                        <button class="page-btn">2</button>
-                        <button class="page-btn">3</button>
-                        <button class="page-btn">4</button>
-                        <button class="page-btn">5</button>
-                        <span style="padding: 0 1rem;">...</span>
-                        <button class="page-btn">12</button>
-                        <button class="page-btn">
+                        <button class="page-btn active" data-page="1">1</button>
+                        <button class="page-btn" data-page="2">2</button>
+                        <button class="page-btn" data-page="3">3</button>
+                        <button class="page-btn" data-page="4">4</button>
+                        <button class="page-btn" data-page="5">5</button>
+                        <span style="padding: 0 1rem; color: var(--color-gray-600);">...</span>
+                        <button class="page-btn" data-page="12">12</button>
+                        <button class="page-btn" id="nextPage">
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
@@ -2070,6 +1919,17 @@
         </div>
     </div>
     
+    <!-- Toast Notification -->
+    <div class="toast hidden" id="toast">
+        <div class="toast-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="toast-content">
+            <strong id="toastTitle">Success</strong>
+            <p id="toastMessage" style="margin: 0; font-size: 0.95rem;"></p>
+        </div>
+    </div>
+    
     <!-- ===== JAVASCRIPT ===== -->
     <script>
         // Mobile Menu Toggle
@@ -2097,21 +1957,44 @@
             const location = document.getElementById('location').value;
             const category = document.getElementById('category').value;
             
-            // In a real application, this would trigger a search
-            console.log('Searching for:', { jobTitle, location, category });
-            alert(`Searching for ${jobTitle || 'jobs'} in ${location || 'all locations'} (${category || 'all categories'})`);
+            // Show loading state
+            const submitBtn = jobSearchForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching...';
+            submitBtn.disabled = true;
+            
+            // Simulate search
+            setTimeout(() => {
+                // In a real application, this would trigger a search
+                console.log('Searching for:', { jobTitle, location, category });
+                
+                // Show toast notification
+                showToast('Search Complete', `Found jobs matching "${jobTitle || 'all jobs'}" in ${location || 'all locations'}`, 'success');
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
         });
         
-        // Job Filtering
-        const filterCheckboxes = document.querySelectorAll('.filter-options input[type="checkbox"]');
-        const filterResets = document.querySelectorAll('.filter-reset');
-        const salaryMin = document.getElementById('salaryMin');
-        const salaryMax = document.getElementById('salaryMax');
-        const sortSelect = document.getElementById('sortJobs');
-        const clearAllFiltersBtn = document.getElementById('clearAllFilters');
-        const resultsCount = document.getElementById('resultsCount');
-        const jobsGrid = document.getElementById('jobsGrid');
-        const emptyJobsState = document.getElementById('emptyJobsState');
+        // Toast notification function
+        function showToast(title, message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastTitle = document.getElementById('toastTitle');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastTitle.textContent = title;
+            toastMessage.textContent = message;
+            toast.className = `toast ${type}`;
+            
+            toast.classList.remove('hidden');
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.classList.add('hidden'), 300);
+            }, 3000);
+        }
         
         // Sample job data
         const jobs = [
@@ -2126,7 +2009,9 @@
                 workLocation: "onsite",
                 date: "2 days ago",
                 featured: true,
-                tags: ["Hotel Management", "5-star Experience", "Relocation Package"]
+                tags: ["Hotel Management", "5-star Experience", "Relocation Package"],
+                description: "We're seeking an experienced Hotel General Manager to lead our flagship 5-star property. You'll be responsible for overall operations, guest satisfaction, and financial performance.",
+                logo: "GLH"
             },
             {
                 id: 2,
@@ -2139,7 +2024,9 @@
                 workLocation: "onsite",
                 date: "5 days ago",
                 featured: false,
-                tags: ["Fine Dining", "Menu Development", "Signing Bonus"]
+                tags: ["Fine Dining", "Menu Development", "Signing Bonus"],
+                description: "Lead culinary operations for our award-winning restaurant group. Creative menu development, kitchen management, and quality control.",
+                logo: "UDG"
             },
             {
                 id: 3,
@@ -2152,7 +2039,9 @@
                 workLocation: "onsite",
                 date: "1 week ago",
                 featured: false,
-                tags: ["Wedding Planning", "Event Management", "Luxury Hospitality"]
+                tags: ["Wedding Planning", "Event Management", "Luxury Hospitality"],
+                description: "Plan and execute luxury weddings and events at our beachfront resort. Client relationship management and vendor coordination.",
+                logo: "CRI"
             },
             {
                 id: 4,
@@ -2165,7 +2054,9 @@
                 workLocation: "remote",
                 date: "3 days ago",
                 featured: false,
-                tags: ["Cruise Industry", "Entertainment", "Travel Benefits"]
+                tags: ["Cruise Industry", "Entertainment", "Travel Benefits"],
+                description: "Lead entertainment and activities on board our luxury cruise ships. Manage entertainment staff and coordinate guest activities.",
+                logo: "RCC"
             },
             {
                 id: 5,
@@ -2178,11 +2069,158 @@
                 workLocation: "onsite",
                 date: "2 weeks ago",
                 featured: false,
-                tags: ["Convention Center", "Guest Services", "Team Management"]
+                tags: ["Convention Center", "Guest Services", "Team Management"],
+                description: "Manage front desk operations for large convention center. Supervise team, handle guest inquiries, and coordinate with event teams.",
+                logo: "MCC"
+            },
+            {
+                id: 6,
+                title: "Sous Chef",
+                company: "Bistro Modern",
+                location: "San Francisco, CA",
+                salary: [55000, 70000],
+                type: "fulltime",
+                experience: "mid",
+                workLocation: "onsite",
+                date: "1 day ago",
+                featured: true,
+                tags: ["French Cuisine", "Kitchen Management", "Michelin Star"],
+                description: "Assist Executive Chef in daily kitchen operations. Menu preparation, staff training, and quality control.",
+                logo: "BM"
+            },
+            {
+                id: 7,
+                title: "Hotel Revenue Manager",
+                company: "Global Hotel Chain",
+                location: "Remote",
+                salary: [80000, 100000],
+                type: "fulltime",
+                experience: "senior",
+                workLocation: "remote",
+                date: "4 days ago",
+                featured: false,
+                tags: ["Revenue Management", "Analytics", "Hospitality Tech"],
+                description: "Optimize room rates and revenue strategies across our hotel portfolio. Analyze market trends and competitor pricing.",
+                logo: "GHC"
+            },
+            {
+                id: 8,
+                title: "Banquet Captain",
+                company: "Metropolitan Event Center",
+                location: "Boston, MA",
+                salary: [45000, 55000],
+                type: "fulltime",
+                experience: "entry",
+                workLocation: "onsite",
+                date: "3 days ago",
+                featured: false,
+                tags: ["Banquet Service", "Event Planning", "Team Leadership"],
+                description: "Lead banquet service teams for corporate and social events. Ensure exceptional guest experience and service standards.",
+                logo: "MEC"
             }
         ];
         
-        function updateJobListings() {
+        // Initialize jobs grid
+        const jobsGrid = document.getElementById('jobsGrid');
+        
+        function renderJobs(jobList) {
+            jobsGrid.innerHTML = '';
+            
+            if (jobList.length === 0) {
+                document.getElementById('emptyJobsState').classList.remove('hidden');
+                document.getElementById('resultsCount').textContent = 'Showing 0 of 0 jobs';
+                return;
+            }
+            
+            document.getElementById('emptyJobsState').classList.add('hidden');
+            document.getElementById('resultsCount').textContent = `Showing 1-${jobList.length} of ${jobList.length} jobs`;
+            
+            jobList.forEach(job => {
+                const jobCard = document.createElement('div');
+                jobCard.className = `job-card ${job.featured ? 'featured' : ''}`;
+                jobCard.dataset.jobId = job.id;
+                
+                // Format salary
+                const salaryFormatted = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(job.salary[0]) + ' - ' + 
+                  new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(job.salary[1]);
+                
+                // Create tags HTML
+                const tagsHtml = job.tags.map((tag, index) => 
+                    `<span class="tag ${index === job.tags.length - 1 ? 'highlight' : ''}">${tag}</span>`
+                ).join('');
+                
+                jobCard.innerHTML = `
+                    ${job.featured ? '<div class="featured-badge">Featured</div>' : ''}
+                    <div class="company-logo">
+                        <div class="logo-placeholder">${job.logo}</div>
+                    </div>
+                    <div class="job-info">
+                        <a href="/jobs/${job.id}/" class="job-title">${job.title}</a>
+                        <div class="job-company">${job.company}</div>
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                ${job.location}
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                ${salaryFormatted}
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                ${job.type === 'fulltime' ? 'Full-time' : 
+                                  job.type === 'parttime' ? 'Part-time' :
+                                  job.type === 'contract' ? 'Contract' : 'Internship'}
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-calendar"></i>
+                                ${job.date}
+                            </div>
+                        </div>
+                        <p class="job-description">${job.description}</p>
+                        <div class="job-tags">
+                            ${tagsHtml}
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn btn-primary btn-block apply-now" data-job-id="${job.id}">
+                            Apply Now
+                        </button>
+                        <button class="save-job" data-job-id="${job.id}">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                `;
+                
+                jobsGrid.appendChild(jobCard);
+            });
+            
+            // Reattach event listeners
+            attachJobEventListeners();
+        }
+        
+        // Initial render
+        renderJobs(jobs);
+        
+        // Job Filtering
+        const filterCheckboxes = document.querySelectorAll('.filter-options input[type="checkbox"]');
+        const filterResets = document.querySelectorAll('.filter-reset');
+        const salaryMin = document.getElementById('salaryMin');
+        const salaryMax = document.getElementById('salaryMax');
+        const sortSelect = document.getElementById('sortJobs');
+        const clearAllFiltersBtn = document.getElementById('clearAllFilters');
+        
+        function filterJobs() {
             // Get active filters
             const typeFilters = Array.from(document.querySelectorAll('.filter-options input[type="checkbox"]:checked'))
                 .filter(cb => cb.id.startsWith('type-'))
@@ -2197,7 +2235,7 @@
                 .map(cb => cb.id.replace('location-', ''));
             
             const dateFilters = Array.from(document.querySelectorAll('.filter-options input[type="checkbox"]:checked'))
-                .filter(cb => cb.id.startsWith('date-'))
+                .filter(cb => cb.id.id.startsWith('date-'))
                 .map(cb => cb.id.replace('date-', ''));
             
             const salaryMinValue = parseInt(salaryMin.value) || 0;
@@ -2213,22 +2251,29 @@
                 
                 // Work location filter
                 if (workLocationFilters.length > 0) {
-                    const isRemote = job.location.toLowerCase().includes('remote');
-                    const isOnsite = !isRemote;
+                    const isRemote = job.workLocation === 'remote';
+                    const isOnsite = job.workLocation === 'onsite';
+                    const isHybrid = job.workLocation === 'hybrid';
+                    
                     const matchesRemote = workLocationFilters.includes('remote') && isRemote;
                     const matchesOnsite = workLocationFilters.includes('onsite') && isOnsite;
-                    const matchesHybrid = workLocationFilters.includes('hybrid') && job.location.toLowerCase().includes('hybrid');
+                    const matchesHybrid = workLocationFilters.includes('hybrid') && isHybrid;
                     
                     if (!matchesRemote && !matchesOnsite && !matchesHybrid) return false;
                 }
                 
                 // Salary filter
-                if (job.salary[0] < salaryMinValue || job.salary[1] > salaryMaxValue) return false;
+                if (job.salary[0] > salaryMaxValue || job.salary[1] < salaryMinValue) return false;
                 
-                // Date filter (simplified)
+                // Date filter (simplified - in real app would compare actual dates)
                 if (dateFilters.length > 0) {
-                    // In real app, would compare actual dates
-                    if (!dateFilters.includes('7d') && job.date.includes('week')) return false;
+                    const daysOld = job.date.includes('day') ? parseInt(job.date) : 
+                                   job.date.includes('week') ? 7 : 
+                                   job.date.includes('month') ? 30 : 0;
+                    
+                    if (dateFilters.includes('24h') && daysOld > 1) return false;
+                    if (dateFilters.includes('7d') && daysOld > 7) return false;
+                    if (dateFilters.includes('30d') && daysOld > 30) return false;
                 }
                 
                 return true;
@@ -2239,49 +2284,28 @@
             filteredJobs.sort((a, b) => {
                 if (sortValue === 'date') {
                     // Sort by recency (simplified)
-                    const aDays = a.date.includes('day') ? parseInt(a.date) : a.date.includes('week') ? 7 : 30;
-                    const bDays = b.date.includes('day') ? parseInt(b.date) : b.date.includes('week') ? 7 : 30;
+                    const aDays = a.date.includes('day') ? parseInt(a.date) : 
+                                 a.date.includes('week') ? 7 : 30;
+                    const bDays = b.date.includes('day') ? parseInt(b.date) : 
+                                 b.date.includes('week') ? 7 : 30;
                     return aDays - bDays;
                 } else if (sortValue === 'salary-high') {
                     return b.salary[0] - a.salary[0];
                 } else if (sortValue === 'salary-low') {
                     return a.salary[0] - b.salary[0];
                 }
-                return 0; // relevance
+                // Relevance - featured first, then by date
+                if (a.featured && !b.featured) return -1;
+                if (!a.featured && b.featured) return 1;
+                return 0;
             });
             
-            // Update UI
-            const jobCards = document.querySelectorAll('.job-card');
-            let visibleCount = 0;
-            
-            filteredJobs.forEach((job, index) => {
-                if (index < jobCards.length) {
-                    jobCards[index].style.display = 'grid';
-                    visibleCount++;
-                }
-            });
-            
-            // Hide extra cards
-            for (let i = filteredJobs.length; i < jobCards.length; i++) {
-                jobCards[i].style.display = 'none';
-            }
-            
-            // Update results count
-            resultsCount.textContent = `Showing 1-${visibleCount} of ${jobs.length} jobs`;
-            
-            // Show/hide empty state
-            if (visibleCount === 0) {
-                emptyJobsState.classList.remove('hidden');
-                jobsGrid.classList.add('hidden');
-            } else {
-                emptyJobsState.classList.add('hidden');
-                jobsGrid.classList.remove('hidden');
-            }
+            renderJobs(filteredJobs);
         }
         
         // Event listeners for filtering
         filterCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', updateJobListings);
+            checkbox.addEventListener('change', filterJobs);
         });
         
         filterResets.forEach(reset => {
@@ -2292,67 +2316,88 @@
                         cb.checked = false;
                     }
                 });
-                updateJobListings();
+                if (filterType === 'salary') {
+                    salaryMin.value = 40000;
+                    salaryMax.value = 120000;
+                }
+                filterJobs();
             });
         });
         
-        salaryMin.addEventListener('input', updateJobListings);
-        salaryMax.addEventListener('input', updateJobListings);
-        sortSelect.addEventListener('change', updateJobListings);
+        salaryMin.addEventListener('input', filterJobs);
+        salaryMax.addEventListener('input', filterJobs);
+        sortSelect.addEventListener('change', filterJobs);
         
         clearAllFiltersBtn.addEventListener('click', () => {
             filterCheckboxes.forEach(checkbox => checkbox.checked = false);
             salaryMin.value = 40000;
             salaryMax.value = 120000;
             sortSelect.value = 'relevance';
-            updateJobListings();
+            filterJobs();
+            showToast('Filters Cleared', 'All filters have been reset', 'info');
         });
         
         // Save Job functionality
-        document.querySelectorAll('.save-job').forEach(button => {
-            button.addEventListener('click', function() {
-                const jobId = this.getAttribute('data-job-id');
-                const icon = this.querySelector('i');
-                
-                if (this.classList.contains('saved')) {
-                    this.classList.remove('saved');
-                    icon.classList.remove('fas');
-                    icon.classList.add('far');
-                    alert('Job removed from saved jobs');
-                } else {
-                    this.classList.add('saved');
-                    icon.classList.remove('far');
-                    icon.classList.add('fas');
-                    alert('Job saved! You can view it in your saved jobs.');
-                }
+        function attachJobEventListeners() {
+            document.querySelectorAll('.save-job').forEach(button => {
+                button.addEventListener('click', function() {
+                    const jobId = this.getAttribute('data-job-id');
+                    const icon = this.querySelector('i');
+                    const job = jobs.find(j => j.id == jobId);
+                    
+                    if (this.classList.contains('saved')) {
+                        this.classList.remove('saved');
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        showToast('Job Removed', `${job.title} removed from saved jobs`, 'info');
+                    } else {
+                        this.classList.add('saved');
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        showToast('Job Saved', `${job.title} saved to your jobs`, 'success');
+                    }
+                    
+                    // Save to localStorage
+                    const savedJobs = JSON.parse(localStorage.getItem('jobpitality_saved_jobs') || '[]');
+                    if (this.classList.contains('saved')) {
+                        if (!savedJobs.includes(jobId)) {
+                            savedJobs.push(jobId);
+                        }
+                    } else {
+                        const index = savedJobs.indexOf(jobId);
+                        if (index > -1) {
+                            savedJobs.splice(index, 1);
+                        }
+                    }
+                    localStorage.setItem('jobpitality_saved_jobs', JSON.stringify(savedJobs));
+                });
             });
-        });
+            
+            // Apply buttons
+            document.querySelectorAll('.apply-now').forEach(button => {
+                button.addEventListener('click', function() {
+                    const jobId = this.getAttribute('data-job-id');
+                    const jobCard = this.closest('.job-card');
+                    const title = jobCard.querySelector('.job-title').textContent;
+                    const company = jobCard.querySelector('.job-company').textContent;
+                    const modalJobTitle = document.getElementById('modalJobTitle');
+                    const modalJobCompany = document.getElementById('modalJobCompany');
+                    
+                    modalJobTitle.textContent = title;
+                    modalJobCompany.textContent = company;
+                    document.getElementById('applyModal').classList.remove('hidden');
+                });
+            });
+        }
         
         // Apply Modal
-        const applyButtons = document.querySelectorAll('.apply-now');
         const applyModal = document.getElementById('applyModal');
         const applyModalClose = document.getElementById('applyModalClose');
         const applyModalCancel = document.getElementById('applyModalCancel');
-        const modalJobTitle = document.getElementById('modalJobTitle');
-        const modalJobCompany = document.getElementById('modalJobCompany');
         const resumeDropzone = document.getElementById('resumeDropzone');
         const resumeUpload = document.getElementById('resumeUpload');
         const resumeFileName = document.getElementById('resumeFileName');
         const submitApplication = document.getElementById('submitApplication');
-        
-        applyButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const jobId = this.getAttribute('data-job-id');
-                const jobCard = this.closest('.job-card');
-                const title = jobCard.querySelector('.job-title').textContent;
-                const company = jobCard.querySelector('.job-company').textContent;
-                
-                modalJobTitle.textContent = title;
-                modalJobCompany.textContent = company;
-                
-                applyModal.classList.remove('hidden');
-            });
-        });
         
         // File upload handling
         resumeDropzone.addEventListener('click', () => {
@@ -2361,18 +2406,18 @@
         
         resumeDropzone.addEventListener('dragover', (e) => {
             e.preventDefault();
-            resumeDropzone.style.borderColor = var(--color-accent);
+            resumeDropzone.style.borderColor = 'var(--color-accent)';
             resumeDropzone.style.background = 'rgba(255, 158, 0, 0.05)';
         });
         
         resumeDropzone.addEventListener('dragleave', () => {
-            resumeDropzone.style.borderColor = var(--color-gray-300);
+            resumeDropzone.style.borderColor = 'var(--color-gray-300)';
             resumeDropzone.style.background = 'transparent';
         });
         
         resumeDropzone.addEventListener('drop', (e) => {
             e.preventDefault();
-            resumeDropzone.style.borderColor = var(--color-gray-300);
+            resumeDropzone.style.borderColor = 'var(--color-gray-300)';
             resumeDropzone.style.background = 'transparent';
             
             const file = e.dataTransfer.files[0];
@@ -2387,13 +2432,14 @@
         function handleFileUpload(file) {
             if (file) {
                 if (file.size > 5 * 1024 * 1024) { // 5MB limit
-                    alert('File size must be less than 5MB');
+                    showToast('File Too Large', 'File size must be less than 5MB', 'error');
                     return;
                 }
                 
-                const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+                const allowedTypes = ['application/pdf', 'application/msword', 
+                                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
                 if (!allowedTypes.includes(file.type)) {
-                    alert('Please upload a PDF, DOC, or DOCX file');
+                    showToast('Invalid File Type', 'Please upload a PDF, DOC, or DOCX file', 'error');
                     return;
                 }
                 
@@ -2406,19 +2452,30 @@
             const name = document.getElementById('applicantName').value;
             const email = document.getElementById('applicantEmail').value;
             const phone = document.getElementById('applicantPhone').value;
+            const coverLetter = document.getElementById('coverLetter').value;
             
             if (!name || !email || !phone) {
-                alert('Please fill in all required fields');
+                showToast('Missing Information', 'Please fill in all required fields', 'error');
                 return;
             }
             
-            // In a real app, this would submit to a server
-            alert(`Application submitted for ${modalJobTitle.textContent} at ${modalJobCompany.textContent}!`);
-            applyModal.classList.add('hidden');
+            // Show loading state
+            submitApplication.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitApplication.disabled = true;
             
-            // Reset form
-            document.getElementById('applyForm').reset();
-            resumeFileName.textContent = '';
+            // Simulate API call
+            setTimeout(() => {
+                showToast('Application Submitted', 'Your application has been submitted successfully!', 'success');
+                applyModal.classList.add('hidden');
+                
+                // Reset form
+                document.getElementById('applyForm').reset();
+                resumeFileName.textContent = '';
+                
+                // Reset button
+                submitApplication.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+                submitApplication.disabled = false;
+            }, 2000);
         });
         
         // Close modal
@@ -2439,23 +2496,104 @@
         // Quick Apply (Upload Resume)
         const uploadResumeBtn = document.getElementById('uploadResumeBtn');
         uploadResumeBtn.addEventListener('click', () => {
-            alert('This feature allows you to upload your resume once and apply to multiple jobs quickly. In a real application, this would open a resume upload interface.');
+            showToast('Quick Apply', 'Upload your resume to apply to multiple jobs quickly', 'info');
         });
         
-        // Initialize
-        updateJobListings();
+        // Email alerts subscription
+        const subscribeAlertsBtn = document.getElementById('subscribeAlerts');
+        const alertEmailInput = document.getElementById('alertEmail');
         
-        // Dark mode detection
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.body.classList.add('dark-mode');
+        subscribeAlertsBtn.addEventListener('click', () => {
+            const email = alertEmailInput.value;
+            
+            if (!email || !email.includes('@')) {
+                showToast('Invalid Email', 'Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Show loading
+            subscribeAlertsBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            subscribeAlertsBtn.disabled = true;
+            
+            setTimeout(() => {
+                showToast('Subscribed!', 'You will now receive job alerts matching your search criteria', 'success');
+                alertEmailInput.value = '';
+                subscribeAlertsBtn.innerHTML = '<i class="fas fa-bell"></i>';
+                subscribeAlertsBtn.disabled = false;
+            }, 1500);
+        });
+        
+        // Pagination
+        const pageButtons = document.querySelectorAll('.page-btn[data-page]');
+        const prevPageBtn = document.getElementById('prevPage');
+        const nextPageBtn = document.getElementById('nextPage');
+        
+        pageButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const page = parseInt(this.dataset.page);
+                
+                // Remove active class from all buttons
+                pageButtons.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Update pagination buttons state
+                prevPageBtn.classList.toggle('disabled', page === 1);
+                nextPageBtn.classList.toggle('disabled', page === 12);
+                
+                // In a real app, this would load the page data
+                showToast(`Page ${page}`, `Loading jobs from page ${page}...`, 'info');
+            });
+        });
+        
+        prevPageBtn.addEventListener('click', () => {
+            if (!prevPageBtn.classList.contains('disabled')) {
+                const currentPage = parseInt(document.querySelector('.page-btn.active').dataset.page);
+                if (currentPage > 1) {
+                    document.querySelector(`.page-btn[data-page="${currentPage - 1}"]`).click();
+                }
+            }
+        });
+        
+        nextPageBtn.addEventListener('click', () => {
+            if (!nextPageBtn.classList.contains('disabled')) {
+                const currentPage = parseInt(document.querySelector('.page-btn.active').dataset.page);
+                if (currentPage < 12) {
+                    document.querySelector(`.page-btn[data-page="${currentPage + 1}"]`).click();
+                }
+            }
+        });
+        
+        // Load saved jobs from localStorage
+        function loadSavedJobs() {
+            const savedJobs = JSON.parse(localStorage.getItem('jobpitality_saved_jobs') || '[]');
+            savedJobs.forEach(jobId => {
+                const saveBtn = document.querySelector(`.save-job[data-job-id="${jobId}"]`);
+                if (saveBtn) {
+                    saveBtn.classList.add('saved');
+                    const icon = saveBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                    }
+                }
+            });
         }
         
-        // Listen for dark mode changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-            if (e.matches) {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
+        // Initialize saved jobs
+        loadSavedJobs();
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Escape key closes modal
+            if (e.key === 'Escape' && !applyModal.classList.contains('hidden')) {
+                applyModal.classList.add('hidden');
+            }
+            
+            // Ctrl/Cmd + F focuses search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+                e.preventDefault();
+                document.getElementById('jobTitle').focus();
             }
         });
     </script>
