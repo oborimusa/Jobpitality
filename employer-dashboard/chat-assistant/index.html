@@ -120,6 +120,19 @@
             margin: 0 auto;
             padding: 0 var(--space-md);
         }
+
+        /* Ensure scrollbar is always visible */
+::-webkit-scrollbar {
+    width: 10px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Force scrollbar track to be visible */
+::-webkit-scrollbar-track {
+    background: var(--color-gray-200) !important;
+    visibility: visible !important;
+}
         
         /* ===== JOBPITALITY TYPOGRAPHY ===== */
         h1, h2, h3, h4, h5, h6 {
@@ -211,6 +224,23 @@
             letter-spacing: 0.01em;
             min-height: 44px;
         }
+
+
+                .modal-overlay {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            background: rgba(13, 27, 42, 0.95) !important;
+            z-index: 99999 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            overflow-y: auto !important;
+        }
+
+        
         
         .btn-primary {
             background: var(--color-accent);
@@ -2131,682 +2161,713 @@
 
     <!-- Scripts -->
     <script>
-        // DOM Elements
-        const sidebar = document.getElementById('sidebar');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const chatInput = document.getElementById('chatInput');
-        const sendMessageBtn = document.getElementById('sendMessageBtn');
-        const chatMessages = document.getElementById('chatMessages');
-        const newChatBtn = document.getElementById('newChatBtn');
-        const clearChatBtn = document.getElementById('clearChatBtn');
-        const exportChatBtn = document.getElementById('exportChatBtn');
-        const voiceInputBtn = document.getElementById('voiceInputBtn');
-        const helpBtn = document.getElementById('helpBtn');
-        const attachFileBtn = document.getElementById('attachFileBtn');
-        const recordVoiceBtn = document.getElementById('recordVoiceBtn');
-        const emojiBtn = document.getElementById('emojiBtn');
-        const templateBtn = document.getElementById('templateBtn');
-        const filePreview = document.getElementById('filePreview');
-        const removeFileBtn = document.getElementById('removeFileBtn');
-        const voiceInput = document.getElementById('voiceInput');
-        const stopVoiceBtn = document.getElementById('stopVoiceBtn');
-        const templatesModal = document.getElementById('templatesModal');
-        const closeTemplatesModal = document.getElementById('closeTemplatesModal');
-        const helpModal = document.getElementById('helpModal');
-        const closeHelpModal = document.getElementById('closeHelpModal');
-        const emojiPicker = document.getElementById('emojiPicker');
-        const quickReplyBtns = document.querySelectorAll('.quick-reply-btn');
-        const suggestionBtns = document.querySelectorAll('.suggestion-btn');
-        const actionBtns = document.querySelectorAll('.action-btn');
-        const historyItems = document.querySelectorAll('.history-item');
-        const chatSearch = document.getElementById('chatSearch');
+      // DOM Elements
+const sidebar = document.getElementById('sidebar');
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const chatInput = document.getElementById('chatInput');
+const sendMessageBtn = document.getElementById('sendMessageBtn');
+const chatMessages = document.getElementById('chatMessages');
+const newChatBtn = document.getElementById('newChatBtn');
+const clearChatBtn = document.getElementById('clearChatBtn');
+const exportChatBtn = document.getElementById('exportChatBtn');
+const voiceInputBtn = document.getElementById('voiceInputBtn');
+const helpBtn = document.getElementById('helpBtn');
+const attachFileBtn = document.getElementById('attachFileBtn');
+const recordVoiceBtn = document.getElementById('recordVoiceBtn');
+const emojiBtn = document.getElementById('emojiBtn');
+const templateBtn = document.getElementById('templateBtn');
+const filePreview = document.getElementById('filePreview');
+const removeFileBtn = document.getElementById('removeFileBtn');
+const voiceInput = document.getElementById('voiceInput');
+const stopVoiceBtn = document.getElementById('stopVoiceBtn');
+const templatesModal = document.getElementById('templatesModal');
+const closeTemplatesModal = document.getElementById('closeTemplatesModal');
+const helpModal = document.getElementById('helpModal');
+const closeHelpModal = document.getElementById('closeHelpModal');
+const emojiPicker = document.getElementById('emojiPicker');
+const quickReplyBtns = document.querySelectorAll('.quick-reply-btn');
+const suggestionBtns = document.querySelectorAll('.suggestion-btn');
+const actionBtns = document.querySelectorAll('.action-btn');
+const historyItems = document.querySelectorAll('.history-item');
+const chatSearch = document.getElementById('chatSearch');
 
-        // Mobile Menu Toggle
-        mobileMenuBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-        });
+// Mobile Menu Toggle
+mobileMenuBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+});
 
-        // Auto-resize textarea
-        chatInput.addEventListener('input', function() {
-            this.style.height = 'auto';
-            this.style.height = (this.scrollHeight) + 'px';
-        });
+// Auto-resize textarea
+chatInput.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+});
 
-        // Send message on Enter (Shift+Enter for new line)
-        chatInput.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                sendMessage();
-            }
-        });
+// Send message on Enter (Shift+Enter for new line)
+chatInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+    }
+});
 
-        // Send message button click
-        sendMessageBtn.addEventListener('click', sendMessage);
+// Send message button click
+sendMessageBtn.addEventListener('click', sendMessage);
 
-        // New chat
-        newChatBtn.addEventListener('click', () => {
-            if (chatMessages.children.length > 1) {
-                if (confirm('Start a new chat? Your current chat will be saved.')) {
-                    // In real implementation, this would save current chat and start new
-                    const welcomeMessage = chatMessages.querySelector('.message.ai');
-                    chatMessages.innerHTML = '';
-                    chatMessages.appendChild(welcomeMessage);
-                    addMessage('New chat started. How can I help you today?', 'ai');
-                    showNotification('New chat started');
-                }
-            }
-        });
-
-        // Clear chat
-        clearChatBtn.addEventListener('click', () => {
-            if (confirm('Clear all messages in this chat?')) {
-                const welcomeMessage = chatMessages.querySelector('.message.ai');
-                chatMessages.innerHTML = '';
-                chatMessages.appendChild(welcomeMessage);
-                showNotification('Chat cleared');
-            }
-        });
-
-        // Export chat
-        exportChatBtn.addEventListener('click', () => {
-            showNotification('Export feature coming soon!', 'info');
-        });
-
-        // Voice input toggle
-        let isRecording = false;
-        recordVoiceBtn.addEventListener('click', () => {
-            if (!isRecording) {
-                voiceInput.classList.remove('hidden');
-                isRecording = true;
-                simulateVoiceInput();
-            } else {
-                stopVoiceInput();
-            }
-        });
-
-        stopVoiceBtn.addEventListener('click', stopVoiceInput);
-
-        function stopVoiceInput() {
-            voiceInput.classList.add('hidden');
-            isRecording = false;
+// New chat
+newChatBtn.addEventListener('click', () => {
+    if (chatMessages.children.length > 1) {
+        if (confirm('Start a new chat? Your current chat will be saved.')) {
+            // In real implementation, this would save current chat and start new
+            const welcomeMessage = chatMessages.querySelector('.message.ai');
+            chatMessages.innerHTML = '';
+            chatMessages.appendChild(welcomeMessage);
+            addMessage('New chat started. How can I help you today?', 'ai');
+            showNotification('New chat started');
         }
+    }
+});
 
-        function simulateVoiceInput() {
-            setTimeout(() => {
-                if (isRecording) {
-                    const simulatedText = "Find qualified candidates for executive chef position with 5+ years fine dining experience";
-                    chatInput.value = simulatedText;
-                    chatInput.style.height = (chatInput.scrollHeight) + 'px';
-                    stopVoiceInput();
-                    showNotification('Voice input captured');
-                }
-            }, 2000);
+// Clear chat
+clearChatBtn.addEventListener('click', () => {
+    if (confirm('Clear all messages in this chat?')) {
+        const welcomeMessage = chatMessages.querySelector('.message.ai');
+        chatMessages.innerHTML = '';
+        chatMessages.appendChild(welcomeMessage);
+        showNotification('Chat cleared');
+    }
+});
+
+// Export chat
+exportChatBtn.addEventListener('click', () => {
+    showNotification('Export feature coming soon!', 'info');
+});
+
+// Voice input toggle
+let isRecording = false;
+recordVoiceBtn.addEventListener('click', () => {
+    if (!isRecording) {
+        voiceInput.classList.remove('hidden');
+        isRecording = true;
+        simulateVoiceInput();
+    } else {
+        stopVoiceInput();
+    }
+});
+
+stopVoiceBtn.addEventListener('click', stopVoiceInput);
+
+function stopVoiceInput() {
+    voiceInput.classList.add('hidden');
+    isRecording = false;
+}
+
+function simulateVoiceInput() {
+    setTimeout(() => {
+        if (isRecording) {
+            const simulatedText = "Find qualified candidates for executive chef position with 5+ years fine dining experience";
+            chatInput.value = simulatedText;
+            chatInput.style.height = (chatInput.scrollHeight) + 'px';
+            stopVoiceInput();
+            showNotification('Voice input captured');
         }
+    }, 2000);
+}
 
-        // Voice input from top nav
-        voiceInputBtn.addEventListener('click', () => {
-            if (!isRecording) {
-                voiceInput.classList.remove('hidden');
-                isRecording = true;
-                simulateVoiceInput();
+// Voice input from top nav
+voiceInputBtn.addEventListener('click', () => {
+    if (!isRecording) {
+        voiceInput.classList.remove('hidden');
+        isRecording = true;
+        simulateVoiceInput();
+    }
+});
+
+// Fixed: Removed CSS from JavaScript and added proper modal functions
+function openModal(modal) {
+    if (modal) {
+        modal.classList.remove('hidden');
+        modal.style.display = 'flex';
+        document.body.classList.add('modal-open');
+        // Force reflow to ensure rendering
+        void modal.offsetWidth;
+    }
+}
+
+function closeModal(modal) {
+    if (modal) {
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+    }
+}
+
+// Help modal - UPDATED to use fixed functions
+helpBtn.addEventListener('click', () => {
+    openModal(helpModal);
+});
+
+closeHelpModal.addEventListener('click', () => {
+    closeModal(helpModal);
+});
+
+// Attach file
+attachFileBtn.addEventListener('click', () => {
+    filePreview.classList.remove('hidden');
+    showNotification('File attached (demo)');
+});
+
+removeFileBtn.addEventListener('click', () => {
+    filePreview.classList.add('hidden');
+});
+
+// Emoji picker
+emojiBtn.addEventListener('click', (e) => {
+    const rect = emojiBtn.getBoundingClientRect();
+    emojiPicker.style.bottom = `${window.innerHeight - rect.top + 10}px`;
+    emojiPicker.style.right = `${window.innerWidth - rect.right}px`;
+    emojiPicker.classList.toggle('hidden');
+});
+
+// Close emoji picker when clicking elsewhere
+document.addEventListener('click', (e) => {
+    if (!emojiBtn.contains(e.target) && !emojiPicker.contains(e.target)) {
+        emojiPicker.classList.add('hidden');
+    }
+});
+
+// Emoji selection
+emojiPicker.querySelectorAll('.context-menu-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const emoji = item.dataset.emoji;
+        chatInput.value += emoji;
+        emojiPicker.classList.add('hidden');
+        chatInput.focus();
+    });
+});
+
+// Templates modal - UPDATED to use fixed functions
+templateBtn.addEventListener('click', () => {
+    openModal(templatesModal);
+});
+
+closeTemplatesModal.addEventListener('click', () => {
+    closeModal(templatesModal);
+});
+
+// Template selection
+document.querySelectorAll('.template-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const template = card.dataset.template;
+        let message = '';
+        
+        switch(template) {
+            case 'screen-candidate':
+                message = "Please screen candidates for the front desk associate position. I need someone with excellent customer service skills and hotel experience.";
+                break;
+            case 'schedule-interview':
+                message = "Schedule interviews with the top 3 candidates for the executive chef position next week.";
+                break;
+            case 'create-job':
+                message = "Create a job description for a bartender with mixology experience for our new rooftop bar.";
+                break;
+            case 'analytics':
+                message = "Show me the hiring success rate and time-to-fill metrics for the last quarter.";
+                break;
+            case 'emergency-hire':
+                message = "I need emergency staff for Saturday evening - 2 servers and 1 bartender.";
+                break;
+            case 'interview-questions':
+                message = "Provide interview questions for a housekeeping supervisor position.";
+                break;
+        }
+        
+        chatInput.value = message;
+        chatInput.style.height = (chatInput.scrollHeight) + 'px';
+        closeModal(templatesModal);
+        chatInput.focus();
+        showNotification(`Template "${card.querySelector('h5').textContent}" loaded`);
+    });
+});
+
+// Quick reply buttons
+quickReplyBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const reply = btn.dataset.reply;
+        let message = '';
+        
+        switch(reply) {
+            case 'screen-candidate':
+                message = "Can you help me screen candidates?";
+                break;
+            case 'schedule-interview':
+                message = "I need to schedule an interview";
+                break;
+            case 'create-job':
+                message = "Help me create a job posting";
+                break;
+            case 'analytics':
+                message = "Show me hiring analytics";
+                break;
+            case 'screen-existing':
+                message = "Screen my existing candidates";
+                break;
+            case 'find-new':
+                message = "Find new candidates for me";
+                break;
+            case 'questions':
+                message = "Give me interview questions";
+                break;
+        }
+        
+        addMessage(message, 'user');
+        simulateAIResponse(reply);
+    });
+});
+
+// Suggestion buttons
+suggestionBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const suggestion = btn.dataset.suggestion;
+        let message = '';
+        
+        switch(suggestion) {
+            case 'schedule':
+                message = "Schedule interview with candidate #45";
+                break;
+            case 'create-job':
+                message = "Create job post for bartender";
+                break;
+            case 'analytics':
+                message = "Show hiring success rate";
+                break;
+            case 'emergency':
+                message = "I need emergency staff for Saturday";
+                break;
+        }
+        
+        chatInput.value = message;
+        chatInput.style.height = (chatInput.scrollHeight) + 'px';
+        chatInput.focus();
+    });
+});
+
+// Action buttons
+actionBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const action = btn.dataset.action;
+        let message = '';
+        
+        switch(action) {
+            case 'schedule-interview':
+                message = "Let's schedule an interview. Which candidate and position?";
+                break;
+            case 'screen-candidate':
+                message = "I'd like to screen candidates. For which position?";
+                break;
+            case 'create-job':
+                message = "Help me create a new job posting. What position?";
+                break;
+            case 'analytics':
+                message = "Show me hiring analytics for the last month.";
+                break;
+            case 'emergency-hire':
+                message = "I need emergency hiring assistance. What positions do you need?";
+                break;
+            case 'team-chat':
+                message = "Let me connect you with the hiring team.";
+                break;
+            case 'templates':
+                openModal(templatesModal);
+                return;
+            case 'settings':
+                message = "Opening assistant settings...";
+                break;
+        }
+        
+        addMessage(message, 'user');
+        simulateAIResponse(action);
+    });
+});
+
+// Chat history selection
+historyItems.forEach(item => {
+    item.addEventListener('click', () => {
+        historyItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        
+        // In real implementation, this would load the selected chat
+        const chatId = item.dataset.chatId;
+        showNotification(`Loading chat: ${item.querySelector('.history-title span').textContent}`);
+    });
+});
+
+// Chat search
+chatSearch.addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    historyItems.forEach(item => {
+        const title = item.querySelector('.history-title span').textContent.toLowerCase();
+        const preview = item.querySelector('.history-preview').textContent.toLowerCase();
+        if (title.includes(searchTerm) || preview.includes(searchTerm)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+
+// Send message function
+function sendMessage() {
+    const message = chatInput.value.trim();
+    if (!message) return;
+    
+    addMessage(message, 'user');
+    chatInput.value = '';
+    chatInput.style.height = 'auto';
+    
+    // Simulate AI thinking
+    setTimeout(() => {
+        simulateAIResponse(message);
+    }, 1000 + Math.random() * 1000);
+}
+
+// Add message to chat
+function addMessage(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender} fade-in`;
+    
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    
+    messageDiv.innerHTML = `
+        <div class="message-avatar">
+            <i class="fas fa-${sender === 'ai' ? 'robot' : 'user'}"></i>
+        </div>
+        <div class="message-content">
+            <div class="message-bubble">
+                <div class="message-text">${formatMessage(text)}</div>
+                <div class="message-time">
+                    <span>${time}</span>
+                    <span class="message-status">
+                        <i class="fas fa-check${sender === 'user' ? '-double status-read' : ' status-read'}"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// Format message text (simple formatting)
+function formatMessage(text) {
+    // Convert URLs to links
+    text = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+    
+    // Convert bullet points
+    text = text.replace(/^\s*[\-*]\s+(.+)$/gm, '• $1');
+    
+    // Convert numbered lists
+    let lines = text.split('\n');
+    let inList = false;
+    for (let i = 0; i < lines.length; i++) {
+        if (/^\d+\.\s/.test(lines[i])) {
+            if (!inList) {
+                lines[i] = '<br>' + lines[i];
+                inList = true;
             }
-        });
+        } else if (lines[i].trim() && inList) {
+            inList = false;
+        }
+    }
+    text = lines.join('\n');
+    
+    return text.replace(/\n/g, '<br>');
+}
 
-        // Help modal
-        helpBtn.addEventListener('click', () => {
-            helpModal.classList.remove('hidden');
-        });
+// Simulate AI response
+function simulateAIResponse(userMessage) {
+    const responses = {
+        'screen-candidate': {
+            title: "🎯 Candidate Screening Assistant",
+            message: "I'll help you screen candidates. Please tell me:<br><br>1. Which position are you hiring for?<br>2. What are the key requirements?<br>3. How many candidates need screening?<br><br>You can also attach resumes for me to analyze directly."
+        },
+        'schedule-interview': {
+            title: "📅 Interview Scheduling",
+            message: "I can help schedule interviews. I need to know:<br><br>• Candidate name(s)<br>• Interviewers<br>• Preferred dates/times<br>• Interview duration<br>• Location (in-person or virtual)<br><br>Would you like me to check team availability?"
+        },
+        'create-job': {
+            title: "📝 Job Description Generator",
+            message: "Let's create an optimized job posting. Please specify:<br><br>• Job title<br>• Department<br>• Experience level required<br>• Key responsibilities<br>• Required qualifications<br>• Salary range (if known)<br><br>I'll create a compelling job description that attracts top talent."
+        },
+        'analytics': {
+            title: "📊 Hiring Analytics",
+            message: "Here are your key hiring metrics:<br><br>• <strong>Success Rate:</strong> 94.2% (+2.4%)<br>• <strong>Time to Hire:</strong> 18.5 days (-3.2 days)<br>• <strong>Cost per Hire:</strong> $8,425 saved<br>• <strong>Candidate Satisfaction:</strong> 68.5%<br><br>Would you like a detailed report or specific department analysis?"
+        },
+        'emergency-hire': {
+            title: "⚡ Emergency Hiring Activated",
+            message: "Emergency hiring mode activated. I'll help you find staff immediately.<br><br>Please specify:<br>• Positions needed<br>• Shift dates/times<br>• Required experience level<br>• Budget constraints<br><br>I'll search our candidate pool and post emergency listings."
+        }
+    };
+    
+    let response;
+    const lowerMessage = typeof userMessage === 'string' ? userMessage.toLowerCase() : userMessage;
+    
+    if (typeof userMessage !== 'string' && responses[userMessage]) {
+        response = responses[userMessage];
+    } else if (lowerMessage.includes('screen') || lowerMessage.includes('candidate')) {
+        response = responses['screen-candidate'];
+    } else if (lowerMessage.includes('schedule') || lowerMessage.includes('interview')) {
+        response = responses['schedule-interview'];
+    } else if (lowerMessage.includes('job') || lowerMessage.includes('post')) {
+        response = responses['create-job'];
+    } else if (lowerMessage.includes('analytic') || lowerMessage.includes('metric') || lowerMessage.includes('report')) {
+        response = responses['analytics'];
+    } else if (lowerMessage.includes('emergency') || lowerMessage.includes('urgent')) {
+        response = responses['emergency-hire'];
+    } else {
+        response = {
+            title: "🤖 JOB-AI Assistant",
+            message: "I understand you're asking about: <em>" + (typeof userMessage === 'string' ? userMessage : 'this topic') + "</em><br><br>I can help you with:<br>• Screening and evaluating candidates<br>• Scheduling interviews<br>• Creating job descriptions<br>• Analyzing hiring metrics<br>• Emergency hiring<br><br>Could you provide more details about what you need?"
+        };
+    }
+    
+    // Add typing indicator
+    const typingIndicator = document.createElement('div');
+    typingIndicator.className = 'message ai';
+    typingIndicator.innerHTML = `
+        <div class="message-avatar">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content">
+            <div class="typing-indicator">
+                <div class="typing-dots">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+                <span>JOB-AI is typing...</span>
+            </div>
+        </div>
+    `;
+    
+    chatMessages.appendChild(typingIndicator);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // Replace typing indicator with actual response after delay
+    setTimeout(() => {
+        typingIndicator.remove();
+        
+        const responseDiv = document.createElement('div');
+        responseDiv.className = 'message ai fade-in';
+        
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        
+        responseDiv.innerHTML = `
+            <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="message-content">
+                <div class="message-bubble">
+                    <div class="message-text">
+                        <h4>${response.title}</h4>
+                        ${response.message}
+                    </div>
+                    <div class="message-time">
+                        <span>${time}</span>
+                        <span class="message-status">
+                            <i class="fas fa-check status-read"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="message-actions">
+                        <button class="message-action-btn">
+                            <i class="fas fa-thumbs-up"></i>
+                            Helpful
+                        </button>
+                        <button class="message-action-btn">
+                            <i class="fas fa-thumbs-down"></i>
+                            Not helpful
+                        </button>
+                        <button class="message-action-btn">
+                            <i class="fas fa-copy"></i>
+                            Copy
+                        </button>
+                        <button class="message-action-btn">
+                            <i class="fas fa-share"></i>
+                            Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        chatMessages.appendChild(responseDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        // Add action buttons for response
+        setTimeout(() => {
+            addQuickReplies(responseDiv, userMessage);
+        }, 100);
+    }, 1500 + Math.random() * 1000);
+}
 
-        closeHelpModal.addEventListener('click', () => {
-            helpModal.classList.add('hidden');
-        });
-
-        // Attach file
-        attachFileBtn.addEventListener('click', () => {
-            filePreview.classList.remove('hidden');
-            showNotification('File attached (demo)');
-        });
-
-        removeFileBtn.addEventListener('click', () => {
-            filePreview.classList.add('hidden');
-        });
-
-        // Emoji picker
-        emojiBtn.addEventListener('click', (e) => {
-            const rect = emojiBtn.getBoundingClientRect();
-            emojiPicker.style.bottom = `${window.innerHeight - rect.top + 10}px`;
-            emojiPicker.style.right = `${window.innerWidth - rect.right}px`;
-            emojiPicker.classList.toggle('hidden');
-        });
-
-        // Close emoji picker when clicking elsewhere
-        document.addEventListener('click', (e) => {
-            if (!emojiBtn.contains(e.target) && !emojiPicker.contains(e.target)) {
-                emojiPicker.classList.add('hidden');
+// Add quick replies to AI response
+function addQuickReplies(responseDiv, userMessage) {
+    const quickReplies = document.createElement('div');
+    quickReplies.className = 'quick-replies';
+    
+    let replies = [];
+    
+    if (typeof userMessage === 'string' && userMessage.includes('screen')) {
+        replies = [
+            { text: 'Screen existing candidates', icon: 'users', action: 'screen-existing' },
+            { text: 'Find new candidates', icon: 'search', action: 'find-new' },
+            { text: 'Interview questions', icon: 'question-circle', action: 'questions' }
+        ];
+    } else if (typeof userMessage === 'string' && userMessage.includes('schedule')) {
+        replies = [
+            { text: 'Check availability', icon: 'calendar-check', action: 'availability' },
+            { text: 'Send invites', icon: 'envelope', action: 'invites' },
+            { text: 'Reschedule', icon: 'exchange-alt', action: 'reschedule' }
+        ];
+    } else {
+        replies = [
+            { text: 'Yes, continue', icon: 'check-circle', action: 'continue' },
+            { text: 'More details', icon: 'info-circle', action: 'details' },
+            { text: 'Different approach', icon: 'redo', action: 'redo' }
+        ];
+    }
+    
+    replies.forEach(reply => {
+        const button = document.createElement('button');
+        button.className = 'quick-reply-btn';
+        button.dataset.reply = reply.action;
+        button.innerHTML = `<i class="fas fa-${reply.icon}"></i> ${reply.text}`;
+        quickReplies.appendChild(button);
+    });
+    
+    responseDiv.querySelector('.message-bubble').appendChild(quickReplies);
+    
+    // Add event listeners to new quick reply buttons
+    quickReplies.querySelectorAll('.quick-reply-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const reply = btn.dataset.reply;
+            let message = '';
+            
+            switch(reply) {
+                case 'screen-existing':
+                    message = "Screen my existing candidates";
+                    break;
+                case 'find-new':
+                    message = "Find new candidates for me";
+                    break;
+                case 'questions':
+                    message = "Give me interview questions";
+                    break;
+                case 'availability':
+                    message = "Check team availability";
+                    break;
+                case 'invites':
+                    message = "Send interview invites";
+                    break;
+                case 'reschedule':
+                    message = "I need to reschedule";
+                    break;
+                case 'continue':
+                    message = "Yes, let's continue";
+                    break;
+                case 'details':
+                    message = "Give me more details";
+                    break;
+                case 'redo':
+                    message = "Let's try a different approach";
+                    break;
             }
-        });
-
-        // Emoji selection
-        emojiPicker.querySelectorAll('.context-menu-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const emoji = item.dataset.emoji;
-                chatInput.value += emoji;
-                emojiPicker.classList.add('hidden');
-                chatInput.focus();
-            });
-        });
-
-        // Templates modal
-        templateBtn.addEventListener('click', () => {
-            templatesModal.classList.remove('hidden');
-        });
-
-        closeTemplatesModal.addEventListener('click', () => {
-            templatesModal.classList.add('hidden');
-        });
-
-        // Template selection
-        document.querySelectorAll('.template-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const template = card.dataset.template;
-                let message = '';
-                
-                switch(template) {
-                    case 'screen-candidate':
-                        message = "Please screen candidates for the front desk associate position. I need someone with excellent customer service skills and hotel experience.";
-                        break;
-                    case 'schedule-interview':
-                        message = "Schedule interviews with the top 3 candidates for the executive chef position next week.";
-                        break;
-                    case 'create-job':
-                        message = "Create a job description for a bartender with mixology experience for our new rooftop bar.";
-                        break;
-                    case 'analytics':
-                        message = "Show me the hiring success rate and time-to-fill metrics for the last quarter.";
-                        break;
-                    case 'emergency-hire':
-                        message = "I need emergency staff for Saturday evening - 2 servers and 1 bartender.";
-                        break;
-                    case 'interview-questions':
-                        message = "Provide interview questions for a housekeeping supervisor position.";
-                        break;
-                }
-                
-                chatInput.value = message;
-                chatInput.style.height = (chatInput.scrollHeight) + 'px';
-                templatesModal.classList.add('hidden');
-                chatInput.focus();
-                showNotification(`Template "${card.querySelector('h5').textContent}" loaded`);
-            });
-        });
-
-        // Quick reply buttons
-        quickReplyBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const reply = btn.dataset.reply;
-                let message = '';
-                
-                switch(reply) {
-                    case 'screen-candidate':
-                        message = "Can you help me screen candidates?";
-                        break;
-                    case 'schedule-interview':
-                        message = "I need to schedule an interview";
-                        break;
-                    case 'create-job':
-                        message = "Help me create a job posting";
-                        break;
-                    case 'analytics':
-                        message = "Show me hiring analytics";
-                        break;
-                    case 'screen-existing':
-                        message = "Screen my existing candidates";
-                        break;
-                    case 'find-new':
-                        message = "Find new candidates for me";
-                        break;
-                    case 'questions':
-                        message = "Give me interview questions";
-                        break;
-                }
-                
-                addMessage(message, 'user');
-                simulateAIResponse(reply);
-            });
-        });
-
-        // Suggestion buttons
-        suggestionBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const suggestion = btn.dataset.suggestion;
-                let message = '';
-                
-                switch(suggestion) {
-                    case 'schedule':
-                        message = "Schedule interview with candidate #45";
-                        break;
-                    case 'create-job':
-                        message = "Create job post for bartender";
-                        break;
-                    case 'analytics':
-                        message = "Show hiring success rate";
-                        break;
-                    case 'emergency':
-                        message = "I need emergency staff for Saturday";
-                        break;
-                }
-                
-                chatInput.value = message;
-                chatInput.style.height = (chatInput.scrollHeight) + 'px';
-                chatInput.focus();
-            });
-        });
-
-        // Action buttons
-        actionBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const action = btn.dataset.action;
-                let message = '';
-                
-                switch(action) {
-                    case 'schedule-interview':
-                        message = "Let's schedule an interview. Which candidate and position?";
-                        break;
-                    case 'screen-candidate':
-                        message = "I'd like to screen candidates. For which position?";
-                        break;
-                    case 'create-job':
-                        message = "Help me create a new job posting. What position?";
-                        break;
-                    case 'analytics':
-                        message = "Show me hiring analytics for the last month.";
-                        break;
-                    case 'emergency-hire':
-                        message = "I need emergency hiring assistance. What positions do you need?";
-                        break;
-                    case 'team-chat':
-                        message = "Let me connect you with the hiring team.";
-                        break;
-                    case 'templates':
-                        templatesModal.classList.remove('hidden');
-                        return;
-                    case 'settings':
-                        message = "Opening assistant settings...";
-                        break;
-                }
-                
-                addMessage(message, 'user');
-                simulateAIResponse(action);
-            });
-        });
-
-        // Chat history selection
-        historyItems.forEach(item => {
-            item.addEventListener('click', () => {
-                historyItems.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
-                
-                // In real implementation, this would load the selected chat
-                const chatId = item.dataset.chatId;
-                showNotification(`Loading chat: ${item.querySelector('.history-title span').textContent}`);
-            });
-        });
-
-        // Chat search
-        chatSearch.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            historyItems.forEach(item => {
-                const title = item.querySelector('.history-title span').textContent.toLowerCase();
-                const preview = item.querySelector('.history-preview').textContent.toLowerCase();
-                if (title.includes(searchTerm) || preview.includes(searchTerm)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-
-        // Send message function
-        function sendMessage() {
-            const message = chatInput.value.trim();
-            if (!message) return;
             
             addMessage(message, 'user');
-            chatInput.value = '';
-            chatInput.style.height = 'auto';
-            
-            // Simulate AI thinking
-            setTimeout(() => {
-                simulateAIResponse(message);
-            }, 1000 + Math.random() * 1000);
-        }
-
-        // Add message to chat
-        function addMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender} fade-in`;
-            
-            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            
-            messageDiv.innerHTML = `
-                <div class="message-avatar">
-                    <i class="fas fa-${sender === 'ai' ? 'robot' : 'user'}"></i>
-                </div>
-                <div class="message-content">
-                    <div class="message-bubble">
-                        <div class="message-text">${formatMessage(text)}</div>
-                        <div class="message-time">
-                            <span>${time}</span>
-                            <span class="message-status">
-                                <i class="fas fa-check${sender === 'user' ? '-double status-read' : ' status-read'}"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        // Format message text (simple formatting)
-        function formatMessage(text) {
-            // Convert URLs to links
-            text = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
-            
-            // Convert bullet points
-            text = text.replace(/^\s*[\-*]\s+(.+)$/gm, '• $1');
-            
-            // Convert numbered lists
-            let lines = text.split('\n');
-            let inList = false;
-            for (let i = 0; i < lines.length; i++) {
-                if (/^\d+\.\s/.test(lines[i])) {
-                    if (!inList) {
-                        lines[i] = '<br>' + lines[i];
-                        inList = true;
-                    }
-                } else if (lines[i].trim() && inList) {
-                    inList = false;
-                }
-            }
-            text = lines.join('\n');
-            
-            return text.replace(/\n/g, '<br>');
-        }
-
-        // Simulate AI response
-        function simulateAIResponse(userMessage) {
-            const responses = {
-                'screen-candidate': {
-                    title: "🎯 Candidate Screening Assistant",
-                    message: "I'll help you screen candidates. Please tell me:<br><br>1. Which position are you hiring for?<br>2. What are the key requirements?<br>3. How many candidates need screening?<br><br>You can also attach resumes for me to analyze directly."
-                },
-                'schedule-interview': {
-                    title: "📅 Interview Scheduling",
-                    message: "I can help schedule interviews. I need to know:<br><br>• Candidate name(s)<br>• Interviewers<br>• Preferred dates/times<br>• Interview duration<br>• Location (in-person or virtual)<br><br>Would you like me to check team availability?"
-                },
-                'create-job': {
-                    title: "📝 Job Description Generator",
-                    message: "Let's create an optimized job posting. Please specify:<br><br>• Job title<br>• Department<br>• Experience level required<br>• Key responsibilities<br>• Required qualifications<br>• Salary range (if known)<br><br>I'll create a compelling job description that attracts top talent."
-                },
-                'analytics': {
-                    title: "📊 Hiring Analytics",
-                    message: "Here are your key hiring metrics:<br><br>• <strong>Success Rate:</strong> 94.2% (+2.4%)<br>• <strong>Time to Hire:</strong> 18.5 days (-3.2 days)<br>• <strong>Cost per Hire:</strong> $8,425 saved<br>• <strong>Candidate Satisfaction:</strong> 68.5%<br><br>Would you like a detailed report or specific department analysis?"
-                },
-                'emergency-hire': {
-                    title: "⚡ Emergency Hiring Activated",
-                    message: "Emergency hiring mode activated. I'll help you find staff immediately.<br><br>Please specify:<br>• Positions needed<br>• Shift dates/times<br>• Required experience level<br>• Budget constraints<br><br>I'll search our candidate pool and post emergency listings."
-                }
-            };
-            
-            let response;
-            const lowerMessage = typeof userMessage === 'string' ? userMessage.toLowerCase() : userMessage;
-            
-            if (typeof userMessage !== 'string' && responses[userMessage]) {
-                response = responses[userMessage];
-            } else if (lowerMessage.includes('screen') || lowerMessage.includes('candidate')) {
-                response = responses['screen-candidate'];
-            } else if (lowerMessage.includes('schedule') || lowerMessage.includes('interview')) {
-                response = responses['schedule-interview'];
-            } else if (lowerMessage.includes('job') || lowerMessage.includes('post')) {
-                response = responses['create-job'];
-            } else if (lowerMessage.includes('analytic') || lowerMessage.includes('metric') || lowerMessage.includes('report')) {
-                response = responses['analytics'];
-            } else if (lowerMessage.includes('emergency') || lowerMessage.includes('urgent')) {
-                response = responses['emergency-hire'];
-            } else {
-                response = {
-                    title: "🤖 JOB-AI Assistant",
-                    message: "I understand you're asking about: <em>" + (typeof userMessage === 'string' ? userMessage : 'this topic') + "</em><br><br>I can help you with:<br>• Screening and evaluating candidates<br>• Scheduling interviews<br>• Creating job descriptions<br>• Analyzing hiring metrics<br>• Emergency hiring<br><br>Could you provide more details about what you need?"
-                };
-            }
-            
-            // Add typing indicator
-            const typingIndicator = document.createElement('div');
-            typingIndicator.className = 'message ai';
-            typingIndicator.innerHTML = `
-                <div class="message-avatar">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="message-content">
-                    <div class="typing-indicator">
-                        <div class="typing-dots">
-                            <div class="typing-dot"></div>
-                            <div class="typing-dot"></div>
-                            <div class="typing-dot"></div>
-                        </div>
-                        <span>JOB-AI is typing...</span>
-                    </div>
-                </div>
-            `;
-            
-            chatMessages.appendChild(typingIndicator);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            
-            // Replace typing indicator with actual response after delay
-            setTimeout(() => {
-                typingIndicator.remove();
-                
-                const responseDiv = document.createElement('div');
-                responseDiv.className = 'message ai fade-in';
-                
-                const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                
-                responseDiv.innerHTML = `
-                    <div class="message-avatar">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="message-content">
-                        <div class="message-bubble">
-                            <div class="message-text">
-                                <h4>${response.title}</h4>
-                                ${response.message}
-                            </div>
-                            <div class="message-time">
-                                <span>${time}</span>
-                                <span class="message-status">
-                                    <i class="fas fa-check status-read"></i>
-                                </span>
-                            </div>
-                            
-                            <div class="message-actions">
-                                <button class="message-action-btn">
-                                    <i class="fas fa-thumbs-up"></i>
-                                    Helpful
-                                </button>
-                                <button class="message-action-btn">
-                                    <i class="fas fa-thumbs-down"></i>
-                                    Not helpful
-                                </button>
-                                <button class="message-action-btn">
-                                    <i class="fas fa-copy"></i>
-                                    Copy
-                                </button>
-                                <button class="message-action-btn">
-                                    <i class="fas fa-share"></i>
-                                    Share
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                chatMessages.appendChild(responseDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-                
-                // Add action buttons for response
-                setTimeout(() => {
-                    addQuickReplies(responseDiv, userMessage);
-                }, 100);
-            }, 1500 + Math.random() * 1000);
-        }
-
-        // Add quick replies to AI response
-        function addQuickReplies(responseDiv, userMessage) {
-            const quickReplies = document.createElement('div');
-            quickReplies.className = 'quick-replies';
-            
-            let replies = [];
-            
-            if (typeof userMessage === 'string' && userMessage.includes('screen')) {
-                replies = [
-                    { text: 'Screen existing candidates', icon: 'users', action: 'screen-existing' },
-                    { text: 'Find new candidates', icon: 'search', action: 'find-new' },
-                    { text: 'Interview questions', icon: 'question-circle', action: 'questions' }
-                ];
-            } else if (typeof userMessage === 'string' && userMessage.includes('schedule')) {
-                replies = [
-                    { text: 'Check availability', icon: 'calendar-check', action: 'availability' },
-                    { text: 'Send invites', icon: 'envelope', action: 'invites' },
-                    { text: 'Reschedule', icon: 'exchange-alt', action: 'reschedule' }
-                ];
-            } else {
-                replies = [
-                    { text: 'Yes, continue', icon: 'check-circle', action: 'continue' },
-                    { text: 'More details', icon: 'info-circle', action: 'details' },
-                    { text: 'Different approach', icon: 'redo', action: 'redo' }
-                ];
-            }
-            
-            replies.forEach(reply => {
-                const button = document.createElement('button');
-                button.className = 'quick-reply-btn';
-                button.dataset.reply = reply.action;
-                button.innerHTML = `<i class="fas fa-${reply.icon}"></i> ${reply.text}`;
-                quickReplies.appendChild(button);
-            });
-            
-            responseDiv.querySelector('.message-bubble').appendChild(quickReplies);
-            
-            // Add event listeners to new quick reply buttons
-            quickReplies.querySelectorAll('.quick-reply-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const reply = btn.dataset.reply;
-                    let message = '';
-                    
-                    switch(reply) {
-                        case 'screen-existing':
-                            message = "Screen my existing candidates";
-                            break;
-                        case 'find-new':
-                            message = "Find new candidates for me";
-                            break;
-                        case 'questions':
-                            message = "Give me interview questions";
-                            break;
-                        case 'availability':
-                            message = "Check team availability";
-                            break;
-                        case 'invites':
-                            message = "Send interview invites";
-                            break;
-                        case 'reschedule':
-                            message = "I need to reschedule";
-                            break;
-                        case 'continue':
-                            message = "Yes, let's continue";
-                            break;
-                        case 'details':
-                            message = "Give me more details";
-                            break;
-                        case 'redo':
-                            message = "Let's try a different approach";
-                            break;
-                    }
-                    
-                    addMessage(message, 'user');
-                    simulateAIResponse(reply);
-                });
-            });
-        }
-
-        // Notification function
-        function showNotification(message, type = 'info') {
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: ${type === 'success' ? '#2a9d8f' : type === 'error' ? '#e63946' : '#3b82f6'};
-                color: white;
-                padding: 1rem 1.5rem;
-                border-radius: 8px;
-                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-                z-index: 10000;
-                animation: fadeIn 0.3s ease;
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-            `;
-            notification.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-                <span>${message}</span>
-            `;
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.animation = 'fadeOut 0.3s ease';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 3000);
-        }
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            // Add CSS for fadeOut animation
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes fadeOut {
-                    from { opacity: 1; transform: translateY(0); }
-                    to { opacity: 0; transform: translateY(-20px); }
-                }
-            `;
-            document.head.appendChild(style);
-            
-            // Welcome notification
-            setTimeout(() => {
-                showNotification('JOB-AI Assistant is ready to help with your hiring needs!', 'success');
-            }, 1000);
-            
-            // Simulate initial AI suggestions
-            setTimeout(() => {
-                const suggestionsBar = document.getElementById('suggestionsBar');
-                suggestionsBar.classList.add('fade-in');
-            }, 500);
+            simulateAIResponse(reply);
         });
+    });
+}
 
-        // Message action buttons
-        document.addEventListener('click', function(e) {
-            // Handle message action buttons
-            if (e.target.closest('.message-action-btn')) {
-                const btn = e.target.closest('.message-action-btn');
-                const action = btn.textContent.trim();
-                showNotification(`Action: ${action}`, 'info');
-            }
-        });
+// Notification function
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? '#2a9d8f' : type === 'error' ? '#e63946' : '#3b82f6'};
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        z-index: 10000;
+        animation: fadeIn 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    `;
+    notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+        <span>${message}</span>
+    `;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Add CSS for fadeOut animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-20px); }
+        }
+        
+        /* Add this CSS for modal-open class */
+        body.modal-open {
+            overflow: hidden !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Welcome notification
+    setTimeout(() => {
+        showNotification('JOB-AI Assistant is ready to help with your hiring needs!', 'success');
+    }, 1000);
+    
+    // Simulate initial AI suggestions
+    setTimeout(() => {
+        const suggestionsBar = document.getElementById('suggestionsBar');
+        suggestionsBar.classList.add('fade-in');
+    }, 500);
+});
+
+// Message action buttons
+document.addEventListener('click', function(e) {
+    // Handle message action buttons
+    if (e.target.closest('.message-action-btn')) {
+        const btn = e.target.closest('.message-action-btn');
+        const action = btn.textContent.trim();
+        showNotification(`Action: ${action}`, 'info');
+    }
+    
+    // Close modal when clicking outside modal content
+    if (e.target.classList.contains('modal-overlay')) {
+        e.target.classList.add('hidden');
+        e.target.style.display = 'none';
+        document.body.classList.remove('modal-open');
+    }
+});
     </script>
 </body>
 </html>
