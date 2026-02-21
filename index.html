@@ -27,7 +27,7 @@
     <!-- COMPLETE INLINE CSS -->
     <style>
         /* ===== CSS RESET & BASE ===== */
-        * {
+         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -52,6 +52,26 @@
             --color-gray-200: #edf2f7;
             --color-gray-100: #f7fafc;
             --color-white: #ffffff;
+            
+            --primary: #0d1b2a;
+            --primary-light: #1b2b3f;
+            --accent: #ff9e00;
+            --accent-dark: #cc7e00;
+            --emergency: #e63946;
+            --success: #2a9d8f;
+            --white: #ffffff;
+            --gray-100: #f7fafc;
+            --gray-200: #edf2f7;
+            --gray-300: #e2e8f0;
+            --gray-600: #718096;
+            --gray-700: #4a5568;
+            --gray-800: #2d3748;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
+        
+
             
             /* Typography */
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
@@ -237,6 +257,44 @@
             width: 100%;
         }
         
+        .btn-show-more {
+    background: var(--color-white);
+    color: var(--color-accent) !important;
+    border: 2px solid var(--color-accent);
+    padding: var(--space-md) var(--space-xl);
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all var(--transition-normal);
+    min-width: 200px;
+    cursor: pointer;
+    border-radius: var(--radius-lg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.btn-show-more:hover {
+    background: var(--color-accent);
+    color: var(--color-white) !important;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-show-more:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.btn-show-more i {
+    transition: transform var(--transition-normal);
+}
+
+.btn-show-more:hover i {
+    transform: translateY(2px);
+}
+        
         /* ===== HEADER & NAVIGATION ===== */
         .site-header {
             background: var(--color-white);
@@ -346,7 +404,7 @@
             background: var(--color-accent);
             border-radius: 3px 3px 0 0;
         }
-        
+
         /* DROPDOWN MENUS */
         .dropdown {
             position: relative;
@@ -457,46 +515,525 @@
             z-index: 999;
         }
         
-        /* ===== SECTION HEADER ===== */
-        .section-header {
+        /* ===== SEARCH BOX STYLES ===== */
+        .search-container {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .search-box {
+            flex: 1;
+            position: relative;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: var(--space-md);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-gray-600);
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: var(--space-md) var(--space-md) var(--space-md) 3rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.1);
+        }
+
+        .search-results-count {
+            position: absolute;
+            right: var(--space-md);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-gray-600);
+            font-size: 0.875rem;
+            display: none;
+        }
+
+        .search-container.has-results .search-results-count {
+            display: block;
+        }
+
+        .search-btn {
+            padding: var(--space-md) var(--space-xl);
+            background: var(--color-accent);
+            border: none;
+            border-radius: var(--radius-lg);
+            color: var(--color-primary);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .search-btn:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Stats */
+        .stats {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xl);
+            color: var(--color-emergency-dark);
+        }
+
+        .stat-item {
             text-align: center;
-            margin-bottom: var(--space-2xl);
         }
-        
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        /* Featured Jobs Section */
+        .featured-jobs {
+            padding: var(--space-2xl) 0;
+            background: var(--color-gray-100);
+            
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
         .section-header h2 {
-            margin-bottom: var(--space-md);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-primary);
         }
-        
+
         .section-header p {
             color: var(--color-gray-600);
-            max-width: 700px;
-            margin: 0 auto;
             font-size: 1.1rem;
         }
+
+        .view-all-link {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .view-all-link:hover {
+            gap: var(--space-sm);
+        }
+
+        /* Jobs Grid */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .job-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            border: 1px solid var(--color-gray-200);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .job-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-accent);
+        }
+
+        .job-card.hidden {
+            display: none;
+        }
+
+        .job-card.search-match {
+            animation: highlightMatch 2s ease;
+        }
+
+        @keyframes highlightMatch {
+            0%, 100% { border-color: var(--color-gray-200); }
+            20%, 80% { border-color: var(--color-accent); box-shadow: 0 0 20px rgba(255, 158, 0, 0.3); }
+        }
+
+        .job-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-md);
+        }
+
+        .job-logo {
+            width: 48px;
+            height: 48px;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .job-type {
+            padding: 0.25rem 0.75rem;
+            background: rgba(42, 157, 143, 0.1);
+            color: var(--color-success);
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+            color: var(--color-primary);
+        }
+
+        .job-company {
+            color: var(--color-gray-700);
+            margin-bottom: var(--space-xs);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .job-location {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            color: var(--color-gray-600);
+            font-size: 0.95rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .job-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            color: var(--color-gray-700);
+        }
+
+        .job-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .job-salary {
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 1.1rem;
+        }
+
+        .job-posted {
+            color: var(--color-gray-600);
+            font-size: 0.875rem;
+            color: var(--color-emergency-dark);
+        }
+
+        /* Search Empty State */
+        .search-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: var(--space-2xl);
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .search-empty i {
+            font-size: 4rem;
+            color: var(--color-gray-400);
+            margin-bottom: var(--space-md);
+        }
+
+        .search-empty h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-xs);
+            color: var(--color-primary);
+        }
+
+        .search-empty p {
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-lg);
+        }
+
+        .clear-search-btn {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            border: none;
+            padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .clear-search-btn:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-2px);
+        }
+
+
+           /* ===== JOBS GRID ===== */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .job-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent);
+        }
+
+        .job-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .job-logo {
+            width: 50px;
+            height: 50px;
+            background: var(--gray-100);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .job-type {
+            padding: 5px 12px;
+            background: rgba(42, 157, 143, 0.1);
+            color: var(--success);
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .job-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .job-company, .job-location {
+            color: var(--gray-600);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+        }
+
+        .job-company i, .job-location i {
+            color: var(--accent);
+            width: 16px;
+        }
+
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .job-tag {
+            padding: 4px 12px;
+            background: var(--gray-100);
+            border-radius: 50px;
+            font-size: 13px;
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+
+        .job-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .job-salary {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        .job-posted {
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        /* Show More Container */
+        .show-more-container {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        width: 100%;
+        clear: both;
+    }
+    
+    #showMoreBtn {
+        background-color: #ffffff !important;
+        color: #ff9e00 !important;
+        border: 2px solid #ff9e00 !important;
+        padding: 16px 40px !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        border-radius: 12px !important;
+        cursor: pointer !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        min-width: 220px !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        transition: all 0.3s ease !important;
+        line-height: 1.5 !important;
+        font-family: 'Inter', sans-serif !important;
+    }
+    
+    #showMoreBtn:hover {
+        background-color: #ff9e00 !important;
+        color: #0d1b2a !important;
+        border-color: #ff9e00 !important;
+        transform: translateY(-3px) !important;
+        box-shadow: 0 10px 20px rgba(255, 158, 0, 0.3) !important;
+    }
+    
+    #showMoreBtn:disabled {
+        opacity: 0.5 !important;
+        cursor: not-allowed !important;
+        pointer-events: none !important;
+    }
+    
+    #showMoreBtn i {
+        transition: transform 0.3s ease !important;
+    }
+    
+    #showMoreBtn:hover i {
+        transform: translateY(3px) !important;
+    }
+    
+    #showMoreBtn.hidden {
+        display: none !important;
+    }
+
+        /* Categories Section */
+        .categories {
+            padding: var(--space-2xl) 0;
+            background: var(--color-white);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .category-card {
+            text-align: center;
+            padding: var(--space-xl);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-xl);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .category-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            font-size: 2rem;
+            color: var(--color-accent);
+        }
+
+        .category-card h3 {
+            margin-bottom: var(--space-xs);
+        }
+
+        .category-card p {
+            color: var(--color-gray-600);
+            font-size: 0.95rem;
+        }
         
-
-        /* Add to your stylesheet */
-.fa-brands:before {
-    content: "";
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    background: var(--color-accent);
-    border-radius: 2px;
-}
-
-.fa-brands.fa-google:before {
-    background: #4285F4;
-}
-
-.fa-brands.fa-linkedin:before {
-    background: #0077B5;
-}
-
-.fas:before {
-    content: "•";
-    color: var(--color-accent);
-}
         /* ===== HERO SECTION ===== */
         .hero {
             padding: var(--space-3xl) var(--space-md);
@@ -594,386 +1131,590 @@
             font-weight: 600;
         }
         
-        /* ===== COMPANY DESCRIPTION ===== */
-        .company-description {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-white);
-        }
-        
-        .description-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-2xl);
-            align-items: center;
-        }
-        
-        .description-content h2 {
-            margin-bottom: var(--space-lg);
-        }
-        
-        .description-features {
-            list-style: none;
-            margin: var(--space-xl) 0;
-        }
-        
-        .description-features li {
-            padding: var(--space-sm) 0;
-            color: var(--color-gray-700);
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-sm);
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-        
-        .description-features li:last-child {
-            border-bottom: none;
-        }
-        
-        .description-features li i {
-            color: var(--color-success);
-            margin-top: 0.25rem;
-            flex-shrink: 0;
-        }
-        
-        .description-image {
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-2xl);
-        }
-        
-        .description-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* ===== JOB LISTINGS SECTION ===== */
-        .job-listings {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-gray-100);
-        }
-        
-        .listings-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--space-2xl);
-            flex-wrap: wrap;
-            gap: var(--space-md);
-        }
-        
-        .listings-actions {
-            display: flex;
-            gap: var(--space-md);
-            align-items: center;
-        }
-        
-        .search-box {
-            position: relative;
-            min-width: 300px;
-        }
-        
-        .search-box input {
-            width: 100%;
-            padding: 0.875rem 1.25rem 0.875rem 3rem;
-            border: 2px solid var(--color-gray-300);
-            border-radius: var(--radius-lg);
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            transition: all var(--transition-fast);
-        }
-        
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--color-accent);
-            box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.1);
-        }
-        
-        .search-box i {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--color-gray-600);
-        }
-        
-        /* JOB CATEGORIES */
-        .job-categories {
-            display: flex;
-            gap: var(--space-sm);
-            margin: var(--space-xl) 0;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .category-tag {
-            padding: 0.5rem 1.5rem;
-            background: var(--color-white);
-            border: 2px solid var(--color-gray-300);
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--color-gray-700);
-            cursor: pointer;
-            transition: all var(--transition-fast);
-        }
-        
-        .category-tag:hover,
-        .category-tag.active {
-            background: var(--color-accent);
-            color: var(--color-primary);
-            border-color: var(--color-accent);
-        }
-        
-        /* JOBS GRID */
+         /* ===== JOBS GRID ===== */
         .jobs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: var(--space-lg);
-            margin: var(--space-xl) 0;
+            gap: 30px;
+            margin-bottom: 40px;
         }
-        
+
         .job-card {
-            background: var(--color-white);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            border: 1px solid var(--color-gray-200);
-            transition: all var(--transition-normal);
-            position: relative;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
-        
+
         .job-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-2xl);
-            border-color: var(--color-accent);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent);
         }
-        
-        .job-card.featured {
-            border: 2px solid var(--color-accent);
-            background: linear-gradient(to bottom right, var(--color-white), rgba(255, 158, 0, 0.05));
-        }
-        
-        .job-badge {
-            position: absolute;
-            top: var(--space-md);
-            right: var(--space-md);
-            background: var(--color-emergency);
-            color: var(--color-white);
-            padding: 0.25rem 0.75rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-        
-        .job-type {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: var(--color-gray-100);
-            border-radius: var(--radius-sm);
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--color-gray-700);
-            margin-bottom: var(--space-sm);
-        }
-        
-        .job-card h3 {
-            margin-bottom: var(--space-sm);
-            color: var(--color-primary);
-        }
-        
-        .job-meta {
-            display: flex;
-            gap: var(--space-md);
-            margin: var(--space-md) 0;
-            flex-wrap: wrap;
-        }
-        
-        .job-meta-item {
+
+        .job-header {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: var(--color-gray-700);
-            font-size: 0.9rem;
+            justify-content: space-between;
+            margin-bottom: 15px;
         }
-        
-        .job-meta-item i {
-            color: var(--color-accent);
+
+        .job-logo {
+            width: 50px;
+            height: 50px;
+            background: var(--gray-100);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
         }
-        
-        .job-description {
-            color: var(--color-gray-700);
-            margin: var(--space-md) 0;
-            font-size: 0.95rem;
+
+        .job-type {
+            padding: 5px 12px;
+            background: rgba(42, 157, 143, 0.1);
+            color: var(--success);
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .job-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .job-company, .job-location {
+            color: var(--gray-600);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+        }
+
+        .job-company i, .job-location i {
+            color: var(--accent);
+            width: 16px;
+        }
+
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .job-tag {
+            padding: 4px 12px;
+            background: var(--gray-100);
+            border-radius: 50px;
+            font-size: 13px;
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+
+        .job-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .job-salary {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        .job-posted {
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        /* ===== SHOW MORE BUTTON ===== */
+        .show-more-wrapper {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+
+        .show-more-btn {
+            background-color: #ffffff;
+            color: #ff9e00;
+            border: 2px solid #ff9e00;
+            padding: 16px 48px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 60px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-width: 260px;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            letter-spacing: 0.5px;
+        }
+
+        .show-more-btn:hover {
+            background-color: #ff9e00;
+            color: #0d1b2a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 158, 0, 0.3);
+        }
+
+        .show-more-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .show-more-btn:hover i {
+            transform: translateY(3px);
+        }
+
+        .show-more-btn.hidden {
+            display: none;
+        }
+
+        /* ===== EMPTY STATE ===== */
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 40px;
+            background: var(--white);
+            border-radius: 20px;
+            border: 2px dashed var(--gray-300);
+        }
+
+        .empty-state i {
+            font-size: 48px;
+            color: var(--gray-600);
+            margin-bottom: 20px;
+        }
+
+        .empty-state h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .empty-state p {
+            color: var(--gray-600);
+            margin-bottom: 20px;
+        }
+
+        .clear-search-btn {
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .clear-search-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ===== NOTIFICATION ===== */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+            border-left: 4px solid var(--accent);
+            animation: slideIn 0.3s ease-out;
+            max-width: 400px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: var(--accent);
+        }
+
+        .feature-card h3 {
+            color: var(--white);
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
             line-height: 1.6;
         }
-        
+
+        /* ===== CATEGORIES SECTION ===== */
+        .categories {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .categories h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .categories > p {
+            text-align: center;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .category-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gray-100);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 28px;
+            color: var(--accent);
+        }
+
+        .category-card h3 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .category-card p {
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
         /* ===== TALENT AVAILABILITY SECTION ===== */
         .talent-availability {
-            padding: var(--space-3xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-primary), #1b263b);
-            color: var(--color-white);
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
         }
-        
+
+        .talent-availability .section-header {
+            color: var(--white);
+            margin-bottom: 40px;
+        }
+
+        .talent-availability .section-header h2 {
+            color: var(--white);
+        }
+
+        .talent-availability .section-header p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
         .availability-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-xl);
-            margin: var(--space-2xl) 0;
+            gap: 30px;
         }
-        
+
         .availability-card {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
+            border-radius: 20px;
+            padding: 30px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            transition: all var(--transition-normal);
+            transition: all 0.3s ease;
         }
-        
+
         .availability-card:hover {
-            background: rgba(255, 255, 255, 0.08);
             transform: translateY(-5px);
-            border-color: var(--color-accent);
+            border-color: var(--accent);
         }
-        
+
         .availability-icon {
-            font-size: 2.5rem;
-            color: var(--color-accent);
-            margin-bottom: var(--space-md);
+            font-size: 32px;
+            color: var(--accent);
+            margin-bottom: 20px;
         }
-        
+
         .availability-card h3 {
-            color: var(--color-white);
-            margin-bottom: var(--space-sm);
+            color: var(--white);
+            margin-bottom: 15px;
         }
-        
+
         .talent-list {
             list-style: none;
-            margin: var(--space-md) 0;
+            margin-bottom: 20px;
         }
-        
+
         .talent-list li {
-            padding: 0.5rem 0;
-            color: rgba(255, 255, 255, 0.9);
+            padding: 8px 0;
+            color: rgba(255, 255, 255, 0.8);
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 10px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .talent-list li:last-child {
-            border-bottom: none;
-        }
-        
+
         .talent-list li i {
-            color: var(--color-success);
-            font-size: 0.9rem;
+            color: var(--success);
         }
-        
+
+        .btn-outline-light {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-outline-light:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
         /* ===== EMPLOYERS SECTION ===== */
         .employers-section {
-            padding: var(--space-3xl) var(--space-md);
-            background: var(--color-white);
+            padding: 60px 0;
+            background: var(--white);
         }
-        
+
         .employers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-xl);
-            margin: var(--space-2xl) 0;
+            gap: 30px;
+            margin: 40px 0;
         }
-        
+
         .employer-card {
-            background: var(--color-white);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            border: 1px solid var(--color-gray-200);
-            transition: all var(--transition-normal);
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
             text-align: center;
         }
-        
+
         .employer-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-2xl);
-            border-color: var(--color-accent);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent);
         }
-        
+
         .employer-icon {
-            font-size: 3rem;
-            color: var(--color-accent);
-            margin-bottom: var(--space-md);
-            background: var(--color-gray-100);
             width: 80px;
             height: 80px;
+            background: var(--gray-100);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            margin: 0 auto var(--space-md);
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: var(--accent);
         }
-        
+
         .employer-card h3 {
-            margin-bottom: var(--space-sm);
+            margin-bottom: 10px;
         }
-        
+
         .employer-features {
             list-style: none;
-            margin: var(--space-md) 0;
+            margin: 20px 0;
             text-align: left;
         }
-        
+
         .employer-features li {
-            padding: 0.5rem 0;
-            color: var(--color-gray-700);
+            padding: 8px 0;
+            color: var(--gray-700);
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 10px;
+            border-bottom: 1px solid var(--gray-200);
         }
-        
+
         .employer-features li i {
-            color: var(--color-success);
+            color: var(--success);
         }
-        
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary-large {
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary-large:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
         /* ===== REGISTRATION BANNER ===== */
         .registration-banner {
-            padding: var(--space-2xl) var(--space-md);
-            background: linear-gradient(135deg, var(--color-primary), #1b263b);
-            color: var(--color-white);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            padding: 60px;
+            border-radius: 30px;
+            margin: 40px 0;
             text-align: center;
-            border-radius: var(--radius-xl);
-            margin: var(--space-2xl) auto;
-            max-width: 1200px;
-            border: 3px solid var(--color-accent);
+            border: 3px solid var(--accent);
         }
-        
-        .registration-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
+
         .registration-icon {
-            font-size: 4rem;
-            color: var(--color-accent);
-            margin-bottom: var(--space-lg);
+            font-size: 64px;
+            color: var(--accent);
+            margin-bottom: 20px;
         }
-        
-        .registration-content h2 {
-            color: var(--color-white);
-            margin-bottom: var(--space-md);
+
+        .registration-banner h2 {
+            color: var(--white);
+            font-size: 36px;
+            margin-bottom: 15px;
         }
-        
-        .registration-content .lead {
+
+        .registration-banner p {
             color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
         }
-        
+
         .registration-options {
             display: flex;
-            gap: var(--space-lg);
+            gap: 20px;
             justify-content: center;
-            margin-top: var(--space-xl);
             flex-wrap: wrap;
         }
-        
+
+        .btn-outline-white {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-outline-white:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
         /* ===== SIGN-IN MODAL ===== */
         .signin-modal {
             display: none;
@@ -986,157 +1727,131 @@
             z-index: 10000;
             align-items: center;
             justify-content: center;
-            padding: var(--space-md);
+            padding: 20px;
         }
-        
+
         .signin-modal.active {
             display: flex;
-            animation: fadeIn 0.3s ease;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
+
         .modal-content {
-            background: var(--color-white);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
+            background: var(--white);
+            border-radius: 30px;
+            padding: 40px;
             max-width: 500px;
             width: 100%;
             position: relative;
             animation: modalSlideIn 0.3s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
         }
-        
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
+
         .modal-close {
             position: absolute;
-            top: var(--space-md);
-            right: var(--space-md);
+            top: 20px;
+            right: 20px;
             background: none;
             border: none;
-            font-size: 1.5rem;
-            color: var(--color-gray-600);
+            font-size: 24px;
+            color: var(--gray-600);
             cursor: pointer;
-            padding: var(--space-xs);
         }
-        
+
         .modal-close:hover {
-            color: var(--color-emergency);
+            color: var(--emergency);
         }
-        
+
         .modal-content h2 {
             text-align: center;
-            margin-bottom: var(--space-xl);
+            margin-bottom: 30px;
         }
-        
+
         .modal-tabs {
             display: flex;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-xl);
+            gap: 10px;
+            margin-bottom: 30px;
         }
-        
+
         .modal-tab {
             flex: 1;
-            padding: var(--space-md);
-            background: var(--color-gray-100);
+            padding: 15px;
+            background: var(--gray-100);
             border: none;
-            border-radius: var(--radius-md);
-            font-family: var(--font-sans);
+            border-radius: 12px;
             font-weight: 600;
-            color: var(--color-gray-700);
+            color: var(--gray-700);
             cursor: pointer;
-            transition: all var(--transition-fast);
+            transition: all 0.3s;
         }
-        
+
         .modal-tab.active {
-            background: var(--color-accent);
-            color: var(--color-primary);
+            background: var(--accent);
+            color: var(--primary);
         }
-        
-        .modal-tab:hover:not(.active) {
-            background: var(--color-gray-200);
-        }
-        
+
         .modal-form {
             display: none;
         }
-        
+
         .modal-form.active {
             display: block;
         }
-        
+
         .form-group {
-            margin-bottom: var(--space-lg);
+            margin-bottom: 20px;
         }
-        
+
         .form-group label {
             display: block;
-            margin-bottom: var(--space-xs);
+            margin-bottom: 8px;
             font-weight: 600;
-            color: var(--color-gray-800);
+            color: var(--gray-800);
         }
-        
+
         .form-group input {
             width: 100%;
-            padding: 0.875rem 1.25rem;
-            border: 2px solid var(--color-gray-300);
-            border-radius: var(--radius-md);
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            transition: all var(--transition-fast);
+            padding: 15px;
+            border: 2px solid var(--gray-300);
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s;
         }
-        
+
         .form-group input:focus {
             outline: none;
-            border-color: var(--color-accent);
+            border-color: var(--accent);
             box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.1);
         }
-        
+
         .form-options {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: var(--space-xl);
-            font-size: 0.9rem;
+            margin: 20px 0;
+            font-size: 14px;
         }
-        
+
         .remember-me {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 8px;
         }
-        
-        .remember-me input {
-            width: auto;
-        }
-        
+
         .forgot-password {
-            color: var(--color-accent);
+            color: var(--accent);
             text-decoration: none;
         }
-        
-        .forgot-password:hover {
-            text-decoration: underline;
+
+        .btn-block {
+            width: 100%;
         }
-        
+
         .modal-divider {
             text-align: center;
-            margin: var(--space-xl) 0;
+            margin: 30px 0;
             position: relative;
         }
-        
+
         .modal-divider::before {
             content: '';
             position: absolute;
@@ -1144,364 +1859,198 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: var(--color-gray-300);
+            background: var(--gray-300);
         }
-        
+
         .modal-divider span {
-            background: var(--color-white);
-            padding: 0 var(--space-sm);
-            color: var(--color-gray-600);
+            background: var(--white);
+            padding: 0 15px;
+            color: var(--gray-600);
             position: relative;
         }
-        
+
         .social-signin {
             display: flex;
-            gap: var(--space-md);
-            margin-bottom: var(--space-xl);
+            gap: 15px;
+            margin-bottom: 30px;
         }
-        
+
         .social-btn {
             flex: 1;
-            padding: 0.875rem;
-            border: 2px solid var(--color-gray-300);
-            border-radius: var(--radius-md);
-            background: var(--color-white);
-            font-family: var(--font-sans);
+            padding: 12px;
+            border: 2px solid var(--gray-300);
+            border-radius: 12px;
+            background: var(--white);
             font-weight: 600;
             cursor: pointer;
-            transition: all var(--transition-fast);
+            transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 8px;
         }
-        
+
         .social-btn:hover {
-            border-color: var(--color-accent);
-            background: var(--color-gray-100);
+            border-color: var(--accent);
         }
-        
+
         .modal-footer {
             text-align: center;
-            color: var(--color-gray-600);
-            font-size: 0.9rem;
+            color: var(--gray-600);
+            font-size: 14px;
         }
-        
+
         .modal-footer a {
-            color: var(--color-accent);
+            color: var(--accent);
             text-decoration: none;
             font-weight: 600;
         }
-        
-        .modal-footer a:hover {
-            text-decoration: underline;
-        }
-        
+
         /* ===== FOOTER ===== */
-        .site-footer {
-            background: var(--color-primary);
-            color: var(--color-white);
-            padding: var(--space-3xl) var(--space-md) var(--space-xl);
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px 0 30px;
         }
-        
+
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-2xl);
-            margin-bottom: var(--space-2xl);
+            gap: 40px;
+            margin-bottom: 40px;
         }
-        
+
         .footer-column h3 {
-            color: var(--color-white);
-            font-size: 1.2rem;
-            margin-bottom: var(--space-lg);
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
         }
-        
+
         .footer-links {
             list-style: none;
         }
-        
+
         .footer-links li {
-            margin-bottom: var(--space-sm);
+            margin-bottom: 10px;
         }
-        
+
         .footer-links a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            transition: color var(--transition-fast);
+            transition: color 0.3s;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
+            gap: 8px;
         }
-        
+
         .footer-links a:hover {
-            color: var(--color-accent);
+            color: var(--accent);
         }
-        
-        .footer-contact {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
+
         .footer-contact p {
-            margin-bottom: var(--space-sm);
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 10px;
         }
-        
+
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: var(--space-xl);
             text-align: center;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
         }
-        
+
         .footer-bottom-links {
             display: flex;
             justify-content: center;
-            gap: var(--space-lg);
-            margin: var(--space-md) 0;
+            gap: 30px;
+            margin-top: 15px;
             flex-wrap: wrap;
         }
-        
+
         .footer-bottom-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.5);
             text-decoration: none;
         }
-        
+
         .footer-bottom-links a:hover {
-            color: var(--color-accent);
-            text-decoration: underline;
+            color: var(--accent);
         }
-        
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 1024px) {
-            h1 { font-size: 3.5rem; }
-            h2 { font-size: 2.5rem; }
-            .hero-title { font-size: 3.5rem; }
-            .hero::before { width: 40%; }
-            .description-grid { grid-template-columns: 1fr; }
-        }
-        
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            /* MOBILE HEADER & NAVIGATION */
-            .header-container {
-                flex-wrap: wrap;
-                gap: var(--space-md);
+            .hero h1 {
+                font-size: 36px;
             }
             
-            .logo h1 {
-                font-size: 1.8rem;
-            }
-            
-            .logo-tagline {
-                font-size: 0.65rem;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            .main-nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 85%;
-                max-width: 400px;
-                height: 100vh;
-                background: var(--color-white);
-                padding: var(--space-2xl) var(--space-xl);
-                box-shadow: var(--shadow-2xl);
-                transition: right var(--transition-slow);
-                z-index: 1000;
+            .stats {
                 flex-direction: column;
-                align-items: flex-start;
-                overflow-y: auto;
+                gap: 30px;
             }
             
-            .main-nav.active {
-                right: 0;
-            }
-            
-            .mobile-overlay.active {
-                display: block;
-                animation: fadeIn 0.3s ease;
-            }
-            
-            .nav-menu {
+            .search-wrapper {
                 flex-direction: column;
+                border-radius: 30px;
+                padding: 10px;
+            }
+            
+            .search-btn {
+                padding: 15px;
+                margin-top: 10px;
                 width: 100%;
-                gap: 0;
-                margin-top: var(--space-xl);
             }
             
-            .nav-item {
-                width: 100%;
-            }
-            
-            .nav-link {
-                padding: 1.125rem 0;
-                border-bottom: 1px solid var(--color-gray-200);
-                width: 100%;
-                font-size: 1.1rem;
-                justify-content: space-between;
-            }
-            
-            .nav-link.active::after {
-                display: none;
-            }
-            
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                border: none;
-                padding: 0;
-                margin-left: var(--space-lg);
-                margin-top: var(--space-sm);
-                border-left: 2px solid var(--color-gray-200);
-                display: none;
-            }
-            
-            .dropdown.active .dropdown-menu {
-                display: block;
-            }
-            
-            .dropdown-toggle::after {
-                content: '\f078';
-                font-family: 'Font Awesome 6 Free';
-                font-weight: 900;
-                transition: transform 0.3s ease;
-            }
-            
-            .dropdown.active .dropdown-toggle::after {
-                transform: rotate(180deg);
-            }
-            
-            .nav-cta-group {
-                flex-direction: column;
-                width: 100%;
-                margin-top: var(--space-xl);
-            }
-            
-            .nav-cta {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-            
-            /* MOBILE HERO */
-            .hero {
-                padding: var(--space-2xl) var(--space-md);
-                text-align: center;
-            }
-            
-            .hero::before {
-                display: none;
-            }
-            
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                align-items: center;
-                gap: var(--space-lg);
-            }
-            
-            .hero-stat {
-                max-width: 100%;
-            }
-            
-            /* MOBILE CONTENT */
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.2rem; }
-            
-            .jobs-grid,
-            .availability-grid,
-            .employers-grid {
+            .jobs-grid {
                 grid-template-columns: 1fr;
             }
             
-            .listings-header {
+            .section-header {
                 flex-direction: column;
-                align-items: stretch;
+                align-items: flex-start;
             }
             
-            .search-box {
-                min-width: 100%;
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
             }
             
+            .nav {
+                gap: 20px;
+            }
+
             .registration-options {
                 flex-direction: column;
             }
-            
+
             .social-signin {
                 flex-direction: column;
             }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
         }
-        
+
         @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2.3rem;
+            .hero h1 {
+                font-size: 28px;
             }
             
-            .hero-subtitle {
-                font-size: 1.1rem;
+            .job-card {
+                padding: 20px;
             }
             
-            .hero-stat-number {
-                font-size: 2.5rem;
+            .show-more-btn {
+                width: 100%;
+                min-width: auto;
             }
-            
-            .hero-badge {
-                font-size: 0.85rem;
-                padding: 0.75rem 1.5rem;
+
+            .modal-content {
+                padding: 30px 20px;
             }
-            
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            
-            .logo h1 {
-                font-size: 1.6rem;
-            }
-            
-            .container {
-                padding: 0 var(--space-sm);
-            }
-            
-            .hero,
-            .company-description,
-            .job-listings,
-            .talent-availability,
-            .employers-section {
-                padding: var(--space-xl) var(--space-sm);
-            }
-        }
-        
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-in {
-            animation: fadeInUp 0.8s ease forwards;
         }
     </style>
 </head>
@@ -1702,43 +2251,27 @@
                             </div>
                         </li>
 
-                         <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
                             <a href="/candidates/" class="nav-link dropdown-toggle">
                                 <i class="fas fa-user-tie"></i> Our Team
-                                <!-- <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i> -->
                             </a>
                             <div class="dropdown-menu">
                                 <a href="/about/index.html" class="dropdown-item">
                                     <i class="fas fa-briefcase"></i> About
                                 </a>
-    
-                               </div>
+                            </div>
                         </li>
 
-                                   <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
                             <a href="/candidates/" class="nav-link dropdown-toggle">
                                 <i class="fas fa-user-tie"></i> Reach Out
-                                <!-- <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i> -->
                             </a>
                             <div class="dropdown-menu">
                                 <a href="/contact/index.html" class="dropdown-item">
-                                <i class="fas fa-info-circle"></i> Contact
+                                    <i class="fas fa-info-circle"></i> Contact
                                 </a>
-    
-                               </div>
+                            </div>
                         </li>
-                        
-                        <!-- <li class="nav-item">
-                            <a href="/about/" class="nav-link">
-                                <i class="fas fa-info-circle"></i> About
-                            </a>
-                        </li> -->
-                        
-                        <!-- <li class="nav-item">
-                            <a href="/contact/" class="nav-link">
-                                <i class="fas fa-info-circle"></i> Contact
-                            </a>
-                        </li> -->
                     </ul>
                     
                     <div class="nav-cta-group">
@@ -1763,208 +2296,174 @@
                 <div class="hero-badge">
                     <i class="fas fa-bolt"></i> NIGERIA'S #1 HOSPITALITY TALENT PLATFORM
                 </div>
-                <h1 class="hero-title">Find <span class="highlight">Elite Hospitality Jobs</span> & <span class="highlight">Top Talent</span></h1>
+                <h1 class="hero-title">Find <span class="highlight">Executive Hospitality Positions</span> & <span class="highlight">Top Talent</span></h1>
                 <p class="hero-subtitle">Connecting Nigeria's luxury hospitality industry with elite talent. Browse jobs, post vacancies, and access Precision Search recruitment services.</p>
                 
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">500+</span>
-                        <span class="hero-stat-label">Active<br>Job Listings</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">2,500+</span>
-                        <span class="hero-stat-label">Elite<br>Candidates</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">200+</span>
-                        <span class="hero-stat-label">Luxury<br>Employers</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">94%</span>
-                        <span class="hero-stat-label">Placement<br>Success</span>
-                    </div>
-                </div>
-                
-                <div style="margin-top: var(--space-xl);">
-                    <a href="#job-listings" class="btn btn-primary btn-large">
-                        <i class="fas fa-briefcase"></i> BROWSE JOBS
-                    </a>
-                    <button class="btn btn-outline btn-large" style="margin-left: var(--space-md); color: white; border-color: white;" id="postJobTrigger">
-                        <i class="fas fa-plus-circle"></i> POST A JOB
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- COMPANY DESCRIPTION -->
-    <section class="company-description">
-        <div class="container">
-            <div class="description-grid">
-                <div class="description-content">
-                    <h2>Jobpitality: Nigeria's Premier <span class="text-gradient">Hospitality Talent Platform</span></h2>
-                    <p>We are the ruthless talent partner for Nigeria's luxury hospitality industry, combining technology with human expertise to connect elite professionals with premier employers.</p>
-                    <p>Jobpitality serves as both a sophisticated job board and an elite recruitment service, offering precision placement for luxury hotels, fine dining restaurants, and premium resorts across Nigeria.</p>
-                    
-                    <ul class="description-features">
-                        <li><i class="fas fa-check"></i> <strong>Dual Platform:</strong> Public job board + private elite recruitment network</li>
-                        <li><i class="fas fa-check"></i> <strong>Industry Specialization:</strong> Exclusive focus on luxury hospitality sector</li>
-                        <li><i class="fas fa-check"></i> <strong>Quality Assurance:</strong> All candidates pre-vetted for elite status</li>
-                        <li><i class="fas fa-check"></i> <strong>National Coverage:</strong> Lagos, Abuja, Port Harcourt, Calabar & beyond</li>
-                        <li><i class="fas fa-check"></i> <strong>Confidential Service:</strong> Discreet search and placement services</li>
-                    </ul>
-                    
-                    <div style="margin-top: var(--space-xl);">
-                        <a href="/about/" class="btn btn-outline">
-                            <i class="fas fa-info-circle"></i> LEARN MORE ABOUT US
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="description-image">
-                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=800&q=80" alt="Jobpitality - Nigeria's Hospitality Talent Platform">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- JOB LISTINGS -->
-    <section class="job-listings" id="job-listings">
-        <div class="container">
-            <div class="section-header">
-                <h2>Featured <span class="text-gradient">Hospitality Jobs</span></h2>
-                <p>Browse elite opportunities in Nigeria's luxury hospitality sector. Sign in to view full details and apply.</p>
-            </div>
-            
-            <div class="listings-header">
-                <div>
-                    <h3 style="font-size: 1.5rem; color: var(--color-gray-800);">Latest Opportunities</h3>
-                    <p style="color: var(--color-gray-600); font-size: 0.95rem;">Showing 8 of 500+ active listings</p>
-                </div>
-                
-                <div class="listings-actions">
+                <!-- FIXED SEARCH BOX with JavaScript attached -->
+                <div class="search-container" id="searchContainer">
                     <div class="search-box">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search jobs, companies, locations...">
+                        <input type="text" id="searchInput" placeholder="Search jobs, companies, locations...">
+                        <span class="search-results-count" id="searchResultsCount"></span>
                     </div>
-                    <a href="/candidates/jobs/" class="btn btn-outline">
-                        <i class="fas fa-list"></i> VIEW ALL JOBS
-                    </a>
-                </div>
-            </div>
-            
-            <div class="job-categories">
-                <span class="category-tag active">All Jobs</span>
-                <span class="category-tag">Hotel Management</span>
-                <span class="category-tag">Culinary</span>
-                <span class="category-tag">F&B Service</span>
-                <span class="category-tag">Sales & Marketing</span>
-                <span class="category-tag">Finance & HR</span>
-            </div>
-            
-            <div class="jobs-grid">
-                <!-- Job 1 - Requires Sign In -->
-                <div class="job-card featured">
-                    <div class="job-badge">FEATURED</div>
-                    <span class="job-type">Full-time</span>
-                    <h3>General Manager - Luxury Hotel</h3>
-                    <div class="job-meta">
-                        <span class="job-meta-item">
-                            <i class="fas fa-hotel"></i> 5-Star Hotel Group
-                        </span>
-                        <span class="job-meta-item">
-                            <i class="fas fa-map-marker-alt"></i> Lagos, Nigeria
-                        </span>
-                        <span class="job-meta-item">
-                            <i class="fas fa-money-bill-wave"></i> ₦15-20M/year
-                        </span>
-                    </div>
-                    <p class="job-description">Lead operations for a premier luxury hotel. Drive revenue growth, manage 200+ staff, and maintain Forbes 5-star standards.</p>
-                    <button class="btn btn-primary btn-block view-job-btn" data-job-id="GM001">
-                        <i class="fas fa-eye"></i> VIEW & APPLY
+                    <button class="search-btn" id="searchButton">
+                        <i class="fas fa-search"></i>
+                        Search Jobs
                     </button>
                 </div>
                 
-                <!-- Job 2 - Requires Sign In -->
-                <div class="job-card">
-                    <span class="job-type">Full-time</span>
-                    <h3>Executive Chef - Fine Dining</h3>
-                    <div class="job-meta">
-                        <span class="job-meta-item">
-                            <i class="fas fa-utensils"></i> Michelin-Star Restaurant
-                        </span>
-                        <span class="job-meta-item">
-                            <i class="fas fa-map-marker-alt"></i> Abuja, Nigeria
-                        </span>
-                        <span class="job-meta-item">
-                            <i class="fas fa-money-bill-wave"></i> ₦8-12M/year
-                        </span>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value">500+</div>
+                        <div class="stat-label">Active Jobs</div>
                     </div>
-                    <p class="job-description">Lead culinary operations for award-winning restaurant. Menu development, kitchen management, Michelin standards maintenance.</p>
-                    <button class="btn btn-outline btn-block view-job-btn" data-job-id="EC002">
-                        <i class="fas fa-eye"></i> VIEW & APPLY
-                    </button>
-                </div>
-                
-                <!-- Job 3 - Requires Sign In -->
-                <div class="job-card">
-                    <span class="job-type">Full-time</span>
-                    <h3>Director of Sales & Marketing</h3>
-                    <div class="job-meta">
-                        <span class="job-meta-item">
-                            <i class="fas fa-chart-line"></i> Resort Collection
-                        </span>
-                        <span class="job-meta-item">
-                            <i class="fas fa-map-marker-alt"></i> Port Harcourt, Nigeria
-                        </span>
-                        <span class="job-meta-item">
-                            <i class="fas fa-money-bill-wave"></i> ₦10-15M/year
-                        </span>
+                    <div class="stat-item">
+                        <div class="stat-value">200+</div>
+                        <div class="stat-label">Companies</div>
                     </div>
-                    <p class="job-description">Develop sales strategies for luxury resort group. Lead team of 15, drive group and corporate business, manage multi-property portfolio.</p>
-                    <button class="btn btn-outline btn-block view-job-btn" data-job-id="SM003">
-                        <i class="fas fa-eye"></i> VIEW & APPLY
-                    </button>
-                </div>
-                
-                <!-- Job 4 - Requires Sign In -->
-                <div class="job-card">
-                    <span class="job-type">Contract</span>
-                    <h3>Interim F&B Director</h3>
-                    <div class="job-meta">
-                        <span class="job-meta-item">
-                            <i class="fas fa-cocktail"></i> Boutique Hotel
-                        </span>
-                        <span class="job-meta-item">
-                            <i class="fas fa-map-marker-alt"></i> Calabar, Nigeria
-                        </span>
-                        <span class="job-meta-item">
-                            <i class="fas fa-money-bill-wave"></i> ₦6-8M/6 months
-                        </span>
+                    <div class="stat-item">
+                        <div class="stat-value">1,000+</div>
+                        <div class="stat-label">Placements</div>
                     </div>
-                    <p class="job-description">6-month contract to transform F&B operations. Menu revamp, cost control, team training, and revenue optimization.</p>
-                    <button class="btn btn-outline btn-block view-job-btn" data-job-id="FB004">
-                        <i class="fas fa-eye"></i> VIEW & APPLY
-                    </button>
                 </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: var(--space-xl);">
-                <a href="/candidates/jobs/" class="btn btn-secondary btn-large">
-                    <i class="fas fa-briefcase"></i> BROWSE ALL 500+ JOBS
-                </a>
-                <p style="margin-top: var(--space-md); color: var(--color-gray-600); font-size: 0.9rem;">
-                    <i class="fas fa-info-circle"></i> Sign in required to view full job details and apply
-                </p>
             </div>
         </div>
     </section>
+
     
+      <!-- JOBS SECTION -->
+    <section class="jobs-section">
+        <div class="container">
+            <!-- SECTION HEADER -->
+            <div class="section-header">
+                <div>
+                    <h2>Latest Opportunities</h2>
+                    <p>Showing <span id="visibleCount">3</span> of <span id="totalCount">8</span> active listings</p>
+                </div>
+                <a href="/jobs/" class="view-all-link">
+                    VIEW ALL JOBS <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <!-- JOBS GRID -->
+            <div class="jobs-grid" id="jobsGrid"></div>
+            
+            <!-- SHOW MORE BUTTON -->
+            <div class="show-more-wrapper" id="showMoreWrapper">
+                <button class="show-more-btn" id="showMoreBtn">
+                    <i class="fas fa-chevron-down"></i> Show More Jobs
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--white); margin-bottom: 20px;">Why Choose Jobpitality</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 40px;">
+                We're revolutionizing hospitality recruitment in Nigeria with AI-powered matching
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-Powered Matching</h3>
+                    <p>Smart algorithms match you with the perfect opportunities based on your skills and experience.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Quick Apply</h3>
+                    <p>Apply to multiple jobs with one click using your saved profile and resume.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Verified Employers</h3>
+                    <p>All employers are vetted to ensure legitimate opportunities and safe applications.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Career Insights</h3>
+                    <p>Get personalized insights and salary data to make informed career decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POPULAR CATEGORIES -->
+    <section class="categories">
+        <div class="container">
+            <h2>Popular Categories</h2>
+            <p>Explore opportunities across different hospitality sectors</p>
+            
+            <div class="categories-grid">
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>Hotels & Resorts</h3>
+                    <p>156 openings</p>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Restaurants</h3>
+                    <p>89 openings</p>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Events & Catering</h3>
+                    <p>67 openings</p>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Travel & Tourism</h3>
+                    <p>45 openings</p>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-utensil-spoon"></i>
+                    </div>
+                    <h3>Culinary</h3>
+                    <p>92 openings</p>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Management</h3>
+                    <p>78 openings</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- TALENT AVAILABILITY -->
     <section class="talent-availability">
         <div class="container">
-            <div class="section-header" style="color: white;">
-                <h2>Elite Talent <span style="color: var(--color-accent);">Available Now</span></h2>
+            <div class="section-header">
+                <h2>Elite Talent <span style="color: var(--accent);">Available Now</span></h2>
                 <p>Top hospitality professionals actively seeking new opportunities. Sign in to connect with elite candidates.</p>
             </div>
             
@@ -1980,7 +2479,7 @@
                         <li><i class="fas fa-user-tie"></i> 18+ Revenue Managers</li>
                         <li><i class="fas fa-user-tie"></i> 12+ Front Office Directors</li>
                     </ul>
-                    <button class="btn btn-outline btn-block" style="color: white; border-color: white; margin-top: var(--space-md);" id="viewHotelTalent">
+                    <button class="btn-outline-light view-talent-btn" data-type="hotel">
                         <i class="fas fa-search"></i> VIEW CANDIDATES
                     </button>
                 </div>
@@ -1996,7 +2495,7 @@
                         <li><i class="fas fa-user-tie"></i> 10+ F&B Directors</li>
                         <li><i class="fas fa-user-tie"></i> 6+ Pastry Chefs</li>
                     </ul>
-                    <button class="btn btn-outline btn-block" style="color: white; border-color: white; margin-top: var(--space-md);" id="viewCulinaryTalent">
+                    <button class="btn-outline-light view-talent-btn" data-type="culinary">
                         <i class="fas fa-search"></i> VIEW CANDIDATES
                     </button>
                 </div>
@@ -2012,28 +2511,25 @@
                         <li><i class="fas fa-user-tie"></i> 9+ Sales Directors</li>
                         <li><i class="fas fa-user-tie"></i> 4+ Spa Directors</li>
                     </ul>
-                    <button class="btn btn-outline btn-block" style="color: white; border-color: white; margin-top: var(--space-md);" id="viewSpecializedTalent">
+                    <button class="btn-outline-light view-talent-btn" data-type="specialized">
                         <i class="fas fa-search"></i> VIEW CANDIDATES
                     </button>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: var(--space-xl);">
-                <button class="btn btn-primary btn-large" id="registerAsCandidate">
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn-primary-large" id="registerAsCandidate">
                     <i class="fas fa-user-plus"></i> REGISTER AS CANDIDATE
                 </button>
-                <p style="margin-top: var(--space-md); color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">
-                    <i class="fas fa-user-secret"></i> Profiles are confidential - only visible to verified employers
-                </p>
             </div>
         </div>
     </section>
-    
+
     <!-- EMPLOYERS SECTION -->
     <section class="employers-section">
         <div class="container">
             <div class="section-header">
-                <h2>For <span class="text-gradient">Hospitality Employers</span></h2>
+                <h2>For <span class="text-gradient" style="color: var(--accent);">Hospitality Employers</span></h2>
                 <p>Find elite talent, post job vacancies, and access our Precision Search recruitment services.</p>
             </div>
             
@@ -2043,14 +2539,13 @@
                         <i class="fas fa-bullhorn"></i>
                     </div>
                     <h3>Post Job Vacancies</h3>
-                    <p>Reach 2,500+ pre-vetted hospitality professionals. Our platform ensures quality applications from elite candidates.</p>
+                    <p>Reach 2,500+ pre-vetted hospitality professionals. Our platform ensures quality applications.</p>
                     <ul class="employer-features">
                         <li><i class="fas fa-check"></i> Premium job listing visibility</li>
                         <li><i class="fas fa-check"></i> Candidate screening tools</li>
                         <li><i class="fas fa-check"></i> Application management system</li>
-                        <li><i class="fas fa-check"></i> Industry-specific targeting</li>
                     </ul>
-                    <button class="btn btn-outline btn-block" id="postJobBtn">
+                    <button class="btn-outline post-job-btn">
                         <i class="fas fa-plus-circle"></i> POST A JOB
                     </button>
                 </div>
@@ -2060,16 +2555,13 @@
                         <i class="fas fa-search"></i>
                     </div>
                     <h3>Precision Search</h3>
-                    <p>Our elite recruitment service for critical leadership roles. We deliver pre-vetted candidates in 72 hours.</p>
+                    <p>Our elite recruitment service for critical leadership roles. 72-hour vetted shortlist guarantee.</p>
                     <ul class="employer-features">
-                        <li><i class="fas fa-check"></i> 72-hour vetted shortlist guarantee</li>
+                        <li><i class="fas fa-check"></i> 72-hour vetted shortlist</li>
                         <li><i class="fas fa-check"></i> Access to passive elite talent</li>
-                        <li><i class="fas fa-check"></i> Comprehensive candidate assessments</li>
                         <li><i class="fas fa-check"></i> 90-day placement guarantee</li>
                     </ul>
-                    <a href="/services/guarantee/" class="btn btn-outline btn-block">
-                        <i class="fas fa-crosshairs"></i> LEARN MORE
-                    </a>
+                    <a href="#" class="btn-outline">LEARN MORE</a>
                 </div>
                 
                 <div class="employer-card">
@@ -2082,667 +2574,528 @@
                         <li><i class="fas fa-check"></i> 2,500+ pre-vetted profiles</li>
                         <li><i class="fas fa-check"></i> Advanced search filters</li>
                         <li><i class="fas fa-check"></i> Direct messaging system</li>
-                        <li><i class="fas fa-check"></i> Video interview scheduling</li>
                     </ul>
-                    <button class="btn btn-outline btn-block" id="accessTalentDb">
+                    <button class="btn-outline access-db-btn">
                         <i class="fas fa-database"></i> ACCESS DATABASE
                     </button>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: var(--space-xl);">
-                <button class="btn btn-primary btn-large" id="registerAsEmployer">
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn-primary-large" id="registerAsEmployer">
                     <i class="fas fa-building"></i> REGISTER AS EMPLOYER
                 </button>
-                <p style="margin-top: var(--space-md); color: var(--color-gray-600); font-size: 0.9rem;">
-                    <i class="fas fa-shield-alt"></i> All employers are verified before gaining platform access
-                </p>
             </div>
         </div>
     </section>
-    
+
     <!-- REGISTRATION BANNER -->
     <div class="container">
         <section class="registration-banner">
-            <div class="registration-content">
-                <div class="registration-icon">
-                    <i class="fas fa-user-plus"></i>
-                </div>
-                <h2>Join Nigeria's Premier Hospitality Talent Community</h2>
-                <p class="lead">Whether you're seeking elite opportunities or exceptional talent, Jobpitality connects you with the best in Nigeria's luxury hospitality industry.</p>
-                
-                <div class="registration-options">
-                    <button class="btn btn-primary btn-large" id="signinCta">
-                        <i class="fas fa-sign-in-alt"></i> SIGN IN TO PLATFORM
-                    </button>
-                    <button class="btn btn-outline btn-large" style="color: white; border-color: white;" id="registerCta">
-                        <i class="fas fa-user-plus"></i> CREATE ACCOUNT
-                    </button>
-                </div>
+            <div class="registration-icon">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <h2>Join Nigeria's Premier Hospitality Talent Community</h2>
+            <p>Whether you're seeking elite opportunities or exceptional talent, Jobpitality connects you with the best in Nigeria's luxury hospitality industry.</p>
+            
+            <div class="registration-options">
+                <button class="btn-primary-large" id="signinCta">
+                    <i class="fas fa-sign-in-alt"></i> SIGN IN
+                </button>
+                <button class="btn-outline-white" id="registerCta">
+                    <i class="fas fa-user-plus"></i> CREATE ACCOUNT
+                </button>
             </div>
         </section>
     </div>
-    
+
     <!-- FOOTER -->
-    <footer class="site-footer">
+    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
                     <h3>Jobpitality</h3>
-                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-lg);">We deploy <strong>Precision Search</strong> to connect Nigeria's luxury hospitality industry with <strong>Elite Talent</strong>. The ruthless talent partner for hotels, restaurants, and resorts.</p>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">The ruthless talent partner for Nigeria's luxury hospitality industry.</p>
                     <div class="footer-contact">
                         <p><i class="fas fa-phone"></i> +234 803 966 1354</p>
                         <p><i class="fas fa-envelope"></i> acquire@jobpitality.com</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Ilori • Osogbo • Kaduna • Lagos</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Lagos • Abuja • Port Harcourt</p>
                     </div>
                 </div>
                 
                 <div class="footer-column">
                     <h3>For Candidates</h3>
                     <ul class="footer-links">
-                        <li><a href="/candidates/jobs/"><i class="fas fa-chevron-right"></i> Browse Jobs</a></li>
-                        <li><a href="/candidates/submit-profile/"><i class="fas fa-chevron-right"></i> Submit Profile</a></li>
-                        <li><a href="/candidates/career-strategy/"><i class="fas fa-chevron-right"></i> Career Strategy</a></li>
-                        <li><a href="/candidates/application-process/"><i class="fas fa-chevron-right"></i> Application Process</a></li>
-                        <li><a href="/candidates/faq/"><i class="fas fa-chevron-right"></i> Candidate FAQ</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Browse Jobs</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Submit Profile</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Career Strategy</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Candidate FAQ</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>For Employers</h3>
                     <ul class="footer-links">
-                        <li><a href="/employers/post-job/"><i class="fas fa-chevron-right"></i> Post a Job</a></li>
-                        <li><a href="/employers/search-talent/"><i class="fas fa-chevron-right"></i> Search Talent</a></li>
-                        <li><a href="/services/precision-search/"><i class="fas fa-chevron-right"></i> Precision Search</a></li>
-                        <li><a href="/employers/pricing/"><i class="fas fa-chevron-right"></i> Pricing</a></li>
-                        <li><a href="/employers/faq/"><i class="fas fa-chevron-right"></i> Employer FAQ</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Post a Job</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Search Talent</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Employer FAQ</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Company</h3>
                     <ul class="footer-links">
-                        <li><a href="/about/"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="/case-studies/"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
-                        <li><a href="/services/guarantee/"><i class="fas fa-chevron-right"></i> 72-Hour Guarantee</a></li>
-                        <li><a href="/contact/"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
-                        <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <p>&copy; 2024 Jobpitality. All rights reserved. The ruthless talent partner for Nigeria's luxury hospitality industry.</p>
-                    <div class="footer-bottom-links">
-                        <a href="/privacy-policy/">Privacy Policy</a>
-                        <a href="/terms-of-service/">Terms of Service</a>
-                        <a href="/cookies/">Cookie Policy</a>
-                    </div>
+                <p>&copy; 2024 Jobpitality. All rights reserved. The ruthless talent partner for Nigeria's luxury hospitality industry.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
-     <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT -->
     <script>
-        // Mobile Navigation Toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const mainNav = document.getElementById('mainNav');
-            const mobileOverlay = document.getElementById('mobileOverlay');
-            
-            if (mobileMenuToggle && mainNav && mobileOverlay) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    mainNav.classList.toggle('active');
-                    mobileOverlay.classList.toggle('active');
-                    document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : 'auto';
-                });
+        // ========== JOB DATA ==========
+        const allJobs = [
+            {
+                title: 'Executive Chef',
+                company: 'Luxury Hotel Group',
+                location: 'Lagos, Nigeria',
+                salary: '₦12-18M/year',
+                type: 'Full-time',
+                tags: ['Fine Dining', 'Leadership', 'Menu Development'],
+                logo: '🏨',
+                posted: '2 days ago'
+            },
+            {
+                title: 'F&B Director',
+                company: 'Resort Chain',
+                location: 'Abuja, Nigeria',
+                salary: '₦10-15M/year',
+                type: 'Full-time',
+                tags: ['Beverage', 'Operations', 'Cost Control'],
+                logo: '🍽️',
+                posted: '3 days ago'
+            },
+            {
+                title: 'Hotel Manager',
+                company: 'Boutique Hotel Group',
+                location: 'Port Harcourt, Nigeria',
+                salary: '₦8-12M/year',
+                type: 'Full-time',
+                tags: ['Hospitality', 'Management', 'Customer Service'],
+                logo: '🏢',
+                posted: '1 day ago'
+            },
+            {
+                title: 'Sous Chef',
+                company: 'Fine Dining Restaurant',
+                location: 'Lagos, Nigeria',
+                salary: '₦6-9M/year',
+                type: 'Full-time',
+                tags: ['Cooking', 'Team Management', 'Inventory'],
+                logo: '👨‍🍳',
+                posted: '4 days ago'
+            },
+            {
+                title: 'Revenue Manager',
+                company: 'Hotel Group',
+                location: 'Remote',
+                salary: '₦9-12M/year',
+                type: 'Remote',
+                tags: ['Analytics', 'Revenue Management', 'Excel'],
+                logo: '📊',
+                posted: '5 days ago'
+            },
+            {
+                title: 'Pastry Chef',
+                company: 'Luxury Hotel',
+                location: 'Abuja, Nigeria',
+                salary: '₦5-8M/year',
+                type: 'Full-time',
+                tags: ['Baking', 'Pastry', 'Creativity'],
+                logo: '🥐',
+                posted: '2 days ago'
+            },
+            {
+                title: 'Front Office Manager',
+                company: 'Business Hotel',
+                location: 'Lagos, Nigeria',
+                salary: '₦7-10M/year',
+                type: 'Full-time',
+                tags: ['Reception', 'Guest Service', 'Team Leadership'],
+                logo: '🏨',
+                posted: '3 days ago'
+            },
+            {
+                title: 'Event Coordinator',
+                company: 'Convention Center',
+                location: 'Abuja, Nigeria',
+                salary: '₦6-8M/year',
+                type: 'Full-time',
+                tags: ['Events', 'Planning', 'Client Management'],
+                logo: '🎉',
+                posted: '1 day ago'
             }
-            
-            // Mobile overlay click to close menu
-            if (mobileOverlay) {
-                mobileOverlay.addEventListener('click', function() {
-                    mainNav.classList.remove('active');
-                    this.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                });
-            }
-            
-            // Mobile dropdown toggle
-            document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-                toggle.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        const dropdown = this.closest('.dropdown');
-                        dropdown.classList.toggle('active');
-                        
-                        // Close other dropdowns
-                        document.querySelectorAll('.dropdown').forEach(other => {
-                            if (other !== dropdown) {
-                                other.classList.remove('active');
-                            }
-                        });
-                    }
-                });
-            });
-            
-            // Close dropdowns when clicking outside on mobile
-            document.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    if (!e.target.closest('.dropdown')) {
-                        document.querySelectorAll('.dropdown').forEach(dropdown => {
-                            dropdown.classList.remove('active');
-                        });
-                    }
-                }
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        e.preventDefault();
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu if open
-                        if (mainNav && mainNav.classList.contains('active')) {
-                            mainNav.classList.remove('active');
-                            mobileOverlay.classList.remove('active');
-                            document.body.style.overflow = 'auto';
-                        }
-                    }
-                });
-            });
-            
-            // EMPLOYER DASHBOARD REDIRECT FUNCTIONALITY
-            // These are the employer-related buttons that should redirect to the employer dashboard
-            const employerRedirectButtons = [
-                'postJobTrigger',
-                'postJobBtn',
-                'registerAsEmployer', 
-                'accessTalentDb'
-            ];
-            
-            // Handle employer button clicks - REDIRECT TO EMPLOYER DASHBOARD
-            employerRedirectButtons.forEach(buttonId => {
-                const button = document.getElementById(buttonId);
-                if (button) {
-                    button.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        // Show notification before redirect
-                        let actionMessage = '';
-                        
-                        if (buttonId === 'postJobTrigger' || buttonId === 'postJobBtn') {
-                            actionMessage = 'Redirecting to employer dashboard to post a job...';
-                        } else if (buttonId === 'registerAsEmployer') {
-                            actionMessage = 'Redirecting to employer registration...';
-                        } else if (buttonId === 'accessTalentDb') {
-                            actionMessage = 'Redirecting to access talent database...';
-                        } else {
-                            actionMessage = 'Redirecting to employer dashboard...';
-                        }
-                        
-                        showNotification(actionMessage);
-                        
-                        // Redirect to employer dashboard after a short delay
-                        setTimeout(() => {
-                            window.location.href = '/employer-dashboard/index.html';
-                        }, 1500);
-                    });
-                }
-            });
-            
-            // CANDIDATE DASHBOARD REDIRECT FUNCTIONALITY
-            // These are the candidate-related buttons that should redirect to the candidate dashboard
-            const candidateRedirectButtons = [
-                'registerAsCandidate',
-                'registerCta'
-            ];
-            
-            // Handle candidate button clicks - REDIRECT TO CANDIDATE DASHBOARD
-            candidateRedirectButtons.forEach(buttonId => {
-                const button = document.getElementById(buttonId);
-                if (button) {
-                    button.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        // Show notification before redirect
-                        let actionMessage = '';
-                        
-                        if (buttonId === 'registerAsCandidate') {
-                            actionMessage = 'Redirecting to candidate registration...';
-                        } else if (buttonId === 'registerCta') {
-                            actionMessage = 'Redirecting to create candidate account...';
-                        } else {
-                            actionMessage = 'Redirecting to candidate dashboard...';
-                        }
-                        
-                        showNotification(actionMessage);
-                        
-                        // Redirect to candidate dashboard after a short delay
-                        setTimeout(() => {
-                            window.location.href = '/candidate-dashboard/index.html';
-                        }, 1500);
-                    });
-                }
-            });
-            
-            // View Job buttons - Show sign-in modal for candidates
-            const viewJobButtons = document.querySelectorAll('.view-job-btn');
-            viewJobButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const jobId = this.getAttribute('data-job-id');
-                    showNotification(`Please sign in to view job details and apply for Job ID: ${jobId}`);
-                    openSignInModal('candidate');
-                });
-            });
-            
-            // View Talent buttons for employers
-            const viewTalentButtons = [
-                document.getElementById('viewHotelTalent'),
-                document.getElementById('viewCulinaryTalent'),
-                document.getElementById('viewSpecializedTalent')
-            ];
-            
-            viewTalentButtons.forEach(button => {
-                if (button) {
-                    button.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        showNotification('Please sign in as employer to view candidate profiles');
-                        openSignInModal('employer');
-                    });
-                }
-            });
-            
-            // Sign In Modal Functionality
-            const signinModal = document.getElementById('signinModal');
-            const modalClose = document.getElementById('modalClose');
-            const modalTabs = document.querySelectorAll('.modal-tab');
-            const modalForms = document.querySelectorAll('.modal-form');
-            
-            // Function to open modal with specific tab
-            function openSignInModal(tabName) {
-                signinModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                switchTab(tabName);
-            }
-            
-            // Function to switch tabs
-            function switchTab(tabName) {
-                modalTabs.forEach(tab => {
-                    if (tab.getAttribute('data-tab') === tabName) {
-                        tab.classList.add('active');
-                    } else {
-                        tab.classList.remove('active');
-                    }
-                });
-                
-                modalForms.forEach(form => {
-                    if (form.id === tabName + 'Form') {
-                        form.classList.add('active');
-                    } else {
-                        form.classList.remove('active');
-                    }
-                });
-            }
-            
-            // Open modal for candidate triggers
-            const signinTrigger = document.getElementById('signinTrigger');
-            const signinCta = document.getElementById('signinCta');
-            
-            if (signinTrigger) {
-                signinTrigger.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openSignInModal('candidate');
-                });
-            }
-            
-            if (signinCta) {
-                signinCta.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openSignInModal('candidate');
-                });
-            }
-            
-            // Close modal
-            if (modalClose) {
-                modalClose.addEventListener('click', function() {
-                    signinModal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                });
-            }
-            
-            // Close modal when clicking outside
-            signinModal.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    signinModal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            // Tab switching
-            modalTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const tabName = this.getAttribute('data-tab');
-                    switchTab(tabName);
-                });
-            });
-            
-            // Form submission - Candidate Form - FIXED REDIRECTION
-            const candidateForm = document.getElementById('candidateForm');
-            if (candidateForm) {
-                candidateForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const email = document.getElementById('candidateEmail').value;
-                    const password = document.getElementById('candidatePassword').value;
-                    
-                    if (!email || !password) {
-                        showNotification('Please fill in all required fields');
-                        return;
-                    }
-                    
-                    // Show notification and redirect to candidate dashboard
-                    showNotification(`Successfully signed in as candidate: ${email}. Redirecting to dashboard...`);
-                    
-                    // Close modal first
-                    signinModal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                    
-                    // Create user session
-                    const userData = {
-                        email: email,
-                        name: email.split('@')[0], // Use email prefix as name
-                        role: 'candidate',
-                        title: 'Executive Chef', // Default title
-                        timestamp: new Date().toISOString()
-                    };
-                    
-                    // Store user data in localStorage
-                    localStorage.setItem('currentUser', JSON.stringify(userData));
-                    
-                    // Redirect to candidate dashboard after a short delay
-                    setTimeout(() => {
-                        window.location.href = '/candidate-dashboard/index.html';
-                    }, 1500);
-                    
-                    // Prevent form from submitting (which would cause page refresh)
-                    return false;
-                });
-            }
-            
-            // Employer Form - Redirects to employer dashboard
-            const employerForm = document.getElementById('employerForm');
-            if (employerForm) {
-                employerForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const email = document.getElementById('employerEmail').value;
-                    const password = document.getElementById('employerPassword').value;
-                    
-                    if (!email || !password) {
-                        showNotification('Please fill in all required fields');
-                        return;
-                    }
-                    
-                    // Show notification and redirect to employer dashboard
-                    showNotification(`Signing in as employer: ${email}. Redirecting to dashboard...`);
-                    
-                    // Close modal first
-                    signinModal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                    
-                    // Create user session
-                    const userData = {
-                        email: email,
-                        name: email.split('@')[0], // Use email prefix as name
-                        role: 'employer',
-                        title: 'Recruitment Manager', // Default title
-                        timestamp: new Date().toISOString()
-                    };
-                    
-                    // Store user data in localStorage
-                    localStorage.setItem('currentUser', JSON.stringify(userData));
-                    
-                    // Redirect to employer dashboard after a short delay
-                    setTimeout(() => {
-                        window.location.href = '/employer-dashboard/index.html';
-                    }, 1500);
-                    
-                    // Prevent form from submitting (which would cause page refresh)
-                    return false;
-                });
-            }
-            
-            // Social sign in buttons - FIXED TO REDIRECT PROPERLY
-            document.querySelectorAll('.social-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const platform = this.textContent.trim();
-                    const isCandidateTab = document.querySelector('.modal-tab.active[data-tab="candidate"]');
-                    
-                    showNotification(`Authenticating with ${platform}...`);
-                    
-                    // Create user session based on selected tab
-                    const userData = {
-                        email: `demo@${platform.toLowerCase()}.com`,
-                        name: platform === 'Google' ? 'Google User' : 'LinkedIn User',
-                        role: isCandidateTab ? 'candidate' : 'employer',
-                        title: isCandidateTab ? 'Hospitality Professional' : 'Recruitment Manager',
-                        timestamp: new Date().toISOString(),
-                        socialLogin: true
-                    };
-                    
-                    // Store user data
-                    localStorage.setItem('currentUser', JSON.stringify(userData));
-                    
-                    // Determine which dashboard to redirect to based on active tab
-                    setTimeout(() => {
-                        signinModal.classList.remove('active');
-                        document.body.style.overflow = 'auto';
-                        
-                        if (isCandidateTab) {
-                            showNotification(`Successfully authenticated with ${platform}. Redirecting to candidate dashboard...`);
-                            setTimeout(() => {
-                                window.location.href = '/candidate-dashboard/index.html';
-                            }, 1500);
-                        } else {
-                            showNotification(`Successfully authenticated with ${platform}. Redirecting to employer dashboard...`);
-                            setTimeout(() => {
-                                window.location.href = '/employer-dashboard/index.html';
-                            }, 1500);
-                        }
-                    }, 1500);
-                });
-            });
-            
-            // Job category filtering
-            document.querySelectorAll('.category-tag').forEach(tag => {
-                tag.addEventListener('click', function() {
-                    // Remove active class from all tags
-                    document.querySelectorAll('.category-tag').forEach(t => {
-                        t.classList.remove('active');
-                    });
-                    
-                    // Add active class to clicked tag
-                    this.classList.add('active');
-                    
-                    const category = this.textContent;
-                    showNotification(`Filtering jobs by: ${category}`);
-                    
-                    // In a real implementation, this would filter the job cards
-                });
-            });
-            
-            // Job search functionality
-            const searchInput = document.querySelector('.search-box input');
-            if (searchInput) {
-                searchInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        const query = this.value;
-                        if (query.trim()) {
-                            showNotification(`Searching for: ${query}`);
-                            // In a real implementation, this would trigger a search
-                        }
-                    }
-                });
-            }
-            
-            // Check for existing session on page load
-            function checkExistingSession() {
-                const currentUser = localStorage.getItem('currentUser');
-                if (currentUser) {
-                    const userData = JSON.parse(currentUser);
-                    console.log(`User already signed in as ${userData.role}: ${userData.email}`);
-                    
-                    // Show welcome message if user is signed in
-                    if (userData.role === 'candidate') {
-                        showNotification(`Welcome back, ${userData.name}! You are signed in as a candidate.`, 'info');
-                    } else if (userData.role === 'employer') {
-                        showNotification(`Welcome back, ${userData.name}! You are signed in as an employer.`, 'info');
-                    }
-                }
-            }
-            
-            // Run session check on page load
-            checkExistingSession();
-            
-            // Notification function
-            function showNotification(message, type = 'info') {
-                // Remove existing notification
-                const existingNotification = document.querySelector('.notification');
-                if (existingNotification) {
-                    existingNotification.remove();
-                }
-                
-                // Create notification element
-                const notification = document.createElement('div');
-                notification.className = 'notification';
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 100px;
-                    right: 20px;
-                    background: var(--color-primary);
-                    color: white;
-                    padding: 1rem 1.5rem;
-                    border-radius: var(--radius-lg);
-                    box-shadow: var(--shadow-2xl);
-                    z-index: 10001;
-                    animation: slideIn 0.3s ease-out;
-                    border-left: 4px solid var(--color-accent);
-                    max-width: 400px;
-                    font-family: var(--font-sans);
-                `;
-                
-                // Add type-specific styling
-                if (type === 'success') {
-                    notification.style.borderLeftColor = 'var(--color-success)';
-                } else if (type === 'error') {
-                    notification.style.borderLeftColor = 'var(--color-emergency)';
-                } else if (type === 'warning') {
-                    notification.style.borderLeftColor = 'var(--color-warning)';
-                }
-                
-                notification.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 0.75rem;">
-                        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'}" 
-                           style="color: ${type === 'success' ? 'var(--color-success)' : type === 'error' ? 'var(--color-emergency)' : type === 'warning' ? 'var(--color-warning)' : 'var(--color-accent)'};">
-                        </i>
-                        <span>${message}</span>
+        ];
+
+        // ========== DOM ELEMENTS ==========
+        const jobsGrid = document.getElementById('jobsGrid');
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const searchWrapper = document.getElementById('searchWrapper');
+        const searchResultsCount = document.getElementById('searchResultsCount');
+        const visibleCountSpan = document.getElementById('visibleCount');
+        const totalCountSpan = document.getElementById('totalCount');
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        const showMoreWrapper = document.getElementById('showMoreWrapper');
+        const signinModal = document.getElementById('signinModal');
+        const signinTrigger = document.getElementById('signinTrigger');
+        const signinCta = document.getElementById('signinCta');
+        const modalClose = document.getElementById('modalClose');
+        const modalTabs = document.querySelectorAll('.modal-tab');
+        const modalForms = document.querySelectorAll('.modal-form');
+        const candidateForm = document.getElementById('candidateForm');
+        const employerForm = document.getElementById('employerForm');
+
+        // ========== STATE ==========
+        let currentJobs = [...allJobs];
+        let visibleJobs = 3;
+        let isSearching = false;
+        let searchTimeout;
+
+        // Set total count
+        totalCountSpan.textContent = allJobs.length;
+
+        // ========== FUNCTIONS ==========
+
+        // Render jobs to the grid
+        function renderJobs() {
+            if (!jobsGrid) return;
+
+            // Determine which jobs to show
+            const jobsToShow = isSearching ? currentJobs : currentJobs.slice(0, visibleJobs);
+
+            if (jobsToShow.length === 0) {
+                // Show empty state
+                jobsGrid.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-search"></i>
+                        <h3>No jobs found</h3>
+                        <p>We couldn't find any jobs matching your search.</p>
+                        <button class="clear-search-btn" onclick="window.clearSearch()">Clear Search</button>
                     </div>
                 `;
-                
-                document.body.appendChild(notification);
-                
-                // Add animation styles if not already added
-                if (!document.querySelector('style[data-notification-animation]')) {
-                    const style = document.createElement('style');
-                    style.setAttribute('data-notification-animation', 'true');
-                    style.textContent = `
-                        @keyframes slideIn {
-                            from {
-                                transform: translateX(100%);
-                                opacity: 0;
-                            }
-                            to {
-                                transform: translateX(0);
-                                opacity: 1;
-                            }
-                        }
-                        
-                        @keyframes slideOut {
-                            from {
-                                transform: translateX(0);
-                                opacity: 1;
-                            }
-                            to {
-                                transform: translateX(100%);
-                                opacity: 0;
-                            }
-                        }
-                    `;
-                    document.head.appendChild(style);
-                }
-                
-                // Remove notification after 3 seconds
-                setTimeout(() => {
-                    notification.style.animation = 'slideOut 0.3s ease-out forwards';
-                    setTimeout(() => {
-                        if (notification.parentNode) {
-                            notification.parentNode.removeChild(notification);
-                        }
-                    }, 300);
-                }, 3000);
+                visibleCountSpan.textContent = '0';
+                showMoreWrapper.style.display = 'none';
+                return;
             }
+
+            // Generate HTML for each job
+            jobsGrid.innerHTML = jobsToShow.map(job => `
+                <div class="job-card" onclick="window.viewJobDetails('${job.title}')">
+                    <div class="job-header">
+                        <div class="job-logo">${job.logo}</div>
+                        <span class="job-type">${job.type}</span>
+                    </div>
+                    <h3 class="job-title">${job.title}</h3>
+                    <div class="job-company">
+                        <i class="fas fa-building"></i> ${job.company}
+                    </div>
+                    <div class="job-location">
+                        <i class="fas fa-map-marker-alt"></i> ${job.location}
+                    </div>
+                    <div class="job-tags">
+                        ${job.tags.map(tag => `<span class="job-tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-salary">${job.salary}</span>
+                        <span class="job-posted">${job.posted}</span>
+                    </div>
+                </div>
+            `).join('');
+
+            // Update visible count
+            visibleCountSpan.textContent = jobsToShow.length;
+
+            // Show/hide show more button
+            if (!isSearching && visibleJobs < allJobs.length) {
+                showMoreWrapper.style.display = 'block';
+            } else {
+                showMoreWrapper.style.display = 'none';
+            }
+        }
+
+        // Show more jobs
+        function showMoreJobs() {
+            visibleJobs = allJobs.length;
+            currentJobs = [...allJobs];
+            renderJobs();
+            showNotification('All jobs loaded successfully!', 'success');
+        }
+
+        // Search functionality
+        function performSearch(searchTerm) {
+            searchTerm = searchTerm.toLowerCase().trim();
+
+            if (searchTerm === '') {
+                clearSearch();
+                return;
+            }
+
+            isSearching = true;
+            searchWrapper.classList.add('has-results');
+
+            // Filter jobs
+            const filtered = allJobs.filter(job => {
+                const searchableText = `${job.title} ${job.company} ${job.location} ${job.tags.join(' ')}`.toLowerCase();
+                return searchableText.includes(searchTerm);
+            });
+
+            currentJobs = filtered;
+            searchResultsCount.textContent = `${filtered.length} results`;
+            renderJobs();
+        }
+
+        // Clear search
+        function clearSearch() {
+            searchInput.value = '';
+            isSearching = false;
+            visibleJobs = 3;
+            currentJobs = [...allJobs];
+            searchWrapper.classList.remove('has-results');
+            searchResultsCount.textContent = '';
+            renderJobs();
+        }
+
+        // View job details
+        function viewJobDetails(jobTitle) {
+            showNotification(`Viewing details for: ${jobTitle}`, 'info');
+        }
+
+        // Show notification
+        function showNotification(message, type = 'info') {
+            // Remove existing notification if any
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+
+            const notification = document.createElement('div');
+            notification.className = 'notification';
             
-            // Animate elements on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+            const icon = type === 'success' ? 'check-circle' : 'info-circle';
+            const color = type === 'success' ? '#2a9d8f' : '#ff9e00';
             
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-in');
-                    }
-                });
-            }, observerOptions);
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <i class="fas fa-${icon}" style="color: ${color};"></i>
+                    <span>${message}</span>
+                </div>
+            `;
             
-            // Observe job cards, employer cards, and availability cards
-            document.querySelectorAll('.job-card, .employer-card, .availability-card').forEach(el => {
-                observer.observe(el);
+            document.body.appendChild(notification);
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease-out forwards';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Modal functions
+        function openSignInModal(tabName = 'candidate') {
+            signinModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Switch to the specified tab
+            modalTabs.forEach(tab => {
+                const tabValue = tab.getAttribute('data-tab');
+                if (tabValue === tabName) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
             });
             
-            // Add animation styles if not already added
-            if (!document.querySelector('style[data-card-animation]')) {
-                const animationStyle = document.createElement('style');
-                animationStyle.setAttribute('data-card-animation', 'true');
-                animationStyle.textContent = `
-                    .job-card, .employer-card, .availability-card {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
+            modalForms.forEach(form => {
+                if (form.id === tabName + 'Form') {
+                    form.classList.add('active');
+                } else {
+                    form.classList.remove('active');
+                }
+            });
+        }
+
+        function closeSignInModal() {
+            signinModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // ========== EVENT LISTENERS ==========
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderJobs();
+
+            // Search input with debounce
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => performSearch(e.target.value), 300);
+            });
+
+            // Search on Enter key
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    performSearch(e.target.value);
+                }
+            });
+
+            // Search button click
+            searchButton.addEventListener('click', () => {
+                performSearch(searchInput.value);
+            });
+
+            // Show more button click
+            showMoreBtn.addEventListener('click', showMoreJobs);
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                // Press '/' to focus search
+                if (e.key === '/' && document.activeElement !== searchInput) {
+                    e.preventDefault();
+                    searchInput.focus();
+                }
+                
+                // Press Escape to clear search
+                if (e.key === 'Escape' && document.activeElement === searchInput) {
+                    clearSearch();
+                }
+            });
+
+            // Sign In modal triggers
+            if (signinTrigger) {
+                signinTrigger.addEventListener('click', () => openSignInModal('candidate'));
+            }
+
+            if (signinCta) {
+                signinCta.addEventListener('click', () => openSignInModal('candidate'));
+            }
+
+            // Close modal
+            if (modalClose) {
+                modalClose.addEventListener('click', closeSignInModal);
+            }
+
+            // Close modal when clicking outside
+            signinModal.addEventListener('click', (e) => {
+                if (e.target === signinModal) {
+                    closeSignInModal();
+                }
+            });
+
+            // Tab switching
+            modalTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabName = tab.getAttribute('data-tab');
                     
-                    .job-card.animate-in,
-                    .employer-card.animate-in,
-                    .availability-card.animate-in {
-                        opacity: 1;
-                        transform: translateY(0);
-                        transition: opacity 0.6s ease, transform 0.6s ease;
-                    }
-                `;
-                document.head.appendChild(animationStyle);
+                    modalTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    modalForms.forEach(form => {
+                        if (form.id === tabName + 'Form') {
+                            form.classList.add('active');
+                        } else {
+                            form.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // Form submissions
+            if (candidateForm) {
+                candidateForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById('candidateEmail').value;
+                    showNotification(`Signed in as candidate: ${email}`, 'success');
+                    closeSignInModal();
+                });
+            }
+
+            if (employerForm) {
+                employerForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById('employerEmail').value;
+                    showNotification(`Signed in as employer: ${email}`, 'success');
+                    closeSignInModal();
+                });
+            }
+
+            // View Talent buttons
+            document.querySelectorAll('.view-talent-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    showNotification('Please sign in to view candidates', 'info');
+                    openSignInModal('employer');
+                });
+            });
+
+            // Post Job buttons
+            document.querySelectorAll('.post-job-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    showNotification('Please sign in to post a job', 'info');
+                    openSignInModal('employer');
+                });
+            });
+
+            // Access Database buttons
+            document.querySelectorAll('.access-db-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    showNotification('Please sign in to access talent database', 'info');
+                    openSignInModal('employer');
+                });
+            });
+
+            // Register buttons
+            const registerCandidate = document.getElementById('registerAsCandidate');
+            const registerEmployer = document.getElementById('registerAsEmployer');
+            const registerCta = document.getElementById('registerCta');
+
+            if (registerCandidate) {
+                registerCandidate.addEventListener('click', () => {
+                    showNotification('Redirecting to candidate registration...', 'info');
+                });
+            }
+
+            if (registerEmployer) {
+                registerEmployer.addEventListener('click', () => {
+                    showNotification('Redirecting to employer registration...', 'info');
+                });
+            }
+
+            if (registerCta) {
+                registerCta.addEventListener('click', () => {
+                    showNotification('Redirecting to registration...', 'info');
+                });
             }
         });
+
+        // Make functions available globally
+        window.clearSearch = clearSearch;
+        window.viewJobDetails = viewJobDetails;
+        window.showNotification = showNotification;
     </script>
 </body>
 </html>

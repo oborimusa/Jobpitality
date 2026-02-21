@@ -37,17 +37,17 @@
         
         :root {
             /* Jobpitality Color Palette */
-            --color-primary: #0d1b2a;      /* Deep Navy (Authority) */
+            --color-primary: #0d1b2a;
             --color-primary-dark: #070d13;
-            --color-accent: #ff9e00;       /* Vibrant Orange (Energy, Action) */
+            --color-accent: #ff9e00;
             --color-accent-dark: #cc7e00;
-            --color-emergency: #e63946;     /* Urgent Crimson */
+            --color-emergency: #e63946;
             --color-emergency-dark: #c1121f;
-            --color-success: #2a9d8f;       /* Teal (Success, Trust) */
+            --color-success: #2a9d8f;
             --color-success-dark: #21867a;
-            --color-warning: #f59e0b;       /* Amber (Warning) */
+            --color-warning: #f59e0b;
             --color-warning-dark: #d97706;
-            --color-info: #3b82f6;          /* Blue (Info) */
+            --color-info: #3b82f6;
             --color-info-dark: #2563eb;
             --color-dark: #0d1b2a;
             --color-gray-900: #1b263b;
@@ -531,6 +531,20 @@
             color: var(--color-gray-600);
         }
         
+        .search-results-count {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-gray-600);
+            font-size: 0.875rem;
+            display: none;
+        }
+        
+        .search-bar.has-results .search-results-count {
+            display: block;
+        }
+        
         .notifications {
             position: relative;
         }
@@ -745,7 +759,33 @@
             color: var(--color-accent);
         }
         
-        /* RECOMMENDED JOBS */
+        /* JOBS SECTION - Matching your HTML structure */
+        .jobs-section {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .jobs-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .jobs-header h2 {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .jobs-header p {
+            color: var(--color-gray-600);
+            margin-bottom: 0;
+        }
+        
+        .view-all-link {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
         .jobs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -754,9 +794,9 @@
         
         .job-card {
             background: var(--color-white);
+            border: 1px solid var(--color-gray-200);
             border-radius: var(--radius-lg);
             padding: var(--space-lg);
-            border: 1px solid var(--color-gray-200);
             transition: all var(--transition-normal);
         }
         
@@ -766,16 +806,26 @@
             border-color: var(--color-accent);
         }
         
-        .job-header {
+        .job-company-logo {
+            width: 48px;
+            height: 48px;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             margin-bottom: var(--space-md);
+            color: var(--color-accent);
+            font-size: 1.5rem;
+        }
+        
+        .job-card h3 {
+            margin-bottom: var(--space-xs);
         }
         
         .job-company {
-            font-size: 0.95rem;
             color: var(--color-gray-700);
+            font-size: 0.95rem;
             margin-bottom: var(--space-xs);
         }
         
@@ -783,47 +833,75 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--color-gray-700);
+            color: var(--color-gray-600);
             font-size: 0.9rem;
             margin-bottom: var(--space-md);
         }
         
-        .job-meta {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-            margin: var(--space-md) 0;
-            padding: var(--space-md) 0;
-            border-top: 1px solid var(--color-gray-200);
-            border-bottom: 1px solid var(--color-gray-200);
-        }
-        
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--color-gray-700);
-        }
-        
-        .meta-item i {
-            color: var(--color-accent);
-        }
-        
-        .job-skills {
+        .job-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             margin-bottom: var(--space-md);
         }
         
-        .skill-tag {
+        .job-tag {
             padding: 0.25rem 0.75rem;
             background: var(--color-gray-100);
             border-radius: var(--radius-sm);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--color-gray-700);
-            font-weight: 500;
+        }
+        
+        .job-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-gray-200);
+        }
+        
+        .job-salary {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .job-type {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+        }
+        
+        .job-card.search-match {
+            animation: highlightMatch 2s ease;
+        }
+        
+        @keyframes highlightMatch {
+            0%, 100% { border-color: var(--color-gray-200); }
+            20%, 80% { border-color: var(--color-accent); box-shadow: 0 0 20px rgba(255, 158, 0, 0.3); }
+        }
+        
+        .search-empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: var(--space-xl);
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .search-empty-state i {
+            font-size: 3rem;
+            color: var(--color-gray-400);
+            margin-bottom: var(--space-md);
+        }
+        
+        .search-empty-state h3 {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .search-empty-state p {
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-md);
         }
         
         /* PROFILE STRENGTH */
@@ -832,6 +910,7 @@
             color: var(--color-white);
             border-radius: var(--radius-xl);
             padding: var(--space-xl);
+            margin-bottom: var(--space-xl);
         }
         
         .profile-header {
@@ -1261,9 +1340,10 @@
                 </nav>
                 
                 <div class="top-bar-actions">
-                    <div class="search-bar">
+                    <div class="search-bar" id="searchContainer">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search jobs, companies..." aria-label="Search jobs">
+                        <input type="text" placeholder="Search jobs, companies, locations..." id="searchInput" aria-label="Search jobs">
+                        <span class="search-results-count" id="searchResultsCount"></span>
                     </div>
                     
                     <div class="notifications">
@@ -1286,7 +1366,7 @@
                 <div class="dashboard-header">
                     <div class="welcome-message">
                         <div class="welcome-text">
-                            <h1>Welcome back, <span class="text-gradient">John</span>!</h1>
+                            <h1>Welcome back, <span class="text-gradient" id="userName">John</span>!</h1>
                             <p class="lead">Track your job applications and find your next hospitality opportunity.</p>
                         </div>
                         <div class="quick-actions">
@@ -1361,7 +1441,7 @@
                     </div>
                 </div>
                 
-                <!-- Recent Applications & Profile Strength -->
+                <!-- Recent Applications Table -->
                 <div class="dashboard-section">
                     <div class="section-header">
                         <div>
@@ -1369,7 +1449,7 @@
                             <p class="lead">Track your job applications and their current status</p>
                         </div>
                         <div class="section-actions">
-                            <button class="btn btn-outline btn-sm">
+                            <button class="btn btn-outline btn-sm" id="filterApplicationsBtn">
                                 <i class="fas fa-filter"></i>
                                 Filter
                             </button>
@@ -1398,164 +1478,22 @@
                     </div>
                 </div>
                 
-                <!-- Recommended Jobs & Quick Actions -->
-                <div class="dashboard-section">
-                    <div class="section-header">
+                <!-- Latest Opportunities Section - MATCHING YOUR HTML STRUCTURE -->
+                <div class="jobs-section">
+                    <div class="jobs-header">
                         <div>
-                            <h2>Recommended Jobs</h2>
-                            <p class="lead">Jobs that match your profile and preferences</p>
+                            <h2>Latest Opportunities</h2>
+                            <p>Showing <span id="visibleJobsCount">8</span> of 500+ active listings</p>
                         </div>
-                        <div class="section-actions">
-                            <button class="btn btn-outline btn-sm">
-                                <i class="fas fa-sync"></i>
-                                Refresh
-                            </button>
-                            <button class="btn btn-primary btn-sm" id="viewAllJobs">
-                                <i class="fas fa-search"></i>
-                                Find More
-                            </button>
-                        </div>
+                        <a href="/jobs/" class="view-all-link">VIEW ALL JOBS <i class="fas fa-arrow-right"></i></a>
                     </div>
                     
-                    <div class="jobs-grid">
-                        <div class="job-card">
-                            <div class="job-header">
-                                <div>
-                                    <h3 class="job-title">Executive Chef</h3>
-                                    <div class="job-company">5-Star Hotel Group</div>
-                                </div>
-                                <button class="btn btn-sm btn-outline">
-                                    <i class="fas fa-bookmark"></i>
-                                </button>
-                            </div>
-                            
-                            <div class="job-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Lagos, Nigeria</span>
-                            </div>
-                            
-                            <div class="job-meta">
-                                <div class="meta-item">
-                                    <i class="fas fa-money-bill-wave"></i>
-                                    <span>₦12-18M/year</span>
-                                </div>
-                                <div class="meta-item">
-                                    <i class="fas fa-clock"></i>
-                                    <span>Full-time</span>
-                                </div>
-                            </div>
-                            
-                            <div class="job-skills">
-                                <span class="skill-tag">Fine Dining</span>
-                                <span class="skill-tag">Leadership</span>
-                                <span class="skill-tag">Menu Development</span>
-                            </div>
-                            
-                            <div style="display: flex; gap: var(--space-sm);">
-                                <button class="btn btn-outline btn-sm btn-block">
-                                    <i class="fas fa-eye"></i>
-                                    View Job
-                                </button>
-                                <button class="btn btn-primary btn-sm btn-block">
-                                    <i class="fas fa-paper-plane"></i>
-                                    Apply
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="job-card">
-                            <div class="job-header">
-                                <div>
-                                    <h3 class="job-title">F&B Director</h3>
-                                    <div class="job-company">Luxury Resort Chain</div>
-                                </div>
-                                <button class="btn btn-sm btn-outline">
-                                    <i class="fas fa-bookmark"></i>
-                                </button>
-                            </div>
-                            
-                            <div class="job-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Abuja, Nigeria</span>
-                            </div>
-                            
-                            <div class="job-meta">
-                                <div class="meta-item">
-                                    <i class="fas fa-money-bill-wave"></i>
-                                    <span>₦10-15M/year</span>
-                                </div>
-                                <div class="meta-item">
-                                    <i class="fas fa-clock"></i>
-                                    <span>Full-time</span>
-                                </div>
-                            </div>
-                            
-                            <div class="job-skills">
-                                <span class="skill-tag">Beverage</span>
-                                <span class="skill-tag">Operations</span>
-                                <span class="skill-tag">Cost Control</span>
-                            </div>
-                            
-                            <div style="display: flex; gap: var(--space-sm);">
-                                <button class="btn btn-outline btn-sm btn-block">
-                                    <i class="fas fa-eye"></i>
-                                    View Job
-                                </button>
-                                <button class="btn btn-primary btn-sm btn-block">
-                                    <i class="fas fa-paper-plane"></i>
-                                    Apply
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="job-card">
-                            <div class="job-header">
-                                <div>
-                                    <h3 class="job-title">Hotel Manager</h3>
-                                    <div class="job-company">Boutique Hotel Group</div>
-                                </div>
-                                <button class="btn btn-sm btn-outline">
-                                    <i class="fas fa-bookmark"></i>
-                                </button>
-                            </div>
-                            
-                            <div class="job-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Port Harcourt, Nigeria</span>
-                            </div>
-                            
-                            <div class="job-meta">
-                                <div class="meta-item">
-                                    <i class="fas fa-money-bill-wave"></i>
-                                    <span>₦8-12M/year</span>
-                                </div>
-                                <div class="meta-item">
-                                    <i class="fas fa-clock"></i>
-                                    <span>Full-time</span>
-                                </div>
-                            </div>
-                            
-                            <div class="job-skills">
-                                <span class="skill-tag">Hospitality</span>
-                                <span class="skill-tag">Management</span>
-                                <span class="skill-tag">Customer Service</span>
-                            </div>
-                            
-                            <div style="display: flex; gap: var(--space-sm);">
-                                <button class="btn btn-outline btn-sm btn-block">
-                                    <i class="fas fa-eye"></i>
-                                    View Job
-                                </button>
-                                <button class="btn btn-primary btn-sm btn-block">
-                                    <i class="fas fa-paper-plane"></i>
-                                    Apply
-                                </button>
-                            </div>
-                        </div>
+                    <div class="jobs-grid" id="jobsGrid">
+                        <!-- Job cards will be loaded here by JavaScript -->
                     </div>
                 </div>
                 
-                <!-- Profile Strength & Quick Actions -->
+                <!-- Profile Strength Section -->
                 <div class="profile-strength">
                     <div class="profile-header">
                         <div>
@@ -1591,7 +1529,7 @@
                                 Complete profile to increase visibility by 40%
                             </div>
                         </div>
-                        <button class="btn btn-accent" style="background: var(--color-accent); color: var(--color-primary);" id="completeProfileBtn">
+                        <button class="btn" style="background: var(--color-accent); color: var(--color-primary);" id="completeProfileBtn">
                             <i class="fas fa-user-edit"></i>
                             Complete Profile
                         </button>
@@ -1612,7 +1550,7 @@
                             </div>
                             <h3>Search Jobs</h3>
                             <p style="color: var(--color-gray-700); font-size: 0.95rem;">Find hospitality jobs that match your skills</p>
-                            <button class="btn btn-outline btn-block">
+                            <button class="btn btn-outline btn-block" onclick="window.location.href='/candidate-dashboard/jobs.html'">
                                 <i class="fas fa-search"></i>
                                 Start Search
                             </button>
@@ -1624,7 +1562,7 @@
                             </div>
                             <h3>Update Profile</h3>
                             <p style="color: var(--color-gray-700); font-size: 0.95rem;">Keep your profile fresh and attractive to employers</p>
-                            <button class="btn btn-outline btn-block">
+                            <button class="btn btn-outline btn-block" onclick="window.location.href='/candidate-dashboard/profile.html'">
                                 <i class="fas fa-edit"></i>
                                 Edit Profile
                             </button>
@@ -1636,7 +1574,7 @@
                             </div>
                             <h3>View Resume</h3>
                             <p style="color: var(--color-gray-700); font-size: 0.95rem;">Review and download your current resume</p>
-                            <button class="btn btn-outline btn-block">
+                            <button class="btn btn-outline btn-block" onclick="window.location.href='/candidate-dashboard/resume.html'">
                                 <i class="fas fa-eye"></i>
                                 View Resume
                             </button>
@@ -1648,7 +1586,7 @@
                             </div>
                             <h3>Notifications</h3>
                             <p style="color: var(--color-gray-700); font-size: 0.95rem;">Check your application updates and alerts</p>
-                            <button class="btn btn-outline btn-block">
+                            <button class="btn btn-outline btn-block" id="viewNotificationsBtn">
                                 <i class="fas fa-bell"></i>
                                 View Alerts
                             </button>
@@ -1688,8 +1626,15 @@
         const viewAllJobs = document.getElementById('viewAllJobs');
         const completeProfileBtn = document.getElementById('completeProfileBtn');
         const currentYear = document.getElementById('currentYear');
-        const searchInput = document.querySelector('.search-bar input');
+        const searchInput = document.getElementById('searchInput');
+        const searchContainer = document.getElementById('searchContainer');
+        const searchResultsCount = document.getElementById('searchResultsCount');
         const applicationsTable = document.getElementById('applicationsTable');
+        const jobsGrid = document.getElementById('jobsGrid');
+        const visibleJobsCount = document.getElementById('visibleJobsCount');
+        const filterApplicationsBtn = document.getElementById('filterApplicationsBtn');
+        const viewNotificationsBtn = document.getElementById('viewNotificationsBtn');
+        const userName = document.getElementById('userName');
         
         // ===== DASHBOARD DATA =====
         const dashboardData = {
@@ -1699,6 +1644,81 @@
                 { position: 'Hotel Manager', company: 'Boutique Hotels', date: '2024-01-10', status: 'Interview' },
                 { position: 'Sous Chef', company: 'Fine Dining Restaurant', date: '2024-01-08', status: 'Under Review' },
                 { position: 'Revenue Manager', company: 'Hotel Management Co.', date: '2024-01-05', status: 'Rejected' }
+            ],
+            jobs: [
+                {
+                    title: 'Executive Chef',
+                    company: 'Luxury Hotel Group',
+                    location: 'Lagos, Nigeria',
+                    salary: '₦12-18M/year',
+                    type: 'Full-time',
+                    tags: ['Fine Dining', 'Leadership', 'Menu Development'],
+                    logo: '🏨'
+                },
+                {
+                    title: 'F&B Director',
+                    company: 'Resort Chain',
+                    location: 'Abuja, Nigeria',
+                    salary: '₦10-15M/year',
+                    type: 'Full-time',
+                    tags: ['Beverage', 'Operations', 'Cost Control'],
+                    logo: '🍽️'
+                },
+                {
+                    title: 'Hotel Manager',
+                    company: 'Boutique Hotel Group',
+                    location: 'Port Harcourt, Nigeria',
+                    salary: '₦8-12M/year',
+                    type: 'Full-time',
+                    tags: ['Hospitality', 'Management', 'Customer Service'],
+                    logo: '🏢'
+                },
+                {
+                    title: 'Sous Chef',
+                    company: 'Fine Dining Restaurant',
+                    location: 'Lagos, Nigeria',
+                    salary: '₦6-9M/year',
+                    type: 'Full-time',
+                    tags: ['Cooking', 'Team Management', 'Inventory'],
+                    logo: '👨‍🍳'
+                },
+                {
+                    title: 'Revenue Manager',
+                    company: 'Hotel Group',
+                    location: 'Remote',
+                    salary: '₦9-12M/year',
+                    type: 'Remote',
+                    tags: ['Analytics', 'Revenue Management', 'Excel'],
+                    logo: '📊'
+                },
+                {
+                    title: 'Pastry Chef',
+                    company: 'Luxury Hotel',
+                    location: 'Abuja, Nigeria',
+                    salary: '₦5-8M/year',
+                    type: 'Full-time',
+                    tags: ['Baking', 'Pastry', 'Creativity'],
+                    logo: '🥐'
+                },
+                {
+                    title: 'Front Office Manager',
+                    company: 'Business Hotel',
+                    location: 'Lagos, Nigeria',
+                    salary: '₦7-10M/year',
+                    salary: '₦7-10M/year',
+                    type: 'Full-time',
+                    tags: ['Reception', 'Guest Service', 'Team Leadership'],
+                    logo: '🏨'
+                },
+                {
+                    title: 'Event Coordinator',
+                    company: 'Convention Center',
+                    location: 'Abuja, Nigeria',
+                    salary: '₦6-8M/year',
+                    type: 'Full-time',
+                    tags: ['Events', 'Planning', 'Client Management'],
+                    logo: '🎉'
+                }
             ],
             stats: {
                 applications: 12,
@@ -1713,6 +1733,10 @@
             }
         };
         
+        // Current search state
+        let currentSearchTerm = '';
+        let searchTimeout = null;
+        
         // ===== INITIALIZATION =====
         document.addEventListener('DOMContentLoaded', () => {
             // Set current year
@@ -1726,6 +1750,9 @@
             // Load applications
             loadApplications();
             
+            // Load jobs
+            loadJobs(dashboardData.jobs);
+            
             // Load stats
             loadStats();
             
@@ -1734,6 +1761,14 @@
             
             // Check if user is authenticated
             checkAuth();
+            
+            // Focus search input with keyboard shortcut
+            document.addEventListener('keydown', (e) => {
+                if (e.key === '/' && !e.ctrlKey && !e.metaKey && document.activeElement !== searchInput) {
+                    e.preventDefault();
+                    searchInput.focus();
+                }
+            });
         });
         
         // ===== AUTHENTICATION =====
@@ -1751,21 +1786,20 @@
             const currentUser = JSON.parse(localStorage.getItem('currentUser'));
             if (currentUser) {
                 // Update user name in welcome message
-                const welcomeName = document.querySelector('.text-gradient');
-                if (welcomeName) {
-                    welcomeName.textContent = currentUser.name || 'Candidate';
+                if (userName) {
+                    userName.textContent = currentUser.name ? currentUser.name.split(' ')[0] : 'Candidate';
                 }
                 
                 // Update sidebar user info
-                const userName = document.querySelector('.user-name');
-                const userRole = document.querySelector('.user-role');
-                const userAvatar = document.querySelector('.user-avatar');
+                const userNameEl = document.querySelector('.user-name');
+                const userRoleEl = document.querySelector('.user-role');
+                const userAvatarEl = document.querySelector('.user-avatar');
                 
-                if (userName) userName.textContent = currentUser.name || 'John Doe';
-                if (userRole) userRole.textContent = currentUser.title || 'Executive Chef';
-                if (userAvatar) {
+                if (userNameEl) userNameEl.textContent = currentUser.name || 'John Doe';
+                if (userRoleEl) userRoleEl.textContent = currentUser.title || 'Executive Chef';
+                if (userAvatarEl) {
                     const initials = currentUser.name ? currentUser.name.split(' ').map(n => n[0]).join('') : 'JD';
-                    userAvatar.textContent = initials;
+                    userAvatarEl.textContent = initials;
                 }
             }
         }
@@ -1802,6 +1836,51 @@
             `).join('');
         }
         
+        function loadJobs(jobs) {
+            if (!jobsGrid) return;
+            
+            if (jobs.length === 0) {
+                // Show empty state
+                jobsGrid.innerHTML = `
+                    <div class="search-empty-state">
+                        <i class="fas fa-search"></i>
+                        <h3>No jobs found</h3>
+                        <p>We couldn't find any jobs matching "${currentSearchTerm}"</p>
+                        <button class="btn btn-primary" onclick="clearSearch()">
+                            <i class="fas fa-times"></i>
+                            Clear Search
+                        </button>
+                    </div>
+                `;
+                if (visibleJobsCount) visibleJobsCount.textContent = '0';
+                return;
+            }
+            
+            jobsGrid.innerHTML = jobs.map(job => `
+                <div class="job-card" data-job-title="${job.title}" data-company="${job.company}" data-location="${job.location}" data-tags="${job.tags.join(' ')}">
+                    <div class="job-company-logo">
+                        ${job.logo}
+                    </div>
+                    <h3>${job.title}</h3>
+                    <div class="job-company">${job.company}</div>
+                    <div class="job-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        ${job.location}
+                    </div>
+                    <div class="job-tags">
+                        ${job.tags.map(tag => `<span class="job-tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-salary">${job.salary}</span>
+                        <span class="job-type">${job.type}</span>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Update visible jobs count
+            if (visibleJobsCount) visibleJobsCount.textContent = jobs.length;
+        }
+        
         function loadStats() {
             // Update stats cards
             document.getElementById('applicationsCount').textContent = dashboardData.stats.applications;
@@ -1814,6 +1893,115 @@
             document.getElementById('visibilityScore').textContent = dashboardData.profileStrength.visibility + '/10';
             document.getElementById('matchRate').textContent = dashboardData.profileStrength.matchRate + '%';
         }
+        
+        // ===== SEARCH FUNCTIONALITY =====
+        function setupSearch() {
+            if (!searchInput) return;
+            
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase().trim();
+                currentSearchTerm = searchTerm;
+                
+                // Clear previous timeout
+                if (searchTimeout) {
+                    clearTimeout(searchTimeout);
+                }
+                
+                // Debounce search
+                searchTimeout = setTimeout(() => {
+                    performSearch(searchTerm);
+                }, 300);
+            });
+            
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    searchInput.value = '';
+                    clearSearch();
+                }
+                
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    // Clear timeout and search immediately
+                    if (searchTimeout) {
+                        clearTimeout(searchTimeout);
+                    }
+                    performSearch(searchInput.value.toLowerCase().trim());
+                }
+            });
+        }
+        
+        function performSearch(searchTerm) {
+            console.log('Searching for:', searchTerm);
+            
+            // Update search container class
+            if (searchContainer) {
+                if (searchTerm) {
+                    searchContainer.classList.add('has-results');
+                } else {
+                    searchContainer.classList.remove('has-results');
+                }
+            }
+            
+            if (!searchTerm) {
+                // Clear search - show all jobs
+                loadJobs(dashboardData.jobs);
+                if (searchResultsCount) searchResultsCount.textContent = '';
+                return;
+            }
+            
+            // Filter jobs based on search term
+            const filteredJobs = dashboardData.jobs.filter(job => {
+                const searchableText = `
+                    ${job.title} 
+                    ${job.company} 
+                    ${job.location} 
+                    ${job.tags.join(' ')} 
+                    ${job.type}
+                `.toLowerCase();
+                
+                return searchableText.includes(searchTerm);
+            });
+            
+            // Update results count
+            if (searchResultsCount) {
+                searchResultsCount.textContent = `${filteredJobs.length} results`;
+            }
+            
+            // Load filtered jobs
+            loadJobs(filteredJobs);
+            
+            // Highlight search matches
+            if (filteredJobs.length > 0) {
+                highlightSearchMatches();
+            }
+        }
+        
+        function highlightSearchMatches() {
+            const jobCards = document.querySelectorAll('.job-card');
+            jobCards.forEach(card => {
+                card.classList.remove('search-match');
+                // Trigger reflow
+                void card.offsetWidth;
+                card.classList.add('search-match');
+                
+                // Remove highlight after animation
+                setTimeout(() => {
+                    card.classList.remove('search-match');
+                }, 2000);
+            });
+        }
+        
+        function clearSearch() {
+            if (searchInput) {
+                searchInput.value = '';
+                currentSearchTerm = '';
+                performSearch('');
+                searchInput.focus();
+            }
+        }
+        
+        // Expose clearSearch to global scope for button click
+        window.clearSearch = clearSearch;
         
         // ===== HELPER FUNCTIONS =====
         function formatDate(dateString) {
@@ -1863,6 +2051,9 @@
         
         // ===== EVENT LISTENERS =====
         function setupEventListeners() {
+            // Setup search
+            setupSearch();
+            
             // Logout Button
             if (logoutBtn) {
                 logoutBtn.addEventListener('click', () => {
@@ -1899,6 +2090,13 @@
                 });
             }
             
+            // View Notifications Button
+            if (viewNotificationsBtn) {
+                viewNotificationsBtn.addEventListener('click', () => {
+                    showNotifications();
+                });
+            }
+            
             // View All Applications
             if (viewAllApplications) {
                 viewAllApplications.addEventListener('click', () => {
@@ -1909,7 +2107,14 @@
             // View All Jobs
             if (viewAllJobs) {
                 viewAllJobs.addEventListener('click', () => {
-                    window.location.href = '/candidate-dashboard/jobs.html';
+                    window.location.href = '/jobs/';
+                });
+            }
+            
+            // Filter Applications Button
+            if (filterApplicationsBtn) {
+                filterApplicationsBtn.addEventListener('click', () => {
+                    showFilterOptions();
                 });
             }
             
@@ -1917,24 +2122,6 @@
             if (completeProfileBtn) {
                 completeProfileBtn.addEventListener('click', () => {
                     window.location.href = '/candidate-dashboard/profile.html';
-                });
-            }
-            
-            // Search functionality
-            if (searchInput) {
-                const debouncedSearch = debounce((searchTerm) => {
-                    console.log('Searching for:', searchTerm);
-                    // Implement job search functionality
-                }, 500);
-                
-                searchInput.addEventListener('input', (e) => {
-                    debouncedSearch(e.target.value);
-                });
-                
-                searchInput.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' && searchInput.value.trim()) {
-                        performSearch(searchInput.value);
-                    }
                 });
             }
             
@@ -1953,45 +2140,13 @@
                 }
             });
             
-            // Job card actions
-            document.querySelectorAll('.job-card .btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const action = btn.textContent.trim();
-                    const jobTitle = btn.closest('.job-card').querySelector('.job-title').textContent;
-                    
-                    switch(action) {
-                        case 'View Job':
-                            viewJobDetails(jobTitle);
-                            break;
-                        case 'Apply':
-                            applyForJob(jobTitle, btn);
-                            break;
-                    }
-                });
-            });
-            
-            // Quick action buttons
-            document.querySelectorAll('.action-card .btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const action = btn.textContent.trim();
-                    
-                    switch(action) {
-                        case 'Start Search':
-                            window.location.href = '/candidate-dashboard/jobs.html';
-                            break;
-                        case 'Edit Profile':
-                            window.location.href = '/candidate-dashboard/profile.html';
-                            break;
-                        case 'View Resume':
-                            window.location.href = '/candidate-dashboard/resume.html';
-                            break;
-                        case 'View Alerts':
-                            showNotifications();
-                            break;
-                    }
-                });
+            // Job card click
+            document.addEventListener('click', (e) => {
+                const jobCard = e.target.closest('.job-card');
+                if (jobCard && !e.target.closest('button')) {
+                    const jobTitle = jobCard.querySelector('h3').textContent;
+                    viewJobDetails(jobTitle);
+                }
             });
             
             // Table row clicks
@@ -2004,31 +2159,18 @@
             });
         }
         
-        // ===== UTILITY FUNCTIONS =====
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-        
-        function performSearch(searchTerm) {
-            console.log('Performing job search for:', searchTerm);
-            // Implement job search logic
-            alert(`Searching jobs for: ${searchTerm}`);
+        // ===== JOB ACTIONS =====
+        function viewJobDetails(jobTitle) {
+            console.log('Viewing job details for:', jobTitle);
+            showNotification(`Viewing details for: ${jobTitle}`, 'info');
+            // In production: window.location.href = `/jobs/${encodeURIComponent(jobTitle.toLowerCase().replace(/\s+/g, '-'))}/`;
         }
         
         // ===== APPLICATION ACTIONS =====
         function viewApplication(position) {
             console.log('Viewing application for:', position);
-            // In production, redirect to application details page
-            // window.location.href = `/candidates/applications/${encodeURIComponent(position)}/`;
-            alert(`Viewing application for: ${position}`);
+            showNotification(`Viewing application for: ${position}`, 'info');
+            // In production: window.location.href = `/candidates/applications/${encodeURIComponent(position)}/`;
         }
         
         function withdrawApplication(position, button) {
@@ -2056,39 +2198,176 @@
             }
         }
         
-        function viewJobDetails(jobTitle) {
-            console.log('Viewing job details for:', jobTitle);
-            // In production, redirect to job details page
-            // window.location.href = `/jobs/${encodeURIComponent(jobTitle.toLowerCase().replace(/\s+/g, '-'))}/`;
-            alert(`Viewing job details for: ${jobTitle}`);
+        function showFilterOptions() {
+            // Create simple filter modal
+            const filterOptions = [
+                'All Applications',
+                'Under Review',
+                'Shortlisted',
+                'Interview',
+                'Rejected',
+                'Accepted'
+            ];
+            
+            const modal = document.createElement('div');
+            modal.className = 'filter-modal';
+            modal.innerHTML = `
+                <div class="filter-content">
+                    <div class="filter-header">
+                        <h3>Filter Applications</h3>
+                        <button class="filter-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="filter-body">
+                        ${filterOptions.map(option => `
+                            <button class="filter-option" data-filter="${option}">
+                                ${option}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div class="filter-footer">
+                        <button class="btn btn-outline" id="clearFilterBtn">
+                            Clear Filter
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Add styles if not already present
+            if (!document.querySelector('#filter-styles')) {
+                const style = document.createElement('style');
+                style.id = 'filter-styles';
+                style.textContent = `
+                    .filter-modal {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(13, 27, 42, 0.9);
+                        z-index: 10000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: var(--space-md);
+                    }
+                    .filter-content {
+                        background: var(--color-white);
+                        border-radius: var(--radius-xl);
+                        padding: var(--space-xl);
+                        max-width: 400px;
+                        width: 100%;
+                    }
+                    .filter-header {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-bottom: var(--space-lg);
+                    }
+                    .filter-close {
+                        background: none;
+                        border: none;
+                        color: var(--color-gray-600);
+                        font-size: 1.25rem;
+                        cursor: pointer;
+                    }
+                    .filter-body {
+                        display: flex;
+                        flex-direction: column;
+                        gap: var(--space-sm);
+                        margin-bottom: var(--space-lg);
+                    }
+                    .filter-option {
+                        padding: var(--space-md);
+                        border: 1px solid var(--color-gray-300);
+                        border-radius: var(--radius-lg);
+                        background: none;
+                        cursor: pointer;
+                        transition: all var(--transition-fast);
+                        text-align: left;
+                        font-size: 1rem;
+                    }
+                    .filter-option:hover {
+                        border-color: var(--color-accent);
+                        background: var(--color-gray-100);
+                    }
+                    .filter-footer {
+                        border-top: 1px solid var(--color-gray-200);
+                        padding-top: var(--space-lg);
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(modal);
+            
+            // Filter options
+            modal.querySelectorAll('.filter-option').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.dataset.filter;
+                    showNotification(`Filtering by: ${filter}`, 'info');
+                    
+                    // Filter the table
+                    const rows = document.querySelectorAll('#applicationsTable tr');
+                    rows.forEach(row => {
+                        const status = row.querySelector('.application-status')?.textContent.trim();
+                        if (filter === 'All Applications' || status === filter) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                    
+                    modal.remove();
+                });
+            });
+            
+            // Close modal
+            modal.querySelector('.filter-close').addEventListener('click', () => {
+                modal.remove();
+            });
+            
+            document.getElementById('clearFilterBtn').addEventListener('click', () => {
+                document.querySelectorAll('#applicationsTable tr').forEach(row => {
+                    row.style.display = '';
+                });
+                modal.remove();
+                showNotification('Filter cleared', 'info');
+            });
+            
+            // Close on outside click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.remove();
+            });
         }
         
-        function applyForJob(jobTitle, button) {
-            console.log('Applying for job:', jobTitle);
+        function refreshDashboard() {
+            const refreshIcon = refreshBtn.querySelector('i');
+            const originalClass = refreshIcon.className;
             
-            // Show loading state
-            const originalHTML = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Applying...';
-            button.disabled = true;
+            // Show loading
+            refreshIcon.className = 'fas fa-spinner fa-spin';
+            refreshBtn.disabled = true;
             
+            // Simulate API call
             setTimeout(() => {
-                button.innerHTML = '<i class="fas fa-check"></i> Applied!';
-                button.classList.remove('btn-primary');
-                button.classList.add('btn-success');
+                // Reload data
+                loadApplications();
+                loadStats();
                 
-                setTimeout(() => {
-                    button.innerHTML = originalHTML;
-                    button.classList.remove('btn-success');
-                    button.classList.add('btn-primary');
-                    button.disabled = false;
-                    
-                    showNotification(`Successfully applied for ${jobTitle}`, 'success');
-                    
-                    // Update applications count
-                    const applicationsCount = document.getElementById('applicationsCount');
-                    applicationsCount.textContent = parseInt(applicationsCount.textContent) + 1;
-                }, 2000);
-            }, 2000);
+                if (!currentSearchTerm) {
+                    loadJobs(dashboardData.jobs);
+                } else {
+                    performSearch(currentSearchTerm);
+                }
+                
+                // Restore button
+                refreshIcon.className = originalClass;
+                refreshBtn.disabled = false;
+                
+                showNotification('Dashboard data refreshed', 'success');
+            }, 1500);
         }
         
         // ===== NOTIFICATIONS =====
@@ -2144,7 +2423,7 @@
                 </div>
             `;
             
-            // Add styles
+            // Add styles if not already present
             if (!document.querySelector('#notifications-styles')) {
                 const style = document.createElement('style');
                 style.id = 'notifications-styles';
@@ -2260,6 +2539,7 @@
                 if (badge) {
                     badge.textContent = '0';
                 }
+                showNotification('All notifications marked as read', 'success');
             });
             
             // Close on ESC
@@ -2328,7 +2608,7 @@
                 </div>
             `;
             
-            // Add styles
+            // Add styles if not already present
             if (!document.querySelector('#upload-resume-styles')) {
                 const style = document.createElement('style');
                 style.id = 'upload-resume-styles';
@@ -2405,10 +2685,6 @@
                         margin-top: var(--space-lg);
                         padding-top: var(--space-lg);
                         border-top: 1px solid var(--color-gray-200);
-                    }
-                    @keyframes fadeIn {
-                        from { opacity: 0; }
-                        to { opacity: 1; }
                     }
                 `;
                 document.head.appendChild(style);
@@ -2501,35 +2777,16 @@
             });
         }
         
-        // ===== REFRESH DASHBOARD =====
-        function refreshDashboard() {
-            const refreshIcon = refreshBtn.querySelector('i');
-            const originalClass = refreshIcon.className;
-            
-            // Show loading
-            refreshIcon.className = 'fas fa-spinner fa-spin';
-            refreshBtn.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                // Reload data
-                loadApplications();
-                loadStats();
-                
-                // Restore button
-                refreshIcon.className = originalClass;
-                refreshBtn.disabled = false;
-                
-                showNotification('Dashboard data refreshed', 'success');
-            }, 1500);
-        }
-        
         // ===== NOTIFICATION FUNCTION =====
         function showNotification(message, type = 'info') {
+            // Remove existing notification if any
+            const existing = document.querySelector('.dashboard-notification');
+            if (existing) existing.remove();
+            
             const notification = document.createElement('div');
             notification.className = `dashboard-notification notification-${type}`;
             notification.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
                 <span>${message}</span>
             `;
             
@@ -2552,12 +2809,16 @@
                         gap: var(--space-sm);
                         z-index: 10001;
                         animation: slideInRight 0.3s ease;
+                        border-left: 4px solid var(--color-info);
                     }
                     .notification-success {
-                        border-left: 4px solid var(--color-success);
+                        border-left-color: var(--color-success);
                     }
                     .notification-info {
-                        border-left: 4px solid var(--color-info);
+                        border-left-color: var(--color-info);
+                    }
+                    .notification-error {
+                        border-left-color: var(--color-emergency);
                     }
                     @keyframes slideInRight {
                         from {
@@ -2577,9 +2838,24 @@
             
             // Remove after 3 seconds
             setTimeout(() => {
-                notification.remove();
+                notification.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
             }, 3000);
         }
+        
+        // Add fadeOut animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeOut {
+                    from { opacity: 1; transform: translateX(0); }
+                    to { opacity: 0; transform: translateX(100%); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
         
         // ===== DEMO FUNCTIONALITY =====
         // Keyboard shortcuts
@@ -2602,10 +2878,15 @@
                 showUploadResumeModal();
             }
             
-            // Ctrl+Shift+S to search
+            // Ctrl+Shift+S to focus search
             if (e.ctrlKey && e.shiftKey && e.key === 'S') {
                 e.preventDefault();
                 searchInput.focus();
+            }
+            
+            // Escape to clear search
+            if (e.key === 'Escape' && searchInput === document.activeElement) {
+                clearSearch();
             }
         });
         
@@ -2615,8 +2896,10 @@
         console.log('• Ctrl+Shift+N to show notifications');
         console.log('• Ctrl+Shift+U to upload resume');
         console.log('• Ctrl+Shift+S to focus search');
-        console.log('• Click on job cards to view details or apply');
-        console.log('• Click on application rows to view details');
+        console.log('• Type / to focus search');
+        console.log('• Escape to clear search');
+        console.log('• Search works by typing in the search bar');
+        console.log('• Click on job cards to view details');
     </script>
 </body>
 </html>
