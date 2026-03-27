@@ -330,17 +330,18 @@
             position: relative;
         }
         
-        .nav-link {
+              .nav-link {
             text-decoration: none;
             color: var(--color-gray-800);
             font-weight: 600;
-            font-size: 0.9rem;
-            padding: 0.5rem 0.25rem;
+            font-size: 0.95rem;
+            padding: 0.5rem 0.35rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             transition: all var(--transition-fast);
-            position: relative;
+            border-radius: var(--radius-md);
+            white-space: nowrap;
         }
         
         .nav-link:hover {
@@ -422,18 +423,22 @@
             gap: var(--space-sm);
         }
         
-        .nav-cta {
+         .nav-cta {
             background: var(--color-primary);
             color: var(--color-white) !important;
-            padding: 0.75rem 1.75rem !important;
+            padding: 0.6rem 1.2rem !important;
             border-radius: var(--radius-lg);
             font-weight: 700 !important;
             transition: all var(--transition-fast);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
+            justify-content: center;
+            gap: 0.5rem;
             font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
         }
         
         .nav-cta:hover {
@@ -1517,10 +1522,10 @@
                             Home
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a href="/services/" class="nav-link">
                             <i class="fas fa-crosshairs"></i>
-                            Precision Search
+                            Precision 
                             <i class="fas fa-chevron-down"></i>
                         </a>
                         <div class="dropdown-menu">
@@ -1546,41 +1551,35 @@
                                 72-Hour Guarantee
                             </a>
                         </div>
-                    </li>
+                    </li> -->
                     <li class="nav-item dropdown">
-                        <a href="/employers/" class="nav-link">
-                            <i class="fas fa-building"></i>
-                            For Employers
-                            <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="/employers/our-process/" class="dropdown-item">
-                                <i class="fas fa-play-circle"></i>
-                                Our Process
+                            <a href="/employers/index.html" class="nav-link dropdown-toggle">
+                                <i class="fas fa-building"></i> <span>Employers</span>
+                                <i class="fas fa-chevron-down"></i>
                             </a>
-                            <a href="/employers/post-job/" class="dropdown-item" style="color: var(--color-accent); font-weight: 700;">
-                                <i class="fas fa-plus-circle"></i>
-                                Post a Job
-                            </a>
-                            <a href="/employers/search-talent/" class="dropdown-item">
-                                <i class="fas fa-search"></i>
-                                Search Talent
-                            </a>
-                            <a href="/employers/pricing/" class="dropdown-item">
-                                <i class="fas fa-tag"></i>
-                                Pricing
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="/employers/start-search/" class="dropdown-item">
-                                <i class="fas fa-rocket"></i>
-                                Start a Search
-                            </a>
-                        </div>
-                    </li>
+                            <div class="dropdown-menu">
+                                <a href="/employers/our-process/index.html" class="dropdown-item">
+                                    <i class="fas fa-play-circle"></i> Our Process
+                                </a>
+                                <a href="/employers/post-job/index.html" class="dropdown-item">
+                                    <i class="fas fa-plus-circle"></i> Post a Job
+                                </a>
+                                <a href="/employers/search-talent/index.html" class="dropdown-item">
+                                    <i class="fas fa-search"></i> Search Talent
+                                </a>
+                                <a href="/employers/pricing/index.html" class="dropdown-item">
+                                    <i class="fas fa-tag"></i> Pricing
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="/employers/start-search/index.html" class="dropdown-item">
+                                    <i class="fas fa-rocket"></i> Start a Search
+                                </a>
+                            </div>
+                        </li>
                     <li class="nav-item dropdown">
                         <a href="/candidates/" class="nav-link active">
                             <i class="fas fa-user-tie"></i>
-                            For Talent
+                            Candidates
                             <i class="fas fa-chevron-down"></i>
                         </a>
                         <div class="dropdown-menu">
@@ -1603,24 +1602,39 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a href="/about/" class="nav-link">
-                            <i class="fas fa-info-circle"></i>
-                            About
-                        </a>
-                    </li>
-                </ul>
+                   <li class="nav-item dropdown">
+                            <a href="/our-team/index.html" class="nav-link dropdown-toggle">
+                                <i class="fas fa-user-tie"></i> <span>Our Team</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/about/index.html" class="dropdown-item">
+                                    <i class="fas fa-briefcase"></i> About
+                                </a>
+                            </div>
+                        </li>
 
-                <div class="nav-cta-group">
-                    <a href="/emergency/" class="nav-cta nav-cta-emergency">
-                        <i class="fas fa-bolt"></i>
-                        EMERGENCY STAFFING
-                    </a>
-                    <a href="tel:+2348039661354" class="nav-cta">
-                        <i class="fas fa-phone"></i>
-                        +234 803 966 1354
-                    </a>
-                </div>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">
+                                <i class="fas fa-user-tie"></i> <span>Reach Out</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/contact/index.html" class="dropdown-item">
+                                    <i class="fas fa-info-circle"></i> Contact
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="nav-cta-group">
+                        <button class="nav-cta nav-cta-emergency" id="signinTrigger">
+                            <i class="fas fa-sign-in-alt"></i> SIGN IN
+                        </button>
+                        <a href="tel:+2348039661354" class="nav-cta">
+                            <i class="fas fa-phone"></i> +234 803 966 1354
+                        </a>
+                    </div>
             </nav>
             
             <div class="mobile-overlay" id="mobileOverlay"></div>
