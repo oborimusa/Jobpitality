@@ -175,7 +175,7 @@
         color: var(--color-gray-800);
         font-weight: 600;
         font-size: 0.85rem;
-        padding: 0.5rem 0.25rem;
+        padding: 0.5rem 0.05rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -265,16 +265,20 @@
     .nav-cta {
         background: var(--color-primary);
         color: var(--color-white) !important;
-        padding: 0.75rem 1.75rem !important;
+        padding: 0.6rem 1.2rem !important;
         border-radius: var(--radius-lg);
         font-weight: 700 !important;
         transition: all var(--transition-fast);
         text-decoration: none;
         display: inline-flex;
         align-items: center;
-        gap: 0.75rem;
+        justify-content: center;
+        gap: 0.5rem;
         font-size: 0.9rem;
-    }
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;
+      }
     
     .nav-cta:hover {
         background: var(--color-primary-dark);
@@ -1138,9 +1142,9 @@
                         </a>
                     </li>
                     
-                    <!-- <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                         <a href="/services/" class="nav-link dropdown-toggle">
-                            <i class="fas fa-crosshairs"></i> Precision Search
+                            <i class="fas fa-crosshairs"></i>Hunting
                             <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 0.25rem;"></i>
                         </a>
                         <div class="dropdown-menu">
@@ -1161,7 +1165,7 @@
                                 <i class="fas fa-shield-alt"></i> 72-Hour Guarantee
                             </a>
                         </div>
-                    </li> -->
+                    </li>
                     
                     <li class="nav-item dropdown">
                             <a href="/employers/index.html" class="nav-link dropdown-toggle">
@@ -1212,6 +1216,33 @@
                                 </a>
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                <a href="/our-team/index.html" class="nav-link dropdown-toggle">
+                  <i class="fas fa-user-tie"></i> <span>Our Team</span>
+                  <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a href="/about/index.html" class="dropdown-item">
+                    <i class="fas fa-briefcase"></i> About
+                  </a>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle">
+                  <i class="fas fa-user-tie"></i> <span>Reach Out</span>
+                  <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a
+                    href="/candidates/contact/index.html"
+                    class="dropdown-item"
+                  >
+                    <i class="fas fa-info-circle"></i> Contact
+                  </a>
+                </div>
+              </li>
+            </ul>
 
                     
                     <!-- <li class="nav-item dropdown">
@@ -1235,11 +1266,11 @@
                         </div>
                     </li>
                      -->
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="/insights/" class="nav-link">
                             <i class="fas fa-chart-line"></i> Insights
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
                 
                 <div class="nav-cta-group">
