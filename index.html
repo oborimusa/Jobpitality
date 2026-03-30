@@ -700,6 +700,7 @@
         display: flex;
         align-items: center;
         gap: 0.75rem;
+        
       }
 
       @media (max-width: 1023px) {
@@ -743,13 +744,34 @@
         box-shadow: var(--shadow-lg);
       }
 
-      .nav-cta-emergency {
-        background: var(--color-emergency);
-      }
+   .nav-cta-emergency {
+    background: var(--color-emergency);
+    color: var(--color-white) !important;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: var(--radius-lg);
+    font-weight: 700 !important;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
 
-      .nav-cta-emergency:hover {
+.nav-cta-emergency:hover {
+    background: var(--color-emergency-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+
+      /* .nav-cta-emergency:hover {
         background: var(--color-emergency-dark);
-      }
+      } */
 
       .mobile-overlay {
         display: none;
@@ -2390,7 +2412,6 @@
                 </div>
               </li>
             </ul>
-
             <div class="nav-cta-group">
               <button class="nav-cta nav-cta-emergency" id="signinTrigger">
                 <i class="fas fa-sign-in-alt"></i> SIGN IN
@@ -2881,6 +2902,15 @@
       </div>
     </footer>
 
+
+<!-- Firebase SDK - Add BEFORE your other scripts -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+<!-- Your Firebase Init File -->
+<script src="/js/firebase-init.js"></script>
+
 <script>
       // ========== JOB DATA ==========
       const allJobs = [
@@ -2993,8 +3023,62 @@
       let visibleJobs = 3;
       let isSearching = false;
       let searchTimeout;
+      let currentUser = null;
 
       if (totalCountSpan) totalCountSpan.textContent = allJobs.length;
+
+      // ========== HELPER: Get Dashboard URL ==========
+      function getDashboardUrl() {
+        if (currentUser && currentUser.dashboardUrl) {
+          return currentUser.dashboardUrl;
+        }
+        return currentUser?.type === "candidate" 
+          ? "/candidates-dashboard/index.html" 
+          : "/employers-dashboard/index.html";
+      }
+
+      // ========== CHECK FOR EXISTING SESSION ==========
+      function checkExistingSession() {
+        const savedUser = localStorage.getItem("jobpitality_user");
+        if (savedUser) {
+          try {
+            currentUser = JSON.parse(savedUser);
+            updateUIForLoggedInUser();
+          } catch (e) {
+            console.error("Error parsing saved user:", e);
+          }
+        }
+      }
+
+      // ========== UPDATE UI FOR LOGGED IN USER ==========
+      function updateUIForLoggedInUser() {
+        if (!currentUser) return;
+        
+        const displayName = currentUser.name || currentUser.email?.split('@')[0] || "User";
+        
+        if (signinTrigger) {
+          signinTrigger.innerHTML = `<i class="fas fa-user-circle"></i> ${displayName}`;
+          signinTrigger.classList.remove("nav-cta-emergency");
+          signinTrigger.classList.add("nav-cta");
+          
+          const newSigninTrigger = signinTrigger.cloneNode(true);
+          signinTrigger.parentNode?.replaceChild(newSigninTrigger, signinTrigger);
+          newSigninTrigger.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = getDashboardUrl();
+          });
+        }
+        
+        if (signinCta) {
+          signinCta.innerHTML = `<i class="fas fa-user-circle"></i> GO TO DASHBOARD`;
+          const newSigninCta = signinCta.cloneNode(true);
+          signinCta.parentNode?.replaceChild(newSigninCta, signinCta);
+          newSigninCta.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = getDashboardUrl();
+          });
+        }
+      }
 
       // ========== MOBILE MENU ==========
       if (mobileMenuToggle && mainNav && mobileOverlay) {
@@ -3146,8 +3230,12 @@
       }
 
       function viewJobDetails(jobTitle) {
-        showNotification(`Viewing details for: ${jobTitle}`, "info");
-        // You can add redirect or modal logic here
+        if (currentUser) {
+          showNotification(`Redirecting to ${jobTitle} details...`, "info");
+        } else {
+          showNotification("Please sign in to view job details", "info");
+          openSignInModal("candidate");
+        }
       }
 
       function showNotification(message, type = "info") {
@@ -3156,7 +3244,8 @@
         
         const notification = document.createElement("div");
         notification.className = "notification";
-        const icon = type === "success" ? "check-circle" : "info-circle";
+        const icon = type === "success" ? "check-circle" : (type === "error" ? "exclamation-circle" : "info-circle");
+        notification.style.borderLeftColor = type === "error" ? "#e63946" : "#ff9e00";
         notification.innerHTML = `
           <div style="display: flex; align-items: center; gap: 0.75rem;">
             <i class="fas fa-${icon}" style="color: #ff9e00;"></i>
@@ -3172,6 +3261,11 @@
       }
 
       function openSignInModal(tabName = "candidate") {
+        if (currentUser) {
+          window.location.href = getDashboardUrl();
+          return;
+        }
+        
         if (!signinModal) return;
         signinModal.classList.add("active");
         document.body.style.overflow = "hidden";
@@ -3201,6 +3295,7 @@
 
       // ========== EVENT LISTENERS ==========
       document.addEventListener("DOMContentLoaded", () => {
+        checkExistingSession();
         renderJobs();
         
         if (searchInput) {
@@ -3254,26 +3349,95 @@
           });
         });
         
+        // ========== FIREBASE SIGN IN - CANDIDATE ==========
         if (candidateForm) {
-          candidateForm.addEventListener("submit", (e) => {
+          candidateForm.addEventListener("submit", async (e) => {
             e.preventDefault();
-            showNotification("Signed in as candidate", "success");
-            closeSignInModal();
+            const email = document.getElementById("candidateEmail")?.value;
+            const password = document.getElementById("candidatePassword")?.value;
+            
+            if (!email || !password) {
+              showNotification("Please enter both email and password", "error");
+              return;
+            }
+            
+            const submitBtn = candidateForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing in...';
+            submitBtn.disabled = true;
+            
+            const result = await signInWithEmail(email, password, 'candidate');
+            
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            
+            if (result.success) {
+              currentUser = result.user;
+              updateUIForLoggedInUser();
+              showNotification('Login successful! Redirecting...', 'success');
+              setTimeout(() => {
+                window.location.href = result.user.dashboardUrl;
+              }, 1500);
+            } else {
+              showNotification(result.message, 'error');
+            }
           });
         }
         
+        // ========== FIREBASE SIGN IN - EMPLOYER ==========
         if (employerForm) {
-          employerForm.addEventListener("submit", (e) => {
+          employerForm.addEventListener("submit", async (e) => {
             e.preventDefault();
-            showNotification("Signed in as employer", "success");
-            closeSignInModal();
+            const email = document.getElementById("employerEmail")?.value;
+            const password = document.getElementById("employerPassword")?.value;
+            
+            if (!email || !password) {
+              showNotification("Please enter both email and password", "error");
+              return;
+            }
+            
+            const submitBtn = employerForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing in...';
+            submitBtn.disabled = true;
+            
+            const result = await signInWithEmail(email, password, 'employer');
+            
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            
+            if (result.success) {
+              currentUser = result.user;
+              updateUIForLoggedInUser();
+              showNotification('Login successful! Redirecting...', 'success');
+              setTimeout(() => {
+                window.location.href = result.user.dashboardUrl;
+              }, 1500);
+            } else {
+              showNotification(result.message, 'error');
+            }
+          });
+        }
+        
+        // ========== GOOGLE SIGN IN ==========
+        const googleSocialBtn = document.querySelector('.social-btn .fa-google')?.closest('.social-btn');
+        if (googleSocialBtn) {
+          googleSocialBtn.addEventListener('click', () => {
+            signInWithGoogle();
           });
         }
         
         document.querySelectorAll(".view-talent-btn").forEach((btn) => {
           btn.addEventListener("click", () => {
-            showNotification("Please sign in to view candidates", "info");
-            openSignInModal("employer");
+            if (currentUser && currentUser.type === "employer") {
+              showNotification("Loading talent database...", "info");
+            } else if (currentUser && currentUser.type === "candidate") {
+              showNotification("This feature is for employers only. Please sign in as an employer.", "info");
+              openSignInModal("employer");
+            } else {
+              showNotification("Please sign in as an employer to view candidates", "info");
+              openSignInModal("employer");
+            }
           });
         });
         
@@ -3282,13 +3446,13 @@
         
         if (registerCandidate) {
           registerCandidate.addEventListener("click", () => {
-            showNotification("Redirecting to candidate registration...", "info");
+            window.location.href = "/candidates/register/";
           });
         }
         
         if (registerCta) {
           registerCta.addEventListener("click", () => {
-            showNotification("Redirecting to registration...", "info");
+            window.location.href = "/candidates/register/";
           });
         }
       });
