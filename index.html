@@ -47,6 +47,14 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- 1. Firebase SDK MUST load FIRST -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+<!-- Firebase Init -->
+<script src="/js/firebase-init.js"></script>
+
     <style>
       /* ===== CSS RESET & BASE ===== */
       * {
