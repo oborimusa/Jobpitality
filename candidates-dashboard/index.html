@@ -1211,25 +1211,25 @@
                     <h3 class="nav-section-title">Dashboard</h3>
                     <ul class="nav-links">
                         <li class="nav-item">
-                            <a href="/candidate-dashboard/index.html" class="nav-link active">
+                            <a href="/candidates-dashboard/index.html" class="nav-link active">
                                 <i class="fas fa-tachometer-alt"></i>
                                 <span>Overview</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/candidate-dashboard/profile.html" class="nav-link">
+                            <a href="/candidates-dashboard/profile.html" class="nav-link">
                                 <i class="fas fa-user"></i>
                                 <span>My Profile</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/candidate-dashboard/applications.html" class="nav-link">
+                            <a href="/candidates-dashboard/applications.html" class="nav-link">
                                 <i class="fas fa-file-alt"></i>
                                 <span>Applications</span>
                             </a>
                         </li>
                          <li class="nav-item">
-                            <a href="/candidate-dashboard/interviews.html" class="nav-link">
+                            <a href="/candidates-dashboard/interviews.html" class="nav-link">
                                 <i class="fas fa-calendar-alt"></i>
                                 <span>Interviews</span>
                                 <span class="badge" style="background: var(--color-emergency); color: white; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 10px; margin-left: auto;">3</span>
@@ -1243,21 +1243,21 @@
                     <h3 class="nav-section-title">Job Search</h3>
                     <ul class="nav-links">
                         <li class="nav-item">
-                            <a href="/candidate-dashboard/job.html" class="nav-link">
+                            <a href="/candidates-dashboard/job.html" class="nav-link">
                                 <i class="fas fa-search"></i>
                                 <span>Find Jobs</span>
                                 <span class="notification-badge">12</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/candidate-dashboard/saved-jobs.html" class="nav-link">
+                            <a href="/candidates-dashboard/saved-jobs.html" class="nav-link">
                                 <i class="fas fa-bookmark"></i>
                                 <span>Saved Jobs</span>
                                 <span class="notification-badge">5</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/candidate-dashboard/alerts.html" class="nav-link">
+                            <a href="/candidates-dashboard/alerts.html" class="nav-link">
                                 <i class="fas fa-bell"></i>
                                 <span>Job Alerts</span>
                             </a>
@@ -1270,19 +1270,19 @@
                     <h3 class="nav-section-title">Career</h3>
                     <ul class="nav-links">
                         <li class="nav-item">
-                            <a href="/candidate-dashboard/resume.html" class="nav-link">
+                            <a href="/candidates-dashboard/resume.html" class="nav-link">
                                 <i class="fas fa-file-pdf"></i>
                                 <span>My Resume</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/candidate-dashboard/portfolio.html" class="nav-link">
+                            <a href="/candidates-dashboard/portfolio.html" class="nav-link">
                                 <i class="fas fa-briefcase"></i>
                                 <span>Portfolio</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/candidate-dashboard/skills.html" class="nav-link">
+                            <a href="/candidates-dashboard/skills.html" class="nav-link">
                                 <i class="fas fa-star"></i>
                                 <span>Skills & Badges</span>
                             </a>
@@ -1295,7 +1295,7 @@
                     <h3 class="nav-section-title">Support</h3>
                     <ul class="nav-links">
                         <li class="nav-item">
-                            <a href="/candidates/support/" class="nav-link">
+                            <a href="/candidates/support/index.html" class="nav-link">
                                 <i class="fas fa-question-circle"></i>
                                 <span>Help Center</span>
                             </a>
@@ -1619,6 +1619,7 @@
     </div>
 
     <!-- JAVASCRIPT -->
+        <!-- JAVASCRIPT -->
     <script>
         // ===== DOM ELEMENTS =====
         const sidebar = document.getElementById('sidebar');
@@ -1630,7 +1631,6 @@
         const refreshBtn = document.getElementById('refreshBtn');
         const notificationBtn = document.getElementById('notificationBtn');
         const viewAllApplications = document.getElementById('viewAllApplications');
-        const viewAllJobs = document.getElementById('viewAllJobs');
         const completeProfileBtn = document.getElementById('completeProfileBtn');
         const currentYear = document.getElementById('currentYear');
         const searchInput = document.getElementById('searchInput');
@@ -1712,7 +1712,6 @@
                     company: 'Business Hotel',
                     location: 'Lagos, Nigeria',
                     salary: '₦7-10M/year',
-                    salary: '₦7-10M/year',
                     type: 'Full-time',
                     tags: ['Reception', 'Guest Service', 'Team Leadership'],
                     logo: '🏨'
@@ -1744,8 +1743,88 @@
         let currentSearchTerm = '';
         let searchTimeout = null;
         
+        // ===== AUTHENTICATION - FIXED =====
+        // Use the correct localStorage key: 'jobpitality_user'
+        function getCurrentUser() {
+            const savedUser = localStorage.getItem('jobpitality_user');
+            if (savedUser) {
+                try {
+                    return JSON.parse(savedUser);
+                } catch(e) {
+                    console.error("Error parsing user:", e);
+                    return null;
+                }
+            }
+            return null;
+        }
+        
+        function checkAuth() {
+            const currentUser = getCurrentUser();
+            console.log('Dashboard auth check - User:', currentUser);
+            
+            if (!currentUser) {
+                console.log('No user found, redirecting to home...');
+                window.location.href = '/';
+                return false;
+            }
+            
+            // Check if user is candidate (optional)
+            if (currentUser.type !== 'candidate') {
+                console.log('User is not a candidate, redirecting to employer dashboard...');
+                window.location.href = '/employers-dashboard/index.html';
+                return false;
+            }
+            
+            return true;
+        }
+        
+        // ===== LOAD USER DATA - FIXED =====
+        function loadUserData() {
+            const currentUser = getCurrentUser();
+            console.log('Loading user data:', currentUser);
+            
+            if (currentUser) {
+                // Update user name in welcome message
+                if (userName) {
+                    userName.textContent = currentUser.name ? currentUser.name.split(' ')[0] : 'Candidate';
+                }
+                
+                // Update sidebar user info
+                const userNameEl = document.querySelector('.user-name');
+                const userRoleEl = document.querySelector('.user-role');
+                const userAvatarEl = document.querySelector('.user-avatar');
+                
+                if (userNameEl) userNameEl.textContent = currentUser.name || 'Candidate';
+                if (userRoleEl) userRoleEl.textContent = currentUser.title || 'Hospitality Professional';
+                if (userAvatarEl) {
+                    const initials = currentUser.name ? currentUser.name.split(' ').map(n => n[0]).join('') : 'JD';
+                    userAvatarEl.textContent = initials;
+                }
+            }
+        }
+        
+        // ===== LOGOUT FUNCTION - FIXED =====
+        function handleLogout() {
+            console.log('Logging out...');
+            localStorage.removeItem('jobpitality_user');
+            
+            // Also sign out from Firebase if available
+            if (typeof firebase !== 'undefined' && firebase.auth) {
+                firebase.auth().signOut().catch(console.error);
+            }
+            
+            window.location.href = '/';
+        }
+        
         // ===== INITIALIZATION =====
         document.addEventListener('DOMContentLoaded', () => {
+            // Check authentication first
+            if (!checkAuth()) {
+                return;
+            }
+            
+            console.log('Dashboard loaded - User authenticated');
+            
             // Set current year
             if (currentYear) {
                 currentYear.textContent = new Date().getFullYear();
@@ -1766,9 +1845,6 @@
             // Set up event listeners
             setupEventListeners();
             
-            // Check if user is authenticated
-            checkAuth();
-            
             // Focus search input with keyboard shortcut
             document.addEventListener('keydown', (e) => {
                 if (e.key === '/' && !e.ctrlKey && !e.metaKey && document.activeElement !== searchInput) {
@@ -1777,39 +1853,6 @@
                 }
             });
         });
-        
-        // ===== AUTHENTICATION =====
-        function checkAuth() {
-            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-            if (!currentUser || currentUser.role !== 'candidate') {
-                // Redirect to home if not authenticated as candidate
-                window.location.href = '/index.html';
-                return false;
-            }
-            return true;
-        }
-        
-        function loadUserData() {
-            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-            if (currentUser) {
-                // Update user name in welcome message
-                if (userName) {
-                    userName.textContent = currentUser.name ? currentUser.name.split(' ')[0] : 'Candidate';
-                }
-                
-                // Update sidebar user info
-                const userNameEl = document.querySelector('.user-name');
-                const userRoleEl = document.querySelector('.user-role');
-                const userAvatarEl = document.querySelector('.user-avatar');
-                
-                if (userNameEl) userNameEl.textContent = currentUser.name || 'John Doe';
-                if (userRoleEl) userRoleEl.textContent = currentUser.title || 'Executive Chef';
-                if (userAvatarEl) {
-                    const initials = currentUser.name ? currentUser.name.split(' ').map(n => n[0]).join('') : 'JD';
-                    userAvatarEl.textContent = initials;
-                }
-            }
-        }
         
         // ===== DATA LOADING =====
         function loadApplications() {
@@ -1847,13 +1890,12 @@
             if (!jobsGrid) return;
             
             if (jobs.length === 0) {
-                // Show empty state
                 jobsGrid.innerHTML = `
                     <div class="search-empty-state">
                         <i class="fas fa-search"></i>
                         <h3>No jobs found</h3>
                         <p>We couldn't find any jobs matching "${currentSearchTerm}"</p>
-                        <button class="btn btn-primary" onclick="clearSearch()">
+                        <button class="btn btn-primary" onclick="window.clearSearch()">
                             <i class="fas fa-times"></i>
                             Clear Search
                         </button>
@@ -1884,21 +1926,25 @@
                 </div>
             `).join('');
             
-            // Update visible jobs count
             if (visibleJobsCount) visibleJobsCount.textContent = jobs.length;
         }
         
         function loadStats() {
-            // Update stats cards
-            document.getElementById('applicationsCount').textContent = dashboardData.stats.applications;
-            document.getElementById('profileViews').textContent = dashboardData.stats.profileViews;
-            document.getElementById('interviewsCount').textContent = dashboardData.stats.interviews;
-            document.getElementById('shortlistedCount').textContent = dashboardData.stats.shortlisted;
+            const appsCount = document.getElementById('applicationsCount');
+            const profileViews = document.getElementById('profileViews');
+            const interviewsCount = document.getElementById('interviewsCount');
+            const shortlistedCount = document.getElementById('shortlistedCount');
+            const profileComplete = document.getElementById('profileComplete');
+            const visibilityScore = document.getElementById('visibilityScore');
+            const matchRate = document.getElementById('matchRate');
             
-            // Update profile strength
-            document.getElementById('profileComplete').textContent = dashboardData.profileStrength.completeness + '%';
-            document.getElementById('visibilityScore').textContent = dashboardData.profileStrength.visibility + '/10';
-            document.getElementById('matchRate').textContent = dashboardData.profileStrength.matchRate + '%';
+            if (appsCount) appsCount.textContent = dashboardData.stats.applications;
+            if (profileViews) profileViews.textContent = dashboardData.stats.profileViews;
+            if (interviewsCount) interviewsCount.textContent = dashboardData.stats.interviews;
+            if (shortlistedCount) shortlistedCount.textContent = dashboardData.stats.shortlisted;
+            if (profileComplete) profileComplete.textContent = dashboardData.profileStrength.completeness + '%';
+            if (visibilityScore) visibilityScore.textContent = dashboardData.profileStrength.visibility + '/10';
+            if (matchRate) matchRate.textContent = dashboardData.profileStrength.matchRate + '%';
         }
         
         // ===== SEARCH FUNCTIONALITY =====
@@ -1909,12 +1955,8 @@
                 const searchTerm = e.target.value.toLowerCase().trim();
                 currentSearchTerm = searchTerm;
                 
-                // Clear previous timeout
-                if (searchTimeout) {
-                    clearTimeout(searchTimeout);
-                }
+                if (searchTimeout) clearTimeout(searchTimeout);
                 
-                // Debounce search
                 searchTimeout = setTimeout(() => {
                     performSearch(searchTerm);
                 }, 300);
@@ -1928,19 +1970,13 @@
                 
                 if (e.key === 'Enter') {
                     e.preventDefault();
-                    // Clear timeout and search immediately
-                    if (searchTimeout) {
-                        clearTimeout(searchTimeout);
-                    }
+                    if (searchTimeout) clearTimeout(searchTimeout);
                     performSearch(searchInput.value.toLowerCase().trim());
                 }
             });
         }
         
         function performSearch(searchTerm) {
-            console.log('Searching for:', searchTerm);
-            
-            // Update search container class
             if (searchContainer) {
                 if (searchTerm) {
                     searchContainer.classList.add('has-results');
@@ -1950,13 +1986,11 @@
             }
             
             if (!searchTerm) {
-                // Clear search - show all jobs
                 loadJobs(dashboardData.jobs);
                 if (searchResultsCount) searchResultsCount.textContent = '';
                 return;
             }
             
-            // Filter jobs based on search term
             const filteredJobs = dashboardData.jobs.filter(job => {
                 const searchableText = `
                     ${job.title} 
@@ -1965,19 +1999,15 @@
                     ${job.tags.join(' ')} 
                     ${job.type}
                 `.toLowerCase();
-                
                 return searchableText.includes(searchTerm);
             });
             
-            // Update results count
             if (searchResultsCount) {
                 searchResultsCount.textContent = `${filteredJobs.length} results`;
             }
             
-            // Load filtered jobs
             loadJobs(filteredJobs);
             
-            // Highlight search matches
             if (filteredJobs.length > 0) {
                 highlightSearchMatches();
             }
@@ -1987,14 +2017,9 @@
             const jobCards = document.querySelectorAll('.job-card');
             jobCards.forEach(card => {
                 card.classList.remove('search-match');
-                // Trigger reflow
                 void card.offsetWidth;
                 card.classList.add('search-match');
-                
-                // Remove highlight after animation
-                setTimeout(() => {
-                    card.classList.remove('search-match');
-                }, 2000);
+                setTimeout(() => card.classList.remove('search-match'), 2000);
             });
         }
         
@@ -2007,7 +2032,6 @@
             }
         }
         
-        // Expose clearSearch to global scope for button click
         window.clearSearch = clearSearch;
         
         // ===== HELPER FUNCTIONS =====
@@ -2046,7 +2070,6 @@
             });
         }
         
-        // Close sidebar when clicking outside on mobile
         document.addEventListener('click', (e) => {
             if (window.innerWidth <= 1024 && 
                 !sidebar.contains(e.target) && 
@@ -2058,74 +2081,55 @@
         
         // ===== EVENT LISTENERS =====
         function setupEventListeners() {
-            // Setup search
             setupSearch();
             
-            // Logout Button
+            // Logout Button - FIXED
             if (logoutBtn) {
-                logoutBtn.addEventListener('click', () => {
-                    localStorage.removeItem('currentUser');
-                    window.location.href = '/index.html';
-                });
+                logoutBtn.addEventListener('click', handleLogout);
             }
             
-            // Upload Resume Button
             if (uploadResumeBtn) {
                 uploadResumeBtn.addEventListener('click', () => {
                     showUploadResumeModal();
                 });
             }
             
-            // Quick Apply Button
             if (quickApplyBtn) {
                 quickApplyBtn.addEventListener('click', () => {
                     window.location.href = '/candidate-dashboard/jobs.html';
                 });
             }
             
-            // Refresh Button
             if (refreshBtn) {
                 refreshBtn.addEventListener('click', () => {
                     refreshDashboard();
                 });
             }
             
-            // Notification Button
             if (notificationBtn) {
                 notificationBtn.addEventListener('click', () => {
                     showNotifications();
                 });
             }
             
-            // View Notifications Button
             if (viewNotificationsBtn) {
                 viewNotificationsBtn.addEventListener('click', () => {
                     showNotifications();
                 });
             }
             
-            // View All Applications
             if (viewAllApplications) {
                 viewAllApplications.addEventListener('click', () => {
                     window.location.href = '/candidate-dashboard/applications.html';
                 });
             }
             
-            // View All Jobs
-            if (viewAllJobs) {
-                viewAllJobs.addEventListener('click', () => {
-                    window.location.href = '/jobs/';
-                });
-            }
-            
-            // Filter Applications Button
             if (filterApplicationsBtn) {
                 filterApplicationsBtn.addEventListener('click', () => {
                     showFilterOptions();
                 });
             }
             
-            // Complete Profile
             if (completeProfileBtn) {
                 completeProfileBtn.addEventListener('click', () => {
                     window.location.href = '/candidate-dashboard/profile.html';
@@ -2147,7 +2151,6 @@
                 }
             });
             
-            // Job card click
             document.addEventListener('click', (e) => {
                 const jobCard = e.target.closest('.job-card');
                 if (jobCard && !e.target.closest('button')) {
@@ -2155,153 +2158,82 @@
                     viewJobDetails(jobTitle);
                 }
             });
-            
-            // Table row clicks
-            document.addEventListener('click', (e) => {
-                if (e.target.closest('tr') && !e.target.closest('button') && e.target.closest('#applicationsTable')) {
-                    const row = e.target.closest('tr');
-                    const position = row.querySelector('.job-title').textContent;
-                    viewApplication(position);
-                }
-            });
         }
         
-        // ===== JOB ACTIONS =====
         function viewJobDetails(jobTitle) {
-            console.log('Viewing job details for:', jobTitle);
             showNotification(`Viewing details for: ${jobTitle}`, 'info');
-            // In production: window.location.href = `/jobs/${encodeURIComponent(jobTitle.toLowerCase().replace(/\s+/g, '-'))}/`;
         }
         
-        // ===== APPLICATION ACTIONS =====
         function viewApplication(position) {
-            console.log('Viewing application for:', position);
             showNotification(`Viewing application for: ${position}`, 'info');
-            // In production: window.location.href = `/candidates/applications/${encodeURIComponent(position)}/`;
         }
         
         function withdrawApplication(position, button) {
             if (confirm(`Are you sure you want to withdraw your application for ${position}?`)) {
-                // Show loading state
                 button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
                 button.disabled = true;
                 
                 setTimeout(() => {
-                    button.innerHTML = '<i class="fas fa-check"></i>';
-                    button.classList.remove('btn-outline');
-                    button.classList.add('btn-success');
-                    
+                    const row = button.closest('tr');
+                    row.style.opacity = '0.5';
                     setTimeout(() => {
-                        // Remove the row from table
-                        const row = button.closest('tr');
-                        row.style.opacity = '0.5';
-                        
-                        setTimeout(() => {
-                            row.remove();
-                            showNotification(`Application for ${position} withdrawn successfully`, 'success');
-                        }, 300);
-                    }, 1000);
+                        row.remove();
+                        showNotification(`Application for ${position} withdrawn successfully`, 'success');
+                    }, 300);
                 }, 1500);
             }
         }
         
         function showFilterOptions() {
-            // Create simple filter modal
-            const filterOptions = [
-                'All Applications',
-                'Under Review',
-                'Shortlisted',
-                'Interview',
-                'Rejected',
-                'Accepted'
-            ];
-            
+            const filterOptions = ['All Applications', 'Under Review', 'Shortlisted', 'Interview', 'Rejected', 'Accepted'];
             const modal = document.createElement('div');
             modal.className = 'filter-modal';
             modal.innerHTML = `
                 <div class="filter-content">
                     <div class="filter-header">
                         <h3>Filter Applications</h3>
-                        <button class="filter-close">
-                            <i class="fas fa-times"></i>
-                        </button>
+                        <button class="filter-close"><i class="fas fa-times"></i></button>
                     </div>
                     <div class="filter-body">
-                        ${filterOptions.map(option => `
-                            <button class="filter-option" data-filter="${option}">
-                                ${option}
-                            </button>
-                        `).join('')}
+                        ${filterOptions.map(option => `<button class="filter-option" data-filter="${option}">${option}</button>`).join('')}
                     </div>
                     <div class="filter-footer">
-                        <button class="btn btn-outline" id="clearFilterBtn">
-                            Clear Filter
-                        </button>
+                        <button class="btn btn-outline" id="clearFilterBtn">Clear Filter</button>
                     </div>
                 </div>
             `;
             
-            // Add styles if not already present
             if (!document.querySelector('#filter-styles')) {
                 const style = document.createElement('style');
                 style.id = 'filter-styles';
                 style.textContent = `
                     .filter-modal {
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: rgba(13, 27, 42, 0.9);
-                        z-index: 10000;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        padding: var(--space-md);
+                        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                        background: rgba(13, 27, 42, 0.9); z-index: 10000;
+                        display: flex; align-items: center; justify-content: center; padding: 1rem;
                     }
                     .filter-content {
-                        background: var(--color-white);
-                        border-radius: var(--radius-xl);
-                        padding: var(--space-xl);
-                        max-width: 400px;
-                        width: 100%;
+                        background: white; border-radius: 16px; padding: 2rem;
+                        max-width: 400px; width: 100%;
                     }
                     .filter-header {
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        margin-bottom: var(--space-lg);
+                        display: flex; justify-content: space-between; margin-bottom: 1.5rem;
                     }
                     .filter-close {
-                        background: none;
-                        border: none;
-                        color: var(--color-gray-600);
-                        font-size: 1.25rem;
-                        cursor: pointer;
+                        background: none; border: none; font-size: 1.25rem; cursor: pointer;
                     }
                     .filter-body {
-                        display: flex;
-                        flex-direction: column;
-                        gap: var(--space-sm);
-                        margin-bottom: var(--space-lg);
+                        display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;
                     }
                     .filter-option {
-                        padding: var(--space-md);
-                        border: 1px solid var(--color-gray-300);
-                        border-radius: var(--radius-lg);
-                        background: none;
-                        cursor: pointer;
-                        transition: all var(--transition-fast);
-                        text-align: left;
-                        font-size: 1rem;
+                        padding: 1rem; border: 1px solid #e2e8f0; border-radius: 12px;
+                        background: none; cursor: pointer; text-align: left;
                     }
                     .filter-option:hover {
-                        border-color: var(--color-accent);
-                        background: var(--color-gray-100);
+                        border-color: #ff9e00; background: #f7fafc;
                     }
                     .filter-footer {
-                        border-top: 1px solid var(--color-gray-200);
-                        padding-top: var(--space-lg);
+                        border-top: 1px solid #e2e8f0; padding-top: 1.5rem;
                     }
                 `;
                 document.head.appendChild(style);
@@ -2309,13 +2241,9 @@
             
             document.body.appendChild(modal);
             
-            // Filter options
             modal.querySelectorAll('.filter-option').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const filter = btn.dataset.filter;
-                    showNotification(`Filtering by: ${filter}`, 'info');
-                    
-                    // Filter the table
                     const rows = document.querySelectorAll('#applicationsTable tr');
                     rows.forEach(row => {
                         const status = row.querySelector('.application-status')?.textContent.trim();
@@ -2325,76 +2253,50 @@
                             row.style.display = 'none';
                         }
                     });
-                    
                     modal.remove();
                 });
             });
             
-            // Close modal
-            modal.querySelector('.filter-close').addEventListener('click', () => {
-                modal.remove();
-            });
-            
+            modal.querySelector('.filter-close').addEventListener('click', () => modal.remove());
             document.getElementById('clearFilterBtn').addEventListener('click', () => {
-                document.querySelectorAll('#applicationsTable tr').forEach(row => {
-                    row.style.display = '';
-                });
+                document.querySelectorAll('#applicationsTable tr').forEach(row => row.style.display = '');
                 modal.remove();
-                showNotification('Filter cleared', 'info');
             });
-            
-            // Close on outside click
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.remove();
-            });
+            modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
         }
         
         function refreshDashboard() {
             const refreshIcon = refreshBtn.querySelector('i');
             const originalClass = refreshIcon.className;
-            
-            // Show loading
             refreshIcon.className = 'fas fa-spinner fa-spin';
             refreshBtn.disabled = true;
             
-            // Simulate API call
             setTimeout(() => {
-                // Reload data
                 loadApplications();
                 loadStats();
-                
                 if (!currentSearchTerm) {
                     loadJobs(dashboardData.jobs);
                 } else {
                     performSearch(currentSearchTerm);
                 }
-                
-                // Restore button
                 refreshIcon.className = originalClass;
                 refreshBtn.disabled = false;
-                
                 showNotification('Dashboard data refreshed', 'success');
             }, 1500);
         }
         
-        // ===== NOTIFICATIONS =====
         function showNotifications() {
-            // Create notifications modal
-            const notificationsModal = document.createElement('div');
-            notificationsModal.className = 'notifications-modal';
-            notificationsModal.innerHTML = `
+            const modal = document.createElement('div');
+            modal.className = 'notifications-modal';
+            modal.innerHTML = `
                 <div class="notifications-content">
                     <div class="notifications-header">
                         <h3>Notifications</h3>
-                        <button class="notifications-close">
-                            <i class="fas fa-times"></i>
-                        </button>
+                        <button class="notifications-close"><i class="fas fa-times"></i></button>
                     </div>
                     <div class="notifications-list">
                         <div class="notification-item unread">
-                            <div class="notification-icon">
-                                <i class="fas fa-building"></i>
-                            </div>
+                            <div class="notification-icon"><i class="fas fa-building"></i></div>
                             <div class="notification-content">
                                 <div class="notification-title">Application Viewed</div>
                                 <div class="notification-text">Luxury Hotel Group viewed your application</div>
@@ -2402,9 +2304,7 @@
                             </div>
                         </div>
                         <div class="notification-item unread">
-                            <div class="notification-icon">
-                                <i class="fas fa-calendar-alt"></i>
-                            </div>
+                            <div class="notification-icon"><i class="fas fa-calendar-alt"></i></div>
                             <div class="notification-content">
                                 <div class="notification-title">Interview Scheduled</div>
                                 <div class="notification-text">Interview with Resort Chain scheduled</div>
@@ -2412,9 +2312,7 @@
                             </div>
                         </div>
                         <div class="notification-item">
-                            <div class="notification-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
+                            <div class="notification-icon"><i class="fas fa-star"></i></div>
                             <div class="notification-content">
                                 <div class="notification-title">Profile Shortlisted</div>
                                 <div class="notification-text">Your profile was shortlisted by 3 employers</div>
@@ -2423,150 +2321,55 @@
                         </div>
                     </div>
                     <div class="notifications-footer">
-                        <button class="btn btn-block btn-outline" id="markAllRead">
-                            Mark all as read
-                        </button>
+                        <button class="btn btn-block btn-outline" id="markAllRead">Mark all as read</button>
                     </div>
                 </div>
             `;
             
-            // Add styles if not already present
             if (!document.querySelector('#notifications-styles')) {
                 const style = document.createElement('style');
                 style.id = 'notifications-styles';
                 style.textContent = `
                     .notifications-modal {
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: rgba(13, 27, 42, 0.9);
-                        z-index: 10000;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        padding: var(--space-md);
-                        animation: fadeIn 0.3s ease;
+                        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                        background: rgba(13, 27, 42, 0.9); z-index: 10000;
+                        display: flex; align-items: center; justify-content: center; padding: 1rem;
                     }
                     .notifications-content {
-                        background: var(--color-white);
-                        border-radius: var(--radius-xl);
-                        padding: var(--space-xl);
-                        max-width: 500px;
-                        width: 100%;
-                        max-height: 80vh;
-                        overflow-y: auto;
+                        background: white; border-radius: 16px; padding: 2rem;
+                        max-width: 500px; width: 100%; max-height: 80vh; overflow-y: auto;
                     }
                     .notifications-header {
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        margin-bottom: var(--space-lg);
-                    }
-                    .notifications-close {
-                        background: none;
-                        border: none;
-                        color: var(--color-gray-600);
-                        font-size: 1.25rem;
-                        cursor: pointer;
-                        padding: var(--space-xs);
+                        display: flex; justify-content: space-between; margin-bottom: 1.5rem;
                     }
                     .notification-item {
-                        display: flex;
-                        gap: var(--space-md);
-                        padding: var(--space-md);
-                        border-bottom: 1px solid var(--color-gray-200);
-                        transition: background var(--transition-fast);
+                        display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #e2e8f0;
                     }
-                    .notification-item:hover {
-                        background: var(--color-gray-100);
-                    }
-                    .notification-item.unread {
-                        background: rgba(59, 130, 246, 0.05);
-                    }
+                    .notification-item.unread { background: rgba(59, 130, 246, 0.05); }
                     .notification-icon {
-                        width: 40px;
-                        height: 40px;
-                        background: var(--color-gray-100);
-                        border-radius: var(--radius-lg);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: var(--color-accent);
-                        font-size: 1.25rem;
-                        flex-shrink: 0;
+                        width: 40px; height: 40px; background: #f7fafc;
+                        border-radius: 12px; display: flex; align-items: center;
+                        justify-content: center; color: #ff9e00;
                     }
-                    .notification-content {
-                        flex: 1;
-                    }
-                    .notification-title {
-                        font-weight: 600;
-                        color: var(--color-primary);
-                        margin-bottom: var(--space-xs);
-                    }
-                    .notification-text {
-                        color: var(--color-gray-700);
-                        font-size: 0.95rem;
-                        margin-bottom: var(--space-xs);
-                    }
-                    .notification-time {
-                        font-size: 0.85rem;
-                        color: var(--color-gray-600);
-                    }
-                    .notifications-footer {
-                        margin-top: var(--space-lg);
-                        padding-top: var(--space-lg);
-                        border-top: 1px solid var(--color-gray-200);
-                    }
-                    @keyframes fadeIn {
-                        from { opacity: 0; }
-                        to { opacity: 1; }
-                    }
+                    .notification-title { font-weight: 600; margin-bottom: 0.25rem; }
+                    .notification-text { font-size: 0.95rem; color: #4a5568; margin-bottom: 0.25rem; }
+                    .notification-time { font-size: 0.85rem; color: #718096; }
+                    .notifications-footer { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0; }
                 `;
                 document.head.appendChild(style);
             }
             
-            document.body.appendChild(notificationsModal);
+            document.body.appendChild(modal);
             
-            // Close modal
-            const closeBtn = notificationsModal.querySelector('.notifications-close');
-            closeBtn.addEventListener('click', () => {
-                notificationsModal.remove();
-            });
-            
-            // Mark all as read
-            const markAllReadBtn = notificationsModal.querySelector('#markAllRead');
-            markAllReadBtn.addEventListener('click', () => {
-                notificationsModal.querySelectorAll('.notification-item').forEach(item => {
-                    item.classList.remove('unread');
-                });
-                // Update notification badge
+            modal.querySelector('.notifications-close').addEventListener('click', () => modal.remove());
+            modal.querySelector('#markAllRead').addEventListener('click', () => {
+                modal.querySelectorAll('.notification-item').forEach(item => item.classList.remove('unread'));
                 const badge = document.querySelector('.notification-badge');
-                if (badge) {
-                    badge.textContent = '0';
-                }
-                showNotification('All notifications marked as read', 'success');
+                if (badge) badge.textContent = '0';
             });
-            
-            // Close on ESC
-            const handleEscape = (e) => {
-                if (e.key === 'Escape') {
-                    notificationsModal.remove();
-                    document.removeEventListener('keydown', handleEscape);
-                }
-            };
-            document.addEventListener('keydown', handleEscape);
-            
-            // Close when clicking outside
-            notificationsModal.addEventListener('click', (e) => {
-                if (e.target === notificationsModal) {
-                    notificationsModal.remove();
-                }
-            });
+            modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
         }
         
-        // ===== UPLOAD RESUME MODAL =====
         function showUploadResumeModal() {
             const modal = document.createElement('div');
             modal.className = 'upload-resume-modal';
@@ -2574,124 +2377,46 @@
                 <div class="upload-resume-content">
                     <div class="upload-resume-header">
                         <h3>Upload Resume</h3>
-                        <button class="upload-resume-close">
-                            <i class="fas fa-times"></i>
-                        </button>
+                        <button class="upload-resume-close"><i class="fas fa-times"></i></button>
                     </div>
                     <div class="upload-resume-body">
                         <div class="upload-area" id="uploadArea">
                             <i class="fas fa-cloud-upload-alt"></i>
                             <h4>Drop your resume here</h4>
                             <p>PDF, DOC, DOCX (Max 5MB)</p>
-                            <button class="btn btn-primary" id="selectFileBtn">
-                                <i class="fas fa-folder-open"></i>
-                                Select File
-                            </button>
+                            <button class="btn btn-primary" id="selectFileBtn">Select File</button>
                             <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" hidden>
-                        </div>
-                        <div class="current-resume" style="margin-top: var(--space-lg);">
-                            <h4>Current Resume</h4>
-                            <div class="resume-file">
-                                <i class="fas fa-file-pdf"></i>
-                                <div>
-                                    <div style="font-weight: 600;">John_Doe_Resume.pdf</div>
-                                    <div style="font-size: 0.875rem; color: var(--color-gray-600);">Uploaded: Jan 10, 2024 • 245 KB</div>
-                                </div>
-                                <button class="btn btn-sm btn-outline">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
                         </div>
                     </div>
                     <div class="upload-resume-footer">
-                        <button class="btn btn-outline" id="cancelUpload">
-                            Cancel
-                        </button>
-                        <button class="btn btn-primary" id="saveResume" disabled>
-                            <i class="fas fa-save"></i>
-                            Save Changes
-                        </button>
+                        <button class="btn btn-outline" id="cancelUpload">Cancel</button>
+                        <button class="btn btn-primary" id="saveResume" disabled>Save Changes</button>
                     </div>
                 </div>
             `;
             
-            // Add styles if not already present
             if (!document.querySelector('#upload-resume-styles')) {
                 const style = document.createElement('style');
                 style.id = 'upload-resume-styles';
                 style.textContent = `
                     .upload-resume-modal {
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: rgba(13, 27, 42, 0.9);
-                        z-index: 10000;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        padding: var(--space-md);
-                        animation: fadeIn 0.3s ease;
+                        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                        background: rgba(13, 27, 42, 0.9); z-index: 10000;
+                        display: flex; align-items: center; justify-content: center; padding: 1rem;
                     }
                     .upload-resume-content {
-                        background: var(--color-white);
-                        border-radius: var(--radius-xl);
-                        padding: var(--space-xl);
-                        max-width: 600px;
-                        width: 100%;
-                        max-height: 80vh;
-                        overflow-y: auto;
-                    }
-                    .upload-resume-header {
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        margin-bottom: var(--space-lg);
-                    }
-                    .upload-resume-close {
-                        background: none;
-                        border: none;
-                        color: var(--color-gray-600);
-                        font-size: 1.25rem;
-                        cursor: pointer;
-                        padding: var(--space-xs);
+                        background: white; border-radius: 16px; padding: 2rem;
+                        max-width: 600px; width: 100%;
                     }
                     .upload-area {
-                        border: 2px dashed var(--color-gray-300);
-                        border-radius: var(--radius-lg);
-                        padding: var(--space-xl);
-                        text-align: center;
-                        transition: all var(--transition-fast);
+                        border: 2px dashed #e2e8f0; border-radius: 12px; padding: 2rem;
+                        text-align: center; cursor: pointer;
                     }
-                    .upload-area:hover {
-                        border-color: var(--color-accent);
-                        background: var(--color-gray-100);
-                    }
-                    .upload-area i {
-                        font-size: 3rem;
-                        color: var(--color-gray-400);
-                        margin-bottom: var(--space-md);
-                    }
-                    .resume-file {
-                        display: flex;
-                        align-items: center;
-                        gap: var(--space-md);
-                        padding: var(--space-md);
-                        background: var(--color-gray-100);
-                        border-radius: var(--radius-lg);
-                        margin-top: var(--space-sm);
-                    }
-                    .resume-file i {
-                        font-size: 2rem;
-                        color: var(--color-emergency);
-                    }
+                    .upload-area:hover { border-color: #ff9e00; background: #f7fafc; }
+                    .upload-area i { font-size: 3rem; color: #a0aec0; margin-bottom: 1rem; }
                     .upload-resume-footer {
-                        display: flex;
-                        gap: var(--space-sm);
-                        margin-top: var(--space-lg);
-                        padding-top: var(--space-lg);
-                        border-top: 1px solid var(--color-gray-200);
+                        display: flex; gap: 1rem; margin-top: 1.5rem; padding-top: 1.5rem;
+                        border-top: 1px solid #e2e8f0;
                     }
                 `;
                 document.head.appendChild(style);
@@ -2699,64 +2424,46 @@
             
             document.body.appendChild(modal);
             
-            // File upload functionality
             const uploadArea = modal.querySelector('#uploadArea');
             const selectFileBtn = modal.querySelector('#selectFileBtn');
             const resumeFileInput = modal.querySelector('#resumeFile');
             const saveBtn = modal.querySelector('#saveResume');
             let selectedFile = null;
             
-            selectFileBtn.addEventListener('click', () => {
-                resumeFileInput.click();
-            });
-            
-            resumeFileInput.addEventListener('change', (e) => {
-                const file = e.target.files[0];
+            const handleFileSelect = (file) => {
                 if (file) {
-                    selectedFile = file;
-                    // Validate file
                     const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-                    const maxSize = 5 * 1024 * 1024; // 5MB
+                    const maxSize = 5 * 1024 * 1024;
                     
                     if (!validTypes.includes(file.type)) {
                         alert('Please upload a PDF, DOC, or DOCX file.');
                         return;
                     }
-                    
                     if (file.size > maxSize) {
                         alert('File size must be less than 5MB.');
                         return;
                     }
                     
-                    // Update upload area
+                    selectedFile = file;
                     uploadArea.innerHTML = `
                         <i class="fas fa-file-pdf"></i>
                         <h4>${file.name}</h4>
                         <p>${(file.size / 1024).toFixed(2)} KB • Ready to upload</p>
-                        <button class="btn btn-outline" id="changeFileBtn">
-                            <i class="fas fa-exchange-alt"></i>
-                            Change File
-                        </button>
+                        <button class="btn btn-outline" id="changeFileBtn">Change File</button>
                     `;
-                    
-                    // Enable save button
                     saveBtn.disabled = false;
                     
-                    // Add change file handler
-                    modal.querySelector('#changeFileBtn').addEventListener('click', () => {
-                        resumeFileInput.click();
-                    });
+                    modal.querySelector('#changeFileBtn').addEventListener('click', () => resumeFileInput.click());
                 }
-            });
+            };
             
-            // Save resume
+            selectFileBtn.addEventListener('click', () => resumeFileInput.click());
+            resumeFileInput.addEventListener('change', (e) => handleFileSelect(e.target.files[0]));
+            
             saveBtn.addEventListener('click', () => {
                 if (selectedFile) {
-                    // Show loading
                     saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
                     saveBtn.disabled = true;
-                    
-                    // Simulate upload
                     setTimeout(() => {
                         showNotification('Resume uploaded successfully!', 'success');
                         modal.remove();
@@ -2764,149 +2471,44 @@
                 }
             });
             
-            // Cancel and close
-            modal.querySelector('#cancelUpload').addEventListener('click', () => {
-                modal.remove();
-            });
-            
-            modal.querySelector('.upload-resume-close').addEventListener('click', () => {
-                modal.remove();
-            });
-            
-            // Close on ESC and outside click
-            const handleEscape = (e) => {
-                if (e.key === 'Escape') modal.remove();
-            };
-            document.addEventListener('keydown', handleEscape);
-            
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.remove();
-            });
+            modal.querySelector('#cancelUpload').addEventListener('click', () => modal.remove());
+            modal.querySelector('.upload-resume-close').addEventListener('click', () => modal.remove());
+            modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
         }
         
-        // ===== NOTIFICATION FUNCTION =====
         function showNotification(message, type = 'info') {
-            // Remove existing notification if any
             const existing = document.querySelector('.dashboard-notification');
             if (existing) existing.remove();
             
             const notification = document.createElement('div');
             notification.className = `dashboard-notification notification-${type}`;
-            notification.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-                <span>${message}</span>
-            `;
+            notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i><span>${message}</span>`;
             
-            // Add styles if not already added
             if (!document.querySelector('#dashboard-notification-styles')) {
                 const style = document.createElement('style');
                 style.id = 'dashboard-notification-styles';
                 style.textContent = `
                     .dashboard-notification {
-                        position: fixed;
-                        top: 100px;
-                        right: 20px;
-                        background: var(--color-white);
-                        color: var(--color-gray-900);
-                        padding: var(--space-md) var(--space-lg);
-                        border-radius: var(--radius-lg);
-                        box-shadow: var(--shadow-xl);
-                        display: flex;
-                        align-items: center;
-                        gap: var(--space-sm);
-                        z-index: 10001;
-                        animation: slideInRight 0.3s ease;
-                        border-left: 4px solid var(--color-info);
+                        position: fixed; top: 100px; right: 20px; background: white;
+                        padding: 1rem 1.5rem; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+                        display: flex; align-items: center; gap: 0.75rem; z-index: 10001;
+                        border-left: 4px solid #3b82f6; animation: slideInRight 0.3s ease;
                     }
-                    .notification-success {
-                        border-left-color: var(--color-success);
-                    }
-                    .notification-info {
-                        border-left-color: var(--color-info);
-                    }
-                    .notification-error {
-                        border-left-color: var(--color-emergency);
-                    }
+                    .notification-success { border-left-color: #2a9d8f; }
                     @keyframes slideInRight {
-                        from {
-                            transform: translateX(100%);
-                            opacity: 0;
-                        }
-                        to {
-                            transform: translateX(0);
-                            opacity: 1;
-                        }
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
                     }
                 `;
                 document.head.appendChild(style);
             }
             
             document.body.appendChild(notification);
-            
-            // Remove after 3 seconds
             setTimeout(() => {
                 notification.style.animation = 'fadeOut 0.3s ease';
-                setTimeout(() => {
-                    notification.remove();
-                }, 300);
+                setTimeout(() => notification.remove(), 300);
             }, 3000);
         }
-        
-        // Add fadeOut animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes fadeOut {
-                    from { opacity: 1; transform: translateX(0); }
-                    to { opacity: 0; transform: translateX(100%); }
-                }
-            `;
-            document.head.appendChild(style);
-        });
-        
-        // ===== DEMO FUNCTIONALITY =====
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            // Ctrl+Shift+R to refresh dashboard
-            if (e.ctrlKey && e.shiftKey && e.key === 'R') {
-                e.preventDefault();
-                refreshDashboard();
-            }
-            
-            // Ctrl+Shift+N to show notifications
-            if (e.ctrlKey && e.shiftKey && e.key === 'N') {
-                e.preventDefault();
-                showNotifications();
-            }
-            
-            // Ctrl+Shift+U to upload resume
-            if (e.ctrlKey && e.shiftKey && e.key === 'U') {
-                e.preventDefault();
-                showUploadResumeModal();
-            }
-            
-            // Ctrl+Shift+S to focus search
-            if (e.ctrlKey && e.shiftKey && e.key === 'S') {
-                e.preventDefault();
-                searchInput.focus();
-            }
-            
-            // Escape to clear search
-            if (e.key === 'Escape' && searchInput === document.activeElement) {
-                clearSearch();
-            }
-        });
-        
-        // Log demo hints
-        console.log('Candidate Dashboard Demo Controls:');
-        console.log('• Ctrl+Shift+R to refresh dashboard data');
-        console.log('• Ctrl+Shift+N to show notifications');
-        console.log('• Ctrl+Shift+U to upload resume');
-        console.log('• Ctrl+Shift+S to focus search');
-        console.log('• Type / to focus search');
-        console.log('• Escape to clear search');
-        console.log('• Search works by typing in the search bar');
-        console.log('• Click on job cards to view details');
     </script>
 </body>
 </html>

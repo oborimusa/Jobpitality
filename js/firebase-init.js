@@ -44,8 +44,23 @@ const firebaseConfig = {
   measurementId: "G-SF5LWDZDKF"
 };
 
-// ========== SAFE FIREBASE INITIALIZATION ==========
-// This function waits for Firebase SDK to load before initializing
+// /js/firebase-init.js
+
+// ========== YOUR FIREBASE CONFIGURATION ==========
+// REPLACE THESE VALUES with your actual Firebase project config
+// Get these from: https://console.firebase.google.com/ → Project Settings → Your apps
+const FIREBASE_CONFIG = {
+    apiKey: "AIzaSyBxeiG78oHv8wSLGRK_GAAD_mqvZKJtu30",  // Replace with your actual API Key
+    authDomain: "jobpitality.firebaseapp.com",          // Replace with your actual authDomain
+    projectId: "jobpitality",                           // Replace with your actual project ID
+    storageBucket: "jobpitality.firebasestorage.app",   // Replace with your actual storageBucket
+    messagingSenderId: "123456789012",                  // Replace with your actual messagingSenderId
+    appId: "1:123456789012:web:abcdef1234567890"       // Replace with your actual appId
+};
+
+// ========== FIREBASE INITIALIZATION ==========
+let firebaseInitialized = false;
+
 function initializeFirebase() {
     // Check if Firebase SDK is loaded
     if (typeof firebase === 'undefined') {
@@ -54,16 +69,25 @@ function initializeFirebase() {
         return;
     }
     
-    // Check if already initialized
-    if (firebase.apps.length > 0) {
-        console.log('Firebase already initialized');
+    // Prevent double initialization
+    if (firebaseInitialized) {
+        console.log('Firebase already initialized, skipping...');
         setupFirebase();
         return;
     }
     
-    // Initialize Firebase
+    // Check if already initialized by another script
+    if (firebase.apps.length > 0) {
+        console.log('Firebase already initialized by another script');
+        firebaseInitialized = true;
+        setupFirebase();
+        return;
+    }
+    
     try {
-        firebase.initializeApp(firebaseConfig);
+        // Use FIREBASE_CONFIG variable (defined above)
+        firebase.initializeApp(FIREBASE_CONFIG);
+        firebaseInitialized = true;
         console.log('Firebase initialized successfully!');
         setupFirebase();
     } catch (error) {
@@ -71,16 +95,28 @@ function initializeFirebase() {
     }
 }
 
-// ========== SETUP FIREBASE AFTER INITIALIZATION ==========
+// ========== SETUP FIREBASE ==========
+let auth = null;
+let db = null;
+
 function setupFirebase() {
-    window.auth = firebase.auth();
-    window.db = firebase.firestore();
+    auth = firebase.auth();
+    db = firebase.firestore();
+    
+    // Enable offline persistence
+    db.enablePersistence().catch((err) => {
+        if (err.code === 'failed-precondition') {
+            console.warn('Multiple tabs open, persistence can only be enabled in one tab at a time.');
+        } else if (err.code === 'unimplemented') {
+            console.warn('The current browser does not support offline persistence.');
+        }
+    });
     
     // Auth state listener
-    firebase.auth().onAuthStateChanged(async (firebaseUser) => {
+    auth.onAuthStateChanged(async (firebaseUser) => {
         if (firebaseUser) {
             try {
-                const userDoc = await window.db.collection('users').doc(firebaseUser.uid).get();
+                const userDoc = await db.collection('users').doc(firebaseUser.uid).get();
                 if (userDoc.exists) {
                     const userData = userDoc.data();
                     const localUser = {
@@ -104,16 +140,20 @@ function setupFirebase() {
     });
 }
 
-// ========== SIGN UP FUNCTION ==========
+// ========== SIGN UP WITH EMAIL ==========
 async function signUpWithEmail(email, password, userData) {
+    if (!auth) {
+        return { success: false, message: "Firebase not ready. Please refresh the page." };
+    }
+    
     try {
-        const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
         
         await userCredential.user.updateProfile({
             displayName: `${userData.firstName} ${userData.lastName}`
         });
         
-        await firebase.firestore().collection('users').doc(userCredential.user.uid).set({
+        await db.collection('users').doc(userCredential.user.uid).set({
             uid: userCredential.user.uid,
             firstName: userData.firstName,
             lastName: userData.lastName,
@@ -140,27 +180,41 @@ async function signUpWithEmail(email, password, userData) {
         return { success: true, user: localUser };
     } catch (error) {
         console.error('Sign up error:', error);
-        return { success: false, message: error.message };
+        let message = error.message;
+        if (error.code === 'auth/email-already-in-use') {
+            message = "Email already registered. Please sign in instead.";
+        } else if (error.code === 'auth/weak-password') {
+            message = "Password should be at least 6 characters.";
+        }
+        return { success: false, message: message };
     }
 }
 
-// ========== SIGN IN FUNCTION ==========
+// ========== SIGN IN WITH EMAIL ==========
 async function signInWithEmail(email, password, userType) {
+    if (!auth) {
+        return { success: false, message: "Firebase not ready. Please refresh the page." };
+    }
+    
     try {
-        const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+        if (!navigator.onLine) {
+            return { success: false, message: "No internet connection. Please check your network." };
+        }
         
-        const userDoc = await firebase.firestore().collection('users').doc(userCredential.user.uid).get();
+        const userCredential = await auth.signInWithEmailAndPassword(email, password);
+        
+        const userDoc = await db.collection('users').doc(userCredential.user.uid).get();
         
         if (!userDoc.exists) {
-            await firebase.auth().signOut();
-            return { success: false, message: "User data not found" };
+            await auth.signOut();
+            return { success: false, message: "User data not found. Please register first." };
         }
         
         const userData = userDoc.data();
         
         if (userData.userType !== userType) {
-            await firebase.auth().signOut();
-            return { success: false, message: `No ${userType} account found with this email` };
+            await auth.signOut();
+            return { success: false, message: `No ${userType} account found with this email.` };
         }
         
         const localUser = {
@@ -176,24 +230,41 @@ async function signInWithEmail(email, password, userType) {
         
         return { success: true, user: localUser };
     } catch (error) {
-        console.error('Sign in error:', error);
-        return { success: false, message: error.message };
+        console.error("Sign in error:", error);
+        
+        let message = "Invalid credentials";
+        if (error.code === 'auth/user-not-found') {
+            message = "No account found with this email. Please register first.";
+        } else if (error.code === 'auth/wrong-password') {
+            message = "Incorrect password. Please try again.";
+        } else if (error.code === 'auth/invalid-email') {
+            message = "Please enter a valid email address.";
+        } else if (error.code === 'auth/network-request-failed') {
+            message = "Network error. Please check your internet connection.";
+        }
+        
+        return { success: false, message: message };
     }
 }
 
 // ========== GOOGLE SIGN IN ==========
 async function signInWithGoogle() {
+    if (!auth) {
+        showNotification("Firebase not ready. Please refresh the page.", "error");
+        return;
+    }
+    
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
     
     try {
-        const result = await firebase.auth().signInWithPopup(provider);
+        const result = await auth.signInWithPopup(provider);
         const user = result.user;
         
-        const userDoc = await firebase.firestore().collection('users').doc(user.uid).get();
+        const userDoc = await db.collection('users').doc(user.uid).get();
         
         if (!userDoc.exists) {
-            await firebase.firestore().collection('users').doc(user.uid).set({
+            await db.collection('users').doc(user.uid).set({
                 uid: user.uid,
                 firstName: user.displayName?.split(' ')[0] || '',
                 lastName: user.displayName?.split(' ')[1] || '',
@@ -204,7 +275,7 @@ async function signInWithGoogle() {
             });
         }
         
-        const userData = (await firebase.firestore().collection('users').doc(user.uid).get()).data();
+        const userData = (await db.collection('users').doc(user.uid).get()).data();
         
         const localUser = {
             id: user.uid,
@@ -224,7 +295,9 @@ async function signInWithGoogle() {
 
 // ========== SIGN OUT ==========
 function signOut() {
-    firebase.auth().signOut().then(() => {
+    if (!auth) return;
+    
+    auth.signOut().then(() => {
         localStorage.removeItem('jobpitality_user');
         window.location.href = '/';
     }).catch((error) => {
@@ -310,8 +383,33 @@ function requireAuth(redirectUrl = '/') {
     return true;
 }
 
-// ========== START FIREBASE INITIALIZATION ==========
-// This will wait for Firebase SDK to load
+function requireEmployer() {
+    const user = getCurrentUser();
+    if (!user) {
+        window.location.href = '/';
+        return false;
+    }
+    if (user.type !== 'employer') {
+        window.location.href = '/candidates-dashboard/index.html';
+        return false;
+    }
+    return true;
+}
+
+function requireCandidate() {
+    const user = getCurrentUser();
+    if (!user) {
+        window.location.href = '/';
+        return false;
+    }
+    if (user.type !== 'candidate') {
+        window.location.href = '/employers-dashboard/index.html';
+        return false;
+    }
+    return true;
+}
+
+// ========== START FIREBASE ==========
 initializeFirebase();
 
 // ========== EXPOSE FUNCTIONS GLOBALLY ==========
@@ -322,5 +420,6 @@ window.signOut = signOut;
 window.getCurrentUser = getCurrentUser;
 window.updateHeaderUI = updateHeaderUI;
 window.requireAuth = requireAuth;
+window.requireEmployer = requireEmployer;
+window.requireCandidate = requireCandidate;
 window.showNotification = showNotification;
-

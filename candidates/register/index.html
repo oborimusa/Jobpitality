@@ -25,13 +25,13 @@
       rel="stylesheet"
     />
 
-        <!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
-<!-- Firebase Init -->
-<script src="/js/firebase-init.js"></script>
+    <!-- Firebase Init -->
+    <script src="/js/firebase-init.js"></script>
 
     <style>
       * {
@@ -808,7 +808,6 @@
         display: none !important;
       }
     </style>
-
   </head>
   <body>
     <header class="site-header">
@@ -1503,11 +1502,14 @@
 
         switch (step) {
           case 1:
-            const firstName = document.getElementById("firstName")?.value.trim() || "";
-            const lastName = document.getElementById("lastName")?.value.trim() || "";
+            const firstName =
+              document.getElementById("firstName")?.value.trim() || "";
+            const lastName =
+              document.getElementById("lastName")?.value.trim() || "";
             const email = document.getElementById("email")?.value.trim() || "";
             const password = document.getElementById("password")?.value || "";
-            const confirmPassword = document.getElementById("confirmPassword")?.value || "";
+            const confirmPassword =
+              document.getElementById("confirmPassword")?.value || "";
             const terms = document.getElementById("terms")?.checked || false;
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -1536,7 +1538,8 @@
               isValid = false;
             } else if (password.length < 8) {
               const errorEl = document.getElementById("passwordError");
-              if (errorEl) errorEl.textContent = "Password must be at least 8 characters";
+              if (errorEl)
+                errorEl.textContent = "Password must be at least 8 characters";
               isValid = false;
             }
             if (password !== confirmPassword) {
@@ -1552,13 +1555,16 @@
             break;
 
           case 2:
-            const headline = document.getElementById("headline")?.value.trim() || "";
+            const headline =
+              document.getElementById("headline")?.value.trim() || "";
             const phone = document.getElementById("phone")?.value.trim() || "";
-            const location = document.getElementById("location")?.value.trim() || "";
+            const location =
+              document.getElementById("location")?.value.trim() || "";
 
             if (!headline) {
               const errorEl = document.getElementById("headlineError");
-              if (errorEl) errorEl.textContent = "Professional headline is required";
+              if (errorEl)
+                errorEl.textContent = "Professional headline is required";
               isValid = false;
             }
             if (!phone) {
@@ -1574,7 +1580,8 @@
             break;
 
           case 3:
-            const experienceLevel = document.getElementById("experienceLevel")?.value || "";
+            const experienceLevel =
+              document.getElementById("experienceLevel")?.value || "";
             if (!experienceLevel) {
               const errorEl = document.getElementById("experienceLevelError");
               if (errorEl) errorEl.textContent = "Experience level is required";
@@ -1589,9 +1596,18 @@
 
           case 4:
             const jobTypeSelect = document.getElementById("jobType");
-            const selectedJobTypes = jobTypeSelect ? Array.from(jobTypeSelect.selectedOptions) : [];
-            const workLocation = document.getElementById("workLocation")?.value || "";
-            const categories = ["cat_hotel", "cat_restaurant", "cat_tourism", "cat_events", "cat_cruise"];
+            const selectedJobTypes = jobTypeSelect
+              ? Array.from(jobTypeSelect.selectedOptions)
+              : [];
+            const workLocation =
+              document.getElementById("workLocation")?.value || "";
+            const categories = [
+              "cat_hotel",
+              "cat_restaurant",
+              "cat_tourism",
+              "cat_events",
+              "cat_cruise",
+            ];
             const selectedCategories = categories.filter((id) => {
               const el = document.getElementById(id);
               return el && el.checked;
@@ -1604,7 +1620,8 @@
             }
             if (!workLocation) {
               const errorEl = document.getElementById("workLocationError");
-              if (errorEl) errorEl.textContent = "Work location preference is required";
+              if (errorEl)
+                errorEl.textContent = "Work location preference is required";
               isValid = false;
             }
             if (selectedCategories.length === 0) {
@@ -1635,16 +1652,20 @@
 
         if (password.length === 0) {
           strengthMeter.className = "strength-meter-fill";
-          if (strengthText) strengthText.textContent = "Password strength: None";
+          if (strengthText)
+            strengthText.textContent = "Password strength: None";
         } else if (score <= 2) {
           strengthMeter.className = "strength-meter-fill weak";
-          if (strengthText) strengthText.textContent = "Password strength: Weak";
+          if (strengthText)
+            strengthText.textContent = "Password strength: Weak";
         } else if (score <= 4) {
           strengthMeter.className = "strength-meter-fill medium";
-          if (strengthText) strengthText.textContent = "Password strength: Medium";
+          if (strengthText)
+            strengthText.textContent = "Password strength: Medium";
         } else {
           strengthMeter.className = "strength-meter-fill strong";
-          if (strengthText) strengthText.textContent = "Password strength: Strong";
+          if (strengthText)
+            strengthText.textContent = "Password strength: Strong";
         }
       }
 
@@ -1666,7 +1687,7 @@
       function renderSkills() {
         const container = document.getElementById("skillsContainer");
         if (!container) return;
-        
+
         container.innerHTML = "";
         selectedSkills.forEach((skill) => {
           const tag = document.createElement("div");
@@ -1680,9 +1701,10 @@
       }
 
       function showSkillSuggestions(query) {
-        const suggestionsContainer = document.getElementById("skillsSuggestions");
+        const suggestionsContainer =
+          document.getElementById("skillsSuggestions");
         if (!suggestionsContainer) return;
-        
+
         suggestionsContainer.innerHTML = "";
         if (!query) {
           suggestionsContainer.classList.remove("active");
@@ -1728,7 +1750,11 @@
         inputEl.addEventListener("change", (e) => {
           const file = e.target.files[0];
           if (file && file.size <= maxSizeMB * 1024 * 1024) {
-            if (previewId === "photoPreview" && previewEl && file.type.startsWith("image/")) {
+            if (
+              previewId === "photoPreview" &&
+              previewEl &&
+              file.type.startsWith("image/")
+            ) {
               const reader = new FileReader();
               reader.onload = (ev) => {
                 previewEl.innerHTML = `<img src="${ev.target.result}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">`;
@@ -1737,105 +1763,118 @@
             } else if (previewId === "resumePreview" && previewEl) {
               previewEl.innerHTML = `<div style="background: var(--color-gray-100); padding: var(--space-sm); border-radius: var(--radius-lg);"><i class="fas fa-file-pdf"></i> ${file.name}</div>`;
             }
-            showToast("File Uploaded", `${file.name} uploaded successfully`, "success");
+            showToast(
+              "File Uploaded",
+              `${file.name} uploaded successfully`,
+              "success",
+            );
           } else if (file) {
-            showToast("File Too Large", `File must be less than ${maxSizeMB}MB`, "error");
+            showToast(
+              "File Too Large",
+              `File must be less than ${maxSizeMB}MB`,
+              "error",
+            );
             inputEl.value = "";
           }
         });
       }
+      // ========== FORM SUBMISSION (FIXED) ==========
+     async function submitForm() {
+    clearFieldErrors();
+    
+    if (!validateStep(currentStep)) {
+        showNotification("Validation Error", "Please fix the errors before submitting", "error");
+        return;
+    }
 
-      // ========== FORM SUBMISSION ==========
-      function submitForm() {
-        clearFieldErrors();
-        if (!validateStep(currentStep)) {
-          showToast("Validation Error", "Please fix the errors before submitting", "error");
-          return;
+    const submitBtn = document.getElementById("submitForm");
+    if (!submitBtn) return;
+
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Account...';
+    submitBtn.disabled = true;
+
+    try {
+        const firstName = document.getElementById("firstName")?.value.trim() || "";
+        const lastName = document.getElementById("lastName")?.value.trim() || "";
+        const email = document.getElementById("email")?.value.trim() || "";
+        const password = document.getElementById("password")?.value || "";
+        const phone = document.getElementById("phone")?.value.trim() || "";
+        const location = document.getElementById("location")?.value.trim() || "";
+        const headline = document.getElementById("headline")?.value.trim() || "";
+        const bio = document.getElementById("bio")?.value.trim() || "";
+        const newsletter = document.getElementById("newsletter")?.checked || false;
+
+        console.log("Calling signUpWithEmail for:", email); // Debug log
+
+        const result = await signUpWithEmail(email, password, {
+            firstName: firstName,
+            lastName: lastName,
+            phone: phone,
+            location: location,
+            headline: headline,
+            bio: bio,
+            skills: selectedSkills,
+            newsletter: newsletter
+        });
+
+        console.log("Sign up result:", result); // Debug log
+
+        if (result.success) {
+            console.log("User saved to localStorage:", result.user); // Debug log
+            
+            // Double-check localStorage was set
+            const savedUser = localStorage.getItem('jobpitality_user');
+            console.log("Verified localStorage contains:", savedUser);
+            
+            showNotification("Account created successfully! Redirecting...", "success");
+            
+            setTimeout(() => {
+                window.location.href = result.user.dashboardUrl;
+            }, 2000);
+        } else {
+            showNotification(result.message, "error");
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
         }
-
-        const submitBtn = document.getElementById("submitForm");
-        if (!submitBtn) return;
-        
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Account...';
-        submitBtn.disabled = true;
-
-        // Collect user data
-        const userData = {
-          firstName: document.getElementById("firstName")?.value.trim() || "",
-          lastName: document.getElementById("lastName")?.value.trim() || "",
-          name: `${document.getElementById("firstName")?.value.trim() || ""} ${document.getElementById("lastName")?.value.trim() || ""}`.trim(),
-          email: document.getElementById("email")?.value.trim() || "",
-          headline: document.getElementById("headline")?.value.trim() || "",
-          phone: document.getElementById("phone")?.value.trim() || "",
-          location: document.getElementById("location")?.value.trim() || "",
-          linkedin: document.getElementById("linkedin")?.value.trim() || "",
-          bio: document.getElementById("bio")?.value.trim() || "",
-          experienceLevel: document.getElementById("experienceLevel")?.value || "",
-          currentRole: document.getElementById("currentRole")?.value.trim() || "",
-          currentCompany: document.getElementById("currentCompany")?.value.trim() || "",
-          skills: selectedSkills,
-          newsletter: document.getElementById("newsletter")?.checked || false,
-          type: "candidate",
-          dashboardUrl: "/candidates-dashboard/index.html",
-          registeredAt: new Date().toISOString(),
-        };
-
-        // Store in localStorage
-        localStorage.setItem("jobpitality_user", JSON.stringify(userData));
-
-        showToast("Account Created!", "Your profile has been created successfully! Redirecting...", "success");
-
-        setTimeout(() => {
-          window.location.href = "/candidates-dashboard/index.html";
-        }, 2000);
-      }
-
+    } catch (error) {
+        console.error("Registration error:", error);
+        showNotification(error.message || "Registration failed. Please try again.", "error");
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }
+}
       // ========== SOCIAL SIGN UP ==========
-      function handleGoogleSignUp() {
-        showToast("Google Sign Up", "This is a demo. In production, this would redirect to Google OAuth.", "info");
-        setTimeout(() => {
-          const demoUser = {
-            name: "Google User",
-            email: "user@gmail.com",
-            type: "candidate",
-            authProvider: "google",
-            dashboardUrl: "/candidates-dashboard/index.html",
-          };
-          localStorage.setItem("jobpitality_user", JSON.stringify(demoUser));
-          showToast("Success!", "Redirecting to dashboard...", "success");
-          setTimeout(() => (window.location.href = "/candidates-dashboard/index.html"), 1500);
-        }, 1500);
+      async function handleGoogleSignUp() {
+        try {
+          showNotification("Redirecting to Google...", "info");
+          await signInWithGoogle();
+        } catch (error) {
+          console.error("Google sign up error:", error);
+          showNotification(error.message, "error");
+        }
       }
 
       function handleLinkedInSignUp() {
-        showToast("LinkedIn Sign Up", "This is a demo. In production, this would redirect to LinkedIn OAuth.", "info");
-        setTimeout(() => {
-          const demoUser = {
-            name: "LinkedIn User",
-            email: "user@linkedin.com",
-            type: "candidate",
-            authProvider: "linkedin",
-            dashboardUrl: "/candidates-dashboard/index.html",
-          };
-          localStorage.setItem("jobpitality_user", JSON.stringify(demoUser));
-          showToast("Success!", "Redirecting to dashboard...", "success");
-          setTimeout(() => (window.location.href = "/candidates-dashboard/index.html"), 1500);
-        }, 1500);
+        showNotification("LinkedIn sign up coming soon!", "info");
       }
-
       // ========== UPDATE HEADER FOR LOGGED IN USER ==========
       function updateHeaderForLoggedInUser() {
         const savedUser = localStorage.getItem("jobpitality_user");
         if (!savedUser) return;
-        
+
         try {
           const user = JSON.parse(savedUser);
           const signInBtn = document.querySelector(".site-header .btn-outline");
           if (signInBtn) {
-            const displayName = user.firstName || user.name || user.email?.split("@")[0] || "User";
+            const displayName =
+              user.firstName ||
+              user.name ||
+              user.email?.split("@")[0] ||
+              "User";
             signInBtn.innerHTML = `<i class="fas fa-user-circle"></i> ${displayName}`;
-            signInBtn.href = user.dashboardUrl || "/candidates-dashboard/index.html";
+            signInBtn.href =
+              user.dashboardUrl || "/candidates-dashboard/index.html";
             signInBtn.classList.remove("btn-outline");
             signInBtn.classList.add("btn-primary");
           }
@@ -1850,7 +1889,11 @@
         if (validateStep(currentStep)) {
           if (currentStep < totalSteps) goToStep(currentStep + 1);
         } else {
-          showToast("Validation Error", "Please fix the errors before continuing", "error");
+          showToast(
+            "Validation Error",
+            "Please fix the errors before continuing",
+            "error",
+          );
         }
       }
 
@@ -1866,7 +1909,9 @@
         // Password strength
         const passwordInput = document.getElementById("password");
         if (passwordInput) {
-          passwordInput.addEventListener("input", (e) => checkPasswordStrength(e.target.value));
+          passwordInput.addEventListener("input", (e) =>
+            checkPasswordStrength(e.target.value),
+          );
         }
 
         // Password toggles
@@ -1877,19 +1922,23 @@
             if (input) {
               const icon = this.querySelector("i");
               input.type = input.type === "password" ? "text" : "password";
-              icon.className = input.type === "password" ? "fas fa-eye" : "fas fa-eye-slash";
+              icon.className =
+                input.type === "password" ? "fas fa-eye" : "fas fa-eye-slash";
             }
           });
         }
 
-        const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+        const toggleConfirmPassword = document.getElementById(
+          "toggleConfirmPassword",
+        );
         if (toggleConfirmPassword) {
           toggleConfirmPassword.addEventListener("click", function () {
             const input = document.getElementById("confirmPassword");
             if (input) {
               const icon = this.querySelector("i");
               input.type = input.type === "password" ? "text" : "password";
-              icon.className = input.type === "password" ? "fas fa-eye" : "fas fa-eye-slash";
+              icon.className =
+                input.type === "password" ? "fas fa-eye" : "fas fa-eye-slash";
             }
           });
         }
@@ -1897,7 +1946,9 @@
         // Skills input
         const skillsInput = document.getElementById("skillsInput");
         if (skillsInput) {
-          skillsInput.addEventListener("input", (e) => showSkillSuggestions(e.target.value));
+          skillsInput.addEventListener("input", (e) =>
+            showSkillSuggestions(e.target.value),
+          );
           skillsInput.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
               e.preventDefault();
@@ -1908,7 +1959,8 @@
 
         // Close suggestions when clicking outside
         document.addEventListener("click", (e) => {
-          if (!e.target.closest(".skills-input-container")) hideSkillSuggestions();
+          if (!e.target.closest(".skills-input-container"))
+            hideSkillSuggestions();
         });
 
         // File uploads
@@ -1918,25 +1970,30 @@
         // Navigation buttons
         const nextBtn = document.getElementById("nextStep");
         if (nextBtn) nextBtn.addEventListener("click", nextStep);
-        
+
         const prevBtn = document.getElementById("prevStep");
         if (prevBtn) prevBtn.addEventListener("click", prevStep);
-        
+
         const submitBtn = document.getElementById("submitForm");
         if (submitBtn) submitBtn.addEventListener("click", submitForm);
 
         // Social sign up
         const googleBtn = document.getElementById("googleSignUp");
         if (googleBtn) googleBtn.addEventListener("click", handleGoogleSignUp);
-        
+
         const linkedinBtn = document.getElementById("linkedinSignUp");
-        if (linkedinBtn) linkedinBtn.addEventListener("click", handleLinkedInSignUp);
+        if (linkedinBtn)
+          linkedinBtn.addEventListener("click", handleLinkedInSignUp);
 
         // Form submission on Enter
         const form = document.getElementById("registrationForm");
         if (form) {
           form.addEventListener("keypress", (e) => {
-            if (e.key === "Enter" && currentStep === totalSteps && document.activeElement.tagName !== "TEXTAREA") {
+            if (
+              e.key === "Enter" &&
+              currentStep === totalSteps &&
+              document.activeElement.tagName !== "TEXTAREA"
+            ) {
               e.preventDefault();
               submitForm();
             }
