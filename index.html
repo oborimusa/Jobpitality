@@ -21,7 +21,7 @@
     <meta name="theme-color" content="#ff9e00">
     <meta name="application-name" content="Jobpitality">
 
-    <!-- Icons for different platforms -->
+    <!-- Icons -->
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png">
@@ -32,7 +32,6 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     
     <style>
-      /* ===== CSS RESET & BASE ===== */
       * { margin: 0; padding: 0; box-sizing: border-box; }
 
       :root {
@@ -101,7 +100,6 @@
         display: inline-block;
       }
 
-      /* Buttons */
       .btn {
         display: inline-flex;
         align-items: center;
@@ -127,6 +125,60 @@
       .btn-emergency { background: linear-gradient(135deg, var(--color-emergency), var(--color-emergency-dark)); color: var(--color-white); }
       .btn-sm { padding: 0.5rem 1rem; font-size: 0.85rem; }
       .btn-block { width: 100%; }
+
+      /* WhatsApp Button */
+      .whatsapp-desktop {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: #25D366;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        margin-top: 1rem;
+      }
+      .whatsapp-desktop:hover {
+        background: #128C7E;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+      }
+      .whatsapp-desktop i { font-size: 1.25rem; }
+
+      @media (max-width: 768px) {
+        .whatsapp-desktop { display: none; }
+      }
+
+      /* Floating WhatsApp for Mobile */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25D366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        z-index: 1000;
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        background-color: #128C7E;
+      }
+      @media (min-width: 769px) {
+        .whatsapp-float { display: none; }
+      }
 
       /* Header */
       .site-header {
@@ -164,10 +216,7 @@
         align-items: center;
         gap: 0.5rem;
       }
-
-      @media (min-width: 768px) {
-        .logo h1 { font-size: 2.1rem; }
-      }
+      @media (min-width: 768px) { .logo h1 { font-size: 2.1rem; } }
 
       .logo h1 .brand-name {
         background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
@@ -183,10 +232,7 @@
         letter-spacing: 1.5px;
         font-weight: 800;
       }
-
-      @media (min-width: 768px) {
-        .logo-tagline { font-size: 0.7rem; margin-top: 2px; }
-      }
+      @media (min-width: 768px) { .logo-tagline { font-size: 0.7rem; margin-top: 2px; } }
 
       .mobile-menu-toggle {
         display: none;
@@ -693,8 +739,20 @@
           <div class="footer-column"><h3>Company</h3><ul class="footer-links"><li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Contact Us</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li></ul></div>
         </div>
         <div class="footer-bottom"><p>&copy; <span id="currentYear"></span> Jobpitality. All rights reserved.</p><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div></div>
+        <!-- Desktop WhatsApp Button -->
+        <a href="https://wa.me/2348039661354?text=Hello%20Jobpitality%2C%20I%27m%20interested%20in%20your%20services" 
+           target="_blank" class="whatsapp-desktop">
+          <i class="fab fa-whatsapp"></i> 
+          <span>Chat with us on WhatsApp</span>
+        </a>
       </div>
     </footer>
+
+    <!-- Floating WhatsApp Button (Mobile) -->
+    <a href="https://wa.me/2348039661354?text=Hello%20Jobpitality%2C%20I%20need%20assistance" 
+       class="whatsapp-float" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
       // Service Worker Registration
