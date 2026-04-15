@@ -2,43 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Jobpitality | Nigeria's Premier Hospitality Talent Platform</title>
-    <meta
-      name="description"
-      content="Jobpitality connects elite hospitality talent with luxury hotels, restaurants, and resorts in Nigeria."
-    />
+    <meta name="description" content="Jobpitality connects elite hospitality talent with luxury hotels, restaurants, and resorts in Nigeria." />
 
     <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- PWA Meta Tags -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
-    <meta name="apple-mobile-web-app-title" content="Jobpitality" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="theme-color" content="#ff9e00" />
-    <meta name="application-name" content="Jobpitality" />
-
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
     <style>
       * {
@@ -68,9 +40,7 @@
         --accent: #ff9e00;
         --white: #ffffff;
         --success: #2a9d8f;
-        --font-sans:
-          "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen, Ubuntu, sans-serif;
+        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
         --space-xs: 0.5rem;
         --space-sm: 1rem;
         --space-md: 1.5rem;
@@ -98,65 +68,24 @@
         overflow-x: hidden;
       }
 
-      .container {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 0 16px;
-      }
-      @media (min-width: 640px) {
-        .container {
-          padding: 0 24px;
-        }
-      }
+      .container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+      @media (min-width: 640px) { .container { padding: 0 24px; } }
 
-      h1,
-      h2,
-      h3 {
-        font-weight: 800;
-        line-height: 1.2;
-        color: var(--color-gray-900);
-        letter-spacing: -0.025em;
-      }
-      h1 {
-        font-size: 2rem;
-        font-weight: 900;
-      }
-      h2 {
-        font-size: 1.75rem;
-        margin-bottom: 1rem;
-      }
-      @media (min-width: 768px) {
-        h1 {
-          font-size: 3rem;
-        }
-        h2 {
-          font-size: 2.5rem;
-        }
-      }
-      @media (min-width: 1024px) {
-        h1 {
-          font-size: 4rem;
-        }
-        h2 {
-          font-size: 3rem;
-        }
-      }
+      h1, h2, h3 { font-weight: 800; line-height: 1.2; color: var(--color-gray-900); letter-spacing: -0.025em; }
+      h1 { font-size: 2rem; font-weight: 900; }
+      h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+      @media (min-width: 768px) { h1 { font-size: 3rem; } h2 { font-size: 2.5rem; } }
+      @media (min-width: 1024px) { h1 { font-size: 4rem; } h2 { font-size: 3rem; } }
 
       .text-gradient {
-        background: linear-gradient(
-          90deg,
-          var(--color-accent) 0%,
-          var(--color-emergency) 100%
-        );
+        background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-emergency) 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         display: inline-block;
       }
 
-      .accent-text {
-        color: var(--color-accent);
-      }
+      .accent-text { color: var(--color-accent); }
 
       .btn {
         display: inline-flex;
@@ -174,52 +103,16 @@
         min-height: 44px;
         width: 100%;
       }
-      @media (min-width: 640px) {
-        .btn {
-          width: auto;
-          padding: 1rem 2.25rem;
-        }
-      }
+      @media (min-width: 640px) { .btn { width: auto; padding: 1rem 2.25rem; } }
 
-      .btn-primary {
-        background: var(--color-accent);
-        color: var(--color-primary);
-      }
-      .btn-primary:hover {
-        background: var(--color-accent-dark);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
-      }
-      .btn-outline {
-        background: transparent;
-        color: var(--color-primary);
-        border: 2px solid var(--color-primary);
-      }
-      .btn-outline:hover {
-        background: var(--color-primary);
-        color: var(--color-white);
-        transform: translateY(-2px);
-      }
-      .btn-emergency {
-        background: linear-gradient(
-          135deg,
-          var(--color-emergency),
-          var(--color-emergency-dark)
-        );
-        color: var(--color-white);
-      }
-      .btn-sm {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
-      }
-      .btn-block {
-        width: 100%;
-      }
-      .btn:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-        transform: none;
-      }
+      .btn-primary { background: var(--color-accent); color: var(--color-primary); }
+      .btn-primary:hover { background: var(--color-accent-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+      .btn-outline { background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
+      .btn-outline:hover { background: var(--color-primary); color: var(--color-white); transform: translateY(-2px); }
+      .btn-emergency { background: linear-gradient(135deg, var(--color-emergency), var(--color-emergency-dark)); color: var(--color-white); }
+      .btn-sm { padding: 0.5rem 1rem; font-size: 0.85rem; }
+      .btn-block { width: 100%; }
+      .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
       /* WhatsApp Button */
       .whatsapp-desktop {
@@ -237,22 +130,11 @@
         cursor: pointer;
         margin-top: 1rem;
       }
-      .whatsapp-desktop:hover {
-        background: #128c7e;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-      }
-      .whatsapp-desktop i {
-        font-size: 1.25rem;
-      }
+      .whatsapp-desktop:hover { background: #128c7e; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
+      .whatsapp-desktop i { font-size: 1.25rem; }
 
-      @media (max-width: 768px) {
-        .whatsapp-desktop {
-          display: none;
-        }
-      }
+      @media (max-width: 768px) { .whatsapp-desktop { display: none; } }
 
-      /* Floating WhatsApp for Mobile */
       .whatsapp-float {
         position: fixed;
         bottom: 20px;
@@ -266,20 +148,13 @@
         align-items: center;
         justify-content: center;
         font-size: 30px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         z-index: 1000;
         transition: all 0.3s;
         text-decoration: none;
       }
-      .whatsapp-float:hover {
-        transform: scale(1.1);
-        background-color: #128c7e;
-      }
-      @media (min-width: 769px) {
-        .whatsapp-float {
-          display: none;
-        }
-      }
+      .whatsapp-float:hover { transform: scale(1.1); background-color: #128c7e; }
+      @media (min-width: 769px) { .whatsapp-float { display: none; } }
 
       /* ===== HEADER & NAVIGATION ===== */
       .site-header {
@@ -316,27 +191,16 @@
         gap: 0.5rem;
       }
 
-      @media (min-width: 768px) {
-        .logo h1 {
-          font-size: 2.1rem;
-        }
-      }
+      @media (min-width: 768px) { .logo h1 { font-size: 2.1rem; } }
 
       .logo h1 .brand-name {
-        background: linear-gradient(
-          90deg,
-          var(--color-primary) 0%,
-          var(--color-accent) 100%
-        );
+        background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
       }
 
-      .logo-tagline {
-        display: none;
-      }
-
+      .logo-tagline { display: none; }
       @media (min-width: 768px) {
         .logo-tagline {
           display: block;
@@ -354,17 +218,13 @@
         background: none;
         border: none;
         font-size: 1.75rem;
-        color: var(--color-dark);
+        color: var(--color-primary);
         cursor: pointer;
         padding: 0.5rem;
         z-index: 1001;
       }
 
-      @media (min-width: 1024px) {
-        .mobile-menu-toggle {
-          display: none;
-        }
-      }
+      @media (min-width: 1024px) { .mobile-menu-toggle { display: none; } }
 
       .main-nav {
         display: flex;
@@ -446,15 +306,8 @@
         }
       }
 
-      .nav-link:hover {
-        color: var(--color-accent);
-        background: var(--color-gray-100);
-      }
-
-      .nav-link.active {
-        color: var(--color-accent);
-        background: rgba(255, 158, 0, 0.1);
-      }
+      .nav-link:hover { color: var(--color-accent); background: var(--color-gray-100); }
+      .nav-link.active { color: var(--color-accent); background: rgba(255, 158, 0, 0.1); }
 
       .dropdown-toggle {
         display: flex;
@@ -463,14 +316,8 @@
         cursor: pointer;
       }
 
-      .dropdown-toggle i {
-        font-size: 0.8rem;
-        transition: transform var(--transition-fast);
-      }
-
-      .dropdown.active .dropdown-toggle i {
-        transform: rotate(180deg);
-      }
+      .dropdown-toggle i { font-size: 0.8rem; transition: transform var(--transition-fast); }
+      .dropdown.active .dropdown-toggle i { transform: rotate(180deg); }
 
       .dropdown-menu {
         position: absolute;
@@ -495,7 +342,6 @@
         transform: translateY(5px);
       }
 
-      /* ===== MOBILE DROPDOWN STYLES (NOT NESTED) ===== */
       @media (max-width: 1023px) {
         .dropdown-menu {
           position: static;
@@ -512,18 +358,9 @@
           background: var(--color-gray-50);
           width: calc(100% - 1rem);
         }
-
-        .dropdown.active .dropdown-menu {
-          display: block;
-        }
-
-        .dropdown-toggle i {
-          transition: transform 0.3s ease;
-        }
-
-        .dropdown.active .dropdown-toggle i {
-          transform: rotate(180deg);
-        }
+        .dropdown.active .dropdown-menu { display: block; }
+        .dropdown-toggle i { transition: transform 0.3s ease; }
+        .dropdown.active .dropdown-toggle i { transform: rotate(180deg); }
       }
 
       .dropdown-item {
@@ -538,7 +375,6 @@
         transition: all var(--transition-fast);
         white-space: nowrap;
       }
-
       @media (max-width: 1023px) {
         .dropdown-item {
           padding: 0.75rem;
@@ -553,26 +389,10 @@
         padding-left: 1.75rem;
       }
 
-      .dropdown-divider {
-        height: 1px;
-        background: var(--color-gray-200);
-        margin: 0.5rem 0;
-      }
+      .dropdown-divider { height: 1px; background: var(--color-gray-200); margin: 0.5rem 0; }
 
-      .nav-cta-group {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
-
-      @media (max-width: 1023px) {
-        .nav-cta-group {
-          flex-direction: column;
-          width: 100%;
-          margin-top: 1rem;
-          gap: 0.75rem;
-        }
-      }
+      .nav-cta-group { display: flex; align-items: center; gap: 0.75rem; }
+      @media (max-width: 1023px) { .nav-cta-group { flex-direction: column; width: 100%; margin-top: 1rem; gap: 0.75rem; } }
 
       .nav-cta {
         background: var(--color-primary);
@@ -591,28 +411,11 @@
         cursor: pointer;
         white-space: nowrap;
       }
+      @media (max-width: 1023px) { .nav-cta { width: 100%; padding: 0.75rem !important; font-size: 1rem; } }
 
-      @media (max-width: 1023px) {
-        .nav-cta {
-          width: 100%;
-          padding: 0.75rem !important;
-          font-size: 1rem;
-        }
-      }
-
-      .nav-cta:hover {
-        background: var(--color-primary-dark);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
-      }
-
-      .nav-cta-emergency {
-        background: var(--color-emergency);
-      }
-
-      .nav-cta-emergency:hover {
-        background: var(--color-emergency-dark);
-      }
+      .nav-cta:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+      .nav-cta-emergency { background: var(--color-emergency); }
+      .nav-cta-emergency:hover { background: var(--color-emergency-dark); }
 
       .mobile-overlay {
         display: none;
@@ -625,34 +428,18 @@
         z-index: 999;
         backdrop-filter: blur(4px);
       }
-
-      .mobile-overlay.active {
-        display: block;
-      }
+      .mobile-overlay.active { display: block; }
 
       /* Hero */
       .hero {
         padding: 2rem 0;
-        background: linear-gradient(
-          135deg,
-          var(--color-primary) 0%,
-          #1b263b 100%
-        );
+        background: linear-gradient(135deg, var(--color-primary) 0%, #1b263b 100%);
         color: var(--color-white);
         position: relative;
         overflow: hidden;
       }
-      @media (min-width: 768px) {
-        .hero {
-          padding: 4rem 0;
-        }
-      }
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 900px;
-        margin: 0 auto;
-      }
+      @media (min-width: 768px) { .hero { padding: 4rem 0; } }
+      .hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
       .hero-badge {
         background: linear-gradient(90deg, var(--color-accent), #ff6b00);
         color: var(--color-primary);
@@ -666,43 +453,13 @@
         font-size: 0.85rem;
         border: 2px solid rgba(255, 255, 255, 0.2);
       }
-      @media (min-width: 768px) {
-        .hero-badge {
-          padding: 0.75rem 2rem;
-          font-size: 1rem;
-        }
-      }
-      .hero-title {
-        font-size: 2rem;
-        font-weight: 900;
-        line-height: 1.2;
-        margin-bottom: 1rem;
-        color: var(--color-white);
-      }
-      @media (min-width: 768px) {
-        .hero-title {
-          font-size: 3rem;
-        }
-      }
-      @media (min-width: 1024px) {
-        .hero-title {
-          font-size: 4.5rem;
-        }
-      }
-      .hero-title .highlight {
-        color: var(--color-accent);
-      }
-      .hero-subtitle {
-        font-size: 1.125rem;
-        color: rgba(255, 255, 255, 0.9);
-        max-width: 700px;
-        margin-bottom: 2rem;
-      }
-      @media (min-width: 768px) {
-        .hero-subtitle {
-          font-size: 1.25rem;
-        }
-      }
+      @media (min-width: 768px) { .hero-badge { padding: 0.75rem 2rem; font-size: 1rem; } }
+      .hero-title { font-size: 2rem; font-weight: 900; line-height: 1.2; margin-bottom: 1rem; color: var(--color-white); }
+      @media (min-width: 768px) { .hero-title { font-size: 3rem; } }
+      @media (min-width: 1024px) { .hero-title { font-size: 4.5rem; } }
+      .hero-title .highlight { color: var(--color-accent); }
+      .hero-subtitle { font-size: 1.125rem; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin-bottom: 2rem; }
+      @media (min-width: 768px) { .hero-subtitle { font-size: 1.25rem; } }
 
       /* Search */
       .search-container {
@@ -717,24 +474,9 @@
         box-shadow: var(--shadow-xl);
         position: relative;
       }
-      @media (min-width: 640px) {
-        .search-container {
-          flex-direction: row;
-          padding: 0.5rem;
-          border-radius: 60px;
-        }
-      }
-      .search-box {
-        flex: 1;
-        position: relative;
-      }
-      .search-box i {
-        position: absolute;
-        left: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
-        color: var(--color-gray-600);
-      }
+      @media (min-width: 640px) { .search-container { flex-direction: row; padding: 0.5rem; border-radius: 60px; } }
+      .search-box { flex: 1; position: relative; }
+      .search-box i { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--color-gray-600); }
       .search-box input {
         width: 100%;
         padding: 1rem 1rem 1rem 2.75rem;
@@ -772,55 +514,18 @@
         cursor: pointer;
         width: 100%;
       }
-      @media (min-width: 640px) {
-        .search-btn {
-          width: auto;
-          padding: 0 2rem;
-        }
-      }
-      .search-btn:hover {
-        background: var(--color-accent-dark);
-        transform: translateY(-2px);
-      }
+      @media (min-width: 640px) { .search-btn { width: auto; padding: 0 2rem; } }
+      .search-btn:hover { background: var(--color-accent-dark); transform: translateY(-2px); }
 
-      .stats {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem;
-        position: relative;
-        z-index: 2;
-      }
-      @media (min-width: 640px) {
-        .stats {
-          flex-direction: row;
-          gap: 2rem;
-        }
-      }
-      .stat-item {
-        text-align: center;
-      }
-      .stat-value {
-        font-size: 1.75rem;
-        font-weight: 800;
-        margin-bottom: 0.25rem;
-      }
-      .stat-label {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 0.875rem;
-      }
+      .stats { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; position: relative; z-index: 2; }
+      @media (min-width: 640px) { .stats { flex-direction: row; gap: 2rem; } }
+      .stat-item { text-align: center; }
+      .stat-value { font-size: 1.75rem; font-weight: 800; margin-bottom: 0.25rem; }
+      .stat-label { color: rgba(255, 255, 255, 0.8); font-size: 0.875rem; }
 
       /* Jobs */
-      .featured-jobs {
-        padding: 2rem 0;
-        background: var(--color-gray-100);
-      }
-      @media (min-width: 768px) {
-        .featured-jobs {
-          padding: 3rem 0;
-        }
-      }
+      .jobs-section { padding: 2rem 0; background: var(--color-gray-100); }
+      @media (min-width: 768px) { .jobs-section { padding: 3rem 0; } }
       .section-header {
         display: flex;
         flex-direction: column;
@@ -829,31 +534,10 @@
         margin-bottom: 1.5rem;
         gap: 1rem;
       }
-      @media (min-width: 768px) {
-        .section-header {
-          flex-direction: row;
-          align-items: center;
-          margin-bottom: 2rem;
-        }
-      }
-      .section-header h2 {
-        font-size: 1.75rem;
-        font-weight: 800;
-        color: var(--color-primary);
-      }
-      @media (min-width: 768px) {
-        .section-header h2 {
-          font-size: 2.5rem;
-        }
-      }
-      .view-all-link {
-        color: var(--color-accent);
-        text-decoration: none;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
+      @media (min-width: 768px) { .section-header { flex-direction: row; align-items: center; margin-bottom: 2rem; } }
+      .section-header h2 { font-size: 1.75rem; font-weight: 800; color: var(--color-primary); }
+      @media (min-width: 768px) { .section-header h2 { font-size: 2.5rem; } }
+      .view-all-link { color: var(--color-accent); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
 
       .jobs-grid {
         display: grid;
@@ -861,17 +545,8 @@
         gap: 1.5rem;
         margin-bottom: 2rem;
       }
-      @media (min-width: 640px) {
-        .jobs-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      @media (min-width: 1024px) {
-        .jobs-grid {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 2rem;
-        }
-      }
+      @media (min-width: 640px) { .jobs-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1024px) { .jobs-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
 
       .job-card {
         background: var(--color-white);
@@ -881,84 +556,19 @@
         transition: all 0.3s ease;
         cursor: pointer;
       }
-      .job-card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-xl);
-        border-color: var(--color-accent);
-      }
-      .job-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-      }
-      .job-logo {
-        width: 48px;
-        height: 48px;
-        background: var(--color-gray-100);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-      }
-      .job-type {
-        padding: 0.25rem 0.75rem;
-        background: rgba(42, 157, 143, 0.1);
-        color: var(--color-success);
-        border-radius: 50px;
-        font-size: 0.75rem;
-        font-weight: 600;
-      }
-      .job-title {
-        font-size: 1.125rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        color: var(--color-primary);
-      }
-      .job-company,
-      .job-location {
-        color: var(--color-gray-600);
-        margin-bottom: 0.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.875rem;
-      }
-      .job-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin: 1rem 0;
-      }
-      .job-tag {
-        padding: 0.25rem 0.75rem;
-        background: var(--color-gray-100);
-        border-radius: 50px;
-        font-size: 0.75rem;
-        color: var(--color-gray-700);
-      }
-      .job-footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-top: 1rem;
-        border-top: 1px solid var(--color-gray-200);
-      }
-      .job-salary {
-        font-weight: 700;
-        color: var(--color-primary);
-        font-size: 0.875rem;
-      }
-      .job-posted {
-        color: var(--color-gray-600);
-        font-size: 0.75rem;
-      }
+      .job-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); border-color: var(--color-accent); }
+      .job-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+      .job-logo { width: 48px; height: 48px; background: var(--color-gray-100); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+      .job-type { padding: 0.25rem 0.75rem; background: rgba(42, 157, 143, 0.1); color: var(--color-success); border-radius: 50px; font-size: 0.75rem; font-weight: 600; }
+      .job-title { font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary); }
+      .job-company, .job-location { color: var(--color-gray-600); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; }
+      .job-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+      .job-tag { padding: 0.25rem 0.75rem; background: var(--color-gray-100); border-radius: 50px; font-size: 0.75rem; color: var(--color-gray-700); }
+      .job-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--color-gray-200); }
+      .job-salary { font-weight: 700; color: var(--color-primary); font-size: 0.875rem; }
+      .job-posted { color: var(--color-gray-600); font-size: 0.75rem; }
 
-      .show-more-wrapper {
-        text-align: center;
-        margin: 2rem 0 1rem;
-      }
+      .show-more-wrapper { text-align: center; margin: 2rem 0 1rem; }
       .show-more-btn {
         background: white;
         color: #ff9e00;
@@ -973,84 +583,31 @@
         gap: 0.75rem;
         width: 100%;
       }
-      @media (min-width: 640px) {
-        .show-more-btn {
-          width: auto;
-          min-width: 260px;
-          padding: 1rem 2rem;
-        }
-      }
-      .show-more-btn:hover {
-        background: #ff9e00;
-        color: #0d1b2a;
-        transform: translateY(-3px);
-      }
+      @media (min-width: 640px) { .show-more-btn { width: auto; min-width: 260px; padding: 1rem 2rem; } }
+      .show-more-btn:hover { background: #ff9e00; color: #0d1b2a; transform: translateY(-3px); }
 
-      .search-empty {
-        grid-column: 1 / -1;
-        text-align: center;
-        padding: 2rem;
-        background: white;
-        border-radius: 20px;
-      }
+      .search-empty { grid-column: 1 / -1; text-align: center; padding: 2rem; background: white; border-radius: 20px; }
 
-      /* Categories, Features, Talent */
-      .categories,
-      .features,
-      .talent-availability {
-        padding: 2rem 0;
-      }
-      .categories {
-        background: var(--color-white);
-      }
+      /* Features */
       .features {
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary-light)
-        );
+        padding: 2rem 0;
+        background: linear-gradient(135deg, var(--primary), var(--primary-light));
         color: var(--white);
       }
-      .talent-availability {
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary-light)
-        );
-        color: var(--white);
-      }
+      .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
+      @media (min-width: 640px) { .features-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+      @media (min-width: 1024px) { .features-grid { grid-template-columns: repeat(4, 1fr); } }
+      .feature-card { text-align: center; }
+      .feature-icon { width: 64px; height: 64px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.75rem; color: var(--accent); }
+      .feature-card h3 { color: var(--white); margin-bottom: 0.5rem; font-size: 1.125rem; }
+      .feature-card p { color: rgba(255, 255, 255, 0.8); font-size: 0.875rem; }
 
-      .categories-grid,
-      .features-grid,
-      .availability-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        margin-top: 1.5rem;
-      }
-      @media (min-width: 640px) {
-        .categories-grid,
-        .features-grid,
-        .availability-grid {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1.5rem;
-        }
-      }
-      @media (min-width: 1024px) {
-        .categories-grid {
-          grid-template-columns: repeat(6, 1fr);
-        }
-        .features-grid {
-          grid-template-columns: repeat(4, 1fr);
-        }
-        .availability-grid {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 2rem;
-        }
-      }
-
-      .category-card,
-      .availability-card {
+      /* Categories */
+      .categories { padding: 2rem 0; background: var(--color-white); }
+      .categories-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
+      @media (min-width: 640px) { .categories-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+      @media (min-width: 1024px) { .categories-grid { grid-template-columns: repeat(6, 1fr); } }
+      .category-card {
         text-align: center;
         padding: 1.5rem 1rem;
         border: 1px solid var(--color-gray-200);
@@ -1061,89 +618,36 @@
         color: inherit;
         background: var(--color-white);
       }
-      .availability-card {
-        background: rgba(255, 255, 255, 0.05);
-        border-color: rgba(255, 255, 255, 0.1);
-      }
-      .category-card:hover,
-      .availability-card:hover {
-        transform: translateY(-4px);
-        border-color: var(--color-accent);
-        box-shadow: var(--shadow-lg);
-      }
-      .category-icon,
-      .availability-icon {
-        width: 48px;
-        height: 48px;
-        background: var(--color-gray-100);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 0.75rem;
-        font-size: 1.5rem;
-        color: var(--color-accent);
-      }
-      .availability-icon {
-        background: rgba(255, 255, 255, 0.1);
-      }
-      .category-card h3 {
-        font-size: 0.875rem;
-        margin-bottom: 0.25rem;
-      }
-      @media (min-width: 768px) {
-        .category-card h3 {
-          font-size: 1rem;
-        }
-      }
-      .category-card p,
-      .availability-card p {
-        color: var(--color-gray-600);
-        font-size: 0.75rem;
-      }
+      .category-card:hover { transform: translateY(-4px); border-color: var(--color-accent); box-shadow: var(--shadow-lg); }
+      .category-icon { width: 48px; height: 48px; background: var(--color-gray-100); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; font-size: 1.5rem; color: var(--color-accent); }
+      .category-card h3 { font-size: 0.875rem; margin-bottom: 0.25rem; }
+      @media (min-width: 768px) { .category-card h3 { font-size: 1rem; } }
+      .category-card p { color: var(--color-gray-600); font-size: 0.75rem; }
 
-      .feature-card {
-        text-align: center;
-      }
-      .feature-icon {
-        width: 64px;
-        height: 64px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1rem;
-        font-size: 1.75rem;
-        color: var(--accent);
-      }
-      .feature-card h3 {
+      /* Talent Availability */
+      .talent-availability {
+        padding: 2rem 0;
+        background: linear-gradient(135deg, var(--primary), var(--primary-light));
         color: var(--white);
-        margin-bottom: 0.5rem;
-        font-size: 1.125rem;
       }
-      .feature-card p {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 0.875rem;
+      .availability-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
+      @media (min-width: 640px) { .availability-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+      @media (min-width: 1024px) { .availability-grid { gap: 2rem; } }
+      .availability-card {
+        text-align: center;
+        padding: 1.5rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.05);
       }
-
-      .talent-list {
-        list-style: none;
-        margin-bottom: 1.5rem;
-      }
-      .talent-list li {
-        padding: 0.5rem 0;
-        color: rgba(255, 255, 255, 0.8);
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        font-size: 0.875rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .talent-list li i {
-        color: var(--success);
-      }
-
+      .availability-card:hover { transform: translateY(-4px); border-color: var(--color-accent); }
+      .availability-icon { width: 48px; height: 48px; background: rgba(255, 255, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; font-size: 1.5rem; color: var(--color-accent); }
+      .availability-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+      .talent-list { list-style: none; margin-bottom: 1.5rem; }
+      .talent-list li { padding: 0.5rem 0; color: rgba(255, 255, 255, 0.8); display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+      .talent-list li i { color: var(--success); }
       .btn-outline-light {
         background: transparent;
         color: var(--white);
@@ -1155,23 +659,12 @@
         cursor: pointer;
         width: 100%;
       }
-      .btn-outline-light:hover {
-        background: var(--white);
-        color: var(--primary);
-      }
-
-      .register-section {
-        text-align: center;
-        margin-top: 2rem;
-      }
+      .btn-outline-light:hover { background: var(--white); color: var(--primary); }
+      .register-section { text-align: center; margin-top: 2rem; }
 
       /* Registration Banner */
       .registration-banner {
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary-light)
-        );
+        background: linear-gradient(135deg, var(--primary), var(--primary-light));
         color: var(--white);
         padding: 2rem 1.5rem;
         border-radius: 20px;
@@ -1179,42 +672,12 @@
         text-align: center;
         border: 3px solid var(--accent);
       }
-      @media (min-width: 768px) {
-        .registration-banner {
-          padding: 3rem 2rem;
-          border-radius: 30px;
-          margin: 3rem 0;
-        }
-      }
-      .registration-icon {
-        font-size: 3rem;
-        color: var(--accent);
-        margin-bottom: 1rem;
-      }
-      .registration-banner h2 {
-        color: var(--white);
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-      }
-      @media (min-width: 768px) {
-        .registration-banner h2 {
-          font-size: 2rem;
-        }
-      }
-
-      .registration-options {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
-      }
-      @media (min-width: 640px) {
-        .registration-options {
-          flex-direction: row;
-          gap: 1.5rem;
-        }
-      }
-
+      @media (min-width: 768px) { .registration-banner { padding: 3rem 2rem; border-radius: 30px; margin: 3rem 0; } }
+      .registration-icon { font-size: 3rem; color: var(--accent); margin-bottom: 1rem; }
+      .registration-banner h2 { color: var(--white); font-size: 1.5rem; margin-bottom: 1rem; }
+      @media (min-width: 768px) { .registration-banner h2 { font-size: 2rem; } }
+      .registration-options { display: flex; flex-direction: column; gap: 1rem; justify-content: center; }
+      @media (min-width: 640px) { .registration-options { flex-direction: row; gap: 1.5rem; } }
       .btn-primary-large {
         background: var(--accent);
         color: var(--primary);
@@ -1226,17 +689,8 @@
         cursor: pointer;
         width: 100%;
       }
-      @media (min-width: 640px) {
-        .btn-primary-large {
-          width: auto;
-          padding: 1rem 2.5rem;
-        }
-      }
-      .btn-primary-large:hover {
-        background: var(--accent-dark);
-        transform: translateY(-2px);
-      }
-
+      @media (min-width: 640px) { .btn-primary-large { width: auto; padding: 1rem 2.5rem; } }
+      .btn-primary-large:hover { background: var(--accent-dark); transform: translateY(-2px); }
       .btn-outline-white {
         background: transparent;
         color: var(--white);
@@ -1248,17 +702,8 @@
         cursor: pointer;
         width: 100%;
       }
-      @media (min-width: 640px) {
-        .btn-outline-white {
-          width: auto;
-          padding: 1rem 2.5rem;
-        }
-      }
-      .btn-outline-white:hover {
-        background: var(--white);
-        color: var(--primary);
-        transform: translateY(-2px);
-      }
+      @media (min-width: 640px) { .btn-outline-white { width: auto; padding: 1rem 2.5rem; } }
+      .btn-outline-white:hover { background: var(--white); color: var(--primary); transform: translateY(-2px); }
 
       /* Sign In Modal */
       .signin-modal {
@@ -1274,10 +719,7 @@
         justify-content: center;
         padding: 1rem;
       }
-      .signin-modal.active {
-        display: flex;
-        animation: fadeIn 0.3s ease;
-      }
+      .signin-modal.active { display: flex; animation: fadeIn 0.3s ease; }
       .modal-content {
         background: var(--white);
         border-radius: 24px;
@@ -1286,11 +728,7 @@
         width: 100%;
         position: relative;
       }
-      @media (min-width: 768px) {
-        .modal-content {
-          padding: 2rem;
-        }
-      }
+      @media (min-width: 768px) { .modal-content { padding: 2rem; } }
       .modal-close {
         position: absolute;
         top: 1rem;
@@ -1300,52 +738,23 @@
         font-size: 1.5rem;
         cursor: pointer;
       }
-      .modal-content h2 {
-        text-align: center;
-        margin-bottom: 1.5rem;
-        font-size: 1.5rem;
-      }
+      .modal-content h2 { text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem; }
 
-      .form-group {
-        margin-bottom: 1rem;
-      }
-      .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-      }
-      .form-group input,
-      .form-group select {
+      .form-group { margin-bottom: 1rem; }
+      .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+      .form-group input, .form-group select {
         width: 100%;
         padding: 0.875rem;
         border: 2px solid var(--color-gray-300);
         border-radius: 12px;
         font-size: 1rem;
       }
-      .form-group input:focus,
-      .form-group select:focus {
-        outline: none;
-        border-color: var(--color-accent);
-      }
+      .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--color-accent); }
 
-      .modal-footer {
-        text-align: center;
-        margin-top: 1.5rem;
-      }
-      .modal-footer a {
-        color: var(--color-accent);
-        text-decoration: none;
-        font-weight: 600;
-      }
+      .modal-footer { text-align: center; margin-top: 1.5rem; }
+      .modal-footer a { color: var(--color-accent); text-decoration: none; font-weight: 600; }
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
       /* Notification */
       .notification {
@@ -1361,33 +770,9 @@
         animation: slideIn 0.3s ease-out;
         max-width: 400px;
       }
-      @media (min-width: 640px) {
-        .notification {
-          left: auto;
-          right: 1.5rem;
-          min-width: 300px;
-        }
-      }
-      @keyframes slideIn {
-        from {
-          transform: translateX(100%);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-      @keyframes slideOut {
-        from {
-          transform: translateX(0);
-          opacity: 1;
-        }
-        to {
-          transform: translateX(100%);
-          opacity: 0;
-        }
-      }
+      @media (min-width: 640px) { .notification { left: auto; right: 1.5rem; min-width: 300px; } }
+      @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+      @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
 
       /* Footer */
       .footer {
@@ -1401,60 +786,17 @@
         gap: 2rem;
         margin-bottom: 2rem;
       }
-      @media (min-width: 640px) {
-        .footer-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      @media (min-width: 1024px) {
-        .footer-grid {
-          grid-template-columns: repeat(4, 1fr);
-          gap: 2rem;
-        }
-      }
-      .footer-column h3 {
-        color: var(--white);
-        margin-bottom: 1rem;
-        font-size: 1.125rem;
-      }
-      .footer-links {
-        list-style: none;
-      }
-      .footer-links li {
-        margin-bottom: 0.75rem;
-      }
-      .footer-links a {
-        color: rgba(255, 255, 255, 0.7);
-        text-decoration: none;
-        transition: color 0.3s;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.875rem;
-      }
-      .footer-links a:hover {
-        color: var(--accent);
-      }
-      .footer-bottom {
-        text-align: center;
-        padding-top: 1.5rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        color: rgba(255, 255, 255, 0.5);
-        font-size: 0.75rem;
-      }
-      .footer-bottom-links {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-top: 0.5rem;
-      }
-      .footer-bottom-links a {
-        color: rgba(255, 255, 255, 0.5);
-        text-decoration: none;
-      }
-      .footer-bottom-links a:hover {
-        color: var(--accent);
-      }
+      @media (min-width: 640px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1024px) { .footer-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; } }
+      .footer-column h3 { color: var(--white); margin-bottom: 1rem; font-size: 1.125rem; }
+      .footer-links { list-style: none; }
+      .footer-links li { margin-bottom: 0.75rem; }
+      .footer-links a { color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; }
+      .footer-links a:hover { color: var(--accent); }
+      .footer-bottom { text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.5); font-size: 0.75rem; }
+      .footer-bottom-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 0.5rem; }
+      .footer-bottom-links a { color: rgba(255, 255, 255, 0.5); text-decoration: none; }
+      .footer-bottom-links a:hover { color: var(--accent); }
 
       /* Loading Spinner */
       .spinner {
@@ -1466,147 +808,71 @@
         border-top-color: white;
         animation: spin 0.8s linear infinite;
       }
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
+      @keyframes spin { to { transform: rotate(360deg); } }
 
       @media (max-width: 768px) {
-        .hero-title {
-          font-size: 1.75rem;
-        }
-        .job-card {
-          padding: 1.25rem;
-        }
-        .job-logo {
-          width: 40px;
-          height: 40px;
-          font-size: 1.25rem;
-        }
-        .job-title {
-          font-size: 1rem;
-        }
-        .category-card {
-          padding: 1rem 0.5rem;
-        }
-        .category-icon {
-          width: 40px;
-          height: 40px;
-          font-size: 1.25rem;
-        }
-        .category-card h3 {
-          font-size: 0.8rem;
-        }
+        .hero-title { font-size: 1.75rem; }
+        .job-card { padding: 1.25rem; }
+        .job-logo { width: 40px; height: 40px; font-size: 1.25rem; }
+        .job-title { font-size: 1rem; }
+        .category-card { padding: 1rem 0.5rem; }
+        .category-icon { width: 40px; height: 40px; font-size: 1.25rem; }
+        .category-card h3 { font-size: 0.8rem; }
       }
 
       @media (max-width: 480px) {
-        .search-results-count {
-          display: none; /* Hide on very small screens to prevent overlap */
-        }
+        .search-results-count { display: none; }
       }
     </style>
   </head>
   <body>
     <!-- SIGN-IN MODAL -->
-    <div
-      class="signin-modal"
-      id="signinModal"
-      role="dialog"
-      aria-label="Sign In Modal"
-      aria-hidden="true"
-    >
+    <div class="signin-modal" id="signinModal" role="dialog" aria-label="Sign In Modal" aria-hidden="true">
       <div class="modal-content">
-        <button class="modal-close" id="modalClose" aria-label="Close modal">
-          <i class="fas fa-times"></i>
-        </button>
+        <button class="modal-close" id="modalClose" aria-label="Close modal"><i class="fas fa-times"></i></button>
         <div id="authForms">
-          <!-- Sign In Form (Default) -->
           <div id="signinFormContainer">
             <h2>Sign In to Jobpitality</h2>
             <form id="signinForm">
               <div class="form-group">
                 <label for="signinEmail">Email Address</label>
-                <input
-                  type="email"
-                  id="signinEmail"
-                  placeholder="you@example.com"
-                  required
-                />
+                <input type="email" id="signinEmail" placeholder="you@example.com" required />
               </div>
               <div class="form-group">
                 <label for="signinPassword">Password</label>
-                <input
-                  type="password"
-                  id="signinPassword"
-                  placeholder="Enter your password"
-                  required
-                />
+                <input type="password" id="signinPassword" placeholder="Enter your password" required />
               </div>
-              <button
-                type="submit"
-                class="btn btn-primary btn-block"
-                id="signinSubmitBtn"
-              >
-                <i class="fas fa-sign-in-alt"></i> Sign In
-              </button>
+              <button type="submit" class="btn btn-primary btn-block" id="signinSubmitBtn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
               <div class="modal-footer">
-                Don't have an account?
-                <a href="#" id="showRegisterLink">Register here</a>
+                Don't have an account? <a href="#" id="showRegisterLink">Register here</a>
               </div>
             </form>
           </div>
-
-          <!-- Register Form (Hidden) -->
-          <div id="registerFormContainer" style="display: none">
+          <div id="registerFormContainer" style="display: none;">
             <h2>Create Account</h2>
             <form id="registerForm">
               <div class="form-group">
                 <label for="registerName">Full Name</label>
-                <input
-                  type="text"
-                  id="registerName"
-                  placeholder="John Doe"
-                  required
-                />
+                <input type="text" id="registerName" placeholder="John Doe" required />
               </div>
               <div class="form-group">
                 <label for="registerEmail">Email Address</label>
-                <input
-                  type="email"
-                  id="registerEmail"
-                  placeholder="you@example.com"
-                  required
-                />
+                <input type="email" id="registerEmail" placeholder="you@example.com" required />
               </div>
               <div class="form-group">
                 <label for="registerPassword">Password</label>
-                <input
-                  type="password"
-                  id="registerPassword"
-                  placeholder="Create a password (min 6 characters)"
-                  required
-                />
+                <input type="password" id="registerPassword" placeholder="Create a password (min 6 characters)" required />
               </div>
               <div class="form-group">
                 <label for="registerType">I am a</label>
                 <select id="registerType" required>
-                  <option value="candidate">
-                    Candidate (Looking for jobs)
-                  </option>
+                  <option value="candidate">Candidate (Looking for jobs)</option>
                   <option value="employer">Employer (Hiring talent)</option>
                 </select>
               </div>
-              <button
-                type="submit"
-                class="btn btn-primary btn-block"
-                id="registerSubmitBtn"
-              >
-                <i class="fas fa-user-plus"></i> Create Account
-              </button>
+              <button type="submit" class="btn btn-primary btn-block" id="registerSubmitBtn"><i class="fas fa-user-plus"></i> Create Account</button>
               <div class="modal-footer">
-                Already have an account?
-                <a href="#" id="showSigninLink">Sign in here</a>
+                Already have an account? <a href="#" id="showSigninLink">Sign in here</a>
               </div>
             </form>
           </div>
@@ -1620,179 +886,70 @@
         <div class="header-container">
           <div class="logo">
             <a href="/" aria-label="Jobpitality Home">
-              <h1>
-                <i class="fas fa-bolt"></i>
-                <span class="brand-name">JOBPITALITY</span>
-              </h1>
+              <h1><i class="fas fa-bolt"></i> <span class="brand-name">JOBPITALITY</span></h1>
               <span class="logo-tagline">THE RUTHLESS TALENT PARTNER</span>
             </a>
           </div>
 
-          <button
-            class="mobile-menu-toggle"
-            id="mobileMenuToggle"
-            aria-label="Menu"
-            aria-expanded="false"
-          >
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu" aria-expanded="false">
             <i class="fas fa-bars"></i>
           </button>
+          
           <nav class="main-nav" id="mainNav" aria-label="Main navigation">
             <ul class="nav-menu">
-              <li class="nav-item">
-                <a href="/" class="nav-link active"
-                  ><i class="fas fa-home"></i> Home</a
-                >
-              </li>
+              <li class="nav-item"><a href="/" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
               <li class="nav-item dropdown">
-                <a
-                  href="/services/"
-                  class="nav-link dropdown-toggle"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  ><i class="fas fa-crosshairs"></i>Hunting
-                  <i class="fas fa-chevron-down"></i
-                ></a>
+                <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-crosshairs"></i>Hunting <i class="fas fa-chevron-down"></i></a>
                 <div class="dropdown-menu">
-                  <a href="/services/executive-search/" class="dropdown-item"
-                    ><i class="fas fa-search"></i> Executive Search</a
-                  >
-                  <a href="/services/hotel-leadership/" class="dropdown-item"
-                    ><i class="fas fa-hotel"></i> Hotel Leadership</a
-                  >
-                  <a href="/services/culinary-leadership/" class="dropdown-item"
-                    ><i class="fas fa-utensils"></i> Culinary Leadership</a
-                  >
+                  <a href="/services/executive-search/index.html" class="dropdown-item"><i class="fas fa-search"></i> Executive Search</a>
+                  <a href="/services/hotel-leadership/index.html" class="dropdown-item"><i class="fas fa-hotel"></i> Hotel Leadership</a>
+                  <a href="/services/culinary-leadership/index.html" class="dropdown-item"><i class="fas fa-utensils"></i> Culinary Leadership</a>
                   <div class="dropdown-divider"></div>
-                  <a
-                    href="/services/guarantee/"
-                    class="dropdown-item"
-                    style="color: var(--color-accent); font-weight: 700"
-                    ><i class="fas fa-shield-alt"></i> 72-Hour Guarantee</a
-                  >
+                  <a href="/services/guarantee/" class="dropdown-item" style="color: var(--color-accent); font-weight: 700"><i class="fas fa-shield-alt"></i> 72-Hour Guarantee</a>
                 </div>
               </li>
               <li class="nav-item dropdown">
-                <a
-                  href="/employers/index.html"
-                  class="nav-link dropdown-toggle"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  ><i class="fas fa-building"></i> Employers
-                  <i class="fas fa-chevron-down"></i
-                ></a>
+                <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-building"></i> Employers <i class="fas fa-chevron-down"></i></a>
                 <div class="dropdown-menu">
-                  <a
-                    href="/employers/our-process/index.html"
-                    class="dropdown-item"
-                    ><i class="fas fa-play-circle"></i> Our Process</a
-                  >
-                  <a href="/employers/post-job/index.html" class="dropdown-item"
-                    ><i class="fas fa-plus-circle"></i> Post a Job</a
-                  >
-                  <a
-                    href="/employers/search-talent/index.html"
-                    class="dropdown-item"
-                    ><i class="fas fa-search"></i> Search Talent</a
-                  >
-                  <a href="/employers/pricing/index.html" class="dropdown-item"
-                    ><i class="fas fa-tag"></i> Pricing</a
-                  >
+                  <a href="/employers/our-process/index.html" class="dropdown-item"><i class="fas fa-play-circle"></i> Our Process</a>
+                  <a href="/employers/post-job/index.html" class="dropdown-item"><i class="fas fa-plus-circle"></i> Post a Job</a>
+                  <a href="/employers/search-talent/index.html" class="dropdown-item"><i class="fas fa-search"></i> Search Talent</a>
+                  <a href="/employers/pricing/index.html" class="dropdown-item"><i class="fas fa-tag"></i> Pricing</a>
                   <div class="dropdown-divider"></div>
-                  <a
-                    href="/employers/start-search/index.html"
-                    class="dropdown-item"
-                    ><i class="fas fa-rocket"></i> Start a Search</a
-                  >
+                  <a href="/employers/start-search/index.html" class="dropdown-item"><i class="fas fa-rocket"></i> Start a Search</a>
                 </div>
               </li>
               <li class="nav-item dropdown">
-                <a
-                  href="/candidates/index.html"
-                  class="nav-link dropdown-toggle"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  ><i class="fas fa-user-tie"></i> Candidates
-                  <i class="fas fa-chevron-down"></i
-                ></a>
+                <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-user-tie"></i> Candidates <i class="fas fa-chevron-down"></i></a>
                 <div class="dropdown-menu">
-                  <a
-                    href="/candidates/job-board/index.html"
-                    class="dropdown-item"
-                    ><i class="fas fa-briefcase"></i> Job Board</a
-                  >
-                  <a
-                    href="/candidates/submit-profile/index.html"
-                    class="dropdown-item"
-                    ><i class="fas fa-file-upload"></i> Submit Profile</a
-                  >
-                  <a
-                    href="/candidates/career-strategy/index.html"
-                    class="dropdown-item"
-                    ><i class="fas fa-graduation-cap"></i> Career Strategy</a
-                  >
+                  <a href="/candidates/job-board/index.html" class="dropdown-item"><i class="fas fa-briefcase"></i> Job Board</a>
+                  <a href="/candidates/submit-profile/index.html" class="dropdown-item"><i class="fas fa-file-upload"></i> Submit Profile</a>
+                  <a href="/candidates/career-strategy/index.html" class="dropdown-item"><i class="fas fa-graduation-cap"></i> Career Strategy</a>
                   <div class="dropdown-divider"></div>
-                  <a
-                    href="/candidates/confidentiality/index.html"
-                    class="dropdown-item"
-                    ><i class="fas fa-user-secret"></i> Confidential Process</a
-                  >
+                  <a href="/candidates/confidentiality/index.html" class="dropdown-item"><i class="fas fa-user-secret"></i> Confidential Process</a>
                 </div>
               </li>
               <li class="nav-item dropdown">
-                <a
-                  href="/our-team/index.html"
-                  class="nav-link dropdown-toggle"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  ><i class="fas fa-users"></i> Our Team
-                  <i class="fas fa-chevron-down"></i
-                ></a>
+                <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-users"></i> Our Team <i class="fas fa-chevron-down"></i></a>
                 <div class="dropdown-menu">
-                  <a href="/about/index.html" class="dropdown-item"
-                    ><i class="fas fa-info-circle"></i> About Us</a
-                  >
-                  <a
-                    href="/our-team/leadership/index.html"
-                    class="dropdown-item"
-                    ><i class="fas fa-user-tie"></i> Leadership</a
-                  >
-                  <a href="/our-team/advisors/index.html" class="dropdown-item"
-                    ><i class="fas fa-chalkboard-user"></i> Advisors</a
-                  >
+                  <a href="/about/index.html" class="dropdown-item"><i class="fas fa-info-circle"></i> About Us</a>
+                  <a href="/our-team/leadership/index.html" class="dropdown-item"><i class="fas fa-user-tie"></i> Leadership</a>
+                  <a href="/our-team/advisors/index.html" class="dropdown-item"><i class="fas fa-chalkboard-user"></i> Advisors</a>
                 </div>
               </li>
               <li class="nav-item dropdown">
-                <a
-                  href="#"
-                  class="nav-link dropdown-toggle"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  ><i class="fas fa-headset"></i> Reach Out
-                  <i class="fas fa-chevron-down"></i
-                ></a>
+                <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-headset"></i> Reach Out <i class="fas fa-chevron-down"></i></a>
                 <div class="dropdown-menu">
-                  <a href="/contact/index.html" class="dropdown-item"
-                    ><i class="fas fa-envelope"></i> Contact Us</a
-                  >
-                  <a href="/contact/support.html" class="dropdown-item"
-                    ><i class="fas fa-life-ring"></i> Support</a
-                  >
-                  <a href="/contact/partners.html" class="dropdown-item"
-                    ><i class="fas fa-handshake"></i> Partnerships</a
-                  >
+                  <a href="/contact/index.html" class="dropdown-item"><i class="fas fa-envelope"></i> Contact Us</a>
+                  <a href="/contact/support.html" class="dropdown-item"><i class="fas fa-life-ring"></i> Support</a>
+                  <a href="/contact/partners.html" class="dropdown-item"><i class="fas fa-handshake"></i> Partnerships</a>
                 </div>
               </li>
             </ul>
             <div class="nav-cta-group">
-              <button class="nav-cta nav-cta-emergency" id="signinTrigger">
-                <i class="fas fa-sign-in-alt"></i> SIGN IN
-              </button>
-              <button class="nav-cta" id="logoutBtn" style="display: none">
-                <i class="fas fa-sign-out-alt"></i> SIGN OUT
-              </button>
-              <a href="tel:+2348039661354" class="nav-cta"
-                ><i class="fas fa-phone"></i> +234 803 966 1354</a
-              >
+              <button class="nav-cta nav-cta-emergency" id="signinTrigger"><i class="fas fa-sign-in-alt"></i> SIGN IN</button>
+              <button class="nav-cta" id="logoutBtn" style="display: none;"><i class="fas fa-sign-out-alt"></i> SIGN OUT</button>
+              <a href="tel:+2348039661354" class="nav-cta"><i class="fas fa-phone"></i> +234 803 966 1354</a>
             </div>
           </nav>
           <div class="mobile-overlay" id="mobileOverlay"></div>
@@ -1804,69 +961,27 @@
     <section class="hero">
       <div class="container">
         <div class="hero-content">
-          <div class="hero-badge">
-            <i class="fas fa-bolt"></i> NIGERIA'S #1 HOSPITALITY TALENT PLATFORM
-          </div>
-          <h1 class="hero-title">
-            Find
-            <span class="highlight">Executive Hospitality Positions</span> &
-            <span class="highlight">Top Talent</span>
-          </h1>
-          <p class="hero-subtitle">
-            Connecting Nigeria's luxury hospitality industry with elite talent.
-            Browse jobs, post vacancies, and access recruitment services.
-          </p>
+          <div class="hero-badge"><i class="fas fa-bolt"></i> NIGERIA'S #1 HOSPITALITY TALENT PLATFORM</div>
+          <h1 class="hero-title">Find <span class="highlight">Executive Hospitality Positions</span> & <span class="highlight">Top Talent</span></h1>
+          <p class="hero-subtitle">Connecting Nigeria's luxury hospitality industry with elite talent. Browse jobs, post vacancies, and access recruitment services.</p>
           <div class="search-container" id="searchContainer">
             <div class="search-box">
               <i class="fas fa-search"></i>
-              <input
-                type="text"
-                id="searchInput"
-                placeholder="Search jobs, companies, locations..."
-                aria-label="Search jobs"
-              />
+              <input type="text" id="searchInput" placeholder="Search jobs, companies, locations..." aria-label="Search jobs" />
               <span class="search-results-count" id="searchResultsCount"></span>
             </div>
-            <button class="search-btn" id="searchButton">
-              <i class="fas fa-search"></i> Search Jobs
-            </button>
+            <button class="search-btn" id="searchButton"><i class="fas fa-search"></i> Search Jobs</button>
           </div>
           <div class="stats">
-            <div class="stat-item">
-              <div class="stat-value" id="activeJobsCount">300+</div>
-              <div class="stat-label">Active Jobs</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">50+</div>
-              <div class="stat-label">Companies</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">5,000+</div>
-              <div class="stat-label">Placements</div>
-            </div>
+            <div class="stat-item"><div class="stat-value" id="activeJobsCount">300+</div><div class="stat-label">Active Jobs</div></div>
+            <div class="stat-item"><div class="stat-value">50+</div><div class="stat-label">Companies</div></div>
+            <div class="stat-item"><div class="stat-value">5,000+</div><div class="stat-label">Placements</div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <button
-      id="installAppBtn"
-      style="
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: #ff9e00;
-        color: #0d1b2a;
-        border: none;
-        padding: 12px 20px;
-        border-radius: 50px;
-        font-weight: bold;
-        z-index: 1000;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      "
-    >
+    <button id="installAppBtn" style="display: none; position: fixed; bottom: 20px; right: 20px; background: #ff9e00; color: #0d1b2a; border: none; padding: 12px 20px; border-radius: 50px; font-weight: bold; z-index: 1000; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
       <i class="fas fa-download"></i> Install App
     </button>
 
@@ -1874,30 +989,13 @@
     <section class="jobs-section">
       <div class="container">
         <div class="section-header">
-          <div>
-            <h2>Latest Opportunities</h2>
-            <p>
-              Showing <span id="visibleCount">0</span> of
-              <span id="totalCount">0</span> active listings
-            </p>
-          </div>
-          <a href="/candidates/job-board/" class="view-all-link"
-            >VIEW ALL JOBS <i class="fas fa-arrow-right"></i
-          ></a>
+          <div><h2>Latest Opportunities</h2><p>Showing <span id="visibleCount">0</span> of <span id="totalCount">0</span> active listings</p></div>
+          <a href="/candidates/job-board/index.html" class="view-all-link">VIEW ALL JOBS <i class="fas fa-arrow-right"></i></a>
         </div>
-        <div id="jobsLoading" style="text-align: center; padding: 2rem">
-          <div class="spinner"></div>
-          Loading jobs...
-        </div>
-        <div class="jobs-grid" id="jobsGrid" style="display: none"></div>
-        <div
-          class="show-more-wrapper"
-          id="showMoreWrapper"
-          style="display: none"
-        >
-          <button class="show-more-btn" id="showMoreBtn">
-            <i class="fas fa-chevron-down"></i> Show More Jobs
-          </button>
+        <div id="jobsLoading" style="text-align: center; padding: 2rem;"><div class="spinner"></div> Loading jobs...</div>
+        <div class="jobs-grid" id="jobsGrid" style="display: none;"></div>
+        <div class="show-more-wrapper" id="showMoreWrapper" style="display: none;">
+          <button class="show-more-btn" id="showMoreBtn"><i class="fas fa-chevron-down"></i> Show More Jobs</button>
         </div>
       </div>
     </section>
@@ -1905,43 +1003,13 @@
     <!-- FEATURES SECTION -->
     <section class="features">
       <div class="container">
-        <h2
-          style="text-align: center; color: var(--white); margin-bottom: 1rem"
-        >
-          Why Choose Jobpitality
-        </h2>
-        <p
-          style="
-            text-align: center;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-          "
-        >
-          We're revolutionizing hospitality recruitment in Nigeria with
-          AI-powered matching
-        </p>
+        <h2 style="text-align: center; color: var(--white); margin-bottom: 1rem">Why Choose Jobpitality</h2>
+        <p style="text-align: center; color: rgba(255, 255, 255, 0.9); max-width: 600px; margin: 0 auto 2rem;">We're revolutionizing hospitality recruitment in Nigeria with AI-powered matching</p>
         <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-robot"></i></div>
-            <h3>AI-Powered Matching</h3>
-            <p>Smart algorithms match you with perfect opportunities.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-            <h3>Quick Apply</h3>
-            <p>Apply to multiple jobs with one click.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-            <h3>Verified Employers</h3>
-            <p>All employers are vetted for legitimacy.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-            <h3>Career Insights</h3>
-            <p>Get personalized insights and salary data.</p>
-          </div>
+          <div class="feature-card"><div class="feature-icon"><i class="fas fa-robot"></i></div><h3>AI-Powered Matching</h3><p>Smart algorithms match you with perfect opportunities.</p></div>
+          <div class="feature-card"><div class="feature-icon"><i class="fas fa-bolt"></i></div><h3>Quick Apply</h3><p>Apply to multiple jobs with one click.</p></div>
+          <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>Verified Employers</h3><p>All employers are vetted for legitimacy.</p></div>
+          <div class="feature-card"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3>Career Insights</h3><p>Get personalized insights and salary data.</p></div>
         </div>
       </div>
     </section>
@@ -1949,45 +1017,14 @@
     <!-- POPULAR CATEGORIES -->
     <section class="categories">
       <div class="container">
-        <div class="section-header">
-          <h2>Popular Categories</h2>
-          <p>Explore opportunities across different hospitality sectors</p>
-        </div>
+        <div class="section-header"><h2>Popular Categories</h2><p>Explore opportunities across different hospitality sectors</p></div>
         <div class="categories-grid">
-          <a href="/categories/hotels-resorts" class="category-card"
-            ><div class="category-icon"><i class="fas fa-hotel"></i></div>
-            <h3>Hotels & Resorts</h3>
-            <p><span class="openings-count">100</span> openings</p></a
-          >
-          <a href="/categories/restaurants" class="category-card"
-            ><div class="category-icon"><i class="fas fa-utensils"></i></div>
-            <h3>Restaurants</h3>
-            <p><span class="openings-count">44</span> openings</p></a
-          >
-          <a href="/categories/events-catering" class="category-card"
-            ><div class="category-icon">
-              <i class="fas fa-calendar-alt"></i>
-            </div>
-            <h3>Events & Catering</h3>
-            <p><span class="openings-count">33</span> openings</p></a
-          >
-          <a href="/categories/travel-tourism" class="category-card"
-            ><div class="category-icon"><i class="fas fa-plane"></i></div>
-            <h3>Travel & Tourism</h3>
-            <p><span class="openings-count">22</span> openings</p></a
-          >
-          <a href="/categories/culinary" class="category-card"
-            ><div class="category-icon">
-              <i class="fas fa-utensil-spoon"></i>
-            </div>
-            <h3>Culinary</h3>
-            <p><span class="openings-count">24</span> openings</p></a
-          >
-          <a href="/categories/management" class="category-card"
-            ><div class="category-icon"><i class="fas fa-chart-line"></i></div>
-            <h3>Management</h3>
-            <p><span class="openings-count">19</span> openings</p></a
-          >
+          <a href="/categories/hotels-resorts" class="category-card"><div class="category-icon"><i class="fas fa-hotel"></i></div><h3>Hotels & Resorts</h3><p><span class="openings-count">100</span> openings</p></a>
+          <a href="/categories/restaurants" class="category-card"><div class="category-icon"><i class="fas fa-utensils"></i></div><h3>Restaurants</h3><p><span class="openings-count">44</span> openings</p></a>
+          <a href="/categories/events-catering" class="category-card"><div class="category-icon"><i class="fas fa-calendar-alt"></i></div><h3>Events & Catering</h3><p><span class="openings-count">33</span> openings</p></a>
+          <a href="/categories/travel-tourism" class="category-card"><div class="category-icon"><i class="fas fa-plane"></i></div><h3>Travel & Tourism</h3><p><span class="openings-count">22</span> openings</p></a>
+          <a href="/categories/culinary" class="category-card"><div class="category-icon"><i class="fas fa-utensil-spoon"></i></div><h3>Culinary</h3><p><span class="openings-count">24</span> openings</p></a>
+          <a href="/categories/management" class="category-card"><div class="category-icon"><i class="fas fa-chart-line"></i></div><h3>Management</h3><p><span class="openings-count">19</span> openings</p></a>
         </div>
       </div>
     </section>
@@ -1995,91 +1032,22 @@
     <!-- TALENT AVAILABILITY -->
     <section class="talent-availability">
       <div class="container">
-        <div class="section-header">
-          <h2>Elite Talent <span class="accent-text">Available Now</span></h2>
-          <p>
-            Top hospitality professionals actively seeking new opportunities.
-          </p>
-        </div>
+        <div class="section-header"><h2>Elite Talent <span class="accent-text">Available Now</span></h2><p>Top hospitality professionals actively seeking new opportunities.</p></div>
         <div class="availability-grid">
-          <div class="availability-card">
-            <div class="availability-icon"><i class="fas fa-hotel"></i></div>
-            <h3>Hotel Management</h3>
-            <ul class="talent-list">
-              <li>
-                <i class="fas fa-user-tie"></i>
-                <span class="talent-count">15+</span> General Managers
-              </li>
-              <li>
-                <i class="fas fa-user-tie"></i>
-                <span class="talent-count">22+</span> Directors of Operations
-              </li>
-              <li>
-                <i class="fas fa-user-tie"></i>
-                <span class="talent-count">18+</span> Revenue Managers
-              </li>
-            </ul>
-            <button
-              class="btn-outline-light view-talent-btn"
-              data-role="hotel-management"
-            >
-              VIEW CANDIDATES
-            </button>
+          <div class="availability-card"><div class="availability-icon"><i class="fas fa-hotel"></i></div><h3>Hotel Management</h3>
+            <ul class="talent-list"><li><i class="fas fa-user-tie"></i> <span class="talent-count">15+</span> General Managers</li><li><i class="fas fa-user-tie"></i> <span class="talent-count">22+</span> Directors of Operations</li><li><i class="fas fa-user-tie"></i> <span class="talent-count">18+</span> Revenue Managers</li></ul>
+            <button class="btn-outline-light view-talent-btn" data-role="hotel-management">VIEW CANDIDATES</button>
           </div>
-          <div class="availability-card">
-            <div class="availability-icon"><i class="fas fa-utensils"></i></div>
-            <h3>Culinary & F&B</h3>
-            <ul class="talent-list">
-              <li>
-                <i class="fas fa-user-tie"></i>
-                <span class="talent-count">8+</span> Executive Chefs
-              </li>
-              <li>
-                <i class="fas fa-user-tie"></i>
-                <span class="talent-count">15+</span> Sous Chefs
-              </li>
-              <li>
-                <i class="fas fa-user-tie"></i>
-                <span class="talent-count">10+</span> F&B Directors
-              </li>
-            </ul>
-            <button
-              class="btn-outline-light view-talent-btn"
-              data-role="culinary"
-            >
-              VIEW CANDIDATES
-            </button>
+          <div class="availability-card"><div class="availability-icon"><i class="fas fa-utensils"></i></div><h3>Culinary & F&B</h3>
+            <ul class="talent-list"><li><i class="fas fa-user-tie"></i> <span class="talent-count">8+</span> Executive Chefs</li><li><i class="fas fa-user-tie"></i> <span class="talent-count">15+</span> Sous Chefs</li><li><i class="fas fa-user-tie"></i> <span class="talent-count">10+</span> F&B Directors</li></ul>
+            <button class="btn-outline-light view-talent-btn" data-role="culinary">VIEW CANDIDATES</button>
           </div>
-          <div class="availability-card">
-            <div class="availability-icon"><i class="fas fa-users"></i></div>
-            <h3>Specialized Roles</h3>
-            <ul class="talent-list">
-              <li>
-                <i class="fas fa-user-tie"></i>
-                <span class="talent-count">7+</span> HR Directors
-              </li>
-              <li>
-                <i class="fas fa-user-tie"></i>
-                <span class="talent-count">5+</span> Finance Controllers
-              </li>
-              <li>
-                <i class="fas fa-user-tie"></i>
-                <span class="talent-count">9+</span> Sales Directors
-              </li>
-            </ul>
-            <button
-              class="btn-outline-light view-talent-btn"
-              data-role="specialized"
-            >
-              VIEW CANDIDATES
-            </button>
+          <div class="availability-card"><div class="availability-icon"><i class="fas fa-users"></i></div><h3>Specialized Roles</h3>
+            <ul class="talent-list"><li><i class="fas fa-user-tie"></i> <span class="talent-count">7+</span> HR Directors</li><li><i class="fas fa-user-tie"></i> <span class="talent-count">5+</span> Finance Controllers</li><li><i class="fas fa-user-tie"></i> <span class="talent-count">9+</span> Sales Directors</li></ul>
+            <button class="btn-outline-light view-talent-btn" data-role="specialized">VIEW CANDIDATES</button>
           </div>
         </div>
-        <div class="register-section">
-          <button class="btn-primary-large" id="registerAsCandidate">
-            REGISTER AS CANDIDATE
-          </button>
-        </div>
+        <div class="register-section"><button class="btn-primary-large" id="registerAsCandidate">REGISTER AS CANDIDATE</button></div>
       </div>
     </section>
 
@@ -2088,15 +1056,10 @@
       <section class="registration-banner">
         <div class="registration-icon"><i class="fas fa-user-plus"></i></div>
         <h2>Join Nigeria's Premier Hospitality Talent Community</h2>
-        <p>
-          Whether you're seeking elite opportunities or exceptional talent,
-          Jobpitality connects you with the best.
-        </p>
+        <p>Whether you're seeking elite opportunities or exceptional talent, Jobpitality connects you with the best.</p>
         <div class="registration-options">
           <button class="btn-primary-large" id="signinCta">SIGN IN</button>
-          <button class="btn-outline-white" id="registerCta">
-            CREATE ACCOUNT
-          </button>
+          <button class="btn-outline-white" id="registerCta">CREATE ACCOUNT</button>
         </div>
       </section>
     </div>
@@ -2105,110 +1068,26 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
-          <div class="footer-column">
-            <h3>Jobpitality</h3>
-            <p style="color: rgba(255, 255, 255, 0.7)">
-              The ruthless talent partner for Nigeria's luxury hospitality
-              industry.
-            </p>
-            <div class="footer-contact">
-              <p><i class="fas fa-phone"></i> +234 803 966 1354</p>
-              <p><i class="fas fa-envelope"></i> acquire@jobpitality.com</p>
-            </div>
-          </div>
-          <div class="footer-column">
-            <h3>For Candidates</h3>
-            <ul class="footer-links">
-              <li>
-                <a href="/candidates/job-board/index.html"
-                  ><i class="fas fa-chevron-right"></i> Browse Jobs</a
-                >
-              </li>
-              <li>
-                <a href="/candidates/submit-profile/index.html"
-                  ><i class="fas fa-chevron-right"></i> Submit Profile</a
-                >
-              </li>
-              <li>
-                <a href="/candidates/career-strategy/index.html"
-                  ><i class="fas fa-chevron-right"></i> Career Strategy</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>For Employers</h3>
-            <ul class="footer-links">
-              <li>
-                <a href="/employers/post-job/index.html"
-                  ><i class="fas fa-chevron-right"></i> Post a Job</a
-                >
-              </li>
-              <li>
-                <a href="/employers/search-talent/index.html"
-                  ><i class="fas fa-chevron-right"></i> Search Talent</a
-                >
-              </li>
-              <li>
-                <a href="/employers/pricing/index.html"
-                  ><i class="fas fa-chevron-right"></i> Pricing</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>Company</h3>
-            <ul class="footer-links">
-              <li>
-                <a href="/about/index.html"
-                  ><i class="fas fa-chevron-right"></i> About Us</a
-                >
-              </li>
-              <li>
-                <a href="/contact/index.html"
-                  ><i class="fas fa-chevron-right"></i> Contact Us</a
-                >
-              </li>
-              <li>
-                <a href="/blog/index.html"
-                  ><i class="fas fa-chevron-right"></i> Blog</a
-                >
-              </li>
-            </ul>
-          </div>
+          <div class="footer-column"><h3>Jobpitality</h3><p style="color: rgba(255, 255, 255, 0.7);">The ruthless talent partner for Nigeria's luxury hospitality industry.</p><div class="footer-contact"><p><i class="fas fa-phone"></i> +234 803 966 1354</p><p><i class="fas fa-envelope"></i> acquire@jobpitality.com</p></div></div>
+          <div class="footer-column"><h3>For Candidates</h3><ul class="footer-links"><li><a href="/candidates/job-board/index.html"><i class="fas fa-chevron-right"></i> Browse Jobs</a></li><li><a href="/candidates/submit-profile/index.html"><i class="fas fa-chevron-right"></i> Submit Profile</a></li><li><a href="/candidates/career-strategy/index.html"><i class="fas fa-chevron-right"></i> Career Strategy</a></li></ul></div>
+          <div class="footer-column"><h3>For Employers</h3><ul class="footer-links"><li><a href="/employers/post-job/index.html"><i class="fas fa-chevron-right"></i> Post a Job</a></li><li><a href="/employers/search-talent/index.html"><i class="fas fa-chevron-right"></i> Search Talent</a></li><li><a href="/employers/pricing/index.html"><i class="fas fa-chevron-right"></i> Pricing</a></li></ul></div>
+          <div class="footer-column"><h3>Company</h3><ul class="footer-links"><li><a href="/about/index.html"><i class="fas fa-chevron-right"></i> About Us</a></li><li><a href="/contact/index.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li><li><a href="/blog/index.html"><i class="fas fa-chevron-right"></i> Blog</a></li></ul></div>
         </div>
-        <div class="footer-bottom">
-          <p>
-            &copy; <span id="currentYear"></span> Jobpitality. All rights
-            reserved.
-          </p>
-          <div class="footer-bottom-links">
-            <a href="/privacy.html">Privacy Policy</a
-            ><a href="/terms.html">Terms of Service</a>
-          </div>
-        </div>
-        <!-- Desktop WhatsApp Button -->
-        <a
-          href="https://wa.me/2348039661354?text=Hello%20Jobpitality%2C%20I%27m%20interested%20in%20your%20services"
-          target="_blank"
-          class="whatsapp-desktop"
-          rel="noopener noreferrer"
-        >
-          <i class="fab fa-whatsapp"></i>
-          <span>Chat with us on WhatsApp</span>
+        <div class="footer-bottom"><p>&copy; <span id="currentYear"></span> Jobpitality. All rights reserved.</p><div class="footer-bottom-links"><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a></div></div>
+        <a href="https://wa.me/2348039661354?text=Hello%20Jobpitality%2C%20I%27m%20interested%20in%20your%20services" target="_blank" class="whatsapp-desktop" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i> <span>Chat with us on WhatsApp</span>
         </a>
       </div>
     </footer>
 
-    <!-- Floating WhatsApp Button (Mobile) -->
-    <a
-      href="https://wa.me/2348039661354?text=Hello%20Jobpitality%2C%20I%20need%20assistance"
-      class="whatsapp-float"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href="https://wa.me/2348039661354?text=Hello%20Jobpitality%2C%20I%20need%20assistance" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
       <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
     <script>
       // ========== FIREBASE CONFIGURATION ==========
@@ -2222,7 +1101,6 @@
         measurementId: "G-SF5LWDZDKF",
       };
 
-      // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       const auth = firebase.auth();
       const db = firebase.firestore();
@@ -2235,96 +1113,15 @@
       let isSearching = false;
       let searchTimeout;
 
-      // Demo jobs for fallback when Firestore is unavailable
       const demoJobs = [
-        {
-          id: "1",
-          title: "Executive Chef",
-          company: "Luxury Hotel Group",
-          location: "Lagos, Nigeria",
-          salary: "₦12-18M/year",
-          type: "Full-time",
-          tags: ["Fine Dining", "Leadership"],
-          logo: "🏨",
-          posted: "2 days ago",
-        },
-        {
-          id: "2",
-          title: "F&B Director",
-          company: "Resort Chain",
-          location: "Abuja, Nigeria",
-          salary: "₦10-15M/year",
-          type: "Full-time",
-          tags: ["Beverage", "Operations"],
-          logo: "🍽️",
-          posted: "3 days ago",
-        },
-        {
-          id: "3",
-          title: "Hotel Manager",
-          company: "Boutique Hotel Group",
-          location: "Port Harcourt, Nigeria",
-          salary: "₦8-12M/year",
-          type: "Full-time",
-          tags: ["Management"],
-          logo: "🏢",
-          posted: "1 day ago",
-        },
-        {
-          id: "4",
-          title: "Sous Chef",
-          company: "Fine Dining Restaurant",
-          location: "Lagos, Nigeria",
-          salary: "₦6-9M/year",
-          type: "Full-time",
-          tags: ["Cooking", "Team Management"],
-          logo: "👨‍🍳",
-          posted: "4 days ago",
-        },
-        {
-          id: "5",
-          title: "Revenue Manager",
-          company: "Hotel Group",
-          location: "Remote",
-          salary: "₦9-12M/year",
-          type: "Remote",
-          tags: ["Analytics", "Revenue Management"],
-          logo: "📊",
-          posted: "5 days ago",
-        },
-        {
-          id: "6",
-          title: "Pastry Chef",
-          company: "Luxury Hotel",
-          location: "Abuja, Nigeria",
-          salary: "₦5-8M/year",
-          type: "Full-time",
-          tags: ["Baking", "Pastry"],
-          logo: "🥐",
-          posted: "2 days ago",
-        },
-        {
-          id: "7",
-          title: "Front Office Manager",
-          company: "Business Hotel",
-          location: "Lagos, Nigeria",
-          salary: "₦7-10M/year",
-          type: "Full-time",
-          tags: ["Reception", "Guest Service"],
-          logo: "🏨",
-          posted: "3 days ago",
-        },
-        {
-          id: "8",
-          title: "Event Coordinator",
-          company: "Convention Center",
-          location: "Abuja, Nigeria",
-          salary: "₦6-8M/year",
-          type: "Full-time",
-          tags: ["Events", "Planning"],
-          logo: "🎉",
-          posted: "1 day ago",
-        },
+        { id: "1", title: "Executive Chef", company: "Luxury Hotel Group", location: "Lagos, Nigeria", salary: "₦12-18M/year", type: "Full-time", tags: ["Fine Dining", "Leadership"], logo: "🏨", posted: "2 days ago" },
+        { id: "2", title: "F&B Director", company: "Resort Chain", location: "Abuja, Nigeria", salary: "₦10-15M/year", type: "Full-time", tags: ["Beverage", "Operations"], logo: "🍽️", posted: "3 days ago" },
+        { id: "3", title: "Hotel Manager", company: "Boutique Hotel Group", location: "Port Harcourt, Nigeria", salary: "₦8-12M/year", type: "Full-time", tags: ["Management"], logo: "🏢", posted: "1 day ago" },
+        { id: "4", title: "Sous Chef", company: "Fine Dining Restaurant", location: "Lagos, Nigeria", salary: "₦6-9M/year", type: "Full-time", tags: ["Cooking", "Team Management"], logo: "👨‍🍳", posted: "4 days ago" },
+        { id: "5", title: "Revenue Manager", company: "Hotel Group", location: "Remote", salary: "₦9-12M/year", type: "Remote", tags: ["Analytics", "Revenue Management"], logo: "📊", posted: "5 days ago" },
+        { id: "6", title: "Pastry Chef", company: "Luxury Hotel", location: "Abuja, Nigeria", salary: "₦5-8M/year", type: "Full-time", tags: ["Baking", "Pastry"], logo: "🥐", posted: "2 days ago" },
+        { id: "7", title: "Front Office Manager", company: "Business Hotel", location: "Lagos, Nigeria", salary: "₦7-10M/year", type: "Full-time", tags: ["Reception", "Guest Service"], logo: "🏨", posted: "3 days ago" },
+        { id: "8", title: "Event Coordinator", company: "Convention Center", location: "Abuja, Nigeria", salary: "₦6-8M/year", type: "Full-time", tags: ["Events", "Planning"], logo: "🎉", posted: "1 day ago" }
       ];
 
       // ========== DOM ELEMENTS ==========
@@ -2350,12 +1147,7 @@
       // ========== HELPER FUNCTIONS ==========
       function escapeHtml(str) {
         if (!str) return "";
-        return str
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;")
-          .replace(/'/g, "&#39;");
+        return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
       }
 
       function showNotification(message, type = "info") {
@@ -2363,14 +1155,8 @@
         if (existingNotification) existingNotification.remove();
         const notification = document.createElement("div");
         notification.className = "notification";
-        const icon =
-          type === "success"
-            ? "check-circle"
-            : type === "error"
-              ? "exclamation-circle"
-              : "info-circle";
-        notification.style.borderLeftColor =
-          type === "error" ? "#e63946" : "#ff9e00";
+        const icon = type === "success" ? "check-circle" : type === "error" ? "exclamation-circle" : "info-circle";
+        notification.style.borderLeftColor = type === "error" ? "#e63946" : "#ff9e00";
         notification.innerHTML = `<div style="display: flex; align-items: center; gap: 0.75rem;"><i class="fas fa-${icon}" style="color: #ff9e00;"></i><span>${escapeHtml(message)}</span></div>`;
         document.body.appendChild(notification);
         setTimeout(() => {
@@ -2384,8 +1170,7 @@
         if (!currentUser) {
           if (signinTrigger) {
             signinTrigger.style.display = "inline-flex";
-            signinTrigger.innerHTML =
-              '<i class="fas fa-sign-in-alt"></i> SIGN IN';
+            signinTrigger.innerHTML = '<i class="fas fa-sign-in-alt"></i> SIGN IN';
           }
           if (logoutBtn) logoutBtn.style.display = "none";
           if (signinCta) {
@@ -2397,19 +1182,15 @@
           return;
         }
 
-        const displayName =
-          currentUser.displayName || currentUser.email?.split("@")[0] || "User";
+        const displayName = currentUser.displayName || currentUser.email?.split("@")[0] || "User";
 
-        if (signinTrigger) {
-          signinTrigger.style.display = "none";
-        }
+        if (signinTrigger) signinTrigger.style.display = "none";
         if (logoutBtn) {
           logoutBtn.style.display = "inline-flex";
-          logoutBtn.innerHTML = `<i class="fas fa-user-circle"></i> ${displayName} <i class="fas fa-chevron-down" style="margin-left: 0.5rem;"></i>`;
+          logoutBtn.innerHTML = `<i class="fas fa-user-circle"></i> ${displayName}`;
         }
         if (signinCta) {
-          signinCta.innerHTML =
-            '<i class="fas fa-tachometer-alt"></i> GO TO DASHBOARD';
+          signinCta.innerHTML = '<i class="fas fa-tachometer-alt"></i> GO TO DASHBOARD';
           const newCta = signinCta.cloneNode(true);
           signinCta.parentNode?.replaceChild(newCta, signinCta);
           newCta.addEventListener("click", (e) => {
@@ -2421,19 +1202,13 @@
 
       async function registerUser(name, email, password, userType) {
         try {
-          const userCredential = await auth.createUserWithEmailAndPassword(
-            email,
-            password,
-          );
+          const userCredential = await auth.createUserWithEmailAndPassword(email, password);
           const user = userCredential.user;
           await user.updateProfile({ displayName: name });
           await db.collection("users").doc(user.uid).set({
-            name: name,
-            email: email,
-            userType: userType,
+            name: name, email: email, userType: userType,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-            applications: [],
-            savedJobs: [],
+            applications: [], savedJobs: []
           });
           showNotification(`Welcome to Jobpitality, ${name}!`, "success");
           currentUser = user;
@@ -2442,15 +1217,10 @@
           closeSignInModal();
           return true;
         } catch (error) {
-          console.error("Registration error:", error);
           let errorMessage = "Registration failed. ";
-          if (error.code === "auth/email-already-in-use") {
-            errorMessage = "Email already registered. Please sign in instead.";
-          } else if (error.code === "auth/weak-password") {
-            errorMessage = "Password should be at least 6 characters.";
-          } else {
-            errorMessage += error.message;
-          }
+          if (error.code === "auth/email-already-in-use") errorMessage = "Email already registered. Please sign in instead.";
+          else if (error.code === "auth/weak-password") errorMessage = "Password should be at least 6 characters.";
+          else errorMessage += error.message;
           showNotification(errorMessage, "error");
           return false;
         }
@@ -2458,29 +1228,17 @@
 
       async function signInUser(email, password) {
         try {
-          const userCredential = await auth.signInWithEmailAndPassword(
-            email,
-            password,
-          );
+          const userCredential = await auth.signInWithEmailAndPassword(email, password);
           currentUser = userCredential.user;
-          showNotification(
-            `Welcome back, ${currentUser.displayName || currentUser.email}!`,
-            "success",
-          );
+          showNotification(`Welcome back, ${currentUser.displayName || currentUser.email}!`, "success");
           updateUIForLoggedInUser();
           closeSignInModal();
           return true;
         } catch (error) {
-          console.error("Sign in error:", error);
           let errorMessage = "Sign in failed. ";
-          if (error.code === "auth/user-not-found") {
-            errorMessage =
-              "No account found with this email. Please register first.";
-          } else if (error.code === "auth/wrong-password") {
-            errorMessage = "Incorrect password. Please try again.";
-          } else {
-            errorMessage += error.message;
-          }
+          if (error.code === "auth/user-not-found") errorMessage = "No account found. Please register first.";
+          else if (error.code === "auth/wrong-password") errorMessage = "Incorrect password. Please try again.";
+          else errorMessage += error.message;
           showNotification(errorMessage, "error");
           return false;
         }
@@ -2498,24 +1256,17 @@
         }
       }
 
-      // ========== JOBS FUNCTIONS (Fixed - No Index Needed) ==========
+      // ========== JOBS FUNCTIONS ==========
       async function loadJobsFromFirestore() {
         try {
           if (jobsLoading) jobsLoading.style.display = "block";
           if (jobsGrid) jobsGrid.style.display = "none";
 
-          // Try to load from Firestore without orderBy (avoids index requirement)
           let jobsSnapshot;
           try {
-            jobsSnapshot = await db
-              .collection("jobs")
-              .where("active", "==", true)
-              .get();
+            jobsSnapshot = await db.collection("jobs").where("active", "==", true).get();
           } catch (firestoreError) {
-            console.log(
-              "Firestore error, using demo data:",
-              firestoreError.message,
-            );
+            console.log("Firestore error, using demo data:", firestoreError.message);
             useDemoJobs();
             return;
           }
@@ -2530,23 +1281,16 @@
           jobsSnapshot.forEach((doc) => {
             const jobData = doc.data();
             allJobsData.push({
-              id: doc.id,
-              title: jobData.title || "Untitled Position",
-              company: jobData.company || "Company",
-              location: jobData.location || "Nigeria",
-              salary: jobData.salary || "Competitive",
-              type: jobData.type || "Full-time",
-              tags: jobData.tags || [],
-              logo: jobData.logo || "🏨",
+              id: doc.id, title: jobData.title || "Untitled Position",
+              company: jobData.company || "Company", location: jobData.location || "Nigeria",
+              salary: jobData.salary || "Competitive", type: jobData.type || "Full-time",
+              tags: jobData.tags || [], logo: jobData.logo || "🏨",
               postedDate: jobData.postedDate,
-              posted: jobData.postedDate
-                ? timeAgo(jobData.postedDate.toDate())
-                : "Recently",
-              active: jobData.active,
+              posted: jobData.postedDate ? timeAgo(jobData.postedDate.toDate()) : "Recently",
+              active: jobData.active
             });
           });
 
-          // Sort in JavaScript (no Firebase index needed)
           allJobsData.sort((a, b) => {
             if (!a.postedDate) return 1;
             if (!b.postedDate) return -1;
@@ -2557,8 +1301,7 @@
           currentJobs = [...allJobs];
 
           if (totalCountSpan) totalCountSpan.textContent = allJobs.length;
-          if (activeJobsCountSpan)
-            activeJobsCountSpan.textContent = allJobs.length + "+";
+          if (activeJobsCountSpan) activeJobsCountSpan.textContent = allJobs.length + "+";
 
           renderJobs();
           if (jobsLoading) jobsLoading.style.display = "none";
@@ -2573,109 +1316,24 @@
         allJobs = [...demoJobs];
         currentJobs = [...allJobs];
         if (totalCountSpan) totalCountSpan.textContent = allJobs.length;
-        if (activeJobsCountSpan)
-          activeJobsCountSpan.textContent = allJobs.length + "+";
+        if (activeJobsCountSpan) activeJobsCountSpan.textContent = allJobs.length + "+";
         renderJobs();
         if (jobsLoading) jobsLoading.style.display = "none";
         if (jobsGrid) jobsGrid.style.display = "grid";
-        showNotification(
-          "Using demo data. Firestore connection issue.",
-          "info",
-        );
+        showNotification("Using demo data. Firestore connection issue.", "info");
       }
 
       async function loadSampleJobs() {
         const sampleJobs = [
-          {
-            title: "Executive Chef",
-            company: "Luxury Hotel Group",
-            location: "Lagos, Nigeria",
-            salary: "₦12-18M/year",
-            type: "Full-time",
-            tags: ["Fine Dining", "Leadership"],
-            logo: "🏨",
-            active: true,
-            postedDate: new Date(),
-          },
-          {
-            title: "F&B Director",
-            company: "Resort Chain",
-            location: "Abuja, Nigeria",
-            salary: "₦10-15M/year",
-            type: "Full-time",
-            tags: ["Beverage", "Operations"],
-            logo: "🍽️",
-            active: true,
-            postedDate: new Date(),
-          },
-          {
-            title: "Hotel Manager",
-            company: "Boutique Hotel Group",
-            location: "Port Harcourt, Nigeria",
-            salary: "₦8-12M/year",
-            type: "Full-time",
-            tags: ["Management"],
-            logo: "🏢",
-            active: true,
-            postedDate: new Date(),
-          },
-          {
-            title: "Sous Chef",
-            company: "Fine Dining Restaurant",
-            location: "Lagos, Nigeria",
-            salary: "₦6-9M/year",
-            type: "Full-time",
-            tags: ["Cooking", "Team Management"],
-            logo: "👨‍🍳",
-            active: true,
-            postedDate: new Date(),
-          },
-          {
-            title: "Revenue Manager",
-            company: "Hotel Group",
-            location: "Remote",
-            salary: "₦9-12M/year",
-            type: "Remote",
-            tags: ["Analytics", "Revenue Management"],
-            logo: "📊",
-            active: true,
-            postedDate: new Date(),
-          },
-          {
-            title: "Pastry Chef",
-            company: "Luxury Hotel",
-            location: "Abuja, Nigeria",
-            salary: "₦5-8M/year",
-            type: "Full-time",
-            tags: ["Baking", "Pastry"],
-            logo: "🥐",
-            active: true,
-            postedDate: new Date(),
-          },
-          {
-            title: "Front Office Manager",
-            company: "Business Hotel",
-            location: "Lagos, Nigeria",
-            salary: "₦7-10M/year",
-            type: "Full-time",
-            tags: ["Reception", "Guest Service"],
-            logo: "🏨",
-            active: true,
-            postedDate: new Date(),
-          },
-          {
-            title: "Event Coordinator",
-            company: "Convention Center",
-            location: "Abuja, Nigeria",
-            salary: "₦6-8M/year",
-            type: "Full-time",
-            tags: ["Events", "Planning"],
-            logo: "🎉",
-            active: true,
-            postedDate: new Date(),
-          },
+          { title: "Executive Chef", company: "Luxury Hotel Group", location: "Lagos, Nigeria", salary: "₦12-18M/year", type: "Full-time", tags: ["Fine Dining", "Leadership"], logo: "🏨", active: true, postedDate: new Date() },
+          { title: "F&B Director", company: "Resort Chain", location: "Abuja, Nigeria", salary: "₦10-15M/year", type: "Full-time", tags: ["Beverage", "Operations"], logo: "🍽️", active: true, postedDate: new Date() },
+          { title: "Hotel Manager", company: "Boutique Hotel Group", location: "Port Harcourt, Nigeria", salary: "₦8-12M/year", type: "Full-time", tags: ["Management"], logo: "🏢", active: true, postedDate: new Date() },
+          { title: "Sous Chef", company: "Fine Dining Restaurant", location: "Lagos, Nigeria", salary: "₦6-9M/year", type: "Full-time", tags: ["Cooking", "Team Management"], logo: "👨‍🍳", active: true, postedDate: new Date() },
+          { title: "Revenue Manager", company: "Hotel Group", location: "Remote", salary: "₦9-12M/year", type: "Remote", tags: ["Analytics", "Revenue Management"], logo: "📊", active: true, postedDate: new Date() },
+          { title: "Pastry Chef", company: "Luxury Hotel", location: "Abuja, Nigeria", salary: "₦5-8M/year", type: "Full-time", tags: ["Baking", "Pastry"], logo: "🥐", active: true, postedDate: new Date() },
+          { title: "Front Office Manager", company: "Business Hotel", location: "Lagos, Nigeria", salary: "₦7-10M/year", type: "Full-time", tags: ["Reception", "Guest Service"], logo: "🏨", active: true, postedDate: new Date() },
+          { title: "Event Coordinator", company: "Convention Center", location: "Abuja, Nigeria", salary: "₦6-8M/year", type: "Full-time", tags: ["Events", "Planning"], logo: "🎉", active: true, postedDate: new Date() }
         ];
-
         const batch = db.batch();
         for (const job of sampleJobs) {
           const jobRef = db.collection("jobs").doc();
@@ -2687,27 +1345,17 @@
 
       function timeAgo(date) {
         const seconds = Math.floor((new Date() - date) / 1000);
-        const intervals = {
-          year: 31536000,
-          month: 2592000,
-          week: 604800,
-          day: 86400,
-          hour: 3600,
-          minute: 60,
-        };
+        const intervals = { year: 31536000, month: 2592000, week: 604800, day: 86400, hour: 3600, minute: 60 };
         for (const [unit, secondsInUnit] of Object.entries(intervals)) {
           const interval = Math.floor(seconds / secondsInUnit);
-          if (interval >= 1)
-            return `${interval} ${unit}${interval === 1 ? "" : "s"} ago`;
+          if (interval >= 1) return `${interval} ${unit}${interval === 1 ? "" : "s"} ago`;
         }
         return "Just now";
       }
 
       function renderJobs() {
         if (!jobsGrid) return;
-        const jobsToShow = isSearching
-          ? currentJobs
-          : currentJobs.slice(0, visibleJobs);
+        const jobsToShow = isSearching ? currentJobs : currentJobs.slice(0, visibleJobs);
 
         if (jobsToShow.length === 0) {
           jobsGrid.innerHTML = `<div class="search-empty"><i class="fas fa-search" style="font-size: 3rem; color: #a0aec0; margin-bottom: 1rem;"></i><h3>No jobs found</h3><p>We couldn't find any jobs matching your search.</p><button class="btn-primary" onclick="window.clearSearch()" style="margin: 0 auto;">Clear Search</button></div>`;
@@ -2716,18 +1364,15 @@
           return;
         }
 
-        jobsGrid.innerHTML = jobsToShow
-          .map((job) => {
-            const safeTitle = escapeHtml(job.title);
-            const safeCompany = escapeHtml(job.company);
-            const safeLocation = escapeHtml(job.location);
-            const safeSalary = escapeHtml(job.salary);
-            const safeType = escapeHtml(job.type);
-            const safePosted = escapeHtml(job.posted);
-            const safeTags = job.tags
-              .map((tag) => `<span class="job-tag">${escapeHtml(tag)}</span>`)
-              .join("");
-            return `
+        jobsGrid.innerHTML = jobsToShow.map((job) => {
+          const safeTitle = escapeHtml(job.title);
+          const safeCompany = escapeHtml(job.company);
+          const safeLocation = escapeHtml(job.location);
+          const safeSalary = escapeHtml(job.salary);
+          const safeType = escapeHtml(job.type);
+          const safePosted = escapeHtml(job.posted);
+          const safeTags = job.tags.map(tag => `<span class="job-tag">${escapeHtml(tag)}</span>`).join("");
+          return `
             <div class="job-card" onclick="window.viewJobDetails('${safeTitle.replace(/'/g, "\\'")}', '${job.id || ""}')">
               <div class="job-header"><div class="job-logo">${job.logo}</div><span class="job-type">${safeType}</span></div>
               <h3 class="job-title">${safeTitle}</h3>
@@ -2737,13 +1382,10 @@
               <div class="job-footer"><span class="job-salary">${safeSalary}</span><span class="job-posted">${safePosted}</span></div>
             </div>
           `;
-          })
-          .join("");
+        }).join("");
 
         if (visibleCountSpan) visibleCountSpan.textContent = jobsToShow.length;
-        if (showMoreWrapper)
-          showMoreWrapper.style.display =
-            !isSearching && visibleJobs < currentJobs.length ? "block" : "none";
+        if (showMoreWrapper) showMoreWrapper.style.display = (!isSearching && visibleJobs < currentJobs.length) ? "block" : "none";
       }
 
       function showMoreJobs() {
@@ -2754,20 +1396,12 @@
 
       function performSearch(searchTerm) {
         searchTerm = searchTerm.toLowerCase().trim();
-        if (searchTerm === "") {
-          clearSearch();
-          return;
-        }
+        if (searchTerm === "") { clearSearch(); return; }
         isSearching = true;
-        const filtered = allJobs.filter((job) =>
-          `${job.title} ${job.company} ${job.location} ${job.tags.join(" ")}`
-            .toLowerCase()
-            .includes(searchTerm),
-        );
+        const filtered = allJobs.filter(job => `${job.title} ${job.company} ${job.location} ${job.tags.join(" ")}`.toLowerCase().includes(searchTerm));
         currentJobs = filtered;
         visibleJobs = 3;
-        if (searchResultsCount)
-          searchResultsCount.textContent = `${filtered.length} result${filtered.length !== 1 ? "s" : ""}`;
+        if (searchResultsCount) searchResultsCount.textContent = `${filtered.length} result${filtered.length !== 1 ? "s" : ""}`;
         renderJobs();
       }
 
@@ -2792,10 +1426,7 @@
 
       // ========== MODAL FUNCTIONS ==========
       function openSignInModal() {
-        if (currentUser) {
-          window.location.href = "/candidates-dashboard/index.html";
-          return;
-        }
+        if (currentUser) { window.location.href = "/candidates-dashboard/index.html"; return; }
         if (!signinModal) return;
         document.getElementById("signinFormContainer").style.display = "block";
         document.getElementById("registerFormContainer").style.display = "none";
@@ -2805,14 +1436,10 @@
       }
 
       function openRegisterModal() {
-        if (currentUser) {
-          window.location.href = "/candidates-dashboard/index.html";
-          return;
-        }
+        if (currentUser) { window.location.href = "/candidates-dashboard/index.html"; return; }
         if (!signinModal) return;
         document.getElementById("signinFormContainer").style.display = "none";
-        document.getElementById("registerFormContainer").style.display =
-          "block";
+        document.getElementById("registerFormContainer").style.display = "block";
         signinModal.classList.add("active");
         signinModal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
@@ -2826,14 +1453,16 @@
       }
 
       // ========== MOBILE MENU ==========
-      if (mobileMenuToggle && mainNav && mobileOverlay) {
-        mobileMenuToggle.addEventListener("click", () => {
+      function initMobileMenu() {
+        if (!mobileMenuToggle || !mainNav || !mobileOverlay) return;
+        
+        mobileMenuToggle.addEventListener("click", function(e) {
+          e.preventDefault();
+          e.stopPropagation();
           const isExpanded = mainNav.classList.contains("active");
           mainNav.classList.toggle("active");
           mobileOverlay.classList.toggle("active");
-          document.body.style.overflow = mainNav.classList.contains("active")
-            ? "hidden"
-            : "auto";
+          document.body.style.overflow = mainNav.classList.contains("active") ? "hidden" : "auto";
           mobileMenuToggle.setAttribute("aria-expanded", !isExpanded);
           const icon = mobileMenuToggle.querySelector("i");
           if (icon) {
@@ -2847,7 +1476,7 @@
           }
         });
 
-        mobileOverlay.addEventListener("click", () => {
+        mobileOverlay.addEventListener("click", function() {
           mainNav.classList.remove("active");
           mobileOverlay.classList.remove("active");
           document.body.style.overflow = "auto";
@@ -2860,80 +1489,70 @@
         });
       }
 
-      // ========== MOBILE DROPDOWN TOGGLE (Fixed - No Duplicate) ==========
-      const setupMobileDropdowns = () => {
+      // ========== DROPDOWN FUNCTIONS ==========
+      function initDropdowns() {
         const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
-        dropdownToggles.forEach((toggle) => {
-          // Remove existing listeners to avoid duplicates
-          toggle.removeEventListener("click", toggle._dropdownHandler);
-          toggle._dropdownHandler = function (e) {
+        
+        dropdownToggles.forEach(toggle => {
+          toggle.removeEventListener("click", toggle._handler);
+          toggle._handler = function(e) {
             if (window.innerWidth <= 1024) {
               e.preventDefault();
               e.stopPropagation();
               const dropdown = this.closest(".dropdown");
               const isActive = dropdown.classList.contains("active");
-              document.querySelectorAll(".dropdown").forEach((d) => {
+              document.querySelectorAll(".dropdown").forEach(d => {
                 if (d !== dropdown) d.classList.remove("active");
               });
               dropdown.classList.toggle("active");
               this.setAttribute("aria-expanded", !isActive);
             }
           };
-          toggle.addEventListener("click", toggle._dropdownHandler);
+          toggle.addEventListener("click", toggle._handler);
         });
-      };
+      }
 
-      // Close dropdowns when clicking outside
-      document.addEventListener("click", function (e) {
+      // Close dropdowns when clicking outside (mobile only)
+      document.addEventListener("click", function(e) {
         if (window.innerWidth <= 1024) {
           if (!e.target.closest(".dropdown")) {
-            document.querySelectorAll(".dropdown").forEach((dropdown) => {
-              dropdown.classList.remove("active");
-            });
+            document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("active"));
           }
         }
       });
 
-      window.addEventListener("resize", function () {
+      // Reset dropdowns on window resize
+      window.addEventListener("resize", function() {
         if (window.innerWidth > 1024) {
-          document.querySelectorAll(".dropdown").forEach((dropdown) => {
-            dropdown.classList.remove("active");
-          });
+          document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("active"));
         }
       });
 
       // Close mobile menu when clicking nav links
-      document.querySelectorAll(".nav-link, .dropdown-item").forEach((link) => {
-        link.addEventListener("click", () => {
-          if (
-            window.innerWidth <= 1024 &&
-            mainNav &&
-            mainNav.classList.contains("active")
-          ) {
-            mainNav.classList.remove("active");
-            mobileOverlay.classList.remove("active");
-            document.body.style.overflow = "auto";
-            mobileMenuToggle?.setAttribute("aria-expanded", "false");
-            const icon = mobileMenuToggle?.querySelector("i");
-            if (icon) {
-              icon.classList.remove("fa-times");
-              icon.classList.add("fa-bars");
+      function initNavLinksCloseMenu() {
+        document.querySelectorAll(".nav-link, .dropdown-item").forEach(link => {
+          link.addEventListener("click", function() {
+            if (window.innerWidth <= 1024 && mainNav && mainNav.classList.contains("active")) {
+              mainNav.classList.remove("active");
+              mobileOverlay.classList.remove("active");
+              document.body.style.overflow = "auto";
+              mobileMenuToggle?.setAttribute("aria-expanded", "false");
+              const icon = mobileMenuToggle?.querySelector("i");
+              if (icon) {
+                icon.classList.remove("fa-times");
+                icon.classList.add("fa-bars");
+              }
             }
-          }
+          });
         });
-      });
+      }
 
-      // ========== SERVICE WORKER (Optional - with error handling) ==========
+      // ========== SERVICE WORKER ==========
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
-          navigator.serviceWorker
-            .register("/sw.js")
-            .then((registration) =>
-              console.log("Service Worker registered:", registration.scope),
-            )
-            .catch((error) =>
-              console.log("Service Worker registration failed:", error),
-            );
+          navigator.serviceWorker.register("/sw.js")
+            .then(registration => console.log("Service Worker registered:", registration.scope))
+            .catch(error => console.log("Service Worker registration failed:", error));
         });
       }
 
@@ -2948,8 +1567,7 @@
           installBtn.onclick = () => {
             deferredPrompt.prompt();
             deferredPrompt.userChoice.then((choiceResult) => {
-              if (choiceResult.outcome === "accepted")
-                console.log("User accepted install");
+              if (choiceResult.outcome === "accepted") console.log("User accepted install");
               deferredPrompt = null;
               installBtn.style.display = "none";
             });
@@ -2976,38 +1594,32 @@
         });
 
         await loadJobsFromFirestore();
-        setupMobileDropdowns();
+        
+        // Initialize all UI components
+        initMobileMenu();
+        initDropdowns();
+        initNavLinksCloseMenu();
 
+        // Search input handlers
         if (searchInput) {
           searchInput.addEventListener("input", (e) => {
             clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(
-              () => performSearch(e.target.value),
-              300,
-            );
+            searchTimeout = setTimeout(() => performSearch(e.target.value), 300);
           });
-          searchInput.addEventListener("keypress", (e) => {
-            if (e.key === "Enter") performSearch(e.target.value);
-          });
+          searchInput.addEventListener("keypress", (e) => { if (e.key === "Enter") performSearch(e.target.value); });
         }
 
-        if (searchButton)
-          searchButton.addEventListener("click", () =>
-            performSearch(searchInput ? searchInput.value : ""),
-          );
+        if (searchButton) searchButton.addEventListener("click", () => performSearch(searchInput ? searchInput.value : ""));
         if (showMoreBtn) showMoreBtn.addEventListener("click", showMoreJobs);
 
-        if (signinTrigger)
-          signinTrigger.addEventListener("click", () => openSignInModal());
-        if (signinCta)
-          signinCta.addEventListener("click", () => openSignInModal());
+        // Auth button handlers
+        if (signinTrigger) signinTrigger.addEventListener("click", () => openSignInModal());
+        if (signinCta) signinCta.addEventListener("click", () => openSignInModal());
         if (logoutBtn) logoutBtn.addEventListener("click", () => signOutUser());
         if (modalClose) modalClose.addEventListener("click", closeSignInModal);
-        if (signinModal)
-          signinModal.addEventListener("click", (e) => {
-            if (e.target === signinModal) closeSignInModal();
-          });
+        if (signinModal) signinModal.addEventListener("click", (e) => { if (e.target === signinModal) closeSignInModal(); });
 
+        // Form handlers
         const signinForm = document.getElementById("signinForm");
         if (signinForm) {
           signinForm.addEventListener("submit", async (e) => {
@@ -3040,17 +1652,10 @@
 
         const showRegisterLink = document.getElementById("showRegisterLink");
         const showSigninLink = document.getElementById("showSigninLink");
-        if (showRegisterLink)
-          showRegisterLink.addEventListener("click", (e) => {
-            e.preventDefault();
-            openRegisterModal();
-          });
-        if (showSigninLink)
-          showSigninLink.addEventListener("click", (e) => {
-            e.preventDefault();
-            openSignInModal();
-          });
+        if (showRegisterLink) showRegisterLink.addEventListener("click", (e) => { e.preventDefault(); openRegisterModal(); });
+        if (showSigninLink) showSigninLink.addEventListener("click", (e) => { e.preventDefault(); openSignInModal(); });
 
+        // Talent view buttons
         document.querySelectorAll(".view-talent-btn").forEach((btn) => {
           btn.addEventListener("click", () => {
             const role = btn.getAttribute("data-role") || "";
@@ -3063,16 +1668,10 @@
           });
         });
 
-        const registerCandidate = document.getElementById(
-          "registerAsCandidate",
-        );
+        const registerCandidate = document.getElementById("registerAsCandidate");
         const registerCta = document.getElementById("registerCta");
-        if (registerCandidate)
-          registerCandidate.addEventListener("click", () =>
-            openRegisterModal(),
-          );
-        if (registerCta)
-          registerCta.addEventListener("click", () => openRegisterModal());
+        if (registerCandidate) registerCandidate.addEventListener("click", () => openRegisterModal());
+        if (registerCta) registerCta.addEventListener("click", () => openRegisterModal());
 
         const yearSpan = document.getElementById("currentYear");
         if (yearSpan) yearSpan.textContent = new Date().getFullYear();
