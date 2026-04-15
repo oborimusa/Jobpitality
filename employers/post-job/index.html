@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Post a Job | Jobpitality - Hire Hospitality Talent</title>
+    <meta name="description" content="Post your hospitality job openings and connect with Nigeria's top talent. Reach qualified candidates in hotels, restaurants, and luxury hospitality.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Post a Job | Jobpitality - Hire Hospitality Talent">
+    <meta property="og:description" content="Post job openings and find the perfect candidate for your hospitality business.">
+    <meta property="og:image" content="https://jobpitality.com/img/post-job-og.jpg">
+    <meta property="og:type" content="website">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #0d1b2a;
+            --color-primary-dark: #070d13;
+            --color-accent: #ff9e00;
+            --color-accent-dark: #cc7e00;
+            --color-emergency: #e63946;
+            --color-emergency-dark: #c1121f;
+            --color-success: #2a9d8f;
+            --color-success-dark: #21867a;
+            --color-info: #3b82f6;
+            --color-info-dark: #2563eb;
+            --color-gray-900: #1b263b;
+            --color-gray-800: #415a77;
+            --color-gray-700: #778da9;
+            --color-gray-600: #a0aec0;
+            --color-gray-300: #e2e8f0;
+            --color-gray-200: #edf2f7;
+            --color-gray-100: #f7fafc;
+            --color-white: #ffffff;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--color-primary);
+            background: var(--color-gray-100);
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        .site-header {
+            background: var(--color-white);
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.75rem 0;
+            border-bottom: 3px solid var(--color-accent);
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        
+        .logo a {
+            text-decoration: none;
+            color: var(--color-primary);
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            font-weight: 900;
+            color: var(--color-primary);
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .logo h1 { font-size: 2.1rem; }
+        }
+        
+        .logo h1 .brand-name {
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .logo-tagline {
+            font-size: 0.65rem;
+            color: var(--color-emergency);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+        }
+        
+        @media (min-width: 768px) {
+            .logo-tagline { font-size: 0.7rem; margin-top: 2px; }
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.75rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+        
+        @media (max-width: 1023px) {
+            .mobile-menu-toggle { display: block; }
+        }
+        
+        .main-nav { display: flex; align-items: center; }
+        
+        @media (max-width: 1023px) {
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 85%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--color-white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 80px 20px 30px;
+                transition: right 0.3s ease;
+                z-index: 1001;
+                box-shadow: var(--shadow-xl);
+                overflow-y: auto;
+                gap: 1rem;
+            }
+            .main-nav.active { right: 0; }
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0;
+        }
+        
+        @media (max-width: 1023px) {
+            .nav-menu { flex-direction: column; width: 100%; gap: 0.5rem; }
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--color-gray-800);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-fast);
+            border-radius: var(--radius-md);
+            white-space: nowrap;
+        }
+        
+        @media (max-width: 1023px) {
+            .nav-link {
+                padding: 0.75rem;
+                border-bottom: 1px solid var(--color-gray-200);
+                width: 100%;
+                font-size: 1rem;
+            }
+        }
+        
+        .nav-link:hover {
+            color: var(--color-accent);
+            background: var(--color-gray-100);
+        }
+        
+        .nav-cta-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        @media (max-width: 1023px) {
+            .nav-cta-group {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+        
+        .nav-cta {
+            background: var(--color-primary);
+            color: var(--color-white) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-lg);
+            font-weight: 700;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        @media (max-width: 1023px) {
+            .nav-cta { width: 100%; padding: 0.75rem; font-size: 1rem; }
+        }
+        
+        .nav-cta:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .nav-cta-emergency {
+            background: var(--color-emergency);
+        }
+        
+        .nav-cta-emergency:hover {
+            background: var(--color-emergency-dark);
+        }
+        
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 27, 42, 0.7);
+            z-index: 999;
+            backdrop-filter: blur(4px);
+        }
+        
+        .mobile-overlay.active { display: block; }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1b263b 100%);
+            padding: 3rem 0;
+            color: var(--color-white);
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-section .highlight {
+            color: var(--color-accent);
+        }
+        
+        .hero-section p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Form Container */
+        .form-container {
+            max-width: 900px;
+            margin: 3rem auto;
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+        }
+        
+        .form-header {
+            background: linear-gradient(135deg, var(--color-primary), #1b263b);
+            padding: 2rem;
+            color: var(--color-white);
+        }
+        
+        .form-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-header p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        .form-body {
+            padding: 2rem;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title i {
+            font-size: 1.5rem;
+            color: var(--color-accent);
+        }
+        
+        .section-title h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--color-gray-800);
+        }
+        
+        .form-label .required {
+            color: var(--color-emergency);
+            margin-left: 2px;
+        }
+        
+        .form-label .optional {
+            color: var(--color-gray-600);
+            font-weight: 400;
+            font-size: 0.85rem;
+            margin-left: 0.5rem;
+        }
+        
+        .form-control, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .form-control:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(255, 158, 0, 0.1);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-hint {
+            font-size: 0.85rem;
+            color: var(--color-gray-600);
+            margin-top: 0.5rem;
+        }
+        
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-tag {
+            background: var(--color-gray-100);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .skill-tag button {
+            background: none;
+            border: none;
+            color: var(--color-gray-600);
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        
+        .skill-tag button:hover {
+            color: var(--color-emergency);
+        }
+        
+        .add-skill {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .add-skill input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 2px solid var(--color-gray-300);
+            border-radius: var(--radius-lg);
+        }
+        
+        /* Benefits List */
+        .benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-md);
+        }
+        
+        .benefit-item i {
+            color: var(--color-success);
+            width: 20px;
+        }
+        
+        .benefit-item input {
+            flex: 1;
+            padding: 0.5rem;
+            border: none;
+            background: transparent;
+            font-family: var(--font-sans);
+        }
+        
+        .benefit-item input:focus {
+            outline: none;
+        }
+        
+        .add-benefit {
+            background: none;
+            border: 2px dashed var(--color-gray-300);
+            padding: 0.75rem;
+            width: 100%;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            color: var(--color-gray-600);
+            font-weight: 600;
+            transition: all var(--transition-fast);
+        }
+        
+        .add-benefit:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+        
+        /* Package Cards */
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .package-card {
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-xl);
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+        
+        .package-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-4px);
+        }
+        
+        .package-card.selected {
+            border-color: var(--color-accent);
+            background: rgba(255, 158, 0, 0.05);
+        }
+        
+        .package-card.popular {
+            border-color: var(--color-accent);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--color-accent);
+            color: var(--color-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .package-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .package-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .package-price span {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--color-gray-600);
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-top: 1rem;
+            text-align: left;
+        }
+        
+        .package-features li {
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+            color: var(--color-gray-700);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .package-features li i {
+            color: var(--color-success);
+            width: 18px;
+        }
+        
+        /* Form Actions */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-gray-200);
+        }
+        
+        @media (max-width: 640px) {
+            .form-actions {
+                flex-direction: column;
+            }
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.75rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-sans);
+            min-height: 48px;
+        }
+        
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background: var(--color-success);
+            color: var(--color-white);
+        }
+        
+        .btn-success:hover {
+            background: var(--color-success-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Preview Section */
+        .preview-section {
+            background: var(--color-gray-100);
+            border-radius: var(--radius-xl);
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .preview-title {
+            font-weight: 600;
+            color: var(--color-gray-700);
+        }
+        
+        .job-preview {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .job-preview-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .job-preview-company {
+            color: var(--color-gray-600);
+            margin-bottom: 1rem;
+        }
+        
+        .job-preview-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .job-preview-meta span {
+            font-size: 0.875rem;
+            color: var(--color-gray-600);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 3rem 0 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+        }
+        
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 10001;
+            border-left: 4px solid var(--color-success);
+            animation: slideIn 0.3s ease;
+        }
+        
+        .toast.error {
+            border-left-color: var(--color-emergency);
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="/" aria-label="Jobpitality Home">
+                        <h1><i class="fas fa-bolt"></i> <span class="brand-name">JOBPITALITY</span></h1>
+                        <span class="logo-tagline">THE RUTHLESS TALENT PARTNER</span>
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="main-nav" id="mainNav">
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="nav-item"><a href="/employers/dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                        <li class="nav-item"><a href="/employers/post-job.html" class="nav-link active"><i class="fas fa-plus-circle"></i> Post a Job</a></li>
+                        <li class="nav-item"><a href="/employers/search-talent.html" class="nav-link"><i class="fas fa-search"></i> Search Talent</a></li>
+                        <li class="nav-item"><a href="/employers/pricing.html" class="nav-link"><i class="fas fa-tag"></i> Pricing</a></li>
+                    </ul>
+                    <div class="nav-cta-group">
+                        <button class="nav-cta nav-cta-emergency" id="signinTrigger">
+                            <i class="fas fa-sign-in-alt"></i> SIGN IN
+                        </button>
+                        <a href="/employers/register.html" class="nav-cta">
+                            <i class="fas fa-user-plus"></i> Register
+                        </a>
+                    </div>
+                </nav>
+                <div class="mobile-overlay" id="mobileOverlay"></div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Post a <span class="highlight">Job</span> Opening</h1>
+            <p>Connect with Nigeria's top hospitality talent. Find your next great hire today.</p>
+        </div>
+    </section>
+    
+    <!-- Form Container -->
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h2><i class="fas fa-file-alt"></i> Job Details</h2>
+                <p>Fill out the form below to post your job opening. All fields marked with * are required.</p>
+            </div>
+            
+            <div class="form-body">
+                <form id="postJobForm">
+                    <!-- Job Details Section -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-briefcase"></i>
+                            <h3>Job Information</h3>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Job Title <span class="required">*</span></label>
+                            <input type="text" class="form-control" id="jobTitle" placeholder="e.g., Executive Chef, Hotel Manager, F&B Director" required>
+                            <div class="form-hint">Use a clear, specific title that candidates will search for.</div>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Job Type <span class="required">*</span></label>
+                                <select class="form-select" id="jobType" required>
+                                    <option value="">Select job type</option>
+                                    <option value="fulltime">Full-time</option>
+                                    <option value="parttime">Part-time</option>
+                                    <option value="contract">Contract</option>
+                                    <option value="temporary">Temporary</option>
+                                    <option value="internship">Internship</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Experience Level <span class="required">*</span></label>
+                                <select class="form-select" id="experienceLevel" required>
+                                    <option value="">Select experience level</option>
+                                    <option value="entry">Entry Level (0-2 years)</option>
+                                    <option value="mid">Mid Level (3-7 years)</option>
+                                    <option value="senior">Senior Level (8+ years)</option>
+                                    <option value="executive">Executive/Management</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Location <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="location" placeholder="e.g., Lagos, Abuja, Remote" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Salary Range <span class="optional">(Optional)</span></label>
+                                <input type="text" class="form-control" id="salary" placeholder="e.g., ₦6-9M/year or Negotiable">
+                                <div class="form-hint">Helps attract the right candidates.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Category <span class="required">*</span></label>
+                            <select class="form-select" id="category" required>
+                                <option value="">Select category</option>
+                                <option value="hotel">Hotel & Lodging</option>
+                                <option value="restaurant">Restaurant & Food Service</option>
+                                <option value="tourism">Tourism & Travel</option>
+                                <option value="events">Event Management</option>
+                                <option value="cruise">Cruise Lines</option>
+                                <option value="casino">Casino & Gaming</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Company Details Section -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-building"></i>
+                            <h3>Company Information</h3>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Company Name <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="companyName" placeholder="Your company name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Company Website <span class="optional">(Optional)</span></label>
+                                <input type="url" class="form-control" id="companyWebsite" placeholder="https://www.example.com">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Company Description <span class="optional">(Optional)</span></label>
+                            <textarea class="form-textarea" id="companyDescription" rows="3" placeholder="Tell candidates about your company culture and values..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Company Logo URL <span class="optional">(Optional)</span></label>
+                            <input type="url" class="form-control" id="companyLogo" placeholder="https://example.com/logo.png">
+                            <div class="form-hint">Square image recommended (200x200px).</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Job Description Section -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-align-left"></i>
+                            <h3>Job Description</h3>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Job Summary <span class="required">*</span></label>
+                            <textarea class="form-textarea" id="jobSummary" rows="4" placeholder="Brief overview of the role, responsibilities, and what makes this opportunity exciting..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Key Responsibilities <span class="required">*</span></label>
+                            <textarea class="form-textarea" id="responsibilities" rows="5" placeholder="• Manage daily hotel operations&#10;• Lead a team of 20+ staff members&#10;• Develop and implement revenue strategies" required></textarea>
+                            <div class="form-hint">Use bullet points for clarity. One responsibility per line.</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Requirements <span class="required">*</span></label>
+                            <textarea class="form-textarea" id="requirements" rows="5" placeholder="• Bachelor's degree in Hospitality Management&#10;• 5+ years of experience in luxury hotels&#10;• Strong leadership and communication skills" required></textarea>
+                            <div class="form-hint">List qualifications, skills, and experience needed.</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Required Skills</label>
+                            <div class="skills-container" id="skillsContainer"></div>
+                            <div class="add-skill">
+                                <input type="text" id="newSkill" placeholder="Add a skill (e.g., Hotel Management, Leadership)">
+                                <button type="button" class="btn btn-outline" id="addSkillBtn" style="padding: 0.75rem 1rem;">Add</button>
+                            </div>
+                            <div class="form-hint">Add skills relevant to the position.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefits Section -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-gift"></i>
+                            <h3>Benefits & Perks</h3>
+                        </div>
+                        
+                        <div class="benefits-list" id="benefitsContainer">
+                            <div class="benefit-item">
+                                <i class="fas fa-check-circle"></i>
+                                <input type="text" placeholder="e.g., Health Insurance" value="Health Insurance">
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-check-circle"></i>
+                                <input type="text" placeholder="e.g., Paid Time Off" value="Paid Time Off">
+                            </div>
+                        </div>
+                        <button type="button" class="add-benefit" id="addBenefitBtn">
+                            <i class="fas fa-plus"></i> Add Benefit
+                        </button>
+                    </div>
+                    
+                    <!-- Posting Package Section -->
+                    <div class="form-section">
+                        <div class="section-title">
+                            <i class="fas fa-rocket"></i>
+                            <h3>Select Package</h3>
+                        </div>
+                        
+                        <div class="package-grid">
+                            <div class="package-card" data-package="basic">
+                                <div class="package-name">Basic</div>
+                                <div class="package-price">Free <span>/ 30 days</span></div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check"></i> 1 Active Job Posting</li>
+                                    <li><i class="fas fa-check"></i> 30 Days Visibility</li>
+                                    <li><i class="fas fa-check"></i> Basic Support</li>
+                                    <li><i class="fas fa-times" style="color: var(--color-gray-400);"></i> Featured Listing</li>
+                                    <li><i class="fas fa-times" style="color: var(--color-gray-400);"></i> Candidate Insights</li>
+                                </ul>
+                            </div>
+                            <div class="package-card popular" data-package="premium">
+                                <div class="popular-badge">Most Popular</div>
+                                <div class="package-name">Premium</div>
+                                <div class="package-price">₦25,000 <span>/ 30 days</span></div>
+                                <ul class="package-features">
+                                    <li><i class="fas fa-check"></i> 5 Active Job Postings</li>
+                                    <li><i class="fas fa-check"></i> 60 Days Visibility</li>
+                                    <li><i class="fas fa-check"></i> Priority Support</li>
+                                    <li><i class="fas fa-check"></i> Featured Listing</li>
+                                    <li><i class="fas fa-check"></i> Candidate Insights</li>
+                                </ul>
+                            </div>
+                            <div class="package-card" data-package="enterprise">
+                                <div class="package-name">Enterprise</div>
+                                <div class="package-price">Custom <span>/ year</span></div                            </div>
+                            <!-- End of Enterprise Package Card -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step 3: Job Details Form -->
+                <section class="form-step" id="step-3">
+                    <h2>Job Details</h2>
+                    <form id="post-job-form">
+                        <div class="form-group">
+                            <label for="job-title">Job Title *</label>
+                            <input type="text" id="job-title" name="job-title" placeholder="e.g., Senior Frontend Developer" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="job-category">Category *</label>
+                            <select id="job-category" name="job-category" required>
+                                <option value="">Select category</option>
+                                <option value="tech">Technology</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="sales">Sales</option>
+                                <option value="design">Design</option>
+                                <option value="finance">Finance</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="job-location">Location *</label>
+                                <input type="text" id="job-location" name="job-location" placeholder="Remote / City, State" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="job-salary">Salary Range</label>
+                                <input type="text" id="job-salary" name="job-salary" placeholder="$50,000 - $70,000">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="job-description">Full Description *</label>
+                            <textarea id="job-description" name="job-description" rows="6" placeholder="Describe the role, responsibilities, and expectations..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="job-requirements">Requirements *</label>
+                            <textarea id="job-requirements" name="job-requirements" rows="4" placeholder="List required skills, experience, and qualifications..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="job-benefits">Benefits</label>
+                            <textarea id="job-benefits" name="job-benefits" rows="3" placeholder="Health insurance, 401k, remote work, etc."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Application Method</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="apply-type" value="email" checked> Apply via Email</label>
+                                <label><input type="radio" name="apply-type" value="url"> Apply via External URL</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="apply-email-group">
+                            <label for="apply-email">Application Email *</label>
+                            <input type="email" id="apply-email" name="apply-email" placeholder="hr@yourcompany.com">
+                        </div>
+
+                        <div class="form-group hidden" id="apply-url-group">
+                            <label for="apply-url">Application URL *</label>
+                            <input type="url" id="apply-url" name="apply-url" placeholder="https://yourcompany.com/careers/apply">
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="prev-step-3">Previous</button>
+                            <button type="submit" class="btn btn-primary">Post Job</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </main>
+
+        <footer class="post-job-footer">
+            <p>By posting a job, you agree to our <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Multi-step navigation logic
+        const steps = document.querySelectorAll('.form-step');
+        const nextBtns = document.querySelectorAll('.next-step');
+        const prevBtns = document.querySelectorAll('.prev-step');
+        let currentStep = 1;
+
+        function showStep(step) {
+            steps.forEach((s, i) => {
+                if (i + 1 === step) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
+                }
+            });
+            currentStep = step;
+        }
+
+        nextBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStep < steps.length) {
+                    showStep(currentStep + 1);
+                }
+            });
+        });
+
+        prevBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStep > 1) {
+                    showStep(currentStep - 1);
+                }
+            });
+        });
+
+        // Toggle application method fields
+        const applyEmailGroup = document.getElementById('apply-email-group');
+        const applyUrlGroup = document.getElementById('apply-url-group');
+        const radioEmail = document.querySelector('input[value="email"]');
+        const radioUrl = document.querySelector('input[value="url"]');
+
+        radioEmail.addEventListener('change', () => {
+            applyEmailGroup.classList.remove('hidden');
+            applyUrlGroup.classList.add('hidden');
+        });
+
+        radioUrl.addEventListener('change', () => {
+            applyEmailGroup.classList.add('hidden');
+            applyUrlGroup.classList.remove('hidden');
+        });
+
+        // Form submission
+        document.getElementById('post-job-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Job posted successfully! (Demo)');
+            // Here you would send data to your backend
+        });
+    </script>
+</body>
+</html>
