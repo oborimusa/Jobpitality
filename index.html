@@ -1644,6 +1644,43 @@
               </li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle"
+                  ><i class="fas fa-user-tie"></i> Categories
+                  <i class="fas fa-chevron-down"></i
+                ></a>
+                <div class="dropdown-menu">
+                  <a
+                    href="/categories/culinary/index.html"
+                    class="dropdown-item"
+                    ><i class="fas fa-briefcase"></i> Culinary</a
+                  ><a
+                    href="/categories/events-catering/index.html"
+                    class="dropdown-item"
+                    ><i class="fas fa-file-upload"></i> Event & Catering</a
+                  ><a
+                    href="/categories/hotels-resorts/index.html"
+                    class="dropdown-item"
+                    ><i class="fas fa-graduation-cap"></i> Hotels-Resorts</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a
+                    href="/categories/management/index.html"
+                    class="dropdown-item"
+                    ><i class="fas fa-user-secret"></i> Management</a
+                  >
+                  <a
+                    href="/categories/restaurants/index.html"
+                    class="dropdown-item"
+                    ><i class="fas fa-user-secret"></i> Restaurants</a
+                  >
+                  <a
+                    href="/categories/travel-tourism/index.html"
+                    class="dropdown-item"
+                    ><i class="fas fa-user-secret"></i> Travel Tourism</a
+                  >
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle"
                   ><i class="fas fa-user-tie"></i> Candidates
                   <i class="fas fa-chevron-down"></i
                 ></a>
@@ -2687,10 +2724,43 @@
         renderJobs();
       }
 
+      //       function viewJobDetails(jobTitle, jobId) {
+      //   if (currentUser) {
+      //     showNotification(`Opening ${jobTitle} details...`, "info");
+      //     // Use query parameters instead of dynamic filenames
+      //     window.location.href = `/jobs/job-details.html?id=${jobId}`;
+      //   } else {
+      //     showNotification("Please sign in to view job details", "info");
+      //     openSignInModal();
+      //   }
+      // }
+
+      // function viewJobDetails(jobTitle, jobId) {
+      //   if (currentUser) {
+      //     showNotification(
+      //       `Application for ${jobTitle} - Please email your CV to acquire@jobpitality.com`,
+      //       "info",
+      //     );
+      //   } else {
+      //     showNotification("Please sign in to apply for jobs", "info");
+      //     openSignInModal();
+      //   }
+      // }
+
+      // function viewJobDetails(jobTitle, jobId) {
+      //   if (currentUser) {
+      //     // Use the new job details page with ID parameter
+      //     window.location.href = `/jobs/view.html?id=${jobId}`;
+      //   } else {
+      //     showNotification("Please sign in to view job details", "info");
+      //     openSignInModal();
+      //   }
+      // }
+
       function viewJobDetails(jobTitle, jobId) {
         if (currentUser) {
-          showNotification(`Opening ${jobTitle} details...`, "info");
-          window.location.href = `/jobs/${jobId || encodeURIComponent(jobTitle)}.html`;
+          // Pass both ID and title to ensure the job is found
+          window.location.href = `/jobs/view.html?id=${jobId}&title=${encodeURIComponent(jobTitle)}`;
         } else {
           showNotification("Please sign in to view job details", "info");
           openSignInModal();
