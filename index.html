@@ -1763,6 +1763,29 @@
           <div class="hero-badge">
             <i class="fas fa-bolt"></i> NIGERIA'S #1 HOSPITALITY TALENT PLATFORM
           </div>
+
+          <!-- FEATURED JOBS ALERT BUTTON -->
+          <div style="text-align: center; margin-bottom: 1.5rem">
+            <a
+              href="/featured-jobs/index.html"
+              style="
+                background: #ff9e00;
+                color: #0d1b2a;
+                padding: 0.75rem 1.5rem;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 700;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+              "
+            >
+              <i class="fas fa-star"></i> 🔥 Urgent Hiring: Housekeeping &
+              Waitress Positions
+            </a>
+          </div>
+
           <h1 class="hero-title">
             Find
             <span class="highlight">Executive Hospitality Positions</span> &
@@ -1774,16 +1797,14 @@
           </p>
           <div class="search-container" id="searchContainer">
             <div class="search-box">
-              <i class="fas fa-search"></i
-              ><input
+              <i class="fas fa-search"></i>
+              <input
                 type="text"
                 id="searchInput"
                 placeholder="Search jobs, companies, locations..."
                 aria-label="Search jobs"
-              /><span
-                class="search-results-count"
-                id="searchResultsCount"
-              ></span>
+              />
+              <span class="search-results-count" id="searchResultsCount"></span>
             </div>
             <button class="search-btn" id="searchButton">
               <i class="fas fa-search"></i> Search Jobs
@@ -2193,17 +2214,29 @@
       let searchTimeout;
 
       const demoJobs = [
+        // {
+        //   id: "1",
+        //   title: "Executive Chef",
+        //   company: "Luxury Hotel Group",
+        //   location: "Lagos, Nigeria",
+        //   salary: "₦12-18M/year",
+        //   type: "Full-time",
+        //   tags: ["Fine Dining", "Leadership"],
+        //   logo: "🏨",
+        //   posted: "2 days ago",
+        // },
         {
           id: "1",
-          title: "Executive Chef",
-          company: "Luxury Hotel Group",
-          location: "Lagos, Nigeria",
-          salary: "₦12-18M/year",
+          title: "Waitress",
+          company: "Pronto Restaurant & Lounge",
+          location: "Osogbo, Osun",
+          salary: "₦720,000-800,000/year",
           type: "Full-time",
-          tags: ["Fine Dining", "Leadership"],
+          tags: ["Beverage", "Server"],
           logo: "🏨",
           posted: "2 days ago",
         },
+
         {
           id: "2",
           title: "F&B Director",
@@ -2280,6 +2313,17 @@
           tags: ["Events", "Planning"],
           logo: "🎉",
           posted: "1 day ago",
+        },
+        {
+          id: "9",
+          title: "Executive Chef",
+          company: "Luxury Hotel Group",
+          location: "Lagos, Nigeria",
+          salary: "₦12-18M/year",
+          type: "Full-time",
+          tags: ["Fine Dining", "Leadership"],
+          logo: "🏨",
+          posted: "2 days ago",
         },
       ];
 
@@ -2609,12 +2653,12 @@
             postedDate: new Date(),
           },
           {
-            title: "Event Coordinator",
-            company: "Convention Center",
-            location: "Abuja, Nigeria",
-            salary: "₦6-8M/year",
+            title: "Waiter",
+            company: "Pronto Restaurant & Lounge",
+            location: "Basin, Ilorin",
+            salary: "₦720-800,000/year",
             type: "Full-time",
-            tags: ["Events", "Planning"],
+            tags: ["Beverage", "Server"],
             logo: "🎉",
             active: true,
             postedDate: new Date(),
@@ -2757,14 +2801,19 @@
       //   }
       // }
 
+      // function viewJobDetails(jobTitle, jobId) {
+      //   if (currentUser) {
+      //     // Pass both ID and title to ensure the job is found
+      //     window.location.href = `/jobs/view.html?id=${jobId}&title=${encodeURIComponent(jobTitle)}`;
+      //   } else {
+      //     showNotification("Please sign in to view job details", "info");
+      //     openSignInModal();
+      //   }
+      // }
+
       function viewJobDetails(jobTitle, jobId) {
-        if (currentUser) {
-          // Pass both ID and title to ensure the job is found
-          window.location.href = `/jobs/view.html?id=${jobId}&title=${encodeURIComponent(jobTitle)}`;
-        } else {
-          showNotification("Please sign in to view job details", "info");
-          openSignInModal();
-        }
+        // Direct to the universal job details page
+        window.location.href = `/jobs/view.html?id=${jobId}&title=${encodeURIComponent(jobTitle)}`;
       }
 
       // ========== MODAL FUNCTIONS ==========
